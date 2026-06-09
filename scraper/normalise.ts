@@ -22,6 +22,20 @@ export interface TtaUnit {
   image_url?: string | null
   cloudinary_image_url?: string | null
   portrait_image_url?: string | null
+  image_in_aws?: boolean | null
+  has_new_image?: boolean | null
+}
+
+// Front card art for newer (2024 revamp) units that have no `image_url` in the
+// collection endpoint lives on a separate CloudFront distribution keyed by id.
+const NEW_CARD_CDN = 'https://d26oqf9i6fvic.cloudfront.net/new-unit-cards/front'
+
+/** Best available front-card image URL for a tabletopadmiral unit, or null. */
+export function ttaImageUrl(t: TtaUnit): string | null {
+  if (t.image_url) return t.image_url
+  if (t.cloudinary_image_url) return t.cloudinary_image_url
+  if (t.image_in_aws || t.has_new_image) return `${NEW_CARD_CDN}/${t.id}.webp`
+  return null
 }
 
 export interface LhqCard {
@@ -241,7 +255,7 @@ export function buildUnits(ttaUnitsRaw: TtaUnit[], lhqUnits: LhqCard[]): Unit[] 
       upgradeBar: lhq?.upgradeBar ?? [],
       hasFullData: !!lhq,
       history: lhq?.history ?? [],
-      hasImage: !!(t.image_url || t.cloudinary_image_url),
+      hasImage: !!ttaImageUrl(t),
       hasPortrait: !!t.portrait_image_url,
     })
   }

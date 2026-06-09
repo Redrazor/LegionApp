@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   normName, slugify, decodeFaction, decodeRank, decodeUnitType,
-  buildUnits, buildUpgrades, buildCommands, buildProducts, dedupeTtaUnits,
+  buildUnits, buildUpgrades, buildCommands, buildProducts, dedupeTtaUnits, ttaImageUrl,
   type TtaUnit, type LhqCard,
 } from '../scraper/normalise.ts'
 
@@ -53,6 +53,22 @@ const lhq = (over: Partial<LhqCard> = {}): LhqCard => ({
   id: 'aa', cardName: 'Stormtroopers', cardType: 'unit', faction: 'empire', rank: 'corps',
   cost: 44, defense: 'white', surges: ['hit'], speed: 2, wounds: 1, courage: 1,
   keywords: ['Precise 1'], upgradeBar: ['heavy weapon', 'personnel'], ...over,
+})
+
+describe('ttaImageUrl', () => {
+  it('prefers the primary image url', () => {
+    expect(ttaImageUrl(tta({ image_url: 'https://cdn/a.webp' }))).toBe('https://cdn/a.webp')
+  })
+  it('falls back to cloudinary url', () => {
+    expect(ttaImageUrl(tta({ image_url: null, cloudinary_image_url: 'https://res/c.webp' }))).toBe('https://res/c.webp')
+  })
+  it('falls back to the new-unit-cards CDN by id when only the new-image flag is set', () => {
+    const url = ttaImageUrl(tta({ id: 32593, image_url: null, cloudinary_image_url: null, has_new_image: true }))
+    expect(url).toBe('https://d26oqf9i6fvic.cloudfront.net/new-unit-cards/front/32593.webp')
+  })
+  it('returns null when no image is available', () => {
+    expect(ttaImageUrl(tta({ image_url: null, cloudinary_image_url: null }))).toBeNull()
+  })
 })
 
 describe('dedupeTtaUnits', () => {

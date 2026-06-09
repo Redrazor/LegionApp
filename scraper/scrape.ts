@@ -12,7 +12,7 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { tmpdir } from 'os'
 import {
-  buildUnits, buildUpgrades, buildCommands, buildProducts,
+  buildUnits, buildUpgrades, buildCommands, buildProducts, ttaImageUrl,
   type TtaUnit, type LhqCard, type Unit,
 } from './normalise.ts'
 
@@ -87,7 +87,7 @@ async function downloadUnitImages(ttaUnits: TtaUnit[], units: Unit[]) {
   for (const t of ttaUnits) {
     const u = bySlug.get(String(t.id))
     if (!u) continue
-    const front = t.image_url || t.cloudinary_image_url
+    const front = ttaImageUrl(t)
     if (front && u.cardImage) jobs.push({ url: hires(front), dest: join(IMG_DIR, 'units', `${u.slug}.webp`) })
     if (t.portrait_image_url && u.portraitImage)
       jobs.push({ url: t.portrait_image_url, dest: join(IMG_DIR, 'portraits', `${u.slug}.webp`) })

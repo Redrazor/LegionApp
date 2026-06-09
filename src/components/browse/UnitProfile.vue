@@ -31,14 +31,14 @@ const related = computed(() => {
 
 <template>
   <Teleport to="body">
-    <div class="fixed inset-0 z-50 flex justify-end">
+    <div class="fixed inset-0 z-50 flex justify-start">
       <!-- Backdrop -->
       <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="close" />
 
       <!-- Panel -->
       <Transition appear name="slide">
         <aside
-          class="relative flex h-full w-full max-w-xl flex-col overflow-y-auto border-l border-lg-border bg-lg-surface shadow-2xl"
+          class="relative flex h-full w-full max-w-xl flex-col overflow-y-auto border-r border-lg-border bg-lg-surface shadow-2xl"
         >
           <div v-if="!unit" class="p-8 text-center text-lg-muted">Unit not found.</div>
 
@@ -135,5 +135,5 @@ const related = computed(() => {
 
 <style scoped>
 .slide-enter-active, .slide-leave-active { transition: transform 0.25s ease; }
-.slide-enter-from, .slide-leave-to { transform: translateX(100%); }
+.slide-enter-from, .slide-leave-to { transform: translateX(-100%); }
 </style>

@@ -21,7 +21,7 @@ const surge = () =>
           class="inline-block h-5 w-5 rotate-45 rounded-sm border"
           :class="unit.defense === 'red'
             ? 'bg-faction-rebels/80 border-faction-rebels'
-            : 'bg-white/90 border-white/60'"
+            : 'bg-white border border-neutral-400'"
         />
         <span v-else class="text-sm text-lg-text/70">—</span>
       </div>

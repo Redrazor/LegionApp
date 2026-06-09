@@ -26,12 +26,12 @@ const f = computed(() => props.filters)
           v-model="f.query"
           type="search"
           placeholder="Search units, titles, keywords…"
-          class="w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-gold/60 focus:outline-none"
+          class="w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
         />
       </div>
       <button
         v-if="activeCount > 0 || f.query"
-        class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-gold"
+        class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-accent"
         @click="emit('reset')"
       >Clear</button>
     </div>
@@ -42,7 +42,7 @@ const f = computed(() => props.filters)
         v-for="fac in factions" :key="fac.id"
         class="rounded-full border px-2.5 py-1 text-xs font-medium transition-colors"
         :class="f.faction === fac.id
-          ? 'border-lg-gold bg-lg-gold/15 text-lg-gold'
+          ? 'border-lg-accent bg-lg-accent/15 text-lg-accent'
           : 'border-lg-border bg-lg-surface text-lg-muted hover:text-lg-text'"
         @click="f.faction = f.faction === fac.id ? '' : fac.id"
       >{{ fac.name }}</button>
@@ -52,7 +52,7 @@ const f = computed(() => props.filters)
     <div class="mt-2 flex flex-wrap items-center gap-2">
       <select
         v-model="f.rank"
-        class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-xs text-lg-text focus:border-lg-gold/60 focus:outline-none"
+        class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-xs text-lg-text focus:border-lg-accent/60 focus:outline-none"
       >
         <option value="">All ranks</option>
         <option v-for="r in ranks" :key="r.id" :value="r.id">{{ r.name }}</option>
@@ -62,17 +62,17 @@ const f = computed(() => props.filters)
         v-model="f.keyword"
         list="keyword-list"
         placeholder="Keyword…"
-        class="w-32 rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-xs text-lg-text placeholder:text-lg-muted/60 focus:border-lg-gold/60 focus:outline-none"
+        class="w-32 rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-xs text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
       />
       <datalist id="keyword-list">
         <option v-for="k in keywords" :key="k" :value="k" />
       </datalist>
 
       <label class="flex items-center gap-1.5 text-xs text-lg-muted">
-        <input v-model="f.favoritesOnly" type="checkbox" class="accent-lg-gold" /> Favorites
+        <input v-model="f.favoritesOnly" type="checkbox" class="accent-lg-accent" /> Favorites
       </label>
       <label class="flex items-center gap-1.5 text-xs text-lg-muted">
-        <input v-model="f.ownedOnly" type="checkbox" class="accent-lg-gold" /> Owned
+        <input v-model="f.ownedOnly" type="checkbox" class="accent-lg-accent" /> Owned
       </label>
 
       <span class="ml-auto text-xs text-lg-muted">{{ resultCount }} units</span>

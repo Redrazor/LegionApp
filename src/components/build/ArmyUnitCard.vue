@@ -47,13 +47,13 @@ function onClear() {
       <img v-if="unit.cardImage" :src="unit.cardImage" :alt="unit.name" loading="lazy" class="h-14 w-20 flex-none rounded object-cover" />
       <div class="min-w-0 flex-1">
         <div class="flex items-center gap-1">
-          <span v-if="unit.isUnique" class="text-lg-gold text-xs">◈</span>
+          <span v-if="unit.isUnique" class="text-lg-accent text-xs">◈</span>
           <span class="truncate font-semibold text-lg-text">{{ unit.name }}</span>
         </div>
         <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
       </div>
       <div class="flex flex-none flex-col items-end gap-1">
-        <span class="font-display text-sm font-bold text-lg-gold">{{ lineCost }}</span>
+        <span class="font-display text-sm font-bold text-lg-accent">{{ lineCost }}</span>
         <button
           class="text-xs text-lg-muted hover:text-faction-rebels no-print"
           aria-label="Remove unit"
@@ -68,8 +68,8 @@ function onClear() {
         v-for="(slot, i) in unit.upgradeBar" :key="i"
         class="inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs transition-colors"
         :class="equipped(slot, i)
-          ? 'border-lg-gold/50 bg-lg-gold/10 text-lg-text'
-          : 'border-dashed border-lg-border bg-lg-dark text-lg-muted hover:border-lg-gold/40'"
+          ? 'border-lg-accent/50 bg-lg-accent/10 text-lg-text'
+          : 'border-dashed border-lg-border bg-lg-dark text-lg-muted hover:border-lg-accent/40'"
         @click="picking = { slot, index: i }"
       >
         <span class="text-[9px] font-bold uppercase tracking-wide text-lg-muted">{{ slotLabel(slot) }}</span>

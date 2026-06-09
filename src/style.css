@@ -1,21 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Core surface palette */
-  --color-lg-bg: #0a0a0f;
-  --color-lg-surface: #12121a;
-  --color-lg-panel: #16161f;
-  --color-lg-dark: #0d0d14;
-  --color-lg-border: #262633;
-  --color-lg-text: #e8e8f0;
-  --color-lg-muted: #9a9aae;
+  /* ── Dark theme (default) ──────────────────────────────────────────────── */
+  --color-lg-bg: #0d0d0f;
+  --color-lg-surface: #161618;
+  --color-lg-panel: #1c1c20;
+  --color-lg-dark: #08080a;
+  --color-lg-border: #2a2a30;
+  --color-lg-text: #ededee;
+  --color-lg-muted: #9a9aa3;
 
-  /* Primary accent (Legion amber / hologram blue) */
-  --color-lg-gold: #d4a23a;
-  --color-lg-amber: #e0b14a;
+  /* Primary accent — Legion "logo orange" (distinct from amber/gold) */
+  --color-lg-accent: #ff6a2c;
+  --color-lg-accent-soft: #ff854f;
+  /* Brand mark colour — stays orange in both themes */
+  --color-lg-brand: #ff6a2c;
+  /* Secondary accent */
   --color-lg-holo: #38bdf8;
 
-  /* Faction colors */
+  /* Faction colours (shared across themes) */
   --color-faction-rebels: #d6453c;
   --color-faction-empire: #5b6b78;
   --color-faction-republic: #c9942e;
@@ -30,8 +33,36 @@
   --font-display: 'Orbitron', system-ui, sans-serif;
 }
 
+/* ── Light theme — leans on the black & white original ───────────────────── */
+html.light {
+  --color-lg-bg: #ffffff;
+  --color-lg-surface: #ffffff;
+  --color-lg-panel: #f1f1f3;
+  --color-lg-dark: #f4f4f6;
+  --color-lg-border: #d9d9de;
+  --color-lg-text: #131316;
+  --color-lg-muted: #67676f;
+
+  /* Monochrome accent — near-black on white */
+  --color-lg-accent: #1a1a1d;
+  --color-lg-accent-soft: #3a3a40;
+  /* Brand mark stays orange */
+  --color-lg-brand: #f15a24;
+  --color-lg-holo: #1d6fa8;
+
+  --color-faction-empire: #46545f;
+  --color-faction-republic: #a9791f;
+}
+
 * {
   box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+html.light {
+  color-scheme: light;
 }
 
 html, body {
@@ -40,6 +71,11 @@ html, body {
   background: var(--color-lg-bg);
   color: var(--color-lg-text);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth the theme switch on themed surfaces. */
+body, nav, aside, footer, .theme-tx {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 ::-webkit-scrollbar {
@@ -54,7 +90,7 @@ html, body {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-lg-gold);
+  background: var(--color-lg-accent);
 }
 
 @media print {

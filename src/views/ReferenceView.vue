@@ -33,7 +33,7 @@ const slots = Object.entries(SLOT_LABELS)
       <button
         v-for="t in (['keywords','reference','rulebook'] as Tab[])" :key="t"
         class="border-b-2 px-4 py-2 text-sm font-semibold capitalize transition-colors"
-        :class="tab === t ? 'border-lg-gold text-lg-gold' : 'border-transparent text-lg-muted hover:text-lg-text'"
+        :class="tab === t ? 'border-lg-accent text-lg-accent' : 'border-transparent text-lg-muted hover:text-lg-text'"
         @click="tab = t"
       >{{ t === 'reference' ? 'Icons' : t }}</button>
     </div>
@@ -44,12 +44,12 @@ const slots = Object.entries(SLOT_LABELS)
         v-model="search"
         type="search"
         placeholder="Search keywords…"
-        class="mb-4 w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-gold/60 focus:outline-none"
+        class="mb-4 w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
       />
       <p v-if="!keywordsStore.loaded" class="py-10 text-center text-lg-muted">Loading…</p>
       <dl v-else class="space-y-2">
         <div v-for="[k, v] in filteredKeywords" :key="k" class="rounded-lg border border-lg-border bg-lg-surface p-3">
-          <dt class="mb-0.5 font-semibold text-lg-gold">{{ k }}</dt>
+          <dt class="mb-0.5 font-semibold text-lg-accent">{{ k }}</dt>
           <dd class="text-sm leading-relaxed text-lg-text/85">{{ v }}</dd>
         </div>
       </dl>
@@ -91,8 +91,8 @@ const slots = Object.entries(SLOT_LABELS)
     <!-- Rulebook -->
     <div v-else>
       <div class="mb-3 flex flex-wrap gap-2">
-        <a :href="RULEBOOK_PDF" target="_blank" rel="noopener" class="rounded-lg bg-lg-gold/15 border border-lg-gold/40 px-3 py-2 text-sm font-semibold text-lg-gold hover:bg-lg-gold/25">Open Core Rulebook PDF ↗</a>
-        <a :href="RULES_HUB" target="_blank" rel="noopener" class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-gold">All AMG rules &amp; OP docs ↗</a>
+        <a :href="RULEBOOK_PDF" target="_blank" rel="noopener" class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-2 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25">Open Core Rulebook PDF ↗</a>
+        <a :href="RULES_HUB" target="_blank" rel="noopener" class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-accent">All AMG rules &amp; OP docs ↗</a>
       </div>
       <div class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark" style="height: 75vh">
         <iframe :src="RULEBOOK_PDF" class="h-full w-full" title="Star Wars: Legion Core Rulebook"></iframe>

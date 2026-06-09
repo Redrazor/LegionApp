@@ -13,12 +13,12 @@ const def = () => keywordsStore.define(props.keyword)
   <span class="relative inline-block">
     <button
       type="button"
-      class="inline-flex items-center gap-1 rounded bg-lg-panel border border-lg-border px-2 py-0.5 text-xs font-medium text-lg-text/85 hover:border-lg-gold/50 transition-colors"
+      class="inline-flex items-center gap-1 rounded bg-lg-panel border border-lg-border px-2 py-0.5 text-xs font-medium text-lg-text/85 hover:border-lg-accent/50 transition-colors"
       :class="def() ? 'cursor-help' : 'cursor-default'"
       @click.stop="def() && (open = !open)"
     >
       {{ keyword }}
-      <span v-if="def()" class="text-lg-gold/70 text-[10px]">ⓘ</span>
+      <span v-if="def()" class="text-lg-accent/70 text-[10px]">ⓘ</span>
     </button>
     <Transition name="fade">
       <div
@@ -26,7 +26,7 @@ const def = () => keywordsStore.define(props.keyword)
         class="absolute left-0 top-full z-30 mt-1 w-64 rounded-lg border border-lg-border bg-lg-dark p-3 text-xs leading-relaxed text-lg-text/90 shadow-xl"
         @click.stop
       >
-        <div class="mb-1 font-semibold text-lg-gold">{{ keyword }}</div>
+        <div class="mb-1 font-semibold text-lg-accent">{{ keyword }}</div>
         {{ def() }}
       </div>
     </Transition>

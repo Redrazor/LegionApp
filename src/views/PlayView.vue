@@ -10,7 +10,7 @@ const roadmap = [
 
 <template>
   <div class="mx-auto max-w-2xl py-12 text-center">
-    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-lg-gold/30 bg-lg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-lg-gold">
+    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-lg-accent/30 bg-lg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-lg-accent">
       Coming soon
     </div>
     <h1 class="font-display text-3xl font-bold uppercase tracking-wider text-lg-text">Play Mode</h1>
@@ -23,13 +23,13 @@ const roadmap = [
         v-for="(item, i) in roadmap" :key="i"
         class="flex items-start gap-3 rounded-lg border border-lg-border bg-lg-surface px-4 py-3 text-sm text-lg-text/80"
       >
-        <span class="mt-0.5 text-lg-gold">◆</span>
+        <span class="mt-0.5 text-lg-accent">◆</span>
         <span>{{ item }}</span>
       </li>
     </ul>
 
     <p class="mt-8 text-xs text-lg-muted/70">
-      Build and save your armies in the <RouterLink to="/build" class="text-lg-gold hover:underline">Build</RouterLink> tab now —
+      Build and save your armies in the <RouterLink to="/build" class="text-lg-accent hover:underline">Build</RouterLink> tab now —
       they'll be ready to play the moment this lands.
     </p>
   </div>

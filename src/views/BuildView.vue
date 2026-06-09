@@ -80,7 +80,7 @@ function printSheet() {
     <div class="mt-6 grid gap-3 sm:grid-cols-2">
       <button
         v-for="f in FACTION_ORDER" :key="f"
-        class="flex items-center gap-3 rounded-xl border border-lg-border bg-lg-surface p-4 text-left transition-all hover:-translate-y-0.5 hover:border-lg-gold/50"
+        class="flex items-center gap-3 rounded-xl border border-lg-border bg-lg-surface p-4 text-left transition-all hover:-translate-y-0.5 hover:border-lg-accent/50"
         @click="armyStore.setFaction(f as Faction)"
       >
         <span class="h-10 w-1.5 rounded" :style="{ background: FACTION_META[f].color }" />
@@ -95,25 +95,25 @@ function printSheet() {
       <input
         :value="draft.name"
         placeholder="Army name…"
-        class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-gold/60 focus:outline-none"
+        class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
         @input="armyStore.setName(($event.target as HTMLInputElement).value)"
       />
       <div class="flex overflow-hidden rounded-lg border border-lg-border">
         <button
           v-for="size in [800, 500]" :key="size"
           class="px-3 py-2 text-xs font-semibold transition-colors"
-          :class="draft.gameSize === size ? 'bg-lg-gold/20 text-lg-gold' : 'bg-lg-surface text-lg-muted'"
+          :class="draft.gameSize === size ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
           @click="armyStore.setGameSize(size)"
         >{{ size === 800 ? 'Standard 800' : 'Skirmish 500' }}</button>
       </div>
-      <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-gold" @click="armyStore.newArmy()">New</button>
+      <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-accent" @click="armyStore.newArmy()">New</button>
     </div>
 
     <!-- Sticky summary -->
     <div class="sticky top-[57px] z-30 -mx-4 mb-4 border-y border-lg-border bg-lg-bg/95 px-4 py-2.5 backdrop-blur-sm">
       <div class="flex items-center justify-between gap-3">
         <div class="flex items-baseline gap-2">
-          <span class="font-display text-xl font-bold" :class="validation.points > draft.gameSize ? 'text-faction-rebels' : 'text-lg-gold'">
+          <span class="font-display text-xl font-bold" :class="validation.points > draft.gameSize ? 'text-faction-rebels' : 'text-lg-accent'">
             {{ validation.points }}
           </span>
           <span class="text-sm text-lg-muted">/ {{ draft.gameSize }}</span>
@@ -132,7 +132,7 @@ function printSheet() {
       <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-lg-dark">
         <div
           class="h-full rounded-full transition-all"
-          :class="validation.points > draft.gameSize ? 'bg-faction-rebels' : 'bg-lg-gold'"
+          :class="validation.points > draft.gameSize ? 'bg-faction-rebels' : 'bg-lg-accent'"
           :style="{ width: pointsPct + '%' }"
         />
       </div>
@@ -151,7 +151,7 @@ function printSheet() {
               </span>
             </h2>
             <button
-              class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1 text-xs font-medium text-lg-gold hover:bg-lg-gold/10 no-print"
+              class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1 text-xs font-medium text-lg-accent hover:bg-lg-accent/10 no-print"
               :disabled="unitsByRank[rank].length >= RANK_META[rank].max"
               :class="{ 'opacity-30': unitsByRank[rank].length >= RANK_META[rank].max }"
               @click="pickingRank = rank"
@@ -185,18 +185,18 @@ function printSheet() {
         </div>
 
         <div class="flex gap-2 no-print">
-          <button class="flex-1 rounded-lg bg-lg-gold/15 border border-lg-gold/40 px-3 py-2 text-sm font-semibold text-lg-gold hover:bg-lg-gold/25" @click="armyStore.saveCurrent()">
+          <button class="flex-1 rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-2 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25" @click="armyStore.saveCurrent()">
             {{ activeIndex >= 0 ? 'Update' : 'Save' }}
           </button>
-          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-gold" :disabled="!draft.units.length" @click="share">Share</button>
-          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-gold" :disabled="!draft.units.length" @click="printSheet">Print</button>
+          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="share">Share</button>
+          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="printSheet">Print</button>
         </div>
         <p v-if="shareMsg" class="break-all text-xs text-lg-holo no-print">{{ shareMsg }}</p>
 
         <div v-if="saved.length" class="rounded-xl border border-lg-border bg-lg-surface p-4 no-print">
           <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Saved Armies</h3>
           <ul class="space-y-1">
-            <li v-for="(a, i) in saved" :key="i" class="flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-sm hover:bg-white/5" :class="{ 'bg-lg-gold/10': i === activeIndex }">
+            <li v-for="(a, i) in saved" :key="i" class="flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-sm hover:bg-lg-text/8" :class="{ 'bg-lg-accent/10': i === activeIndex }">
               <button class="min-w-0 flex-1 truncate text-left text-lg-text/85" @click="armyStore.loadSaved(i)">
                 {{ a.n || 'Untitled' }}
                 <span class="text-xs text-lg-muted">· {{ FACTION_META[a.f as Faction]?.name ?? '' }}</span>

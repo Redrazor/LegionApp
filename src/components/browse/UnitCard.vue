@@ -10,7 +10,7 @@ const favorites = useFavoritesStore()
 <template>
   <RouterLink
     :to="`/browse/${unit.slug}`"
-    class="group relative flex flex-col overflow-hidden rounded-xl border border-lg-border bg-lg-surface transition-all hover:border-lg-gold/50 hover:-translate-y-0.5"
+    class="group relative flex flex-col overflow-hidden rounded-xl border border-lg-border bg-lg-surface transition-all hover:border-lg-accent/50 hover:-translate-y-0.5"
   >
     <!-- Accent strip -->
     <div class="h-1 w-full" :style="{ background: factionColor(unit.faction) }" />
@@ -29,14 +29,14 @@ const favorites = useFavoritesStore()
       </div>
 
       <!-- Cost badge -->
-      <span class="absolute right-2 top-2 rounded-md bg-lg-dark/90 px-1.5 py-0.5 font-display text-xs font-bold text-lg-gold">
+      <span class="absolute right-2 top-2 rounded-md bg-lg-dark/90 px-1.5 py-0.5 font-display text-xs font-bold text-lg-accent">
         {{ unit.cost ?? '—' }}
       </span>
 
       <!-- Favorite -->
       <button
         class="absolute left-2 top-2 grid h-7 w-7 place-items-center rounded-md bg-lg-dark/80 text-base transition-colors"
-        :class="favorites.isFavorite(unit.id) ? 'text-lg-gold' : 'text-lg-text/40 hover:text-lg-text/80'"
+        :class="favorites.isFavorite(unit.id) ? 'text-lg-accent' : 'text-lg-text/40 hover:text-lg-text/80'"
         :aria-label="favorites.isFavorite(unit.id) ? 'Remove favorite' : 'Add favorite'"
         @click.prevent.stop="favorites.toggle(unit.id)"
       >{{ favorites.isFavorite(unit.id) ? '★' : '☆' }}</button>
@@ -45,8 +45,8 @@ const favorites = useFavoritesStore()
     <!-- Meta -->
     <div class="flex flex-1 flex-col gap-1 p-2.5">
       <div class="flex items-start gap-1">
-        <span v-if="unit.isUnique" class="mt-0.5 text-lg-gold" title="Unique">◈</span>
-        <span class="text-sm font-semibold leading-tight text-lg-text group-hover:text-lg-gold">{{ unit.name }}</span>
+        <span v-if="unit.isUnique" class="mt-0.5 text-lg-accent" title="Unique">◈</span>
+        <span class="text-sm font-semibold leading-tight text-lg-text group-hover:text-lg-accent">{{ unit.name }}</span>
       </div>
       <span v-if="unit.title" class="text-[11px] italic leading-tight text-lg-muted">{{ unit.title }}</span>
       <div class="mt-auto flex items-center gap-2 pt-1 text-[11px] text-lg-muted">

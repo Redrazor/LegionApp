@@ -48,7 +48,7 @@ const related = computed(() => {
             <div class="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-lg-border bg-lg-surface/95 px-5 py-4 backdrop-blur-sm">
               <div>
                 <div class="flex items-center gap-2">
-                  <span v-if="unit.isUnique" class="text-lg-gold" title="Unique">◈</span>
+                  <span v-if="unit.isUnique" class="text-lg-accent" title="Unique">◈</span>
                   <h1 class="font-display text-xl font-bold text-lg-text">{{ unit.name }}</h1>
                 </div>
                 <p v-if="unit.title" class="text-sm italic text-lg-muted">{{ unit.title }}</p>
@@ -62,10 +62,10 @@ const related = computed(() => {
               </div>
               <div class="flex items-center gap-3">
                 <div class="text-right">
-                  <div class="font-display text-2xl font-bold text-lg-gold">{{ unit.cost ?? '—' }}</div>
+                  <div class="font-display text-2xl font-bold text-lg-accent">{{ unit.cost ?? '—' }}</div>
                   <div class="text-[10px] uppercase tracking-wide text-lg-muted">points</div>
                 </div>
-                <button class="grid h-8 w-8 place-items-center rounded-lg text-lg-muted hover:bg-white/8 hover:text-lg-text" aria-label="Close" @click="close">✕</button>
+                <button class="grid h-8 w-8 place-items-center rounded-lg text-lg-muted hover:bg-lg-text/8 hover:text-lg-text" aria-label="Close" @click="close">✕</button>
               </div>
             </div>
 
@@ -108,7 +108,7 @@ const related = computed(() => {
                 <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Errata &amp; Points History</h3>
                 <ul class="space-y-1 text-xs text-lg-muted">
                   <li v-for="(h, i) in unit.history" :key="i" class="flex gap-2">
-                    <span class="text-lg-gold/70">{{ h.date }}</span>
+                    <span class="text-lg-accent/70">{{ h.date }}</span>
                     <span>{{ h.description }}</span>
                   </li>
                 </ul>
@@ -125,7 +125,7 @@ const related = computed(() => {
                   <RouterLink
                     v-for="r in related" :key="r.id"
                     :to="`/browse/${r.slug}`"
-                    class="flex w-24 flex-none flex-col items-center gap-1 rounded-lg border border-lg-border bg-lg-dark p-1.5 text-center hover:border-lg-gold/50"
+                    class="flex w-24 flex-none flex-col items-center gap-1 rounded-lg border border-lg-border bg-lg-dark p-1.5 text-center hover:border-lg-accent/50"
                   >
                     <img v-if="r.cardImage" :src="r.cardImage" :alt="r.name" loading="lazy" class="aspect-[1.41/1] w-full rounded object-cover" />
                     <span class="line-clamp-2 text-[10px] leading-tight text-lg-text/80">{{ r.name }}</span>

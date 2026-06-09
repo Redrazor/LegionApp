@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.local
+public/images/
+server/db/legion.db
+server/db/legion.db-shm
+server/db/legion.db-wal
+coverage/
+public/data/backups/*.json
+/tmp/
+
+.playwright-mcp/

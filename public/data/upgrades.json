@@ -1,0 +1,3756 @@
+[
+  {
+    "id": "cw",
+    "slug": "improvised-orders",
+    "name": "Improvised Orders",
+    "slot": "command",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "cx",
+    "slug": "commanding-presence",
+    "name": "Commanding Presence",
+    "slot": "command",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "cy",
+    "slug": "esteemed-leader",
+    "name": "Esteemed Leader",
+    "slot": "command",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Guardian"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "cz",
+    "slug": "strict-orders",
+    "name": "Strict Orders",
+    "slot": "command",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "da",
+    "slug": "recon-intel",
+    "name": "Recon Intel",
+    "slot": "gear",
+    "cost": 2,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Scout"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "db",
+    "slug": "emergency-stims",
+    "name": "Emergency Stims",
+    "slot": "gear",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dc",
+    "slug": "targeting-scopes",
+    "name": "Targeting Scopes",
+    "slot": "gear",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Precise"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "dd",
+    "slug": "grappling-hooks",
+    "name": "Grappling Hooks",
+    "slot": "gear",
+    "cost": 2,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Expert Climber"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "de",
+    "slug": "environmental-gear",
+    "name": "Environmental Gear",
+    "slot": "gear",
+    "cost": 2,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Unhindered"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "df",
+    "slug": "tenacity",
+    "name": "Tenacity",
+    "slot": "training",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dg",
+    "slug": "hunter",
+    "name": "Hunter",
+    "slot": "training",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dh",
+    "slug": "duck-and-cover",
+    "name": "Duck and Cover",
+    "slot": "training",
+    "cost": 2,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "di",
+    "slug": "endurance",
+    "name": "Endurance",
+    "slot": "training",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dj",
+    "slug": "fragmentation-grenades",
+    "name": "Fragmentation Grenades",
+    "slot": "grenades",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dk",
+    "slug": "impact-grenades",
+    "name": "Impact Grenades",
+    "slot": "grenades",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "dl",
+    "slug": "concussion-grenades",
+    "name": "Concussion Grenades",
+    "slot": "grenades",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "dm",
+    "slug": "hq-uplink",
+    "name": "HQ Uplink",
+    "slot": "comms",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dn",
+    "slug": "comms-jammer",
+    "name": "Comms Jammer",
+    "slot": "comms",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "do",
+    "slug": "long-range-comlink",
+    "name": "Long-Range Comlink",
+    "slot": "comms",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dp",
+    "slug": "comms-relay",
+    "name": "Comms Relay",
+    "slot": "comms",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dq",
+    "slug": "overcharged-generator",
+    "name": "Overcharged Generator",
+    "slot": "generator",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "dr",
+    "slug": "barrage-generator",
+    "name": "Barrage Generator",
+    "slot": "generator",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ds",
+    "slug": "battle-meditation",
+    "name": "Battle Meditation",
+    "slot": "force",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dt",
+    "slug": "force-push",
+    "name": "Force Push",
+    "slot": "force",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "du",
+    "slug": "force-reflexes",
+    "name": "Force Reflexes",
+    "slot": "force",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dv",
+    "slug": "saber-throw",
+    "name": "Saber Throw",
+    "slot": "force",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dw",
+    "slug": "jedi-mind-trick",
+    "name": "Jedi Mind Trick",
+    "slot": "force",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dx",
+    "slug": "anger",
+    "name": "Anger",
+    "slot": "force",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dy",
+    "slug": "force-choke",
+    "name": "Force Choke",
+    "slot": "force",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "dz",
+    "slug": "a-180-configuration",
+    "name": "A-180 Config",
+    "slot": "armament",
+    "cost": 0,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Pierce",
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ea",
+    "slug": "a-300-configuration",
+    "name": "A-300 Config",
+    "slot": "armament",
+    "cost": 0,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "eb",
+    "slug": "the-darksaber",
+    "name": "The Darksaber",
+    "slot": "armament",
+    "cost": 15,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Dauntless",
+      "Immune",
+      "Impact",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ec",
+    "slug": "mpl-57-ion-trooper",
+    "name": "MPL-57 Ion Trooper",
+    "slot": "heavy weapon",
+    "cost": 17,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact",
+      "Ion",
+      "Ion Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ed",
+    "slug": "z-6-trooper",
+    "name": "Z-6 Trooper",
+    "slot": "heavy weapon",
+    "cost": 20,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ee",
+    "slug": "bowcaster-wookiee",
+    "name": "Bowcaster Wookiee",
+    "slot": "heavy weapon",
+    "cost": 31,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ef",
+    "slug": "proton-charge-saboteur",
+    "name": "Proton Charge Saboteur",
+    "slot": "heavy weapon",
+    "cost": 23,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Arm",
+      "Detonate",
+      "Blast",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "eg",
+    "slug": "dh-447-sniper",
+    "name": "DH-447 Sniper",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "High Velocity",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "eh",
+    "slug": "scatter-gun-trooper",
+    "name": "Scatter Gun Trooper",
+    "slot": "heavy weapon",
+    "cost": 23,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ei",
+    "slug": "mpl-57-barrage-trooper",
+    "name": "Barrage Trooper",
+    "slot": "heavy weapon",
+    "cost": 19,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ej",
+    "slug": "dlt-19-stormtrooper",
+    "name": "DLT-19 Stormtrooper",
+    "slot": "heavy weapon",
+    "cost": 20,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ek",
+    "slug": "hh-12-stormtrooper",
+    "name": "HH-12 Stormtrooper",
+    "slot": "heavy weapon",
+    "cost": 16,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cumbersome",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "el",
+    "slug": "electrostaff-guard",
+    "name": "Electrostaff Guard",
+    "slot": "heavy weapon",
+    "cost": 21,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Sidearm",
+      "Immune"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "em",
+    "slug": "dlt-19x-sniper",
+    "name": "DLT-19x Sniper",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "High Velocity",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "en",
+    "slug": "sonic-charge-saboteur",
+    "name": "Sonic Charge Saboteur",
+    "slot": "heavy weapon",
+    "cost": 26,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Arm",
+      "Detonate",
+      "Blast",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "eo",
+    "slug": "t-7-ion-snowtrooper",
+    "name": "Ion Snowtrooper",
+    "slot": "heavy weapon",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact",
+      "Ion",
+      "Ion Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ep",
+    "slug": "flametrooper",
+    "name": "Flametrooper",
+    "slot": "heavy weapon",
+    "cost": 20,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Spray"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "eq",
+    "slug": "rebel-comms-technician",
+    "name": "Comms Technician",
+    "slot": "personnel",
+    "cost": 9,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "er",
+    "slug": "rebel-officer",
+    "name": "Rebel Officer",
+    "slot": "personnel",
+    "cost": 16,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Inspire",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "es",
+    "slug": "rebel-trooper",
+    "name": "Rebel Trooper",
+    "slot": "personnel",
+    "cost": 7,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "et",
+    "slug": "r5-astromech-droid",
+    "name": "R5 Astromech Droid",
+    "slot": "personnel",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Repair",
+      "Noncombatant"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "eu",
+    "slug": "2-1b-medical-droid",
+    "name": "Medical Droid",
+    "slot": "personnel",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Treat",
+      "Noncombatant"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ev",
+    "slug": "fleet-trooper",
+    "name": "Fleet Trooper",
+    "slot": "personnel",
+    "cost": 7,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ew",
+    "slug": "imperial-officer",
+    "name": "Imperial Officer",
+    "slot": "personnel",
+    "cost": 17,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Inspire",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ex",
+    "slug": "stormtrooper",
+    "name": "Stormtrooper",
+    "slot": "personnel",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ey",
+    "slug": "imperial-comms-technician",
+    "name": "Comms Technician",
+    "slot": "personnel",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ez",
+    "slug": "fx-9-medical-droid",
+    "name": "Medical Droid",
+    "slot": "personnel",
+    "cost": 19,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Treat",
+      "Noncombatant"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fa",
+    "slug": "r4-astromech-droid",
+    "name": "R4 Astromech Droid",
+    "slot": "personnel",
+    "cost": 9,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Repair",
+      "Noncombatant"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fb",
+    "slug": "snowtrooper",
+    "name": "Snowtrooper",
+    "slot": "personnel",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "fc",
+    "slug": "at-rt-rotary-blaster",
+    "name": "Rotary Blaster",
+    "slot": "hardpoint",
+    "cost": 20,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fd",
+    "slug": "at-rt-flamethrower",
+    "name": "Flamethrower",
+    "slot": "hardpoint",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Fixed",
+      "Spray"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fe",
+    "slug": "at-rt-laser-cannon",
+    "name": "Laser Cannon",
+    "slot": "hardpoint",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact",
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ff",
+    "slug": "ax-108-ground-buzzer",
+    "name": "Ground Buzzer",
+    "slot": "hardpoint",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fg",
+    "slug": "modk-power-harpoon",
+    "name": "Power Harpoon",
+    "slot": "hardpoint",
+    "cost": 0,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Tow Cable"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fh",
+    "slug": "88-twin-light-blaster-cannon",
+    "name": "Twin Light Blaster Cannon",
+    "slot": "hardpoint",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact",
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fi",
+    "slug": "at-st-mortar-launcher",
+    "name": "Mortar Launcher",
+    "slot": "hardpoint",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fj",
+    "slug": "dw-3-concussion-grenade-launcher",
+    "name": "Grenade Launcher",
+    "slot": "hardpoint",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Blast"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fk",
+    "slug": "wedge-antilles",
+    "name": "Wedge Antilles",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Full Pivot",
+      "Field Commander"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fl",
+    "slug": "general-weiss",
+    "name": "General Weiss",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Arsenal",
+      "Field Commander"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fo",
+    "slug": "fear",
+    "name": "Fear",
+    "slot": "force",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Demoralize"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fr",
+    "slug": "barc-ion-gunner",
+    "name": "BARC Ion Gunner",
+    "slot": "crew",
+    "cost": 24,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Impact",
+      "Ion",
+      "Ion Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fs",
+    "slug": "barc-rps-6-gunner",
+    "name": "BARC RPS-6 Gunner",
+    "slot": "crew",
+    "cost": 21,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fu",
+    "slug": "t-21b-trooper",
+    "name": "T-21B Trooper",
+    "slot": "heavy weapon",
+    "cost": 32,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "fv",
+    "slug": "rt-97c-blaster-rifle",
+    "name": "RT-97C Blaster Rifle",
+    "slot": "armament",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "fw",
+    "slug": "cr-24-flame-rifle",
+    "name": "CR-24 Flame Rifle",
+    "slot": "armament",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "gj",
+    "slug": "overwatch",
+    "name": "Overwatch",
+    "slot": "training",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Sentinel"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gk",
+    "slug": "personal-combat-shield",
+    "name": "Personal Combat Shield",
+    "slot": "gear",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Shield Token",
+      "Shielded",
+      "Recharge"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gl",
+    "slug": "dt-f16",
+    "name": "DT-F16",
+    "slot": "heavy weapon",
+    "cost": 15,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Compel",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gm",
+    "slug": "dlt-19d-trooper",
+    "name": "DLT-19D Trooper",
+    "slot": "heavy weapon",
+    "cost": 30,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gn",
+    "slug": "e-11d-configuration",
+    "name": "E-11D Config",
+    "slot": "armament",
+    "cost": 0,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Suppressive",
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "go",
+    "slug": "imperial-hammers-elite-armor-pilot",
+    "name": "Elite Armor Pilot",
+    "slot": "pilot",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "gp",
+    "slug": "outer-rim-speeder-jockey",
+    "name": "Outer Rim Speeder Jockey",
+    "slot": "pilot",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cover"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gq",
+    "slug": "rps-6-rocket-gunner",
+    "name": "Rocket Gunner",
+    "slot": "crew",
+    "cost": 21,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gr",
+    "slug": "a-300-rifle-gunner",
+    "name": "Rifle Gunner",
+    "slot": "crew",
+    "cost": 1,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "gs",
+    "slug": "bistan",
+    "name": "Bistan",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Impact",
+      "Ion",
+      "Ion Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gt",
+    "slug": "pao",
+    "name": "Pao",
+    "slot": "heavy weapon",
+    "cost": 20,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Inspire",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "gu",
+    "slug": "rebel-veteran",
+    "name": "Rebel Veteran",
+    "slot": "personnel",
+    "cost": 9,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "gz",
+    "slug": "first-sergeant-arbmab",
+    "name": "First Sergeant Arbmab",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Tactical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ha",
+    "slug": "mark-ii-medium-blaster",
+    "name": "Mark II Medium Blaster",
+    "slot": "hardpoint",
+    "cost": 21,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hb",
+    "slug": "m-45-ion-blaster",
+    "name": "M-45 Ion Blaster",
+    "slot": "hardpoint",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Impact",
+      "Ion",
+      "Ion Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hc",
+    "slug": "dlt-19-rifle-pintle",
+    "name": "DLT-19 Rifle Pintle",
+    "slot": "hardpoint",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hd",
+    "slug": "rt-97c-rifle-pintle",
+    "name": "RT-97C Rifle Pintle",
+    "slot": "hardpoint",
+    "cost": 14,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "hh",
+    "slug": "shoretrooper",
+    "name": "Shoretrooper",
+    "slot": "personnel",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "hm",
+    "slug": "phase-i-clone-trooper",
+    "name": "Phase I Clone Trooper",
+    "slot": "personnel",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "hn",
+    "slug": "b1-battle-droid",
+    "name": "Battle Droid",
+    "slot": "personnel",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ho",
+    "slug": "e-5c-b1-trooper",
+    "name": "E-5C Trooper",
+    "slot": "heavy weapon",
+    "cost": 16,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "hp",
+    "slug": "z-6-phase-i-trooper",
+    "name": "Z-6 Trooper",
+    "slot": "heavy weapon",
+    "cost": 22,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "hq",
+    "slug": "dc-15-phase-i-trooper",
+    "name": "DC-15 Trooper",
+    "slot": "heavy weapon",
+    "cost": 24,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hr",
+    "slug": "e-60r-b1-trooper",
+    "name": "E-60R Trooper",
+    "slot": "heavy weapon",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hs",
+    "slug": "t-21-blaster-rifle",
+    "name": "T-21 Blaster Rifle",
+    "slot": "armament",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hv",
+    "slug": "phase-ii-clone-trooper",
+    "name": "Phase II Clone Trooper",
+    "slot": "personnel",
+    "cost": 13,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "hx",
+    "slug": "force-guidance",
+    "name": "Force Guidance",
+    "slot": "force",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Surge Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hy",
+    "slug": "electrobinoculars",
+    "name": "Electrobinoculars",
+    "slot": "gear",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Spotter"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "hz",
+    "slug": "linked-targeting-array",
+    "name": "Linked Targeting Array",
+    "slot": "comms",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Target"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ib",
+    "slug": "smoke-grenades",
+    "name": "Smoke Grenades",
+    "slot": "grenades",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Smoke"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "id",
+    "slug": "barc-twin-laser-gunner",
+    "name": "BARC Twin Laser Gunner",
+    "slot": "crew",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ig",
+    "slug": "cm-o-93-trooper",
+    "name": "CM-0/93 Trooper",
+    "slot": "heavy weapon",
+    "cost": 26,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ih",
+    "slug": "electro-grappling-line",
+    "name": "Electro Grappling Line",
+    "slot": "gear",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ii",
+    "slug": "ryder-azadi",
+    "name": "Ryder Azadi",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ij",
+    "slug": "hope",
+    "name": "Hope",
+    "slot": "force",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Inspire"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ik",
+    "slug": "aggressive-tactics",
+    "name": "Aggressive Tactics",
+    "slot": "command",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "il",
+    "slug": "dt-57-annihilator",
+    "name": "DT-57 \"Annihilator\"",
+    "slot": "armament",
+    "cost": 0,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Critical",
+      "Pierce",
+      "Versatile"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "io",
+    "slug": "b2-super-battle-droid",
+    "name": "Super Battle Droid",
+    "slot": "personnel",
+    "cost": 13,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ip",
+    "slug": "aayla-secura",
+    "name": "Aayla Secura",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Inspire",
+      "Field Commander"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "iq",
+    "slug": "t-series-tactical-droid-pilot",
+    "name": "T-Series Tactical Droid Pilot",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "AI",
+      "Field Commander"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "it",
+    "slug": "b1-security-droid",
+    "name": "Security Droid",
+    "slot": "personnel",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "iu",
+    "slug": "dlt-20a-trooper",
+    "name": "DLT-20A Trooper",
+    "slot": "heavy weapon",
+    "cost": 26,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "iv",
+    "slug": "dp-23-phase-i-trooper",
+    "name": "DP-23 Trooper",
+    "slot": "heavy weapon",
+    "cost": 20,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "iw",
+    "slug": "e-5s-b1-trooper",
+    "name": "E-5s Trooper",
+    "slot": "heavy weapon",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ix",
+    "slug": "rps-6-phase-i-trooper",
+    "name": "RPS-6 Trooper",
+    "slot": "heavy weapon",
+    "cost": 21,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cumbersome",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "iy",
+    "slug": "rt-97c-stormtrooper",
+    "name": "RT-97C Stormtrooper",
+    "slot": "heavy weapon",
+    "cost": 24,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "iz",
+    "slug": "sx-21-trooper",
+    "name": "SX-21 Trooper",
+    "slot": "heavy weapon",
+    "cost": 13,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ja",
+    "slug": "t-21-stormtrooper",
+    "name": "T-21 Stormtrooper",
+    "slot": "heavy weapon",
+    "cost": 22,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jb",
+    "slug": "offensive-push",
+    "name": "Offensive Push",
+    "slot": "training",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Tactical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jk",
+    "slug": "integrated-comms-antenna",
+    "name": "Comms Antenna",
+    "slot": "comms",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "jn",
+    "slug": "stormtrooper-captain",
+    "name": "Stormtrooper Captain",
+    "slot": "personnel",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jo",
+    "slug": "rebel-trooper-captain",
+    "name": "Rebel Trooper Captain",
+    "slot": "personnel",
+    "cost": 9,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jp",
+    "slug": "rebel-trooper-specialist",
+    "name": "Rebel Trooper Specialist",
+    "slot": "personnel",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Surge Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jq",
+    "slug": "stormtrooper-specialist",
+    "name": "Stormtrooper Specialist",
+    "slot": "personnel",
+    "cost": 9,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Surge Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jv",
+    "slug": "oom-series-battle-droid",
+    "name": "OOM Battle Droid",
+    "slot": "personnel",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Coordinate",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jw",
+    "slug": "radiation-cannon-b1-trooper",
+    "name": "Radiation Cannon Trooper",
+    "slot": "heavy weapon",
+    "cost": 16,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Poison Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jx",
+    "slug": "phase-i-clone-captain",
+    "name": "Phase I Clone Captain",
+    "slot": "personnel",
+    "cost": 12,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "jy",
+    "slug": "phase-i-clone-specialist",
+    "name": "Phase I Clone Specialist",
+    "slot": "personnel",
+    "cost": 11,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Surge Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kd",
+    "slug": "z-6-phase-ii-clone-trooper",
+    "name": "Z-6 Trooper",
+    "slot": "heavy weapon",
+    "cost": 27,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ke",
+    "slug": "b2-acm-trooper",
+    "name": "B2-ACM Trooper",
+    "slot": "heavy weapon",
+    "cost": 24,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "kh",
+    "slug": "a280-cfe-config",
+    "name": "A280-CFE Config",
+    "slot": "armament",
+    "cost": 0,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cumbersome",
+      "High Velocity",
+      "Pierce",
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ki",
+    "slug": "idens-dlt-20a-rifle",
+    "name": "Iden's DLT-20A Rifle",
+    "slot": "armament",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "High Velocity",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kl",
+    "slug": "veteran-clone-pilot",
+    "name": "Veteran Clone Pilot",
+    "slot": "pilot",
+    "cost": 7,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "km",
+    "slug": "tx-130-beam-cannon-turret",
+    "name": "TX-130 Beam Cannon Turret",
+    "slot": "hardpoint",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Beam"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kn",
+    "slug": "armor-piercing-shells",
+    "name": "Armor-Piercing Shells",
+    "slot": "ordnance",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cycle",
+      "Fixed",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ko",
+    "slug": "phase-ii-mortar-trooper",
+    "name": "Phase II Mortar Trooper",
+    "slot": "heavy weapon",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical",
+      "Suppressive",
+      "Cumbersome"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kp",
+    "slug": "b2-ha-trooper",
+    "name": "B2-HA Trooper",
+    "slot": "heavy weapon",
+    "cost": 32,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Cycle",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kq",
+    "slug": "lok-durd",
+    "name": "Lok Durd",
+    "slot": "pilot",
+    "cost": 9,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "AI",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kr",
+    "slug": "tx-130-twin-laser-turret",
+    "name": "Twin Laser Turret",
+    "slot": "hardpoint",
+    "cost": 14,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ks",
+    "slug": "plo-koon",
+    "name": "Plo Koon",
+    "slot": "pilot",
+    "cost": 9,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Agile"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kt",
+    "slug": "bunker-buster-shells",
+    "name": "\"Bunker Buster\" Shells",
+    "slot": "ordnance",
+    "cost": 12,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Cycle",
+      "Fixed",
+      "Scatter"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ku",
+    "slug": "high-energy-shells",
+    "name": "High-Energy Shells",
+    "slot": "ordnance",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical",
+      "Cycle",
+      "High Velocity",
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "kv",
+    "slug": "oom-series-droid-pilot",
+    "name": "OOM-Series Droid Pilot",
+    "slot": "pilot",
+    "cost": 7,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Coordinate"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "lc",
+    "slug": "deflector-shields",
+    "name": "Deflector Shields",
+    "slot": "armament",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Shields",
+      "Recharge"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ld",
+    "slug": "bx-series-droid-sniper",
+    "name": "BX-Series Droid Sniper",
+    "slot": "heavy weapon",
+    "cost": 30,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Lethal",
+      "Pierce",
+      "Immune",
+      "Deflect"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "le",
+    "slug": "emp-droid-poppers",
+    "name": "EMP \"Droid Poppers\"",
+    "slot": "grenades",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Ion"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "lf",
+    "slug": "dc-15x-arc-trooper",
+    "name": "DC-15x ARC Trooper",
+    "slot": "heavy weapon",
+    "cost": 31,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical",
+      "Immune",
+      "Deflect",
+      "Lethal",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "lg",
+    "slug": "fives",
+    "name": "Fives",
+    "slot": "heavy weapon",
+    "cost": 40,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "lh",
+    "slug": "echo",
+    "name": "Echo",
+    "slot": "heavy weapon",
+    "cost": 42,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "li",
+    "slug": "situational-awareness",
+    "name": "Situational Awareness",
+    "slot": "training",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "lj",
+    "slug": "vibroswords",
+    "name": "Vibroswords",
+    "slot": "armament",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Charge"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "lk",
+    "slug": "jt-12-jetpacks",
+    "name": "JT-12 Jetpacks",
+    "slot": "gear",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Jump"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ll",
+    "slug": "electro-gauntlets",
+    "name": "Electro Gauntlets",
+    "slot": "armament",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Immobilize",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "lm",
+    "slug": "looted-e-5-blaster",
+    "name": "Looted E-5 Blaster",
+    "slot": "armament",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "lu",
+    "slug": "jyns-se-14-blaster",
+    "name": "Jyn's SE-14 Blaster",
+    "slot": "armament",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Suppressive",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "lx",
+    "slug": "idens-tl-50-repeater",
+    "name": "TL-50 Repeater",
+    "slot": "armament",
+    "cost": 15,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Critical",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "md",
+    "slug": "command-control-array",
+    "name": "Command Control Array",
+    "slot": "comms",
+    "cost": 2,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Coordinate"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "me",
+    "slug": "gideon-hask",
+    "name": "Gideon Hask",
+    "slot": "heavy weapon",
+    "cost": 29,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Coordinate",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mf",
+    "slug": "del-meeko",
+    "name": "Del Meeko",
+    "slot": "heavy weapon",
+    "cost": 25,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Repair",
+      "High Velocity",
+      "Lethal",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mh",
+    "slug": "ascension-cables",
+    "name": "Ascension Cables",
+    "slot": "gear",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Scale"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mj",
+    "slug": "dioxis-mine-saboteur",
+    "name": "Dioxis Mine Saboteur",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Arm",
+      "Detonate",
+      "Dioxis Mine",
+      "Blast",
+      "Poison"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mm",
+    "slug": "jetpack-rockets",
+    "name": "Jetpack Rockets",
+    "slot": "armament",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mn",
+    "slug": "beskad-duelist",
+    "name": "Beskad Duelist",
+    "slot": "heavy weapon",
+    "cost": 24,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Duelist",
+      "Pierce",
+      "Immune"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mo",
+    "slug": "ursa-wren",
+    "name": "Ursa Wren",
+    "slot": "heavy weapon",
+    "cost": 34,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Dauntless",
+      "Leader",
+      "Long Shot"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mp",
+    "slug": "tristan-wren",
+    "name": "Tristan Wren",
+    "slot": "heavy weapon",
+    "cost": 34,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Lethal",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mq",
+    "slug": "t-series-tactical-droid",
+    "name": "T-Series Tactical Droid",
+    "slot": "personnel",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "AI",
+      "Reliable",
+      "Leader",
+      "Sidearm"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mr",
+    "slug": "portable-scanner",
+    "name": "Portable Scanner",
+    "slot": "gear",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Take Cover"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ms",
+    "slug": "offensive-stance",
+    "name": "Offensive Stance",
+    "slot": "training",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "mz",
+    "slug": "t-21-special-forces-trooper",
+    "name": "T-21 Trooper",
+    "slot": "heavy weapon",
+    "cost": 27,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "nc",
+    "slug": "defensive-stance",
+    "name": "Defensive/Offensive Stance",
+    "slot": "training",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "nd",
+    "slug": "force-barrier",
+    "name": "Force Barrier",
+    "slot": "force",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ne",
+    "slug": "seize-the-initiative",
+    "name": "Seize the Initiative",
+    "slot": "training",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "np",
+    "slug": "j-19-bo-rifle-staff",
+    "name": "J-19 Bo-rifle Staff",
+    "slot": "armament",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Charge",
+      "Immune",
+      "Lethal",
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "nq",
+    "slug": "inspiring-presence",
+    "name": "Inspiring Presence",
+    "slot": "command",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "nz",
+    "slug": "vigilance",
+    "name": "Vigilance",
+    "slot": "command",
+    "cost": 12,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "oa",
+    "slug": "clone-comms-technician",
+    "name": "Clone Comms Technician",
+    "slot": "personnel",
+    "cost": 11,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ob",
+    "slug": "clone-engineer",
+    "name": "Clone Engineer",
+    "slot": "personnel",
+    "cost": 14,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Repair"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "oc",
+    "slug": "clone-medic",
+    "name": "Clone Medic",
+    "slot": "personnel",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Treat"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "od",
+    "slug": "clone-commander",
+    "name": "Clone Commander",
+    "slot": "personnel",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Inspire",
+      "Reliable",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "oe",
+    "slug": "viper-recon-droid",
+    "name": "Viper Recon Droid",
+    "slot": "personnel",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Observe",
+      "Sidearm"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "of",
+    "slug": "pk-series-worker-droid",
+    "name": "PK-Series Worker Droid",
+    "slot": "personnel",
+    "cost": 12,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Repair",
+      "Noncombatant"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "og",
+    "slug": "ev-series-medical-droid",
+    "name": "EV-Series Medical Droid",
+    "slot": "personnel",
+    "cost": 14,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Treat",
+      "Noncombatant"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "op",
+    "slug": "heavy-laser-retrofit",
+    "name": "Heavy Laser Retrofit",
+    "slot": "hardpoint",
+    "cost": 16,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "oq",
+    "slug": "shriv-suurgav",
+    "name": "Shriv Suurgav",
+    "slot": "pilot",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Field Commander"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "or",
+    "slug": "governor-pryce",
+    "name": "Governor Pryce",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Field Commander"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "os",
+    "slug": "clone-commander-fox",
+    "name": "Clone Commander Fox",
+    "slot": "pilot",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Field Commander"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ot",
+    "slug": "onboard-comms-channel",
+    "name": "Onboard Comms Channel",
+    "slot": "comms",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ou",
+    "slug": "ag-2g-quad-laser",
+    "name": "AG-2G Quad Laser",
+    "slot": "hardpoint",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ov",
+    "slug": "hotshot-pilot",
+    "name": "Hotshot Pilot",
+    "slot": "pilot",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Sharpshooter"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ow",
+    "slug": "reckless-driver",
+    "name": "Reckless Driver",
+    "slot": "pilot",
+    "cost": 12,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ox",
+    "slug": "backworld-medic",
+    "name": "Backworld Medic",
+    "slot": "crew",
+    "cost": 12,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "oy",
+    "slug": "refurbished-gonk-droid",
+    "name": "Refurbished \"Gonk\" Droid",
+    "slot": "crew",
+    "cost": 14,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Shielded",
+      "Shield Token"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "oz",
+    "slug": "unstable-r5-astromech",
+    "name": "Unstable R5 Astromech",
+    "slot": "crew",
+    "cost": 6,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "pa",
+    "slug": "unorthodox-tactician",
+    "name": "Unorthodox Tactician",
+    "slot": "crew",
+    "cost": 16,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "pb",
+    "slug": "baron-rudor",
+    "name": "Baron Rudor",
+    "slot": "pilot",
+    "cost": 8,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Marksman"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "pc",
+    "slug": "hound-grizzer",
+    "name": "Hound & Grizzer",
+    "slot": "pilot",
+    "cost": 8,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Observe"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "pd",
+    "slug": "imperial-tie-pilot",
+    "name": "Imperial TIE Pilot",
+    "slot": "pilot",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "pe",
+    "slug": "clone-shock-trooper-pilot",
+    "name": "Clone Shock Trooper Pilot",
+    "slot": "pilot",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "pf",
+    "slug": "battle-shield-wookiee",
+    "name": "Battle Shield Wookiee",
+    "slot": "heavy weapon",
+    "cost": 26,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Armor",
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "pn",
+    "slug": "long-gun-wookiee",
+    "name": "Long Gun Wookiee",
+    "slot": "heavy weapon",
+    "cost": 26,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "pq",
+    "slug": "burst-of-speed",
+    "name": "Burst of Speed",
+    "slot": "force",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "pr",
+    "slug": "force-lift",
+    "name": "Force Lift",
+    "slot": "force",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ps",
+    "slug": "into-the-fray",
+    "name": "Into the Fray",
+    "slot": "training",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "pt",
+    "slug": "protector",
+    "name": "Protector",
+    "slot": "training",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "qb",
+    "slug": "electro-whip-magnaguard",
+    "name": "Electro-whip MagnaGuard",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Immobilize",
+      "Versatile"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qc",
+    "slug": "ig-100-magnaguard",
+    "name": "IG-100 MagnaGuard",
+    "slot": "heavy weapon",
+    "cost": 22,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "qd",
+    "slug": "rps-6-magnaguard",
+    "name": "RPS-6 MagnaGuard",
+    "slot": "heavy weapon",
+    "cost": 34,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qi",
+    "slug": "gnasp-gunner",
+    "name": "Gnasp Gunner",
+    "slot": "crew",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fixed",
+      "Impact",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qj",
+    "slug": "hacked-comms-unit",
+    "name": "Hacked Comms Unit",
+    "slot": "comms",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "ql",
+    "slug": "engagement-protocols",
+    "name": "Engagement Protocols",
+    "slot": "programming",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "AI"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qm",
+    "slug": "defense-protocols",
+    "name": "Defense Protocols",
+    "slot": "programming",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "AI",
+      "Dodge",
+      "Nimble",
+      "Outmaneuver"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qn",
+    "slug": "attack-protocols",
+    "name": "Attack Protocols",
+    "slot": "programming",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "AI",
+      "Precise"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qo",
+    "slug": "nose-mounted-flamethrower",
+    "name": "Nose-Mounted Flamethrower",
+    "slot": "hardpoint",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Fixed",
+      "Spray"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qp",
+    "slug": "gnasp-bombardier",
+    "name": "Gnasp Bombardier",
+    "slot": "crew",
+    "cost": 20,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Overrun",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qq",
+    "slug": "nose-mounted-ion-blaster",
+    "name": "Nose-Mounted Ion Blaster",
+    "slot": "hardpoint",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cycle",
+      "Fixed",
+      "Ion",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qr",
+    "slug": "nose-mounted-laser-cannon",
+    "name": "Nose-Mounted Laser Cannon",
+    "slot": "hardpoint",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical",
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qu",
+    "slug": "327th-star-corps-elite-armor-pilots",
+    "name": "Elite Armor Pilots",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Fire Support"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qv",
+    "slug": "twin-blaster-cannons",
+    "name": "Twin Blaster Cannons",
+    "slot": "hardpoint",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Gunslinger",
+      "Critical",
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qw",
+    "slug": "twin-beam-cannons",
+    "name": "Twin Beam Cannons",
+    "slot": "hardpoint",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Beam",
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "qx",
+    "slug": "twin-missile-pods",
+    "name": "Twin Missile Pods",
+    "slot": "hardpoint",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Gunslinger",
+      "Impact",
+      "Fixed"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rf",
+    "slug": "underworld-connections",
+    "name": "Underworld Connections",
+    "slot": "command",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Allies of Convenience"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rg",
+    "slug": "p13-m-disruptor-soldier",
+    "name": "P13-M Disruptor Soldier",
+    "slot": "heavy weapon",
+    "cost": 24,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rh",
+    "slug": "electro-whip-soldier",
+    "name": "Electro-Whip Soldier",
+    "slot": "heavy weapon",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Immobilize",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ri",
+    "slug": "pyke-syndicate-foot-soldier",
+    "name": "Pyke Syndicate Foot Soldier",
+    "slot": "personnel",
+    "cost": 9,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cache"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rj",
+    "slug": "pyke-syndicate-capo",
+    "name": "Pyke Syndicate Capo",
+    "slot": "personnel",
+    "cost": 18,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Independent",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rk",
+    "slug": "black-sun-enforcer",
+    "name": "Black Sun Enforcer",
+    "slot": "personnel",
+    "cost": 11,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cache"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rl",
+    "slug": "black-sun-vigo",
+    "name": "Black Sun Vigo",
+    "slot": "personnel",
+    "cost": 20,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Independent",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rm",
+    "slug": "mag-det-enforcer",
+    "name": "Mag-Det Enforcer",
+    "slot": "heavy weapon",
+    "cost": 16,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rn",
+    "slug": "scatter-gun-enforcer",
+    "name": "Scatter Gun Enforcer",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ro",
+    "slug": "prepared-supplies",
+    "name": "Prepared Supplies",
+    "slot": "gear",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cache"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rp",
+    "slug": "sonic-imploders",
+    "name": "Sonic Imploders",
+    "slot": "grenades",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "rq",
+    "slug": "the-darksaber2",
+    "name": "The Darksaber",
+    "slot": "armament",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Cunning",
+      "Sidearm",
+      "Ranged",
+      "Impact",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ru",
+    "slug": "up-close-and-personal",
+    "name": "Up Close and Personal",
+    "slot": "training",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "rv",
+    "slug": "lead-by-example",
+    "name": "Lead By Example",
+    "slot": "command",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "rz",
+    "slug": "super-commando-combat-shields",
+    "name": "Super Commando Combat Shields",
+    "slot": "gear",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Shielded"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sa",
+    "slug": "super-commando-jetpack-rockets",
+    "name": "Super Commando Jetpack Rockets",
+    "slot": "armament",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Critical",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sb",
+    "slug": "mandalorian-super-commando",
+    "name": "Mandalorian Super Commando",
+    "slot": "heavy weapon",
+    "cost": 24,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Cache"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sc",
+    "slug": "super-commando-gunslinger",
+    "name": "Super Commando Gunslinger",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Lethal"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sd",
+    "slug": "super-commando-marksman",
+    "name": "Super Commando Marksman",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Precise"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "se",
+    "slug": "rook-kast",
+    "name": "Rook Kast",
+    "slot": "heavy weapon",
+    "cost": 35,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Retinue",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sf",
+    "slug": "emergency-transponder",
+    "name": "Emergency Transponder",
+    "slot": "comms",
+    "cost": 4,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "sg",
+    "slug": "saxons-galar-90-rifle",
+    "name": "Saxon's Galar-90 Rifle",
+    "slot": "armament",
+    "cost": 15,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "High Velocity",
+      "Lethal",
+      "Long Shot"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sh",
+    "slug": "saxons-z-3x-jetpack-rockets",
+    "name": "Saxon's Z-3X Jetpack Rockets",
+    "slot": "armament",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Cycle",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "si",
+    "slug": "saxons-zx-flame-projector",
+    "name": "Saxon's ZX Flame Projector",
+    "slot": "armament",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Spray",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sn",
+    "slug": "frenzied-gunner",
+    "name": "Frenzied Gunner",
+    "slot": "pilot",
+    "cost": 5,
+    "isUnique": false,
+    "faction": "mercenary",
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "so",
+    "slug": "raiding-party-leader",
+    "name": "Raiding Party Leader",
+    "slot": "pilot",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Allies of Convenience",
+      "Field Commander",
+      "Demoralize"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "sp",
+    "slug": "saxons-combat-shield",
+    "name": "Saxon's Combat Shield",
+    "slot": "gear",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Shielded",
+      "Recharge"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "to",
+    "slug": "dins-amban-rifle",
+    "name": "Din's Amban Rifle",
+    "slot": "armament",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Immobilize",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "tp",
+    "slug": "nanny-programming",
+    "name": "\"Nanny\" Programming",
+    "slot": "programming",
+    "cost": 0,
+    "isUnique": true,
+    "faction": "rebels",
+    "keywords": [
+      "Counterpart",
+      "AI"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "tq",
+    "slug": "dins-flame-projector",
+    "name": "Din's Flame Projector",
+    "slot": "gear",
+    "cost": 8,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Spray",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "tr",
+    "slug": "the-mandos-jetpack",
+    "name": "The Mando's Jetpack",
+    "slot": "gear",
+    "cost": 15,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Jump"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ts",
+    "slug": "beskar-spear",
+    "name": "Beskar Spear",
+    "slot": "armament",
+    "cost": 15,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Duelist",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ub",
+    "slug": "bounty-programming",
+    "name": "\"Bounty\" Programming",
+    "slot": "programming",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Bounty",
+      "AI",
+      "Pierce",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "uf",
+    "slug": "boil",
+    "name": "Boil",
+    "slot": "personnel",
+    "cost": 15,
+    "isUnique": true,
+    "faction": "republic",
+    "keywords": [
+      "Guardian",
+      "Scout",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ug",
+    "slug": "waxer",
+    "name": "Waxer",
+    "slot": "personnel",
+    "cost": 15,
+    "isUnique": true,
+    "faction": "republic",
+    "keywords": [
+      "Disciplined",
+      "Scout",
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "uh",
+    "slug": "bobas-flame-projector",
+    "name": "Boba's Flame Projector",
+    "slot": "gear",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Spray",
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "uj",
+    "slug": "the-darksaber3",
+    "name": "The Darksaber",
+    "slot": "armament",
+    "cost": 15,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Demoralize",
+      "Immune",
+      "Impact",
+      "Pierce"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "uo",
+    "slug": "xs-iv-assault-cannon",
+    "name": "XS-IV Assault Cannon",
+    "slot": "heavy weapon",
+    "cost": 55,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Critical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "up",
+    "slug": "sm-9-frag-launcher",
+    "name": "SM-9 Frag Launcher",
+    "slot": "heavy weapon",
+    "cost": 45,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Impact",
+      "Cycle"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "uq",
+    "slug": "mertalizer",
+    "name": "Mertalizer",
+    "slot": "heavy weapon",
+    "cost": 36,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ur",
+    "slug": "imperial-dark-trooper",
+    "name": "Imperial Dark Trooper",
+    "slot": "personnel",
+    "cost": 32,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "us",
+    "slug": "programmed-loyalty",
+    "name": "Programmed Loyalty",
+    "slot": "programming",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "vp",
+    "slug": "forest-dwellers",
+    "name": "Forest Dwellers",
+    "slot": "training",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Scout"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "vq",
+    "slug": "call-to-arms",
+    "name": "Call To Arms",
+    "slot": "training",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Charge"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "vr",
+    "slug": "axe-ewok",
+    "name": "Axe Ewok",
+    "slot": "heavy weapon",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Pierce",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "vs",
+    "slug": "insatiable-curiosity",
+    "name": "Insatiable Curiosity",
+    "slot": "training",
+    "cost": 8,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "vt",
+    "slug": "ewok-trapper",
+    "name": "Ewok Trapper",
+    "slot": "personnel",
+    "cost": 10,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "wa",
+    "slug": "secret-ingredients",
+    "name": "Secret Ingredients",
+    "slot": "training",
+    "cost": 5,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Aid"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "wb",
+    "slug": "herbal-medicine",
+    "name": "Herbal Medicine",
+    "slot": "training",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "wc",
+    "slug": "onward-to-victory",
+    "name": "Onward to Victory",
+    "slot": "training",
+    "cost": 10,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "wq",
+    "slug": "inquisitorius-training",
+    "name": "Inquisitorius Training",
+    "slot": "training",
+    "cost": 5,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "wr",
+    "slug": "force-pike-warrior",
+    "name": "Force Pike Warrior",
+    "slot": "heavy weapon",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "ws",
+    "slug": "sonic-cannon-warrior",
+    "name": "Sonic Cannon Warrior",
+    "slot": "heavy weapon",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Scatter",
+      "Impact"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "wt",
+    "slug": "geonosian-warrior",
+    "name": "Geonosian Warrior",
+    "slot": "personnel",
+    "cost": 11,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "xk",
+    "slug": "dc-17m-icws-configuration",
+    "name": "DC-17m ICWS Config",
+    "slot": "armament",
+    "cost": 0,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Impact",
+      "Scatter",
+      "Lethal",
+      "High Velocity",
+      "Reconfigure"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "xl",
+    "slug": "katarn-pattern-armor",
+    "name": "Katarn Pattern Armor",
+    "slot": "gear",
+    "cost": 0,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "xm",
+    "slug": "range-trooper",
+    "name": "Range Trooper",
+    "slot": "personnel",
+    "cost": 15,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "xn",
+    "slug": "dlt-20a-range-trooper",
+    "name": "DLT-20A Range Trooper",
+    "slot": "heavy weapon",
+    "cost": 25,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "xo",
+    "slug": "t-21a-range-trooper",
+    "name": "T-21A Range Trooper",
+    "slot": "heavy weapon",
+    "cost": 28,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Suppressive"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "xq",
+    "slug": "echo-2",
+    "name": "Echo",
+    "slot": "heavy weapon",
+    "cost": 0,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Reliable"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "xr",
+    "slug": "hunter-2",
+    "name": "Hunter",
+    "slot": "heavy weapon",
+    "cost": 0,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Leader"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "xs",
+    "slug": "wrecker",
+    "name": "Wrecker",
+    "slot": "heavy weapon",
+    "cost": 0,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [],
+    "cardImage": null
+  },
+  {
+    "id": "xt",
+    "slug": "tech",
+    "name": "Tech",
+    "slot": "heavy weapon",
+    "cost": 0,
+    "isUnique": true,
+    "faction": null,
+    "keywords": [
+      "Cache",
+      "Tactical"
+    ],
+    "cardImage": null
+  },
+  {
+    "id": "xu",
+    "slug": "crosshair",
+    "name": "Crosshair",
+    "slot": "heavy weapon",
+    "cost": 0,
+    "isUnique": true,
+    "faction": "republic",
+    "keywords": [
+      "Critical",
+      "High Velocity",
+      "Pierce",
+      "Precise"
+    ],
+    "cardImage": null
+  }
+]

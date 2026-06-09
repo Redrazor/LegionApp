@@ -1,0 +1,333 @@
+// Pure, testable transforms for the LegionApp data pipeline.
+// Merges tabletopadmiral.com unit data (current list + card-scan images) with
+// Legion HQ structured stats (defense, surges, keywords, upgrade slots).
+
+import { FACTION_BY_FKEY, RANK_BY_FKEY, UNIT_TYPE_BY_FKEY, FACTION_BY_LHQ } from './fkey-maps.ts'
+
+export interface TtaUnit {
+  id: string | number
+  name: string
+  title?: string | null
+  include_title?: boolean
+  current_cost?: number | null
+  original_cost?: number | null
+  health?: number | null
+  courage?: number | null
+  speed?: number | null
+  red_defense?: boolean | null
+  is_unique?: boolean
+  faction_fkey?: number
+  rank_fkey?: number
+  unit_type_fkey?: number
+  image_url?: string | null
+  cloudinary_image_url?: string | null
+  portrait_image_url?: string | null
+}
+
+export interface LhqCard {
+  id: string
+  cardName: string
+  displayName?: string
+  title?: string
+  cardType: string
+  cardSubtype?: string
+  faction?: string
+  rank?: string
+  cost?: number
+  defense?: string // 'red' | 'white'
+  surges?: string[]
+  speed?: number
+  wounds?: number
+  resilience?: number | string
+  courage?: number | string
+  isUnique?: boolean
+  keywords?: string[]
+  upgradeBar?: string[]
+  commander?: string
+  requirements?: unknown[]
+  faction_restriction?: string
+  history?: { date: string; description: string }[]
+  imageName?: string
+}
+
+export interface Unit {
+  id: string
+  slug: string
+  name: string
+  title: string
+  faction: string
+  rank: string
+  unitType: string
+  cost: number | null
+  defense: string | null
+  surgeAttack: string | null // 'crit' | 'hit' | null
+  surgeDefense: boolean // converts to block
+  speed: number | null
+  wounds: number | null
+  courage: number | null
+  isUnique: boolean
+  keywords: string[]
+  upgradeBar: string[]
+  cardImage: string | null
+  portraitImage: string | null
+  hasFullData: boolean
+  history: { date: string; description: string }[]
+}
+
+export interface Upgrade {
+  id: string
+  slug: string
+  name: string
+  slot: string
+  cost: number | null
+  isUnique: boolean
+  faction: string | null // faction restriction, if any
+  keywords: string[]
+  cardImage: string | null
+}
+
+export interface CommandCard {
+  id: string
+  slug: string
+  name: string
+  pips: number // 1,2,3 or 4 for special; 0 = unknown
+  commander: string | null
+  faction: string | null
+  cardImage: string | null
+}
+
+export interface Product {
+  code: string
+  name: string
+  faction: string
+  type: 'unit-expansion' | 'core-set' | 'battle-force'
+  unitSlugs: string[]
+}
+
+const RANK_ORDER = ['commander', 'operative', 'corps', 'special', 'support', 'heavy']
+export const FACTIONS = ['rebels', 'empire', 'republic', 'separatists', 'mercenary']
+
+export function rankIndex(rank: string): number {
+  const i = RANK_ORDER.indexOf(rank)
+  return i === -1 ? 99 : i
+}
+
+/** Normalise a card name for cross-source matching. */
+export function normName(s: string | undefined | null): string {
+  return (s ?? '')
+    .toLowerCase()
+    .replace(/\b(strike team)\b/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+}
+
+/** Slugify a name (+ optional title) into a stable URL-safe id. */
+export function slugify(name: string, title?: string | null): string {
+  const base = title ? `${name} ${title}` : name
+  return base
+    .toLowerCase()
+    .replace(/[''".,()]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+export function decodeFaction(fkey?: number): string {
+  return (fkey != null && FACTION_BY_FKEY[fkey]) || 'mercenary'
+}
+export function decodeRank(fkey?: number): string {
+  return (fkey != null && RANK_BY_FKEY[fkey]) || 'corps'
+}
+export function decodeUnitType(fkey?: number): string {
+  return (fkey != null && UNIT_TYPE_BY_FKEY[fkey]) || 'trooper'
+}
+
+function lhqFaction(f?: string): string | null {
+  if (!f) return null
+  return FACTION_BY_LHQ[f] ?? null
+}
+
+/** Split Legion HQ surge array into attack/defense conversions. */
+function splitSurges(surges?: string[]): { surgeAttack: string | null; surgeDefense: boolean } {
+  const s = surges ?? []
+  const surgeAttack = s.includes('crit') ? 'crit' : s.includes('hit') ? 'hit' : null
+  const surgeDefense = s.includes('block')
+  return { surgeAttack, surgeDefense }
+}
+
+function num(v: unknown): number | null {
+  if (v == null || v === '') return null
+  const n = typeof v === 'number' ? v : parseInt(String(v), 10)
+  return Number.isFinite(n) ? n : null
+}
+
+/**
+ * Build the merged unit catalogue.
+ * Base list = tabletopadmiral units (current). Structured stats merged from
+ * Legion HQ by normalised name. Legion-HQ-only units are appended so nothing
+ * is lost.
+ */
+export function buildUnits(ttaUnits: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
+  const lhqByName = new Map<string, LhqCard>()
+  for (const c of lhqUnits) {
+    const key = normName(c.cardName)
+    if (!lhqByName.has(key)) lhqByName.set(key, c)
+  }
+
+  const usedLhq = new Set<string>()
+  const units: Unit[] = []
+  const seenSlugs = new Set<string>()
+
+  function addUnit(u: Unit) {
+    let slug = u.slug
+    let n = 2
+    while (seenSlugs.has(slug)) slug = `${u.slug}-${n++}`
+    u.slug = slug
+    seenSlugs.add(slug)
+    units.push(u)
+  }
+
+  for (const t of ttaUnits) {
+    const key = normName(t.name)
+    const lhq = lhqByName.get(key)
+    if (lhq) usedLhq.add(key)
+    const title = (t.include_title && t.title) || lhq?.title || ''
+    const { surgeAttack, surgeDefense } = splitSurges(lhq?.surges)
+    const img = t.image_url || t.cloudinary_image_url || null
+    addUnit({
+      id: String(t.id),
+      slug: slugify(t.name, title),
+      name: t.name.trim(),
+      title: (title || '').trim(),
+      faction: lhqFaction(lhq?.faction) ?? decodeFaction(t.faction_fkey),
+      rank: lhq?.rank || decodeRank(t.rank_fkey),
+      unitType: decodeUnitType(t.unit_type_fkey),
+      cost: num(t.current_cost) ?? num(lhq?.cost),
+      defense: lhq?.defense ?? (t.red_defense === true ? 'red' : t.red_defense === false ? 'white' : null),
+      surgeAttack,
+      surgeDefense,
+      speed: num(t.speed) ?? num(lhq?.speed),
+      wounds: num(t.health) ?? num(lhq?.wounds),
+      courage: num(t.courage) ?? num(lhq?.courage),
+      isUnique: !!(t.is_unique ?? lhq?.isUnique),
+      keywords: lhq?.keywords ?? [],
+      upgradeBar: lhq?.upgradeBar ?? [],
+      cardImage: img ? `/images/units/${slugify(t.name, title)}.webp` : null,
+      portraitImage: t.portrait_image_url ? `/images/portraits/${slugify(t.name, title)}.webp` : null,
+      hasFullData: !!lhq,
+    } as Unit & { _imgSrc?: string })
+  }
+
+  // Append Legion-HQ-only units (e.g. strike-team variants) with no card scan.
+  for (const c of lhqUnits) {
+    const key = normName(c.cardName)
+    if (usedLhq.has(key)) continue
+    const { surgeAttack, surgeDefense } = splitSurges(c.surges)
+    addUnit({
+      id: `lhq-${c.id}`,
+      slug: slugify(c.cardName, c.title),
+      name: (c.displayName || c.cardName).trim(),
+      title: (c.title || '').trim(),
+      faction: lhqFaction(c.faction) ?? 'mercenary',
+      rank: c.rank || 'corps',
+      unitType: c.cardSubtype || 'trooper',
+      cost: num(c.cost),
+      defense: c.defense ?? null,
+      surgeAttack,
+      surgeDefense,
+      speed: num(c.speed),
+      wounds: num(c.wounds),
+      courage: num(c.courage),
+      isUnique: !!c.isUnique,
+      keywords: c.keywords ?? [],
+      upgradeBar: c.upgradeBar ?? [],
+      cardImage: null,
+      portraitImage: null,
+      hasFullData: true,
+      history: c.history ?? [],
+    })
+  }
+
+  // Attach history for tabletopadmiral-based units from LHQ where available.
+  for (const u of units) {
+    if (u.history) continue
+    const lhq = lhqByName.get(normName(u.name))
+    u.history = lhq?.history ?? []
+  }
+
+  units.sort((a, b) =>
+    a.faction === b.faction
+      ? rankIndex(a.rank) - rankIndex(b.rank) || a.name.localeCompare(b.name)
+      : a.faction.localeCompare(b.faction),
+  )
+  return units
+}
+
+export function buildUpgrades(lhqUpgrades: LhqCard[]): Upgrade[] {
+  const seen = new Set<string>()
+  return lhqUpgrades.map((c) => {
+    let slug = slugify(c.cardName)
+    let n = 2
+    while (seen.has(slug)) slug = `${slugify(c.cardName)}-${n++}`
+    seen.add(slug)
+    return {
+      id: c.id,
+      slug,
+      name: (c.displayName || c.cardName).trim(),
+      slot: c.cardSubtype || 'gear',
+      cost: num(c.cost),
+      isUnique: !!c.isUnique,
+      faction: lhqFaction(c.faction),
+      keywords: c.keywords ?? [],
+      cardImage: null,
+    }
+  })
+}
+
+export function buildCommands(lhqCommands: LhqCard[]): CommandCard[] {
+  const seen = new Set<string>()
+  return lhqCommands.map((c) => {
+    let slug = slugify(c.cardName)
+    let n = 2
+    while (seen.has(slug)) slug = `${slugify(c.cardName)}-${n++}`
+    seen.add(slug)
+    const pips = parseInt(c.cardSubtype || '0', 10)
+    return {
+      id: c.id,
+      slug,
+      name: (c.displayName || c.cardName).trim(),
+      pips: Number.isFinite(pips) ? pips : 0,
+      commander: c.commander ?? null,
+      faction: lhqFaction(c.faction),
+      cardImage: null,
+    }
+  })
+}
+
+const PRODUCT_SUFFIX: Record<string, string> = {
+  commander: 'Commander Expansion',
+  operative: 'Operative Expansion',
+  corps: 'Unit Expansion',
+  special: 'Unit Expansion',
+  support: 'Support Expansion',
+  heavy: 'Heavy Expansion',
+}
+
+/** Generate a Collection product list: one expansion per unit, grouped by faction. */
+export function buildProducts(units: Unit[]): Product[] {
+  const products: Product[] = []
+  const seen = new Set<string>()
+  for (const u of units) {
+    const code = `exp-${u.slug}`
+    if (seen.has(code)) continue
+    seen.add(code)
+    const suffix = PRODUCT_SUFFIX[u.rank] ?? 'Unit Expansion'
+    products.push({
+      code,
+      name: `${u.name}${u.title ? `, ${u.title}` : ''} ${suffix}`,
+      faction: u.faction,
+      type: 'unit-expansion',
+      unitSlugs: [u.slug],
+    })
+  }
+  return products
+}

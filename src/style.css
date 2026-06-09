@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  /* Core surface palette */
+  --color-lg-bg: #0a0a0f;
+  --color-lg-surface: #12121a;
+  --color-lg-panel: #16161f;
+  --color-lg-dark: #0d0d14;
+  --color-lg-border: #262633;
+  --color-lg-text: #e8e8f0;
+  --color-lg-muted: #9a9aae;
+
+  /* Primary accent (Legion amber / hologram blue) */
+  --color-lg-gold: #d4a23a;
+  --color-lg-amber: #e0b14a;
+  --color-lg-holo: #38bdf8;
+
+  /* Faction colors */
+  --color-faction-rebels: #d6453c;
+  --color-faction-empire: #5b6b78;
+  --color-faction-republic: #c9942e;
+  --color-faction-separatists: #2f7fb5;
+  --color-faction-shadow: #7a4fb0;
+  --color-faction-mercenary: #8a8f3a;
+
+  /* Status */
+  --color-lg-valid: #4ade80;
+  --color-lg-invalid: #f87171;
+
+  --font-display: 'Orbitron', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--color-lg-bg);
+  color: var(--color-lg-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-lg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-lg-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-lg-gold);
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; color: #000; }
+}

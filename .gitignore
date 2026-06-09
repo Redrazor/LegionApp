@@ -2,7 +2,8 @@ node_modules/
 dist/
 .env
 .env.local
-public/images/
+public/images/units/
+public/images/portraits/
 server/db/legion.db
 server/db/legion.db-shm
 server/db/legion.db-wal

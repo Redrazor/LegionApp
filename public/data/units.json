@@ -2,7 +2,7 @@
   {
     "id": "81",
     "name": "Agent Kallus",
-    "title": "Hunter of Spectres",
+    "title": "",
     "faction": "empire",
     "rank": "commander",
     "unitType": "trooper",
@@ -35,8 +35,8 @@
         "description": "Cost reduced from 90 to 85 points."
       }
     ],
-    "slug": "agent-kallus-hunter-of-spectres",
-    "cardImage": "/images/units/agent-kallus-hunter-of-spectres.webp",
+    "slug": "agent-kallus",
+    "cardImage": "/images/units/agent-kallus.webp",
     "portraitImage": null
   },
   {
@@ -89,9 +89,58 @@
     "portraitImage": null
   },
   {
+    "id": "47",
+    "name": "Darth Vader",
+    "title": "",
+    "faction": "empire",
+    "rank": "commander",
+    "unitType": "trooper",
+    "cost": 175,
+    "defense": "red",
+    "surgeAttack": null,
+    "surgeDefense": false,
+    "speed": 2,
+    "wounds": 6,
+    "courage": 3,
+    "isUnique": true,
+    "keywords": [
+      "Deflect",
+      "Immune",
+      "Master of the Force",
+      "Relentless",
+      "Impact",
+      "Pierce",
+      "Compel"
+    ],
+    "upgradeBar": [
+      "command",
+      "force",
+      "force",
+      "force"
+    ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "12 September 2019",
+        "description": "Cost reduced from 200 to 190 points."
+      },
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 190 to 175 points."
+      },
+      {
+        "date": "27 October 2021",
+        "description": "Cost increased from 175 to 190 points. Added Command upgrade slot and Compel: Corps Trooper."
+      }
+    ],
+    "slug": "darth-vader",
+    "cardImage": "/images/units/darth-vader.webp",
+    "portraitImage": null
+  },
+  {
     "id": "29",
     "name": "Director Orson Krennic",
-    "title": "Architect of Terror",
+    "title": "",
     "faction": "empire",
     "rank": "commander",
     "unitType": "trooper",
@@ -122,14 +171,14 @@
         "description": "Cost reduced from 90 to 75 points."
       }
     ],
-    "slug": "director-orson-krennic-architect-of-terror",
-    "cardImage": "/images/units/director-orson-krennic-architect-of-terror.webp",
+    "slug": "director-orson-krennic",
+    "cardImage": "/images/units/director-orson-krennic.webp",
     "portraitImage": null
   },
   {
     "id": "20",
     "name": "Emperor Palpatine",
-    "title": "Ruler of the Galactic Empire",
+    "title": "",
     "faction": "empire",
     "rank": "commander",
     "unitType": "trooper",
@@ -166,8 +215,8 @@
         "description": "Cost reduced from 200 to 190 points."
       }
     ],
-    "slug": "emperor-palpatine-ruler-of-the-galactic-empire",
-    "cardImage": "/images/units/emperor-palpatine-ruler-of-the-galactic-empire.webp",
+    "slug": "emperor-palpatine",
+    "cardImage": "/images/units/emperor-palpatine.webp",
     "portraitImage": null
   },
   {
@@ -196,7 +245,7 @@
   {
     "id": "8",
     "name": "General Veers",
-    "title": "Master Tactician",
+    "title": "",
     "faction": "empire",
     "rank": "commander",
     "unitType": "trooper",
@@ -231,8 +280,8 @@
         "description": "Cost reduced from 75 to 70 points."
       }
     ],
-    "slug": "general-veers-master-tactician",
-    "cardImage": "/images/units/general-veers-master-tactician.webp",
+    "slug": "general-veers",
+    "cardImage": "/images/units/general-veers.webp",
     "portraitImage": null
   },
   {
@@ -284,7 +333,7 @@
   {
     "id": "58",
     "name": "Iden Versio",
-    "title": "Inferno Squad Leader",
+    "title": "",
     "faction": "empire",
     "rank": "commander",
     "unitType": "droid trooper",
@@ -311,14 +360,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "iden-versio-inferno-squad-leader",
-    "cardImage": "/images/units/iden-versio-inferno-squad-leader.webp",
+    "slug": "iden-versio",
+    "cardImage": "/images/units/iden-versio.webp",
     "portraitImage": null
   },
   {
     "id": "23",
     "name": "Imperial Officer",
-    "title": "Ruthless Commander",
+    "title": "",
     "faction": "empire",
     "rank": "commander",
     "unitType": "trooper",
@@ -350,8 +399,8 @@
         "description": "Cost increased from 45 to 50 points."
       }
     ],
-    "slug": "imperial-officer-ruthless-commander",
-    "cardImage": "/images/units/imperial-officer-ruthless-commander.webp",
+    "slug": "imperial-officer",
+    "cardImage": "/images/units/imperial-officer.webp",
     "portraitImage": null
   },
   {
@@ -812,40 +861,6 @@
   },
   {
     "id": "79",
-    "name": "Imperial Special Forces",
-    "title": "Inferno Squad",
-    "faction": "empire",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 68,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 2,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Infiltrate",
-      "Marksman",
-      "Reliable"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
-    "hasFullData": true,
-    "history": [],
-    "slug": "imperial-special-forces-inferno-squad",
-    "cardImage": "/images/units/imperial-special-forces-inferno-squad.webp",
-    "portraitImage": null
-  },
-  {
-    "id": "lhq-my",
     "name": "Inferno Squad",
     "title": "",
     "faction": "empire",
@@ -878,7 +893,7 @@
     "hasFullData": true,
     "history": [],
     "slug": "inferno-squad",
-    "cardImage": null,
+    "cardImage": "/images/units/inferno-squad.webp",
     "portraitImage": null
   },
   {
@@ -1158,7 +1173,7 @@
     "portraitImage": null
   },
   {
-    "id": "lhq-on",
+    "id": "773",
     "name": "LAAT Patrol Transport",
     "title": "",
     "faction": "empire",
@@ -1169,8 +1184,8 @@
     "surgeAttack": null,
     "surgeDefense": true,
     "speed": 2,
-    "wounds": 8,
-    "courage": null,
+    "wounds": 1,
+    "courage": 2,
     "isUnique": false,
     "keywords": [
       "Armor",
@@ -1194,36 +1209,13 @@
       }
     ],
     "slug": "laat-patrol-transport",
-    "cardImage": null,
-    "portraitImage": null
-  },
-  {
-    "id": "773",
-    "name": "LAAT/LE Patrol Transport",
-    "title": "",
-    "faction": "empire",
-    "rank": "heavy",
-    "unitType": "repulsor vehicle",
-    "cost": 105,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "hasFullData": false,
-    "history": [],
-    "slug": "laat-le-patrol-transport",
-    "cardImage": "/images/units/laat-le-patrol-transport.webp",
+    "cardImage": "/images/units/laat-patrol-transport.webp",
     "portraitImage": null
   },
   {
     "id": "17348",
     "name": "Major Marquand",
-    "title": "Tempest Scout 2",
+    "title": "",
     "faction": "empire",
     "rank": "heavy",
     "unitType": "repulsor vehicle",
@@ -1248,12 +1240,12 @@
     "upgradeBar": [],
     "hasFullData": true,
     "history": [],
-    "slug": "major-marquand-tempest-scout-2",
-    "cardImage": "/images/units/major-marquand-tempest-scout-2.webp",
+    "slug": "major-marquand",
+    "cardImage": "/images/units/major-marquand.webp",
     "portraitImage": null
   },
   {
-    "id": "lhq-bh",
+    "id": "31",
     "name": "Occupier Tank",
     "title": "",
     "faction": "empire",
@@ -1295,30 +1287,7 @@
       }
     ],
     "slug": "occupier-tank",
-    "cardImage": null,
-    "portraitImage": null
-  },
-  {
-    "id": "31",
-    "name": "TX-225 GAVw Occupier Tank",
-    "title": "",
-    "faction": "empire",
-    "rank": "heavy",
-    "unitType": "ground vehicle",
-    "cost": 140,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 8,
-    "courage": 6,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "hasFullData": false,
-    "history": [],
-    "slug": "tx-225-gavw-occupier-tank",
-    "cardImage": "/images/units/tx-225-gavw-occupier-tank.webp",
+    "cardImage": "/images/units/occupier-tank.webp",
     "portraitImage": null
   },
   {
@@ -1377,7 +1346,7 @@
   {
     "id": "15016",
     "name": "C-3P0",
-    "title": "Golden God",
+    "title": "",
     "faction": "mercenary",
     "rank": "commander",
     "unitType": "trooper",
@@ -1397,14 +1366,14 @@
     "upgradeBar": [],
     "hasFullData": true,
     "history": [],
-    "slug": "c-3p0-golden-god",
-    "cardImage": "/images/units/c-3p0-golden-god.webp",
+    "slug": "c-3p0",
+    "cardImage": "/images/units/c-3p0.webp",
     "portraitImage": null
   },
   {
     "id": "4891",
     "name": "Gar Saxon",
-    "title": "Militant Commando",
+    "title": "",
     "faction": "mercenary",
     "rank": "commander",
     "unitType": "trooper",
@@ -1440,8 +1409,8 @@
         "description": "Cost reduced from 105 to 100 points."
       }
     ],
-    "slug": "gar-saxon-militant-commando",
-    "cardImage": "/images/units/gar-saxon-militant-commando.webp",
+    "slug": "gar-saxon",
+    "cardImage": "/images/units/gar-saxon.webp",
     "portraitImage": null
   },
   {
@@ -1490,7 +1459,7 @@
   {
     "id": "16687",
     "name": "Logray",
-    "title": "Superstitious Shaman",
+    "title": "",
     "faction": "mercenary",
     "rank": "commander",
     "unitType": "trooper",
@@ -1518,8 +1487,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "logray-superstitious-shaman",
-    "cardImage": "/images/units/logray-superstitious-shaman.webp",
+    "slug": "logray",
+    "cardImage": "/images/units/logray.webp",
     "portraitImage": null
   },
   {
@@ -1681,7 +1650,7 @@
   {
     "id": "6176",
     "name": "Boba Fett",
-    "title": "Infamous Bounty Hunter",
+    "title": "",
     "faction": "mercenary",
     "rank": "operative",
     "unitType": "trooper",
@@ -1725,14 +1694,14 @@
         "description": "Cost increased from 120 to 130 points."
       }
     ],
-    "slug": "boba-fett-infamous-bounty-hunter",
-    "cardImage": "/images/units/boba-fett-infamous-bounty-hunter.webp",
+    "slug": "boba-fett",
+    "cardImage": "/images/units/boba-fett.webp",
     "portraitImage": null
   },
   {
     "id": "4999",
     "name": "Bossk",
-    "title": "Trandoshan Terror",
+    "title": "",
     "faction": "mercenary",
     "rank": "operative",
     "unitType": "trooper",
@@ -1765,14 +1734,14 @@
         "description": "Cost reduced from 115 to 105 points."
       }
     ],
-    "slug": "bossk-trandoshan-terror",
-    "cardImage": "/images/units/bossk-trandoshan-terror.webp",
+    "slug": "bossk",
+    "cardImage": "/images/units/bossk.webp",
     "portraitImage": null
   },
   {
     "id": "5001",
     "name": "Cad Bane",
-    "title": "Needs No Introduction",
+    "title": "",
     "faction": "mercenary",
     "rank": "operative",
     "unitType": "trooper",
@@ -1812,14 +1781,14 @@
         "description": "Cost reduced from 120 to 105 points."
       }
     ],
-    "slug": "cad-bane-needs-no-introduction",
-    "cardImage": "/images/units/cad-bane-needs-no-introduction.webp",
+    "slug": "cad-bane",
+    "cardImage": "/images/units/cad-bane.webp",
     "portraitImage": null
   },
   {
     "id": "6179",
     "name": "Din Djarin",
-    "title": "The Mandalorian",
+    "title": "",
     "faction": "mercenary",
     "rank": "operative",
     "unitType": "trooper",
@@ -1851,8 +1820,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "din-djarin-the-mandalorian",
-    "cardImage": "/images/units/din-djarin-the-mandalorian.webp",
+    "slug": "din-djarin",
+    "cardImage": "/images/units/din-djarin.webp",
     "portraitImage": null
   },
   {
@@ -1904,7 +1873,7 @@
   {
     "id": "6178",
     "name": "IG-11",
-    "title": "Nurse and Protect",
+    "title": "",
     "faction": "mercenary",
     "rank": "operative",
     "unitType": "droid trooper",
@@ -1931,14 +1900,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "ig-11-nurse-and-protect",
-    "cardImage": "/images/units/ig-11-nurse-and-protect.webp",
+    "slug": "ig-11",
+    "cardImage": "/images/units/ig-11.webp",
     "portraitImage": null
   },
   {
     "id": "6177",
     "name": "IG-88",
-    "title": "Notorious Assassin Droid",
+    "title": "",
     "faction": "mercenary",
     "rank": "operative",
     "unitType": "droid trooper",
@@ -1965,8 +1934,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "ig-88-notorious-assassin-droid",
-    "cardImage": "/images/units/ig-88-notorious-assassin-droid.webp",
+    "slug": "ig-88",
+    "cardImage": "/images/units/ig-88.webp",
     "portraitImage": null
   },
   {
@@ -2260,29 +2229,6 @@
     "portraitImage": null
   },
   {
-    "id": "33773",
-    "name": "Clan Wren Veterans",
-    "title": "",
-    "faction": "mercenary",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": null,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 3,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "hasFullData": false,
-    "history": [],
-    "slug": "clan-wren-veterans",
-    "cardImage": "/images/units/clan-wren-veterans.webp",
-    "portraitImage": null
-  },
-  {
     "id": "16377",
     "name": "Ewok Slingers",
     "title": "",
@@ -2463,7 +2409,7 @@
   {
     "id": "57",
     "name": "Cassian Andor",
-    "title": "Capable Intelligence Agent",
+    "title": "",
     "faction": "rebels",
     "rank": "commander",
     "unitType": "trooper",
@@ -2490,14 +2436,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "cassian-andor-capable-intelligence-agent",
-    "cardImage": "/images/units/cassian-andor-capable-intelligence-agent.webp",
+    "slug": "cassian-andor",
+    "cardImage": "/images/units/cassian-andor.webp",
     "portraitImage": null
   },
   {
     "id": "15",
     "name": "Han Solo",
-    "title": "Unorthodox General",
+    "title": "",
     "faction": "rebels",
     "rank": "commander",
     "unitType": "trooper",
@@ -2529,8 +2475,8 @@
         "description": "Cost reduced from 120 to 100 points."
       }
     ],
-    "slug": "han-solo-unorthodox-general",
-    "cardImage": "/images/units/han-solo-unorthodox-general.webp",
+    "slug": "han-solo",
+    "cardImage": "/images/units/han-solo.webp",
     "portraitImage": null
   },
   {
@@ -2575,7 +2521,7 @@
   {
     "id": "27",
     "name": "Jyn Erso",
-    "title": "Stardust",
+    "title": "",
     "faction": "rebels",
     "rank": "commander",
     "unitType": "trooper",
@@ -2616,14 +2562,14 @@
         "description": "Cost reduced from 100 to 90 points."
       }
     ],
-    "slug": "jyn-erso-stardust",
-    "cardImage": "/images/units/jyn-erso-stardust.webp",
+    "slug": "jyn-erso",
+    "cardImage": "/images/units/jyn-erso.webp",
     "portraitImage": null
   },
   {
     "id": "80",
     "name": "Lando Calrissian",
-    "title": "Smooth Operator",
+    "title": "",
     "faction": "rebels",
     "rank": "commander",
     "unitType": "trooper",
@@ -2655,14 +2601,14 @@
         "description": "Cost reduced from 105 to 95 points."
       }
     ],
-    "slug": "lando-calrissian-smooth-operator",
-    "cardImage": "/images/units/lando-calrissian-smooth-operator.webp",
+    "slug": "lando-calrissian",
+    "cardImage": "/images/units/lando-calrissian.webp",
     "portraitImage": null
   },
   {
     "id": "11",
     "name": "Leia Organa",
-    "title": "Fearless and Inventive",
+    "title": "",
     "faction": "rebels",
     "rank": "commander",
     "unitType": "trooper",
@@ -2697,8 +2643,8 @@
         "description": "Cost reduced from 80 to 75 points."
       }
     ],
-    "slug": "leia-organa-fearless-and-inventive",
-    "cardImage": "/images/units/leia-organa-fearless-and-inventive.webp",
+    "slug": "leia-organa",
+    "cardImage": "/images/units/leia-organa.webp",
     "portraitImage": null
   },
   {
@@ -2821,7 +2767,7 @@
   {
     "id": "22",
     "name": "Rebel Officer",
-    "title": "Resolute Commander",
+    "title": "",
     "faction": "rebels",
     "rank": "commander",
     "unitType": "trooper",
@@ -2849,14 +2795,14 @@
         "description": "Cost reduced from 50 to 45 points."
       }
     ],
-    "slug": "rebel-officer-resolute-commander",
-    "cardImage": "/images/units/rebel-officer-resolute-commander.webp",
+    "slug": "rebel-officer",
+    "cardImage": "/images/units/rebel-officer.webp",
     "portraitImage": null
   },
   {
     "id": "15015",
     "name": "Wicket",
-    "title": "Hero of Bright Tree",
+    "title": "",
     "faction": "rebels",
     "rank": "commander",
     "unitType": "trooper",
@@ -2886,14 +2832,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "wicket-hero-of-bright-tree",
-    "cardImage": "/images/units/wicket-hero-of-bright-tree.webp",
+    "slug": "wicket",
+    "cardImage": "/images/units/wicket.webp",
     "portraitImage": null
   },
   {
     "id": "15014",
     "name": "Ahsoka Tano",
-    "title": "Fulcrum",
+    "title": "",
     "faction": "rebels",
     "rank": "operative",
     "unitType": "trooper",
@@ -2923,8 +2869,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "ahsoka-tano-fulcrum",
-    "cardImage": "/images/units/ahsoka-tano-fulcrum.webp",
+    "slug": "ahsoka-tano",
+    "cardImage": "/images/units/ahsoka-tano.webp",
     "portraitImage": null
   },
   {
@@ -2967,7 +2913,7 @@
   {
     "id": "25",
     "name": "Chewbacca",
-    "title": "Walking Carpet",
+    "title": "",
     "faction": "rebels",
     "rank": "operative",
     "unitType": "trooper",
@@ -3004,14 +2950,14 @@
         "description": "Cost reduced from 95 to 90 points. Gained Wookiee Warrior tag and Scale keyword. Weapon gained Lethal keyword. Lost Expert Climber and Unhindered keywords."
       }
     ],
-    "slug": "chewbacca-walking-carpet",
-    "cardImage": "/images/units/chewbacca-walking-carpet.webp",
+    "slug": "chewbacca",
+    "cardImage": "/images/units/chewbacca.webp",
     "portraitImage": null
   },
   {
     "id": "29932",
     "name": "K-2SO",
-    "title": "Sardonic Security Droid",
+    "title": "",
     "faction": "rebels",
     "rank": "operative",
     "unitType": "droid trooper",
@@ -3036,14 +2982,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "k-2so-sardonic-security-droid",
-    "cardImage": "/images/units/k-2so-sardonic-security-droid.webp",
+    "slug": "k-2so",
+    "cardImage": "/images/units/k-2so.webp",
     "portraitImage": null
   },
   {
     "id": "56",
     "name": "R2-D2",
-    "title": "Hero of a Thousand Devices",
+    "title": "",
     "faction": "rebels",
     "rank": "operative",
     "unitType": "droid trooper",
@@ -3076,8 +3022,8 @@
         "description": "Cost increased from 45 to 55 points."
       }
     ],
-    "slug": "r2-d2-hero-of-a-thousand-devices",
-    "cardImage": "/images/units/r2-d2-hero-of-a-thousand-devices.webp",
+    "slug": "r2-d2",
+    "cardImage": "/images/units/r2-d2.webp",
     "portraitImage": null
   },
   {
@@ -3106,7 +3052,7 @@
   {
     "id": "33",
     "name": "Sabine Wren",
-    "title": "Explosive Artist",
+    "title": "",
     "faction": "rebels",
     "rank": "operative",
     "unitType": "trooper",
@@ -3133,8 +3079,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "sabine-wren-explosive-artist",
-    "cardImage": "/images/units/sabine-wren-explosive-artist.webp",
+    "slug": "sabine-wren",
+    "cardImage": "/images/units/sabine-wren.webp",
     "portraitImage": null
   },
   {
@@ -3275,7 +3221,7 @@
     "portraitImage": null
   },
   {
-    "id": "lhq-ml",
+    "id": "33773",
     "name": "Clan Wren",
     "title": "",
     "faction": "rebels",
@@ -3313,7 +3259,7 @@
       }
     ],
     "slug": "clan-wren",
-    "cardImage": null,
+    "cardImage": "/images/units/clan-wren.webp",
     "portraitImage": null
   },
   {
@@ -3838,7 +3784,7 @@
   {
     "id": "73",
     "name": "Anakin Skywalker",
-    "title": "The Chosen One",
+    "title": "",
     "faction": "republic",
     "rank": "commander",
     "unitType": "trooper",
@@ -3872,8 +3818,8 @@
         "description": "Cost reduced from 160 to 155 points."
       }
     ],
-    "slug": "anakin-skywalker-the-chosen-one",
-    "cardImage": "/images/units/anakin-skywalker-the-chosen-one.webp",
+    "slug": "anakin-skywalker",
+    "cardImage": "/images/units/anakin-skywalker.webp",
     "portraitImage": null
   },
   {
@@ -3920,7 +3866,7 @@
   {
     "id": "50",
     "name": "Clone Captain Rex",
-    "title": "Honorable Soldier",
+    "title": "",
     "faction": "republic",
     "rank": "commander",
     "unitType": "clone trooper",
@@ -3957,14 +3903,14 @@
         "description": "Cost reduced from 100 to 95 points."
       }
     ],
-    "slug": "clone-captain-rex-honorable-soldier",
-    "cardImage": "/images/units/clone-captain-rex-honorable-soldier.webp",
+    "slug": "clone-captain-rex",
+    "cardImage": "/images/units/clone-captain-rex.webp",
     "portraitImage": null
   },
   {
     "id": "75",
     "name": "Clone Commander",
-    "title": "Trained For Leadership",
+    "title": "",
     "faction": "republic",
     "rank": "commander",
     "unitType": "trooper",
@@ -3993,14 +3939,14 @@
         "description": "Cost increased from 55 to 60 points."
       }
     ],
-    "slug": "clone-commander-trained-for-leadership",
-    "cardImage": "/images/units/clone-commander-trained-for-leadership.webp",
+    "slug": "clone-commander",
+    "cardImage": "/images/units/clone-commander.webp",
     "portraitImage": null
   },
   {
     "id": "6376",
     "name": "Clone Commander Cody",
-    "title": "Leader of the 212th",
+    "title": "",
     "faction": "republic",
     "rank": "commander",
     "unitType": "clone trooper",
@@ -4026,8 +3972,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "clone-commander-cody-leader-of-the-212th",
-    "cardImage": "/images/units/clone-commander-cody-leader-of-the-212th.webp",
+    "slug": "clone-commander-cody",
+    "cardImage": "/images/units/clone-commander-cody.webp",
     "portraitImage": null
   },
   {
@@ -4125,7 +4071,7 @@
   {
     "id": "41",
     "name": "Obi-Wan Kenobi",
-    "title": "Civilized Warrior",
+    "title": "",
     "faction": "republic",
     "rank": "commander",
     "unitType": "trooper",
@@ -4161,14 +4107,14 @@
         "description": "Cost reduced from 175 to 170 points."
       }
     ],
-    "slug": "obi-wan-kenobi-civilized-warrior",
-    "cardImage": "/images/units/obi-wan-kenobi-civilized-warrior.webp",
+    "slug": "obi-wan-kenobi",
+    "cardImage": "/images/units/obi-wan-kenobi.webp",
     "portraitImage": null
   },
   {
     "id": "1528",
     "name": "Wookiee Chieftain",
-    "title": "Clan Leader",
+    "title": "",
     "faction": "republic",
     "rank": "commander",
     "unitType": "trooper",
@@ -4197,14 +4143,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "wookiee-chieftain-clan-leader",
-    "cardImage": "/images/units/wookiee-chieftain-clan-leader.webp",
+    "slug": "wookiee-chieftain",
+    "cardImage": "/images/units/wookiee-chieftain.webp",
     "portraitImage": null
   },
   {
     "id": "764",
     "name": "Yoda",
-    "title": "Grand Master of the Jedi Order",
+    "title": "",
     "faction": "republic",
     "rank": "commander",
     "unitType": "trooper",
@@ -4234,8 +4180,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "yoda-grand-master-of-the-jedi-order",
-    "cardImage": "/images/units/yoda-grand-master-of-the-jedi-order.webp",
+    "slug": "yoda",
+    "cardImage": "/images/units/yoda.webp",
     "portraitImage": null
   },
   {
@@ -4264,7 +4210,7 @@
   {
     "id": "60",
     "name": "Padme Amidala",
-    "title": "Spirited Senator",
+    "title": "",
     "faction": "republic",
     "rank": "operative",
     "unitType": "trooper",
@@ -4297,8 +4243,8 @@
         "description": "Cost reduced from 90 to 85 points."
       }
     ],
-    "slug": "padme-amidala-spirited-senator",
-    "cardImage": "/images/units/padme-amidala-spirited-senator.webp",
+    "slug": "padme-amidala",
+    "cardImage": "/images/units/padme-amidala.webp",
     "portraitImage": null
   },
   {
@@ -4647,29 +4593,6 @@
   },
   {
     "id": "24084",
-    "name": "Clone Commandos (DS)",
-    "title": "Delta Squad",
-    "faction": "republic",
-    "rank": "support",
-    "unitType": "clone trooper",
-    "cost": 105,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 0,
-    "isUnique": true,
-    "keywords": [],
-    "upgradeBar": [],
-    "hasFullData": false,
-    "history": [],
-    "slug": "clone-commandos-ds-delta-squad",
-    "cardImage": "/images/units/clone-commandos-ds-delta-squad.webp",
-    "portraitImage": null
-  },
-  {
-    "id": "lhq-xp",
     "name": "Delta Squad",
     "title": "Delta Squad",
     "faction": "republic",
@@ -4703,7 +4626,7 @@
     "hasFullData": true,
     "history": [],
     "slug": "delta-squad-delta-squad",
-    "cardImage": null,
+    "cardImage": "/images/units/delta-squad-delta-squad.webp",
     "portraitImage": null
   },
   {
@@ -4801,7 +4724,7 @@
     "portraitImage": null
   },
   {
-    "id": "lhq-gb",
+    "id": "53",
     "name": "Saber Fighter Tank",
     "title": "",
     "faction": "republic",
@@ -4839,36 +4762,13 @@
       }
     ],
     "slug": "saber-fighter-tank",
-    "cardImage": null,
-    "portraitImage": null
-  },
-  {
-    "id": "53",
-    "name": "Saber-Class Tank",
-    "title": "",
-    "faction": "republic",
-    "rank": "heavy",
-    "unitType": "ground vehicle",
-    "cost": 160,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 9,
-    "courage": 6,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "hasFullData": false,
-    "history": [],
-    "slug": "saber-class-tank",
-    "cardImage": "/images/units/saber-class-tank.webp",
+    "cardImage": "/images/units/saber-fighter-tank.webp",
     "portraitImage": null
   },
   {
     "id": "49",
     "name": "Count Dooku",
-    "title": "Darth Tyranus",
+    "title": "",
     "faction": "separatists",
     "rank": "commander",
     "unitType": "trooper",
@@ -4911,14 +4811,14 @@
         "description": "Cost reduced from 195 to 185 points."
       }
     ],
-    "slug": "count-dooku-darth-tyranus",
-    "cardImage": "/images/units/count-dooku-darth-tyranus.webp",
+    "slug": "count-dooku",
+    "cardImage": "/images/units/count-dooku.webp",
     "portraitImage": null
   },
   {
     "id": "45",
     "name": "General Grievous",
-    "title": "Sinister Cyborg",
+    "title": "",
     "faction": "separatists",
     "rank": "commander",
     "unitType": "trooper",
@@ -4961,8 +4861,8 @@
         "description": "Cost reduced from 155 to 150 points."
       }
     ],
-    "slug": "general-grievous-sinister-cyborg",
-    "cardImage": "/images/units/general-grievous-sinister-cyborg.webp",
+    "slug": "general-grievous",
+    "cardImage": "/images/units/general-grievous.webp",
     "portraitImage": null
   },
   {
@@ -5160,7 +5060,7 @@
   {
     "id": "76",
     "name": "T-series Tactical Droid",
-    "title": "Programmed For Strategy",
+    "title": "",
     "faction": "separatists",
     "rank": "commander",
     "unitType": "droid trooper",
@@ -5184,14 +5084,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "t-series-tactical-droid-programmed-for-strategy",
-    "cardImage": "/images/units/t-series-tactical-droid-programmed-for-strategy.webp",
+    "slug": "t-series-tactical-droid",
+    "cardImage": "/images/units/t-series-tactical-droid.webp",
     "portraitImage": null
   },
   {
     "id": "13582",
     "name": "Asajj Ventress",
-    "title": "Separatist Assassin",
+    "title": "",
     "faction": "separatists",
     "rank": "operative",
     "unitType": "trooper",
@@ -5220,14 +5120,14 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "asajj-ventress-separatist-assassin",
-    "cardImage": "/images/units/asajj-ventress-separatist-assassin.webp",
+    "slug": "asajj-ventress",
+    "cardImage": "/images/units/asajj-ventress.webp",
     "portraitImage": null
   },
   {
     "id": "4551",
     "name": "Maul",
-    "title": "Impatient Apprentice",
+    "title": "",
     "faction": "separatists",
     "rank": "operative",
     "unitType": "trooper",
@@ -5255,8 +5155,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "maul-impatient-apprentice",
-    "cardImage": "/images/units/maul-impatient-apprentice.webp",
+    "slug": "maul",
+    "cardImage": "/images/units/maul.webp",
     "portraitImage": null
   },
   {
@@ -5394,7 +5294,7 @@
   {
     "id": "19103",
     "name": "Geonosian Warriors",
-    "title": "Soldiers of the Hive",
+    "title": "",
     "faction": "separatists",
     "rank": "corps",
     "unitType": "trooper",
@@ -5418,8 +5318,8 @@
     ],
     "hasFullData": true,
     "history": [],
-    "slug": "geonosian-warriors-soldiers-of-the-hive",
-    "cardImage": "/images/units/geonosian-warriors-soldiers-of-the-hive.webp",
+    "slug": "geonosian-warriors",
+    "cardImage": "/images/units/geonosian-warriors.webp",
     "portraitImage": null
   },
   {
@@ -5733,7 +5633,7 @@
     "portraitImage": null
   },
   {
-    "id": "lhq-gc",
+    "id": "54",
     "name": "AAT Battle Tank",
     "title": "",
     "faction": "separatists",
@@ -5773,7 +5673,7 @@
       }
     ],
     "slug": "aat-battle-tank",
-    "cardImage": null,
+    "cardImage": "/images/units/aat-battle-tank.webp",
     "portraitImage": null
   },
   {
@@ -5801,52 +5701,6 @@
   },
   {
     "id": "2109",
-    "name": "Persuader-class Tank Droid",
-    "title": "",
-    "faction": "separatists",
-    "rank": "heavy",
-    "unitType": "ground vehicle",
-    "cost": 145,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 11,
-    "courage": 7,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "hasFullData": false,
-    "history": [],
-    "slug": "persuader-class-tank-droid",
-    "cardImage": "/images/units/persuader-class-tank-droid.webp",
-    "portraitImage": null
-  },
-  {
-    "id": "19076",
-    "name": "Persuader-class Tank Droid",
-    "title": "Prototype Tank Droid",
-    "faction": "separatists",
-    "rank": "heavy",
-    "unitType": "ground vehicle",
-    "cost": 145,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 11,
-    "courage": 7,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "hasFullData": false,
-    "history": [],
-    "slug": "persuader-class-tank-droid-prototype-tank-droid",
-    "cardImage": "/images/units/persuader-class-tank-droid-prototype-tank-droid.webp",
-    "portraitImage": null
-  },
-  {
-    "id": "lhq-qt",
     "name": "Snail Droid",
     "title": "",
     "faction": "separatists",
@@ -5876,11 +5730,11 @@
     "hasFullData": true,
     "history": [],
     "slug": "snail-droid",
-    "cardImage": null,
+    "cardImage": "/images/units/snail-droid.webp",
     "portraitImage": null
   },
   {
-    "id": "lhq-xe",
+    "id": "19076",
     "name": "Snail Droid",
     "title": "Prototype Tank Droid",
     "faction": "separatists",
@@ -5913,7 +5767,7 @@
     "hasFullData": true,
     "history": [],
     "slug": "snail-droid-prototype-tank-droid",
-    "cardImage": null,
+    "cardImage": "/images/units/snail-droid-prototype-tank-droid.webp",
     "portraitImage": null
   }
 ]

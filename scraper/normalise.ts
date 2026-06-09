@@ -219,6 +219,50 @@ interface Candidate extends Omit<Unit, 'slug' | 'cardImage' | 'portraitImage'> {
   hasPortrait: boolean
 }
 
+/** Merge two candidates that resolve to the same unit (stats from the full-data
+ *  side, image + id from the imaged side). */
+function mergeCandidates(a: Candidate, b: Candidate): Candidate {
+  const stats = a.hasFullData ? a : b.hasFullData ? b : a
+  const img = a.hasImage ? a : b.hasImage ? b : a
+  return {
+    id: img.id,
+    name: stats.name,
+    title: stats.title,
+    faction: stats.faction,
+    rank: stats.rank,
+    unitType: stats.hasFullData ? stats.unitType : img.unitType,
+    cost: stats.cost ?? a.cost ?? b.cost,
+    defense: stats.defense,
+    surgeAttack: stats.surgeAttack,
+    surgeDefense: stats.surgeDefense,
+    speed: stats.speed,
+    wounds: stats.wounds,
+    courage: stats.courage,
+    isUnique: a.isUnique || b.isUnique,
+    keywords: stats.keywords.length ? stats.keywords : img.keywords,
+    upgradeBar: stats.upgradeBar.length ? stats.upgradeBar : img.upgradeBar,
+    hasFullData: a.hasFullData || b.hasFullData,
+    history: stats.history?.length ? stats.history : img.history,
+    hasImage: a.hasImage || b.hasImage,
+    hasPortrait: a.hasPortrait || b.hasPortrait,
+  }
+}
+
+// A few units carry different names in tabletopadmiral vs Legion HQ. Rewriting
+// the tabletopadmiral identity to Legion HQ's display name lets the two records
+// (one with the card image, one with the structured stats) reconcile into a
+// single unit during the merge below. Keyed by `${normName(name)}|${normName(title)}`.
+const CANONICAL: Record<string, { name: string; title: string }> = {
+  'tx 225 gavw occupier tank|': { name: 'Occupier Tank', title: '' },
+  'saber class tank|': { name: 'Saber Fighter Tank', title: '' },
+  'clan wren veterans|': { name: 'Clan Wren', title: '' },
+  'laat le patrol transport|': { name: 'LAAT Patrol Transport', title: '' },
+  'clone commandos ds|delta squad': { name: 'Delta Squad', title: 'Delta Squad' },
+  'persuader class tank droid|': { name: 'Snail Droid', title: '' },
+  'persuader class tank droid|prototype tank droid': { name: 'Snail Droid', title: 'Prototype Tank Droid' },
+  'imperial special forces|inferno squad': { name: 'Inferno Squad', title: '' },
+}
+
 export function buildUnits(ttaUnitsRaw: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
   const ttaUnits = dedupeTtaUnits(ttaUnitsRaw)
   const lhqByName = new Map<string, LhqCard>()
@@ -231,14 +275,17 @@ export function buildUnits(ttaUnitsRaw: TtaUnit[], lhqUnits: LhqCard[]): Unit[] 
   const candidates: Candidate[] = []
 
   for (const t of ttaUnits) {
-    const key = normName(t.name)
+    const rawTitle = (t.include_title && t.title) || ''
+    const canon = CANONICAL[`${normName(t.name)}|${normName(rawTitle)}`]
+    const tName = canon?.name ?? t.name
+    const key = normName(tName)
     const lhq = lhqByName.get(key)
     if (lhq) usedLhq.add(key)
-    const title = (t.include_title && t.title) || lhq?.title || ''
+    const title = canon?.title ?? rawTitle ?? lhq?.title ?? ''
     const { surgeAttack, surgeDefense } = splitSurges(lhq?.surges)
     candidates.push({
       id: String(t.id),
-      name: t.name.trim(),
+      name: tName.trim(),
       title: (title || '').trim(),
       faction: (lhqFaction(lhq?.faction) ?? decodeFaction(t.faction_fkey)) as Unit['faction'],
       rank: (lhq?.rank || decodeRank(t.rank_fkey)) as Unit['rank'],
@@ -289,14 +336,15 @@ export function buildUnits(ttaUnitsRaw: TtaUnit[], lhqUnits: LhqCard[]): Unit[] 
     })
   }
 
-  // Final dedupe across all sources by (name, title, rank). Prefer the entry
-  // with full stats, then a card scan, then a points cost.
-  const score = (c: Candidate) => (c.hasFullData ? 4 : 0) + (c.hasImage ? 2 : 0) + (c.cost != null ? 1 : 0)
+  // Collapse same-identity (name, title, rank) candidates across sources by
+  // MERGING them: structured stats come from the Legion HQ side, the card image
+  // and its id from the tabletopadmiral side, so a unit split across both ends
+  // up with both rather than losing one.
   const byKey = new Map<string, Candidate>()
   for (const c of candidates) {
     const key = `${normName(c.name)}|${normName(c.title)}|${c.rank}`
     const existing = byKey.get(key)
-    if (!existing || score(c) > score(existing)) byKey.set(key, c)
+    byKey.set(key, existing ? mergeCandidates(existing, c) : c)
   }
 
   // Finalise slugs (with collision suffixes) and image paths from the slug.

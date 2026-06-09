@@ -153,6 +153,30 @@ describe('buildUnits', () => {
     expect(new Set(slugs).size).toBe(2)
   })
 
+  it('merges an imaged tabletopadmiral unit with a stats-only Legion HQ twin via canonical aliasing', () => {
+    // TTA has the image under "Saber-Class Tank"; LHQ has the stats under "TX-130 Saber-Class Fighter Tank".
+    const units = buildUnits(
+      [tta({ id: 53, name: 'Saber-Class Tank', rank_fkey: 5, current_cost: 155, image_url: 'https://cdn/s.webp' })],
+      [lhq({ cardName: 'TX-130 Saber-Class Fighter Tank', displayName: 'Saber Fighter Tank', faction: 'republic', rank: 'heavy', upgradeBar: ['pilot', 'hardpoint'], keywords: ['Armor'], cost: 155 })],
+    )
+    expect(units).toHaveLength(1)
+    const u = units[0]
+    expect(u.name).toBe('Saber Fighter Tank') // canonical (Legion HQ) name
+    expect(u.cardImage).toMatch(/saber-fighter-tank\.webp$/) // image from TTA
+    expect(u.upgradeBar).toEqual(['pilot', 'hardpoint']) // stats from LHQ
+    expect(u.hasFullData).toBe(true)
+  })
+
+  it('merges same-named split records (image side + stats side) into one', () => {
+    const units = buildUnits(
+      [tta({ id: 54, name: 'AAT Battle Tank', rank_fkey: 5, current_cost: 160, image_url: 'https://cdn/a.webp' })],
+      [lhq({ cardName: 'AAT Trade Federation Battle Tank', displayName: 'AAT Battle Tank', faction: 'separatists', rank: 'heavy', upgradeBar: ['pilot'], cost: 160 })],
+    )
+    expect(units).toHaveLength(1)
+    expect(units[0].cardImage).not.toBeNull()
+    expect(units[0].upgradeBar).toEqual(['pilot'])
+  })
+
   it('splits defense surge into surgeDefense flag', () => {
     const units = buildUnits([tta()], [lhq({ surges: ['crit', 'block'] })])
     expect(units[0].surgeAttack).toBe('crit')

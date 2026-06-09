@@ -6,7 +6,7 @@
     "pips": 4,
     "commander": "",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/standing-orders.webp"
   },
   {
     "id": "bj",
@@ -15,7 +15,7 @@
     "pips": 3,
     "commander": "",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/assault.webp"
   },
   {
     "id": "bk",
@@ -24,7 +24,7 @@
     "pips": 2,
     "commander": "",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/push.webp"
   },
   {
     "id": "bl",
@@ -33,7 +33,7 @@
     "pips": 1,
     "commander": "",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/ambush.webp"
   },
   {
     "id": "bm",
@@ -42,7 +42,7 @@
     "pips": 3,
     "commander": "Darth Vader",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/master-of-evil.webp"
   },
   {
     "id": "bn",
@@ -51,16 +51,7 @@
     "pips": 3,
     "commander": "General Veers",
     "faction": "empire",
-    "cardImage": null
-  },
-  {
-    "id": "bo",
-    "slug": "an-entire-legion",
-    "name": "An Entire Legion",
-    "pips": 3,
-    "commander": "Emperor Palpatine",
-    "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/imperial-discipline.webp"
   },
   {
     "id": "bp",
@@ -69,7 +60,7 @@
     "pips": 3,
     "commander": "Boba Fett",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/z-6-jetpack-rocket.webp"
   },
   {
     "id": "bq",
@@ -78,7 +69,7 @@
     "pips": 3,
     "commander": "Bossk",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/lying-in-wait.webp"
   },
   {
     "id": "br",
@@ -87,7 +78,7 @@
     "pips": 2,
     "commander": "Darth Vader",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/new-ways-to-motivate-them.webp"
   },
   {
     "id": "bs",
@@ -96,25 +87,7 @@
     "pips": 2,
     "commander": "General Veers",
     "faction": "empire",
-    "cardImage": null
-  },
-  {
-    "id": "bt",
-    "slug": "give-in-to-your-anger",
-    "name": "Give In To Your Anger",
-    "pips": 2,
-    "commander": "Emperor Palpatine",
-    "faction": "empire",
-    "cardImage": null
-  },
-  {
-    "id": "bu",
-    "slug": "zx-flame-projector",
-    "name": "ZX Flame Projector",
-    "pips": 2,
-    "commander": "Boba Fett",
-    "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/evasive-maneuvers.webp"
   },
   {
     "id": "bv",
@@ -123,7 +96,7 @@
     "pips": 1,
     "commander": "General Veers",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/maximum-firepower.webp"
   },
   {
     "id": "bw",
@@ -132,16 +105,7 @@
     "pips": 1,
     "commander": "Darth Vader",
     "faction": "empire",
-    "cardImage": null
-  },
-  {
-    "id": "bx",
-    "slug": "and-now-you-will-die",
-    "name": "And Now You Will Die",
-    "pips": 1,
-    "commander": "Emperor Palpatine",
-    "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/implacable.webp"
   },
   {
     "id": "by",
@@ -150,7 +114,7 @@
     "pips": 1,
     "commander": "Director Orson Krennic",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/voracious-ambition.webp"
   },
   {
     "id": "bz",
@@ -159,7 +123,7 @@
     "pips": 1,
     "commander": "Boba Fett",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/whipcord-launcher.webp"
   },
   {
     "id": "ca",
@@ -168,7 +132,7 @@
     "pips": 1,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/covert-observation.webp"
   },
   {
     "id": "cb",
@@ -177,7 +141,7 @@
     "pips": 2,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/pinned-down.webp"
   },
   {
     "id": "cc",
@@ -186,7 +150,7 @@
     "pips": 3,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/coordinated-fire.webp"
   },
   {
     "id": "cd",
@@ -195,7 +159,7 @@
     "pips": 3,
     "commander": "Luke Skywalker",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/return-of-the-jedi.webp"
   },
   {
     "id": "ce",
@@ -204,7 +168,7 @@
     "pips": 3,
     "commander": "Leia Organa",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/somebody-has-to-save-our-skins.webp"
   },
   {
     "id": "cf",
@@ -213,7 +177,7 @@
     "pips": 3,
     "commander": "Han Solo",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/change-of-plans.webp"
   },
   {
     "id": "cg",
@@ -222,7 +186,7 @@
     "pips": 3,
     "commander": "Chewbacca",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/notorious-scoundrels.webp"
   },
   {
     "id": "ch",
@@ -231,16 +195,16 @@
     "pips": 3,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/covering-fire.webp"
   },
   {
     "id": "ci",
-    "slug": "complete-the-mission",
-    "name": "Complete the Mission",
+    "slug": "rebellions-are-built-on-hope",
+    "name": "Rebellions Are Built on Hope",
     "pips": 3,
     "commander": "Jyn Erso",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/rebellions-are-built-on-hope.webp"
   },
   {
     "id": "cj",
@@ -248,8 +212,8 @@
     "name": "Legacy of Mandalore",
     "pips": 3,
     "commander": "Sabine Wren",
-    "faction": "rebels",
-    "cardImage": null
+    "faction": null,
+    "cardImage": "/images/commands/legacy-of-mandalore.webp"
   },
   {
     "id": "ck",
@@ -258,7 +222,7 @@
     "pips": 2,
     "commander": "Luke Skywalker",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/my-ally-is-the-force.webp"
   },
   {
     "id": "cl",
@@ -267,7 +231,7 @@
     "pips": 2,
     "commander": "Leia Organa",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/no-time-for-sorrows.webp"
   },
   {
     "id": "cm",
@@ -276,7 +240,7 @@
     "pips": 2,
     "commander": "Han Solo",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/reckless-diversion.webp"
   },
   {
     "id": "cn",
@@ -285,7 +249,7 @@
     "pips": 2,
     "commander": "Chewbacca",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/brains-and-brawn.webp"
   },
   {
     "id": "co",
@@ -294,7 +258,7 @@
     "pips": 2,
     "commander": "Jyn Erso",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/trust-goes-both-ways.webp"
   },
   {
     "id": "cp",
@@ -303,7 +267,7 @@
     "pips": 2,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/turning-the-tide.webp"
   },
   {
     "id": "cq",
@@ -312,7 +276,7 @@
     "pips": 1,
     "commander": "Luke Skywalker",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/son-of-skywalker.webp"
   },
   {
     "id": "cr",
@@ -321,7 +285,7 @@
     "pips": 1,
     "commander": "Leia Organa",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/coordinated-bombardment.webp"
   },
   {
     "id": "cs",
@@ -330,16 +294,16 @@
     "pips": 1,
     "commander": "Han Solo",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/sorry-about-the-mess.webp"
   },
   {
     "id": "ct",
-    "slug": "rebellious",
-    "name": "Rebellious",
+    "slug": "i-rebel",
+    "name": "I Rebel",
     "pips": 1,
     "commander": "Jyn Erso",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/i-rebel.webp"
   },
   {
     "id": "cu",
@@ -348,7 +312,7 @@
     "pips": 1,
     "commander": "Chewbacca",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/common-cause.webp"
   },
   {
     "id": "cv",
@@ -357,7 +321,7 @@
     "pips": 1,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/sabotaged-communications.webp"
   },
   {
     "id": "fp",
@@ -366,7 +330,7 @@
     "pips": 3,
     "commander": "Luke Skywalker",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/i-am-a-jedi.webp"
   },
   {
     "id": "fq",
@@ -375,7 +339,7 @@
     "pips": 3,
     "commander": "Darth Vader",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/darkness-descends.webp"
   },
   {
     "id": "gd",
@@ -384,7 +348,7 @@
     "pips": 3,
     "commander": "Director Orson Krennic",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/annihilation-looms.webp"
   },
   {
     "id": "ge",
@@ -393,7 +357,7 @@
     "pips": 2,
     "commander": "Director Orson Krennic",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/deploy-the-garrison.webp"
   },
   {
     "id": "gf",
@@ -402,7 +366,7 @@
     "pips": 1,
     "commander": "Bossk",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/merciless-munitions.webp"
   },
   {
     "id": "gg",
@@ -411,7 +375,7 @@
     "pips": 2,
     "commander": "Bossk",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/reptilian-rampage.webp"
   },
   {
     "id": "gh",
@@ -419,8 +383,8 @@
     "name": "Explosions!",
     "pips": 1,
     "commander": "Sabine Wren",
-    "faction": "rebels",
-    "cardImage": null
+    "faction": null,
+    "cardImage": "/images/commands/explosions.webp"
   },
   {
     "id": "gi",
@@ -428,8 +392,8 @@
     "name": "Symbol of Rebellion",
     "pips": 2,
     "commander": "Sabine Wren",
-    "faction": "rebels",
-    "cardImage": null
+    "faction": null,
+    "cardImage": "/images/commands/symbol-of-rebellion.webp"
   },
   {
     "id": "hi",
@@ -438,7 +402,7 @@
     "pips": 3,
     "commander": "Obi-Wan Kenobi",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/general-kenobi.webp"
   },
   {
     "id": "hj",
@@ -447,7 +411,7 @@
     "pips": 1,
     "commander": "Obi-Wan Kenobi",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/hello-there.webp"
   },
   {
     "id": "hk",
@@ -456,7 +420,7 @@
     "pips": 2,
     "commander": "General Grievous",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/supreme-commander.webp"
   },
   {
     "id": "hl",
@@ -465,7 +429,7 @@
     "pips": 3,
     "commander": "General Grievous",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/crush-them.webp"
   },
   {
     "id": "im",
@@ -474,7 +438,7 @@
     "pips": 1,
     "commander": "General Grievous",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/trained-in-your-jedi-arts.webp"
   },
   {
     "id": "in",
@@ -483,7 +447,7 @@
     "pips": 2,
     "commander": "Obi-Wan Kenobi",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/knowledge-and-defense.webp"
   },
   {
     "id": "ir",
@@ -492,7 +456,7 @@
     "pips": 3,
     "commander": "Clone Captain Rex",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/were-not-programmed.webp"
   },
   {
     "id": "is",
@@ -501,7 +465,7 @@
     "pips": 3,
     "commander": "Count Dooku",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/you-disappoint-me.webp"
   },
   {
     "id": "jc",
@@ -510,7 +474,7 @@
     "pips": 1,
     "commander": "Darth Vader",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/vaders-might.webp"
   },
   {
     "id": "jd",
@@ -519,7 +483,7 @@
     "pips": 1,
     "commander": "Luke Skywalker",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/you-serve-your-master-well.webp"
   },
   {
     "id": "je",
@@ -528,7 +492,7 @@
     "pips": 2,
     "commander": "Darth Vader",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/fear-and-dead-men.webp"
   },
   {
     "id": "jf",
@@ -537,7 +501,7 @@
     "pips": 2,
     "commander": "Luke Skywalker",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/full-of-surprises.webp"
   },
   {
     "id": "jl",
@@ -546,16 +510,7 @@
     "pips": 1,
     "commander": "R2-D2",
     "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "jm",
-    "slug": "blast-off-2",
-    "name": "Blast Off!",
-    "pips": 1,
-    "commander": "R2-D2",
-    "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/blast-off.webp"
   },
   {
     "id": "jr",
@@ -564,7 +519,7 @@
     "pips": 1,
     "commander": "Count Dooku",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/fear-surprise-intimidation.webp"
   },
   {
     "id": "js",
@@ -573,7 +528,7 @@
     "pips": 2,
     "commander": "Count Dooku",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/double-the-fall.webp"
   },
   {
     "id": "jt",
@@ -582,7 +537,7 @@
     "pips": 1,
     "commander": "Clone Captain Rex",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/call-me-captain.webp"
   },
   {
     "id": "ju",
@@ -591,7 +546,7 @@
     "pips": 2,
     "commander": "Clone Captain Rex",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/take-that-clankers.webp"
   },
   {
     "id": "jz",
@@ -600,7 +555,7 @@
     "pips": 3,
     "commander": "R2-D2",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/smoke-screen.webp"
   },
   {
     "id": "ka",
@@ -609,25 +564,7 @@
     "pips": 2,
     "commander": "R2-D2",
     "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "kb",
-    "slug": "smoke-screen-2",
-    "name": "Smoke Screen",
-    "pips": 3,
-    "commander": "R2-D2",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "kc",
-    "slug": "impromptu-immolation-2",
-    "name": "Impromptu Immolation",
-    "pips": 2,
-    "commander": "R2-D2",
-    "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/impromptu-immolation.webp"
   },
   {
     "id": "kj",
@@ -636,7 +573,7 @@
     "pips": 1,
     "commander": "Cassian Andor",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/crack-shot.webp"
   },
   {
     "id": "kk",
@@ -645,7 +582,7 @@
     "pips": 1,
     "commander": "Iden Versio",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/pulse-scan.webp"
   },
   {
     "id": "ln",
@@ -654,7 +591,7 @@
     "pips": 3,
     "commander": "Padme Amidala",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/diplomatic-cover.webp"
   },
   {
     "id": "lo",
@@ -663,7 +600,7 @@
     "pips": 2,
     "commander": "Cad Bane",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/im-in-control.webp"
   },
   {
     "id": "lp",
@@ -672,7 +609,7 @@
     "pips": 3,
     "commander": "Cad Bane",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/i-make-the-rules-now.webp"
   },
   {
     "id": "lq",
@@ -681,7 +618,7 @@
     "pips": 1,
     "commander": "Padme Amidala",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/our-fate-is-in-your-hands.webp"
   },
   {
     "id": "lr",
@@ -690,7 +627,7 @@
     "pips": 3,
     "commander": "Cassian Andor",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/volunteer-mission.webp"
   },
   {
     "id": "ls",
@@ -699,7 +636,7 @@
     "pips": 2,
     "commander": "Cassian Andor",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/last-stand.webp"
   },
   {
     "id": "lt",
@@ -708,7 +645,7 @@
     "pips": 3,
     "commander": "K-2SO",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/sacrifice.webp"
   },
   {
     "id": "ly",
@@ -717,7 +654,7 @@
     "pips": 2,
     "commander": "Iden Versio",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/incapacitate.webp"
   },
   {
     "id": "lz",
@@ -726,7 +663,7 @@
     "pips": 2,
     "commander": "Iden Versio",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/concussive-blast.webp"
   },
   {
     "id": "ma",
@@ -735,7 +672,7 @@
     "pips": 3,
     "commander": "Iden Versio",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/tactical-strike.webp"
   },
   {
     "id": "mg",
@@ -744,7 +681,7 @@
     "pips": 1,
     "commander": "Cad Bane",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/im-your-worst-nightmare.webp"
   },
   {
     "id": "mi",
@@ -753,7 +690,7 @@
     "pips": 2,
     "commander": "Padme Amidala",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/aggressive-negotiations.webp"
   },
   {
     "id": "mt",
@@ -762,7 +699,7 @@
     "pips": 1,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/synchronized-offensive.webp"
   },
   {
     "id": "mu",
@@ -771,16 +708,16 @@
     "pips": 1,
     "commander": "",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/mechanized-incursion.webp"
   },
   {
     "id": "mv",
-    "slug": "hero-of-the-clone-wars",
-    "name": "Hero of the Clone Wars",
+    "slug": "general-skywalker",
+    "name": "General Skywalker",
     "pips": 3,
     "commander": "Anakin Skywalker",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/general-skywalker.webp"
   },
   {
     "id": "mw",
@@ -789,7 +726,7 @@
     "pips": 1,
     "commander": "Maul",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/duel-of-the-fates.webp"
   },
   {
     "id": "nf",
@@ -798,7 +735,7 @@
     "pips": 1,
     "commander": "Anakin Skywalker",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/this-is-where-the-fun-begins.webp"
   },
   {
     "id": "ng",
@@ -807,7 +744,7 @@
     "pips": 2,
     "commander": "Anakin Skywalker",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/you-underestimate-my-power.webp"
   },
   {
     "id": "ni",
@@ -816,7 +753,7 @@
     "pips": 2,
     "commander": "Maul",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/the-phantom-menace.webp"
   },
   {
     "id": "nj",
@@ -825,7 +762,7 @@
     "pips": 3,
     "commander": "Maul",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/at-last.webp"
   },
   {
     "id": "nn",
@@ -834,7 +771,7 @@
     "pips": 2,
     "commander": "Lando Calrissian",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/ace-up-his-sleeve.webp"
   },
   {
     "id": "no",
@@ -843,16 +780,16 @@
     "pips": 1,
     "commander": "Agent Kallus",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/face-me.webp"
   },
   {
     "id": "nt",
-    "slug": "all-in",
-    "name": "All In",
-    "pips": 3,
+    "slug": "corellian-spike",
+    "name": "Corellian Spike",
+    "pips": 1,
     "commander": "Lando Calrissian",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/corellian-spike.webp"
   },
   {
     "id": "nu",
@@ -861,7 +798,7 @@
     "pips": 2,
     "commander": "",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/orbital-strike.webp"
   },
   {
     "id": "nv",
@@ -870,16 +807,16 @@
     "pips": 3,
     "commander": "",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/roger-roger.webp"
   },
   {
     "id": "nw",
     "slug": "idiots-array",
     "name": "Idiot's Array",
-    "pips": 1,
+    "pips": 3,
     "commander": "Lando Calrissian",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/idiots-array.webp"
   },
   {
     "id": "nx",
@@ -888,7 +825,7 @@
     "pips": 2,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/air-support.webp"
   },
   {
     "id": "ny",
@@ -897,7 +834,7 @@
     "pips": 3,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/attack-of-the-clones.webp"
   },
   {
     "id": "oj",
@@ -906,7 +843,7 @@
     "pips": 2,
     "commander": "Agent Kallus",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/isb-investigation.webp"
   },
   {
     "id": "ok",
@@ -915,7 +852,7 @@
     "pips": 3,
     "commander": "Agent Kallus",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/ruthless-tactics.webp"
   },
   {
     "id": "pi",
@@ -924,7 +861,7 @@
     "pips": 1,
     "commander": "Yoda",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/size-matters-not.webp"
   },
   {
     "id": "pj",
@@ -933,7 +870,7 @@
     "pips": 2,
     "commander": "Yoda",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/there-is-no-try.webp"
   },
   {
     "id": "pk",
@@ -942,7 +879,7 @@
     "pips": 3,
     "commander": "Yoda",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/luminous-beings-are-we.webp"
   },
   {
     "id": "pp",
@@ -951,142 +888,61 @@
     "pips": 2,
     "commander": "Chewbacca",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/size-matters-sometimes.webp"
   },
   {
     "id": "pu",
-    "slug": "grroooogrrraaaawrrrrrrrrmph",
-    "name": "Grroooogrrraaaawrrrrrrrrmph",
+    "slug": "defiance",
+    "name": "Defiance",
     "pips": 1,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/defiance.webp"
   },
   {
     "id": "pv",
-    "slug": "mrowgh-ghrrmrowrig",
-    "name": "MROWGH GHRRMROWRIG!",
+    "slug": "get-in-position",
+    "name": "Get In Position",
     "pips": 2,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/get-in-position.webp"
   },
   {
     "id": "pw",
-    "slug": "yhwargghhhhhhhhhh",
-    "name": "YHWARGGHHHHHHHHHH!",
+    "slug": "daring-defense",
+    "name": "Daring Defense",
     "pips": 3,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
-  },
-  {
-    "id": "AB",
-    "slug": "armored-assault",
-    "name": "Armored Assault",
-    "pips": 1,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AC",
-    "slug": "brothers-in-arms",
-    "name": "Brothers in Arms",
-    "pips": 3,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AD",
-    "slug": "doors-and-corners",
-    "name": "Doors and Corners",
-    "pips": 1,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AE",
-    "slug": "keep-them-down",
-    "name": "Keep Them Down",
-    "pips": 2,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AF",
-    "slug": "man-the-guns",
-    "name": "Man the Guns",
-    "pips": 3,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AG",
-    "slug": "somebody-has-to-be-a-hero",
-    "name": "Somebody Has To Be a Hero",
-    "pips": 1,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AH",
-    "slug": "stealth-team",
-    "name": "Stealth Team",
-    "pips": 3,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AI",
-    "slug": "surgical-strike",
-    "name": "Surgical Strike",
-    "pips": 2,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "AJ",
-    "slug": "tank-shock",
-    "name": "Tank Shock",
-    "pips": 2,
-    "commander": "Storm Tide Commander",
-    "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/daring-defense.webp"
   },
   {
     "id": "qe",
     "slug": "they-too-will-suffer",
     "name": "They Too Will Suffer",
     "pips": 1,
-    "commander": "Super Tactical Droid",
+    "commander": "Kalani, Kraken",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/they-too-will-suffer.webp"
   },
   {
     "id": "qf",
     "slug": "preservation-protocols",
     "name": "Preservation Protocols",
     "pips": 2,
-    "commander": "Super Tactical Droid",
+    "commander": "Kalani, Kraken",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/preservation-protocols.webp"
   },
   {
     "id": "qg",
     "slug": "do-not-underestimate-our-means",
     "name": "Do Not Underestimate Our Means",
     "pips": 3,
-    "commander": "Super Tactical Droid",
+    "commander": "Kalani, Kraken",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/do-not-underestimate-our-means.webp"
   },
   {
     "id": "rr",
@@ -1095,7 +951,7 @@
     "pips": 1,
     "commander": "Maul",
     "faction": "mercenary",
-    "cardImage": null
+    "cardImage": "/images/commands/witch-magick.webp"
   },
   {
     "id": "rs",
@@ -1104,7 +960,7 @@
     "pips": 2,
     "commander": "Maul",
     "faction": "mercenary",
-    "cardImage": null
+    "cardImage": "/images/commands/his-eminence.webp"
   },
   {
     "id": "rt",
@@ -1113,7 +969,7 @@
     "pips": 3,
     "commander": "Maul",
     "faction": "mercenary",
-    "cardImage": null
+    "cardImage": "/images/commands/seize-what-power-we-can.webp"
   },
   {
     "id": "rw",
@@ -1122,7 +978,7 @@
     "pips": 1,
     "commander": "",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/ploy.webp"
   },
   {
     "id": "rx",
@@ -1131,7 +987,7 @@
     "pips": 2,
     "commander": "",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/aggression.webp"
   },
   {
     "id": "ry",
@@ -1140,7 +996,7 @@
     "pips": 3,
     "commander": "",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/discretion.webp"
   },
   {
     "id": "sj",
@@ -1148,8 +1004,8 @@
     "name": "Marked For Elimination",
     "pips": 1,
     "commander": "Gar Saxon",
-    "faction": "mercenary",
-    "cardImage": null
+    "faction": null,
+    "cardImage": "/images/commands/marked-for-elimination.webp"
   },
   {
     "id": "sk",
@@ -1157,8 +1013,8 @@
     "name": "Fight Another Day",
     "pips": 2,
     "commander": "Gar Saxon",
-    "faction": "mercenary",
-    "cardImage": null
+    "faction": null,
+    "cardImage": "/images/commands/fight-another-day.webp"
   },
   {
     "id": "sl",
@@ -1166,8 +1022,8 @@
     "name": "Victory or Death!",
     "pips": 3,
     "commander": "Gar Saxon",
-    "faction": "mercenary",
-    "cardImage": null
+    "faction": null,
+    "cardImage": "/images/commands/victory-or-death.webp"
   },
   {
     "id": "ss",
@@ -1176,7 +1032,7 @@
     "pips": 1,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/delaying-tactics.webp"
   },
   {
     "id": "st",
@@ -1185,7 +1041,7 @@
     "pips": 2,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/courage-of-the-rebellion.webp"
   },
   {
     "id": "su",
@@ -1194,7 +1050,7 @@
     "pips": 3,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/hold-at-any-cost.webp"
   },
   {
     "id": "sv",
@@ -1203,7 +1059,7 @@
     "pips": 1,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/unrelenting-fire.webp"
   },
   {
     "id": "sw",
@@ -1212,7 +1068,7 @@
     "pips": 2,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/overwhelming-barrage.webp"
   },
   {
     "id": "sx",
@@ -1221,7 +1077,7 @@
     "pips": 3,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/debark-for-ground-assault.webp"
   },
   {
     "id": "sy",
@@ -1230,7 +1086,7 @@
     "pips": 2,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/lead-from-the-front.webp"
   },
   {
     "id": "sz",
@@ -1239,7 +1095,7 @@
     "pips": 2,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/tactical-planning.webp"
   },
   {
     "id": "ta",
@@ -1248,7 +1104,7 @@
     "pips": 3,
     "commander": "",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/leaders-of-the-501st.webp"
   },
   {
     "id": "tb",
@@ -1256,8 +1112,8 @@
     "name": "AI Coordination",
     "pips": 1,
     "commander": "",
-    "faction": null,
-    "cardImage": null
+    "faction": "separatists",
+    "cardImage": "/images/commands/ai-coordination.webp"
   },
   {
     "id": "tc",
@@ -1265,8 +1121,8 @@
     "name": "Unrelenting Assault",
     "pips": 2,
     "commander": "",
-    "faction": null,
-    "cardImage": null
+    "faction": "separatists",
+    "cardImage": "/images/commands/unrelenting-assault.webp"
   },
   {
     "id": "td",
@@ -1274,8 +1130,8 @@
     "name": "Unstoppable Advance",
     "pips": 3,
     "commander": "",
-    "faction": null,
-    "cardImage": null
+    "faction": "separatists",
+    "cardImage": "/images/commands/unstoppable-advance.webp"
   },
   {
     "id": "te",
@@ -1284,7 +1140,7 @@
     "pips": 1,
     "commander": "Boba Fett",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/a-simple-man.webp"
   },
   {
     "id": "tf",
@@ -1293,7 +1149,7 @@
     "pips": 2,
     "commander": "Boba Fett",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/making-his-way-in-the-galaxy.webp"
   },
   {
     "id": "tg",
@@ -1302,7 +1158,7 @@
     "pips": 3,
     "commander": "Boba Fett",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/rule-with-respect.webp"
   },
   {
     "id": "th",
@@ -1311,7 +1167,7 @@
     "pips": 3,
     "commander": "Din Djarin",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/whistling-birds.webp"
   },
   {
     "id": "tt",
@@ -1320,7 +1176,7 @@
     "pips": 2,
     "commander": "Din Djarin",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/i-like-those-odds.webp"
   },
   {
     "id": "tu",
@@ -1329,25 +1185,16 @@
     "pips": 1,
     "commander": "Din Djarin",
     "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "tv",
-    "slug": "the-hand-thing",
-    "name": "The Hand Thing",
-    "pips": 2,
-    "commander": "Din Djarin",
-    "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/this-is-the-way.webp"
   },
   {
     "id": "tw",
     "slug": "a-machine-made-for-killing",
     "name": "A Machine Made For Killing",
     "pips": 2,
-    "commander": "IG-11",
+    "commander": "IG-11, IG-88",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/a-machine-made-for-killing.webp"
   },
   {
     "id": "tx",
@@ -1356,7 +1203,7 @@
     "pips": 3,
     "commander": "IG-11",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/anti-capture-protocols.webp"
   },
   {
     "id": "ty",
@@ -1365,7 +1212,7 @@
     "pips": 1,
     "commander": "IG-88",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/focused-on-the-kill.webp"
   },
   {
     "id": "tz",
@@ -1374,7 +1221,7 @@
     "pips": 2,
     "commander": "IG-88",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/independent-programming.webp"
   },
   {
     "id": "ua",
@@ -1383,25 +1230,16 @@
     "pips": 1,
     "commander": "IG-11",
     "faction": null,
-    "cardImage": null
-  },
-  {
-    "id": "uc",
-    "slug": "a-machine-made-for-killing-2",
-    "name": "A Machine Made For Killing",
-    "pips": 2,
-    "commander": "IG-88",
-    "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/mechanical-carnage.webp"
   },
   {
     "id": "ud",
-    "slug": "the-hand-thing-2",
+    "slug": "the-hand-thing",
     "name": "The Hand Thing",
     "pips": 2,
-    "commander": "IG-11",
+    "commander": "Grogu",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/the-hand-thing.webp"
   },
   {
     "id": "uk",
@@ -1410,7 +1248,7 @@
     "pips": 1,
     "commander": "Moff Gideon",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/die-at-my-hand.webp"
   },
   {
     "id": "ul",
@@ -1419,7 +1257,7 @@
     "pips": 2,
     "commander": "Moff Gideon",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/you-have-something-i-want.webp"
   },
   {
     "id": "um",
@@ -1428,7 +1266,7 @@
     "pips": 3,
     "commander": "Moff Gideon",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/moment-of-consideration.webp"
   },
   {
     "id": "uu",
@@ -1437,7 +1275,7 @@
     "pips": 2,
     "commander": "Count Dooku",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/the-sith-will-rule.webp"
   },
   {
     "id": "uv",
@@ -1446,7 +1284,7 @@
     "pips": 1,
     "commander": "Asajj Ventress",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/the-jedi-shall-fall.webp"
   },
   {
     "id": "ux",
@@ -1455,7 +1293,7 @@
     "pips": 2,
     "commander": "Asajj Ventress",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/i-am-fear.webp"
   },
   {
     "id": "uw",
@@ -1464,7 +1302,7 @@
     "pips": 3,
     "commander": "Asajj Ventress",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/yes-my-master.webp"
   },
   {
     "id": "va",
@@ -1473,7 +1311,7 @@
     "pips": 1,
     "commander": "Clone Commander Cody",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/bring-it-down.webp"
   },
   {
     "id": "vb",
@@ -1482,7 +1320,7 @@
     "pips": 2,
     "commander": "Clone Commander Cody",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/have-i-ever-let-you-down.webp"
   },
   {
     "id": "vc",
@@ -1491,7 +1329,7 @@
     "pips": 3,
     "commander": "Clone Commander Cody",
     "faction": "republic",
-    "cardImage": null
+    "cardImage": "/images/commands/combined-arms.webp"
   },
   {
     "id": "vf",
@@ -1500,7 +1338,7 @@
     "pips": 1,
     "commander": "Ahsoka Tano",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/i-am-no-jedi.webp"
   },
   {
     "id": "vg",
@@ -1509,7 +1347,7 @@
     "pips": 2,
     "commander": "Ahsoka Tano",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/family-reunion.webp"
   },
   {
     "id": "vh",
@@ -1518,7 +1356,7 @@
     "pips": 2,
     "commander": "Ahsoka Tano",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/swift-protector.webp"
   },
   {
     "id": "vi",
@@ -1527,7 +1365,7 @@
     "pips": 3,
     "commander": "Ahsoka Tano",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/a-new-beginning.webp"
   },
   {
     "id": "vl",
@@ -1536,7 +1374,7 @@
     "pips": 1,
     "commander": "Wicket",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/close-call.webp"
   },
   {
     "id": "vm",
@@ -1545,7 +1383,7 @@
     "pips": 2,
     "commander": "Wicket",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/sneaky-scouting.webp"
   },
   {
     "id": "vn",
@@ -1554,7 +1392,7 @@
     "pips": 3,
     "commander": "Wicket",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/courageous-counterattack.webp"
   },
   {
     "id": "vo",
@@ -1563,7 +1401,7 @@
     "pips": 2,
     "commander": "Leia Organa",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/a-beautiful-friendship.webp"
   },
   {
     "id": "vw",
@@ -1572,7 +1410,7 @@
     "pips": 1,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/arboreal-assault.webp"
   },
   {
     "id": "vx",
@@ -1581,7 +1419,7 @@
     "pips": 1,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/log-traps.webp"
   },
   {
     "id": "vy",
@@ -1590,7 +1428,7 @@
     "pips": 2,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/hiding-in-plain-sight.webp"
   },
   {
     "id": "vz",
@@ -1599,7 +1437,7 @@
     "pips": 3,
     "commander": "",
     "faction": "rebels",
-    "cardImage": null
+    "cardImage": "/images/commands/for-the-tribe.webp"
   },
   {
     "id": "wf",
@@ -1608,7 +1446,7 @@
     "pips": 1,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/drive-them-out.webp"
   },
   {
     "id": "wg",
@@ -1617,7 +1455,7 @@
     "pips": 2,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/we-need-reinforcements.webp"
   },
   {
     "id": "wh",
@@ -1626,7 +1464,7 @@
     "pips": 3,
     "commander": "",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/constantly-alert.webp"
   },
   {
     "id": "wi",
@@ -1635,7 +1473,7 @@
     "pips": 1,
     "commander": "Major Marquand",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/gunner-infantry.webp"
   },
   {
     "id": "wj",
@@ -1644,7 +1482,7 @@
     "pips": 2,
     "commander": "Major Marquand",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/squadron-on-me.webp"
   },
   {
     "id": "wk",
@@ -1653,7 +1491,7 @@
     "pips": 3,
     "commander": "Major Marquand",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/armored-cavalry.webp"
   },
   {
     "id": "wu",
@@ -1662,7 +1500,7 @@
     "pips": 2,
     "commander": "Fifth Brother",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/you-would-question-me.webp"
   },
   {
     "id": "wv",
@@ -1671,7 +1509,7 @@
     "pips": 3,
     "commander": "Fifth Brother",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/i-care-not-for-your-struggles.webp"
   },
   {
     "id": "ww",
@@ -1680,7 +1518,7 @@
     "pips": 1,
     "commander": "Seventh Sister",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/come-and-prove-it.webp"
   },
   {
     "id": "wx",
@@ -1689,7 +1527,7 @@
     "pips": 2,
     "commander": "Seventh Sister",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/unexpected-but-not-unwelcome.webp"
   },
   {
     "id": "wy",
@@ -1698,7 +1536,7 @@
     "pips": 3,
     "commander": "Seventh Sister",
     "faction": "empire",
-    "cardImage": null
+    "cardImage": "/images/commands/you-hide-your-fear-well.webp"
   },
   {
     "id": "wz",
@@ -1707,7 +1545,7 @@
     "pips": 1,
     "commander": "Sun Fac",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/brutal-enforcer.webp"
   },
   {
     "id": "xa",
@@ -1716,7 +1554,7 @@
     "pips": 1,
     "commander": "Poggle the Lesser",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/let-the-executions-begin.webp"
   },
   {
     "id": "xb",
@@ -1725,7 +1563,7 @@
     "pips": 2,
     "commander": "Poggle the Lesser",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/we-serve-the-queen.webp"
   },
   {
     "id": "xc",
@@ -1734,7 +1572,7 @@
     "pips": 3,
     "commander": "Poggle the Lesser",
     "faction": "separatists",
-    "cardImage": null
+    "cardImage": "/images/commands/we-make-weapons.webp"
   },
   {
     "id": "xx",
@@ -1743,6 +1581,537 @@
     "pips": 3,
     "commander": "The Bad Batch",
     "faction": null,
-    "cardImage": null
+    "cardImage": "/images/commands/we-do-what-we-do.webp"
+  },
+  {
+    "id": "Be",
+    "slug": "you-are-beaten",
+    "name": "You Are Beaten",
+    "pips": 1,
+    "commander": "Ahsoka Tano",
+    "faction": "republic",
+    "cardImage": "/images/commands/you-are-beaten.webp"
+  },
+  {
+    "id": "Bf",
+    "slug": "i-go-where-im-needed",
+    "name": "I Go Where I'm Needed",
+    "pips": 3,
+    "commander": "Ahsoka Tano",
+    "faction": "republic",
+    "cardImage": "/images/commands/i-go-where-im-needed.webp"
+  },
+  {
+    "id": "Bg",
+    "slug": "revenge-is-not-the-jedi-way",
+    "name": "Revenge Is Not the Jedi Way",
+    "pips": 2,
+    "commander": "Ahsoka Tano",
+    "faction": "republic",
+    "cardImage": "/images/commands/revenge-is-not-the-jedi-way.webp"
+  },
+  {
+    "id": "Bw",
+    "slug": "thats-just-good-business",
+    "name": "That's Just Good Business",
+    "pips": 2,
+    "commander": "Hondo Ohnaka",
+    "faction": null,
+    "cardImage": "/images/commands/thats-just-good-business.webp"
+  },
+  {
+    "id": "Bx",
+    "slug": "stories-so-many-of-them-true",
+    "name": "Stories, So Many of Them True",
+    "pips": 3,
+    "commander": "Hondo Ohnaka",
+    "faction": null,
+    "cardImage": "/images/commands/stories-so-many-of-them-true.webp"
+  },
+  {
+    "id": "Cn",
+    "slug": "inexorable-advance",
+    "name": "Inexorable Advance",
+    "pips": 3,
+    "commander": "Imperial Officer",
+    "faction": "empire",
+    "cardImage": "/images/commands/inexorable-advance.webp"
+  },
+  {
+    "id": "Co",
+    "slug": "fearsome-oration",
+    "name": "Fearsome Oration",
+    "pips": 1,
+    "commander": "Imperial Agent",
+    "faction": "empire",
+    "cardImage": "/images/commands/fearsome-oration.webp"
+  },
+  {
+    "id": "Cw",
+    "slug": "diversionary-tactics",
+    "name": "Diversionary Tactics",
+    "pips": 3,
+    "commander": "Rebel Officer",
+    "faction": "rebels",
+    "cardImage": "/images/commands/diversionary-tactics.webp"
+  },
+  {
+    "id": "Cx",
+    "slug": "battlefield-reconnaissance",
+    "name": "Battlefield Reconnaissance",
+    "pips": 2,
+    "commander": "Rebel Agent",
+    "faction": "rebels",
+    "cardImage": "/images/commands/battlefield-reconnaissance.webp"
+  },
+  {
+    "id": "Dm",
+    "slug": "flow-of-the-force",
+    "name": "Flow of the Force",
+    "pips": 1,
+    "commander": "Jedi Knight, Jedi Knight General",
+    "faction": "republic",
+    "cardImage": "/images/commands/flow-of-the-force.webp"
+  },
+  {
+    "id": "Dn",
+    "slug": "affirmative-general",
+    "name": "Affirmative, General!",
+    "pips": 3,
+    "commander": "Jedi Knight, Jedi Knight General",
+    "faction": "republic",
+    "cardImage": "/images/commands/affirmative-general.webp"
+  },
+  {
+    "id": "Ed",
+    "slug": "exterminate",
+    "name": "Exterminate",
+    "pips": 1,
+    "commander": "Super Tactical Command Droid",
+    "faction": "separatists",
+    "cardImage": "/images/commands/exterminate.webp"
+  },
+  {
+    "id": "Ee",
+    "slug": "tactical-download",
+    "name": "Tactical Download",
+    "pips": 3,
+    "commander": "Super Tactical Command Droid",
+    "faction": "separatists",
+    "cardImage": "/images/commands/tactical-download.webp"
+  },
+  {
+    "id": "Eh",
+    "slug": "full-throttle",
+    "name": "Full Throttle",
+    "pips": 3,
+    "commander": "General Grievous",
+    "faction": "separatists",
+    "cardImage": "/images/commands/full-throttle.webp"
+  },
+  {
+    "id": "Ei",
+    "slug": "pincer-attack",
+    "name": "Pincer Attack",
+    "pips": 2,
+    "commander": "General Grievous",
+    "faction": "separatists",
+    "cardImage": "/images/commands/pincer-attack.webp"
+  },
+  {
+    "id": "Ej",
+    "slug": "ill-do-it-myself",
+    "name": "I'll Do it Myself!",
+    "pips": 1,
+    "commander": "General Grievous",
+    "faction": "separatists",
+    "cardImage": "/images/commands/ill-do-it-myself.webp"
+  },
+  {
+    "id": "Ex",
+    "slug": "sneak-attack",
+    "name": "Sneak Attack",
+    "pips": 1,
+    "commander": "",
+    "faction": "republic",
+    "cardImage": "/images/commands/sneak-attack.webp"
+  },
+  {
+    "id": "Ey",
+    "slug": "recon-division",
+    "name": "Recon Division",
+    "pips": 2,
+    "commander": "",
+    "faction": "republic",
+    "cardImage": "/images/commands/recon-division.webp"
+  },
+  {
+    "id": "Ez",
+    "slug": "flexible-strategy",
+    "name": "Flexible Strategy",
+    "pips": 3,
+    "commander": "",
+    "faction": "republic",
+    "cardImage": "/images/commands/flexible-strategy.webp"
+  },
+  {
+    "id": "Fh",
+    "slug": "we-must-wait-and-watch",
+    "name": "We Must Wait and Watch",
+    "pips": 2,
+    "commander": "Grand Admiral Thrawn",
+    "faction": "empire",
+    "cardImage": "/images/commands/we-must-wait-and-watch.webp"
+  },
+  {
+    "id": "Fi",
+    "slug": "fear-will-keep-them-in-line",
+    "name": "Fear Will Keep Them in Line",
+    "pips": 3,
+    "commander": "Grand Moff Tarkin",
+    "faction": "empire",
+    "cardImage": "/images/commands/fear-will-keep-them-in-line.webp"
+  },
+  {
+    "id": "Ft",
+    "slug": "architects-of-their-own-destruction",
+    "name": "Architects of Their Own Destruction",
+    "pips": 1,
+    "commander": "Grand Admiral Thrawn",
+    "faction": "empire",
+    "cardImage": "/images/commands/architects-of-their-own-destruction.webp"
+  },
+  {
+    "id": "Fu",
+    "slug": "canny-adversary",
+    "name": "Canny Adversary",
+    "pips": 3,
+    "commander": "General Tagge",
+    "faction": "empire",
+    "cardImage": "/images/commands/canny-adversary.webp"
+  },
+  {
+    "id": "Fv",
+    "slug": "i-have-graphs-and-the-command",
+    "name": "I Have Graphs AND the Command",
+    "pips": 1,
+    "commander": "General Tagge",
+    "faction": "empire",
+    "cardImage": "/images/commands/i-have-graphs-and-the-command.webp"
+  },
+  {
+    "id": "Fw",
+    "slug": "i-want-you-to-know-failure",
+    "name": "I Want You to Know Failure",
+    "pips": 3,
+    "commander": "Grand Admiral Thrawn",
+    "faction": "empire",
+    "cardImage": "/images/commands/i-want-you-to-know-failure.webp"
+  },
+  {
+    "id": "Fx",
+    "slug": "moment-of-triumph",
+    "name": "Moment of Triumph",
+    "pips": 1,
+    "commander": "Grand Moff Tarkin",
+    "faction": "empire",
+    "cardImage": "/images/commands/moment-of-triumph.webp"
+  },
+  {
+    "id": "Fy",
+    "slug": "not-out-of-it-yet",
+    "name": "Not Out of it Yet",
+    "pips": 3,
+    "commander": "Han Solo, Luke Skywalker",
+    "faction": "rebels",
+    "cardImage": "/images/commands/not-out-of-it-yet.webp"
+  },
+  {
+    "id": "Ga",
+    "slug": "on-patrol",
+    "name": "On Patrol",
+    "pips": 2,
+    "commander": "Luke Skywalker",
+    "faction": "rebels",
+    "cardImage": "/images/commands/on-patrol.webp"
+  },
+  {
+    "id": "Gb",
+    "slug": "see-you-in-hell",
+    "name": "See You in Hell",
+    "pips": 1,
+    "commander": "Han Solo",
+    "faction": "rebels",
+    "cardImage": "/images/commands/see-you-in-hell.webp"
+  },
+  {
+    "id": "Gc",
+    "slug": "the-empire-does-not-tolerate-failure",
+    "name": "The Empire Does Not Tolerate Failure",
+    "pips": 2,
+    "commander": "",
+    "faction": "empire",
+    "cardImage": "/images/commands/the-empire-does-not-tolerate-failure.webp"
+  },
+  {
+    "id": "Gr",
+    "slug": "this-partys-over",
+    "name": "This Party's Over",
+    "pips": 1,
+    "commander": "Mace Windu",
+    "faction": "republic",
+    "cardImage": "/images/commands/this-partys-over.webp"
+  },
+  {
+    "id": "Gt",
+    "slug": "unity-wins-wars",
+    "name": "Unity Wins Wars",
+    "pips": 3,
+    "commander": "Shaak Ti",
+    "faction": "republic",
+    "cardImage": "/images/commands/unity-wins-wars.webp"
+  },
+  {
+    "id": "Gv",
+    "slug": "force-of-will",
+    "name": "Force of Will",
+    "pips": 3,
+    "commander": "Ki-Adi-Mundi",
+    "faction": "republic",
+    "cardImage": "/images/commands/force-of-will.webp"
+  },
+  {
+    "id": "Gx",
+    "slug": "i-dont-believe-in-chance",
+    "name": "I Don't Believe in Chance",
+    "pips": 2,
+    "commander": "Plo Koon",
+    "faction": "republic",
+    "cardImage": "/images/commands/i-dont-believe-in-chance.webp"
+  },
+  {
+    "id": "Gz",
+    "slug": "a-disturbance-in-the-force",
+    "name": "A Disturbance in the Force",
+    "pips": 2,
+    "commander": "",
+    "faction": "republic",
+    "cardImage": "/images/commands/a-disturbance-in-the-force.webp"
+  },
+  {
+    "id": "Hd",
+    "slug": "we-shall-start-with-revenge",
+    "name": "We Shall Start with Revenge",
+    "pips": 1,
+    "commander": "Savage Opress",
+    "faction": null,
+    "cardImage": "/images/commands/we-shall-start-with-revenge.webp"
+  },
+  {
+    "id": "Hi",
+    "slug": "for-the-cause",
+    "name": "For the Cause",
+    "pips": 1,
+    "commander": null,
+    "faction": "separatists",
+    "cardImage": "/images/commands/for-the-cause.webp"
+  },
+  {
+    "id": "Hl",
+    "slug": "evasive-action",
+    "name": "Evasive Action",
+    "pips": 2,
+    "commander": null,
+    "faction": "republic",
+    "cardImage": "/images/commands/evasive-action.webp"
+  },
+  {
+    "id": "Ib",
+    "slug": "i-smell-fear-and-it-smells-good",
+    "name": "I Smell Fear... and it Smells Good",
+    "pips": 2,
+    "commander": "Admiral Trench",
+    "faction": null,
+    "cardImage": "/images/commands/i-smell-fear-and-it-smells-good.webp"
+  },
+  {
+    "id": "Ie",
+    "slug": "aerial-assault",
+    "name": "Aerial Assault",
+    "pips": 2,
+    "commander": "",
+    "faction": "mercenary",
+    "cardImage": "/images/commands/aerial-assault.webp"
+  },
+  {
+    "id": "If",
+    "slug": "weapons-are-our-religion",
+    "name": "Weapons Are Our Religion",
+    "pips": 3,
+    "commander": "",
+    "faction": "mercenary",
+    "cardImage": "/images/commands/weapons-are-our-religion.webp"
+  },
+  {
+    "id": "It",
+    "slug": "i-smell-profit",
+    "name": "I Smell Profit",
+    "pips": 3,
+    "commander": "",
+    "faction": null,
+    "cardImage": "/images/commands/i-smell-profit.webp"
+  },
+  {
+    "id": "Iu",
+    "slug": "speak-softly-and-drive-a-big-tank",
+    "name": "Speak Softly and Drive a Big Tank",
+    "pips": 2,
+    "commander": "",
+    "faction": null,
+    "cardImage": "/images/commands/speak-softly-and-drive-a-big-tank.webp"
+  },
+  {
+    "id": "Iv",
+    "slug": "insolence-we-are-pirates",
+    "name": "Insolence?! We are Pirates!",
+    "pips": 1,
+    "commander": "",
+    "faction": null,
+    "cardImage": "/images/commands/insolence-we-are-pirates.webp"
+  },
+  {
+    "id": "Jb",
+    "slug": "a-higher-purpose",
+    "name": "A Higher Purpose",
+    "pips": 1,
+    "commander": "Bo-Katan Kryze",
+    "faction": null,
+    "cardImage": "/images/commands/a-higher-purpose.webp"
+  },
+  {
+    "id": "Jc",
+    "slug": "mandalore-will-survive",
+    "name": "Mandalore Will Survive",
+    "pips": 3,
+    "commander": "Bo-Katan Kryze",
+    "faction": null,
+    "cardImage": "/images/commands/mandalore-will-survive.webp"
+  },
+  {
+    "id": "Jd",
+    "slug": "both-hunter-and-prey",
+    "name": "Both Hunter and Prey",
+    "pips": 2,
+    "commander": "The Armorer",
+    "faction": null,
+    "cardImage": "/images/commands/both-hunter-and-prey.webp"
+  },
+  {
+    "id": "Je",
+    "slug": "we-shape-ourselves",
+    "name": "We Shape Ourselves",
+    "pips": 3,
+    "commander": "The Armorer",
+    "faction": null,
+    "cardImage": "/images/commands/we-shape-ourselves.webp"
+  },
+  {
+    "id": "Jf",
+    "slug": "go-there-are-too-many",
+    "name": "Go, There Are Too Many...",
+    "pips": 1,
+    "commander": "Paz Vizsla",
+    "faction": null,
+    "cardImage": "/images/commands/go-there-are-too-many.webp"
+  },
+  {
+    "id": "Jk",
+    "slug": "we-are-mandalorians",
+    "name": "We Are Mandalorians",
+    "pips": 1,
+    "commander": "",
+    "faction": "mercenary",
+    "cardImage": "/images/commands/we-are-mandalorians.webp"
+  },
+  {
+    "id": "Jl",
+    "slug": "no-one-threatens-our-family",
+    "name": "No One Threatens Our Family",
+    "pips": 1,
+    "commander": "Ursa Wren",
+    "faction": null,
+    "cardImage": "/images/commands/no-one-threatens-our-family.webp"
+  },
+  {
+    "id": "Jm",
+    "slug": "make-the-impossible-possible",
+    "name": "Make the Impossible Possible",
+    "pips": 2,
+    "commander": "Sabine Wren",
+    "faction": null,
+    "cardImage": "/images/commands/make-the-impossible-possible.webp"
+  },
+  {
+    "id": "Jn",
+    "slug": "we-protect-our-own",
+    "name": "We Protect Our Own",
+    "pips": 3,
+    "commander": "",
+    "faction": null,
+    "cardImage": "/images/commands/we-protect-our-own.webp"
+  },
+  {
+    "id": "Jr",
+    "slug": "close-formation",
+    "name": "Close Formation",
+    "pips": 2,
+    "commander": "",
+    "faction": null,
+    "cardImage": "/images/commands/close-formation.webp"
+  },
+  {
+    "id": "Js",
+    "slug": "death-before-defeat",
+    "name": "Death Before Defeat",
+    "pips": 3,
+    "commander": "",
+    "faction": null,
+    "cardImage": "/images/commands/death-before-defeat.webp"
+  },
+  {
+    "id": "Jt",
+    "slug": "vengeful-strike",
+    "name": "Vengeful Strike",
+    "pips": 2,
+    "commander": "Rook Kast",
+    "faction": null,
+    "cardImage": "/images/commands/vengeful-strike.webp"
+  },
+  {
+    "id": "Ju",
+    "slug": "out-of-the-shadows",
+    "name": "Out of the Shadows",
+    "pips": 2,
+    "commander": "",
+    "faction": null,
+    "cardImage": "/images/commands/out-of-the-shadows.webp"
+  },
+  {
+    "id": "La",
+    "slug": "no-escape",
+    "name": "No Escape",
+    "pips": 1,
+    "commander": "Mandalorian Hunter",
+    "faction": null,
+    "cardImage": "/images/commands/no-escape.webp"
+  },
+  {
+    "id": "Lb",
+    "slug": "honor-and-strength",
+    "name": "Honor and Strength",
+    "pips": 3,
+    "commander": "Mandalorian Leader",
+    "faction": null,
+    "cardImage": "/images/commands/honor-and-strength.webp"
   }
 ]

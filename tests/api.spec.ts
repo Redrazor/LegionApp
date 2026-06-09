@@ -14,7 +14,9 @@ function makeUnit(over: Partial<Unit>): Unit {
     id: 'x', slug: 'x', name: 'X', title: '', faction: 'empire', rank: 'corps',
     unitType: 'trooper', cost: 50, defense: 'white', surgeAttack: 'hit', surgeDefense: false,
     speed: 2, wounds: 5, courage: 1, isUnique: false, keywords: ['Precise 1'],
-    upgradeBar: ['gear'], cardImage: null, portraitImage: null, hasFullData: true, history: [],
+    upgradeBar: ['gear'],
+    weapons: [{ name: 'Blaster', range: [1, 3], dice: { red: 0, black: 0, white: 1 }, keywords: [] }],
+    cardImage: null, portraitImage: null, hasFullData: true, history: [],
     ...over,
   }
 }
@@ -58,6 +60,7 @@ describe('GET /api/units', () => {
     const vader = res.body.find((u: Unit) => u.slug === 'darth-vader')
     expect(vader.keywords).toEqual(['Precise 1'])
     expect(vader.upgradeBar).toEqual(['gear'])
+    expect(vader.weapons[0].name).toBe('Blaster')
     expect(vader.isUnique).toBe(true)
   })
 

@@ -22,6 +22,7 @@ export function rowToUnit(row: Record<string, unknown>) {
     isUnique: !!row.is_unique,
     keywords: JSON.parse((row.keywords as string) || '[]'),
     upgradeBar: JSON.parse((row.upgrade_bar as string) || '[]'),
+    weapons: JSON.parse((row.weapons as string) || '[]'),
     cardImage: row.card_image ?? null,
     portraitImage: row.portrait_image ?? null,
     hasFullData: !!row.has_full_data,

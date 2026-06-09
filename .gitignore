@@ -4,6 +4,8 @@ dist/
 .env.local
 public/images/units/
 public/images/portraits/
+public/images/upgrades/
+public/images/commands/
 server/db/legion.db
 server/db/legion.db-shm
 server/db/legion.db-wal

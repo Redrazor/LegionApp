@@ -20,6 +20,7 @@ export const units = sqliteTable('units', {
   isUnique: integer('is_unique').notNull().default(0),
   keywords: text('keywords').notNull().default('[]'),
   upgradeBar: text('upgrade_bar').notNull().default('[]'),
+  weapons: text('weapons').notNull().default('[]'),
   cardImage: text('card_image'),
   portraitImage: text('portrait_image'),
   hasFullData: integer('has_full_data').notNull().default(0),

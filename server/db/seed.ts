@@ -33,6 +33,7 @@ export function createTables(sqlite: Sqlite): void {
       is_unique INTEGER NOT NULL DEFAULT 0,
       keywords TEXT NOT NULL DEFAULT '[]',
       upgrade_bar TEXT NOT NULL DEFAULT '[]',
+      weapons TEXT NOT NULL DEFAULT '[]',
       card_image TEXT,
       portrait_image TEXT,
       has_full_data INTEGER NOT NULL DEFAULT 0,
@@ -85,11 +86,11 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
     INSERT INTO units (
       id, slug, name, title, faction, rank, unit_type, cost, defense,
       surge_attack, surge_defense, speed, wounds, courage, is_unique,
-      keywords, upgrade_bar, card_image, portrait_image, has_full_data, history
+      keywords, upgrade_bar, weapons, card_image, portrait_image, has_full_data, history
     ) VALUES (
       @id, @slug, @name, @title, @faction, @rank, @unitType, @cost, @defense,
       @surgeAttack, @surgeDefense, @speed, @wounds, @courage, @isUnique,
-      @keywords, @upgradeBar, @cardImage, @portraitImage, @hasFullData, @history
+      @keywords, @upgradeBar, @weapons, @cardImage, @portraitImage, @hasFullData, @history
     )
   `)
   const run = sqlite.transaction((rows: Unit[]) => {
@@ -102,6 +103,7 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
         courage: u.courage, isUnique: u.isUnique ? 1 : 0,
         keywords: JSON.stringify(u.keywords ?? []),
         upgradeBar: JSON.stringify(u.upgradeBar ?? []),
+        weapons: JSON.stringify(u.weapons ?? []),
         cardImage: u.cardImage, portraitImage: u.portraitImage,
         hasFullData: u.hasFullData ? 1 : 0,
         history: JSON.stringify(u.history ?? []),

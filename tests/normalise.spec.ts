@@ -1,219 +1,156 @@
 import { describe, it, expect } from 'vitest'
 import {
-  normName, slugify, decodeFaction, decodeRank, decodeUnitType,
-  buildUnits, buildUpgrades, buildCommands, buildProducts, dedupeTtaUnits, ttaImageUrl,
-  type TtaUnit, type LhqCard,
+  slugify, mapFaction, normalizeKeyword, rankIndex,
+  buildUnits, buildUpgrades, buildCommands, buildProducts,
+  type Lhq2Card,
 } from '../scraper/normalise.ts'
+import { extractCards } from '../scraper/scrape.ts'
 
-describe('normName', () => {
-  it('lowercases and strips punctuation', () => {
-    expect(normName("Darth Vader, Dark Lord")).toBe('darth vader dark lord')
-  })
-  it('drops the "Strike Team" qualifier for matching', () => {
-    expect(normName('Rebel Commandos Strike Team')).toBe('rebel commandos')
-  })
-  it('handles null', () => {
-    expect(normName(null)).toBe('')
-  })
-})
+function card(over: Partial<Lhq2Card> = {}): Lhq2Card {
+  return {
+    id: 'aa', cardName: 'Stormtroopers', cardType: 'unit', cardSubtype: 'trooper',
+    rank: 'corps', faction: 'empire', cost: 44, isUnique: false, imageName: 'Stormtroopers.webp',
+    keywords: ['Precise 1'], upgradeBar: ['heavy weapon', 'personnel'],
+    stats: { minicount: 4, hp: 1, defense: 'w', courage: 1, speed: 2, hitsurge: 'h', defsurge: '' },
+    weapons: [{ name: 'E-11 Blaster', range: [1, 3], dice: { r: 0, b: 0, w: 1 }, keywords: [] }],
+    history: [],
+    ...over,
+  }
+}
 
 describe('slugify', () => {
-  it('combines name + title', () => {
+  it('combines name + title and strips punctuation', () => {
     expect(slugify('Darth Vader', 'Dark Lord of the Sith')).toBe('darth-vader-dark-lord-of-the-sith')
-  })
-  it('strips quotes and parens', () => {
     expect(slugify('"Chopper" (C1-10P)')).toBe('chopper-c1-10p')
   })
 })
 
-describe('fkey decoders', () => {
-  it('maps factions', () => {
-    expect(decodeFaction(1)).toBe('rebels')
-    expect(decodeFaction(2)).toBe('empire')
-    expect(decodeFaction(5)).toBe('separatists')
-    expect(decodeFaction(6)).toBe('mercenary')
-    expect(decodeFaction(undefined)).toBe('mercenary')
+describe('mapFaction', () => {
+  it('passes through canonical factions', () => {
+    expect(mapFaction('rebels')).toBe('rebels')
+    expect(mapFaction('separatists')).toBe('separatists')
   })
-  it('maps ranks', () => {
-    expect(decodeRank(1)).toBe('commander')
-    expect(decodeRank(3)).toBe('special')
-    expect(decodeRank(6)).toBe('operative')
-  })
-  it('maps unit types with fallback', () => {
-    expect(decodeUnitType(3)).toBe('ground vehicle')
-    expect(decodeUnitType(999)).toBe('trooper')
+  it('maps mandalorians and unknowns to mercenary', () => {
+    expect(mapFaction('mandalorians')).toBe('mercenary')
+    expect(mapFaction(undefined)).toBe('mercenary')
+    expect(mapFaction('fringe')).toBe('mercenary')
   })
 })
 
-const tta = (over: Partial<TtaUnit> = {}): TtaUnit => ({
-  id: 1, name: 'Stormtroopers', faction_fkey: 2, rank_fkey: 2, unit_type_fkey: 1,
-  current_cost: 44, health: 1, image_url: 'https://cdn/x.webp', ...over,
-})
-const lhq = (over: Partial<LhqCard> = {}): LhqCard => ({
-  id: 'aa', cardName: 'Stormtroopers', cardType: 'unit', faction: 'empire', rank: 'corps',
-  cost: 44, defense: 'white', surges: ['hit'], speed: 2, wounds: 1, courage: 1,
-  keywords: ['Precise 1'], upgradeBar: ['heavy weapon', 'personnel'], ...over,
-})
-
-describe('ttaImageUrl', () => {
-  it('prefers the primary image url', () => {
-    expect(ttaImageUrl(tta({ image_url: 'https://cdn/a.webp' }))).toBe('https://cdn/a.webp')
-  })
-  it('falls back to cloudinary url', () => {
-    expect(ttaImageUrl(tta({ image_url: null, cloudinary_image_url: 'https://res/c.webp' }))).toBe('https://res/c.webp')
-  })
-  it('falls back to the new-unit-cards CDN by id when only the new-image flag is set', () => {
-    const url = ttaImageUrl(tta({ id: 32593, image_url: null, cloudinary_image_url: null, has_new_image: true }))
-    expect(url).toBe('https://d26oqf9i6fvic.cloudfront.net/new-unit-cards/front/32593.webp')
-  })
-  it('returns null when no image is available', () => {
-    expect(ttaImageUrl(tta({ image_url: null, cloudinary_image_url: null }))).toBeNull()
+describe('normalizeKeyword', () => {
+  it('keeps plain strings and renders valued keywords as "Name N"', () => {
+    expect(normalizeKeyword('Charge')).toBe('Charge')
+    expect(normalizeKeyword({ name: 'Sharpshooter', value: 1 })).toBe('Sharpshooter 1')
+    expect(normalizeKeyword({ name: 'Cover' })).toBe('Cover')
   })
 })
 
-describe('dedupeTtaUnits', () => {
-  it('collapses classic/revamp dupes of the same name+title+rank, keeping the costed/newest', () => {
-    const out = dedupeTtaUnits([
-      tta({ id: 1, name: 'AT-RT', rank_fkey: 4, current_cost: 55 }),
-      tta({ id: 70, name: 'AT-RT', rank_fkey: 4, current_cost: 60 }),
-    ])
-    expect(out).toHaveLength(1)
-    expect(out[0].id).toBe(70) // higher id wins on equal cost-presence
-    expect(out[0].current_cost).toBe(60)
-  })
-
-  it('prefers an entry that has a cost over a null-cost duplicate', () => {
-    const out = dedupeTtaUnits([
-      tta({ id: 31669, name: 'Rebel Officer', rank_fkey: 1, current_cost: null }),
-      tta({ id: 22, name: 'Rebel Officer', rank_fkey: 1, current_cost: 45 }),
-    ])
-    expect(out).toHaveLength(1)
-    expect(out[0].current_cost).toBe(45)
-  })
-
-  it('keeps distinct cards that share a name but differ by rank', () => {
-    const out = dedupeTtaUnits([
-      tta({ id: 25, name: 'Chewbacca', rank_fkey: 6, current_cost: 90 }),
-      tta({ id: 1565, name: 'Chewbacca', rank_fkey: 1, current_cost: 90 }),
-      tta({ id: 15969, name: 'Chewbacca', rank_fkey: 5, current_cost: 190 }),
-    ])
-    expect(out).toHaveLength(3)
+describe('rankIndex', () => {
+  it('orders ranks commander..heavy', () => {
+    expect(rankIndex('commander')).toBeLessThan(rankIndex('corps'))
+    expect(rankIndex('corps')).toBeLessThan(rankIndex('heavy'))
+    expect(rankIndex('unknown')).toBe(99)
   })
 })
 
 describe('buildUnits', () => {
-  it('de-duplicates classic/revamp variants end-to-end', () => {
-    const units = buildUnits(
-      [tta({ id: 1, name: 'AT-RT', rank_fkey: 3, current_cost: 55 }),
-       tta({ id: 70, name: 'AT-RT', rank_fkey: 3, current_cost: 60 })],
-      [],
-    )
-    expect(units).toHaveLength(1)
-    expect(units[0].cost).toBe(60)
-  })
-
-  it('merges tabletopadmiral data with Legion HQ stats by name', () => {
-    const units = buildUnits([tta()], [lhq()])
-    expect(units).toHaveLength(1)
-    const u = units[0]
+  it('maps a card to a unit with decoded stats, weapons and image', () => {
+    const [u] = buildUnits([card()])
     expect(u.faction).toBe('empire')
     expect(u.rank).toBe('corps')
     expect(u.cost).toBe(44)
     expect(u.defense).toBe('white')
     expect(u.surgeAttack).toBe('hit')
-    expect(u.upgradeBar).toEqual(['heavy weapon', 'personnel'])
+    expect(u.surgeDefense).toBe(false)
+    expect(u.wounds).toBe(1)
+    expect(u.speed).toBe(2)
     expect(u.keywords).toEqual(['Precise 1'])
-    expect(u.cardImage).toMatch(/\/images\/units\/stormtroopers\.webp$/)
+    expect(u.upgradeBar).toEqual(['heavy weapon', 'personnel'])
+    expect(u.weapons[0]).toEqual({ name: 'E-11 Blaster', range: [1, 3], dice: { red: 0, black: 0, white: 1 }, keywords: [] })
+    expect(u.cardImage).toBe('/images/units/stormtroopers.webp')
     expect(u.hasFullData).toBe(true)
   })
 
-  it('falls back to decoded fkeys for tabletopadmiral-only units', () => {
-    const units = buildUnits([tta({ name: 'Brand New Unit', faction_fkey: 5, rank_fkey: 1 })], [])
-    expect(units[0].faction).toBe('separatists')
-    expect(units[0].rank).toBe('commander')
-    expect(units[0].hasFullData).toBe(false)
-    expect(units[0].upgradeBar).toEqual([])
+  it('decodes red defense and crit/block surges', () => {
+    const [u] = buildUnits([card({ stats: { defense: 'r', hitsurge: 'c', defsurge: 'b', hp: 8, speed: 2, courage: 2 } })])
+    expect(u.defense).toBe('red')
+    expect(u.surgeAttack).toBe('crit')
+    expect(u.surgeDefense).toBe(true)
   })
 
-  it('appends Legion-HQ-only units with no card scan', () => {
-    const units = buildUnits([], [lhq({ cardName: 'Rebel Commandos Strike Team', faction: 'rebels', rank: 'special' })])
-    expect(units).toHaveLength(1)
-    expect(units[0].faction).toBe('rebels')
-    expect(units[0].cardImage).toBeNull()
-    expect(units[0].id).toMatch(/^lhq-/)
+  it('keeps same-named cards distinct, each with its own data (Han Solo cmd vs op)', () => {
+    const units = buildUnits([
+      card({ id: 'ac', cardName: 'Han Solo', title: 'Unorthodox General', rank: 'commander', faction: 'rebels', cost: 100, keywords: ['Gunslinger'] }),
+      card({ id: 'Fc', cardName: 'Han Solo', title: 'Reluctant Hero', rank: 'operative', faction: 'rebels', cost: 90, keywords: ['Charge'] }),
+    ])
+    expect(units).toHaveLength(2)
+    const cmd = units.find((u) => u.rank === 'commander')!
+    const op = units.find((u) => u.rank === 'operative')!
+    expect(cmd.cost).toBe(100)
+    expect(cmd.keywords).toEqual(['Gunslinger'])
+    expect(op.cost).toBe(90)
+    expect(op.keywords).toEqual(['Charge'])
+    expect(cmd.slug).not.toBe(op.slug)
   })
 
-  it('produces distinct slugs for same-named units with different titles', () => {
-    const units = buildUnits(
-      [tta({ id: 1, name: 'Darth Vader', title: 'Dark Lord', include_title: true }),
-       tta({ id: 2, name: 'Darth Vader', title: "Emperor's Apprentice", include_title: true })],
-      [],
-    )
-    const slugs = units.map((u) => u.slug)
-    expect(new Set(slugs).size).toBe(2)
+  it('normalises structured keywords', () => {
+    const [u] = buildUnits([card({ keywords: ['Steady', { name: 'Sharpshooter', value: 1 }] })])
+    expect(u.keywords).toEqual(['Steady', 'Sharpshooter 1'])
   })
 
-  it('merges an imaged tabletopadmiral unit with a stats-only Legion HQ twin via canonical aliasing', () => {
-    // TTA has the image under "Saber-Class Tank"; LHQ has the stats under "TX-130 Saber-Class Fighter Tank".
-    const units = buildUnits(
-      [tta({ id: 53, name: 'Saber-Class Tank', rank_fkey: 5, current_cost: 155, image_url: 'https://cdn/s.webp' })],
-      [lhq({ cardName: 'TX-130 Saber-Class Fighter Tank', displayName: 'Saber Fighter Tank', faction: 'republic', rank: 'heavy', upgradeBar: ['pilot', 'hardpoint'], keywords: ['Armor'], cost: 155 })],
-    )
-    expect(units).toHaveLength(1)
-    const u = units[0]
-    expect(u.name).toBe('Saber Fighter Tank') // canonical (Legion HQ) name
-    expect(u.cardImage).toMatch(/saber-fighter-tank\.webp$/) // image from TTA
-    expect(u.upgradeBar).toEqual(['pilot', 'hardpoint']) // stats from LHQ
-    expect(u.hasFullData).toBe(true)
-  })
-
-  it('merges same-named split records (image side + stats side) into one', () => {
-    const units = buildUnits(
-      [tta({ id: 54, name: 'AAT Battle Tank', rank_fkey: 5, current_cost: 160, image_url: 'https://cdn/a.webp' })],
-      [lhq({ cardName: 'AAT Trade Federation Battle Tank', displayName: 'AAT Battle Tank', faction: 'separatists', rank: 'heavy', upgradeBar: ['pilot'], cost: 160 })],
-    )
-    expect(units).toHaveLength(1)
-    expect(units[0].cardImage).not.toBeNull()
-    expect(units[0].upgradeBar).toEqual(['pilot'])
-  })
-
-  it('splits defense surge into surgeDefense flag', () => {
-    const units = buildUnits([tta()], [lhq({ surges: ['crit', 'block'] })])
-    expect(units[0].surgeAttack).toBe('crit')
-    expect(units[0].surgeDefense).toBe(true)
+  it('ignores non-unit cards', () => {
+    expect(buildUnits([card({ cardType: 'upgrade' })])).toHaveLength(0)
   })
 })
 
 describe('buildUpgrades', () => {
-  it('maps slot, cost and faction restriction', () => {
+  it('maps slot, cost and image', () => {
     const ups = buildUpgrades([
-      { id: 'u1', cardName: 'Hope', cardType: 'upgrade', cardSubtype: 'force', cost: 5, faction: 'rebels', keywords: [] },
+      { id: 'u1', cardName: 'Recon Intel', cardType: 'upgrade', cardSubtype: 'gear', cost: 2, imageName: 'Recon Intel.webp', keywords: [] },
     ])
-    expect(ups[0].slot).toBe('force')
-    expect(ups[0].cost).toBe(5)
-    expect(ups[0].faction).toBe('rebels')
+    expect(ups[0].slot).toBe('gear')
+    expect(ups[0].cost).toBe(2)
+    expect(ups[0].cardImage).toBe('/images/upgrades/recon-intel.webp')
   })
 })
 
 describe('buildCommands', () => {
-  it('parses pip count from cardSubtype', () => {
+  it('parses pip count and joins multi-commander arrays', () => {
     const cmds = buildCommands([
-      { id: 'c1', cardName: 'Ambush', cardType: 'command', cardSubtype: '1', commander: null, faction: null },
-      { id: 'c2', cardName: 'Imperial Discipline', cardType: 'command', cardSubtype: '3', commander: 'General Veers', faction: 'empire' },
+      { id: 'c1', cardName: 'Ambush', cardType: 'command', cardSubtype: '1', commander: 'General Veers', faction: 'empire' },
+      { id: 'c2', cardName: 'Shared Plan', cardType: 'command', cardSubtype: '2', commander: ['AND', 'Han Solo', 'Luke Skywalker'], faction: 'rebels' },
     ])
     expect(cmds[0].pips).toBe(1)
-    expect(cmds[1].pips).toBe(3)
-    expect(cmds[1].commander).toBe('General Veers')
+    expect(cmds[0].commander).toBe('General Veers')
+    expect(cmds[1].commander).toBe('Han Solo, Luke Skywalker')
   })
 })
 
 describe('buildProducts', () => {
   it('generates one expansion per unit grouped by faction', () => {
-    const units = buildUnits([tta({ name: 'Stormtroopers', rank_fkey: 2 })], [lhq()])
+    const units = buildUnits([card({ cardName: 'Stormtroopers' })])
     const products = buildProducts(units)
     expect(products).toHaveLength(1)
     expect(products[0].faction).toBe('empire')
     expect(products[0].unitSlugs).toEqual([units[0].slug])
     expect(products[0].name).toMatch(/Unit Expansion/)
+  })
+})
+
+describe('extractCards', () => {
+  it('pulls every card object out of a bundle-shaped string', () => {
+    const bundle =
+      'var x={"aa":{"id":"aa","cardName":"Leia","cardType":"unit","stats":{"hp":6},"weapons":[{"name":"Blaster"}]},' +
+      '"ab":{"id":"ab","cardName":"Recon Intel","cardType":"upgrade"}};doStuff();'
+    const cards = extractCards(bundle)
+    expect(cards).toHaveLength(2)
+    expect(cards.find((c) => c.cardType === 'unit')!.cardName).toBe('Leia')
+    expect(cards.find((c) => c.cardType === 'upgrade')!.cardName).toBe('Recon Intel')
+  })
+
+  it('handles JS apostrophe escapes', () => {
+    const bundle = `{"id":"x","cardName":"Han\\'s Crew","cardType":"unit"}`
+    const cards = extractCards(bundle)
+    expect(cards[0].cardName).toBe("Han's Crew")
   })
 })

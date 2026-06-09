@@ -8,6 +8,13 @@ export interface HistoryEntry {
   description: string
 }
 
+export interface Weapon {
+  name: string
+  range: number[] // [0] melee; [min,max] ranged
+  dice: { red: number; black: number; white: number }
+  keywords: string[]
+}
+
 export interface Unit {
   id: string
   slug: string
@@ -26,6 +33,7 @@ export interface Unit {
   isUnique: boolean
   keywords: string[]
   upgradeBar: string[]
+  weapons: Weapon[]
   cardImage: string | null
   portraitImage: string | null
   hasFullData: boolean

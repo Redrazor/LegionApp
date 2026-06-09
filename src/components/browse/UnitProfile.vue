@@ -5,6 +5,7 @@ import { useUnitsStore } from '../../stores/units.ts'
 import { factionColor, factionName, rankName, slotLabel } from '../../utils/factions.ts'
 import UnitStatBlock from '../ui/UnitStatBlock.vue'
 import KeywordPill from '../ui/KeywordPill.vue'
+import WeaponsTable from '../ui/WeaponsTable.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -76,6 +77,12 @@ const related = computed(() => {
 
               <!-- Native stat block -->
               <UnitStatBlock :unit="unit" />
+
+              <!-- Weapons -->
+              <div v-if="unit.weapons.length">
+                <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Weapons</h3>
+                <WeaponsTable :weapons="unit.weapons" />
+              </div>
 
               <!-- Upgrade slots -->
               <div v-if="unit.upgradeBar.length">

@@ -1,7 +1,6 @@
 [
   {
     "id": "81",
-    "slug": "agent-kallus-hunter-of-spectres",
     "name": "Agent Kallus",
     "title": "Hunter of Spectres",
     "faction": "empire",
@@ -29,59 +28,19 @@
       "gear",
       "armament"
     ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "5 June 2023",
+        "description": "Cost reduced from 90 to 85 points."
+      }
+    ],
+    "slug": "agent-kallus-hunter-of-spectres",
     "cardImage": "/images/units/agent-kallus-hunter-of-spectres.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "5 June 2023",
-        "description": "Cost reduced from 90 to 85 points."
-      }
-    ]
-  },
-  {
-    "id": "29931",
-    "slug": "agent-kallus-hunter-of-spectres-2",
-    "name": "Agent Kallus",
-    "title": "Hunter of Spectres",
-    "faction": "empire",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 70,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Contingencies",
-      "Cunning",
-      "Flawed",
-      "Sharpshooter",
-      "Tactical",
-      "Pierce"
-    ],
-    "upgradeBar": [
-      "command",
-      "training",
-      "gear",
-      "armament"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "5 June 2023",
-        "description": "Cost reduced from 90 to 85 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "3",
-    "slug": "darth-vader-dark-lord-of-the-sith",
     "name": "Darth Vader",
     "title": "Dark Lord of the Sith",
     "faction": "empire",
@@ -110,8 +69,6 @@
       "force",
       "force"
     ],
-    "cardImage": "/images/units/darth-vader-dark-lord-of-the-sith.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -126,60 +83,13 @@
         "date": "27 October 2021",
         "description": "Cost increased from 175 to 190 points. Added Command upgrade slot and Compel: Corps Trooper."
       }
-    ]
-  },
-  {
-    "id": "47",
-    "slug": "darth-vader-dark-lord-of-the-sith-2",
-    "name": "Darth Vader",
-    "title": "Dark Lord of the Sith",
-    "faction": "empire",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 175,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 3,
-    "isUnique": true,
-    "keywords": [
-      "Deflect",
-      "Immune",
-      "Master of the Force",
-      "Relentless",
-      "Impact",
-      "Pierce",
-      "Compel"
     ],
-    "upgradeBar": [
-      "command",
-      "force",
-      "force",
-      "force"
-    ],
+    "slug": "darth-vader-dark-lord-of-the-sith",
     "cardImage": "/images/units/darth-vader-dark-lord-of-the-sith.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "12 September 2019",
-        "description": "Cost reduced from 200 to 190 points."
-      },
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 190 to 175 points."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost increased from 175 to 190 points. Added Command upgrade slot and Compel: Corps Trooper."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "29",
-    "slug": "director-orson-krennic-architect-of-terror",
     "name": "Director Orson Krennic",
     "title": "Architect of Terror",
     "faction": "empire",
@@ -205,19 +115,19 @@
       "command",
       "gear"
     ],
-    "cardImage": "/images/units/director-orson-krennic-architect-of-terror.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost reduced from 90 to 75 points."
       }
-    ]
+    ],
+    "slug": "director-orson-krennic-architect-of-terror",
+    "cardImage": "/images/units/director-orson-krennic-architect-of-terror.webp",
+    "portraitImage": null
   },
   {
     "id": "20",
-    "slug": "emperor-palpatine-ruler-of-the-galactic-empire",
     "name": "Emperor Palpatine",
     "title": "Ruler of the Galactic Empire",
     "faction": "empire",
@@ -245,8 +155,6 @@
       "force",
       "command"
     ],
-    "cardImage": "/images/units/emperor-palpatine-ruler-of-the-galactic-empire.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -257,11 +165,13 @@
         "date": "27 October 2021",
         "description": "Cost reduced from 200 to 190 points."
       }
-    ]
+    ],
+    "slug": "emperor-palpatine-ruler-of-the-galactic-empire",
+    "cardImage": "/images/units/emperor-palpatine-ruler-of-the-galactic-empire.webp",
+    "portraitImage": null
   },
   {
     "id": "33593",
-    "slug": "general-tagge",
     "name": "General Tagge",
     "title": "",
     "faction": "empire",
@@ -277,14 +187,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "general-tagge",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "8",
-    "slug": "general-veers-master-tactician",
     "name": "General Veers",
     "title": "Master Tactician",
     "faction": "empire",
@@ -310,8 +220,6 @@
       "command",
       "gear"
     ],
-    "cardImage": "/images/units/general-veers-master-tactician.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -322,11 +230,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 75 to 70 points."
       }
-    ]
+    ],
+    "slug": "general-veers-master-tactician",
+    "cardImage": "/images/units/general-veers-master-tactician.webp",
+    "portraitImage": null
   },
   {
     "id": "32588",
-    "slug": "grand-admiral-thrawn",
     "name": "Grand Admiral Thrawn",
     "title": "",
     "faction": "empire",
@@ -342,14 +252,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "grand-admiral-thrawn",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "32589",
-    "slug": "grand-moff-tarkin",
     "name": "Grand Moff Tarkin",
     "title": "",
     "faction": "empire",
@@ -365,14 +275,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "grand-moff-tarkin",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "58",
-    "slug": "iden-versio-inferno-squad-leader",
     "name": "Iden Versio",
     "title": "Inferno Squad Leader",
     "faction": "empire",
@@ -399,14 +309,14 @@
       "gear",
       "armament"
     ],
-    "cardImage": "/images/units/iden-versio-inferno-squad-leader.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "iden-versio-inferno-squad-leader",
+    "cardImage": "/images/units/iden-versio-inferno-squad-leader.webp",
+    "portraitImage": null
   },
   {
     "id": "23",
-    "slug": "imperial-officer-ruthless-commander",
     "name": "Imperial Officer",
     "title": "Ruthless Commander",
     "faction": "empire",
@@ -429,62 +339,23 @@
       "command",
       "gear"
     ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 50 to 45 points."
+      },
+      {
+        "date": "5 June 2023",
+        "description": "Cost increased from 45 to 50 points."
+      }
+    ],
+    "slug": "imperial-officer-ruthless-commander",
     "cardImage": "/images/units/imperial-officer-ruthless-commander.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 50 to 45 points."
-      },
-      {
-        "date": "5 June 2023",
-        "description": "Cost increased from 45 to 50 points."
-      }
-    ]
-  },
-  {
-    "id": "31668",
-    "slug": "imperial-officer-ruthless-commander-2",
-    "name": "Imperial Officer",
-    "title": "Ruthless Commander",
-    "faction": "empire",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 50,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Spotter",
-      "Inspire",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "command",
-      "gear"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 50 to 45 points."
-      },
-      {
-        "date": "5 June 2023",
-        "description": "Cost increased from 45 to 50 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "11258",
-    "slug": "moff-gideon-long-live-the-empire",
     "name": "Moff Gideon",
     "title": "Long Live the Empire",
     "faction": "empire",
@@ -512,14 +383,14 @@
       "gear",
       "armament"
     ],
-    "cardImage": "/images/units/moff-gideon-long-live-the-empire.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "moff-gideon-long-live-the-empire",
+    "cardImage": "/images/units/moff-gideon-long-live-the-empire.webp",
+    "portraitImage": null
   },
   {
     "id": "19108",
-    "slug": "fifth-brother-the-kill-is-mine",
     "name": "Fifth Brother",
     "title": "The Kill is Mine",
     "faction": "empire",
@@ -547,14 +418,14 @@
       "training",
       "force"
     ],
-    "cardImage": "/images/units/fifth-brother-the-kill-is-mine.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "fifth-brother-the-kill-is-mine",
+    "cardImage": "/images/units/fifth-brother-the-kill-is-mine.webp",
+    "portraitImage": null
   },
   {
     "id": "31667",
-    "slug": "imperial-agent",
     "name": "Imperial Agent",
     "title": "",
     "faction": "empire",
@@ -570,14 +441,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "imperial-agent",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "19109",
-    "slug": "seventh-sister-compelled-to-inflict-pain",
     "name": "Seventh Sister",
     "title": "Compelled to Inflict Pain",
     "faction": "empire",
@@ -605,14 +476,14 @@
       "training",
       "force"
     ],
-    "cardImage": "/images/units/seventh-sister-compelled-to-inflict-pain.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "seventh-sister-compelled-to-inflict-pain",
+    "cardImage": "/images/units/seventh-sister-compelled-to-inflict-pain.webp",
+    "portraitImage": null
   },
   {
     "id": "48",
-    "slug": "df-90-mortar-trooper",
     "name": "DF-90 Mortar Trooper",
     "title": "",
     "faction": "empire",
@@ -640,8 +511,6 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/df-90-mortar-trooper.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -652,11 +521,13 @@
         "date": "8 December 2022",
         "description": "Cost increased from 38 to 40 points."
       }
-    ]
+    ],
+    "slug": "df-90-mortar-trooper",
+    "cardImage": "/images/units/df-90-mortar-trooper.webp",
+    "portraitImage": null
   },
   {
     "id": "39",
-    "slug": "shoretroopers",
     "name": "Shoretroopers",
     "title": "",
     "faction": "empire",
@@ -681,14 +552,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/shoretroopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "shoretroopers",
+    "cardImage": "/images/units/shoretroopers.webp",
+    "portraitImage": null
   },
   {
     "id": "7",
-    "slug": "snowtroopers",
     "name": "Snowtroopers",
     "title": "",
     "faction": "empire",
@@ -711,19 +582,19 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/snowtroopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 48 to 44 points."
       }
-    ]
+    ],
+    "slug": "snowtroopers",
+    "cardImage": "/images/units/snowtroopers.webp",
+    "portraitImage": null
   },
   {
     "id": "25967",
-    "slug": "stormtrooper-riot-squad",
     "name": "Stormtrooper Riot Squad",
     "title": "",
     "faction": "empire",
@@ -739,14 +610,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "stormtrooper-riot-squad",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "5",
-    "slug": "stormtroopers",
     "name": "Stormtroopers",
     "title": "",
     "faction": "empire",
@@ -769,14 +640,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/stormtroopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "stormtroopers",
+    "cardImage": "/images/units/stormtroopers.webp",
+    "portraitImage": null
   },
   {
     "id": "5880",
-    "slug": "stormtroopers-heavy-response-unit",
     "name": "Stormtroopers",
     "title": "Heavy Response Unit",
     "faction": "empire",
@@ -799,14 +670,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/stormtroopers-heavy-response-unit.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "stormtroopers-heavy-response-unit",
+    "cardImage": "/images/units/stormtroopers-heavy-response-unit.webp",
+    "portraitImage": null
   },
   {
     "id": "30",
-    "slug": "imperial-death-troopers",
     "name": "Imperial Death Troopers",
     "title": "",
     "faction": "empire",
@@ -833,19 +704,19 @@
       "armament",
       "grenades"
     ],
-    "cardImage": "/images/units/imperial-death-troopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost reduced from 76 to 72 points."
       }
-    ]
+    ],
+    "slug": "imperial-death-troopers",
+    "cardImage": "/images/units/imperial-death-troopers.webp",
+    "portraitImage": null
   },
   {
     "id": "32590",
-    "slug": "imperial-probe-droid",
     "name": "Imperial Probe Droid",
     "title": "",
     "faction": "empire",
@@ -861,14 +732,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "imperial-probe-droid",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "21",
-    "slug": "imperial-royal-guards",
     "name": "Imperial Royal Guards",
     "title": "",
     "faction": "empire",
@@ -894,19 +765,19 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/imperial-royal-guards.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost reduced from 75 to 69 points."
       }
-    ]
+    ],
+    "slug": "imperial-royal-guards",
+    "cardImage": "/images/units/imperial-royal-guards.webp",
+    "portraitImage": null
   },
   {
     "id": "78",
-    "slug": "imperial-special-forces",
     "name": "Imperial Special Forces",
     "title": "",
     "faction": "empire",
@@ -933,14 +804,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/imperial-special-forces.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "imperial-special-forces",
+    "cardImage": "/images/units/imperial-special-forces.webp",
+    "portraitImage": null
   },
   {
     "id": "79",
-    "slug": "imperial-special-forces-inferno-squad",
     "name": "Imperial Special Forces",
     "title": "Inferno Squad",
     "faction": "empire",
@@ -967,14 +838,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/imperial-special-forces-inferno-squad.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "imperial-special-forces-inferno-squad",
+    "cardImage": "/images/units/imperial-special-forces-inferno-squad.webp",
+    "portraitImage": null
   },
   {
     "id": "lhq-my",
-    "slug": "imperial-special-forces-inferno-squad-2",
     "name": "Inferno Squad",
     "title": "",
     "faction": "empire",
@@ -1004,128 +875,52 @@
       "gear",
       "grenades"
     ],
+    "hasFullData": true,
+    "history": [],
+    "slug": "inferno-squad",
     "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "17",
-    "slug": "scout-troopers",
-    "name": "Scout Troopers",
-    "title": "",
-    "faction": "empire",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 48,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Low Profile",
-      "Scout",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
-    "cardImage": "/images/units/scout-troopers.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 60 to 48 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "26",
+    "name": "Scout Troopers",
+    "title": "Strike Team",
+    "faction": "empire",
+    "rank": "special",
+    "unitType": "trooper",
+    "cost": 20,
+    "defense": "white",
+    "surgeAttack": null,
+    "surgeDefense": true,
+    "speed": 2,
+    "wounds": 1,
+    "courage": 2,
+    "isUnique": false,
+    "keywords": [
+      "Low Profile",
+      "Scout",
+      "Sharpshooter"
+    ],
+    "upgradeBar": [
+      "heavy weapon",
+      "training",
+      "comms",
+      "gear",
+      "grenades"
+    ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 60 to 48 points."
+      }
+    ],
     "slug": "scout-troopers-strike-team",
-    "name": "Scout Troopers",
-    "title": "Strike Team",
-    "faction": "empire",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 20,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Low Profile",
-      "Scout",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
     "cardImage": "/images/units/scout-troopers-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 60 to 48 points."
-      }
-    ]
-  },
-  {
-    "id": "25981",
-    "slug": "scout-troopers-strike-team-2",
-    "name": "Scout Troopers",
-    "title": "Strike Team",
-    "faction": "empire",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 20,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Low Profile",
-      "Scout",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
-    "cardImage": "/images/units/scout-troopers-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 60 to 48 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "2",
-    "slug": "74-z-speeder-bikes",
     "name": "74-Z Speeder Bikes",
     "title": "",
     "faction": "empire",
@@ -1149,8 +944,6 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/74-z-speeder-bikes.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -1161,11 +954,13 @@
         "date": "27 October 2021",
         "description": "Cost reduced from 75 to 70 points."
       }
-    ]
+    ],
+    "slug": "74-z-speeder-bikes",
+    "cardImage": "/images/units/74-z-speeder-bikes.webp",
+    "portraitImage": null
   },
   {
     "id": "40",
-    "slug": "dewback-rider",
     "name": "Dewback Rider",
     "title": "",
     "faction": "empire",
@@ -1193,8 +988,6 @@
       "comms",
       "armament"
     ],
-    "cardImage": "/images/units/dewback-rider.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -1205,11 +998,13 @@
         "date": "27 October 2021",
         "description": "Cost reduced from 75 to 70 points."
       }
-    ]
+    ],
+    "slug": "dewback-rider",
+    "cardImage": "/images/units/dewback-rider.webp",
+    "portraitImage": null
   },
   {
     "id": "19",
-    "slug": "e-web-heavy-blaster-team",
     "name": "E-Web Heavy Blaster Team",
     "title": "",
     "faction": "empire",
@@ -1235,19 +1030,19 @@
       "comms",
       "generator"
     ],
-    "cardImage": "/images/units/e-web-heavy-blaster-team.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 55 to 50 points."
       }
-    ]
+    ],
+    "slug": "e-web-heavy-blaster-team",
+    "cardImage": "/images/units/e-web-heavy-blaster-team.webp",
+    "portraitImage": null
   },
   {
     "id": "23657",
-    "slug": "range-troopers",
     "name": "Range Troopers",
     "title": "",
     "faction": "empire",
@@ -1274,14 +1069,14 @@
       "grenades",
       "comms"
     ],
-    "cardImage": "/images/units/range-troopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "range-troopers",
+    "cardImage": "/images/units/range-troopers.webp",
+    "portraitImage": null
   },
   {
     "id": "9",
-    "slug": "at-st",
     "name": "AT-ST",
     "title": "",
     "faction": "empire",
@@ -1310,8 +1105,6 @@
       "hardpoint",
       "comms"
     ],
-    "cardImage": "/images/units/at-st.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -1326,11 +1119,13 @@
         "date": "27 October 2021",
         "description": "Cost reduced from 160 to 155 points."
       }
-    ]
+    ],
+    "slug": "at-st",
+    "cardImage": "/images/units/at-st.webp",
+    "portraitImage": null
   },
   {
     "id": "6180",
-    "slug": "imperial-dark-troopers",
     "name": "Imperial Dark Troopers",
     "title": "",
     "faction": "empire",
@@ -1356,14 +1151,14 @@
       "personnel",
       "programming"
     ],
-    "cardImage": "/images/units/imperial-dark-troopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "imperial-dark-troopers",
+    "cardImage": "/images/units/imperial-dark-troopers.webp",
+    "portraitImage": null
   },
   {
     "id": "lhq-on",
-    "slug": "laat-patrol-transport",
     "name": "LAAT Patrol Transport",
     "title": "",
     "faction": "empire",
@@ -1391,19 +1186,19 @@
       "ordnance",
       "comms"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost reduced from 120 to 105 points."
       }
-    ]
+    ],
+    "slug": "laat-patrol-transport",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "773",
-    "slug": "laat-le-patrol-transport-2",
     "name": "LAAT/LE Patrol Transport",
     "title": "",
     "faction": "empire",
@@ -1419,14 +1214,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": "/images/units/laat-le-patrol-transport.webp",
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "laat-le-patrol-transport",
+    "cardImage": "/images/units/laat-le-patrol-transport.webp",
+    "portraitImage": null
   },
   {
     "id": "17348",
-    "slug": "major-marquand-tempest-scout-2",
     "name": "Major Marquand",
     "title": "Tempest Scout 2",
     "faction": "empire",
@@ -1451,14 +1246,14 @@
       "Impact"
     ],
     "upgradeBar": [],
-    "cardImage": "/images/units/major-marquand-tempest-scout-2.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "major-marquand-tempest-scout-2",
+    "cardImage": "/images/units/major-marquand-tempest-scout-2.webp",
+    "portraitImage": null
   },
   {
     "id": "lhq-bh",
-    "slug": "occupier-combat-assault-tank",
     "name": "Occupier Tank",
     "title": "",
     "faction": "empire",
@@ -1488,8 +1283,6 @@
       "hardpoint",
       "comms"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -1500,11 +1293,13 @@
         "date": "27 October 2021",
         "description": "Cost reduced from 145 to 140 points."
       }
-    ]
+    ],
+    "slug": "occupier-tank",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "31",
-    "slug": "tx-225-gavw-occupier-tank",
     "name": "TX-225 GAVw Occupier Tank",
     "title": "",
     "faction": "empire",
@@ -1520,14 +1315,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": "/images/units/tx-225-gavw-occupier-tank.webp",
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "tx-225-gavw-occupier-tank",
+    "cardImage": "/images/units/tx-225-gavw-occupier-tank.webp",
+    "portraitImage": null
   },
   {
     "id": "4717",
-    "slug": "black-sun-vigo",
     "name": "Black Sun Vigo",
     "title": "",
     "faction": "mercenary",
@@ -1550,14 +1345,14 @@
       "command",
       "gear"
     ],
-    "cardImage": "/images/units/black-sun-vigo.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "black-sun-vigo",
+    "cardImage": "/images/units/black-sun-vigo.webp",
+    "portraitImage": null
   },
   {
     "id": "33771",
-    "slug": "bo-katan-kryze",
     "name": "Bo-Katan Kryze",
     "title": "",
     "faction": "mercenary",
@@ -1573,14 +1368,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "bo-katan-kryze",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "15016",
-    "slug": "c-3p0-golden-god",
     "name": "C-3P0",
     "title": "Golden God",
     "faction": "mercenary",
@@ -1600,14 +1395,14 @@
       "Divine Influence"
     ],
     "upgradeBar": [],
-    "cardImage": "/images/units/c-3p0-golden-god.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "c-3p0-golden-god",
+    "cardImage": "/images/units/c-3p0-golden-god.webp",
+    "portraitImage": null
   },
   {
     "id": "4891",
-    "slug": "gar-saxon-militant-commando",
     "name": "Gar Saxon",
     "title": "Militant Commando",
     "faction": "mercenary",
@@ -1638,19 +1433,19 @@
       "armament",
       "armament"
     ],
-    "cardImage": "/images/units/gar-saxon-militant-commando.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 105 to 100 points."
       }
-    ]
+    ],
+    "slug": "gar-saxon-militant-commando",
+    "cardImage": "/images/units/gar-saxon-militant-commando.webp",
+    "portraitImage": null
   },
   {
     "id": "34888",
-    "slug": "gar-saxon-head-of-clan-saxon",
     "name": "Gar Saxon",
     "title": "Head of Clan Saxon",
     "faction": "mercenary",
@@ -1681,19 +1476,19 @@
       "armament",
       "armament"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 105 to 100 points."
       }
-    ]
+    ],
+    "slug": "gar-saxon-head-of-clan-saxon",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "16687",
-    "slug": "logray-superstitious-shaman",
     "name": "Logray",
     "title": "Superstitious Shaman",
     "faction": "mercenary",
@@ -1721,14 +1516,14 @@
       "training",
       "training"
     ],
-    "cardImage": "/images/units/logray-superstitious-shaman.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "logray-superstitious-shaman",
+    "cardImage": "/images/units/logray-superstitious-shaman.webp",
+    "portraitImage": null
   },
   {
     "id": "33789",
-    "slug": "mandalorian-leader",
     "name": "Mandalorian Leader",
     "title": "",
     "faction": "mercenary",
@@ -1744,14 +1539,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "mandalorian-leader",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "4216",
-    "slug": "pyke-syndicate-capo",
     "name": "Pyke Syndicate Capo",
     "title": "",
     "faction": "mercenary",
@@ -1774,19 +1569,19 @@
       "command",
       "gear"
     ],
-    "cardImage": "/images/units/pyke-syndicate-capo.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "8 December 2022",
         "description": "Cost increased from 45 to 48 points."
       }
-    ]
+    ],
+    "slug": "pyke-syndicate-capo",
+    "cardImage": "/images/units/pyke-syndicate-capo.webp",
+    "portraitImage": null
   },
   {
     "id": "lhq-AA",
-    "slug": "storm-tide-commander",
     "name": "Storm Tide Commander",
     "title": "",
     "faction": "mercenary",
@@ -1808,43 +1603,14 @@
       "gear",
       "armament"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "lhq-AK",
-    "slug": "storm-tide-commander-2",
-    "name": "Storm Tide Commander",
-    "title": "",
-    "faction": "mercenary",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 0,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Inspire"
-    ],
-    "upgradeBar": [
-      "training",
-      "gear",
-      "armament"
-    ],
+    "history": [],
+    "slug": "storm-tide-commander",
     "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "portraitImage": null
   },
   {
     "id": "33795",
-    "slug": "the-armorer",
     "name": "The Armorer",
     "title": "",
     "faction": "mercenary",
@@ -1860,14 +1626,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "the-armorer",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "34889",
-    "slug": "ursa-wren",
     "name": "Ursa Wren",
     "title": "",
     "faction": "mercenary",
@@ -1883,14 +1649,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "ursa-wren",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33770",
-    "slug": "axe-woves",
     "name": "Axe Woves",
     "title": "",
     "faction": "mercenary",
@@ -1906,65 +1672,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
-  },
-  {
-    "id": "5000",
-    "slug": "boba-fett-infamous-bounty-hunter",
-    "name": "Boba Fett",
-    "title": "Infamous Bounty Hunter",
-    "faction": "mercenary",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": 130,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 3,
-    "isUnique": true,
-    "keywords": [
-      "Jump",
-      "Arsenal",
-      "Bounty",
-      "Impervious",
-      "Independent",
-      "Sharpshooter",
-      "Impact",
-      "Pierce"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "comms",
-      "gear",
-      "gear"
-    ],
-    "cardImage": "/images/units/boba-fett-infamous-bounty-hunter.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 140 to 125 points."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost reduced from 125 to 120 points."
-      },
-      {
-        "date": "5 June 2023",
-        "description": "Cost increased from 120 to 130 points."
-      }
-    ]
+    "history": [],
+    "slug": "axe-woves",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "6176",
-    "slug": "boba-fett-infamous-bounty-hunter-2",
     "name": "Boba Fett",
     "title": "Infamous Bounty Hunter",
     "faction": "mercenary",
@@ -1995,8 +1710,6 @@
       "gear",
       "gear"
     ],
-    "cardImage": "/images/units/boba-fett-infamous-bounty-hunter.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -2011,11 +1724,13 @@
         "date": "5 June 2023",
         "description": "Cost increased from 120 to 130 points."
       }
-    ]
+    ],
+    "slug": "boba-fett-infamous-bounty-hunter",
+    "cardImage": "/images/units/boba-fett-infamous-bounty-hunter.webp",
+    "portraitImage": null
   },
   {
     "id": "4999",
-    "slug": "bossk-trandoshan-terror",
     "name": "Bossk",
     "title": "Trandoshan Terror",
     "faction": "mercenary",
@@ -2043,19 +1758,19 @@
       "training",
       "gear"
     ],
-    "cardImage": "/images/units/bossk-trandoshan-terror.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "31 May 2022",
         "description": "Cost reduced from 115 to 105 points."
       }
-    ]
+    ],
+    "slug": "bossk-trandoshan-terror",
+    "cardImage": "/images/units/bossk-trandoshan-terror.webp",
+    "portraitImage": null
   },
   {
     "id": "5001",
-    "slug": "cad-bane-needs-no-introduction",
     "name": "Cad Bane",
     "title": "Needs No Introduction",
     "faction": "mercenary",
@@ -2086,8 +1801,6 @@
       "armament",
       "grenades"
     ],
-    "cardImage": "/images/units/cad-bane-needs-no-introduction.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -2098,89 +1811,52 @@
         "date": "31 May 2022",
         "description": "Cost reduced from 120 to 105 points."
       }
-    ]
+    ],
+    "slug": "cad-bane-needs-no-introduction",
+    "cardImage": "/images/units/cad-bane-needs-no-introduction.webp",
+    "portraitImage": null
   },
   {
     "id": "6179",
+    "name": "Din Djarin",
+    "title": "The Mandalorian",
+    "faction": "mercenary",
+    "rank": "operative",
+    "unitType": "trooper",
+    "cost": 105,
+    "defense": "red",
+    "surgeAttack": "crit",
+    "surgeDefense": true,
+    "speed": 2,
+    "wounds": 5,
+    "courage": 3,
+    "isUnique": true,
+    "keywords": [
+      "Arsenal",
+      "Bounty",
+      "Impervious",
+      "Independent",
+      "Tactical",
+      "Lethal",
+      "Longshot",
+      "Versatile"
+    ],
+    "upgradeBar": [
+      "training",
+      "training",
+      "comms",
+      "gear",
+      "gear",
+      "armament"
+    ],
+    "hasFullData": true,
+    "history": [],
     "slug": "din-djarin-the-mandalorian",
-    "name": "Din Djarin",
-    "title": "The Mandalorian",
-    "faction": "mercenary",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": 105,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 3,
-    "isUnique": true,
-    "keywords": [
-      "Arsenal",
-      "Bounty",
-      "Impervious",
-      "Independent",
-      "Tactical",
-      "Lethal",
-      "Longshot",
-      "Versatile"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "comms",
-      "gear",
-      "gear",
-      "armament"
-    ],
     "cardImage": "/images/units/din-djarin-the-mandalorian.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "34881",
-    "slug": "din-djarin-the-mandalorian-2",
-    "name": "Din Djarin",
-    "title": "The Mandalorian",
-    "faction": "mercenary",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": 105,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 3,
-    "isUnique": true,
-    "keywords": [
-      "Arsenal",
-      "Bounty",
-      "Impervious",
-      "Independent",
-      "Tactical",
-      "Lethal",
-      "Longshot",
-      "Versatile"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "comms",
-      "gear",
-      "gear",
-      "armament"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "portraitImage": null
   },
   {
     "id": "33775",
-    "slug": "han-chewie",
     "name": "Han & Chewie",
     "title": "",
     "faction": "mercenary",
@@ -2196,14 +1872,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "han-chewie",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "29681",
-    "slug": "hondo-ohnaka",
     "name": "Hondo Ohnaka",
     "title": "",
     "faction": "mercenary",
@@ -2219,14 +1895,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "hondo-ohnaka",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "6178",
-    "slug": "ig-11-nurse-and-protect",
     "name": "IG-11",
     "title": "Nurse and Protect",
     "faction": "mercenary",
@@ -2253,14 +1929,14 @@
       "gear",
       "programming"
     ],
-    "cardImage": "/images/units/ig-11-nurse-and-protect.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ig-11-nurse-and-protect",
+    "cardImage": "/images/units/ig-11-nurse-and-protect.webp",
+    "portraitImage": null
   },
   {
     "id": "6177",
-    "slug": "ig-88-notorious-assassin-droid",
     "name": "IG-88",
     "title": "Notorious Assassin Droid",
     "faction": "mercenary",
@@ -2287,14 +1963,14 @@
       "comms",
       "gear"
     ],
-    "cardImage": "/images/units/ig-88-notorious-assassin-droid.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ig-88-notorious-assassin-droid",
+    "cardImage": "/images/units/ig-88-notorious-assassin-droid.webp",
+    "portraitImage": null
   },
   {
     "id": "33787",
-    "slug": "mandalorian-hunter",
     "name": "Mandalorian Hunter",
     "title": "",
     "faction": "mercenary",
@@ -2310,14 +1986,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "mandalorian-hunter",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33790",
-    "slug": "paz-viszla",
     "name": "Paz Viszla",
     "title": "",
     "faction": "mercenary",
@@ -2333,14 +2009,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "paz-viszla",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "34886",
-    "slug": "rook-kast",
     "name": "Rook Kast",
     "title": "",
     "faction": "mercenary",
@@ -2356,14 +2032,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "rook-kast",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33793",
-    "slug": "savage-opress-2",
     "name": "Savage Opress",
     "title": "",
     "faction": "mercenary",
@@ -2379,14 +2055,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "savage-opress",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "4417",
-    "slug": "black-sun-enforcers",
     "name": "Black Sun Enforcers",
     "title": "",
     "faction": "mercenary",
@@ -2412,19 +2088,19 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/black-sun-enforcers.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost increased from 48 to 50 points."
       }
-    ]
+    ],
+    "slug": "black-sun-enforcers",
+    "cardImage": "/images/units/black-sun-enforcers.webp",
+    "portraitImage": null
   },
   {
     "id": "15784",
-    "slug": "ewok-skirmishers",
     "name": "Ewok Skirmishers",
     "title": "",
     "faction": "mercenary",
@@ -2447,14 +2123,14 @@
       "personnel",
       "training"
     ],
-    "cardImage": "/images/units/ewok-skirmishers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ewok-skirmishers",
+    "cardImage": "/images/units/ewok-skirmishers.webp",
+    "portraitImage": null
   },
   {
     "id": "33788",
-    "slug": "mandalorian-initiates",
     "name": "Mandalorian Initiates",
     "title": "",
     "faction": "mercenary",
@@ -2470,14 +2146,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "mandalorian-initiates",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33797",
-    "slug": "mandalorian-warriors",
     "name": "Mandalorian Warriors",
     "title": "",
     "faction": "mercenary",
@@ -2493,14 +2169,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "mandalorian-warriors",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "4215",
-    "slug": "pyke-syndicate-foot-soldiers",
     "name": "Pyke Syndicate Foot Soldiers",
     "title": "",
     "faction": "mercenary",
@@ -2526,19 +2202,19 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/pyke-syndicate-foot-soldiers.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "8 December 2022",
         "description": "Cost increased from 40 to 44 points."
       }
-    ]
+    ],
+    "slug": "pyke-syndicate-foot-soldiers",
+    "cardImage": "/images/units/pyke-syndicate-foot-soldiers.webp",
+    "portraitImage": null
   },
   {
     "id": "32591",
-    "slug": "weequay-pirates",
     "name": "Weequay Pirates",
     "title": "",
     "faction": "mercenary",
@@ -2554,14 +2230,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "weequay-pirates",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33772",
-    "slug": "clan-kryze-veterans",
     "name": "Clan Kryze Veterans",
     "title": "",
     "faction": "mercenary",
@@ -2577,14 +2253,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "clan-kryze-veterans",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33773",
-    "slug": "clan-wren-veterans",
     "name": "Clan Wren Veterans",
     "title": "",
     "faction": "mercenary",
@@ -2600,14 +2276,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "clan-wren-veterans",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "16377",
-    "slug": "ewok-slingers",
     "name": "Ewok Slingers",
     "title": "",
     "faction": "mercenary",
@@ -2633,14 +2309,14 @@
       "personnel",
       "training"
     ],
-    "cardImage": "/images/units/ewok-slingers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ewok-slingers",
+    "cardImage": "/images/units/ewok-slingers.webp",
+    "portraitImage": null
   },
   {
     "id": "4767",
-    "slug": "mandalorian-super-commandos",
     "name": "Mandalorian Super Commandos",
     "title": "",
     "faction": "mercenary",
@@ -2668,19 +2344,19 @@
       "grenades",
       "armament"
     ],
-    "cardImage": "/images/units/mandalorian-super-commandos.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 75 to 70 points."
       }
-    ]
+    ],
+    "slug": "mandalorian-super-commandos",
+    "cardImage": "/images/units/mandalorian-super-commandos.webp",
+    "portraitImage": null
   },
   {
     "id": "34890",
-    "slug": "super-commandos",
     "name": "Super Commandos",
     "title": "",
     "faction": "mercenary",
@@ -2696,14 +2372,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "super-commandos",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33796",
-    "slug": "mandalorian-warriors-fire-support",
     "name": "Mandalorian Warriors",
     "title": "Fire Support",
     "faction": "mercenary",
@@ -2719,14 +2395,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "mandalorian-warriors-fire-support",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "5406",
-    "slug": "swoop-bike-riders",
     "name": "Swoop Bike Riders",
     "title": "",
     "faction": "mercenary",
@@ -2750,19 +2426,19 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/swoop-bike-riders.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 70 to 65 points."
       }
-    ]
+    ],
+    "slug": "swoop-bike-riders",
+    "cardImage": "/images/units/swoop-bike-riders.webp",
+    "portraitImage": null
   },
   {
     "id": "32592",
-    "slug": "wlo-5-speeder-tank",
     "name": "WLO-5 Speeder Tank",
     "title": "",
     "faction": "mercenary",
@@ -2778,82 +2454,48 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "wlo-5-speeder-tank",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "57",
+    "name": "Cassian Andor",
+    "title": "Capable Intelligence Agent",
+    "faction": "rebels",
+    "rank": "commander",
+    "unitType": "trooper",
+    "cost": 90,
+    "defense": "white",
+    "surgeAttack": "hit",
+    "surgeDefense": true,
+    "speed": 2,
+    "wounds": 6,
+    "courage": 2,
+    "isUnique": true,
+    "keywords": [
+      "Covert Ops",
+      "Danger Sense",
+      "Loadout",
+      "Marksman",
+      "Tactical"
+    ],
+    "upgradeBar": [
+      "training",
+      "training",
+      "gear",
+      "armament"
+    ],
+    "hasFullData": true,
+    "history": [],
     "slug": "cassian-andor-capable-intelligence-agent",
-    "name": "Cassian Andor",
-    "title": "Capable Intelligence Agent",
-    "faction": "rebels",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 90,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Covert Ops",
-      "Danger Sense",
-      "Loadout",
-      "Marksman",
-      "Tactical"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "gear",
-      "armament"
-    ],
     "cardImage": "/images/units/cassian-andor-capable-intelligence-agent.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "29930",
-    "slug": "cassian-andor-capable-intelligence-agent-2",
-    "name": "Cassian Andor",
-    "title": "Capable Intelligence Agent",
-    "faction": "rebels",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 90,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Covert Ops",
-      "Danger Sense",
-      "Loadout",
-      "Marksman",
-      "Tactical"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "gear",
-      "armament"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "portraitImage": null
   },
   {
     "id": "15",
-    "slug": "han-solo-unorthodox-general",
     "name": "Han Solo",
     "title": "Unorthodox General",
     "faction": "rebels",
@@ -2880,19 +2522,19 @@
       "training",
       "gear"
     ],
-    "cardImage": "/images/units/han-solo-unorthodox-general.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 120 to 100 points."
       }
-    ]
+    ],
+    "slug": "han-solo-unorthodox-general",
+    "cardImage": "/images/units/han-solo-unorthodox-general.webp",
+    "portraitImage": null
   },
   {
     "id": "32594",
-    "slug": "han-solo-reluctant-hero",
     "name": "Han Solo",
     "title": "Reluctant Hero",
     "faction": "rebels",
@@ -2919,19 +2561,19 @@
       "training",
       "gear"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 120 to 100 points."
       }
-    ]
+    ],
+    "slug": "han-solo-reluctant-hero",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "27",
-    "slug": "jyn-erso-stardust",
     "name": "Jyn Erso",
     "title": "Stardust",
     "faction": "rebels",
@@ -2959,75 +2601,27 @@
       "gear",
       "armament"
     ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "12 September 2019",
+        "description": "Cost reduced from 130 to 110 points."
+      },
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 110 to 100 points."
+      },
+      {
+        "date": "27 October 2021",
+        "description": "Cost reduced from 100 to 90 points."
+      }
+    ],
+    "slug": "jyn-erso-stardust",
     "cardImage": "/images/units/jyn-erso-stardust.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "12 September 2019",
-        "description": "Cost reduced from 130 to 110 points."
-      },
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 110 to 100 points."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost reduced from 100 to 90 points."
-      }
-    ]
-  },
-  {
-    "id": "29928",
-    "slug": "jyn-erso-stardust-2",
-    "name": "Jyn Erso",
-    "title": "Stardust",
-    "faction": "rebels",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 75,
-    "defense": "white",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 3,
-    "isUnique": true,
-    "keywords": [
-      "Quick Thinking",
-      "Danger Sense",
-      "Infiltrate",
-      "Nimble",
-      "Sharpshooter",
-      "Suppressive"
-    ],
-    "upgradeBar": [
-      "command",
-      "training",
-      "gear",
-      "armament"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "12 September 2019",
-        "description": "Cost reduced from 130 to 110 points."
-      },
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 110 to 100 points."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost reduced from 100 to 90 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "80",
-    "slug": "lando-calrissian-smooth-operator",
     "name": "Lando Calrissian",
     "title": "Smooth Operator",
     "faction": "rebels",
@@ -3054,19 +2648,19 @@
       "training",
       "gear"
     ],
-    "cardImage": "/images/units/lando-calrissian-smooth-operator.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 105 to 95 points."
       }
-    ]
+    ],
+    "slug": "lando-calrissian-smooth-operator",
+    "cardImage": "/images/units/lando-calrissian-smooth-operator.webp",
+    "portraitImage": null
   },
   {
     "id": "11",
-    "slug": "leia-organa-fearless-and-inventive",
     "name": "Leia Organa",
     "title": "Fearless and Inventive",
     "faction": "rebels",
@@ -3092,8 +2686,6 @@
       "command",
       "gear"
     ],
-    "cardImage": "/images/units/leia-organa-fearless-and-inventive.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -3104,11 +2696,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 80 to 75 points."
       }
-    ]
+    ],
+    "slug": "leia-organa-fearless-and-inventive",
+    "cardImage": "/images/units/leia-organa-fearless-and-inventive.webp",
+    "portraitImage": null
   },
   {
     "id": "4",
-    "slug": "luke-skywalker-hero-of-the-rebellion",
     "name": "Luke Skywalker",
     "title": "Hero of the Rebellion",
     "faction": "rebels",
@@ -3135,19 +2729,19 @@
       "force",
       "gear"
     ],
-    "cardImage": "/images/units/luke-skywalker-hero-of-the-rebellion.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 160 to 150 points."
       }
-    ]
+    ],
+    "slug": "luke-skywalker-hero-of-the-rebellion",
+    "cardImage": "/images/units/luke-skywalker-hero-of-the-rebellion.webp",
+    "portraitImage": null
   },
   {
     "id": "46",
-    "slug": "luke-skywalker-jedi-knight",
     "name": "Luke Skywalker",
     "title": "Jedi Knight",
     "faction": "rebels",
@@ -3174,19 +2768,19 @@
       "force",
       "gear"
     ],
-    "cardImage": "/images/units/luke-skywalker-jedi-knight.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 160 to 150 points."
       }
-    ]
+    ],
+    "slug": "luke-skywalker-jedi-knight",
+    "cardImage": "/images/units/luke-skywalker-jedi-knight.webp",
+    "portraitImage": null
   },
   {
     "id": "32593",
-    "slug": "luke-skywalker-commander-skywalker",
     "name": "Luke Skywalker",
     "title": "Commander Skywalker",
     "faction": "rebels",
@@ -3213,19 +2807,19 @@
       "force",
       "gear"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 160 to 150 points."
       }
-    ]
+    ],
+    "slug": "luke-skywalker-commander-skywalker",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "22",
-    "slug": "rebel-officer-resolute-commander",
     "name": "Rebel Officer",
     "title": "Resolute Commander",
     "faction": "rebels",
@@ -3248,54 +2842,19 @@
       "command",
       "gear"
     ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 50 to 45 points."
+      }
+    ],
+    "slug": "rebel-officer-resolute-commander",
     "cardImage": "/images/units/rebel-officer-resolute-commander.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 50 to 45 points."
-      }
-    ]
-  },
-  {
-    "id": "31669",
-    "slug": "rebel-officer-resolute-commander-2",
-    "name": "Rebel Officer",
-    "title": "Resolute Commander",
-    "faction": "rebels",
-    "rank": "commander",
-    "unitType": "trooper",
-    "cost": 45,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Take Cover",
-      "Inspire",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "command",
-      "gear"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 50 to 45 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "15015",
-    "slug": "wicket-hero-of-bright-tree",
     "name": "Wicket",
     "title": "Hero of Bright Tree",
     "faction": "rebels",
@@ -3325,14 +2884,14 @@
       "training",
       "training"
     ],
-    "cardImage": "/images/units/wicket-hero-of-bright-tree.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "wicket-hero-of-bright-tree",
+    "cardImage": "/images/units/wicket-hero-of-bright-tree.webp",
+    "portraitImage": null
   },
   {
     "id": "15014",
-    "slug": "ahsoka-tano-fulcrum",
     "name": "Ahsoka Tano",
     "title": "Fulcrum",
     "faction": "rebels",
@@ -3362,14 +2921,14 @@
       "training",
       "training"
     ],
-    "cardImage": "/images/units/ahsoka-tano-fulcrum.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ahsoka-tano-fulcrum",
+    "cardImage": "/images/units/ahsoka-tano-fulcrum.webp",
+    "portraitImage": null
   },
   {
     "id": "29671",
-    "slug": "ahsoka-tano-padawan-commander",
     "name": "Ahsoka Tano",
     "title": "Padawan Commander",
     "faction": "rebels",
@@ -3399,178 +2958,58 @@
       "training",
       "training"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ahsoka-tano-padawan-commander",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "25",
+    "name": "Chewbacca",
+    "title": "Walking Carpet",
+    "faction": "rebels",
+    "rank": "operative",
+    "unitType": "trooper",
+    "cost": 90,
+    "defense": "white",
+    "surgeAttack": "crit",
+    "surgeDefense": false,
+    "speed": 2,
+    "wounds": 9,
+    "courage": 2,
+    "isUnique": true,
+    "keywords": [
+      "Enrage",
+      "Guardian",
+      "Teamwork",
+      "Impact",
+      "Pierce",
+      "Scale",
+      "Lethal"
+    ],
+    "upgradeBar": [
+      "training",
+      "training",
+      "gear"
+    ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "12 September 2019",
+        "description": "Cost reduced from 110 to 95 points."
+      },
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 95 to 90 points. Gained Wookiee Warrior tag and Scale keyword. Weapon gained Lethal keyword. Lost Expert Climber and Unhindered keywords."
+      }
+    ],
     "slug": "chewbacca-walking-carpet",
-    "name": "Chewbacca",
-    "title": "Walking Carpet",
-    "faction": "rebels",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": 90,
-    "defense": "white",
-    "surgeAttack": "crit",
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 9,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Enrage",
-      "Guardian",
-      "Teamwork",
-      "Impact",
-      "Pierce",
-      "Scale",
-      "Lethal"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "gear"
-    ],
     "cardImage": "/images/units/chewbacca-walking-carpet.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "12 September 2019",
-        "description": "Cost reduced from 110 to 95 points."
-      },
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 95 to 90 points. Gained Wookiee Warrior tag and Scale keyword. Weapon gained Lethal keyword. Lost Expert Climber and Unhindered keywords."
-      }
-    ]
-  },
-  {
-    "id": "1565",
-    "slug": "chewbacca-walking-carpet-2",
-    "name": "Chewbacca",
-    "title": "Walking Carpet",
-    "faction": "rebels",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": 90,
-    "defense": "white",
-    "surgeAttack": "crit",
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 9,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Enrage",
-      "Guardian",
-      "Teamwork",
-      "Impact",
-      "Pierce",
-      "Scale",
-      "Lethal"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "gear"
-    ],
-    "cardImage": "/images/units/chewbacca-walking-carpet.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "12 September 2019",
-        "description": "Cost reduced from 110 to 95 points."
-      },
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 95 to 90 points. Gained Wookiee Warrior tag and Scale keyword. Weapon gained Lethal keyword. Lost Expert Climber and Unhindered keywords."
-      }
-    ]
-  },
-  {
-    "id": "15969",
-    "slug": "chewbacca-walking-carpet-3",
-    "name": "Chewbacca",
-    "title": "Walking Carpet",
-    "faction": "rebels",
-    "rank": "operative",
-    "unitType": "repulsor vehicle",
-    "cost": 190,
-    "defense": "white",
-    "surgeAttack": "crit",
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 11,
-    "courage": 8,
-    "isUnique": true,
-    "keywords": [
-      "Enrage",
-      "Guardian",
-      "Teamwork",
-      "Impact",
-      "Pierce",
-      "Scale",
-      "Lethal"
-    ],
-    "upgradeBar": [
-      "training",
-      "training",
-      "gear"
-    ],
-    "cardImage": "/images/units/chewbacca-walking-carpet.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "12 September 2019",
-        "description": "Cost reduced from 110 to 95 points."
-      },
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 95 to 90 points. Gained Wookiee Warrior tag and Scale keyword. Weapon gained Lethal keyword. Lost Expert Climber and Unhindered keywords."
-      }
-    ]
-  },
-  {
-    "id": "68",
-    "slug": "k-2so-sardonic-security-droid",
-    "name": "K-2SO",
-    "title": "Sardonic Security Droid",
-    "faction": "rebels",
-    "rank": "operative",
-    "unitType": "droid trooper",
-    "cost": 70,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Calculate Odds",
-      "Armor",
-      "Detachment",
-      "Incognito",
-      "Teamwork"
-    ],
-    "upgradeBar": [
-      "comms",
-      "armament"
-    ],
-    "cardImage": "/images/units/k-2so-sardonic-security-droid.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "portraitImage": null
   },
   {
     "id": "29932",
-    "slug": "k-2so-sardonic-security-droid-2",
     "name": "K-2SO",
     "title": "Sardonic Security Droid",
     "faction": "rebels",
@@ -3595,54 +3034,14 @@
       "comms",
       "armament"
     ],
+    "hasFullData": true,
+    "history": [],
+    "slug": "k-2so-sardonic-security-droid",
     "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "55",
-    "slug": "r2-d2-hero-of-a-thousand-devices",
-    "name": "R2-D2",
-    "title": "Hero of a Thousand Devices",
-    "faction": "rebels",
-    "rank": "operative",
-    "unitType": "droid trooper",
-    "cost": 55,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 4,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Repair",
-      "Secret Mission",
-      "Grounded",
-      "Inconspicuous",
-      "Suppressive"
-    ],
-    "upgradeBar": [
-      "comms"
-    ],
-    "cardImage": "/images/units/r2-d2-hero-of-a-thousand-devices.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost increased from 35 to 45."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost increased from 45 to 55 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "56",
-    "slug": "r2-d2-hero-of-a-thousand-devices-2",
     "name": "R2-D2",
     "title": "Hero of a Thousand Devices",
     "faction": "rebels",
@@ -3666,8 +3065,6 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/r2-d2-hero-of-a-thousand-devices.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -3678,11 +3075,13 @@
         "date": "27 October 2021",
         "description": "Cost increased from 45 to 55 points."
       }
-    ]
+    ],
+    "slug": "r2-d2-hero-of-a-thousand-devices",
+    "cardImage": "/images/units/r2-d2-hero-of-a-thousand-devices.webp",
+    "portraitImage": null
   },
   {
     "id": "31670",
-    "slug": "rebel-agent",
     "name": "Rebel Agent",
     "title": "",
     "faction": "rebels",
@@ -3698,14 +3097,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "rebel-agent",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33",
-    "slug": "sabine-wren-explosive-artist",
     "name": "Sabine Wren",
     "title": "Explosive Artist",
     "faction": "rebels",
@@ -3732,48 +3131,14 @@
       "gear",
       "armament"
     ],
+    "hasFullData": true,
+    "history": [],
+    "slug": "sabine-wren-explosive-artist",
     "cardImage": "/images/units/sabine-wren-explosive-artist.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "34887",
-    "slug": "sabine-wren-explosive-artist-2",
-    "name": "Sabine Wren",
-    "title": "Explosive Artist",
-    "faction": "rebels",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": 125,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 5,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Jump",
-      "Gunslinger",
-      "Impervious",
-      "Nimble",
-      "Pierce"
-    ],
-    "upgradeBar": [
-      "training",
-      "gear",
-      "gear",
-      "armament"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "portraitImage": null
   },
   {
     "id": "12",
-    "slug": "fleet-troopers",
     "name": "Fleet Troopers",
     "title": "",
     "faction": "rebels",
@@ -3796,19 +3161,19 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/fleet-troopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 44 to 40 points."
       }
-    ]
+    ],
+    "slug": "fleet-troopers",
+    "cardImage": "/images/units/fleet-troopers.webp",
+    "portraitImage": null
   },
   {
     "id": "42",
-    "slug": "mark-ii-medium-blaster-trooper",
     "name": "Mark II Medium Blaster Trooper",
     "title": "",
     "faction": "rebels",
@@ -3836,19 +3201,19 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/mark-ii-medium-blaster-trooper.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Wound threshold increased from 3 to 4."
       }
-    ]
+    ],
+    "slug": "mark-ii-medium-blaster-trooper",
+    "cardImage": "/images/units/mark-ii-medium-blaster-trooper.webp",
+    "portraitImage": null
   },
   {
     "id": "6",
-    "slug": "rebel-troopers",
     "name": "Rebel Troopers",
     "title": "",
     "faction": "rebels",
@@ -3871,14 +3236,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/rebel-troopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "rebel-troopers",
+    "cardImage": "/images/units/rebel-troopers.webp",
+    "portraitImage": null
   },
   {
     "id": "36",
-    "slug": "rebel-veterans",
     "name": "Rebel Veterans",
     "title": "",
     "faction": "rebels",
@@ -3903,14 +3268,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/rebel-veterans.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "rebel-veterans",
+    "cardImage": "/images/units/rebel-veterans.webp",
+    "portraitImage": null
   },
   {
     "id": "lhq-ml",
-    "slug": "mandalorian-resistance-clan-wren",
     "name": "Clan Wren",
     "title": "",
     "faction": "rebels",
@@ -3940,19 +3305,19 @@
       "armament",
       "grenades"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 34 to 30 points."
       }
-    ]
+    ],
+    "slug": "clan-wren",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33774",
-    "slug": "guerilla-troopers",
     "name": "Guerilla Troopers",
     "title": "",
     "faction": "rebels",
@@ -3968,53 +3333,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
-  },
-  {
-    "id": "71",
-    "slug": "mandalorian-resistance",
-    "name": "Mandalorian Resistance",
-    "title": "",
-    "faction": "rebels",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 62,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Jump",
-      "Impervious",
-      "Nimble"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "armament",
-      "grenades"
-    ],
-    "cardImage": "/images/units/mandalorian-resistance.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "5 June 2023",
-        "description": "Cost reduced from 72 to 68 points."
-      }
-    ]
+    "history": [],
+    "slug": "guerilla-troopers",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "72",
-    "slug": "mandalorian-resistance-2",
     "name": "Mandalorian Resistance",
     "title": "",
     "faction": "rebels",
@@ -4041,145 +3367,61 @@
       "armament",
       "grenades"
     ],
-    "cardImage": "/images/units/mandalorian-resistance.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 72 to 68 points."
       }
-    ]
-  },
-  {
-    "id": "13",
-    "slug": "rebel-commandos",
-    "name": "Rebel Commandos",
-    "title": "",
-    "faction": "rebels",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 42,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Low Profile",
-      "Scout",
-      "Sharpshooter"
     ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
-    "cardImage": "/images/units/rebel-commandos.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 60 to 50 points."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost reduced from 50 to 48 points."
-      }
-    ]
+    "slug": "mandalorian-resistance",
+    "cardImage": "/images/units/mandalorian-resistance.webp",
+    "portraitImage": null
   },
   {
     "id": "14",
+    "name": "Rebel Commandos",
+    "title": "Strike Team",
+    "faction": "rebels",
+    "rank": "special",
+    "unitType": "trooper",
+    "cost": 20,
+    "defense": "white",
+    "surgeAttack": "hit",
+    "surgeDefense": true,
+    "speed": 2,
+    "wounds": 1,
+    "courage": 2,
+    "isUnique": false,
+    "keywords": [
+      "Low Profile",
+      "Scout",
+      "Sharpshooter"
+    ],
+    "upgradeBar": [
+      "heavy weapon",
+      "training",
+      "comms",
+      "gear",
+      "grenades"
+    ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 60 to 50 points."
+      },
+      {
+        "date": "27 October 2021",
+        "description": "Cost reduced from 50 to 48 points."
+      }
+    ],
     "slug": "rebel-commandos-strike-team",
-    "name": "Rebel Commandos",
-    "title": "Strike Team",
-    "faction": "rebels",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 20,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Low Profile",
-      "Scout",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
     "cardImage": "/images/units/rebel-commandos-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 60 to 50 points."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost reduced from 50 to 48 points."
-      }
-    ]
-  },
-  {
-    "id": "25979",
-    "slug": "rebel-commandos-strike-team-2",
-    "name": "Rebel Commandos",
-    "title": "Strike Team",
-    "faction": "rebels",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 20,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Low Profile",
-      "Scout",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
-    "cardImage": "/images/units/rebel-commandos-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 60 to 50 points."
-      },
-      {
-        "date": "27 October 2021",
-        "description": "Cost reduced from 50 to 48 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "28",
-    "slug": "rebel-pathfinders",
     "name": "Rebel Pathfinders",
     "title": "",
     "faction": "rebels",
@@ -4206,8 +3448,6 @@
       "armament",
       "grenades"
     ],
-    "cardImage": "/images/units/rebel-pathfinders.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -4218,11 +3458,13 @@
         "date": "27 October 2021",
         "description": "Cost reduced from 58 to 56 points."
       }
-    ]
+    ],
+    "slug": "rebel-pathfinders",
+    "cardImage": "/images/units/rebel-pathfinders.webp",
+    "portraitImage": null
   },
   {
     "id": "25968",
-    "slug": "rebel-sleeper-cell",
     "name": "Rebel Sleeper Cell",
     "title": "",
     "faction": "rebels",
@@ -4238,14 +3480,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "rebel-sleeper-cell",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
-    "id": "24",
-    "slug": "wookiee-warriors",
+    "id": "1563",
     "name": "Wookiee Warriors",
     "title": "",
     "faction": "rebels",
@@ -4272,19 +3514,19 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/wookiee-warriors.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 75 to 69 points. Gained Wookiee Warrior tag and Scale keyword. Lost Expert Climber and Unhindered keywords."
       }
-    ]
+    ],
+    "slug": "wookiee-warriors",
+    "cardImage": "/images/units/wookiee-warriors.webp",
+    "portraitImage": null
   },
   {
     "id": "1527",
-    "slug": "wookiee-warriors-kashyyyk-defenders",
     "name": "Wookiee Warriors",
     "title": "Kashyyyk Defenders",
     "faction": "rebels",
@@ -4311,19 +3553,19 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/wookiee-warriors-kashyyyk-defenders.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 75 to 69 points. Gained Wookiee Warrior tag and Scale keyword. Lost Expert Climber and Unhindered keywords."
       }
-    ]
+    ],
+    "slug": "wookiee-warriors-kashyyyk-defenders",
+    "cardImage": "/images/units/wookiee-warriors-kashyyyk-defenders.webp",
+    "portraitImage": null
   },
   {
     "id": "1529",
-    "slug": "wookiee-warriors-kashyyyk-resistance",
     "name": "Wookiee Warriors",
     "title": "Kashyyyk Resistance",
     "faction": "rebels",
@@ -4350,58 +3592,19 @@
       "gear",
       "grenades"
     ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "19 November 2020",
+        "description": "Cost reduced from 75 to 69 points. Gained Wookiee Warrior tag and Scale keyword. Lost Expert Climber and Unhindered keywords."
+      }
+    ],
+    "slug": "wookiee-warriors-kashyyyk-resistance",
     "cardImage": "/images/units/wookiee-warriors-kashyyyk-resistance.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 75 to 69 points. Gained Wookiee Warrior tag and Scale keyword. Lost Expert Climber and Unhindered keywords."
-      }
-    ]
-  },
-  {
-    "id": "1563",
-    "slug": "wookiee-warriors-2",
-    "name": "Wookiee Warriors",
-    "title": "",
-    "faction": "rebels",
-    "rank": "special",
-    "unitType": "trooper",
-    "cost": 62,
-    "defense": "white",
-    "surgeAttack": "hit",
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 3,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Charge",
-      "Duelist",
-      "Indomitable",
-      "Scale"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "training",
-      "gear",
-      "grenades"
-    ],
-    "cardImage": "/images/units/wookiee-warriors.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost reduced from 75 to 69 points. Gained Wookiee Warrior tag and Scale keyword. Lost Expert Climber and Unhindered keywords."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "18",
-    "slug": "14-fd-laser-cannon-team",
     "name": "1.4 FD Laser Cannon Team",
     "title": "",
     "faction": "rebels",
@@ -4427,51 +3630,19 @@
       "comms",
       "generator"
     ],
-    "cardImage": "/images/units/14-fd-laser-cannon-team.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost reduced from 70 to 65 points."
       }
-    ]
-  },
-  {
-    "id": "1",
-    "slug": "at-rt",
-    "name": "AT-RT",
-    "title": "",
-    "faction": "rebels",
-    "rank": "support",
-    "unitType": "ground vehicle",
-    "cost": 55,
-    "defense": "white",
-    "surgeAttack": "crit",
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 4,
-    "isUnique": false,
-    "keywords": [
-      "Vehicle",
-      "Armor",
-      "Climbing Vehicle",
-      "Expert Climber",
-      "Impact"
     ],
-    "upgradeBar": [
-      "hardpoint",
-      "comms"
-    ],
-    "cardImage": "/images/units/at-rt.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "slug": "14-fd-laser-cannon-team",
+    "cardImage": "/images/units/14-fd-laser-cannon-team.webp",
+    "portraitImage": null
   },
   {
     "id": "70",
-    "slug": "at-rt-2",
     "name": "AT-RT",
     "title": "",
     "faction": "rebels",
@@ -4496,14 +3667,14 @@
       "hardpoint",
       "comms"
     ],
-    "cardImage": "/images/units/at-rt.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "at-rt",
+    "cardImage": "/images/units/at-rt.webp",
+    "portraitImage": null
   },
   {
     "id": "35",
-    "slug": "tauntaun-riders",
     "name": "Tauntaun Riders",
     "title": "",
     "faction": "rebels",
@@ -4529,8 +3700,6 @@
       "training",
       "comms"
     ],
-    "cardImage": "/images/units/tauntaun-riders.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -4541,46 +3710,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 95 to 90 points."
       }
-    ]
-  },
-  {
-    "id": "772",
-    "slug": "a-a5-speeder-truck",
-    "name": "A-A5 Speeder Truck",
-    "title": "",
-    "faction": "rebels",
-    "rank": "heavy",
-    "unitType": "repulsor vehicle",
-    "cost": 75,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Armor",
-      "Hover: Ground",
-      "Reposition",
-      "Transport: Closed",
-      "Weak Point"
     ],
-    "upgradeBar": [
-      "pilot",
-      "crew",
-      "crew",
-      "hardpoint",
-      "comms"
-    ],
-    "cardImage": "/images/units/a-a5-speeder-truck.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "slug": "tauntaun-riders",
+    "cardImage": "/images/units/tauntaun-riders.webp",
+    "portraitImage": null
   },
   {
     "id": "4919",
-    "slug": "a-a5-speeder-truck-2",
     "name": "A-A5 Speeder Truck",
     "title": "",
     "faction": "rebels",
@@ -4608,14 +3744,14 @@
       "hardpoint",
       "comms"
     ],
-    "cardImage": "/images/units/a-a5-speeder-truck.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "a-a5-speeder-truck",
+    "cardImage": "/images/units/a-a5-speeder-truck.webp",
+    "portraitImage": null
   },
   {
     "id": "10",
-    "slug": "t-47-airspeeder",
     "name": "T-47 Airspeeder",
     "title": "",
     "faction": "rebels",
@@ -4644,8 +3780,6 @@
       "hardpoint",
       "comms"
     ],
-    "cardImage": "/images/units/t-47-airspeeder.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -4656,11 +3790,13 @@
         "date": "19 November 2020",
         "description": "Cost reduced from 140 to 130 points. Gained Immunity to range 1 weapons as well as surge to crit."
       }
-    ]
+    ],
+    "slug": "t-47-airspeeder",
+    "cardImage": "/images/units/t-47-airspeeder.webp",
+    "portraitImage": null
   },
   {
     "id": "32",
-    "slug": "x-34-landspeeder",
     "name": "X-34 Landspeeder",
     "title": "",
     "faction": "rebels",
@@ -4688,19 +3824,19 @@
       "hardpoint",
       "comms"
     ],
-    "cardImage": "/images/units/x-34-landspeeder.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 75 to 60 points."
       }
-    ]
+    ],
+    "slug": "x-34-landspeeder",
+    "cardImage": "/images/units/x-34-landspeeder.webp",
+    "portraitImage": null
   },
   {
     "id": "73",
-    "slug": "anakin-skywalker-the-chosen-one",
     "name": "Anakin Skywalker",
     "title": "The Chosen One",
     "faction": "republic",
@@ -4729,19 +3865,19 @@
       "training",
       "training"
     ],
-    "cardImage": "/images/units/anakin-skywalker-the-chosen-one.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost reduced from 160 to 155 points."
       }
-    ]
+    ],
+    "slug": "anakin-skywalker-the-chosen-one",
+    "cardImage": "/images/units/anakin-skywalker-the-chosen-one.webp",
+    "portraitImage": null
   },
   {
     "id": "33769",
-    "slug": "anakin-skywalker-mounted-jedi-general",
     "name": "Anakin Skywalker",
     "title": "Mounted Jedi General",
     "faction": "republic",
@@ -4770,19 +3906,19 @@
       "training",
       "training"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost reduced from 160 to 155 points."
       }
-    ]
+    ],
+    "slug": "anakin-skywalker-mounted-jedi-general",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "50",
-    "slug": "clone-captain-rex-honorable-soldier",
     "name": "Clone Captain Rex",
     "title": "Honorable Soldier",
     "faction": "republic",
@@ -4810,8 +3946,6 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/clone-captain-rex-honorable-soldier.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -4822,11 +3956,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 100 to 95 points."
       }
-    ]
+    ],
+    "slug": "clone-captain-rex-honorable-soldier",
+    "cardImage": "/images/units/clone-captain-rex-honorable-soldier.webp",
+    "portraitImage": null
   },
   {
     "id": "75",
-    "slug": "clone-commander-trained-for-leadership",
     "name": "Clone Commander",
     "title": "Trained For Leadership",
     "faction": "republic",
@@ -4850,19 +3986,19 @@
       "training",
       "gear"
     ],
-    "cardImage": "/images/units/clone-commander-trained-for-leadership.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost increased from 55 to 60 points."
       }
-    ]
+    ],
+    "slug": "clone-commander-trained-for-leadership",
+    "cardImage": "/images/units/clone-commander-trained-for-leadership.webp",
+    "portraitImage": null
   },
   {
     "id": "6376",
-    "slug": "clone-commander-cody-leader-of-the-212th",
     "name": "Clone Commander Cody",
     "title": "Leader of the 212th",
     "faction": "republic",
@@ -4888,14 +4024,14 @@
       "training",
       "gear"
     ],
-    "cardImage": "/images/units/clone-commander-cody-leader-of-the-212th.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "clone-commander-cody-leader-of-the-212th",
+    "cardImage": "/images/units/clone-commander-cody-leader-of-the-212th.webp",
+    "portraitImage": null
   },
   {
     "id": "33776",
-    "slug": "jedi-knight",
     "name": "Jedi Knight",
     "title": "",
     "faction": "republic",
@@ -4911,14 +4047,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "jedi-knight",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "31842",
-    "slug": "jedi-knight-general-strong-in-the-force",
     "name": "Jedi Knight General",
     "title": "Strong in the Force",
     "faction": "republic",
@@ -4934,14 +4070,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "jedi-knight-general-strong-in-the-force",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33777",
-    "slug": "ki-adi-mundi",
     "name": "Ki-Adi-Mundi",
     "title": "",
     "faction": "republic",
@@ -4957,14 +4093,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "ki-adi-mundi",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33575",
-    "slug": "mace-windu",
     "name": "Mace Windu",
     "title": "",
     "faction": "republic",
@@ -4980,14 +4116,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "mace-windu",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "41",
-    "slug": "obi-wan-kenobi-civilized-warrior",
     "name": "Obi-Wan Kenobi",
     "title": "Civilized Warrior",
     "faction": "republic",
@@ -5018,19 +4154,19 @@
       "command",
       "training"
     ],
-    "cardImage": "/images/units/obi-wan-kenobi-civilized-warrior.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 175 to 170 points."
       }
-    ]
+    ],
+    "slug": "obi-wan-kenobi-civilized-warrior",
+    "cardImage": "/images/units/obi-wan-kenobi-civilized-warrior.webp",
+    "portraitImage": null
   },
   {
     "id": "1528",
-    "slug": "wookiee-chieftain-clan-leader",
     "name": "Wookiee Chieftain",
     "title": "Clan Leader",
     "faction": "republic",
@@ -5059,14 +4195,14 @@
       "training",
       "gear"
     ],
-    "cardImage": "/images/units/wookiee-chieftain-clan-leader.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "wookiee-chieftain-clan-leader",
+    "cardImage": "/images/units/wookiee-chieftain-clan-leader.webp",
+    "portraitImage": null
   },
   {
     "id": "764",
-    "slug": "yoda-grand-master-of-the-jedi-order",
     "name": "Yoda",
     "title": "Grand Master of the Jedi Order",
     "faction": "republic",
@@ -5096,14 +4232,14 @@
       "force",
       "command"
     ],
-    "cardImage": "/images/units/yoda-grand-master-of-the-jedi-order.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "yoda-grand-master-of-the-jedi-order",
+    "cardImage": "/images/units/yoda-grand-master-of-the-jedi-order.webp",
+    "portraitImage": null
   },
   {
     "id": "31843",
-    "slug": "jedi-knight-keeper-of-the-peace",
     "name": "Jedi Knight",
     "title": "Keeper of the Peace",
     "faction": "republic",
@@ -5119,14 +4255,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "jedi-knight-keeper-of-the-peace",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "60",
-    "slug": "padme-amidala-spirited-senator",
     "name": "Padme Amidala",
     "title": "Spirited Senator",
     "faction": "republic",
@@ -5154,19 +4290,19 @@
       "gear",
       "armament"
     ],
-    "cardImage": "/images/units/padme-amidala-spirited-senator.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 90 to 85 points."
       }
-    ]
+    ],
+    "slug": "padme-amidala-spirited-senator",
+    "cardImage": "/images/units/padme-amidala-spirited-senator.webp",
+    "portraitImage": null
   },
   {
     "id": "33791",
-    "slug": "plo-koon",
     "name": "Plo Koon",
     "title": "",
     "faction": "republic",
@@ -5182,14 +4318,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "plo-koon",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "33794",
-    "slug": "shaak-ti",
     "name": "Shaak Ti",
     "title": "",
     "faction": "republic",
@@ -5205,50 +4341,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
-  },
-  {
-    "id": "23655",
-    "slug": "the-bad-batch-clone-force-99",
-    "name": "The Bad Batch",
-    "title": "Clone Force 99",
-    "faction": "republic",
-    "rank": "operative",
-    "unitType": "clone trooper",
-    "cost": 170,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 2,
-    "courage": 3,
-    "isUnique": true,
-    "keywords": [
-      "Equip",
-      "Impervious",
-      "Scale",
-      "Steady",
-      "Sharpshooter",
-      "We're Not Regs"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "heavy weapon",
-      "heavy weapon",
-      "heavy weapon",
-      "heavy weapon"
-    ],
-    "cardImage": "/images/units/the-bad-batch-clone-force-99.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "shaak-ti",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "25086",
-    "slug": "the-bad-batch-clone-force-99-2",
     "name": "The Bad Batch",
     "title": "Clone Force 99",
     "faction": "republic",
@@ -5277,14 +4377,14 @@
       "heavy weapon",
       "heavy weapon"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "the-bad-batch-clone-force-99",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "25964",
-    "slug": "clone-trooper-infantry",
     "name": "Clone Trooper Infantry",
     "title": "",
     "faction": "republic",
@@ -5300,14 +4400,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "clone-trooper-infantry",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "32248",
-    "slug": "clone-trooper-marksmen",
     "name": "Clone Trooper Marksmen",
     "title": "",
     "faction": "republic",
@@ -5323,14 +4423,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "clone-trooper-marksmen",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "37",
-    "slug": "phase-i-clone-troopers",
     "name": "Phase I Clone Troopers",
     "title": "",
     "faction": "republic",
@@ -5353,14 +4453,14 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/phase-i-clone-troopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "phase-i-clone-troopers",
+    "cardImage": "/images/units/phase-i-clone-troopers.webp",
+    "portraitImage": null
   },
   {
     "id": "51",
-    "slug": "phase-ii-clone-troopers",
     "name": "Phase II Clone Troopers",
     "title": "",
     "faction": "republic",
@@ -5385,8 +4485,6 @@
       "gear",
       "grenades"
     ],
-    "cardImage": "/images/units/phase-ii-clone-troopers.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -5397,56 +4495,13 @@
         "date": "8 December 2022",
         "description": "Cost decreased from 62 to 60 points."
       }
-    ]
-  },
-  {
-    "id": "61",
-    "slug": "arc-troopers-strike-team",
-    "name": "Arc Troopers",
-    "title": "Strike Team",
-    "faction": "republic",
-    "rank": "special",
-    "unitType": "clone trooper",
-    "cost": 24,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 1,
-    "isUnique": false,
-    "keywords": [
-      "Heavy Weapon Team",
-      "Impervious",
-      "Scout",
-      "Sharpshooter",
-      "Tactical"
     ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "gear",
-      "grenades"
-    ],
-    "cardImage": "/images/units/arc-troopers-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost increased from 21 to 27."
-      },
-      {
-        "date": "8 December 2022",
-        "description": "Cost decreased from 27 to 24."
-      }
-    ]
+    "slug": "phase-ii-clone-troopers",
+    "cardImage": "/images/units/phase-ii-clone-troopers.webp",
+    "portraitImage": null
   },
   {
     "id": "62",
-    "slug": "arc-troopers",
     "name": "Arc Troopers",
     "title": "",
     "faction": "republic",
@@ -5475,68 +4530,23 @@
       "gear",
       "grenades"
     ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "19 November 2020",
+        "description": "Cost increased from 21 to 27."
+      },
+      {
+        "date": "8 December 2022",
+        "description": "Cost decreased from 27 to 24."
+      }
+    ],
+    "slug": "arc-troopers",
     "cardImage": "/images/units/arc-troopers.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost increased from 21 to 27."
-      },
-      {
-        "date": "8 December 2022",
-        "description": "Cost decreased from 27 to 24."
-      }
-    ]
-  },
-  {
-    "id": "25980",
-    "slug": "arc-troopers-strike-team-2",
-    "name": "Arc Troopers",
-    "title": "Strike Team",
-    "faction": "republic",
-    "rank": "special",
-    "unitType": "clone trooper",
-    "cost": 24,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 1,
-    "isUnique": false,
-    "keywords": [
-      "Heavy Weapon Team",
-      "Impervious",
-      "Scout",
-      "Sharpshooter",
-      "Tactical"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "gear",
-      "gear",
-      "grenades"
-    ],
-    "cardImage": "/images/units/arc-troopers-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "19 November 2020",
-        "description": "Cost increased from 21 to 27."
-      },
-      {
-        "date": "8 December 2022",
-        "description": "Cost decreased from 27 to 24."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "28861",
-    "slug": "arf-troopers",
     "name": "ARF Troopers",
     "title": "",
     "faction": "republic",
@@ -5552,14 +4562,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "arf-troopers",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "44",
-    "slug": "barc-speeder",
     "name": "BARC Speeder",
     "title": "",
     "faction": "republic",
@@ -5584,8 +4594,6 @@
       "crew",
       "comms"
     ],
-    "cardImage": "/images/units/barc-speeder.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -5596,11 +4604,13 @@
         "date": "27 October 2021",
         "description": "Cost reduced from 60 to 55 points."
       }
-    ]
+    ],
+    "slug": "barc-speeder",
+    "cardImage": "/images/units/barc-speeder.webp",
+    "portraitImage": null
   },
   {
     "id": "23656",
-    "slug": "clone-commandos",
     "name": "Clone Commandos",
     "title": "",
     "faction": "republic",
@@ -5629,14 +4639,14 @@
       "comms",
       "armament"
     ],
-    "cardImage": "/images/units/clone-commandos.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "clone-commandos",
+    "cardImage": "/images/units/clone-commandos.webp",
+    "portraitImage": null
   },
   {
     "id": "24084",
-    "slug": "clone-commandos-ds-delta-squad",
     "name": "Clone Commandos (DS)",
     "title": "Delta Squad",
     "faction": "republic",
@@ -5652,14 +4662,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "clone-commandos-ds-delta-squad",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "lhq-xp",
-    "slug": "clone-commandos-delta-squad-delta-squad",
     "name": "Delta Squad",
     "title": "Delta Squad",
     "faction": "republic",
@@ -5690,14 +4700,14 @@
       "comms",
       "armament"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "delta-squad-delta-squad",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "1984",
-    "slug": "raddaugh-gnasp-fluttercraft",
     "name": "Raddaugh Gnasp Fluttercraft",
     "title": "",
     "faction": "republic",
@@ -5721,14 +4731,14 @@
       "crew",
       "comms"
     ],
-    "cardImage": "/images/units/raddaugh-gnasp-fluttercraft.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "raddaugh-gnasp-fluttercraft",
+    "cardImage": "/images/units/raddaugh-gnasp-fluttercraft.webp",
+    "portraitImage": null
   },
   {
     "id": "19078",
-    "slug": "raddaugh-gnasp-fluttercraft-attack-craft",
     "name": "Raddaugh Gnasp Fluttercraft",
     "title": "Attack Craft",
     "faction": "republic",
@@ -5752,14 +4762,14 @@
       "crew",
       "comms"
     ],
-    "cardImage": "/images/units/raddaugh-gnasp-fluttercraft-attack-craft.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "raddaugh-gnasp-fluttercraft-attack-craft",
+    "cardImage": "/images/units/raddaugh-gnasp-fluttercraft-attack-craft.webp",
+    "portraitImage": null
   },
   {
     "id": "2108",
-    "slug": "infantry-support-platform",
     "name": "Infantry Support Platform",
     "title": "",
     "faction": "republic",
@@ -5784,81 +4794,14 @@
       "hardpoint",
       "comms"
     ],
+    "hasFullData": true,
+    "history": [],
+    "slug": "infantry-support-platform",
     "cardImage": "/images/units/infantry-support-platform.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "lhq-oo",
-    "slug": "laat-patrol-transport-2",
-    "name": "LAAT Patrol Transport",
-    "title": "",
-    "faction": "republic",
-    "rank": "heavy",
-    "unitType": "repulsor vehicle",
-    "cost": 100,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 8,
-    "courage": null,
-    "isUnique": false,
-    "keywords": [
-      "Armor",
-      "Arsenal",
-      "Cover",
-      "Hover: Air",
-      "Immune",
-      "Transport: Closed",
-      "Fixed"
-    ],
-    "upgradeBar": [
-      "pilot",
-      "ordnance",
-      "comms"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "27 October 2021",
-        "description": "Cost reduced from 120 to 105 points."
-      },
-      {
-        "date": "5 June 2023",
-        "description": "Cost reduced from 105 to 100 points."
-      }
-    ]
-  },
-  {
-    "id": "771",
-    "slug": "laat-le-patrol-transport",
-    "name": "LAAT/LE Patrol Transport",
-    "title": "",
-    "faction": "republic",
-    "rank": "heavy",
-    "unitType": "repulsor vehicle",
-    "cost": 100,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "cardImage": "/images/units/laat-le-patrol-transport.webp",
-    "portraitImage": null,
-    "hasFullData": false,
-    "history": []
+    "portraitImage": null
   },
   {
     "id": "lhq-gb",
-    "slug": "tx-130-saber-class-fighter-tank",
     "name": "Saber Fighter Tank",
     "title": "",
     "faction": "republic",
@@ -5888,19 +4831,19 @@
       "ordnance",
       "comms"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 170 to 160 points."
       }
-    ]
+    ],
+    "slug": "saber-fighter-tank",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "53",
-    "slug": "saber-class-tank",
     "name": "Saber-Class Tank",
     "title": "",
     "faction": "republic",
@@ -5916,14 +4859,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": "/images/units/saber-class-tank.webp",
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "saber-class-tank",
+    "cardImage": "/images/units/saber-class-tank.webp",
+    "portraitImage": null
   },
   {
     "id": "49",
-    "slug": "count-dooku-darth-tyranus",
     "name": "Count Dooku",
     "title": "Darth Tyranus",
     "faction": "separatists",
@@ -5953,8 +4896,6 @@
       "force",
       "command"
     ],
-    "cardImage": "/images/units/count-dooku-darth-tyranus.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -5969,11 +4910,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 195 to 185 points."
       }
-    ]
+    ],
+    "slug": "count-dooku-darth-tyranus",
+    "cardImage": "/images/units/count-dooku-darth-tyranus.webp",
+    "portraitImage": null
   },
   {
     "id": "45",
-    "slug": "general-grievous-sinister-cyborg",
     "name": "General Grievous",
     "title": "Sinister Cyborg",
     "faction": "separatists",
@@ -6003,8 +4946,6 @@
       "training",
       "armament"
     ],
-    "cardImage": "/images/units/general-grievous-sinister-cyborg.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -6019,11 +4960,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 155 to 150 points."
       }
-    ]
+    ],
+    "slug": "general-grievous-sinister-cyborg",
+    "cardImage": "/images/units/general-grievous-sinister-cyborg.webp",
+    "portraitImage": null
   },
   {
     "id": "32232",
-    "slug": "general-grievous-wheel-bike-warlord",
     "name": "General Grievous",
     "title": "Wheel Bike Warlord",
     "faction": "separatists",
@@ -6053,8 +4996,6 @@
       "training",
       "armament"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -6069,11 +5010,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 155 to 150 points."
       }
-    ]
+    ],
+    "slug": "general-grievous-wheel-bike-warlord",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "1854",
-    "slug": "kalani-super-tactical-droid",
     "name": "Kalani",
     "title": "Super Tactical Droid",
     "faction": "separatists",
@@ -6089,14 +5032,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": "/images/units/kalani-super-tactical-droid.webp",
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "kalani-super-tactical-droid",
+    "cardImage": "/images/units/kalani-super-tactical-droid.webp",
+    "portraitImage": null
   },
   {
     "id": "1852",
-    "slug": "kraken-super-tactical-droid",
     "name": "Kraken",
     "title": "Super Tactical Droid",
     "faction": "separatists",
@@ -6112,14 +5055,14 @@
     "isUnique": true,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": "/images/units/kraken-super-tactical-droid.webp",
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "kraken-super-tactical-droid",
+    "cardImage": "/images/units/kraken-super-tactical-droid.webp",
+    "portraitImage": null
   },
   {
     "id": "19106",
-    "slug": "poggle-the-lesser-public-leader-of-the-geonosians",
     "name": "Poggle the Lesser",
     "title": "Public Leader of the Geonosians",
     "faction": "separatists",
@@ -6146,14 +5089,14 @@
       "comms",
       "gear"
     ],
-    "cardImage": "/images/units/poggle-the-lesser-public-leader-of-the-geonosians.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "poggle-the-lesser-public-leader-of-the-geonosians",
+    "cardImage": "/images/units/poggle-the-lesser-public-leader-of-the-geonosians.webp",
+    "portraitImage": null
   },
   {
     "id": "31844",
-    "slug": "super-tactical-command-droid-command-and-control-droid",
     "name": "Super Tactical Command Droid",
     "title": "Command and Control Droid",
     "faction": "separatists",
@@ -6169,14 +5112,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "super-tactical-command-droid-command-and-control-droid",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "1853",
-    "slug": "super-tactical-droid",
     "name": "Super Tactical Droid",
     "title": "",
     "faction": "separatists",
@@ -6203,19 +5146,19 @@
       "comms",
       "gear"
     ],
-    "cardImage": "/images/units/super-tactical-droid.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "5 June 2023",
         "description": "Cost reduced from 95 to 90 points."
       }
-    ]
+    ],
+    "slug": "super-tactical-droid",
+    "cardImage": "/images/units/super-tactical-droid.webp",
+    "portraitImage": null
   },
   {
     "id": "76",
-    "slug": "t-series-tactical-droid-programmed-for-strategy",
     "name": "T-series Tactical Droid",
     "title": "Programmed For Strategy",
     "faction": "separatists",
@@ -6239,14 +5182,14 @@
       "comms",
       "gear"
     ],
-    "cardImage": "/images/units/t-series-tactical-droid-programmed-for-strategy.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "t-series-tactical-droid-programmed-for-strategy",
+    "cardImage": "/images/units/t-series-tactical-droid-programmed-for-strategy.webp",
+    "portraitImage": null
   },
   {
     "id": "13582",
-    "slug": "asajj-ventress-separatist-assassin",
     "name": "Asajj Ventress",
     "title": "Separatist Assassin",
     "faction": "separatists",
@@ -6275,49 +5218,14 @@
       "training",
       "training"
     ],
+    "hasFullData": true,
+    "history": [],
+    "slug": "asajj-ventress-separatist-assassin",
     "cardImage": "/images/units/asajj-ventress-separatist-assassin.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "74",
-    "slug": "maul-impatient-apprentice",
-    "name": "Maul",
-    "title": "Impatient Apprentice",
-    "faction": "separatists",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": 160,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 3,
-    "isUnique": true,
-    "keywords": [
-      "Jump",
-      "Deflect",
-      "Immune",
-      "Juyo Mastery",
-      "Impact",
-      "Pierce"
-    ],
-    "upgradeBar": [
-      "force",
-      "force",
-      "training",
-      "training"
-    ],
-    "cardImage": "/images/units/maul-impatient-apprentice.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
+    "portraitImage": null
   },
   {
     "id": "4551",
-    "slug": "maul-impatient-apprentice-2",
     "name": "Maul",
     "title": "Impatient Apprentice",
     "faction": "separatists",
@@ -6345,37 +5253,14 @@
       "training",
       "training"
     ],
-    "cardImage": "/images/units/maul-impatient-apprentice.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "33792",
-    "slug": "savage-opress",
-    "name": "Savage Opress",
-    "title": "",
-    "faction": "separatists",
-    "rank": "operative",
-    "unitType": "trooper",
-    "cost": null,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 6,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [],
-    "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "maul-impatient-apprentice",
+    "cardImage": "/images/units/maul-impatient-apprentice.webp",
+    "portraitImage": null
   },
   {
     "id": "19105",
-    "slug": "sun-fac-ruthless-lieutenant",
     "name": "Sun Fac",
     "title": "Ruthless Lieutenant",
     "faction": "separatists",
@@ -6405,14 +5290,14 @@
       "comms",
       "gear"
     ],
-    "cardImage": "/images/units/sun-fac-ruthless-lieutenant.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "sun-fac-ruthless-lieutenant",
+    "cardImage": "/images/units/sun-fac-ruthless-lieutenant.webp",
+    "portraitImage": null
   },
   {
     "id": "31845",
-    "slug": "super-tactical-command-droid-auxiliary-command-droid",
     "name": "Super Tactical Command Droid",
     "title": "Auxiliary Command Droid",
     "faction": "separatists",
@@ -6428,14 +5313,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "super-tactical-command-droid-auxiliary-command-droid",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "38",
-    "slug": "b1-battle-droids",
     "name": "B1 Battle Droids",
     "title": "",
     "faction": "separatists",
@@ -6460,19 +5345,19 @@
       "comms",
       "gear"
     ],
-    "cardImage": "/images/units/b1-battle-droids.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost increased from 36 to 38 points."
       }
-    ]
+    ],
+    "slug": "b1-battle-droids",
+    "cardImage": "/images/units/b1-battle-droids.webp",
+    "portraitImage": null
   },
   {
     "id": "52",
-    "slug": "b2-super-battle-droids",
     "name": "B2 Super Battle Droids",
     "title": "",
     "faction": "separatists",
@@ -6495,121 +5380,50 @@
       "personnel",
       "comms"
     ],
-    "cardImage": "/images/units/b2-super-battle-droids.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "19 November 2020",
         "description": "Cost reduced from 48 to 45 points."
       }
-    ]
+    ],
+    "slug": "b2-super-battle-droids",
+    "cardImage": "/images/units/b2-super-battle-droids.webp",
+    "portraitImage": null
   },
   {
     "id": "19103",
+    "name": "Geonosian Warriors",
+    "title": "Soldiers of the Hive",
+    "faction": "separatists",
+    "rank": "corps",
+    "unitType": "trooper",
+    "cost": 45,
+    "defense": "white",
+    "surgeAttack": null,
+    "surgeDefense": true,
+    "speed": 2,
+    "wounds": 1,
+    "courage": 1,
+    "isUnique": false,
+    "keywords": [
+      "Jump",
+      "Scale",
+      "Death From Above",
+      "Weighed Down"
+    ],
+    "upgradeBar": [
+      "heavy weapon",
+      "personnel"
+    ],
+    "hasFullData": true,
+    "history": [],
     "slug": "geonosian-warriors-soldiers-of-the-hive",
-    "name": "Geonosian Warriors",
-    "title": "Soldiers of the Hive",
-    "faction": "separatists",
-    "rank": "corps",
-    "unitType": "trooper",
-    "cost": 45,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 1,
-    "isUnique": false,
-    "keywords": [
-      "Jump",
-      "Scale",
-      "Death From Above",
-      "Weighed Down"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "personnel"
-    ],
     "cardImage": "/images/units/geonosian-warriors-soldiers-of-the-hive.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "34054",
-    "slug": "geonosian-warriors-soldiers-of-the-hive-2",
-    "name": "Geonosian Warriors",
-    "title": "Soldiers of the Hive",
-    "faction": "separatists",
-    "rank": "corps",
-    "unitType": "trooper",
-    "cost": 45,
-    "defense": "white",
-    "surgeAttack": null,
-    "surgeDefense": true,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 1,
-    "isUnique": false,
-    "keywords": [
-      "Jump",
-      "Scale",
-      "Death From Above",
-      "Weighed Down"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "personnel"
-    ],
-    "cardImage": null,
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "63",
-    "slug": "bx-series-droid-commandos-strike-team",
-    "name": "BX-Series Droid Commandos",
-    "title": "Strike Team",
-    "faction": "separatists",
-    "rank": "special",
-    "unitType": "droid trooper",
-    "cost": 20,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 1,
-    "isUnique": false,
-    "keywords": [
-      "AI",
-      "Impervious",
-      "Scale",
-      "Scout",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "armament",
-      "grenades"
-    ],
-    "cardImage": "/images/units/bx-series-droid-commandos-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "5 June 2023",
-        "description": "Cost reduced from 68 to 64 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "64",
-    "slug": "bx-series-droid-commandos",
     "name": "BX-Series Droid Commandos",
     "title": "",
     "faction": "separatists",
@@ -6637,59 +5451,19 @@
       "armament",
       "grenades"
     ],
+    "hasFullData": true,
+    "history": [
+      {
+        "date": "5 June 2023",
+        "description": "Cost reduced from 68 to 64 points."
+      }
+    ],
+    "slug": "bx-series-droid-commandos",
     "cardImage": "/images/units/bx-series-droid-commandos.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "5 June 2023",
-        "description": "Cost reduced from 68 to 64 points."
-      }
-    ]
-  },
-  {
-    "id": "25982",
-    "slug": "bx-series-droid-commandos-strike-team-2",
-    "name": "BX-Series Droid Commandos",
-    "title": "Strike Team",
-    "faction": "separatists",
-    "rank": "special",
-    "unitType": "droid trooper",
-    "cost": 20,
-    "defense": "red",
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 1,
-    "courage": 1,
-    "isUnique": false,
-    "keywords": [
-      "AI",
-      "Impervious",
-      "Scale",
-      "Scout",
-      "Sharpshooter"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "training",
-      "comms",
-      "armament",
-      "grenades"
-    ],
-    "cardImage": "/images/units/bx-series-droid-commandos-strike-team.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": [
-      {
-        "date": "5 June 2023",
-        "description": "Cost reduced from 68 to 64 points."
-      }
-    ]
+    "portraitImage": null
   },
   {
     "id": "77",
-    "slug": "drk-1-sith-probe-droids",
     "name": "DRK-1 Sith Probe Droids",
     "title": "",
     "faction": "separatists",
@@ -6713,14 +5487,14 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/drk-1-sith-probe-droids.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "drk-1-sith-probe-droids",
+    "cardImage": "/images/units/drk-1-sith-probe-droids.webp",
+    "portraitImage": null
   },
   {
     "id": "1809",
-    "slug": "ig-100-magnaguard",
     "name": "IG-100 MagnaGuard",
     "title": "",
     "faction": "separatists",
@@ -6749,14 +5523,14 @@
       "comms",
       "grenades"
     ],
-    "cardImage": "/images/units/ig-100-magnaguard.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ig-100-magnaguard",
+    "cardImage": "/images/units/ig-100-magnaguard.webp",
+    "portraitImage": null
   },
   {
     "id": "19077",
-    "slug": "ig-100-magnaguard-prototype-assassin-droids",
     "name": "IG-100 MagnaGuard",
     "title": "Prototype Assassin Droids",
     "faction": "separatists",
@@ -6785,14 +5559,14 @@
       "comms",
       "grenades"
     ],
-    "cardImage": "/images/units/ig-100-magnaguard-prototype-assassin-droids.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "ig-100-magnaguard-prototype-assassin-droids",
+    "cardImage": "/images/units/ig-100-magnaguard-prototype-assassin-droids.webp",
+    "portraitImage": null
   },
   {
     "id": "32595",
-    "slug": "tsmeu-6-wheel-bikes",
     "name": "TSMEU-6 Wheel Bikes",
     "title": "",
     "faction": "separatists",
@@ -6808,14 +5582,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "tsmeu-6-wheel-bikes",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "43",
-    "slug": "droidekas",
     "name": "Droidekas",
     "title": "",
     "faction": "separatists",
@@ -6843,8 +5617,6 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/droidekas.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
@@ -6859,11 +5631,13 @@
         "date": "5 June 2023",
         "description": "Cost reduced from 75 to 70 points."
       }
-    ]
+    ],
+    "slug": "droidekas",
+    "cardImage": "/images/units/droidekas.webp",
+    "portraitImage": null
   },
   {
     "id": "2019",
-    "slug": "dsd1-dwarf-spider-droid",
     "name": "DSD1 Dwarf Spider Droid",
     "title": "",
     "faction": "separatists",
@@ -6891,14 +5665,14 @@
       "hardpoint",
       "comms"
     ],
-    "cardImage": "/images/units/dsd1-dwarf-spider-droid.webp",
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "dsd1-dwarf-spider-droid",
+    "cardImage": "/images/units/dsd1-dwarf-spider-droid.webp",
+    "portraitImage": null
   },
   {
     "id": "25966",
-    "slug": "lm-432-crab-droid",
     "name": "LM-432 Crab Droid",
     "title": "",
     "faction": "separatists",
@@ -6914,14 +5688,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "lm-432-crab-droid",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "69",
-    "slug": "stap-riders",
     "name": "STAP Riders",
     "title": "",
     "faction": "separatists",
@@ -6947,42 +5721,19 @@
     "upgradeBar": [
       "comms"
     ],
-    "cardImage": "/images/units/stap-riders.webp",
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost increased from 73 to 75 points."
       }
-    ]
-  },
-  {
-    "id": "54",
-    "slug": "aat-battle-tank",
-    "name": "AAT Battle Tank",
-    "title": "",
-    "faction": "separatists",
-    "rank": "heavy",
-    "unitType": "ground vehicle",
-    "cost": 175,
-    "defense": null,
-    "surgeAttack": null,
-    "surgeDefense": false,
-    "speed": 2,
-    "wounds": 9,
-    "courage": 6,
-    "isUnique": false,
-    "keywords": [],
-    "upgradeBar": [],
-    "cardImage": "/images/units/aat-battle-tank.webp",
-    "portraitImage": null,
-    "hasFullData": false,
-    "history": []
+    ],
+    "slug": "stap-riders",
+    "cardImage": "/images/units/stap-riders.webp",
+    "portraitImage": null
   },
   {
     "id": "lhq-gc",
-    "slug": "aat-trade-federation-battle-tank",
     "name": "AAT Battle Tank",
     "title": "",
     "faction": "separatists",
@@ -7014,19 +5765,19 @@
       "ordnance",
       "comms"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
     "history": [
       {
         "date": "27 October 2021",
         "description": "Cost increased from 170 to 175 points."
       }
-    ]
+    ],
+    "slug": "aat-battle-tank",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "28382",
-    "slug": "aqua-droids",
     "name": "Aqua Droids",
     "title": "",
     "faction": "separatists",
@@ -7042,14 +5793,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "aqua-droids",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "2109",
-    "slug": "persuader-class-tank-droid",
     "name": "Persuader-class Tank Droid",
     "title": "",
     "faction": "separatists",
@@ -7065,14 +5816,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": "/images/units/persuader-class-tank-droid.webp",
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "persuader-class-tank-droid",
+    "cardImage": "/images/units/persuader-class-tank-droid.webp",
+    "portraitImage": null
   },
   {
     "id": "19076",
-    "slug": "persuader-class-tank-droid-prototype-tank-droid",
     "name": "Persuader-class Tank Droid",
     "title": "Prototype Tank Droid",
     "faction": "separatists",
@@ -7088,14 +5839,14 @@
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [],
-    "cardImage": "/images/units/persuader-class-tank-droid-prototype-tank-droid.webp",
-    "portraitImage": null,
     "hasFullData": false,
-    "history": []
+    "history": [],
+    "slug": "persuader-class-tank-droid-prototype-tank-droid",
+    "cardImage": "/images/units/persuader-class-tank-droid-prototype-tank-droid.webp",
+    "portraitImage": null
   },
   {
     "id": "lhq-qt",
-    "slug": "nr-n99-persuader-class-tank-droid",
     "name": "Snail Droid",
     "title": "",
     "faction": "separatists",
@@ -7122,14 +5873,14 @@
       "ordnance",
       "comms"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "snail-droid",
+    "cardImage": null,
+    "portraitImage": null
   },
   {
     "id": "lhq-xe",
-    "slug": "nr-n99-persuader-class-tank-droid-prototype-tank-droid",
     "name": "Snail Droid",
     "title": "Prototype Tank Droid",
     "faction": "separatists",
@@ -7159,9 +5910,10 @@
       "ordnance",
       "comms"
     ],
-    "cardImage": null,
-    "portraitImage": null,
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "slug": "snail-droid-prototype-tank-droid",
+    "cardImage": null,
+    "portraitImage": null
   }
 ]

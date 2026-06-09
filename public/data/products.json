@@ -9,30 +9,12 @@
     ]
   },
   {
-    "code": "exp-agent-kallus-hunter-of-spectres-2",
-    "name": "Agent Kallus, Hunter of Spectres Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "agent-kallus-hunter-of-spectres-2"
-    ]
-  },
-  {
     "code": "exp-darth-vader-dark-lord-of-the-sith",
     "name": "Darth Vader, Dark Lord of the Sith Commander Expansion",
     "faction": "empire",
     "type": "unit-expansion",
     "unitSlugs": [
       "darth-vader-dark-lord-of-the-sith"
-    ]
-  },
-  {
-    "code": "exp-darth-vader-dark-lord-of-the-sith-2",
-    "name": "Darth Vader, Dark Lord of the Sith Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "darth-vader-dark-lord-of-the-sith-2"
     ]
   },
   {
@@ -105,15 +87,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "imperial-officer-ruthless-commander"
-    ]
-  },
-  {
-    "code": "exp-imperial-officer-ruthless-commander-2",
-    "name": "Imperial Officer, Ruthless Commander Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-officer-ruthless-commander-2"
     ]
   },
   {
@@ -252,21 +225,12 @@
     ]
   },
   {
-    "code": "exp-imperial-special-forces-inferno-squad-2",
+    "code": "exp-inferno-squad",
     "name": "Inferno Squad Unit Expansion",
     "faction": "empire",
     "type": "unit-expansion",
     "unitSlugs": [
-      "imperial-special-forces-inferno-squad-2"
-    ]
-  },
-  {
-    "code": "exp-scout-troopers",
-    "name": "Scout Troopers Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "scout-troopers"
+      "inferno-squad"
     ]
   },
   {
@@ -276,15 +240,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "scout-troopers-strike-team"
-    ]
-  },
-  {
-    "code": "exp-scout-troopers-strike-team-2",
-    "name": "Scout Troopers, Strike Team Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "scout-troopers-strike-team-2"
     ]
   },
   {
@@ -351,12 +306,12 @@
     ]
   },
   {
-    "code": "exp-laat-le-patrol-transport-2",
+    "code": "exp-laat-le-patrol-transport",
     "name": "LAAT/LE Patrol Transport Heavy Expansion",
     "faction": "empire",
     "type": "unit-expansion",
     "unitSlugs": [
-      "laat-le-patrol-transport-2"
+      "laat-le-patrol-transport"
     ]
   },
   {
@@ -369,12 +324,12 @@
     ]
   },
   {
-    "code": "exp-occupier-combat-assault-tank",
+    "code": "exp-occupier-tank",
     "name": "Occupier Tank Heavy Expansion",
     "faction": "empire",
     "type": "unit-expansion",
     "unitSlugs": [
-      "occupier-combat-assault-tank"
+      "occupier-tank"
     ]
   },
   {
@@ -468,15 +423,6 @@
     ]
   },
   {
-    "code": "exp-storm-tide-commander-2",
-    "name": "Storm Tide Commander Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "storm-tide-commander-2"
-    ]
-  },
-  {
     "code": "exp-the-armorer",
     "name": "The Armorer Commander Expansion",
     "faction": "mercenary",
@@ -513,15 +459,6 @@
     ]
   },
   {
-    "code": "exp-boba-fett-infamous-bounty-hunter-2",
-    "name": "Boba Fett, Infamous Bounty Hunter Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "boba-fett-infamous-bounty-hunter-2"
-    ]
-  },
-  {
     "code": "exp-bossk-trandoshan-terror",
     "name": "Bossk, Trandoshan Terror Operative Expansion",
     "faction": "mercenary",
@@ -546,15 +483,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "din-djarin-the-mandalorian"
-    ]
-  },
-  {
-    "code": "exp-din-djarin-the-mandalorian-2",
-    "name": "Din Djarin, The Mandalorian Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "din-djarin-the-mandalorian-2"
     ]
   },
   {
@@ -621,12 +549,12 @@
     ]
   },
   {
-    "code": "exp-savage-opress-2",
+    "code": "exp-savage-opress",
     "name": "Savage Opress Operative Expansion",
     "faction": "mercenary",
     "type": "unit-expansion",
     "unitSlugs": [
-      "savage-opress-2"
+      "savage-opress"
     ]
   },
   {
@@ -765,15 +693,6 @@
     ]
   },
   {
-    "code": "exp-cassian-andor-capable-intelligence-agent-2",
-    "name": "Cassian Andor, Capable Intelligence Agent Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "cassian-andor-capable-intelligence-agent-2"
-    ]
-  },
-  {
     "code": "exp-han-solo-unorthodox-general",
     "name": "Han Solo, Unorthodox General Commander Expansion",
     "faction": "rebels",
@@ -798,15 +717,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "jyn-erso-stardust"
-    ]
-  },
-  {
-    "code": "exp-jyn-erso-stardust-2",
-    "name": "Jyn Erso, Stardust Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "jyn-erso-stardust-2"
     ]
   },
   {
@@ -864,15 +774,6 @@
     ]
   },
   {
-    "code": "exp-rebel-officer-resolute-commander-2",
-    "name": "Rebel Officer, Resolute Commander Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-officer-resolute-commander-2"
-    ]
-  },
-  {
     "code": "exp-wicket-hero-of-bright-tree",
     "name": "Wicket, Hero of Bright Tree Commander Expansion",
     "faction": "rebels",
@@ -909,24 +810,6 @@
     ]
   },
   {
-    "code": "exp-chewbacca-walking-carpet-2",
-    "name": "Chewbacca, Walking Carpet Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "chewbacca-walking-carpet-2"
-    ]
-  },
-  {
-    "code": "exp-chewbacca-walking-carpet-3",
-    "name": "Chewbacca, Walking Carpet Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "chewbacca-walking-carpet-3"
-    ]
-  },
-  {
     "code": "exp-k-2so-sardonic-security-droid",
     "name": "K-2SO, Sardonic Security Droid Operative Expansion",
     "faction": "rebels",
@@ -936,30 +819,12 @@
     ]
   },
   {
-    "code": "exp-k-2so-sardonic-security-droid-2",
-    "name": "K-2SO, Sardonic Security Droid Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "k-2so-sardonic-security-droid-2"
-    ]
-  },
-  {
     "code": "exp-r2-d2-hero-of-a-thousand-devices",
     "name": "R2-D2, Hero of a Thousand Devices Operative Expansion",
     "faction": "rebels",
     "type": "unit-expansion",
     "unitSlugs": [
       "r2-d2-hero-of-a-thousand-devices"
-    ]
-  },
-  {
-    "code": "exp-r2-d2-hero-of-a-thousand-devices-2",
-    "name": "R2-D2, Hero of a Thousand Devices Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "r2-d2-hero-of-a-thousand-devices-2"
     ]
   },
   {
@@ -978,15 +843,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "sabine-wren-explosive-artist"
-    ]
-  },
-  {
-    "code": "exp-sabine-wren-explosive-artist-2",
-    "name": "Sabine Wren, Explosive Artist Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "sabine-wren-explosive-artist-2"
     ]
   },
   {
@@ -1026,12 +882,12 @@
     ]
   },
   {
-    "code": "exp-mandalorian-resistance-clan-wren",
+    "code": "exp-clan-wren",
     "name": "Clan Wren Unit Expansion",
     "faction": "rebels",
     "type": "unit-expansion",
     "unitSlugs": [
-      "mandalorian-resistance-clan-wren"
+      "clan-wren"
     ]
   },
   {
@@ -1053,39 +909,12 @@
     ]
   },
   {
-    "code": "exp-mandalorian-resistance-2",
-    "name": "Mandalorian Resistance Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-resistance-2"
-    ]
-  },
-  {
-    "code": "exp-rebel-commandos",
-    "name": "Rebel Commandos Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-commandos"
-    ]
-  },
-  {
     "code": "exp-rebel-commandos-strike-team",
     "name": "Rebel Commandos, Strike Team Unit Expansion",
     "faction": "rebels",
     "type": "unit-expansion",
     "unitSlugs": [
       "rebel-commandos-strike-team"
-    ]
-  },
-  {
-    "code": "exp-rebel-commandos-strike-team-2",
-    "name": "Rebel Commandos, Strike Team Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-commandos-strike-team-2"
     ]
   },
   {
@@ -1134,15 +963,6 @@
     ]
   },
   {
-    "code": "exp-wookiee-warriors-2",
-    "name": "Wookiee Warriors Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wookiee-warriors-2"
-    ]
-  },
-  {
     "code": "exp-14-fd-laser-cannon-team",
     "name": "1.4 FD Laser Cannon Team Support Expansion",
     "faction": "rebels",
@@ -1161,15 +981,6 @@
     ]
   },
   {
-    "code": "exp-at-rt-2",
-    "name": "AT-RT Support Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "at-rt-2"
-    ]
-  },
-  {
     "code": "exp-tauntaun-riders",
     "name": "Tauntaun Riders Support Expansion",
     "faction": "rebels",
@@ -1185,15 +996,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "a-a5-speeder-truck"
-    ]
-  },
-  {
-    "code": "exp-a-a5-speeder-truck-2",
-    "name": "A-A5 Speeder Truck Heavy Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "a-a5-speeder-truck-2"
     ]
   },
   {
@@ -1368,15 +1170,6 @@
     ]
   },
   {
-    "code": "exp-the-bad-batch-clone-force-99-2",
-    "name": "The Bad Batch, Clone Force 99 Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "the-bad-batch-clone-force-99-2"
-    ]
-  },
-  {
     "code": "exp-clone-trooper-infantry",
     "name": "Clone Trooper Infantry Unit Expansion",
     "faction": "republic",
@@ -1413,30 +1206,12 @@
     ]
   },
   {
-    "code": "exp-arc-troopers-strike-team",
-    "name": "Arc Troopers, Strike Team Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "arc-troopers-strike-team"
-    ]
-  },
-  {
     "code": "exp-arc-troopers",
     "name": "Arc Troopers Unit Expansion",
     "faction": "republic",
     "type": "unit-expansion",
     "unitSlugs": [
       "arc-troopers"
-    ]
-  },
-  {
-    "code": "exp-arc-troopers-strike-team-2",
-    "name": "Arc Troopers, Strike Team Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "arc-troopers-strike-team-2"
     ]
   },
   {
@@ -1476,12 +1251,12 @@
     ]
   },
   {
-    "code": "exp-clone-commandos-delta-squad-delta-squad",
+    "code": "exp-delta-squad-delta-squad",
     "name": "Delta Squad, Delta Squad Support Expansion",
     "faction": "republic",
     "type": "unit-expansion",
     "unitSlugs": [
-      "clone-commandos-delta-squad-delta-squad"
+      "delta-squad-delta-squad"
     ]
   },
   {
@@ -1512,30 +1287,12 @@
     ]
   },
   {
-    "code": "exp-laat-patrol-transport-2",
-    "name": "LAAT Patrol Transport Heavy Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "laat-patrol-transport-2"
-    ]
-  },
-  {
-    "code": "exp-laat-le-patrol-transport",
-    "name": "LAAT/LE Patrol Transport Heavy Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "laat-le-patrol-transport"
-    ]
-  },
-  {
-    "code": "exp-tx-130-saber-class-fighter-tank",
+    "code": "exp-saber-fighter-tank",
     "name": "Saber Fighter Tank Heavy Expansion",
     "faction": "republic",
     "type": "unit-expansion",
     "unitSlugs": [
-      "tx-130-saber-class-fighter-tank"
+      "saber-fighter-tank"
     ]
   },
   {
@@ -1647,24 +1404,6 @@
     ]
   },
   {
-    "code": "exp-maul-impatient-apprentice-2",
-    "name": "Maul, Impatient Apprentice Operative Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "maul-impatient-apprentice-2"
-    ]
-  },
-  {
-    "code": "exp-savage-opress",
-    "name": "Savage Opress Operative Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "savage-opress"
-    ]
-  },
-  {
     "code": "exp-sun-fac-ruthless-lieutenant",
     "name": "Sun Fac, Ruthless Lieutenant Operative Expansion",
     "faction": "separatists",
@@ -1710,39 +1449,12 @@
     ]
   },
   {
-    "code": "exp-geonosian-warriors-soldiers-of-the-hive-2",
-    "name": "Geonosian Warriors, Soldiers of the Hive Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "geonosian-warriors-soldiers-of-the-hive-2"
-    ]
-  },
-  {
-    "code": "exp-bx-series-droid-commandos-strike-team",
-    "name": "BX-Series Droid Commandos, Strike Team Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "bx-series-droid-commandos-strike-team"
-    ]
-  },
-  {
     "code": "exp-bx-series-droid-commandos",
     "name": "BX-Series Droid Commandos Unit Expansion",
     "faction": "separatists",
     "type": "unit-expansion",
     "unitSlugs": [
       "bx-series-droid-commandos"
-    ]
-  },
-  {
-    "code": "exp-bx-series-droid-commandos-strike-team-2",
-    "name": "BX-Series Droid Commandos, Strike Team Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "bx-series-droid-commandos-strike-team-2"
     ]
   },
   {
@@ -1827,15 +1539,6 @@
     ]
   },
   {
-    "code": "exp-aat-trade-federation-battle-tank",
-    "name": "AAT Battle Tank Heavy Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "aat-trade-federation-battle-tank"
-    ]
-  },
-  {
     "code": "exp-aqua-droids",
     "name": "Aqua Droids Heavy Expansion",
     "faction": "separatists",
@@ -1863,21 +1566,21 @@
     ]
   },
   {
-    "code": "exp-nr-n99-persuader-class-tank-droid",
+    "code": "exp-snail-droid",
     "name": "Snail Droid Heavy Expansion",
     "faction": "separatists",
     "type": "unit-expansion",
     "unitSlugs": [
-      "nr-n99-persuader-class-tank-droid"
+      "snail-droid"
     ]
   },
   {
-    "code": "exp-nr-n99-persuader-class-tank-droid-prototype-tank-droid",
+    "code": "exp-snail-droid-prototype-tank-droid",
     "name": "Snail Droid, Prototype Tank Droid Heavy Expansion",
     "faction": "separatists",
     "type": "unit-expansion",
     "unitSlugs": [
-      "nr-n99-persuader-class-tank-droid-prototype-tank-droid"
+      "snail-droid-prototype-tank-droid"
     ]
   }
 ]

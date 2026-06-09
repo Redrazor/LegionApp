@@ -160,13 +160,53 @@ function num(v: unknown): number | null {
   return Number.isFinite(n) ? n : null
 }
 
+function ttaTitle(u: TtaUnit): string {
+  return (u.include_title && u.title) ? u.title.trim() : ''
+}
+
+/**
+ * Collapse classic / revamp duplicates. tabletopadmiral keeps both the legacy
+ * and the current edition of a card under the same name + title + rank. We keep
+ * one per (name, title, rank), preferring an entry that has a points cost, then
+ * the most recently added record (highest numeric id) — i.e. the current edition.
+ * Distinct cards that merely share a name (e.g. a Corps vs Operative Chewbacca)
+ * differ by rank and are preserved.
+ */
+export function dedupeTtaUnits(ttaUnits: TtaUnit[]): TtaUnit[] {
+  const groups = new Map<string, TtaUnit[]>()
+  for (const u of ttaUnits) {
+    const key = `${normName(u.name)}|${normName(ttaTitle(u))}|${u.rank_fkey ?? ''}`
+    const arr = groups.get(key) ?? []
+    arr.push(u)
+    groups.set(key, arr)
+  }
+  const idNum = (u: TtaUnit) => (typeof u.id === 'number' ? u.id : parseInt(String(u.id), 10) || 0)
+  const result: TtaUnit[] = []
+  for (const arr of groups.values()) {
+    arr.sort((a, b) => {
+      const aCost = a.current_cost != null ? 1 : 0
+      const bCost = b.current_cost != null ? 1 : 0
+      return bCost - aCost || idNum(b) - idNum(a)
+    })
+    result.push(arr[0])
+  }
+  return result
+}
+
 /**
  * Build the merged unit catalogue.
- * Base list = tabletopadmiral units (current). Structured stats merged from
- * Legion HQ by normalised name. Legion-HQ-only units are appended so nothing
- * is lost.
+ * Base list = tabletopadmiral units (current, de-duplicated). Structured stats
+ * merged from Legion HQ by normalised name. Legion-HQ-only units are appended
+ * so nothing is lost.
  */
-export function buildUnits(ttaUnits: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
+// A unit candidate before slug/image paths are finalised.
+interface Candidate extends Omit<Unit, 'slug' | 'cardImage' | 'portraitImage'> {
+  hasImage: boolean
+  hasPortrait: boolean
+}
+
+export function buildUnits(ttaUnitsRaw: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
+  const ttaUnits = dedupeTtaUnits(ttaUnitsRaw)
   const lhqByName = new Map<string, LhqCard>()
   for (const c of lhqUnits) {
     const key = normName(c.cardName)
@@ -174,17 +214,7 @@ export function buildUnits(ttaUnits: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
   }
 
   const usedLhq = new Set<string>()
-  const units: Unit[] = []
-  const seenSlugs = new Set<string>()
-
-  function addUnit(u: Unit) {
-    let slug = u.slug
-    let n = 2
-    while (seenSlugs.has(slug)) slug = `${u.slug}-${n++}`
-    u.slug = slug
-    seenSlugs.add(slug)
-    units.push(u)
-  }
+  const candidates: Candidate[] = []
 
   for (const t of ttaUnits) {
     const key = normName(t.name)
@@ -192,18 +222,16 @@ export function buildUnits(ttaUnits: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
     if (lhq) usedLhq.add(key)
     const title = (t.include_title && t.title) || lhq?.title || ''
     const { surgeAttack, surgeDefense } = splitSurges(lhq?.surges)
-    const img = t.image_url || t.cloudinary_image_url || null
-    addUnit({
+    candidates.push({
       id: String(t.id),
-      slug: slugify(t.name, title),
       name: t.name.trim(),
       title: (title || '').trim(),
-      faction: lhqFaction(lhq?.faction) ?? decodeFaction(t.faction_fkey),
-      rank: lhq?.rank || decodeRank(t.rank_fkey),
+      faction: (lhqFaction(lhq?.faction) ?? decodeFaction(t.faction_fkey)) as Unit['faction'],
+      rank: (lhq?.rank || decodeRank(t.rank_fkey)) as Unit['rank'],
       unitType: decodeUnitType(t.unit_type_fkey),
       cost: num(t.current_cost) ?? num(lhq?.cost),
-      defense: lhq?.defense ?? (t.red_defense === true ? 'red' : t.red_defense === false ? 'white' : null),
-      surgeAttack,
+      defense: (lhq?.defense ?? (t.red_defense === true ? 'red' : t.red_defense === false ? 'white' : null)) as Unit['defense'],
+      surgeAttack: surgeAttack as Unit['surgeAttack'],
       surgeDefense,
       speed: num(t.speed) ?? num(lhq?.speed),
       wounds: num(t.health) ?? num(lhq?.wounds),
@@ -211,10 +239,11 @@ export function buildUnits(ttaUnits: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
       isUnique: !!(t.is_unique ?? lhq?.isUnique),
       keywords: lhq?.keywords ?? [],
       upgradeBar: lhq?.upgradeBar ?? [],
-      cardImage: img ? `/images/units/${slugify(t.name, title)}.webp` : null,
-      portraitImage: t.portrait_image_url ? `/images/portraits/${slugify(t.name, title)}.webp` : null,
       hasFullData: !!lhq,
-    } as Unit & { _imgSrc?: string })
+      history: lhq?.history ?? [],
+      hasImage: !!(t.image_url || t.cloudinary_image_url),
+      hasPortrait: !!t.portrait_image_url,
+    })
   }
 
   // Append Legion-HQ-only units (e.g. strike-team variants) with no card scan.
@@ -222,17 +251,16 @@ export function buildUnits(ttaUnits: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
     const key = normName(c.cardName)
     if (usedLhq.has(key)) continue
     const { surgeAttack, surgeDefense } = splitSurges(c.surges)
-    addUnit({
+    candidates.push({
       id: `lhq-${c.id}`,
-      slug: slugify(c.cardName, c.title),
       name: (c.displayName || c.cardName).trim(),
       title: (c.title || '').trim(),
-      faction: lhqFaction(c.faction) ?? 'mercenary',
-      rank: c.rank || 'corps',
+      faction: (lhqFaction(c.faction) ?? 'mercenary') as Unit['faction'],
+      rank: (c.rank || 'corps') as Unit['rank'],
       unitType: c.cardSubtype || 'trooper',
       cost: num(c.cost),
-      defense: c.defense ?? null,
-      surgeAttack,
+      defense: (c.defense ?? null) as Unit['defense'],
+      surgeAttack: surgeAttack as Unit['surgeAttack'],
       surgeDefense,
       speed: num(c.speed),
       wounds: num(c.wounds),
@@ -240,18 +268,39 @@ export function buildUnits(ttaUnits: TtaUnit[], lhqUnits: LhqCard[]): Unit[] {
       isUnique: !!c.isUnique,
       keywords: c.keywords ?? [],
       upgradeBar: c.upgradeBar ?? [],
-      cardImage: null,
-      portraitImage: null,
       hasFullData: true,
       history: c.history ?? [],
+      hasImage: false,
+      hasPortrait: false,
     })
   }
 
-  // Attach history for tabletopadmiral-based units from LHQ where available.
-  for (const u of units) {
-    if (u.history) continue
-    const lhq = lhqByName.get(normName(u.name))
-    u.history = lhq?.history ?? []
+  // Final dedupe across all sources by (name, title, rank). Prefer the entry
+  // with full stats, then a card scan, then a points cost.
+  const score = (c: Candidate) => (c.hasFullData ? 4 : 0) + (c.hasImage ? 2 : 0) + (c.cost != null ? 1 : 0)
+  const byKey = new Map<string, Candidate>()
+  for (const c of candidates) {
+    const key = `${normName(c.name)}|${normName(c.title)}|${c.rank}`
+    const existing = byKey.get(key)
+    if (!existing || score(c) > score(existing)) byKey.set(key, c)
+  }
+
+  // Finalise slugs (with collision suffixes) and image paths from the slug.
+  const seenSlugs = new Set<string>()
+  const units: Unit[] = []
+  for (const c of byKey.values()) {
+    let slug = slugify(c.name, c.title)
+    const base = slug
+    let n = 2
+    while (seenSlugs.has(slug)) slug = `${base}-${n++}`
+    seenSlugs.add(slug)
+    const { hasImage, hasPortrait, ...rest } = c
+    units.push({
+      ...rest,
+      slug,
+      cardImage: hasImage ? `/images/units/${slug}.webp` : null,
+      portraitImage: hasPortrait ? `/images/portraits/${slug}.webp` : null,
+    })
   }
 
   units.sort((a, b) =>

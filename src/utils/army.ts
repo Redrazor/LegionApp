@@ -66,11 +66,13 @@ export function validateArmy(
     commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
   }
   let points = 0
+  let unpriced = 0
   const factions = new Set<Faction>()
   for (const au of army.units) {
     const unit = unitsById.get(au.unitId)
     if (!unit) continue
     rankCounts[unit.rank]++
+    if (unit.cost == null) unpriced++
     points += unitCost(au, unitsById, upgradesById)
     factions.add(unit.faction)
   }
@@ -81,8 +83,17 @@ export function validateArmy(
   items.push({
     ok: points <= army.gameSize,
     label: 'Points',
-    detail: `${points} / ${army.gameSize}`,
+    detail: unpriced > 0 ? `${points}+ / ${army.gameSize}` : `${points} / ${army.gameSize}`,
   })
+
+  // Unpriced units (newest releases with no points cost in the data yet)
+  if (unpriced > 0) {
+    items.push({
+      ok: false,
+      label: 'Unpriced',
+      detail: `${unpriced} unit${unpriced > 1 ? 's' : ''} missing cost`,
+    })
+  }
 
   // Rank limits
   for (const rank of RANK_ORDER) {

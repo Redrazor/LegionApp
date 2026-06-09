@@ -135,6 +135,23 @@ describe('validateArmy', () => {
     expect(validateArmy(armyMixed, unitsById, upgradesById).items.find((i) => i.label === 'Faction')?.ok).toBe(false)
   })
 
+  it('flags unpriced units and marks the army illegal', () => {
+    const units = [cmd('v'), corps('c1'), corps('c2'), unit('mystery', { rank: 'corps', cost: null })]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 800,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    const v = validateArmy(army, unitsById, upgradesById)
+    const unpriced = v.items.find((i) => i.label === 'Unpriced')
+    expect(unpriced).toBeDefined()
+    expect(unpriced!.ok).toBe(false)
+    expect(unpriced!.detail).toMatch(/1 unit/)
+    expect(v.valid).toBe(false)
+    // points reflect only the costed units, shown with a "+" to signal incompleteness
+    expect(v.items.find((i) => i.label === 'Points')?.detail).toBe('180+ / 800')
+  })
+
   it('detects duplicate unique conflicts', () => {
     const units = [cmd('v'), corps('c1'), corps('c2'), corps('c3')]
     const { unitsById, upgradesById } = makeMaps(units)

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   normName, slugify, decodeFaction, decodeRank, decodeUnitType,
-  buildUnits, buildUpgrades, buildCommands, buildProducts,
+  buildUnits, buildUpgrades, buildCommands, buildProducts, dedupeTtaUnits,
   type TtaUnit, type LhqCard,
 } from '../scraper/normalise.ts'
 
@@ -55,7 +55,47 @@ const lhq = (over: Partial<LhqCard> = {}): LhqCard => ({
   keywords: ['Precise 1'], upgradeBar: ['heavy weapon', 'personnel'], ...over,
 })
 
+describe('dedupeTtaUnits', () => {
+  it('collapses classic/revamp dupes of the same name+title+rank, keeping the costed/newest', () => {
+    const out = dedupeTtaUnits([
+      tta({ id: 1, name: 'AT-RT', rank_fkey: 4, current_cost: 55 }),
+      tta({ id: 70, name: 'AT-RT', rank_fkey: 4, current_cost: 60 }),
+    ])
+    expect(out).toHaveLength(1)
+    expect(out[0].id).toBe(70) // higher id wins on equal cost-presence
+    expect(out[0].current_cost).toBe(60)
+  })
+
+  it('prefers an entry that has a cost over a null-cost duplicate', () => {
+    const out = dedupeTtaUnits([
+      tta({ id: 31669, name: 'Rebel Officer', rank_fkey: 1, current_cost: null }),
+      tta({ id: 22, name: 'Rebel Officer', rank_fkey: 1, current_cost: 45 }),
+    ])
+    expect(out).toHaveLength(1)
+    expect(out[0].current_cost).toBe(45)
+  })
+
+  it('keeps distinct cards that share a name but differ by rank', () => {
+    const out = dedupeTtaUnits([
+      tta({ id: 25, name: 'Chewbacca', rank_fkey: 6, current_cost: 90 }),
+      tta({ id: 1565, name: 'Chewbacca', rank_fkey: 1, current_cost: 90 }),
+      tta({ id: 15969, name: 'Chewbacca', rank_fkey: 5, current_cost: 190 }),
+    ])
+    expect(out).toHaveLength(3)
+  })
+})
+
 describe('buildUnits', () => {
+  it('de-duplicates classic/revamp variants end-to-end', () => {
+    const units = buildUnits(
+      [tta({ id: 1, name: 'AT-RT', rank_fkey: 3, current_cost: 55 }),
+       tta({ id: 70, name: 'AT-RT', rank_fkey: 3, current_cost: 60 })],
+      [],
+    )
+    expect(units).toHaveLength(1)
+    expect(units[0].cost).toBe(60)
+  })
+
   it('merges tabletopadmiral data with Legion HQ stats by name', () => {
     const units = buildUnits([tta()], [lhq()])
     expect(units).toHaveLength(1)

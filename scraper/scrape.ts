@@ -14,9 +14,10 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { tmpdir } from 'os'
 import {
-  buildUnits, buildUpgrades, buildCommands, buildProducts,
+  buildUnits, buildUpgrades, buildCommands,
   type Lhq2Card, type Unit,
 } from './normalise.ts'
+import { parseProductCards, buildProductCatalog, type PhilibertEntry } from './products.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
@@ -27,8 +28,13 @@ const OVERRIDE_DIR = join(IMG_DIR, 'overrides')
 const LHQ2_ORIGIN = 'https://legionhq2.com'
 const LHQ2_CDN = 'https://d2maxvwz12z6fm.cloudfront.net'
 const LHQ_KEYWORDS_URL = 'https://raw.githubusercontent.com/Electrynth/legion-hq-web/master/src/constants/keywords.js'
+// Philibert Star Wars: Legion category — box art + store reference (EAN) source.
+const PHILIBERT_LISTING = 'https://www.philibertnet.com/en/11969-star-wars-legion'
+const PHILIBERT_PAGES = 4
 
 const UA = { 'User-Agent': 'Mozilla/5.0 LegionApp-scraper' }
+// Philibert is behind a CDN that rejects terse UAs; use a browser string for it.
+const BROWSER_UA = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36' }
 const skipImages = process.argv.includes('--skip-images')
 
 async function exists(p: string): Promise<boolean> {
@@ -103,6 +109,17 @@ async function fetchKeywords(): Promise<Record<string, string>> {
   return (mod.default ?? {}) as Record<string, string>
 }
 
+/** Fetch the Philibert SW:Legion category listing and parse every product card. */
+async function fetchPhilibertProducts(): Promise<PhilibertEntry[]> {
+  const entries: PhilibertEntry[] = []
+  for (let page = 1; page <= PHILIBERT_PAGES; page++) {
+    const res = await fetch(`${PHILIBERT_LISTING}?p=${page}`, { headers: BROWSER_UA })
+    if (!res.ok) throw new Error(`GET Philibert p${page} → ${res.status}`)
+    entries.push(...parseProductCards(await res.text()))
+  }
+  return entries
+}
+
 async function writeJson(name: string, data: unknown) {
   await mkdir(DATA_DIR, { recursive: true })
   await writeFile(join(DATA_DIR, name), JSON.stringify(data, null, 2) + '\n')
@@ -113,7 +130,7 @@ async function writeJson(name: string, data: unknown) {
 async function downloadImage(url: string, dest: string, attempt = 1): Promise<boolean> {
   try {
     if (await exists(dest)) return true
-    const res = await fetch(url, { headers: UA })
+    const res = await fetch(url, { headers: BROWSER_UA })
     if (!res.ok) throw new Error(`${res.status}`)
     await mkdir(dirname(dest), { recursive: true })
     await writeFile(dest, Buffer.from(await res.arrayBuffer()))
@@ -164,11 +181,21 @@ async function main() {
   const units = buildUnits(cards)
   const upgrades = buildUpgrades(cards)
   const commands = buildCommands(cards)
-  const products = buildProducts(units)
 
   const overrides = await overrideSlugs()
   for (const u of units) if (overrides.has(u.slug)) u.cardImage = `/images/units/${u.slug}.webp`
   console.log(`  units: ${units.length} (all current-edition, with stats + weapons)`)
+
+  console.log('Fetching Philibert product catalogue…')
+  let philibert: PhilibertEntry[] = []
+  try {
+    philibert = await fetchPhilibertProducts()
+  } catch (e) {
+    console.warn(`  ! Philibert fetch failed (${(e as Error).message}); products will be synthetic-only`)
+  }
+  const products = buildProductCatalog(philibert, units)
+  const realBoxes = products.filter((p) => p.ean).length
+  console.log(`  products: ${products.length} (${realBoxes} real boxes + ${products.length - realBoxes} synthetic)`)
 
   console.log('Writing JSON…')
   await writeJson('units.json', units)
@@ -206,10 +233,18 @@ async function main() {
     const img = imgByCmdId.get(c.id)
     return img ? [{ url: `${LHQ2_CDN}/commandCards/${enc(img)}`, dest: join(IMG_DIR, 'commands', `${c.slug}.webp`) }] : []
   })
+  // Box art for real Philibert boxes (synthetic products reuse the unit card scan).
+  const imgBoxByEan = new Map(philibert.map((e) => [e.ean, e.image]))
+  const boxJobs = products.flatMap((p) =>
+    p.ean && imgBoxByEan.has(p.ean)
+      ? [{ url: imgBoxByEan.get(p.ean)!, dest: join(IMG_DIR, 'products', `${p.ean}.jpg`) }]
+      : [],
+  )
 
   await runJobs('unit', unitJobs)
   await runJobs('upgrade', upJobs)
   await runJobs('command', cmdJobs)
+  await runJobs('product', boxJobs)
   console.log('Done.')
 }
 

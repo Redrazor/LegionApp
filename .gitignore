@@ -6,6 +6,7 @@ public/images/units/
 public/images/portraits/
 public/images/upgrades/
 public/images/commands/
+public/images/products/
 server/db/legion.db
 server/db/legion.db-shm
 server/db/legion.db-wal

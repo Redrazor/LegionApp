@@ -92,8 +92,19 @@ async function onFile(e: Event) {
             class="flex items-center gap-3 rounded-lg border p-2.5 transition-colors"
             :class="collection.isOwned(p.code) ? 'border-lg-accent/40 bg-lg-accent/5' : 'border-lg-border bg-lg-surface'"
           >
+            <div class="grid h-24 w-24 flex-none place-items-center overflow-hidden rounded-md bg-lg-dark">
+              <img v-if="p.image" :src="p.image" :alt="p.name" loading="lazy" class="h-full w-full object-contain" />
+              <span v-else class="text-lg-muted/50 text-2xl">▢</span>
+            </div>
             <div class="min-w-0 flex-1">
-              <span class="block truncate text-sm text-lg-text/90">{{ p.name }}</span>
+              <a
+                :href="p.storeUrl || undefined"
+                :target="p.storeUrl ? '_blank' : undefined"
+                rel="noopener"
+                class="block truncate text-sm text-lg-text/90"
+                :class="p.storeUrl && 'hover:text-lg-accent hover:underline'"
+              >{{ p.name }}</a>
+              <span v-if="p.ean" class="block truncate text-[11px] text-lg-muted/70">EAN {{ p.ean }}</span>
             </div>
             <div class="flex flex-none items-center gap-1.5">
               <button class="grid h-7 w-7 place-items-center rounded-md border border-lg-border text-lg-muted hover:text-lg-accent disabled:opacity-30" :disabled="!collection.isOwned(p.code)" @click="collection.decrement(p.code)">−</button>

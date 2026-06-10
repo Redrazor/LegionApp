@@ -10,6 +10,9 @@ export function rowToProduct(row: Record<string, unknown>) {
     faction: row.faction,
     type: row.type,
     unitSlugs: JSON.parse((row.unit_slugs as string) || '[]'),
+    ean: row.ean ?? null,
+    storeUrl: row.store_url ?? null,
+    image: row.image ?? null,
   }
 }
 

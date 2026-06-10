@@ -88,7 +88,7 @@ watch(
           {{ FACTION_META[group.faction].name }}
           <span class="text-xs font-normal text-lg-muted">({{ group.units.length }})</span>
         </h2>
-        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
           <UnitCard v-for="unit in group.units" :key="unit.id" :unit="unit" />
         </div>
       </section>

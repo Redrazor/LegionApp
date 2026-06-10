@@ -91,7 +91,7 @@ export interface ArmyUnit {
 export interface Army {
   name: string
   faction: Faction | null
-  gameSize: number // 800 standard, 500 skirmish
+  gameSize: number // points cap; resolves to a format via rankLimits() — 600 Recon, 800 legacy, 1000 Standard, 1600 Grand Army
   units: ArmyUnit[]
 }
 

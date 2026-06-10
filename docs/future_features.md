@@ -2,6 +2,21 @@
 
 A running log of features for LegionApp, newest first.
 
+## Feature 4 — Build section redesign ("Roster Canvas")
+
+**Status:** in progress — see the full plan in `docs/Build Section Development.md` (Epics A–F).
+
+A multi-feature rebuild of the Build tab into the core army-list builder: permanent rank-tracker
+footer, always-visible catalogue, tap-to-add + desktop drag-and-drop, render-time `×N` quantities,
+inline-expand unit detail + slot-filtered upgrade attach, command-hand + battle-deck builders,
+print/share/Longshanks export. Multi-format (Recon 600 / Standard 800 / Standard 1000 / Grand Army 1600).
+
+Sub-features ship one per `/workflow` cycle. First up:
+
+- **A1 — Format + multi-size rank limits** (branch `feature/build-format-rank-limits`). `FORMATS` table
+  + `rankLimits(cap)` (clamp-to-bracket) replaces the constant rank limits; `validateArmy` + BuildView
+  consume it; default new army = Standard 1000. Corrects the pre-2024 "800/500" assumption.
+
 ## Feature 3 — Dice roller
 
 **Status:** in progress (branch `feature/dice-roller`)

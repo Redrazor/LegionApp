@@ -5,7 +5,7 @@ import { useArmyStore } from '../stores/army.ts'
 import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
-import { FACTION_ORDER, FACTION_META, RANK_ORDER, RANK_META, rankName } from '../utils/factions.ts'
+import { FACTION_ORDER, FACTION_META, FORMATS, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
 import { encodeArmy, decodeArmy } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
@@ -63,6 +63,9 @@ async function share() {
   setTimeout(() => (shareMsg.value = ''), 3000)
 }
 
+// Per-format rank limits for the currently selected points cap.
+const limits = computed(() => rankLimits(draft.value.gameSize))
+
 const pointsPct = computed(() =>
   Math.min(100, Math.round((validation.value.points / draft.value.gameSize) * 100)),
 )
@@ -100,11 +103,12 @@ function printSheet() {
       />
       <div class="flex overflow-hidden rounded-lg border border-lg-border">
         <button
-          v-for="size in [800, 500]" :key="size"
+          v-for="f in FORMATS" :key="f.id"
           class="px-3 py-2 text-xs font-semibold transition-colors"
-          :class="draft.gameSize === size ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
-          @click="armyStore.setGameSize(size)"
-        >{{ size === 800 ? 'Standard 800' : 'Skirmish 500' }}</button>
+          :class="draft.gameSize === f.cap ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
+          :title="`${f.name} · ${f.cap} pts`"
+          @click="armyStore.setGameSize(f.cap)"
+        >{{ f.name }}<span class="ml-1 text-lg-muted/70">{{ f.cap }}</span></button>
       </div>
       <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-accent" @click="armyStore.newArmy()">New</button>
     </div>
@@ -146,14 +150,14 @@ function printSheet() {
             <h2 class="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-widest text-lg-text/80">
               {{ rankName(rank) }}
               <span class="text-xs font-normal text-lg-muted">
-                {{ unitsByRank[rank].length }}<span v-if="RANK_META[rank].min > 0 || RANK_META[rank].max">
-                  · {{ RANK_META[rank].min }}–{{ RANK_META[rank].max }}</span>
+                {{ unitsByRank[rank].length }}<span v-if="limits[rank].min > 0 || limits[rank].max">
+                  · {{ limits[rank].min }}–{{ limits[rank].max }}</span>
               </span>
             </h2>
             <button
               class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1 text-xs font-medium text-lg-accent hover:bg-lg-accent/10 no-print"
-              :disabled="unitsByRank[rank].length >= RANK_META[rank].max"
-              :class="{ 'opacity-30': unitsByRank[rank].length >= RANK_META[rank].max }"
+              :disabled="unitsByRank[rank].length >= limits[rank].max"
+              :class="{ 'opacity-30': unitsByRank[rank].length >= limits[rank].max }"
               @click="pickingRank = rank"
             >+ Add</button>
           </div>

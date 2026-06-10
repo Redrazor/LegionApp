@@ -1,5 +1,5 @@
 import type { Army, ArmyUnit, CompactArmy, Faction, Rank, Unit, Upgrade } from '../types/index.ts'
-import { RANK_META, RANK_ORDER, rankName } from './factions.ts'
+import { rankLimits, RANK_ORDER, rankName } from './factions.ts'
 
 export interface ValidationItem {
   ok: boolean
@@ -95,14 +95,15 @@ export function validateArmy(
     })
   }
 
-  // Rank limits
+  // Rank limits — per-format (see rankLimits / FORMATS). Required ranks (min > 0)
+  // surface even when empty so their unmet minimum is always visible.
+  const limits = rankLimits(army.gameSize)
   for (const rank of RANK_ORDER) {
-    const { min, max } = RANK_META[rank]
+    const { min, max } = limits[rank]
     const count = rankCounts[rank]
-    const ok = count >= min && count <= max
     if (count === 0 && min === 0) continue // hide empty optional ranks
     items.push({
-      ok,
+      ok: count >= min && count <= max,
       label: rankName(rank),
       detail:
         count < min
@@ -111,14 +112,6 @@ export function validateArmy(
           ? `${count} (max ${max})`
           : `${count} / ${max}`,
     })
-  }
-  // Always surface commander + corps minimums even when empty.
-  if (rankCounts.commander === 0) {
-    items.unshift({ ok: false, label: 'Commander', detail: '0 (need 1)' })
-  }
-  if (rankCounts.corps < 3) {
-    const exists = items.find((i) => i.label === 'Corps')
-    if (!exists) items.push({ ok: false, label: 'Corps', detail: `${rankCounts.corps} (need 3)` })
   }
 
   // Single faction (mercenaries may mix in via Allies of Convenience — allowed)

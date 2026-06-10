@@ -66,8 +66,11 @@ export function createTables(sqlite: Sqlite): void {
       code TEXT PRIMARY KEY,
       name TEXT NOT NULL,
       faction TEXT NOT NULL DEFAULT 'mercenary',
-      type TEXT NOT NULL DEFAULT 'unit-expansion',
-      unit_slugs TEXT NOT NULL DEFAULT '[]'
+      type TEXT NOT NULL DEFAULT 'expansion',
+      unit_slugs TEXT NOT NULL DEFAULT '[]',
+      ean TEXT,
+      store_url TEXT,
+      image TEXT
     );
   `)
 }
@@ -148,14 +151,15 @@ export function seedCommands(sqlite: Sqlite, list: CommandCard[]): void {
 
 export function seedProducts(sqlite: Sqlite, list: Product[]): void {
   const insert = sqlite.prepare(`
-    INSERT INTO products (code, name, faction, type, unit_slugs)
-    VALUES (@code, @name, @faction, @type, @unitSlugs)
+    INSERT INTO products (code, name, faction, type, unit_slugs, ean, store_url, image)
+    VALUES (@code, @name, @faction, @type, @unitSlugs, @ean, @storeUrl, @image)
   `)
   const run = sqlite.transaction((rows: Product[]) => {
     for (const p of rows) {
       insert.run({
         code: p.code, name: p.name, faction: p.faction, type: p.type,
         unitSlugs: JSON.stringify(p.unitSlugs ?? []),
+        ean: p.ean ?? null, storeUrl: p.storeUrl ?? null, image: p.image ?? null,
       })
     }
   })

@@ -92,12 +92,17 @@ export interface CommandCard {
   cardImage: string | null
 }
 
+export type ProductType = 'expansion' | 'army-box' | 'starter' | 'specialists'
+
 export interface Product {
-  code: string
+  code: string // EAN for real boxes, `exp-<slug>` for synthetic fallback
   name: string
   faction: string
-  type: 'unit-expansion' | 'core-set' | 'battle-force'
+  type: ProductType
   unitSlugs: string[]
+  ean: string | null // AMG / Asmodee barcode (real boxes only)
+  storeUrl: string | null // Philibert product page (real boxes only)
+  image: string | null // /images/products/<ean>.jpg or /images/units/<slug>.webp
 }
 
 const RANK_ORDER = ['commander', 'operative', 'corps', 'special', 'support', 'heavy']
@@ -240,30 +245,3 @@ export function buildCommands(cards: Lhq2Card[]): CommandCard[] {
     })
 }
 
-const PRODUCT_SUFFIX: Record<string, string> = {
-  commander: 'Commander Expansion',
-  operative: 'Operative Expansion',
-  corps: 'Unit Expansion',
-  special: 'Unit Expansion',
-  support: 'Support Expansion',
-  heavy: 'Heavy Expansion',
-}
-
-/** Generate a Collection product list: one expansion per unit, grouped by faction. */
-export function buildProducts(units: Unit[]): Product[] {
-  const products: Product[] = []
-  const seen = new Set<string>()
-  for (const u of units) {
-    const code = `exp-${u.slug}`
-    if (seen.has(code)) continue
-    seen.add(code)
-    products.push({
-      code,
-      name: `${u.name}${u.title ? `, ${u.title}` : ''} ${PRODUCT_SUFFIX[u.rank] ?? 'Unit Expansion'}`,
-      faction: u.faction,
-      type: 'unit-expansion',
-      unitSlugs: [u.slug],
-    })
-  }
-  return products
-}

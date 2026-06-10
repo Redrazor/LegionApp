@@ -62,12 +62,17 @@ export interface CommandCard {
   cardImage: string | null
 }
 
+export type ProductType = 'expansion' | 'army-box' | 'starter' | 'specialists'
+
 export interface Product {
   code: string
   name: string
   faction: Faction
-  type: 'unit-expansion' | 'core-set' | 'battle-force'
+  type: ProductType
   unitSlugs: string[]
+  ean: string | null // AMG / Asmodee barcode (real boxes only)
+  storeUrl: string | null // Philibert product page (real boxes only)
+  image: string | null // box art, or the unit card scan for synthetic fallbacks
 }
 
 // ── Army builder ─────────────────────────────────────────────────────────────

@@ -1,1613 +1,1183 @@
 [
   {
-    "code": "exp-darth-vader-dark-lord-of-the-sith",
-    "name": "Darth Vader, Dark Lord of the Sith Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "darth-vader-dark-lord-of-the-sith"
-    ]
-  },
-  {
-    "code": "exp-director-orson-krennic-architect-of-terror",
-    "name": "Director Orson Krennic, Architect of Terror Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "director-orson-krennic-architect-of-terror"
-    ]
-  },
-  {
-    "code": "exp-general-tagge-imperial-high-command",
-    "name": "General Tagge, Imperial High Command Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "general-tagge-imperial-high-command"
-    ]
-  },
-  {
-    "code": "exp-general-veers-master-tactician",
-    "name": "General Veers, Master Tactician Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "general-veers-master-tactician"
-    ]
-  },
-  {
-    "code": "exp-grand-admiral-thrawn-imperial-high-command",
-    "name": "Grand Admiral Thrawn, Imperial High Command Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "grand-admiral-thrawn-imperial-high-command"
-    ]
-  },
-  {
-    "code": "exp-grand-moff-tarkin-imperial-high-command",
-    "name": "Grand Moff Tarkin, Imperial High Command Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "grand-moff-tarkin-imperial-high-command"
-    ]
-  },
-  {
-    "code": "exp-iden-versio-inferno-squad-leader",
-    "name": "Iden Versio, Inferno Squad Leader Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "iden-versio-inferno-squad-leader"
-    ]
-  },
-  {
-    "code": "exp-imperial-officer-ruthless-efficiency",
-    "name": "Imperial Officer, Ruthless Efficiency Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-officer-ruthless-efficiency"
-    ]
-  },
-  {
-    "code": "exp-moff-gideon-long-live-the-empire",
-    "name": "Moff Gideon, Long Live the Empire Commander Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "moff-gideon-long-live-the-empire"
-    ]
-  },
-  {
-    "code": "exp-agent-kallus-hunter-of-spectres",
-    "name": "Agent Kallus, Hunter of Spectres Operative Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "agent-kallus-hunter-of-spectres"
-    ]
-  },
-  {
-    "code": "exp-darth-vader-the-emperors-apprentice",
-    "name": "Darth Vader, The Emperor's Apprentice Operative Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "darth-vader-the-emperors-apprentice"
-    ]
-  },
-  {
-    "code": "exp-fifth-brother-the-kill-is-mine",
-    "name": "Fifth Brother, The Kill is Mine Operative Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "fifth-brother-the-kill-is-mine"
-    ]
-  },
-  {
-    "code": "exp-imperial-agent-bringing-order-to-the-galaxy",
-    "name": "Imperial Agent, Bringing Order to the Galaxy Operative Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-agent-bringing-order-to-the-galaxy"
-    ]
-  },
-  {
-    "code": "exp-seventh-sister-compelled-to-inflict-pain",
-    "name": "Seventh Sister, Compelled to Inflict Pain Operative Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "seventh-sister-compelled-to-inflict-pain"
-    ]
-  },
-  {
-    "code": "exp-df-90-mortar-trooper",
-    "name": "DF-90 Mortar Trooper Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "df-90-mortar-trooper"
-    ]
-  },
-  {
-    "code": "exp-shoretroopers",
-    "name": "Shoretroopers Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "shoretroopers"
-    ]
-  },
-  {
-    "code": "exp-snowtroopers",
-    "name": "Snowtroopers Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "snowtroopers"
-    ]
-  },
-  {
-    "code": "exp-stormtrooper-riot-squad",
-    "name": "Stormtrooper Riot Squad Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "stormtrooper-riot-squad"
-    ]
-  },
-  {
-    "code": "exp-stormtroopers",
-    "name": "Stormtroopers Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "stormtroopers"
-    ]
-  },
-  {
-    "code": "exp-stormtroopers-heavy-response-unit",
-    "name": "Stormtroopers, Heavy Response Unit Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "stormtroopers-heavy-response-unit"
-    ]
-  },
-  {
-    "code": "exp-imperial-death-troopers",
-    "name": "Imperial Death Troopers Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-death-troopers"
-    ]
-  },
-  {
-    "code": "exp-imperial-probe-droid",
-    "name": "Imperial Probe Droid Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-probe-droid"
-    ]
-  },
-  {
-    "code": "exp-imperial-special-forces",
-    "name": "Imperial Special Forces Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-special-forces"
-    ]
-  },
-  {
-    "code": "exp-imperial-special-forces-inferno-squad",
-    "name": "Imperial Special Forces, Inferno Squad Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-special-forces-inferno-squad"
-    ]
-  },
-  {
-    "code": "exp-scout-troopers",
-    "name": "Scout Troopers Unit Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "scout-troopers"
-    ]
-  },
-  {
-    "code": "exp-74-z-speeder-bikes",
-    "name": "74-Z Speeder Bikes Support Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "74-z-speeder-bikes"
-    ]
-  },
-  {
-    "code": "exp-dewback-rider",
-    "name": "Dewback Rider Support Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "dewback-rider"
-    ]
-  },
-  {
-    "code": "exp-e-web-heavy-blaster-team",
-    "name": "E-Web Heavy Blaster Team Support Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "e-web-heavy-blaster-team"
-    ]
-  },
-  {
-    "code": "exp-range-troopers",
-    "name": "Range Troopers Support Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "range-troopers"
-    ]
-  },
-  {
-    "code": "exp-scout-troopers-strike-team",
-    "name": "Scout Troopers, Strike Team Support Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "scout-troopers-strike-team"
-    ]
-  },
-  {
-    "code": "exp-at-st",
-    "name": "AT-ST Heavy Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "at-st"
-    ]
-  },
-  {
-    "code": "exp-imperial-dark-troopers",
-    "name": "Imperial Dark Troopers Heavy Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "imperial-dark-troopers"
-    ]
-  },
-  {
-    "code": "exp-laat-le-patrol-transport",
-    "name": "LAAT/le Patrol Transport Heavy Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "laat-le-patrol-transport"
-    ]
-  },
-  {
-    "code": "exp-major-marquand-tempest-scout-2",
-    "name": "Major Marquand, Tempest Scout 2 Heavy Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "major-marquand-tempest-scout-2"
-    ]
-  },
-  {
-    "code": "exp-tx-225-gavw-occupier-tank",
-    "name": "TX-225 GAVw Occupier Tank Heavy Expansion",
-    "faction": "empire",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "tx-225-gavw-occupier-tank"
-    ]
-  },
-  {
-    "code": "exp-gar-saxon-head-of-clan-saxon",
-    "name": "Gar Saxon, Head of Clan Saxon Commander Expansion",
-    "faction": "mandalorians",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "gar-saxon-head-of-clan-saxon"
-    ]
-  },
-  {
-    "code": "exp-rook-kast-devoted-to-the-cause",
-    "name": "Rook Kast, Devoted to the Cause Operative Expansion",
-    "faction": "mandalorians",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rook-kast-devoted-to-the-cause"
-    ]
-  },
-  {
-    "code": "exp-sabine-wren-back-in-the-fold",
-    "name": "Sabine Wren, Back in the Fold Operative Expansion",
-    "faction": "mandalorians",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "sabine-wren-back-in-the-fold"
-    ]
-  },
-  {
-    "code": "exp-super-commandos",
-    "name": "Super Commandos Unit Expansion",
-    "faction": "mandalorians",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "super-commandos"
-    ]
-  },
-  {
-    "code": "exp-black-sun-vigo",
-    "name": "Black Sun Vigo Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "black-sun-vigo"
-    ]
-  },
-  {
-    "code": "exp-bo-katan-kryze-savior-of-mandalore",
-    "name": "Bo-Katan Kryze, Savior of Mandalore Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "bo-katan-kryze-savior-of-mandalore"
-    ]
-  },
-  {
-    "code": "exp-c-3p0-golden-god",
-    "name": "C-3P0, Golden God Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "c-3p0-golden-god"
-    ]
-  },
-  {
-    "code": "exp-gar-saxon-militant-commando",
-    "name": "Gar Saxon, Militant Commando Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "gar-saxon-militant-commando"
-    ]
-  },
-  {
-    "code": "exp-logray-superstitious-shaman",
-    "name": "Logray, Superstitious Shaman Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "logray-superstitious-shaman"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-leader",
-    "name": "Mandalorian Leader Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-leader"
-    ]
-  },
-  {
-    "code": "exp-pyke-syndicate-capo",
-    "name": "Pyke Syndicate Capo Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "pyke-syndicate-capo"
-    ]
-  },
-  {
-    "code": "exp-the-armorer-forging-the-future",
-    "name": "The Armorer, Forging the Future Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "the-armorer-forging-the-future"
-    ]
-  },
-  {
-    "code": "exp-ursa-wren-leader-of-clan-wren",
-    "name": "Ursa Wren, Leader of Clan Wren Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ursa-wren-leader-of-clan-wren"
-    ]
-  },
-  {
-    "code": "exp-wicket-hero-of-bright-tree",
-    "name": "Wicket, Hero of Bright Tree Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wicket-hero-of-bright-tree"
-    ]
-  },
-  {
-    "code": "exp-axe-woves-cunning-warrior",
-    "name": "Axe Woves, Cunning Warrior Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "axe-woves-cunning-warrior"
-    ]
-  },
-  {
-    "code": "exp-boba-fett-infamous-bounty-hunter",
-    "name": "Boba Fett, Infamous Bounty Hunter Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "boba-fett-infamous-bounty-hunter"
-    ]
-  },
-  {
-    "code": "exp-boba-fett-daimyo-of-mos-espa",
-    "name": "Boba Fett, Daimyo of Mos Espa Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "boba-fett-daimyo-of-mos-espa"
-    ]
-  },
-  {
-    "code": "exp-bossk-trandoshan-terror",
-    "name": "Bossk, Trandoshan Terror Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "bossk-trandoshan-terror"
-    ]
-  },
-  {
-    "code": "exp-cad-bane-needs-no-introduction",
-    "name": "Cad Bane, Needs No Introduction Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "cad-bane-needs-no-introduction"
-    ]
-  },
-  {
-    "code": "exp-din-djarin-the-mandalorian",
-    "name": "Din Djarin, The Mandalorian Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "din-djarin-the-mandalorian"
-    ]
-  },
-  {
-    "code": "exp-han-chewie-notorious-scoundrels",
-    "name": "Han & Chewie, Notorious Scoundrels Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "han-chewie-notorious-scoundrels"
-    ]
-  },
-  {
-    "code": "exp-hondo-ohnaka-trustworthy-compatriot",
-    "name": "Hondo Ohnaka, Trustworthy Compatriot Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "hondo-ohnaka-trustworthy-compatriot"
-    ]
-  },
-  {
-    "code": "exp-ig-11-nurse-and-protect",
-    "name": "IG-11, Nurse and Protect Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ig-11-nurse-and-protect"
-    ]
-  },
-  {
-    "code": "exp-ig-88-notorious-assassin-droid",
-    "name": "IG-88, Notorious Assassin Droid Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ig-88-notorious-assassin-droid"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-hunter",
-    "name": "Mandalorian Hunter Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-hunter"
-    ]
-  },
-  {
-    "code": "exp-maul-a-rival",
-    "name": "Maul, A Rival Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "maul-a-rival"
-    ]
-  },
-  {
-    "code": "exp-paz-vizsla-proud-warrior",
-    "name": "Paz Vizsla, Proud Warrior Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "paz-vizsla-proud-warrior"
-    ]
-  },
-  {
-    "code": "exp-savage-opress-mauls-enforcer",
-    "name": "Savage Opress, Maul's Enforcer Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "savage-opress-mauls-enforcer"
-    ]
-  },
-  {
-    "code": "exp-the-bad-batch-clone-force-99-2",
-    "name": "The Bad Batch, Clone Force 99 Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "the-bad-batch-clone-force-99-2"
-    ]
-  },
-  {
-    "code": "exp-black-sun-enforcers",
-    "name": "Black Sun Enforcers Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "black-sun-enforcers"
-    ]
-  },
-  {
-    "code": "exp-ewok-skirmishers",
-    "name": "Ewok Skirmishers Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ewok-skirmishers"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-initiates",
-    "name": "Mandalorian Initiates Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-initiates"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-warriors",
-    "name": "Mandalorian Warriors Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-warriors"
-    ]
-  },
-  {
-    "code": "exp-pyke-syndicate-foot-soldiers",
-    "name": "Pyke Syndicate Foot Soldiers Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "pyke-syndicate-foot-soldiers"
-    ]
-  },
-  {
-    "code": "exp-weequay-pirates",
-    "name": "Weequay Pirates Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "weequay-pirates"
-    ]
-  },
-  {
-    "code": "exp-clan-kryze-veterans",
-    "name": "Clan Kryze Veterans Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clan-kryze-veterans"
-    ]
-  },
-  {
-    "code": "exp-clan-wren-veterans",
-    "name": "Clan Wren Veterans Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clan-wren-veterans"
-    ]
-  },
-  {
-    "code": "exp-ewok-slingers",
-    "name": "Ewok Slingers Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ewok-slingers"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-super-commandos",
-    "name": "Mandalorian Super Commandos Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-super-commandos"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-warriors-fire-support",
-    "name": "Mandalorian Warriors, Fire Support Support Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-warriors-fire-support"
-    ]
-  },
-  {
-    "code": "exp-swoop-bike-riders",
-    "name": "Swoop Bike Riders Support Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "swoop-bike-riders"
-    ]
-  },
-  {
-    "code": "exp-a-a5-speeder-truck-2",
-    "name": "A-A5 Speeder Truck Heavy Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "a-a5-speeder-truck-2"
-    ]
-  },
-  {
-    "code": "exp-chewbacca-let-the-wookiee-win",
-    "name": "Chewbacca, Let the Wookiee Win Heavy Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "chewbacca-let-the-wookiee-win"
-    ]
-  },
-  {
-    "code": "exp-wlo-5-speeder-tank",
-    "name": "WLO-5 Speeder Tank Heavy Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wlo-5-speeder-tank"
-    ]
-  },
-  {
-    "code": "exp-han-solo-unorthodox-general",
-    "name": "Han Solo, Unorthodox General Commander Expansion",
+    "code": "8435407620759",
+    "name": "1.4 FD Laser Cannon Team",
     "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "han-solo-unorthodox-general"
-    ]
-  },
-  {
-    "code": "exp-lando-calrissian-canny-general",
-    "name": "Lando Calrissian, Canny General Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "lando-calrissian-canny-general"
-    ]
-  },
-  {
-    "code": "exp-leia-organa-fearless-and-inventive",
-    "name": "Leia Organa, Fearless and Inventive Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "leia-organa-fearless-and-inventive"
-    ]
-  },
-  {
-    "code": "exp-luke-skywalker-hero-of-the-rebellion",
-    "name": "Luke Skywalker, Hero of the Rebellion Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "luke-skywalker-hero-of-the-rebellion"
-    ]
-  },
-  {
-    "code": "exp-luke-skywalker-commander-skywalker",
-    "name": "Luke Skywalker, Commander Skywalker Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "luke-skywalker-commander-skywalker"
-    ]
-  },
-  {
-    "code": "exp-rebel-officer-fighting-for-freedom",
-    "name": "Rebel Officer, Fighting for Freedom Commander Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-officer-fighting-for-freedom"
-    ]
-  },
-  {
-    "code": "exp-ahsoka-tano-fulcrum",
-    "name": "Ahsoka Tano, Fulcrum Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ahsoka-tano-fulcrum"
-    ]
-  },
-  {
-    "code": "exp-cassian-andor-capable-intelligence-agent",
-    "name": "Cassian Andor, Capable Intelligence Agent Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "cassian-andor-capable-intelligence-agent"
-    ]
-  },
-  {
-    "code": "exp-chewbacca-walking-carpet",
-    "name": "Chewbacca, Walking Carpet Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "chewbacca-walking-carpet"
-    ]
-  },
-  {
-    "code": "exp-han-solo-reluctant-hero",
-    "name": "Han Solo, Reluctant Hero Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "han-solo-reluctant-hero"
-    ]
-  },
-  {
-    "code": "exp-jyn-erso-stardust",
-    "name": "Jyn Erso, Stardust Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "jyn-erso-stardust"
-    ]
-  },
-  {
-    "code": "exp-k-2so-sardonic-security-droid",
-    "name": "K-2SO, Sardonic Security Droid Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "k-2so-sardonic-security-droid"
-    ]
-  },
-  {
-    "code": "exp-luke-skywalker-jedi-knight",
-    "name": "Luke Skywalker, Jedi Knight Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "luke-skywalker-jedi-knight"
-    ]
-  },
-  {
-    "code": "exp-r2-d2-hero-of-a-thousand-devices",
-    "name": "R2-D2, Hero of a Thousand Devices Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "r2-d2-hero-of-a-thousand-devices"
-    ]
-  },
-  {
-    "code": "exp-rebel-agent-defender-of-democracy",
-    "name": "Rebel Agent, Defender of Democracy Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-agent-defender-of-democracy"
-    ]
-  },
-  {
-    "code": "exp-sabine-wren-explosive-artist",
-    "name": "Sabine Wren, Explosive Artist Operative Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "sabine-wren-explosive-artist"
-    ]
-  },
-  {
-    "code": "exp-fleet-troopers",
-    "name": "Fleet Troopers Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "fleet-troopers"
-    ]
-  },
-  {
-    "code": "exp-mark-ii-medium-blaster-trooper",
-    "name": "Mark II Medium Blaster Trooper Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mark-ii-medium-blaster-trooper"
-    ]
-  },
-  {
-    "code": "exp-rebel-troopers",
-    "name": "Rebel Troopers Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-troopers"
-    ]
-  },
-  {
-    "code": "exp-rebel-veterans",
-    "name": "Rebel Veterans Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-veterans"
-    ]
-  },
-  {
-    "code": "exp-guerilla-troopers",
-    "name": "Guerilla Troopers Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "guerilla-troopers"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-resistance",
-    "name": "Mandalorian Resistance Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-resistance"
-    ]
-  },
-  {
-    "code": "exp-mandalorian-resistance-clan-wren",
-    "name": "Mandalorian Resistance, Clan Wren Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mandalorian-resistance-clan-wren"
-    ]
-  },
-  {
-    "code": "exp-rebel-commandos",
-    "name": "Rebel Commandos Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-commandos"
-    ]
-  },
-  {
-    "code": "exp-rebel-sleeper-cell-ready-to-strike",
-    "name": "Rebel Sleeper Cell, Ready to Strike Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-sleeper-cell-ready-to-strike"
-    ]
-  },
-  {
-    "code": "exp-wookiee-warriors-freedom-fighters",
-    "name": "Wookiee Warriors, Freedom Fighters Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wookiee-warriors-freedom-fighters"
-    ]
-  },
-  {
-    "code": "exp-wookiee-warriors-kashyyyk-resistance",
-    "name": "Wookiee Warriors, Kashyyyk Resistance Unit Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wookiee-warriors-kashyyyk-resistance"
-    ]
-  },
-  {
-    "code": "exp-14-fd-laser-cannon-team",
-    "name": "1.4 FD Laser Cannon Team Support Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
+    "type": "expansion",
     "unitSlugs": [
       "14-fd-laser-cannon-team"
-    ]
+    ],
+    "ean": "8435407620759",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/70678-star-wars-legion-equipe-canon-laser-14-fd-8435407620759.html",
+    "image": "/images/products/8435407620759.jpg"
   },
   {
-    "code": "exp-at-rt",
-    "name": "AT-RT Support Expansion",
+    "code": "841333135041",
+    "name": "74-Z Speeder Bike",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "74-z-speeder-bikes"
+    ],
+    "ean": "841333135041",
+    "storeUrl": "https://www.philibertnet.com/en/empire/174992-star-wars-legion-74-z-speeder-bike-841333135041.html",
+    "image": "/images/products/841333135041.jpg"
+  },
+  {
+    "code": "841333129194",
+    "name": "A-A5 Speeder Truck",
     "faction": "rebels",
-    "type": "unit-expansion",
+    "type": "expansion",
     "unitSlugs": [
-      "at-rt"
-    ]
+      "a-a5-speeder-truck",
+      "a-a5-speeder-truck-2"
+    ],
+    "ean": "841333129194",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/161555-star-wars-legion-a-a5-speeder-truck-841333129194.html",
+    "image": "/images/products/841333129194.jpg"
   },
   {
-    "code": "exp-rebel-commandos-strike-team",
-    "name": "Rebel Commandos, Strike Team Support Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rebel-commandos-strike-team"
-    ]
-  },
-  {
-    "code": "exp-tauntaun-riders",
-    "name": "Tauntaun Riders Support Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "tauntaun-riders"
-    ]
-  },
-  {
-    "code": "exp-a-a5-speeder-truck",
-    "name": "A-A5 Speeder Truck Heavy Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "a-a5-speeder-truck"
-    ]
-  },
-  {
-    "code": "exp-t-47-airspeeder",
-    "name": "T-47 Airspeeder Heavy Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "t-47-airspeeder"
-    ]
-  },
-  {
-    "code": "exp-x-34-landspeeder",
-    "name": "X-34 Landspeeder Heavy Expansion",
-    "faction": "rebels",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "x-34-landspeeder"
-    ]
-  },
-  {
-    "code": "exp-ahsoka-tano-padawan-commander",
-    "name": "Ahsoka Tano, Padawan Commander Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ahsoka-tano-padawan-commander"
-    ]
-  },
-  {
-    "code": "exp-anakin-skywalker-the-chosen-one",
-    "name": "Anakin Skywalker, The Chosen One Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "anakin-skywalker-the-chosen-one"
-    ]
-  },
-  {
-    "code": "exp-chewbacca-hero-of-kashyyyk",
-    "name": "Chewbacca, Hero of Kashyyyk Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "chewbacca-hero-of-kashyyyk"
-    ]
-  },
-  {
-    "code": "exp-clone-captain-rex-honorable-soldier",
-    "name": "Clone Captain Rex, Honorable Soldier Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clone-captain-rex-honorable-soldier"
-    ]
-  },
-  {
-    "code": "exp-clone-commander-trained-for-leadership",
-    "name": "Clone Commander, Trained For Leadership Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clone-commander-trained-for-leadership"
-    ]
-  },
-  {
-    "code": "exp-clone-commander-cody-leader-of-the-212th",
-    "name": "Clone Commander Cody, Leader of the 212th Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clone-commander-cody-leader-of-the-212th"
-    ]
-  },
-  {
-    "code": "exp-jedi-knight-mounted-jedi-general",
-    "name": "Jedi Knight, Mounted Jedi General Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "jedi-knight-mounted-jedi-general"
-    ]
-  },
-  {
-    "code": "exp-jedi-knight-general-strong-in-the-force",
-    "name": "Jedi Knight General, Strong in the Force Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "jedi-knight-general-strong-in-the-force"
-    ]
-  },
-  {
-    "code": "exp-ki-adi-mundi-jedi-council",
-    "name": "Ki-Adi-Mundi, Jedi Council Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ki-adi-mundi-jedi-council"
-    ]
-  },
-  {
-    "code": "exp-mace-windu-jedi-council",
-    "name": "Mace Windu, Jedi Council Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "mace-windu-jedi-council"
-    ]
-  },
-  {
-    "code": "exp-obi-wan-kenobi-civilized-warrior",
-    "name": "Obi-Wan Kenobi, Civilized Warrior Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "obi-wan-kenobi-civilized-warrior"
-    ]
-  },
-  {
-    "code": "exp-wookiee-chieftain-clan-leader",
-    "name": "Wookiee Chieftain, Clan Leader Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wookiee-chieftain-clan-leader"
-    ]
-  },
-  {
-    "code": "exp-yoda-grand-master-of-the-jedi-order",
-    "name": "Yoda, Grand Master of the Jedi Order Commander Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "yoda-grand-master-of-the-jedi-order"
-    ]
-  },
-  {
-    "code": "exp-anakin-skywalker-mounted-jedi-general",
-    "name": "Anakin Skywalker, Mounted Jedi General Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "anakin-skywalker-mounted-jedi-general"
-    ]
-  },
-  {
-    "code": "exp-jedi-knight-keeper-of-the-peace",
-    "name": "Jedi Knight, Keeper of the Peace Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "jedi-knight-keeper-of-the-peace"
-    ]
-  },
-  {
-    "code": "exp-padme-amidala-spirited-senator",
-    "name": "Padme Amidala, Spirited Senator Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "padme-amidala-spirited-senator"
-    ]
-  },
-  {
-    "code": "exp-plo-koon-jedi-council",
-    "name": "Plo Koon, Jedi Council Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "plo-koon-jedi-council"
-    ]
-  },
-  {
-    "code": "exp-r2-d2-independent-astromech",
-    "name": "R2-D2, Independent Astromech Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "r2-d2-independent-astromech"
-    ]
-  },
-  {
-    "code": "exp-shaak-ti-jedi-council",
-    "name": "Shaak Ti, Jedi Council Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "shaak-ti-jedi-council"
-    ]
-  },
-  {
-    "code": "exp-the-bad-batch-clone-force-99",
-    "name": "The Bad Batch, Clone Force 99 Operative Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "the-bad-batch-clone-force-99"
-    ]
-  },
-  {
-    "code": "exp-clone-trooper-infantry",
-    "name": "Clone Trooper Infantry Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clone-trooper-infantry"
-    ]
-  },
-  {
-    "code": "exp-clone-trooper-marksmen",
-    "name": "Clone Trooper Marksmen Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clone-trooper-marksmen"
-    ]
-  },
-  {
-    "code": "exp-arc-troopers",
-    "name": "ARC Troopers Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "arc-troopers"
-    ]
-  },
-  {
-    "code": "exp-arf-troopers",
-    "name": "ARF Troopers Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "arf-troopers"
-    ]
-  },
-  {
-    "code": "exp-wookiee-warriors-kashyyyk-defenders",
-    "name": "Wookiee Warriors, Kashyyyk Defenders Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wookiee-warriors-kashyyyk-defenders"
-    ]
-  },
-  {
-    "code": "exp-wookiee-warriors-noble-fighters",
-    "name": "Wookiee Warriors, Noble Fighters Unit Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "wookiee-warriors-noble-fighters"
-    ]
-  },
-  {
-    "code": "exp-arc-troopers-strike-team",
-    "name": "ARC Troopers, Strike Team Support Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "arc-troopers-strike-team"
-    ]
-  },
-  {
-    "code": "exp-at-rt-2",
-    "name": "AT-RT Support Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "at-rt-2"
-    ]
-  },
-  {
-    "code": "exp-barc-speeder",
-    "name": "BARC Speeder Support Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "barc-speeder"
-    ]
-  },
-  {
-    "code": "exp-clone-commandos",
-    "name": "Clone Commandos Support Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clone-commandos"
-    ]
-  },
-  {
-    "code": "exp-clone-commandos-delta-squad",
-    "name": "Clone Commandos, Delta Squad Support Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "clone-commandos-delta-squad"
-    ]
-  },
-  {
-    "code": "exp-raddaugh-gnasp-fluttercraft",
-    "name": "Raddaugh Gnasp Fluttercraft Support Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "raddaugh-gnasp-fluttercraft"
-    ]
-  },
-  {
-    "code": "exp-raddaugh-gnasp-fluttercraft-attack-craft",
-    "name": "Raddaugh Gnasp Fluttercraft, Attack Craft Support Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "raddaugh-gnasp-fluttercraft-attack-craft"
-    ]
-  },
-  {
-    "code": "exp-infantry-support-platform",
-    "name": "Infantry Support Platform Heavy Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "infantry-support-platform"
-    ]
-  },
-  {
-    "code": "exp-laat-le-patrol-transport-2",
-    "name": "LAAT/le Patrol Transport Heavy Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "laat-le-patrol-transport-2"
-    ]
-  },
-  {
-    "code": "exp-saber-class-tank",
-    "name": "Saber-Class Tank Heavy Expansion",
-    "faction": "republic",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "saber-class-tank"
-    ]
-  },
-  {
-    "code": "exp-count-dooku-darth-tyranus",
-    "name": "Count Dooku, Darth Tyranus Commander Expansion",
+    "code": "841333134976",
+    "name": "AAT Battle Tank",
     "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "count-dooku-darth-tyranus"
-    ]
-  },
-  {
-    "code": "exp-general-grievous-wheel-bike-warlord",
-    "name": "General Grievous, Wheel Bike Warlord Commander Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "general-grievous-wheel-bike-warlord"
-    ]
-  },
-  {
-    "code": "exp-kalani-super-tactical-droid",
-    "name": "Kalani, Super Tactical Droid Commander Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "kalani-super-tactical-droid"
-    ]
-  },
-  {
-    "code": "exp-kraken-super-tactical-droid",
-    "name": "Kraken, Super Tactical Droid Commander Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "kraken-super-tactical-droid"
-    ]
-  },
-  {
-    "code": "exp-poggle-the-lesser-public-leader-of-the-geonosians",
-    "name": "Poggle the Lesser, Public Leader of the Geonosians Commander Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "poggle-the-lesser-public-leader-of-the-geonosians"
-    ]
-  },
-  {
-    "code": "exp-super-tactical-command-droid-command-and-control-droid",
-    "name": "Super Tactical Command Droid, Command and Control Droid Commander Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "super-tactical-command-droid-command-and-control-droid"
-    ]
-  },
-  {
-    "code": "exp-t-series-tactical-droid-programmed-for-strategy",
-    "name": "T-Series Tactical Droid, Programmed for Strategy Commander Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "t-series-tactical-droid-programmed-for-strategy"
-    ]
-  },
-  {
-    "code": "exp-asajj-ventress-separatist-assassin",
-    "name": "Asajj Ventress, Separatist Assassin Operative Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "asajj-ventress-separatist-assassin"
-    ]
-  },
-  {
-    "code": "exp-maul-impatient-apprentice",
-    "name": "Maul, Impatient Apprentice Operative Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "maul-impatient-apprentice"
-    ]
-  },
-  {
-    "code": "exp-savage-opress-dookus-apprentice",
-    "name": "Savage Opress, Dooku's Apprentice Operative Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "savage-opress-dookus-apprentice"
-    ]
-  },
-  {
-    "code": "exp-sun-fac-ruthless-lieutenant",
-    "name": "Sun Fac, Ruthless Lieutenant Operative Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "sun-fac-ruthless-lieutenant"
-    ]
-  },
-  {
-    "code": "exp-super-tactical-command-droid-auxiliary-command-droid",
-    "name": "Super Tactical Command Droid, Auxiliary Command Droid Operative Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "super-tactical-command-droid-auxiliary-command-droid"
-    ]
-  },
-  {
-    "code": "exp-b1-battle-droids",
-    "name": "B1 Battle Droids Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "b1-battle-droids"
-    ]
-  },
-  {
-    "code": "exp-b2-super-battle-droids",
-    "name": "B2 Super Battle Droids Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "b2-super-battle-droids"
-    ]
-  },
-  {
-    "code": "exp-geonosian-warriors-soldiers-of-the-hive",
-    "name": "Geonosian Warriors, Soldiers of the Hive Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "geonosian-warriors-soldiers-of-the-hive"
-    ]
-  },
-  {
-    "code": "exp-geonosian-warriors-geonosian-engineers",
-    "name": "Geonosian Warriors, Geonosian Engineers Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "geonosian-warriors-geonosian-engineers"
-    ]
-  },
-  {
-    "code": "exp-bx-series-droid-commandos",
-    "name": "BX-Series Droid Commandos Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "bx-series-droid-commandos"
-    ]
-  },
-  {
-    "code": "exp-drk-1-sith-probe-droids",
-    "name": "DRK-1 Sith Probe Droids Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "drk-1-sith-probe-droids"
-    ]
-  },
-  {
-    "code": "exp-ig-100-magnaguard",
-    "name": "IG-100 MagnaGuard Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ig-100-magnaguard"
-    ]
-  },
-  {
-    "code": "exp-ig-100-magnaguard-prototype-assassin-droids",
-    "name": "IG-100 MagnaGuard, Prototype Assassin Droids Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "ig-100-magnaguard-prototype-assassin-droids"
-    ]
-  },
-  {
-    "code": "exp-tsmeu-6-wheel-bikes",
-    "name": "TSMEU-6 Wheel Bikes Unit Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "tsmeu-6-wheel-bikes"
-    ]
-  },
-  {
-    "code": "exp-bx-series-droid-commandos-strike-team",
-    "name": "BX-Series Droid Commandos, Strike Team Support Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "bx-series-droid-commandos-strike-team"
-    ]
-  },
-  {
-    "code": "exp-droidekas",
-    "name": "Droidekas Support Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "droidekas"
-    ]
-  },
-  {
-    "code": "exp-dsd1-dwarf-spider-droid",
-    "name": "DSD1 Dwarf Spider Droid Support Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "dsd1-dwarf-spider-droid"
-    ]
-  },
-  {
-    "code": "exp-lm-432-crab-droid",
-    "name": "LM-432 Crab Droid Support Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "lm-432-crab-droid"
-    ]
-  },
-  {
-    "code": "exp-stap-riders",
-    "name": "STAP Riders Support Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "stap-riders"
-    ]
-  },
-  {
-    "code": "exp-aat-battle-tank",
-    "name": "AAT Battle Tank Heavy Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
+    "type": "expansion",
     "unitSlugs": [
       "aat-battle-tank"
-    ]
+    ],
+    "ean": "841333134976",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/168933-star-wars-legion-aat-battle-tank-841333134976.html",
+    "image": "/images/products/841333134976.jpg"
   },
   {
-    "code": "exp-aqua-droids",
-    "name": "Aqua Droids Heavy Expansion",
+    "code": "8435407632189",
+    "name": "Anakin Skywalker",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "anakin-skywalker-mounted-jedi-general",
+      "anakin-skywalker-the-chosen-one"
+    ],
+    "ean": "8435407632189",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/90703-star-wars-legion-anakin-skywalker-extension-commandant-8435407632189.html",
+    "image": "/images/products/8435407632189.jpg"
+  },
+  {
+    "code": "841333129026",
+    "name": "Aqua Droids",
     "faction": "separatists",
-    "type": "unit-expansion",
+    "type": "expansion",
     "unitSlugs": [
       "aqua-droids"
-    ]
+    ],
+    "ean": "841333129026",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/150302-star-wars-legion-aqua-droids-841333129026.html",
+    "image": "/images/products/841333129026.jpg"
   },
   {
-    "code": "exp-persuader-class-tank-droid",
-    "name": "Persuader-Class Tank Droid Heavy Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
+    "code": "841333133788",
+    "name": "ARC Troopers",
+    "faction": "empire",
+    "type": "expansion",
     "unitSlugs": [
-      "persuader-class-tank-droid"
-    ]
+      "arc-troopers",
+      "arc-troopers-strike-team"
+    ],
+    "ean": "841333133788",
+    "storeUrl": "https://www.philibertnet.com/en/empire/169616-star-wars-legion-arc-troopers-841333133788.html",
+    "image": "/images/products/841333133788.jpg"
   },
   {
-    "code": "exp-persuader-class-tank-droid-prototype-tank-droid",
-    "name": "Persuader-Class Tank Droid, Prototype Tank Droid Heavy Expansion",
-    "faction": "separatists",
-    "type": "unit-expansion",
+    "code": "841333129019",
+    "name": "ARF Troopers",
+    "faction": "republic",
+    "type": "expansion",
     "unitSlugs": [
-      "persuader-class-tank-droid-prototype-tank-droid"
-    ]
+      "arf-troopers"
+    ],
+    "ean": "841333129019",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/152600-star-wars-legion-arf-troopers-841333129019.html",
+    "image": "/images/products/841333129019.jpg"
+  },
+  {
+    "code": "841333134983",
+    "name": "AT-ST",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "at-st"
+    ],
+    "ean": "841333134983",
+    "storeUrl": "https://www.philibertnet.com/en/empire/168931-star-wars-legion-at-st-841333134983.html",
+    "image": "/images/products/841333134983.jpg"
+  },
+  {
+    "code": "841333133481",
+    "name": "B1 Battle Droids",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "b1-battle-droids"
+    ],
+    "ean": "841333133481",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/165530-star-wars-legion-b1-battle-droids-841333133481.html",
+    "image": "/images/products/841333133481.jpg"
+  },
+  {
+    "code": "841333129187",
+    "name": "B2 Super Battle Droids",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "b2-super-battle-droids"
+    ],
+    "ean": "841333129187",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/158214-star-wars-legion-b2-super-battle-droids-841333129187.html",
+    "image": "/images/products/841333129187.jpg"
+  },
+  {
+    "code": "841333134785",
+    "name": "Blizzard Force Special Edition Army Box",
+    "faction": "empire",
+    "type": "army-box",
+    "unitSlugs": [
+      "darth-vader-dark-lord-of-the-sith",
+      "imperial-probe-droid",
+      "stormtroopers",
+      "stormtroopers-heavy-response-unit",
+      "snowtroopers"
+    ],
+    "ean": "841333134785",
+    "storeUrl": "https://www.philibertnet.com/en/empire/170432-star-wars-legion-blizzard-force-special-edition-army-box-841333134785.html",
+    "image": "/images/products/841333134785.jpg"
+  },
+  {
+    "code": "841333119775",
+    "name": "Boba Fett, Daimyo of Mos Espa",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "boba-fett-daimyo-of-mos-espa",
+      "boba-fett-infamous-bounty-hunter"
+    ],
+    "ean": "841333119775",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/115207-star-wars-legion-boba-fett-daymio-de-mos-espa-841333119775.html",
+    "image": "/images/products/841333119775.jpg"
+  },
+  {
+    "code": "841333129248",
+    "name": "BX-Series Droid Commandos",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "bx-series-droid-commandos",
+      "bx-series-droid-commandos-strike-team"
+    ],
+    "ean": "841333129248",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/171956-star-wars-legion-bx-series-doid-commando-841333129248.html",
+    "image": "/images/products/841333129248.jpg"
+  },
+  {
+    "code": "841333134624",
+    "name": "Captain Solo & Commander Skywalker on Tauntauns",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "han-solo-unorthodox-general",
+      "luke-skywalker-commander-skywalker"
+    ],
+    "ean": "841333134624",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/170437-star-wars-legion-captain-solo-commander-skywalker-on-tauntauns-841333134624.html",
+    "image": "/images/products/841333134624.jpg"
+  },
+  {
+    "code": "841333135003",
+    "name": "Cassian Andor, Jyn Erso & K-2SO",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "cassian-andor-capable-intelligence-agent",
+      "jyn-erso-stardust",
+      "k-2so-sardonic-security-droid"
+    ],
+    "ean": "841333135003",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/168934-star-wars-legion-cassian-andor-jyn-erso-k-2so-841333135003.html",
+    "image": "/images/products/841333135003.jpg"
+  },
+  {
+    "code": "2100001342159",
+    "name": "Clan Wren Mandalorians",
+    "faction": "mandalorians",
+    "type": "expansion",
+    "unitSlugs": [
+      "clan-wren-veterans",
+      "ursa-wren-leader-of-clan-wren"
+    ],
+    "ean": "2100001342159",
+    "storeUrl": "https://www.philibertnet.com/en/mandaloriens/175244-star-wars-legion-clan-wren-mandalorians-2100001342159.html",
+    "image": "/images/products/2100001342159.jpg"
+  },
+  {
+    "code": "841333129170",
+    "name": "Clone Commander Cody",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "clone-commander-cody-leader-of-the-212th",
+      "clone-commander-trained-for-leadership"
+    ],
+    "ean": "841333129170",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/158213-star-wars-legion-clone-commander-cody-841333129170.html",
+    "image": "/images/products/841333129170.jpg"
+  },
+  {
+    "code": "841333133405",
+    "name": "Clone Trooper Infantry",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "clone-trooper-infantry"
+    ],
+    "ean": "841333133405",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/165524-star-wars-legion-clone-trooper-infantty-841333133405.html",
+    "image": "/images/products/841333133405.jpg"
+  },
+  {
+    "code": "841333133474",
+    "name": "Clone Trooper Marksmen",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "clone-trooper-marksmen"
+    ],
+    "ean": "841333133474",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/165522-star-wars-legion-clone-trooper-marksmen-841333133474.html",
+    "image": "/images/products/841333133474.jpg"
+  },
+  {
+    "code": "841333130527",
+    "name": "Commander & Padawan Ahsoka Tano",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "ahsoka-tano-fulcrum",
+      "ahsoka-tano-padawan-commander"
+    ],
+    "ean": "841333130527",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/157289-star-wars-legion-commander-padawan-ahsoka-tano-841333130527.html",
+    "image": "/images/products/841333130527.jpg"
+  },
+  {
+    "code": "8435407627703",
+    "name": "Count Dooku",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "count-dooku-darth-tyranus"
+    ],
+    "ean": "8435407627703",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/80224-star-wars-legion-comte-dooku-8435407627703.html",
+    "image": "/images/products/8435407627703.jpg"
+  },
+  {
+    "code": "841333131944",
+    "name": "Customizable Imperial Officer & Agent",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "imperial-officer-ruthless-efficiency",
+      "imperial-agent-bringing-order-to-the-galaxy"
+    ],
+    "ean": "841333131944",
+    "storeUrl": "https://www.philibertnet.com/en/empire/163734-star-wars-legion-customizable-imperial-officer-agent-841333131944.html",
+    "image": "/images/products/841333131944.jpg"
+  },
+  {
+    "code": "841333132903",
+    "name": "Customizable Jedi General and Knight",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "jedi-knight-general-strong-in-the-force",
+      "jedi-knight-mounted-jedi-general",
+      "jedi-knight-keeper-of-the-peace"
+    ],
+    "ean": "841333132903",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/165521-star-wars-legion-customizable-jedi-general-and-knight-841333132903.html",
+    "image": "/images/products/841333132903.jpg"
+  },
+  {
+    "code": "841333132064",
+    "name": "Customizable Rebel Officer & Agent",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "rebel-officer-fighting-for-freedom",
+      "rebel-agent-defender-of-democracy"
+    ],
+    "ean": "841333132064",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/163736-star-wars-legion-customizable-rebel-officer-agent-841333132064.html",
+    "image": "/images/products/841333132064.jpg"
+  },
+  {
+    "code": "841333132897",
+    "name": "Customizable Super Tactical Command Droid",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "super-tactical-command-droid-auxiliary-command-droid",
+      "super-tactical-command-droid-command-and-control-droid"
+    ],
+    "ean": "841333132897",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/165528-star-wars-legion-customizable-super-tactical-command-droid-841333132897.html",
+    "image": "/images/products/841333132897.jpg"
+  },
+  {
+    "code": "841333129217",
+    "name": "Dark Troopers (Reissue)",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "imperial-dark-troopers"
+    ],
+    "ean": "841333129217",
+    "storeUrl": "https://www.philibertnet.com/en/empire/169947-star-wars-legion-dark-troopers-reissue-841333129217.html",
+    "image": "/images/products/841333129217.jpg"
+  },
+  {
+    "code": "841333132989",
+    "name": "Darth Vader & General Veers",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "darth-vader-dark-lord-of-the-sith",
+      "darth-vader-the-emperors-apprentice",
+      "general-veers-master-tactician"
+    ],
+    "ean": "841333132989",
+    "storeUrl": "https://www.philibertnet.com/en/empire/162460-star-wars-legion-darth-vader-general-veers-841333132989.html",
+    "image": "/images/products/841333132989.jpg"
+  },
+  {
+    "code": "841333119447",
+    "name": "Din Djarin & Grogu",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "din-djarin-the-mandalorian"
+    ],
+    "ean": "841333119447",
+    "storeUrl": "https://www.philibertnet.com/en/star-wars-legion-vf/113897-star-wars-legion-din-djarin-grogu-841333119447.html",
+    "image": "/images/products/841333119447.jpg"
+  },
+  {
+    "code": "841333134723",
+    "name": "Droidekas",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "droidekas"
+    ],
+    "ean": "841333134723",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/170392-star-wars-legion-droidekas-841333134723.html",
+    "image": "/images/products/841333134723.jpg"
+  },
+  {
+    "code": "841333135027",
+    "name": "DSD1 Dwarf Spider Droid",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "dsd1-dwarf-spider-droid"
+    ],
+    "ean": "841333135027",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/171950-star-wars-legion-dwarf-spider-droid-841333135027.html",
+    "image": "/images/products/841333135027.jpg"
+  },
+  {
+    "code": "841333135058",
+    "name": "E-Web Heavy Blaster Team",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "e-web-heavy-blaster-team"
+    ],
+    "ean": "841333135058",
+    "storeUrl": "https://www.philibertnet.com/en/empire/174988-star-wars-legion-e-web-heavy-blaster-team-841333135058.html",
+    "image": "/images/products/841333135058.jpg"
+  },
+  {
+    "code": "841333134792",
+    "name": "Echo Base Defenders Special Edition Army Box",
+    "faction": "rebels",
+    "type": "army-box",
+    "unitSlugs": [
+      "leia-organa-fearless-and-inventive",
+      "c-3p0-golden-god",
+      "r2-d2-hero-of-a-thousand-devices",
+      "rebel-veterans",
+      "mark-ii-medium-blaster-trooper",
+      "tauntaun-riders"
+    ],
+    "ean": "841333134792",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/170431-star-wars-legion-echo-base-defenders-special-edition-army-box-841333134792.html",
+    "image": "/images/products/841333134792.jpg"
+  },
+  {
+    "code": "841333129224",
+    "name": "Ewok Warriors",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "ewok-skirmishers",
+      "ewok-slingers"
+    ],
+    "ean": "841333129224",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/169948-star-wars-legion-ewok-warriors-841333129224.html",
+    "image": "/images/products/841333129224.jpg"
+  },
+  {
+    "code": "841333124793",
+    "name": "Fifth Brother and Seventh Sister Operative Expansion",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "fifth-brother-the-kill-is-mine",
+      "seventh-sister-compelled-to-inflict-pain"
+    ],
+    "ean": "841333124793",
+    "storeUrl": "https://www.philibertnet.com/en/empire/133078-star-wars-legion-cinquieme-frere-et-septieme-soeur-extension-agent-841333124793.html",
+    "image": "/images/products/841333124793.jpg"
+  },
+  {
+    "code": "841333135249",
+    "name": "Fleet Troopers",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "fleet-troopers"
+    ],
+    "ean": "841333135249",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/175126-star-wars-legion-fleet-troopers-841333135249.html",
+    "image": "/images/products/841333135249.jpg"
+  },
+  {
+    "code": "841333132033",
+    "name": "Galactic Empire Starter Set",
+    "faction": "empire",
+    "type": "starter",
+    "unitSlugs": [
+      "darth-vader-dark-lord-of-the-sith",
+      "stormtroopers",
+      "stormtroopers-heavy-response-unit",
+      "scout-troopers",
+      "scout-troopers-strike-team"
+    ],
+    "ean": "841333132033",
+    "storeUrl": "https://www.philibertnet.com/en/empire/161935-star-wars-legion-galactic-empire-starter-set-841333132033.html",
+    "image": "/images/products/841333132033.jpg"
+  },
+  {
+    "code": "841333132040",
+    "name": "Galactic Republic Starter Set",
+    "faction": "republic",
+    "type": "starter",
+    "unitSlugs": [
+      "obi-wan-kenobi-civilized-warrior",
+      "clone-trooper-infantry",
+      "clone-trooper-marksmen"
+    ],
+    "ean": "841333132040",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/163784-star-wars-legion-galactic-republic-starter-set-841333132040.html",
+    "image": "/images/products/841333132040.jpg"
+  },
+  {
+    "code": "841333116934",
+    "name": "Gar Saxon",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "gar-saxon-head-of-clan-saxon",
+      "gar-saxon-militant-commando"
+    ],
+    "ean": "841333116934",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/109214-star-wars-legion-le-collectif-de-l-ombre-gar-saxon-841333116934.html",
+    "image": "/images/products/841333116934.jpg"
+  },
+  {
+    "code": "841333133450",
+    "name": "General Grievous' TSMEU-6 Wheel Bike",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "general-grievous-wheel-bike-warlord",
+      "tsmeu-6-wheel-bikes"
+    ],
+    "ean": "841333133450",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/165533-star-wars-legion-general-grievous-tsmeu-6-wheel-bike-841333133450.html",
+    "image": "/images/products/841333133450.jpg"
+  },
+  {
+    "code": "841333129156",
+    "name": "Geonosian Warriors",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "geonosian-warriors-geonosian-engineers",
+      "geonosian-warriors-soldiers-of-the-hive"
+    ],
+    "ean": "841333129156",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/154573-star-wars-legion-geonosian-warriors-841333129156.html",
+    "image": "/images/products/841333129156.jpg"
+  },
+  {
+    "code": "841333113261",
+    "name": "Grand Master Yoda Commander Expansion",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "yoda-grand-master-of-the-jedi-order"
+    ],
+    "ean": "841333113261",
+    "storeUrl": "https://www.philibertnet.com/en/rebel-alliance/101806-star-wars-legion-grand-master-yoda-commander-expansion-841333113261.html",
+    "image": "/images/products/841333113261.jpg"
+  },
+  {
+    "code": "841333134662",
+    "name": "Heroes of the Clone Army",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "obi-wan-kenobi-civilized-warrior",
+      "clone-captain-rex-honorable-soldier",
+      "anakin-skywalker-the-chosen-one"
+    ],
+    "ean": "841333134662",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/170368-star-wars-legion-heroes-of-the-clone-army-841333134662.html",
+    "image": "/images/products/841333134662.jpg"
+  },
+  {
+    "code": "841333133009",
+    "name": "Heroes of the Rebellion",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "luke-skywalker-hero-of-the-rebellion",
+      "luke-skywalker-jedi-knight",
+      "han-solo-unorthodox-general",
+      "leia-organa-fearless-and-inventive",
+      "chewbacca-walking-carpet"
+    ],
+    "ean": "841333133009",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/162459-star-wars-legion-heroes-of-the-rebellion-841333133009.html",
+    "image": "/images/products/841333133009.jpg"
+  },
+  {
+    "code": "841333134891",
+    "name": "Hondo Ohnaka & Weequay Pirates",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "hondo-ohnaka-trustworthy-compatriot",
+      "weequay-pirates"
+    ],
+    "ean": "841333134891",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/173032-star-wars-legion-hondo-ohnaka-weequay-pirates-841333134891.html",
+    "image": "/images/products/841333134891.jpg"
+  },
+  {
+    "code": "841333135270",
+    "name": "IG-100 Magnaguards",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "ig-100-magnaguard",
+      "ig-100-magnaguard-prototype-assassin-droids"
+    ],
+    "ean": "841333135270",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/170394-star-wars-legion-ig-100-magnaguards-841333135270.html",
+    "image": "/images/products/841333135270.jpg"
+  },
+  {
+    "code": "841333131166",
+    "name": "IG-Series Assassin Droids",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "ig-88-notorious-assassin-droid",
+      "ig-11-nurse-and-protect"
+    ],
+    "ean": "841333131166",
+    "storeUrl": "https://www.philibertnet.com/en/empire/158846-star-wars-legion-ig-series-assassin-droids-841333131166.html",
+    "image": "/images/products/841333131166.jpg"
+  },
+  {
+    "code": "841333135065",
+    "name": "Imperial Death Troopers",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "imperial-death-troopers"
+    ],
+    "ean": "841333135065",
+    "storeUrl": "https://www.philibertnet.com/en/empire/174990-star-wars-legion-imperial-death-troopers-841333135065.html",
+    "image": "/images/products/841333135065.jpg"
+  },
+  {
+    "code": "841333134808",
+    "name": "Imperial High Command",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "grand-admiral-thrawn-imperial-high-command",
+      "grand-moff-tarkin-imperial-high-command",
+      "general-tagge-imperial-high-command"
+    ],
+    "ean": "841333134808",
+    "storeUrl": "https://www.philibertnet.com/en/empire/170452-star-wars-legion-imperial-high-command-841333134808.html",
+    "image": "/images/products/841333134808.jpg"
+  },
+  {
+    "code": "841333134815",
+    "name": "Imperial Probe Droids",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "imperial-probe-droid"
+    ],
+    "ean": "841333134815",
+    "storeUrl": "https://www.philibertnet.com/en/empire/170460-star-wars-legion-imperial-probe-droids-841333134815.html",
+    "image": "/images/products/841333134815.jpg"
+  },
+  {
+    "code": "841333128401",
+    "name": "Imperial Riot Control Squad Unit Expansion",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "stormtrooper-riot-squad"
+    ],
+    "ean": "841333128401",
+    "storeUrl": "https://www.philibertnet.com/en/empire/144664-star-wars-legion-imperial-riot-control-squad-unit-expansion-841333128401.html",
+    "image": "/images/products/841333128401.jpg"
+  },
+  {
+    "code": "841333135232",
+    "name": "Imperial Shoretroopers",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "shoretroopers",
+      "df-90-mortar-trooper"
+    ],
+    "ean": "841333135232",
+    "storeUrl": "https://www.philibertnet.com/en/empire/171954-star-wars-legion-imperial-shoretroopers-841333135232.html",
+    "image": "/images/products/841333135232.jpg"
+  },
+  {
+    "code": "841333134730",
+    "name": "Imperial Special Forces",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "imperial-special-forces",
+      "imperial-special-forces-inferno-squad"
+    ],
+    "ean": "841333134730",
+    "storeUrl": "https://www.philibertnet.com/en/empire/170370-star-wars-legion-imperial-special-forces-841333134730.html",
+    "image": "/images/products/841333134730.jpg"
+  },
+  {
+    "code": "841333136574",
+    "name": "Imperial Specialists",
+    "faction": "empire",
+    "type": "specialists",
+    "unitSlugs": [],
+    "ean": "841333136574",
+    "storeUrl": "https://www.philibertnet.com/en/empire/175235-star-wars-legion-imperial-specialists-841333136574.html",
+    "image": "/images/products/841333136574.jpg"
+  },
+  {
+    "code": "841333129200",
+    "name": "Kashyyyk Wookie Warriors",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "wookiee-warriors-kashyyyk-defenders",
+      "wookiee-warriors-noble-fighters"
+    ],
+    "ean": "841333129200",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/165520-star-wars-legion-kashyyyk-wookie-warriors-841333129200.html",
+    "image": "/images/products/841333129200.jpg"
+  },
+  {
+    "code": "8435407633247",
+    "name": "Lando Calrissian",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "lando-calrissian-canny-general"
+    ],
+    "ean": "8435407633247",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/94010-star-wars-legion-lando-calrissian-8435407633247.html",
+    "image": "/images/products/8435407633247.jpg"
+  },
+  {
+    "code": "841333136451",
+    "name": "Leaders of the Shadow Collective",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "maul-a-rival",
+      "gar-saxon-militant-commando",
+      "rook-kast-devoted-to-the-cause"
+    ],
+    "ean": "841333136451",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/175171-star-wars-legion-leaders-of-the-shadow-collective-841333136451.html",
+    "image": "/images/products/841333136451.jpg"
+  },
+  {
+    "code": "841333129002",
+    "name": "LM-432 Crab Droids",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "lm-432-crab-droid"
+    ],
+    "ean": "841333129002",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/150303-star-wars-legion-lm-432-crab-droids-841333129002.html",
+    "image": "/images/products/841333129002.jpg"
+  },
+  {
+    "code": "841333129231",
+    "name": "Logray & Wicket",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "logray-superstitious-shaman",
+      "wicket-hero-of-bright-tree"
+    ],
+    "ean": "841333129231",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/169940-star-wars-legion-logray-wicket-841333129231.html",
+    "image": "/images/products/841333129231.jpg"
+  },
+  {
+    "code": "2100001342166",
+    "name": "Mandalorian Leaders",
+    "faction": "mandalorians",
+    "type": "expansion",
+    "unitSlugs": [
+      "bo-katan-kryze-savior-of-mandalore",
+      "the-armorer-forging-the-future",
+      "paz-vizsla-proud-warrior"
+    ],
+    "ean": "2100001342166",
+    "storeUrl": "https://www.philibertnet.com/en/mandaloriens/175246-star-wars-legion-mandalorian-leaders-2100001342166.html",
+    "image": "/images/products/2100001342166.jpg"
+  },
+  {
+    "code": "841333136437",
+    "name": "Mandalorian Special Edition Army Box",
+    "faction": "mandalorians",
+    "type": "army-box",
+    "unitSlugs": [
+      "mandalorian-initiates",
+      "mandalorian-warriors",
+      "mandalorian-warriors-fire-support",
+      "clan-kryze-veterans",
+      "din-djarin-the-mandalorian"
+    ],
+    "ean": "841333136437",
+    "storeUrl": "https://www.philibertnet.com/en/mandaloriens/175243-star-wars-legion-mandalorian-special-edition-army-box-841333136437.html",
+    "image": "/images/products/841333136437.jpg"
+  },
+  {
+    "code": "2100001342227",
+    "name": "Mandalorian Super Commandos",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "mandalorian-super-commandos",
+      "super-commandos"
+    ],
+    "ean": "2100001342227",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/175249-star-wars-legion-mandalorian-super-commandos-pre-order-2100001342227.html",
+    "image": "/images/products/2100001342227.jpg"
+  },
+  {
+    "code": "841333120498",
+    "name": "Moff Gideon",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "moff-gideon-long-live-the-empire"
+    ],
+    "ean": "841333120498",
+    "storeUrl": "https://www.philibertnet.com/en/empire/121243-star-wars-legion-moff-gideon-extension-commandant-841333120498.html",
+    "image": "/images/products/841333120498.jpg"
+  },
+  {
+    "code": "841333131159",
+    "name": "Outer Rim Outlaws",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "boba-fett-daimyo-of-mos-espa",
+      "din-djarin-the-mandalorian"
+    ],
+    "ean": "841333131159",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/158842-star-wars-legion-outer-rim-outlaws-841333131159.html",
+    "image": "/images/products/841333131159.jpg"
+  },
+  {
+    "code": "8435407630734",
+    "name": "Padmé Amidala",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "padme-amidala-spirited-senator"
+    ],
+    "ean": "8435407630734",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/88043-star-wars-legion-padme-amidala-extension-agent-8435407630734.html",
+    "image": "/images/products/8435407630734.jpg"
+  },
+  {
+    "code": "841333117023",
+    "name": "Pyke Syndicate Foot Soldiers",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "pyke-syndicate-foot-soldiers"
+    ],
+    "ean": "841333117023",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/109219-star-wars-legion-le-collectif-de-l-ombre-fantassins-du-syndicat-pyke-841333117023.html",
+    "image": "/images/products/841333117023.jpg"
+  },
+  {
+    "code": "841333134907",
+    "name": "R2-D2 and C3PO",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "r2-d2-hero-of-a-thousand-devices",
+      "r2-d2-independent-astromech"
+    ],
+    "ean": "841333134907",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/169949-star-wars-legion-r2-d2-and-c3po-841333134907.html",
+    "image": "/images/products/841333134907.jpg"
+  },
+  {
+    "code": "3558380089919",
+    "name": "Raddaugh Gnasp Fluttercraft",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "raddaugh-gnasp-fluttercraft",
+      "raddaugh-gnasp-fluttercraft-attack-craft"
+    ],
+    "ean": "3558380089919",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/101321-star-wars-legion-ornithoptere-raddaugh-gnasp-3558380089919.html",
+    "image": "/images/products/3558380089919.jpg"
+  },
+  {
+    "code": "841333134754",
+    "name": "Range Troopers",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "range-troopers"
+    ],
+    "ean": "841333134754",
+    "storeUrl": "https://www.philibertnet.com/en/empire/171943-star-wars-legion-range-troopers-841333134754.html",
+    "image": "/images/products/841333134754.jpg"
+  },
+  {
+    "code": "841333132026",
+    "name": "Rebel Alliance Starter Set",
+    "faction": "rebels",
+    "type": "starter",
+    "unitSlugs": [
+      "luke-skywalker-hero-of-the-rebellion",
+      "rebel-troopers",
+      "rebel-commandos",
+      "rebel-commandos-strike-team",
+      "wookiee-warriors-freedom-fighters",
+      "wookiee-warriors-kashyyyk-resistance"
+    ],
+    "ean": "841333132026",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/161932-star-wars-legion-rebel-alliance-starter-set-841333132026.html",
+    "image": "/images/products/841333132026.jpg"
+  },
+  {
+    "code": "841333130831",
+    "name": "Rebel Commandos",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "rebel-commandos",
+      "rebel-commandos-strike-team"
+    ],
+    "ean": "841333130831",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/157288-star-wars-legion-rebel-commandos-841333130831.html",
+    "image": "/images/products/841333130831.jpg"
+  },
+  {
+    "code": "841333128371",
+    "name": "Rebel Sleeper Cell Unit Expansion",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "rebel-sleeper-cell-ready-to-strike"
+    ],
+    "ean": "841333128371",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/144665-star-wars-legion-rebel-sleeper-cell-unit-expansion-841333128371.html",
+    "image": "/images/products/841333128371.jpg"
+  },
+  {
+    "code": "841333136567",
+    "name": "Rebel Specialists",
+    "faction": "rebels",
+    "type": "specialists",
+    "unitSlugs": [],
+    "ean": "841333136567",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/175236-star-wars-legion-rebel-specialists-841333136567.html",
+    "image": "/images/products/841333136567.jpg"
+  },
+  {
+    "code": "841333130381",
+    "name": "Rebel Troopers",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "rebel-troopers"
+    ],
+    "ean": "841333130381",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/158212-star-wars-legion-rebel-troopers-841333130381.html",
+    "image": "/images/products/841333130381.jpg"
+  },
+  {
+    "code": "3558380085867",
+    "name": "Rebel Veterans",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "rebel-veterans"
+    ],
+    "ean": "3558380085867",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/98312-star-wars-legion-veterans-rebelles-3558380085867.html",
+    "image": "/images/products/3558380085867.jpg"
+  },
+  {
+    "code": "841333134990",
+    "name": "Republic AT-RT",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "at-rt",
+      "at-rt-2"
+    ],
+    "ean": "841333134990",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/171952-star-wars-legion-republic-at-rt-841333134990.html",
+    "image": "/images/products/841333134990.jpg"
+  },
+  {
+    "code": "841333135294",
+    "name": "Republic Clone Commandos",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "clone-commandos",
+      "clone-commandos-delta-squad"
+    ],
+    "ean": "841333135294",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/170342-star-wars-legion-republic-clone-commandos-841333135294.html",
+    "image": "/images/products/841333135294.jpg"
+  },
+  {
+    "code": "841333135119",
+    "name": "Republic Specialists",
+    "faction": "republic",
+    "type": "specialists",
+    "unitSlugs": [],
+    "ean": "841333135119",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/175237-star-wars-legion-republic-specialists-841333135119.html",
+    "image": "/images/products/841333135119.jpg"
+  },
+  {
+    "code": "841333130510",
+    "name": "Scout Troopers",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "scout-troopers",
+      "scout-troopers-strike-team"
+    ],
+    "ean": "841333130510",
+    "storeUrl": "https://www.philibertnet.com/en/empire/158563-star-wars-legion-scout-troopers-841333130510.html",
+    "image": "/images/products/841333130510.jpg"
+  },
+  {
+    "code": "841333132019",
+    "name": "Separatist Alliance Starter Set",
+    "faction": "separatists",
+    "type": "starter",
+    "unitSlugs": [
+      "count-dooku-darth-tyranus",
+      "general-grievous-wheel-bike-warlord",
+      "b1-battle-droids",
+      "b2-super-battle-droids"
+    ],
+    "ean": "841333132019",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/163785-star-wars-legion-separatist-alliance-starter-set-841333132019.html",
+    "image": "/images/products/841333132019.jpg"
+  },
+  {
+    "code": "8435407630802",
+    "name": "STAP Riders",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "stap-riders"
+    ],
+    "ean": "8435407630802",
+    "storeUrl": "https://www.philibertnet.com/en/star-wars-legion/89807-star-wars-legion-pilotes-de-stap-8435407630802.html",
+    "image": "/images/products/8435407630802.jpg"
+  },
+  {
+    "code": "841333130374",
+    "name": "Stormtroopers",
+    "faction": "empire",
+    "type": "expansion",
+    "unitSlugs": [
+      "stormtroopers",
+      "stormtroopers-heavy-response-unit"
+    ],
+    "ean": "841333130374",
+    "storeUrl": "https://www.philibertnet.com/en/empire/157287-star-wars-legion-stormtroopers-841333130374.html",
+    "image": "/images/products/841333130374.jpg"
+  },
+  {
+    "code": "841333129163",
+    "name": "Sun Fac & Poggle the Lesser",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "poggle-the-lesser-public-leader-of-the-geonosians",
+      "sun-fac-ruthless-lieutenant"
+    ],
+    "ean": "841333129163",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/171228-star-wars-legion-sun-fac-poggle-the-lesser-841333129163.html",
+    "image": "/images/products/841333129163.jpg"
+  },
+  {
+    "code": "841333135010",
+    "name": "Super Tactical Droid Commanders",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "super-tactical-command-droid-command-and-control-droid",
+      "super-tactical-command-droid-auxiliary-command-droid"
+    ],
+    "ean": "841333135010",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/170393-star-wars-legion-super-tactical-droid-commanders-841333135010.html",
+    "image": "/images/products/841333135010.jpg"
+  },
+  {
+    "code": "841333117573",
+    "name": "Swoop Bike Riders",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "swoop-bike-riders"
+    ],
+    "ean": "841333117573",
+    "storeUrl": "https://www.philibertnet.com/en/le-collectif-de-l-ombre/111791-star-wars-legion-pilotes-de-swoop-841333117573.html",
+    "image": "/images/products/841333117573.jpg"
+  },
+  {
+    "code": "841333134952",
+    "name": "T-47 Airspeeder",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "t-47-airspeeder"
+    ],
+    "ean": "841333134952",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/170390-star-wars-legion-t-47-airspeeder-841333134952.html",
+    "image": "/images/products/841333134952.jpg"
+  },
+  {
+    "code": "841333134686",
+    "name": "Tauntaun Riders",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "tauntaun-riders"
+    ],
+    "ean": "841333134686",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/170434-star-wars-legion-tauntaun-riders-841333134686.html",
+    "image": "/images/products/841333134686.jpg"
+  },
+  {
+    "code": "841333127435",
+    "name": "The Bad Batch",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "the-bad-batch-clone-force-99",
+      "the-bad-batch-clone-force-99-2"
+    ],
+    "ean": "841333127435",
+    "storeUrl": "https://www.philibertnet.com/en/republique-galactique/142280-star-wars-legion-bad-batch-841333127435.html",
+    "image": "/images/products/841333127435.jpg"
+  },
+  {
+    "code": "841333133443",
+    "name": "TSMEU-6 Personal Wheel Bike",
+    "faction": "separatists",
+    "type": "expansion",
+    "unitSlugs": [
+      "tsmeu-6-wheel-bikes",
+      "general-grievous-wheel-bike-warlord"
+    ],
+    "ean": "841333133443",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-separatiste/170367-star-wars-legion-tsmeu-6-personal-wheel-bike-841333133443.html",
+    "image": "/images/products/841333133443.jpg"
+  },
+  {
+    "code": "841333110055",
+    "name": "TX 130 Saber Class Fighter Tank Unit Expansion",
+    "faction": "republic",
+    "type": "expansion",
+    "unitSlugs": [
+      "saber-class-tank"
+    ],
+    "ean": "841333110055",
+    "storeUrl": "https://www.philibertnet.com/en/galactic-republic/85949-star-wars-legion-tx-130-saber-class-fighter-tank-unit-expansion-841333110055.html",
+    "image": "/images/products/841333110055.jpg"
+  },
+  {
+    "code": "841333134914",
+    "name": "WLO-5 Speeder Tank",
+    "faction": "mercenary",
+    "type": "expansion",
+    "unitSlugs": [
+      "wlo-5-speeder-tank"
+    ],
+    "ean": "841333134914",
+    "storeUrl": "https://www.philibertnet.com/en/star-wars-legion-vf/173024-star-wars-legion-wl0-5-speeder-tank-841333134914.html",
+    "image": "/images/products/841333134914.jpg"
+  },
+  {
+    "code": "3558380089926",
+    "name": "Wookiee Warriors",
+    "faction": "rebels",
+    "type": "expansion",
+    "unitSlugs": [
+      "wookiee-warriors-freedom-fighters",
+      "wookiee-warriors-kashyyyk-resistance"
+    ],
+    "ean": "3558380089926",
+    "storeUrl": "https://www.philibertnet.com/en/alliance-rebelle/100132-star-wars-legion-combattants-wookies-3558380089926.html",
+    "image": "/images/products/3558380089926.jpg"
   }
 ]

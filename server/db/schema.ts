@@ -53,6 +53,9 @@ export const products = sqliteTable('products', {
   code: text('code').primaryKey(),
   name: text('name').notNull(),
   faction: text('faction').notNull().default('mercenary'),
-  type: text('type').notNull().default('unit-expansion'),
+  type: text('type').notNull().default('expansion'),
   unitSlugs: text('unit_slugs').notNull().default('[]'),
+  ean: text('ean'),
+  storeUrl: text('store_url'),
+  image: text('image'),
 })

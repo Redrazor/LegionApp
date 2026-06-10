@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   slugify, mapFaction, normalizeKeyword, rankIndex,
-  buildUnits, buildUpgrades, buildCommands, buildProducts,
+  buildUnits, buildUpgrades, buildCommands,
   type Lhq2Card,
 } from '../scraper/normalise.ts'
 import { extractCards } from '../scraper/scrape.ts'
@@ -130,17 +130,6 @@ describe('buildCommands', () => {
     expect(cmds[0].pips).toBe(1)
     expect(cmds[0].commander).toBe('General Veers')
     expect(cmds[1].commander).toBe('Han Solo, Luke Skywalker')
-  })
-})
-
-describe('buildProducts', () => {
-  it('generates one expansion per unit grouped by faction', () => {
-    const units = buildUnits([card({ cardName: 'Stormtroopers' })])
-    const products = buildProducts(units)
-    expect(products).toHaveLength(1)
-    expect(products[0].faction).toBe('empire')
-    expect(products[0].unitSlugs).toEqual([units[0].slug])
-    expect(products[0].name).toMatch(/Unit Expansion/)
   })
 })
 

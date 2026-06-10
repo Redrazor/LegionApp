@@ -6,6 +6,7 @@ import { factionColor, factionName, rankName, slotLabel } from '../../utils/fact
 import UnitStatBlock from '../ui/UnitStatBlock.vue'
 import KeywordPill from '../ui/KeywordPill.vue'
 import WeaponsTable from '../ui/WeaponsTable.vue'
+import ProfileUpgrades from './ProfileUpgrades.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -21,13 +22,6 @@ watch(slug, () => { imgError.value = false })
 function close() {
   router.push({ path: '/browse', query: route.query })
 }
-
-const related = computed(() => {
-  if (!unit.value) return []
-  return unitsStore.units
-    .filter((u) => u.faction === unit.value!.faction && u.rank === unit.value!.rank && u.id !== unit.value!.id)
-    .slice(0, 8)
-})
 </script>
 
 <template>
@@ -118,19 +112,10 @@ const related = computed(() => {
                 Full stat data for this unit isn't available yet — see the card scan above for complete details.
               </p>
 
-              <!-- Related -->
-              <div v-if="related.length">
-                <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">More {{ rankName(unit.rank) }}s</h3>
-                <div class="flex gap-2 overflow-x-auto pb-1">
-                  <RouterLink
-                    v-for="r in related" :key="r.id"
-                    :to="`/browse/${r.slug}`"
-                    class="flex w-24 flex-none flex-col items-center gap-1 rounded-lg border border-lg-border bg-lg-dark p-1.5 text-center hover:border-lg-accent/50"
-                  >
-                    <img v-if="r.cardImage" :src="r.cardImage" :alt="r.name" loading="lazy" class="aspect-[1.41/1] w-full rounded object-cover" />
-                    <span class="line-clamp-2 text-[10px] leading-tight text-lg-text/80">{{ r.name }}</span>
-                  </RouterLink>
-                </div>
+              <!-- Available upgrades -->
+              <div v-if="unit.upgradeBar.length">
+                <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Available Upgrades</h3>
+                <ProfileUpgrades :upgrade-bar="unit.upgradeBar" :faction="unit.faction" />
               </div>
             </div>
           </template>

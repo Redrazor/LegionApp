@@ -38,6 +38,7 @@ export const SLOT_LABELS: Record<string, string> = {
   hardpoint: 'Hardpoint', 'heavy weapon': 'Heavy Weapon', personnel: 'Personnel',
   pilot: 'Pilot', comms: 'Comms', crew: 'Crew', generator: 'Generator',
   armament: 'Armament', ordnance: 'Ordnance', training: 'Training', programming: 'Programming',
+  'squad leader': 'Squad Leader', doctrine: 'Doctrine', clan: 'Clan',
 }
 
 export function slotLabel(slot: string): string {

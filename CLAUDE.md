@@ -26,9 +26,15 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
 ## Data model (Legion-specific)
 
 - **Factions:** `rebels`, `empire`, `republic`, `separatists`, `mercenary` (LHQ `fringe` → `mercenary`).
-- **Ranks:** `commander` (1–2), `operative` (0–2), `corps` (3–6), `special` (0–3),
-  `support` (0–3), `heavy` (0–2). Limits live in `RANK_META` (`utils/factions.ts`).
-- **Game sizes:** 800 (standard) / 500 (skirmish).
+- **Ranks:** `commander`, `operative`, `corps`, `special`, `support`, `heavy`. Limits are
+  **per-format** — `rankLimits(cap)` (`utils/factions.ts`), not a constant. Standard (1000):
+  1–2 / 0–2 / 3–6 / 0–3 / 0–3 / 0–2. `RANK_META` still exports the Standard table for the
+  Reference tab + browse filters.
+- **Game formats** (`FORMATS` in `utils/factions.ts`, keyed by points cap): Recon 600 &
+  Standard 1000 are AMG-official (2024 v2); Standard-800 (1st-ed legacy) and Grand Army 1600
+  (community, 2× standard) are also selectable. `rankLimits(cap)` clamps an arbitrary cap down
+  to the nearest bracket — there is NO points→rank formula. `Army.gameSize` stores the cap.
+  (Old "800/500 standard/skirmish" was pre-2024.)
 - A unit's `upgradeBar` is an ordered list of slot types; the builder keys equipped
   upgrades by `"<slot>#<index>"` so duplicate slots (e.g. Force×3) are independent.
 

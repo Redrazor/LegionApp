@@ -4,7 +4,7 @@ import type { Army, ArmyUnit, CompactArmy, Faction } from '../types/index.ts'
 import { toCompact, fromCompact } from '../utils/army.ts'
 
 function emptyArmy(): Army {
-  return { name: '', faction: null, gameSize: 800, units: [] }
+  return { name: '', faction: null, gameSize: 1000, units: [] }
 }
 
 let uidCounter = 0

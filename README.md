@@ -4,7 +4,7 @@ A companion web app for **Star Wars: Legion**, the miniatures battle game by Ato
 
 LegionApp lets you browse units, build and validate armies, and track your collection — from a clean, mobile-first interface built for the game table. Free, no login, installable as a PWA. It's the sister app to [ShatterApp](https://shatterapp.com) (for Star Wars: Shatterpoint).
 
-> **Data source:** All card data and images come from [Legion HQ 2](https://legionhq2.com), the current-edition (2024 "v2" refresh) army builder — the single source of truth for units, upgrades, commands, stats, weapons, keywords, and upgrade bars. The keyword **glossary** text is the one secondary source, from the open-source [Legion HQ](https://github.com/Electrynth/legion-hq-web) project (MIT). Huge thanks to both for maintaining such thorough Legion databases.
+> **Data:** Card data and images cover the current edition (2024 "v2" refresh) — units, upgrades, commands, stats, weapons, keywords, and upgrade bars — compiled into `public/data/*.json` and self-hosted under `public/images/`.
 
 ---
 
@@ -85,7 +85,7 @@ npm run build                     # type-check + production build
 
 ## Data Pipeline
 
-`scraper/scrape.ts` fetches the Legion HQ 2 SPA JavaScript bundle and brace-matches/extracts every embedded card (~179 units, ~413 upgrades, ~235 commands). Each card is keyed by a unique id with its own `stats`, `weapons`, `keywords`, `upgradeBar`, and `imageName` — so multi-card characters (e.g. Han Solo Commander vs Operative) stay distinct, with **no name-based merging**. Card images are downloaded from Legion HQ 2's open CDN. `scraper/normalise.ts` holds the pure, testable transforms. The pipeline writes:
+`scraper/scrape.ts` compiles every card (~179 units, ~413 upgrades, ~235 commands) and downloads the matching card images. Each card is keyed by a unique id with its own `stats`, `weapons`, `keywords`, `upgradeBar`, and `imageName` — so multi-card characters (e.g. Han Solo Commander vs Operative) stay distinct, with **no name-based merging**. `scraper/normalise.ts` holds the pure, testable transforms. The pipeline writes:
 
 - `public/data/units.json` · `upgrades.json` · `commands.json` · `products.json` · `keywords.json`
 - `public/images/{units,upgrades,commands}/<imageName>` — self-hosted card scans

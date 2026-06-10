@@ -315,6 +315,42 @@
     ]
   },
   {
+    "code": "exp-gar-saxon-head-of-clan-saxon",
+    "name": "Gar Saxon, Head of Clan Saxon Commander Expansion",
+    "faction": "mandalorians",
+    "type": "unit-expansion",
+    "unitSlugs": [
+      "gar-saxon-head-of-clan-saxon"
+    ]
+  },
+  {
+    "code": "exp-rook-kast-devoted-to-the-cause",
+    "name": "Rook Kast, Devoted to the Cause Operative Expansion",
+    "faction": "mandalorians",
+    "type": "unit-expansion",
+    "unitSlugs": [
+      "rook-kast-devoted-to-the-cause"
+    ]
+  },
+  {
+    "code": "exp-sabine-wren-back-in-the-fold",
+    "name": "Sabine Wren, Back in the Fold Operative Expansion",
+    "faction": "mandalorians",
+    "type": "unit-expansion",
+    "unitSlugs": [
+      "sabine-wren-back-in-the-fold"
+    ]
+  },
+  {
+    "code": "exp-super-commandos",
+    "name": "Super Commandos Unit Expansion",
+    "faction": "mandalorians",
+    "type": "unit-expansion",
+    "unitSlugs": [
+      "super-commandos"
+    ]
+  },
+  {
     "code": "exp-black-sun-vigo",
     "name": "Black Sun Vigo Commander Expansion",
     "faction": "mercenary",
@@ -348,15 +384,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "gar-saxon-militant-commando"
-    ]
-  },
-  {
-    "code": "exp-gar-saxon-head-of-clan-saxon",
-    "name": "Gar Saxon, Head of Clan Saxon Commander Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "gar-saxon-head-of-clan-saxon"
     ]
   },
   {
@@ -531,24 +558,6 @@
     ]
   },
   {
-    "code": "exp-rook-kast-devoted-to-the-cause",
-    "name": "Rook Kast, Devoted to the Cause Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "rook-kast-devoted-to-the-cause"
-    ]
-  },
-  {
-    "code": "exp-sabine-wren-back-in-the-fold",
-    "name": "Sabine Wren, Back in the Fold Operative Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "sabine-wren-back-in-the-fold"
-    ]
-  },
-  {
     "code": "exp-savage-opress-mauls-enforcer",
     "name": "Savage Opress, Maul's Enforcer Operative Expansion",
     "faction": "mercenary",
@@ -654,15 +663,6 @@
     "type": "unit-expansion",
     "unitSlugs": [
       "mandalorian-super-commandos"
-    ]
-  },
-  {
-    "code": "exp-super-commandos",
-    "name": "Super Commandos Unit Expansion",
-    "faction": "mercenary",
-    "type": "unit-expansion",
-    "unitSlugs": [
-      "super-commandos"
     ]
   },
   {

@@ -2412,6 +2412,245 @@
     ]
   },
   {
+    "id": "Jp",
+    "slug": "gar-saxon-head-of-clan-saxon",
+    "name": "Gar Saxon",
+    "title": "Head of Clan Saxon",
+    "faction": "mandalorians",
+    "rank": "commander",
+    "unitType": "mandalorian trooper",
+    "cost": 115,
+    "defense": "red",
+    "surgeAttack": "crit",
+    "surgeDefense": true,
+    "speed": 3,
+    "wounds": 5,
+    "courage": 2,
+    "isUnique": true,
+    "keywords": [
+      "Jump 2",
+      "Advanced Targeting Trooper 1",
+      "Allies of Convenience",
+      "Compel",
+      "Impervious",
+      "Marksman",
+      "Victory or Death"
+    ],
+    "upgradeBar": [
+      "command",
+      "armament",
+      "training",
+      "training",
+      "gear",
+      "gear",
+      "grenades"
+    ],
+    "weapons": [
+      {
+        "name": "Dual Pistols",
+        "range": [
+          0,
+          2
+        ],
+        "dice": {
+          "red": 2,
+          "black": 2,
+          "white": 0
+        },
+        "keywords": []
+      },
+      {
+        "name": "GALAR-90 Sniper Rifle",
+        "range": [
+          1,
+          5
+        ],
+        "dice": {
+          "red": 2,
+          "black": 1,
+          "white": 0
+        },
+        "keywords": [
+          "High Velocity",
+          "Lethal 2"
+        ]
+      }
+    ],
+    "cardImage": "/images/units/gar-saxon-head-of-clan-saxon.webp",
+    "portraitImage": null,
+    "hasFullData": true,
+    "history": []
+  },
+  {
+    "id": "Jq",
+    "slug": "rook-kast-devoted-to-the-cause",
+    "name": "Rook Kast",
+    "title": "Devoted to the Cause",
+    "faction": "mandalorians",
+    "rank": "operative",
+    "unitType": "mandalorian trooper",
+    "cost": 85,
+    "defense": "red",
+    "surgeAttack": "crit",
+    "surgeDefense": true,
+    "speed": 3,
+    "wounds": 5,
+    "courage": 2,
+    "isUnique": true,
+    "keywords": [
+      "Jump 2",
+      "Coordinate Clan Saxon Unit",
+      "Impervious",
+      "Retinue Clan Saxon Commander",
+      "Target 1",
+      "Victory or Death"
+    ],
+    "upgradeBar": [
+      "command",
+      "training",
+      "comms",
+      "gear",
+      "grenades"
+    ],
+    "weapons": [
+      {
+        "name": "Dual Pistols",
+        "range": [
+          0,
+          2
+        ],
+        "dice": {
+          "red": 2,
+          "black": 2,
+          "white": 0
+        },
+        "keywords": [
+          "Overwhelm"
+        ]
+      }
+    ],
+    "cardImage": "/images/units/rook-kast-devoted-to-the-cause.webp",
+    "portraitImage": null,
+    "hasFullData": true,
+    "history": []
+  },
+  {
+    "id": "Jo",
+    "slug": "sabine-wren-back-in-the-fold",
+    "name": "Sabine Wren",
+    "title": "Back in the Fold",
+    "faction": "mandalorians",
+    "rank": "operative",
+    "unitType": "mandalorian trooper",
+    "cost": 110,
+    "defense": "red",
+    "surgeAttack": "crit",
+    "surgeDefense": true,
+    "speed": 3,
+    "wounds": 5,
+    "courage": 2,
+    "isUnique": true,
+    "keywords": [
+      "Jump 2",
+      "Gunslinger",
+      "Impervious",
+      "Nimble",
+      "We Fight for Our Family"
+    ],
+    "upgradeBar": [
+      "armament",
+      "training",
+      "gear",
+      "gear",
+      "grenades"
+    ],
+    "weapons": [
+      {
+        "name": "Pistols & Grenades",
+        "range": [
+          0,
+          2
+        ],
+        "dice": {
+          "red": 2,
+          "black": 2,
+          "white": 0
+        },
+        "keywords": [
+          "Blast",
+          "Overwhelm"
+        ]
+      }
+    ],
+    "cardImage": "/images/units/sabine-wren-back-in-the-fold.webp",
+    "portraitImage": null,
+    "hasFullData": true,
+    "history": []
+  },
+  {
+    "id": "Jv",
+    "slug": "super-commandos",
+    "name": "Super Commandos",
+    "title": "",
+    "faction": "mandalorians",
+    "rank": "special",
+    "unitType": "mandalorian trooper",
+    "cost": 92,
+    "defense": "red",
+    "surgeAttack": "hit",
+    "surgeDefense": true,
+    "speed": 3,
+    "wounds": 1,
+    "courage": 2,
+    "isUnique": false,
+    "keywords": [
+      "Jump 2",
+      "Defend 1",
+      "Impervious",
+      "Independent Aim 1",
+      "Victory or Death"
+    ],
+    "upgradeBar": [
+      "heavy weapon",
+      "personnel",
+      "training",
+      "gear",
+      "grenades"
+    ],
+    "weapons": [
+      {
+        "name": "Combat Expertise",
+        "range": [
+          0,
+          2
+        ],
+        "dice": {
+          "red": 1,
+          "black": 0,
+          "white": 1
+        },
+        "keywords": []
+      },
+      {
+        "name": "Blaster Rifles",
+        "range": [
+          1,
+          3
+        ],
+        "dice": {
+          "red": 0,
+          "black": 1,
+          "white": 0
+        },
+        "keywords": []
+      }
+    ],
+    "cardImage": "/images/units/super-commandos.webp",
+    "portraitImage": null,
+    "hasFullData": true,
+    "history": []
+  },
+  {
     "id": "ra",
     "slug": "black-sun-vigo",
     "name": "Black Sun Vigo",
@@ -2635,76 +2874,6 @@
         "description": "Cost reduced from 95 to 90 points."
       }
     ]
-  },
-  {
-    "id": "Jp",
-    "slug": "gar-saxon-head-of-clan-saxon",
-    "name": "Gar Saxon",
-    "title": "Head of Clan Saxon",
-    "faction": "mercenary",
-    "rank": "commander",
-    "unitType": "mandalorian trooper",
-    "cost": 115,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 3,
-    "wounds": 5,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Jump 2",
-      "Advanced Targeting Trooper 1",
-      "Allies of Convenience",
-      "Compel",
-      "Impervious",
-      "Marksman",
-      "Victory or Death"
-    ],
-    "upgradeBar": [
-      "command",
-      "armament",
-      "training",
-      "training",
-      "gear",
-      "gear",
-      "grenades"
-    ],
-    "weapons": [
-      {
-        "name": "Dual Pistols",
-        "range": [
-          0,
-          2
-        ],
-        "dice": {
-          "red": 2,
-          "black": 2,
-          "white": 0
-        },
-        "keywords": []
-      },
-      {
-        "name": "GALAR-90 Sniper Rifle",
-        "range": [
-          1,
-          5
-        ],
-        "dice": {
-          "red": 2,
-          "black": 1,
-          "white": 0
-        },
-        "keywords": [
-          "High Velocity",
-          "Lethal 2"
-        ]
-      }
-    ],
-    "cardImage": "/images/units/gar-saxon-head-of-clan-saxon.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
   },
   {
     "id": "wd",
@@ -3974,112 +4143,6 @@
     "history": []
   },
   {
-    "id": "Jq",
-    "slug": "rook-kast-devoted-to-the-cause",
-    "name": "Rook Kast",
-    "title": "Devoted to the Cause",
-    "faction": "mercenary",
-    "rank": "operative",
-    "unitType": "mandalorian trooper",
-    "cost": 85,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 3,
-    "wounds": 5,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Jump 2",
-      "Coordinate Clan Saxon Unit",
-      "Impervious",
-      "Retinue Clan Saxon Commander",
-      "Target 1",
-      "Victory or Death"
-    ],
-    "upgradeBar": [
-      "command",
-      "training",
-      "comms",
-      "gear",
-      "grenades"
-    ],
-    "weapons": [
-      {
-        "name": "Dual Pistols",
-        "range": [
-          0,
-          2
-        ],
-        "dice": {
-          "red": 2,
-          "black": 2,
-          "white": 0
-        },
-        "keywords": [
-          "Overwhelm"
-        ]
-      }
-    ],
-    "cardImage": "/images/units/rook-kast-devoted-to-the-cause.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
-    "id": "Jo",
-    "slug": "sabine-wren-back-in-the-fold",
-    "name": "Sabine Wren",
-    "title": "Back in the Fold",
-    "faction": "mercenary",
-    "rank": "operative",
-    "unitType": "mandalorian trooper",
-    "cost": 110,
-    "defense": "red",
-    "surgeAttack": "crit",
-    "surgeDefense": true,
-    "speed": 3,
-    "wounds": 5,
-    "courage": 2,
-    "isUnique": true,
-    "keywords": [
-      "Jump 2",
-      "Gunslinger",
-      "Impervious",
-      "Nimble",
-      "We Fight for Our Family"
-    ],
-    "upgradeBar": [
-      "armament",
-      "training",
-      "gear",
-      "gear",
-      "grenades"
-    ],
-    "weapons": [
-      {
-        "name": "Pistols & Grenades",
-        "range": [
-          0,
-          2
-        ],
-        "dice": {
-          "red": 2,
-          "black": 2,
-          "white": 0
-        },
-        "keywords": [
-          "Blast",
-          "Overwhelm"
-        ]
-      }
-    ],
-    "cardImage": "/images/units/sabine-wren-back-in-the-fold.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
-  },
-  {
     "id": "Hb",
     "slug": "savage-opress-mauls-enforcer",
     "name": "Savage Opress",
@@ -4864,69 +4927,6 @@
         "description": "Changed to mandalorian trooper."
       }
     ]
-  },
-  {
-    "id": "Jv",
-    "slug": "super-commandos",
-    "name": "Super Commandos",
-    "title": "",
-    "faction": "mercenary",
-    "rank": "special",
-    "unitType": "mandalorian trooper",
-    "cost": 92,
-    "defense": "red",
-    "surgeAttack": "hit",
-    "surgeDefense": true,
-    "speed": 3,
-    "wounds": 1,
-    "courage": 2,
-    "isUnique": false,
-    "keywords": [
-      "Jump 2",
-      "Defend 1",
-      "Impervious",
-      "Independent Aim 1",
-      "Victory or Death"
-    ],
-    "upgradeBar": [
-      "heavy weapon",
-      "personnel",
-      "training",
-      "gear",
-      "grenades"
-    ],
-    "weapons": [
-      {
-        "name": "Combat Expertise",
-        "range": [
-          0,
-          2
-        ],
-        "dice": {
-          "red": 1,
-          "black": 0,
-          "white": 1
-        },
-        "keywords": []
-      },
-      {
-        "name": "Blaster Rifles",
-        "range": [
-          1,
-          3
-        ],
-        "dice": {
-          "red": 0,
-          "black": 1,
-          "white": 0
-        },
-        "keywords": []
-      }
-    ],
-    "cardImage": "/images/units/super-commandos.webp",
-    "portraitImage": null,
-    "hasFullData": true,
-    "history": []
   },
   {
     "id": "Hs",

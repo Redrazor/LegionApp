@@ -1,6 +1,6 @@
 // ── Core game data (produced by the scraper, served by the API) ──────────────
 
-export type Faction = 'rebels' | 'empire' | 'republic' | 'separatists' | 'mercenary'
+export type Faction = 'rebels' | 'empire' | 'republic' | 'separatists' | 'mercenary' | 'mandalorians'
 export type Rank = 'commander' | 'operative' | 'corps' | 'special' | 'support' | 'heavy'
 
 export interface HistoryEntry {

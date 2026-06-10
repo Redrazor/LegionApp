@@ -25,6 +25,7 @@
   --color-faction-separatists: #2f7fb5;
   --color-faction-shadow: #7a4fb0;
   --color-faction-mercenary: #8a8f3a;
+  --color-faction-mandalorians: #d98a2b;
 
   /* Status */
   --color-lg-valid: #4ade80;
@@ -52,6 +53,7 @@ html.light {
 
   --color-faction-empire: #46545f;
   --color-faction-republic: #a9791f;
+  --color-faction-mandalorians: #b06f1c;
 }
 
 * {

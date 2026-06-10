@@ -1940,7 +1940,7 @@
     "name": "Aerial Assault",
     "pips": 2,
     "commander": "",
-    "faction": "mercenary",
+    "faction": "mandalorians",
     "cardImage": "/images/commands/aerial-assault.webp"
   },
   {
@@ -1949,7 +1949,7 @@
     "name": "Weapons Are Our Religion",
     "pips": 3,
     "commander": "",
-    "faction": "mercenary",
+    "faction": "mandalorians",
     "cardImage": "/images/commands/weapons-are-our-religion.webp"
   },
   {
@@ -2030,7 +2030,7 @@
     "name": "We Are Mandalorians",
     "pips": 1,
     "commander": "",
-    "faction": "mercenary",
+    "faction": "mandalorians",
     "cardImage": "/images/commands/we-are-mandalorians.webp"
   },
   {

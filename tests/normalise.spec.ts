@@ -29,9 +29,9 @@ describe('mapFaction', () => {
   it('passes through canonical factions', () => {
     expect(mapFaction('rebels')).toBe('rebels')
     expect(mapFaction('separatists')).toBe('separatists')
+    expect(mapFaction('mandalorians')).toBe('mandalorians')
   })
-  it('maps mandalorians and unknowns to mercenary', () => {
-    expect(mapFaction('mandalorians')).toBe('mercenary')
+  it('maps unknowns and missing factions to mercenary', () => {
     expect(mapFaction(undefined)).toBe('mercenary')
     expect(mapFaction('fringe')).toBe('mercenary')
   })

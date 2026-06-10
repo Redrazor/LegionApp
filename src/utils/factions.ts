@@ -6,9 +6,10 @@ export const FACTION_META: Record<Faction, FactionMeta> = {
   republic: { id: 'republic', name: 'Galactic Republic', color: 'var(--color-faction-republic)' },
   separatists: { id: 'separatists', name: 'Separatist Alliance', color: 'var(--color-faction-separatists)' },
   mercenary: { id: 'mercenary', name: 'Mercenaries', color: 'var(--color-faction-mercenary)' },
+  mandalorians: { id: 'mandalorians', name: 'Mandalorians', color: 'var(--color-faction-mandalorians)' },
 }
 
-export const FACTION_ORDER: Faction[] = ['rebels', 'empire', 'republic', 'separatists', 'mercenary']
+export const FACTION_ORDER: Faction[] = ['rebels', 'empire', 'republic', 'separatists', 'mercenary', 'mandalorians']
 
 // Standard army composition limits (Star Wars: Legion, 2024 rules).
 export const RANK_META: Record<Rank, RankMeta> = {

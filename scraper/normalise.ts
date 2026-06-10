@@ -101,7 +101,7 @@ export interface Product {
 }
 
 const RANK_ORDER = ['commander', 'operative', 'corps', 'special', 'support', 'heavy']
-export const FACTIONS = ['rebels', 'empire', 'republic', 'separatists', 'mercenary']
+export const FACTIONS = ['rebels', 'empire', 'republic', 'separatists', 'mercenary', 'mandalorians']
 
 export function rankIndex(rank: string): number {
   const i = RANK_ORDER.indexOf(rank)
@@ -117,9 +117,8 @@ export function slugify(name: string, title?: string | null): string {
     .replace(/^-+|-+$/g, '')
 }
 
-/** Legion HQ uses 'mandalorians' for the Shadow Collective / mercenary faction. */
+/** Mandalorians are their own faction (Battle Force); unknown keys fall back to mercenary. */
 export function mapFaction(f: string | undefined): string {
-  if (f === 'mandalorians') return 'mercenary'
   return f && FACTIONS.includes(f) ? f : 'mercenary'
 }
 

@@ -2,6 +2,35 @@
 
 A running log of features for LegionApp, newest first.
 
+## Feature 3 — Dice roller
+
+**Status:** in progress (branch `feature/dice-roller`)
+
+Port ShatterApp's dice roller, adapted to Legion's dice. A new `/roll` route +
+nav tab with two tabs: an interactive **Roller** and a Monte-Carlo
+**Probability** calculator.
+
+- **Dice model** (`utils/dice.ts`, pure + tested): three attack d8 colours
+  (Red 5/1/1/1, Black 3/1/1/3, White 1/1/1/5 — Hit/Crit/Surge/Blank) and two
+  defense d6 colours (Red 3/1/2, White 1/1/4 — Block/Surge/Blank). `resolveCombat`
+  applies the surge charts and modifiers and returns wounds.
+- **Surge** is per-side (unit cards convert surges differently): attack surge →
+  Crit / Hit / None, defense surge → Block / None.
+- **Modifiers** modelled: Aim (reroll up to 2 blanks per token), Pierce (cancel
+  blocks), Cover & Dodge (cancel hits, never crits). Order: surges → cover →
+  dodge (hits) → blocks → pierce → `wounds = max(0, hits+crits − blocks)`.
+- **Probability** (`utils/diceProb.ts`): simulates a mixed pool with all of the
+  above (Aim played greedily), 50k rolls, P(≥ n wounds) table + mean.
+- **UI:** `DieFace.vue` renders the new Legion symbols as colour-aware SVGs;
+  `DiceColumn.vue` (per-colour steppers + surge/mods), `DiceRoller.vue` (duel
+  result + persisted history), `ProbabilityCalculator.vue`.
+
+### Deliberately out of scope
+
+The multiplayer half of ShatterApp's roller (`DicePanel`, `rollSession` store,
+`useDiceRoom` socket sync) is not ported — it's bound to the Play feature, which
+is still scaffolding here. The roller is solo-only for now.
+
 ## Feature 2 — Collection: real product boxes
 
 **Status:** in progress (branch `feature/collection-real-catalog`)

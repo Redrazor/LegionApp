@@ -144,7 +144,9 @@ function mapWeapon(w: NonNullable<Lhq2Card['weapons']>[number]): Weapon {
     name: w.name,
     range: w.range ?? [],
     dice: { red: w.dice?.r ?? 0, black: w.dice?.b ?? 0, white: w.dice?.w ?? 0 },
-    keywords: normalizeKeywords(w.keywords),
+    // Some entries pack two keywords into one string ("Fixed Front, Blast");
+    // split them so each renders (and resolves a glossary definition) on its own.
+    keywords: normalizeKeywords(w.keywords).flatMap((k) => k.split(', ')).map((k) => k.trim()).filter(Boolean),
   }
 }
 

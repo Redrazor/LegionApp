@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Weapon } from '../../types/index.ts'
+import KeywordPill from './KeywordPill.vue'
 
 defineProps<{ weapons: Weapon[] }>()
 
@@ -35,12 +36,9 @@ function rangeLabel(range: number[]): string {
           </span>
           <span v-if="!w.dice.red && !w.dice.black && !w.dice.white" class="text-xs text-lg-muted">—</span>
         </div>
-        <!-- Weapon keywords -->
+        <!-- Weapon keywords (with glossary popover, like unit keywords) -->
         <div v-if="w.keywords.length" class="flex flex-wrap gap-1">
-          <span
-            v-for="k in w.keywords" :key="k"
-            class="rounded bg-lg-panel border border-lg-border px-1.5 py-0.5 text-[10px] text-lg-text/80"
-          >{{ k }}</span>
+          <KeywordPill v-for="k in w.keywords" :key="k" :keyword="k" />
         </div>
       </div>
     </div>

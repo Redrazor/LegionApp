@@ -98,6 +98,13 @@ describe('buildUnits', () => {
     expect(u.keywords).toEqual(['Steady', 'Sharpshooter 1'])
   })
 
+  it('splits comma-combined weapon keywords into separate entries', () => {
+    const [u] = buildUnits([card({
+      weapons: [{ name: 'Mortar', range: [2, 3], dice: { r: 0, b: 2, w: 0 }, keywords: ['Fixed Front, Blast', 'Suppressive'] }],
+    })])
+    expect(u.weapons[0].keywords).toEqual(['Fixed Front', 'Blast', 'Suppressive'])
+  })
+
   it('ignores non-unit cards', () => {
     expect(buildUnits([card({ cardType: 'upgrade' })])).toHaveLength(0)
   })

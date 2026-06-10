@@ -190,8 +190,8 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 ## Status log / resume point
 
 ### 2026-06-10 — A1 implemented, PR open
-**Branch:** `feature/build-format-rank-limits` (off `main`). **Status:** code complete, awaiting PR
-merge approval. Do NOT merge until the user approves the PR.
+**Branch:** `feature/build-format-rank-limits` (off `main`). **PR:** https://github.com/Redrazor/LegionApp/pull/4
+**Status:** code complete, PR open, awaiting merge approval. Do NOT merge until the user approves the PR.
 
 **A1 — Format + multi-size rank limits: DONE.**
 - `src/utils/factions.ts` — added `GameFormat`/`RankLimits` types, `FORMATS` table (Recon 600,

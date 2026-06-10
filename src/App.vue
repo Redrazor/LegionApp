@@ -13,6 +13,7 @@ const routes = [
   { to: '/play', label: 'Play' },
   { to: '/collection', label: 'Collection' },
   { to: '/reference', label: 'Reference' },
+  { to: '/roll', label: 'Roll' },
 ]
 
 function closeMenu() { menuOpen.value = false }

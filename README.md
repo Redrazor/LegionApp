@@ -95,6 +95,13 @@ Re-run `npm run scrape` to pick up the latest data.
 
 ---
 
+## Credits
+
+- Card data via Legion HQ 2.
+- The dice-roller symbols (hit, critical, surge, block) are traced from the
+  [Legion symbol font](https://github.com/Owen-A/Legion-font) by Owen-A, used
+  under the MIT license.
+
 ## Disclaimer
 
-LegionApp is an **unofficial fan-made tool** and is not affiliated with Atomic Mass Games or Lucasfilm Ltd. Star Wars: Legion and all related marks, card text, and artwork are property of Atomic Mass Games, Lucasfilm Ltd., and Disney. Card images are used for fan-reference purposes only.
+LegionApp is an **unofficial fan-made tool** and is not affiliated with Atomic Mass Games or Lucasfilm Ltd. Star Wars: Legion and all related marks, card text, and artwork are property of Atomic Mass Games, Lucasfilm Ltd., and Disney. Card images and dice symbols are used for fan-reference purposes only.

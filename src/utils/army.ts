@@ -57,6 +57,133 @@ export function findDuplicateUniques(names: string[]): string[] {
   return [...dupes]
 }
 
+/** Per-army copy cap for a card: explicit `limit`, else 1 if unique, else 0 (unlimited). */
+export function cardLimit(card: { isUnique: boolean; limit?: number }): number {
+  return card.limit ?? (card.isUnique ? 1 : 0)
+}
+
+export interface LimitViolation {
+  name: string
+  count: number
+  limit: number
+}
+
+/**
+ * Cards taken more times than their per-army limit, counted by name across units
+ * AND upgrades (the unique/limited rule spans both). Covers duplicate uniques
+ * (limit 1) and over-limit "limited" upgrades like the Jedi Training family (×2).
+ */
+export function limitViolations(
+  army: Army,
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+): LimitViolation[] {
+  const counts = new Map<string, { count: number; limit: number }>()
+  const tally = (name: string, limit: number) => {
+    const e = counts.get(name) ?? { count: 0, limit }
+    e.count++
+    counts.set(name, e)
+  }
+  for (const au of army.units) {
+    const unit = unitsById.get(au.unitId)
+    if (unit) {
+      const l = cardLimit(unit)
+      if (l > 0) tally(unit.name, l)
+    }
+    for (const up of au.upgrades) {
+      const upg = upgradesById.get(up.upgradeId)
+      if (upg) {
+        const l = cardLimit(upg)
+        if (l > 0) tally(upg.name, l)
+      }
+    }
+  }
+  const out: LimitViolation[] = []
+  for (const [name, { count, limit }] of counts) {
+    if (count > limit) out.push({ name, count, limit })
+  }
+  return out
+}
+
+const KW = {
+  fieldCommander: /^field commander$/i,
+  entourage: /^entourage (.+)$/i,
+  detachment: /^detachment (.+)$/i,
+}
+
+/** True if any unit in the army carries the Field Commander keyword (allows 0 commanders). */
+export function hasFieldCommander(army: Army, unitsById: Map<string, Unit>): boolean {
+  return army.units.some((au) =>
+    unitsById.get(au.unitId)?.keywords.some((k) => KW.fieldCommander.test(k)),
+  )
+}
+
+/**
+ * Rank-max bonuses granted by Entourage keywords: each "Entourage <name>" widens
+ * the named unit's rank max by 1 so the entourage unit can be fielded over the cap.
+ */
+export function entourageBonuses(
+  army: Army,
+  unitsById: Map<string, Unit>,
+): Partial<Record<Rank, number>> {
+  // A name can map to several cards of different ranks (e.g. "Darth Vader" exists
+  // as both a commander and an operative). Index name → the set of ranks it spans
+  // so the bonus lands on the right rank regardless of card-insertion order.
+  const ranksByName = new Map<string, Set<Rank>>()
+  for (const u of unitsById.values()) {
+    const key = u.name.toLowerCase()
+    const set = ranksByName.get(key) ?? new Set<Rank>()
+    set.add(u.rank)
+    ranksByName.set(key, set)
+  }
+  const bonus: Partial<Record<Rank, number>> = {}
+  for (const au of army.units) {
+    const unit = unitsById.get(au.unitId)
+    for (const kw of unit?.keywords ?? []) {
+      const m = KW.entourage.exec(kw)
+      if (!m) continue
+      const ranks = ranksByName.get(m[1].trim().toLowerCase())
+      if (!ranks) continue
+      for (const rank of ranks) bonus[rank] = (bonus[rank] ?? 0) + 1
+    }
+  }
+  return bonus
+}
+
+/**
+ * Detachment units whose required parent is absent. "Detachment <name>" needs a
+ * non-detachment unit of that name; "Detachment <rank>" needs a unit of that rank.
+ * Returns "<unit> → needs <target>" strings for any unmet requirement.
+ */
+export function unmetDetachments(army: Army, unitsById: Map<string, Unit>): string[] {
+  const ranks = new Set<string>(RANK_ORDER)
+  const unmet: string[] = []
+  for (const au of army.units) {
+    const unit = unitsById.get(au.unitId)
+    if (!unit) continue
+    for (const kw of unit.keywords) {
+      const m = KW.detachment.exec(kw)
+      if (!m) continue
+      const target = m[1].trim()
+      const tlc = target.toLowerCase()
+      const satisfied = ranks.has(tlc)
+        ? army.units.some(
+            (o) => o.uid !== au.uid && unitsById.get(o.unitId)?.rank === tlc,
+          )
+        : army.units.some((o) => {
+            const ou = unitsById.get(o.unitId)
+            return (
+              o.uid !== au.uid &&
+              ou?.name.toLowerCase() === tlc &&
+              !ou.keywords.some((k) => KW.detachment.test(k))
+            )
+          })
+      if (!satisfied) unmet.push(`${unit.name} → needs ${target}`)
+    }
+  }
+  return unmet
+}
+
 export function validateArmy(
   army: Army,
   unitsById: Map<string, Unit>,
@@ -97,21 +224,36 @@ export function validateArmy(
 
   // Rank limits — per-format (see rankLimits / FORMATS). Required ranks (min > 0)
   // surface even when empty so their unmet minimum is always visible.
+  // Entourage widens a rank's max; Field Commander relaxes the commander minimum.
   const limits = rankLimits(army.gameSize)
+  const entourage = entourageBonuses(army, unitsById)
+  const fieldCommander = hasFieldCommander(army, unitsById)
   for (const rank of RANK_ORDER) {
-    const { min, max } = limits[rank]
+    const max = limits[rank].max + (entourage[rank] ?? 0)
+    let min = limits[rank].min
     const count = rankCounts[rank]
-    if (count === 0 && min === 0) continue // hide empty optional ranks
+    let note = ''
+    if (rank === 'commander' && min > 0 && count === 0 && fieldCommander) {
+      min = 0
+      note = ' (Field Commander)'
+    }
+    if (count === 0 && min === 0 && !note) continue // hide empty optional ranks
     items.push({
       ok: count >= min && count <= max,
       label: rankName(rank),
       detail:
-        count < min
+        (count < min
           ? `${count} (need ${min})`
           : count > max
           ? `${count} (max ${max})`
-          : `${count} / ${max}`,
+          : `${count} / ${max}`) + note,
     })
+  }
+
+  // Detachment — a detachment unit needs its parent unit/rank in the list.
+  const detachIssues = unmetDetachments(army, unitsById)
+  if (detachIssues.length) {
+    items.push({ ok: false, label: 'Detachment', detail: detachIssues.join('; ') })
   }
 
   // Single faction (mercenaries may mix in via Allies of Convenience — allowed)
@@ -125,10 +267,15 @@ export function validateArmy(
     })
   }
 
-  // Unique conflicts
-  const dupes = findDuplicateUniques(uniqueNames(army, unitsById, upgradesById))
-  if (dupes.length) {
-    items.push({ ok: false, label: 'Uniques', detail: `Duplicate: ${dupes.join(', ')}` })
+  // Unique / limited-card conflicts — duplicate uniques (max 1) and over-limit
+  // "limited" upgrades (e.g. HQ Uplink, Jedi Training family — max 2).
+  const violations = limitViolations(army, unitsById, upgradesById)
+  if (violations.length) {
+    items.push({
+      ok: false,
+      label: 'Uniques',
+      detail: violations.map((v) => `${v.name} ×${v.count} (max ${v.limit})`).join(', '),
+    })
   }
 
   const valid = items.every((i) => i.ok) && army.units.length > 0

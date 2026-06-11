@@ -189,6 +189,44 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-11 — A2 implemented
+**Branch:** `feature/build-keyword-rules` (off `main`). **Status:** code complete, awaiting AC sign-off + PR.
+
+**A2 — Field Commander + Entourage + Detachment + bullet-count "uniques": DONE.** Mostly pure logic in
+`src/utils/army.ts`, surfaced through the existing `validateArmy` checklist. One small UI touch was
+unavoidable: `BuildView.vue`'s catalogue "+ Add" button gates on its own per-rank max, so it now folds the
+Entourage bonus into its `limits` computed (reusing `entourageBonuses`) — otherwise Add stayed disabled at
+the base cap and you couldn't add the over-cap unit. Epic B still owns the broader UI rebuild.
+
+- **Investigation finding (corrects the plan):** the "some uniques allow 2" framing was inverted. The
+  legionhq2 source carries **`uniqueCount`** — a per-army copy cap on **16 non-unique "limited" upgrades**
+  (all value 2: HQ Uplink, the Jedi Training family, Flame Projector, etc.), *not* a 2-copy allowance on
+  uniques. The 4 "Jedi Training — …" cards share `cardName "Jedi Training"`, so the cap of 2 is across the
+  family (already grouped because `buildUpgrades` sets `name = cardName`). No 2-copy uniques exist.
+- **Data pipeline:** `scraper/normalise.ts` — `Lhq2Card.uniqueCount` + `Upgrade.limit?` (emitted only when
+  capped). `src/types/index.ts` — `Upgrade.limit?`. `server/db/schema.ts` + `seed.ts` — `limit_count`
+  column (`limit` is a SQL reserved word). `server/routes/upgrades.ts` — maps it back out. Re-ran
+  `npm run scrape -- --skip-images` + reseed: **only** diff is +16 `"limit"` lines in `upgrades.json`.
+- **Validation (`src/utils/army.ts`):** new pure helpers `cardLimit` (`limit ?? (isUnique?1:0)`, 0=unlimited),
+  `limitViolations` (counts units+upgrades by name; folds duplicate-uniques and over-cap limited upgrades
+  into the existing **Uniques** item), `hasFieldCommander` (0 commanders legal if a unit has the keyword —
+  relaxes the commander min, detail `"0 / 2 (Field Commander)"`), `entourageBonuses` (`"Entourage <name>"`
+  widens that unit's rank max +1), `unmetDetachments` (`"Detachment <name>"` needs a non-detachment parent
+  of that name; `"Detachment <rank>"` needs a unit of that rank — surfaces a new **Detachment** item).
+- **Tests:** `tests/army.spec.ts` +12 (cardLimit / limitViolations / Field Commander / Entourage /
+  Detachment + integration). **109 tests pass; coverage 71.67% (≥50). vue-tsc clean.**
+
+**Decisions locked:** `limit` keyed by card `name` (groups the Jedi Training family); command-hand cards
+not yet counted toward limits (no command hand until D1 — fold in then); detachment rank-token check uses
+the `Rank` enum. **Entourage names can be ambiguous** — "Darth Vader" exists as both a commander (`at`) and
+an operative (`fn`) card, so `entourageBonuses` indexes name → *all* ranks it spans and bumps each (a single
+name-keyed lookup silently picked the operative and the bonus missed commander). Slightly permissive in the
+two-Vader edge case (grants +1 to both ranks) but correct for every real entourage; bonus applies even when
+the named unit isn't fielded yet, which is what lets the Add button enable before you add it.
+
+**Next up (delivery order):** A3 (mercenary affiliation counting) → A4 (upgrade `requirements` — investigation
+already done, see Epic A) → B1 → B2 → B3 → C1 → … Each = one `/workflow` cycle.
+
 ### 2026-06-10 — A1 implemented, PR open
 **Branch:** `feature/build-format-rank-limits` (off `main`). **PR:** https://github.com/Redrazor/LegionApp/pull/4
 **Status:** code complete, PR open, awaiting merge approval. Do NOT merge until the user approves the PR.

@@ -6,7 +6,7 @@ import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, FORMATS, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import UnitPickerDrawer from '../components/build/UnitPickerDrawer.vue'
@@ -63,8 +63,18 @@ async function share() {
   setTimeout(() => (shareMsg.value = ''), 3000)
 }
 
-// Per-format rank limits for the currently selected points cap.
-const limits = computed(() => rankLimits(draft.value.gameSize))
+// Per-format rank limits for the currently selected points cap, with Entourage
+// bonuses folded into each rank's max so the catalogue "+ Add" gating and the
+// header caps match validateArmy (e.g. Tarkin's "Entourage Darth Vader" → 1–3).
+const limits = computed(() => {
+  const base = rankLimits(draft.value.gameSize)
+  const bonus = entourageBonuses(draft.value, unitsStore.byId)
+  const out = {} as Record<Rank, { min: number; max: number }>
+  for (const rank of RANK_ORDER) {
+    out[rank] = { min: base[rank].min, max: base[rank].max + (bonus[rank] ?? 0) }
+  }
+  return out
+})
 
 const pointsPct = computed(() =>
   Math.min(100, Math.round((validation.value.points / draft.value.gameSize) * 100)),

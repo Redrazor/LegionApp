@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
+  cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
   encodeArmy, decodeArmy, toCompact, fromCompact,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
@@ -239,6 +240,212 @@ describe('validateArmy per-format limits', () => {
     const std = validateArmy(make(1000), unitsById, upgradesById)
     expect(std.valid).toBe(false)
     expect(std.items.find((i) => i.label === 'Corps')?.detail).toBe('2 (need 3)')
+  })
+})
+
+describe('cardLimit', () => {
+  it('is 0 (unlimited) for an ordinary card, 1 for a unique, and the explicit limit otherwise', () => {
+    expect(cardLimit({ isUnique: false })).toBe(0)
+    expect(cardLimit({ isUnique: true })).toBe(1)
+    expect(cardLimit({ isUnique: false, limit: 2 })).toBe(2)
+    expect(cardLimit({ isUnique: true, limit: 2 })).toBe(2) // explicit limit wins
+  })
+})
+
+describe('limitViolations', () => {
+  const base = (units: ReturnType<typeof unit>[], upgrades: ReturnType<typeof upgrade>[]) => {
+    const { unitsById, upgradesById } = makeMaps(units, upgrades)
+    return { unitsById, upgradesById }
+  }
+
+  it('flags a duplicate unique (max 1)', () => {
+    const { unitsById, upgradesById } = base([unit('vader', { isUnique: true })], [])
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: [
+        { uid: '1', unitId: 'vader', upgrades: [] },
+        { uid: '2', unitId: 'vader', upgrades: [] },
+      ],
+    }
+    expect(limitViolations(army, unitsById, upgradesById)).toEqual([
+      { name: 'vader', count: 2, limit: 1 },
+    ])
+  })
+
+  it('allows a limited upgrade up to its cap but flags over it, grouping by name', () => {
+    // Two distinct upgrade cards sharing the name "Jedi Training", limit 2.
+    const ups = [
+      upgrade('jt-a', { name: 'Jedi Training', limit: 2 }),
+      upgrade('jt-b', { name: 'Jedi Training', limit: 2 }),
+    ]
+    const { unitsById, upgradesById } = base([unit('a'), unit('b'), unit('c')], ups)
+    const within: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: [
+        { uid: '1', unitId: 'a', upgrades: [{ slot: 'training#0', upgradeId: 'jt-a' }] },
+        { uid: '2', unitId: 'b', upgrades: [{ slot: 'training#0', upgradeId: 'jt-b' }] },
+      ],
+    }
+    expect(limitViolations(within, unitsById, upgradesById)).toEqual([]) // 2 ≤ 2
+
+    const over: Army = {
+      ...within,
+      units: [
+        ...within.units,
+        { uid: '3', unitId: 'c', upgrades: [{ slot: 'training#0', upgradeId: 'jt-a' }] },
+      ],
+    }
+    expect(limitViolations(over, unitsById, upgradesById)).toEqual([
+      { name: 'Jedi Training', count: 3, limit: 2 },
+    ])
+  })
+
+  it('surfaces in validateArmy as a failing Uniques item', () => {
+    const { unitsById, upgradesById } = base([unit('vader', { isUnique: true })], [])
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: [
+        { uid: '1', unitId: 'vader', upgrades: [] },
+        { uid: '2', unitId: 'vader', upgrades: [] },
+      ],
+    }
+    const item = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Uniques')
+    expect(item?.ok).toBe(false)
+    expect(item?.detail).toContain('vader ×2 (max 1)')
+  })
+})
+
+describe('Field Commander', () => {
+  const corps = (id: string) => unit(id, { rank: 'corps', cost: 30 })
+
+  it('hasFieldCommander detects the keyword', () => {
+    const units = [corps('a'), unit('fc', { rank: 'corps', keywords: ['Field Commander'] })]
+    const { unitsById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    expect(hasFieldCommander(army, unitsById)).toBe(true)
+  })
+
+  it('a 0-commander army is legal when it includes a Field Commander unit', () => {
+    const units = [
+      unit('fc', { rank: 'corps', keywords: ['Field Commander'] }),
+      corps('c1'), corps('c2'), corps('c3'),
+    ]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    const cmd = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Commander')
+    expect(cmd?.ok).toBe(true)
+    expect(cmd?.detail).toBe('0 / 2 (Field Commander)')
+  })
+
+  it('without a Field Commander, 0 commanders fails', () => {
+    const units = [unit('x', { rank: 'corps' }), unit('y', { rank: 'corps' }), unit('z', { rank: 'corps' })]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    expect(validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Commander')?.ok).toBe(false)
+  })
+})
+
+describe('Entourage', () => {
+  it('widens the named unit’s rank max by 1', () => {
+    const units = [
+      unit('a', { rank: 'commander', isUnique: true }),
+      unit('b', { rank: 'commander', isUnique: true }),
+      unit('c', { rank: 'commander', isUnique: true }),
+      unit('ent', { rank: 'corps', keywords: ['Entourage a'] }),
+    ]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    expect(entourageBonuses(army, unitsById)).toEqual({ commander: 1 })
+    const cmd = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Commander')
+    expect(cmd?.ok).toBe(true) // 3 commanders allowed (2 + 1 entourage)
+    expect(cmd?.detail).toBe('3 / 3')
+  })
+
+  it('targets the right rank when the named unit shares a name across cards', () => {
+    // "Darth Vader" exists as both a commander and an operative card; the bonus
+    // must reach commander regardless of catalogue order (regression for the
+    // name-index "last card wins" bug).
+    const units = [
+      unit('vader-cmd', { name: 'Darth Vader', rank: 'commander', isUnique: true }),
+      unit('vader-op', { name: 'Darth Vader', rank: 'operative', isUnique: true }),
+      unit('tarkin', { rank: 'commander', isUnique: true, keywords: ['Entourage Darth Vader'] }),
+    ]
+    const { unitsById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: [{ uid: '0', unitId: 'tarkin', upgrades: [] }],
+    }
+    expect(entourageBonuses(army, unitsById).commander).toBe(1)
+  })
+
+  it('three commanders without an entourage exceed the Standard max', () => {
+    const units = [
+      unit('a', { rank: 'commander', isUnique: true }),
+      unit('b', { rank: 'commander', isUnique: true }),
+      unit('c', { rank: 'commander', isUnique: true }),
+    ]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    expect(validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Commander')?.detail).toBe('3 (max 2)')
+  })
+})
+
+describe('Detachment', () => {
+  it('is unmet when the named parent unit is absent, met when present', () => {
+    const det = unit('df', { rank: 'special', keywords: ['Detachment Shoretroopers'] })
+    const parent = unit('shore', { name: 'Shoretroopers', rank: 'corps' })
+    const lone = makeMaps([det])
+    const withParent = makeMaps([det, parent])
+    const army = (ids: string[]): Army => ({
+      name: '', faction: 'empire', gameSize: 1000,
+      units: ids.map((id, i) => ({ uid: String(i), unitId: id, upgrades: [] })),
+    })
+    expect(unmetDetachments(army(['df']), lone.unitsById)).toEqual(['df → needs Shoretroopers'])
+    expect(unmetDetachments(army(['df', 'shore']), withParent.unitsById)).toEqual([])
+  })
+
+  it('treats a rank token (e.g. "special") as a rank requirement', () => {
+    const probe = unit('probe', { rank: 'special', keywords: ['Detachment special'] })
+    const sf = unit('sf', { rank: 'special' })
+    const maps = makeMaps([probe, sf])
+    const army = (ids: string[]): Army => ({
+      name: '', faction: 'empire', gameSize: 1000,
+      units: ids.map((id, i) => ({ uid: String(i), unitId: id, upgrades: [] })),
+    })
+    // probe alone: the only special unit is itself → unmet
+    expect(unmetDetachments(army(['probe']), maps.unitsById)).toEqual(['probe → needs special'])
+    // with another special-rank unit → met
+    expect(unmetDetachments(army(['probe', 'sf']), maps.unitsById)).toEqual([])
+  })
+
+  it('surfaces in validateArmy as a failing Detachment item', () => {
+    const det = unit('df', { rank: 'special', keywords: ['Detachment Shoretroopers'] })
+    const { unitsById, upgradesById } = makeMaps([det, unit('c1', { rank: 'corps' })])
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: [
+        { uid: '0', unitId: 'df', upgrades: [] },
+        { uid: '1', unitId: 'c1', upgrades: [] },
+      ],
+    }
+    const item = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Detachment')
+    expect(item?.ok).toBe(false)
+    expect(item?.detail).toContain('needs Shoretroopers')
   })
 })
 

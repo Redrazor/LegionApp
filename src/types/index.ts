@@ -47,6 +47,7 @@ export interface Upgrade {
   slot: string
   cost: number | null
   isUnique: boolean
+  limit?: number // per-army copy cap (e.g. HQ Uplink ×2); omitted when unlimited
   faction: Faction | null
   keywords: string[]
   cardImage: string | null

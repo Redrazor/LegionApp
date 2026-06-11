@@ -11,11 +11,18 @@ footer, always-visible catalogue, tap-to-add + desktop drag-and-drop, render-tim
 inline-expand unit detail + slot-filtered upgrade attach, command-hand + battle-deck builders,
 print/share/Longshanks export. Multi-format (Recon 600 / Standard 800 / Standard 1000 / Grand Army 1600).
 
-Sub-features ship one per `/workflow` cycle. First up:
+Sub-features ship one per `/workflow` cycle:
 
-- **A1 — Format + multi-size rank limits** (branch `feature/build-format-rank-limits`). `FORMATS` table
-  + `rankLimits(cap)` (clamp-to-bracket) replaces the constant rank limits; `validateArmy` + BuildView
-  consume it; default new army = Standard 1000. Corrects the pre-2024 "800/500" assumption.
+- **A1 — Format + multi-size rank limits** (branch `feature/build-format-rank-limits`, v0.6.0). `FORMATS`
+  table + `rankLimits(cap)` (clamp-to-bracket) replaces the constant rank limits; `validateArmy` +
+  BuildView consume it; default new army = Standard 1000. Corrects the pre-2024 "800/500" assumption.
+- **A2 — Build-time keyword rules** (branch `feature/build-keyword-rules`). Pure logic in `utils/army.ts`,
+  surfaced via the existing validation checklist (plus a one-line BuildView "+ Add" gating fix for
+  Entourage): **Field Commander** (0 commanders legal with the
+  keyword), **Entourage** (`"Entourage X"` widens X's rank max +1), **Detachment** (`"Detachment X"` needs
+  a parent unit/rank present), and **limited cards** — the source's `uniqueCount` caps 16 non-unique
+  upgrades at 2 (HQ Uplink, Jedi Training family, …); `Upgrade.limit` now flows through scrape → seed →
+  API and folds into the Uniques check. Next: A3 (mercenary affiliation), A4 (upgrade `requirements`).
 
 ## Feature 3 — Dice roller
 

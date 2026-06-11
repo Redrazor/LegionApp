@@ -11,6 +11,7 @@ export function rowToUpgrade(row: Record<string, unknown>) {
     slot: row.slot,
     cost: row.cost ?? null,
     isUnique: !!row.is_unique,
+    ...(row.limit_count != null ? { limit: row.limit_count } : {}),
     faction: row.faction ?? null,
     keywords: JSON.parse((row.keywords as string) || '[]'),
     cardImage: row.card_image ?? null,

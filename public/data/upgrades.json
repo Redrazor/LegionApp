@@ -172,6 +172,7 @@
     "slot": "comms",
     "cost": 10,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/hq-uplink.webp"
@@ -3109,6 +3110,7 @@
     "slot": "training",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [
       "Charge"
@@ -4215,6 +4217,7 @@
     "slot": "training",
     "cost": 8,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [
       "Block",
@@ -4231,6 +4234,7 @@
     "slot": "training",
     "cost": 8,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [
       "Prepared Position",
@@ -4247,6 +4251,7 @@
     "slot": "training",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [
       "Jump 2"
@@ -4260,6 +4265,7 @@
     "slot": "training",
     "cost": 8,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [
       "Guidance Core Trooper Unit"
@@ -4273,6 +4279,7 @@
     "slot": "doctrine",
     "cost": 8,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/tyrannical-taskmaster.webp"
@@ -4284,6 +4291,7 @@
     "slot": "doctrine",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [
       "Demoralize 1",
@@ -4299,6 +4307,7 @@
     "slot": "programming",
     "cost": 8,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/sliced-comms.webp"
@@ -4310,6 +4319,7 @@
     "slot": "programming",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/overclock.webp"
@@ -4321,6 +4331,7 @@
     "slot": "programming",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/targeting-relay.webp"
@@ -4332,6 +4343,7 @@
     "slot": "programming",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/limiter-override.webp"
@@ -5145,6 +5157,7 @@
     "slot": "grenades",
     "cost": 10,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/jetpack-rockets-2.webp"
@@ -5156,6 +5169,7 @@
     "slot": "gear",
     "cost": 10,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [
       "Shielded",
@@ -5170,6 +5184,7 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/flame-projector.webp"
@@ -5181,6 +5196,7 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": false,
+    "limit": 2,
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/whipcord-launcher.webp"

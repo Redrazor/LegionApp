@@ -34,6 +34,7 @@ export const upgrades = sqliteTable('upgrades', {
   slot: text('slot').notNull().default('gear'),
   cost: integer('cost'),
   isUnique: integer('is_unique').notNull().default(0),
+  limit: integer('limit_count'), // "limit" is a SQL reserved word
   faction: text('faction'),
   keywords: text('keywords').notNull().default('[]'),
   cardImage: text('card_image'),

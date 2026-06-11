@@ -15,6 +15,7 @@ export interface Lhq2Card {
   faction?: string
   cost?: number | null
   isUnique?: boolean
+  uniqueCount?: number // per-army copy cap for non-unique "limited" cards (e.g. HQ Uplink ×2)
   imageName?: string
   commander?: string | string[]
   keywords?: (string | { name: string; value?: number })[]
@@ -77,6 +78,7 @@ export interface Upgrade {
   slot: string
   cost: number | null
   isUnique: boolean
+  limit?: number // per-army copy cap (`uniqueCount`); omitted when unlimited
   faction: string | null
   keywords: string[]
   cardImage: string | null
@@ -216,6 +218,7 @@ export function buildUpgrades(cards: Lhq2Card[]): Upgrade[] {
         slot: c.cardSubtype ?? 'gear',
         cost: num(c.cost),
         isUnique: !!c.isUnique,
+        ...(c.uniqueCount ? { limit: c.uniqueCount } : {}),
         faction: c.faction ? mapFaction(c.faction) : null,
         keywords: normalizeKeywords(c.keywords),
         cardImage: c.imageName ? `/images/upgrades/${slug}.webp` : null,

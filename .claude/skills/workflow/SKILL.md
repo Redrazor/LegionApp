@@ -77,12 +77,18 @@ gh pr merge --squash
 
 ---
 
-## Step 8 — Version bump on main
+## Step 8 — Changelog + version bump on main
+
+**MANDATORY before every bump:** add a new entry at the top of the `entries` array in
+`src/components/ChangelogModal.vue` (version, date, user-facing `changes[]`) and update
+`APP_VERSION` in `src/App.vue` to match. These three must always agree: package.json
+version, `APP_VERSION`, and the top changelog entry. Do this in the feature branch/PR so
+the release ships with its own changelog entry.
+
 After merge, switch to main, pull, then bump:
 - **Patch** — bug fix / small tweak: `npm version patch`
 - **Minor** — new feature: `npm version minor`
 - **Major** — breaking change / big milestone: `npm version major`
 - **If unsure — ask the user.**
 
-Then update the version string shown in `src/App.vue` footer (and a changelog entry
-if/when a ChangelogModal exists). Commit and push to main.
+Commit and push to main (with tags).

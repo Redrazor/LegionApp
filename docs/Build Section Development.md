@@ -208,8 +208,13 @@ picker that takes over the **left catalogue pane**.
   disabled** (don't-open rule). `UpgradePickerDrawer.vue` retired.
 - **`BuildLayout`** — new `forcePane` prop forces the catalogue pane on mobile while picking and hides the
   segmented toggle (the picker has its own ✕).
+- **Refinements (same cycle):** (1) army-list unit cards are now tappable → open the profile (`ArmyUnitCard`
+  emits `view`); (2) `UnitProfile` gained a **`simplified`** prop (Build passes it) that keeps the keyword
+  definitions + stats/weapons but drops the **errata history** and **Available Upgrades** list; (3)
+  `UpgradeCatalogue` rows got a **🔍 inspect** button → a lightbox of the full upgrade card (no selection);
+  row restructured so inspect isn't nested in the pick button.
 - **140 tests pass; vue-tsc clean; coverage 73.9%.** Verified: pick/equip/cost-update, re-open filled slot →
-  Remove, ✕ close, disabled empty slots, mobile force-pane flow.
+  Remove, ✕ close, disabled empty slots, mobile force-pane flow, army→simplified-profile, upgrade inspect.
 
 **Next up: B4** — quantity (`×N`) + delete controls on army units. Then EPIC D (battle-card scrape D0,
 command-hand D1, battle-deck D2), E (export/print), F (DnD). See [[build-roster-canvas-rebuild]].

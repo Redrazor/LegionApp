@@ -202,6 +202,7 @@ function printSheet() {
               v-for="au in unitsByRank[rank]" :key="au.uid"
               :army-unit="au" :faction="draft.faction"
               @pick-upgrade="onPickUpgrade"
+              @view="viewUnit"
             />
           </div>
           <div v-else class="rounded-lg border border-dashed border-lg-border py-4 text-center text-xs text-lg-muted">
@@ -246,7 +247,8 @@ function printSheet() {
       />
     </template>
 
-    <!-- Catalogue "view" → reuse Browse's unit profile drawer -->
-    <UnitProfile v-if="viewingSlug" :slug="viewingSlug" @close="viewingSlug = null" />
+    <!-- Catalogue/army "view" → reuse Browse's unit profile drawer (simplified: keeps
+         keyword definitions, drops errata + available-upgrades to stay focused). -->
+    <UnitProfile v-if="viewingSlug" :slug="viewingSlug" simplified @close="viewingSlug = null" />
   </BuildLayout>
 </template>

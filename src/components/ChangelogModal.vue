@@ -12,6 +12,8 @@ const entries = [
     changes: [
       'Build — Equip upgrades inline: tap an army unit\'s upgrade slot to pick from its valid upgrades right in the left pane (the pop-out drawer is gone). Pick to equip, ✕ to close',
       'Build — Upgrade picker now shows each upgrade\'s card art and what it does (its keywords), not just a name',
+      'Build — Inspect any upgrade: tap 🔍 in the picker to view the full card (rules and all) without equipping it',
+      'Build — Tap a unit in your army list to open its profile — a focused view with stats, weapons, and keyword definitions',
     ],
   },
   {

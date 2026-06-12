@@ -9,7 +9,10 @@ import UnitBadge from './UnitBadge.vue'
 import UnitIndicators from './UnitIndicators.vue'
 
 const props = defineProps<{ armyUnit: ArmyUnit; faction: Faction }>()
-const emit = defineEmits<{ pickUpgrade: [payload: { uid: string; slot: string; index: number }] }>()
+const emit = defineEmits<{
+  pickUpgrade: [payload: { uid: string; slot: string; index: number }]
+  view: [unitId: string]
+}>()
 
 const unitsStore = useUnitsStore()
 const upgradesStore = useUpgradesStore()
@@ -37,15 +40,17 @@ function hasCandidates(slot: string): boolean {
 <template>
   <div v-if="unit" class="rounded-xl border border-lg-border bg-lg-surface p-3">
     <div class="flex items-start gap-3">
-      <UnitBadge :unit="unit" />
-      <div class="min-w-0 flex-1">
-        <div class="flex items-center gap-1">
-          <span v-if="unit.isUnique" class="text-lg-accent text-xs">◈</span>
-          <span class="truncate font-semibold text-lg-text">{{ unit.name }}</span>
-        </div>
-        <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
-        <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" />
-      </div>
+      <button class="flex min-w-0 flex-1 items-start gap-3 text-left" :title="`View ${unit.name}`" @click="emit('view', unit.id)">
+        <UnitBadge :unit="unit" />
+        <span class="min-w-0 flex-1">
+          <span class="flex items-center gap-1">
+            <span v-if="unit.isUnique" class="text-lg-accent text-xs">◈</span>
+            <span class="truncate font-semibold text-lg-text">{{ unit.name }}</span>
+          </span>
+          <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
+          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" />
+        </span>
+      </button>
       <div class="flex flex-none flex-col items-end gap-1">
         <span class="font-display text-sm font-bold text-lg-accent">{{ lineCost }}</span>
         <button

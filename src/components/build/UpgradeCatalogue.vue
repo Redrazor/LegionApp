@@ -114,7 +114,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         <!-- Card + chevrons -->
         <div class="relative z-10 flex items-center" @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
           <button
-            class="absolute -left-2 z-20 grid h-10 w-10 place-items-center rounded-full bg-lg-dark/80 text-lg-text disabled:opacity-30 sm:-left-12"
+            class="absolute -left-2 z-20 grid h-14 w-14 place-items-center rounded-full bg-lg-dark/80 text-3xl leading-none text-lg-accent ring-1 ring-lg-accent/40 transition-colors hover:bg-lg-accent/20 disabled:opacity-25 sm:-left-14"
             :disabled="inspectIndex === 0" aria-label="Previous" @click="inspectPrev"
           >‹</button>
           <img
@@ -123,7 +123,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           />
           <div v-else class="grid h-[60vh] w-[42vh] place-items-center rounded-xl border border-lg-border bg-lg-surface text-center text-lg-muted">{{ inspected.name }}</div>
           <button
-            class="absolute -right-2 z-20 grid h-10 w-10 place-items-center rounded-full bg-lg-dark/80 text-lg-text disabled:opacity-30 sm:-right-12"
+            class="absolute -right-2 z-20 grid h-14 w-14 place-items-center rounded-full bg-lg-dark/80 text-3xl leading-none text-lg-accent ring-1 ring-lg-accent/40 transition-colors hover:bg-lg-accent/20 disabled:opacity-25 sm:-right-14"
             :disabled="inspectIndex === candidates.length - 1" aria-label="Next" @click="inspectNext"
           >›</button>
         </div>

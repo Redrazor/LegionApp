@@ -13,6 +13,7 @@ export function rowToUnit(row: Record<string, unknown>) {
     rank: row.rank,
     unitType: row.unit_type,
     affiliation: row.affiliation ?? null,
+    affiliations: JSON.parse((row.affiliations as string) || '[]'),
     cost: row.cost ?? null,
     defense: row.defense ?? null,
     surgeAttack: row.surge_attack ?? null,

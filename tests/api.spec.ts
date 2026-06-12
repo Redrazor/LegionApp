@@ -12,7 +12,7 @@ import type { Unit, Upgrade, CommandCard, Product } from '../src/types/index.ts'
 function makeUnit(over: Partial<Unit>): Unit {
   return {
     id: 'x', slug: 'x', name: 'X', title: '', faction: 'empire', rank: 'corps',
-    unitType: 'trooper', affiliation: null, cost: 50, defense: 'white', surgeAttack: 'hit', surgeDefense: false,
+    unitType: 'trooper', affiliation: null, affiliations: [], cost: 50, defense: 'white', surgeAttack: 'hit', surgeDefense: false,
     speed: 2, wounds: 5, courage: 1, isUnique: false, keywords: ['Precise 1'],
     upgradeBar: ['gear'],
     weapons: [{ name: 'Blaster', range: [1, 3], dice: { red: 0, black: 0, white: 1 }, keywords: [] }],

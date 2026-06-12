@@ -187,6 +187,62 @@ export function unmetDetachments(army: Army, unitsById: Map<string, Unit>): stri
   return unmet
 }
 
+// ── Mercenary "Allies of Convenience" rules ──────────────────────────────────
+
+/** Per-army cap on mercenary units of each rank: ≤2 corps, ≤1 of each other rank. */
+export const MERC_RANK_CAP: Record<Rank, number> = {
+  commander: 1, operative: 1, corps: 2, special: 1, support: 1, heavy: 1,
+}
+
+/**
+ * Whether a unit may be fielded in an army of `faction`. Non-mercenaries belong to
+ * exactly their own faction; a mercenary may be hired only into a faction listed in
+ * its `affiliations` (and natively into a mercenary-faction army). Used to gate both
+ * the unit picker (suggest only legal choices) and `validateArmy`'s Allies check.
+ */
+export function unitAllowedInFaction(unit: Unit, faction: Faction | null): boolean {
+  if (unit.faction !== 'mercenary') return unit.faction === faction
+  if (faction === 'mercenary') return true
+  return faction != null && unit.affiliations.includes(faction)
+}
+
+export interface MercenaryIssues {
+  capExceeded: { rank: Rank; count: number; cap: number }[]
+  illegalAllies: string[] // merc units whose affiliations don't include the army faction
+  rankCounts: Record<Rank, number> // mercenary-only counts (for the no-min rule)
+}
+
+/**
+ * Mercenary "Allies of Convenience" checks. A mercenary unit (`faction:
+ * 'mercenary'`) may only be hired into an army whose faction is among its
+ * `affiliations` (none ⇒ not hireable into a standard faction). Mercenaries are
+ * capped per rank (MERC_RANK_CAP) and don't satisfy rank minimums — the caller
+ * subtracts `rankCounts` to enforce no-min. A mercenary-faction army fields them
+ * natively (affiliation check skipped).
+ */
+export function mercenaryIssues(army: Army, unitsById: Map<string, Unit>): MercenaryIssues {
+  const rankCounts: Record<Rank, number> = {
+    commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
+  }
+  const illegal: string[] = []
+  const armyFaction = army.faction
+  for (const au of army.units) {
+    const unit = unitsById.get(au.unitId)
+    if (!unit || unit.faction !== 'mercenary') continue
+    rankCounts[unit.rank]++
+    if (armyFaction && !unitAllowedInFaction(unit, armyFaction)) {
+      illegal.push(unit.name)
+    }
+  }
+  const capExceeded: MercenaryIssues['capExceeded'] = []
+  for (const rank of RANK_ORDER) {
+    if (rankCounts[rank] > MERC_RANK_CAP[rank]) {
+      capExceeded.push({ rank, count: rankCounts[rank], cap: MERC_RANK_CAP[rank] })
+    }
+  }
+  return { capExceeded, illegalAllies: [...new Set(illegal)], rankCounts }
+}
+
 // ── Upgrade equip-eligibility (requirements matcher) ─────────────────────────
 
 function unitHasKeyword(unit: Unit, kw: string): boolean {
@@ -286,6 +342,9 @@ export function validateArmy(
   // Rank limits — per-format (see rankLimits / FORMATS). Required ranks (min > 0)
   // surface even when empty so their unmet minimum is always visible.
   // Entourage widens a rank's max; Field Commander relaxes the commander minimum.
+  // Mercenaries count toward maximums but NOT minimums (no-min rule), so the
+  // rank loop measures minimums against non-mercenary counts.
+  const merc = mercenaryIssues(army, unitsById)
   const limits = rankLimits(army.gameSize)
   const entourage = entourageBonuses(army, unitsById)
   const fieldCommander = hasFieldCommander(army, unitsById)
@@ -293,22 +352,23 @@ export function validateArmy(
     const max = limits[rank].max + (entourage[rank] ?? 0)
     let min = limits[rank].min
     const count = rankCounts[rank]
+    const nonMerc = count - merc.rankCounts[rank]
     let note = ''
-    if (rank === 'commander' && min > 0 && count === 0 && fieldCommander) {
+    if (rank === 'commander' && min > 0 && nonMerc === 0 && fieldCommander) {
       min = 0
       note = ' (Field Commander)'
     }
     if (count === 0 && min === 0 && !note) continue // hide empty optional ranks
-    items.push({
-      ok: count >= min && count <= max,
-      label: rankName(rank),
-      detail:
-        (count < min
-          ? `${count} (need ${min})`
-          : count > max
-          ? `${count} (max ${max})`
-          : `${count} / ${max}`) + note,
-    })
+    const minOk = nonMerc >= min
+    const maxOk = count <= max
+    const detail = !minOk
+      ? merc.rankCounts[rank] > 0
+        ? `${count} (need ${min} non-merc)`
+        : `${count} (need ${min})`
+      : !maxOk
+      ? `${count} (max ${max})`
+      : `${count} / ${max}`
+    items.push({ ok: minOk && maxOk, label: rankName(rank), detail: detail + note })
   }
 
   // Detachment — a detachment unit needs its parent unit/rank in the list.
@@ -325,6 +385,22 @@ export function validateArmy(
       ok: factionOk,
       label: 'Faction',
       detail: factionOk ? 'Single faction' : `Mixed: ${nonMerc.join(', ')}`,
+    })
+  }
+
+  // Mercenary "Allies of Convenience" — affiliation match + per-rank caps.
+  if (merc.illegalAllies.length) {
+    items.push({
+      ok: false,
+      label: 'Allies',
+      detail: `Can't ally: ${merc.illegalAllies.join(', ')}`,
+    })
+  }
+  if (merc.capExceeded.length) {
+    items.push({
+      ok: false,
+      label: 'Mercenaries',
+      detail: merc.capExceeded.map((c) => `${rankName(c.rank)} ${c.count} (max ${c.cap})`).join(', '),
     })
   }
 

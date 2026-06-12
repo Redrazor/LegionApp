@@ -24,6 +24,7 @@ export function createTables(sqlite: Sqlite): void {
       rank TEXT NOT NULL DEFAULT 'corps',
       unit_type TEXT NOT NULL DEFAULT 'trooper',
       affiliation TEXT,
+      affiliations TEXT NOT NULL DEFAULT '[]',
       cost INTEGER,
       defense TEXT,
       surge_attack TEXT,
@@ -90,11 +91,11 @@ export function dropTables(sqlite: Sqlite): void {
 export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
   const insert = sqlite.prepare(`
     INSERT INTO units (
-      id, slug, name, title, faction, rank, unit_type, affiliation, cost, defense,
+      id, slug, name, title, faction, rank, unit_type, affiliation, affiliations, cost, defense,
       surge_attack, surge_defense, speed, wounds, courage, is_unique,
       keywords, upgrade_bar, weapons, card_image, portrait_image, has_full_data, history
     ) VALUES (
-      @id, @slug, @name, @title, @faction, @rank, @unitType, @affiliation, @cost, @defense,
+      @id, @slug, @name, @title, @faction, @rank, @unitType, @affiliation, @affiliations, @cost, @defense,
       @surgeAttack, @surgeDefense, @speed, @wounds, @courage, @isUnique,
       @keywords, @upgradeBar, @weapons, @cardImage, @portraitImage, @hasFullData, @history
     )
@@ -105,6 +106,7 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
         id: u.id, slug: u.slug, name: u.name, title: u.title,
         faction: u.faction, rank: u.rank, unitType: u.unitType,
         affiliation: u.affiliation ?? null,
+        affiliations: JSON.stringify(u.affiliations ?? []),
         cost: u.cost, defense: u.defense, surgeAttack: u.surgeAttack,
         surgeDefense: u.surgeDefense ? 1 : 0, speed: u.speed, wounds: u.wounds,
         courage: u.courage, isUnique: u.isUnique ? 1 : 0,

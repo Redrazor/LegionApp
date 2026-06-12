@@ -5,6 +5,27 @@
 // carries its own stats, weapons, keywords and image, so there is no merging or
 // name-based reconciliation: one card in → one record out.
 
+/**
+ * Upgrade equip-eligibility, as authored in the legionhq2 source. A requirements
+ * value is a group: an array of criterion objects and/or nested sub-groups,
+ * optionally led by an `AND` / `OR` / `NOT` token (default `AND`). A criterion
+ * matches a unit when every field it sets matches. Empty array = no requirement.
+ */
+export interface UpgradeRequirementCriterion {
+  cardName?: string
+  cardSubtype?: string // unit type, e.g. "clone trooper"
+  rank?: string
+  faction?: string
+  title?: string
+  affiliation?: string
+  keywords?: string[]
+  upgradeBar?: string[]
+  forceAffinity?: string // 'light side' | 'dark side'
+}
+// Interface (not a recursive type alias) so the self-recursion resolves lazily.
+export type UpgradeRequirement = string | UpgradeRequirementCriterion | UpgradeRequirementList
+export interface UpgradeRequirementList extends Array<UpgradeRequirement> {}
+
 export interface Lhq2Card {
   id: string
   cardName: string
@@ -12,6 +33,7 @@ export interface Lhq2Card {
   cardType: string // 'unit' | 'upgrade' | 'command' | 'battle' | 'counterpart'
   cardSubtype?: string // unit type, upgrade slot, or command pip count
   rank?: string
+  affiliation?: string // unit allegiance, e.g. "Clan Wren", "rogue", "Mandalore"
   faction?: string
   cost?: number | null
   isUnique?: boolean
@@ -20,7 +42,7 @@ export interface Lhq2Card {
   commander?: string | string[]
   keywords?: (string | { name: string; value?: number })[]
   upgradeBar?: string[]
-  requirements?: unknown[]
+  requirements?: UpgradeRequirementList
   stats?: {
     minicount?: number
     hp?: number
@@ -54,6 +76,7 @@ export interface Unit {
   faction: string
   rank: string
   unitType: string
+  affiliation: string | null
   cost: number | null
   defense: string | null
   surgeAttack: string | null
@@ -79,6 +102,7 @@ export interface Upgrade {
   cost: number | null
   isUnique: boolean
   limit?: number // per-army copy cap (`uniqueCount`); omitted when unlimited
+  requirements?: UpgradeRequirementList // equip-eligibility; omitted when unconditional
   faction: string | null
   keywords: string[]
   cardImage: string | null
@@ -179,6 +203,7 @@ export function buildUnits(cards: Lhq2Card[]): Unit[] {
         faction: mapFaction(c.faction),
         rank: c.rank ?? 'corps',
         unitType: c.cardSubtype ?? 'trooper',
+        affiliation: c.affiliation ?? null,
         cost: num(c.cost),
         defense: s.defense === 'r' ? 'red' : s.defense === 'w' ? 'white' : null,
         surgeAttack: s.hitsurge === 'c' ? 'crit' : s.hitsurge === 'h' ? 'hit' : null,
@@ -219,6 +244,7 @@ export function buildUpgrades(cards: Lhq2Card[]): Upgrade[] {
         cost: num(c.cost),
         isUnique: !!c.isUnique,
         ...(c.uniqueCount ? { limit: c.uniqueCount } : {}),
+        ...(c.requirements?.length ? { requirements: c.requirements } : {}),
         faction: c.faction ? mapFaction(c.faction) : null,
         keywords: normalizeKeywords(c.keywords),
         cardImage: c.imageName ? `/images/upgrades/${slug}.webp` : null,

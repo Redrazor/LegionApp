@@ -15,6 +15,30 @@ export interface Weapon {
   keywords: string[]
 }
 
+/**
+ * Upgrade equip-eligibility (authored in the legionhq2 source). A requirements
+ * value is a group: criterion objects and/or nested sub-groups, optionally led by
+ * an `AND` / `OR` / `NOT` token (default `AND`). A criterion matches a unit when
+ * every field it sets matches. Empty/absent = no requirement. See
+ * `unitMeetsRequirements` in `utils/army.ts`.
+ */
+export interface UpgradeRequirementCriterion {
+  cardName?: string
+  cardSubtype?: string // unit type, e.g. "clone trooper"
+  rank?: string
+  faction?: string
+  title?: string
+  affiliation?: string
+  keywords?: string[]
+  upgradeBar?: string[]
+  forceAffinity?: string // 'light side' | 'dark side'
+}
+// A requirements group is an array of nodes. Defined as an interface (not a type
+// alias) so the self-recursion resolves lazily — a recursive `… | T[]` alias
+// trips TS2589 ("excessively deep") when inferred through Map/computed.
+export type UpgradeRequirement = string | UpgradeRequirementCriterion | UpgradeRequirementList
+export interface UpgradeRequirementList extends Array<UpgradeRequirement> {}
+
 export interface Unit {
   id: string
   slug: string
@@ -23,6 +47,7 @@ export interface Unit {
   faction: Faction
   rank: Rank
   unitType: string
+  affiliation: string | null // allegiance, e.g. "Clan Wren", "rogue" (for upgrade requirements)
   cost: number | null
   defense: 'red' | 'white' | null
   surgeAttack: 'crit' | 'hit' | null
@@ -48,6 +73,7 @@ export interface Upgrade {
   cost: number | null
   isUnique: boolean
   limit?: number // per-army copy cap (e.g. HQ Uplink ×2); omitted when unlimited
+  requirements?: UpgradeRequirementList // equip-eligibility; omitted when unconditional
   faction: Faction | null
   keywords: string[]
   cardImage: string | null

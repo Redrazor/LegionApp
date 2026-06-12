@@ -83,6 +83,7 @@ function onClear() {
       :slot="picking.slot"
       :faction="faction"
       :equipped-ids="equippedIds"
+      :unit="unit"
       @pick="onPick"
       @clear="onClear"
       @close="picking = null"

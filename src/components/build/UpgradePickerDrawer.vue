@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import type { Faction } from '../../types/index.ts'
+import type { Faction, Unit } from '../../types/index.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
 import { slotLabel } from '../../utils/factions.ts'
 
-const props = defineProps<{ slot: string; faction: Faction; equippedIds: string[] }>()
+const props = defineProps<{ slot: string; faction: Faction; equippedIds: string[]; unit?: Unit }>()
 const emit = defineEmits<{ pick: [upgradeId: string]; clear: []; close: [] }>()
 
 const upgradesStore = useUpgradesStore()
@@ -13,7 +13,7 @@ const query = ref('')
 const candidates = computed(() => {
   const q = query.value.trim().toLowerCase()
   return upgradesStore
-    .forSlot(props.slot, props.faction)
+    .forSlot(props.slot, props.faction, props.unit)
     .filter((u) => !q || u.name.toLowerCase().includes(q))
     .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name))
 })

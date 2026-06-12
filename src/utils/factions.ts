@@ -107,3 +107,44 @@ export const SLOT_LABELS: Record<string, string> = {
 export function slotLabel(slot: string): string {
   return SLOT_LABELS[slot] ?? slot.replace(/\b\w/g, (c) => c.toUpperCase())
 }
+
+/**
+ * Light/dark allegiance for Force users, keyed by lowercased unit name. The only
+ * upgrade `requirement` criterion (`forceAffinity`) with no direct unit field, so
+ * it's hand-maintained; unlisted Force users fail open (the upgrade is shown).
+ * Keep accurate over complete — a wrong tag hides legal powers; a missing one
+ * just shows both sides.
+ */
+export const FORCE_SIDE: Record<string, 'light side' | 'dark side'> = {
+  // Light side
+  'luke skywalker': 'light side',
+  'obi-wan kenobi': 'light side',
+  'yoda': 'light side',
+  'mace windu': 'light side',
+  'ahsoka tano': 'light side',
+  'anakin skywalker': 'light side',
+  'plo koon': 'light side',
+  'ki-adi-mundi': 'light side',
+  'aayla secura': 'light side',
+  'luminara unduli': 'light side',
+  'qui-gon jinn': 'light side',
+  'ezra bridger': 'light side',
+  'kanan jarrus': 'light side',
+  'cal kestis': 'light side',
+  'jedi knight': 'light side',
+  'jedi knight general': 'light side',
+  'padawan': 'light side',
+  // Dark side
+  'darth vader': 'dark side',
+  'emperor palpatine': 'dark side',
+  'darth sidious': 'dark side',
+  'darth maul': 'dark side',
+  'maul': 'dark side',
+  'count dooku': 'dark side',
+  'asajj ventress': 'dark side',
+  'savage opress': 'dark side',
+  'grand inquisitor': 'dark side',
+  'the grand inquisitor': 'dark side',
+  'seventh sister': 'dark side',
+  'fifth brother': 'dark side',
+}

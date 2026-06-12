@@ -256,6 +256,11 @@
     "slot": "force",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "forceAffinity": "light side"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/jedi-mind-trick.webp"
@@ -267,6 +272,11 @@
     "slot": "force",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      {
+        "forceAffinity": "dark side"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/anger.webp"
@@ -278,6 +288,11 @@
     "slot": "force",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "forceAffinity": "dark side"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/force-choke.webp"
@@ -289,6 +304,11 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Sabine Wren"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Dauntless",
@@ -303,6 +323,11 @@
     "slot": "heavy weapon",
     "cost": 27,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -319,6 +344,11 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/z-6-trooper.webp"
@@ -330,6 +360,11 @@
     "slot": "heavy weapon",
     "cost": 31,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Wookiee Warriors"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact",
@@ -344,6 +379,11 @@
     "slot": "heavy weapon",
     "cost": 14,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -359,6 +399,12 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Commandos",
+        "title": "Strike Team"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/dh-447-sniper.webp"
@@ -370,6 +416,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Fleet Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Pierce"
@@ -383,6 +434,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Fleet Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -398,6 +454,11 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -411,6 +472,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cumbersome",
@@ -425,6 +491,12 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Scout Troopers",
+        "title": "Strike Team"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/dlt-19x-sniper.webp"
@@ -436,6 +508,11 @@
     "slot": "heavy weapon",
     "cost": 17,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Scout Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -452,6 +529,11 @@
     "slot": "heavy weapon",
     "cost": 24,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Snowtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -468,6 +550,11 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Snowtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -482,6 +569,13 @@
     "slot": "personnel",
     "cost": 9,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "rebels",
+        "rank": "corps",
+        "cardSubtype": "trooper"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/rebel-comms-technician.webp"
@@ -493,6 +587,13 @@
     "slot": "personnel",
     "cost": 16,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "rebels",
+        "rank": "corps",
+        "cardSubtype": "trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Inspire",
@@ -507,6 +608,11 @@
     "slot": "personnel",
     "cost": 7,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/rebel-trooper.webp"
@@ -518,6 +624,13 @@
     "slot": "personnel",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "rebels",
+        "rank": "corps",
+        "cardSubtype": "trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Repair",
@@ -532,6 +645,13 @@
     "slot": "personnel",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "rebels",
+        "rank": "corps",
+        "cardSubtype": "trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Treat",
@@ -546,6 +666,11 @@
     "slot": "personnel",
     "cost": 7,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Fleet Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/fleet-trooper.webp"
@@ -557,6 +682,12 @@
     "slot": "personnel",
     "cost": 17,
     "isUnique": false,
+    "requirements": [
+      {
+        "rank": "corps",
+        "faction": "empire"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Inspire",
@@ -571,6 +702,11 @@
     "slot": "personnel",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/stormtrooper.webp"
@@ -582,6 +718,12 @@
     "slot": "personnel",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "rank": "corps",
+        "faction": "empire"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/imperial-comms-technician.webp"
@@ -593,6 +735,12 @@
     "slot": "personnel",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "empire",
+        "rank": "corps"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Treat",
@@ -607,6 +755,12 @@
     "slot": "personnel",
     "cost": 9,
     "isUnique": false,
+    "requirements": [
+      {
+        "rank": "corps",
+        "faction": "empire"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Repair",
@@ -621,6 +775,11 @@
     "slot": "personnel",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Snowtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/snowtrooper.webp"
@@ -632,6 +791,11 @@
     "slot": "hardpoint",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AT-RT"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed"
@@ -645,6 +809,11 @@
     "slot": "hardpoint",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AT-RT"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -660,6 +829,11 @@
     "slot": "hardpoint",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AT-RT"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact",
@@ -674,6 +848,11 @@
     "slot": "hardpoint",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "T-47 Airspeeder"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed",
@@ -688,6 +867,11 @@
     "slot": "hardpoint",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AT-ST"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact",
@@ -702,6 +886,11 @@
     "slot": "hardpoint",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AT-ST"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed",
@@ -716,6 +905,11 @@
     "slot": "hardpoint",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AT-ST"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed",
@@ -730,6 +924,12 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "repulsor vehicle",
+        "faction": "rebels"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Full Pivot",
@@ -744,6 +944,12 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "ground vehicle",
+        "faction": "empire"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Arsenal",
@@ -758,6 +964,11 @@
     "slot": "force",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      {
+        "forceAffinity": "dark side"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Demoralize"
@@ -771,6 +982,11 @@
     "slot": "crew",
     "cost": 21,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "BARC Speeder"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -788,6 +1004,11 @@
     "slot": "crew",
     "cost": 14,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "BARC Speeder"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -801,6 +1022,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Shoretroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -814,6 +1040,11 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Dewback Rider"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/rt-97c-blaster-rifle.webp"
@@ -825,6 +1056,11 @@
     "slot": "armament",
     "cost": 14,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Dewback Rider"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -852,6 +1088,11 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Sabine Wren"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Shield Token",
@@ -867,6 +1108,11 @@
     "slot": "heavy weapon",
     "cost": 15,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Imperial Death Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Compel",
@@ -881,6 +1127,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Death Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -894,6 +1145,11 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Death Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -909,6 +1165,12 @@
     "slot": "pilot",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "ground vehicle",
+        "faction": "empire"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/imperial-hammers-elite-armor-pilot.webp"
@@ -920,6 +1182,12 @@
     "slot": "pilot",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "repulsor vehicle",
+        "faction": "rebels"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cover"
@@ -933,6 +1201,11 @@
     "slot": "crew",
     "cost": 21,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "X-34 Landspeeder"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -946,6 +1219,11 @@
     "slot": "crew",
     "cost": 1,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "X-34 Landspeeder"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/a-300-rifle-gunner.webp"
@@ -957,6 +1235,11 @@
     "slot": "personnel",
     "cost": 9,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Veterans"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/rebel-veteran.webp"
@@ -968,6 +1251,12 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "ground vehicle",
+        "faction": "empire"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Tactical"
@@ -981,6 +1270,11 @@
     "slot": "hardpoint",
     "cost": 21,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "X-34 Landspeeder"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed"
@@ -994,6 +1288,11 @@
     "slot": "hardpoint",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "X-34 Landspeeder"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -1011,6 +1310,11 @@
     "slot": "hardpoint",
     "cost": 14,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "TX-225 GAVw Occupier Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -1024,6 +1328,11 @@
     "slot": "hardpoint",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "TX-225 GAVw Occupier Tank"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/pintle-mounted-rt-97c.webp"
@@ -1035,6 +1344,11 @@
     "slot": "personnel",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Shoretroopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/shoretrooper.webp"
@@ -1046,6 +1360,11 @@
     "slot": "personnel",
     "cost": 4,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/b1-battle-droid.webp"
@@ -1057,6 +1376,11 @@
     "slot": "heavy weapon",
     "cost": 16,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/e-5c-b1-battle-droid.webp"
@@ -1068,6 +1392,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Trooper Infantry"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/z-6-clone-trooper.webp"
@@ -1079,6 +1408,11 @@
     "slot": "heavy weapon",
     "cost": 24,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Phase I Clone Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1092,6 +1426,11 @@
     "slot": "heavy weapon",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cumbersome",
@@ -1106,6 +1445,11 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Dewback Rider"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1145,6 +1489,18 @@
     "slot": "comms",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "ground vehicle"
+      },
+      {
+        "cardSubtype": "repulsor vehicle"
+      },
+      {
+        "cardSubtype": "emplacement trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Target"
@@ -1171,6 +1527,11 @@
     "slot": "crew",
     "cost": 12,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "BARC Speeder"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed"
@@ -1184,6 +1545,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Veterans"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1197,6 +1563,11 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Sabine Wren"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/electro-grappling-line.webp"
@@ -1208,6 +1579,12 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "repulsor vehicle",
+        "faction": "rebels"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/ryder-azadi.webp"
@@ -1219,6 +1596,11 @@
     "slot": "force",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      {
+        "forceAffinity": "light side"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Inspire"
@@ -1232,6 +1614,11 @@
     "slot": "personnel",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B2 Super Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/b2-super-battle-droid.webp"
@@ -1243,6 +1630,11 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Saber-Class Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Inspire",
@@ -1257,6 +1649,11 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AAT Battle Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "AI",
@@ -1271,6 +1668,11 @@
     "slot": "personnel",
     "cost": 6,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "AI"
@@ -1284,6 +1686,11 @@
     "slot": "heavy weapon",
     "cost": 26,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1297,6 +1704,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Trooper Infantry"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Pierce"
@@ -1310,6 +1722,11 @@
     "slot": "heavy weapon",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1323,6 +1740,15 @@
     "slot": "heavy weapon",
     "cost": 23,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Clone Trooper Infantry"
+      },
+      {
+        "cardName": "Clone Trooper Marksmen"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cumbersome",
@@ -1337,6 +1763,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/rt-97c-stormtrooper.webp"
@@ -1348,6 +1779,11 @@
     "slot": "heavy weapon",
     "cost": 13,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -1361,6 +1797,11 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1387,6 +1828,11 @@
     "slot": "personnel",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader"
@@ -1400,6 +1846,11 @@
     "slot": "personnel",
     "cost": 9,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader"
@@ -1413,6 +1864,11 @@
     "slot": "personnel",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Surge Token"
@@ -1426,6 +1882,11 @@
     "slot": "personnel",
     "cost": 9,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Surge Token"
@@ -1439,6 +1900,11 @@
     "slot": "personnel",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Coordinate",
@@ -1453,6 +1919,11 @@
     "slot": "heavy weapon",
     "cost": 16,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Poison Token"
@@ -1466,6 +1937,11 @@
     "slot": "squad leader",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -1481,6 +1957,12 @@
     "slot": "personnel",
     "cost": 17,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper",
+        "rank": "corps"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/clone-specialist.webp"
@@ -1492,6 +1974,11 @@
     "slot": "heavy weapon",
     "cost": 24,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B2 Super Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/b2-acm-battle-droid.webp"
@@ -1503,6 +1990,11 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Cassian Andor"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cumbersome",
@@ -1519,6 +2011,12 @@
     "slot": "pilot",
     "cost": 7,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "republic",
+        "rank": "heavy"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/veteran-clone-pilot.webp"
@@ -1530,6 +2028,11 @@
     "slot": "hardpoint",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Saber-Class Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Beam"
@@ -1558,6 +2061,15 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Clone Trooper Infantry"
+      },
+      {
+        "cardName": "Clone Trooper Marksmen"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -1573,6 +2085,11 @@
     "slot": "heavy weapon",
     "cost": 32,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B2 Super Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -1588,6 +2105,11 @@
     "slot": "pilot",
     "cost": 9,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "AAT Battle Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "AI",
@@ -1602,6 +2124,11 @@
     "slot": "hardpoint",
     "cost": 14,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Saber-Class Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1615,6 +2142,11 @@
     "slot": "pilot",
     "cost": 9,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Saber-Class Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Agile"
@@ -1644,6 +2176,11 @@
     "slot": "pilot",
     "cost": 7,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "AAT Battle Tank"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Coordinate"
@@ -1657,6 +2194,11 @@
     "slot": "armament",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "BX-Series Droid Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Shields",
@@ -1671,6 +2213,12 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "BX-Series Droid Commandos",
+        "title": "Strike Team"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/bx-series-droid-sniper.webp"
@@ -1682,6 +2230,12 @@
     "slot": "heavy weapon",
     "cost": 26,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "ARC Troopers",
+        "title": "Strike Team"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-sniper.webp"
@@ -1693,6 +2247,11 @@
     "slot": "squad leader",
     "cost": 40,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -1708,6 +2267,21 @@
     "slot": "heavy weapon",
     "cost": 46,
     "isUnique": true,
+    "requirements": [
+      "AND",
+      {
+        "cardSubtype": "clone trooper"
+      },
+      [
+        "OR",
+        {
+          "rank": "corps"
+        },
+        {
+          "rank": "special"
+        }
+      ]
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -1736,6 +2310,11 @@
     "slot": "armament",
     "cost": 6,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "BX-Series Droid Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge"
@@ -1749,6 +2328,11 @@
     "slot": "armament",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Cad Bane"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Immobilize",
@@ -1763,6 +2347,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "K-2SO"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Suppressive",
@@ -1777,6 +2366,15 @@
     "slot": "comms",
     "cost": 2,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "ground vehicle"
+      },
+      {
+        "cardSubtype": "repulsor vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Coordinate"
@@ -1790,6 +2388,20 @@
     "slot": "heavy weapon",
     "cost": 29,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "faction": "empire",
+        "rank": "corps",
+        "cardSubtype": "trooper"
+      },
+      {
+        "cardName": "Imperial Special Forces"
+      },
+      {
+        "cardName": "Imperial Special Forces Inferno Squad"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Coordinate",
@@ -1804,6 +2416,20 @@
     "slot": "heavy weapon",
     "cost": 35,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "faction": "empire",
+        "rank": "corps",
+        "cardSubtype": "trooper"
+      },
+      {
+        "cardName": "Imperial Special Forces"
+      },
+      {
+        "cardName": "Imperial Special Forces Inferno Squad"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Repair",
@@ -1833,6 +2459,11 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "BX-Series Droid Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -1848,6 +2479,11 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Resistance"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/jetpack-rockets.webp"
@@ -1859,6 +2495,11 @@
     "slot": "heavy weapon",
     "cost": 24,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Resistance"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Duelist",
@@ -1874,6 +2515,11 @@
     "slot": "heavy weapon",
     "cost": 34,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Resistance"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Dauntless",
@@ -1889,6 +2535,11 @@
     "slot": "heavy weapon",
     "cost": 34,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Resistance"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Lethal",
@@ -1903,6 +2554,12 @@
     "slot": "personnel",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "separatists",
+        "cardSubtype": "droid trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "AI",
@@ -1932,6 +2589,13 @@
     "slot": "training",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "upgradeBar": [
+          "force"
+        ]
+      }
+    ],
     "faction": null,
     "keywords": [
       "Reconfigure"
@@ -1945,6 +2609,18 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      "AND",
+      {
+        "cardName": "Imperial Special Forces"
+      },
+      [
+        "NOT",
+        {
+          "title": "Inferno Squad"
+        }
+      ]
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -1969,6 +2645,15 @@
     "slot": "training",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "rank": "commander"
+      },
+      {
+        "rank": "operative"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/seize-the-initiative.webp"
@@ -2002,6 +2687,12 @@
     "slot": "personnel",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper",
+        "rank": "corps"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fire Support"
@@ -2015,6 +2706,12 @@
     "slot": "personnel",
     "cost": 17,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper",
+        "rank": "corps"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Repair"
@@ -2028,6 +2725,11 @@
     "slot": "squad leader",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Treat"
@@ -2041,6 +2743,11 @@
     "slot": "squad leader",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Inspire",
@@ -2056,6 +2763,12 @@
     "slot": "personnel",
     "cost": 9,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "separatists",
+        "cardSubtype": "droid trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Observe",
@@ -2070,6 +2783,12 @@
     "slot": "personnel",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "separatists",
+        "cardSubtype": "droid trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Repair",
@@ -2084,6 +2803,12 @@
     "slot": "personnel",
     "cost": 14,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "separatists",
+        "cardSubtype": "droid trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Treat",
@@ -2098,6 +2823,11 @@
     "slot": "hardpoint",
     "cost": 7,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "A-A5 Speeder Truck"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -2111,6 +2841,12 @@
     "slot": "pilot",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "rebels",
+        "rank": "heavy"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Field Commander"
@@ -2124,6 +2860,12 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "empire",
+        "rank": "heavy"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Field Commander"
@@ -2137,6 +2879,12 @@
     "slot": "pilot",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "republic",
+        "cardName": "LAAT/le Patrol Transport"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Field Commander"
@@ -2150,6 +2898,15 @@
     "slot": "comms",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "ground vehicle"
+      },
+      {
+        "cardSubtype": "repulsor vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Coordinate"
@@ -2163,6 +2920,11 @@
     "slot": "hardpoint",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "A-A5 Speeder Truck"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -2176,6 +2938,12 @@
     "slot": "pilot",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "rebels",
+        "cardSubtype": "repulsor vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Sharpshooter"
@@ -2189,6 +2957,11 @@
     "slot": "crew",
     "cost": 12,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "A-A5 Speeder Truck"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/backworld-medic.webp"
@@ -2200,6 +2973,15 @@
     "slot": "crew",
     "cost": 16,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "X-34 Landspeeder"
+      },
+      {
+        "cardName": "A-A5 Speeder Truck"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/unstable-astromech.webp"
@@ -2211,6 +2993,11 @@
     "slot": "crew",
     "cost": 16,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "A-A5 Speeder Truck"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/unorthodox-tactician.webp"
@@ -2222,6 +3009,12 @@
     "slot": "pilot",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "empire",
+        "cardSubtype": "repulsor vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Marksman"
@@ -2235,6 +3028,12 @@
     "slot": "pilot",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "republic",
+        "cardName": "LAAT/le Patrol Transport"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Observe"
@@ -2248,6 +3047,12 @@
     "slot": "pilot",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "empire",
+        "cardSubtype": "repulsor vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/imperial-tie-pilot.webp"
@@ -2259,6 +3064,12 @@
     "slot": "pilot",
     "cost": 4,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "republic",
+        "rank": "heavy"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/clone-shock-trooper-pilot.webp"
@@ -2270,6 +3081,11 @@
     "slot": "heavy weapon",
     "cost": 26,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Wookiee Warriors"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Armor",
@@ -2284,6 +3100,11 @@
     "slot": "heavy weapon",
     "cost": 26,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Wookiee Warriors"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Suppressive"
@@ -2330,6 +3151,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "IG-100 MagnaGuard"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Immobilize",
@@ -2344,6 +3170,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "IG-100 MagnaGuard"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/ig-100-magnaguard.webp"
@@ -2355,6 +3186,11 @@
     "slot": "heavy weapon",
     "cost": 32,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "IG-100 MagnaGuard"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -2369,6 +3205,11 @@
     "slot": "crew",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Raddaugh Gnasp Fluttercraft"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed",
@@ -2395,6 +3236,11 @@
     "slot": "programming",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "ground vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [
       "AI"
@@ -2408,6 +3254,11 @@
     "slot": "programming",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "ground vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [
       "AI",
@@ -2424,6 +3275,11 @@
     "slot": "programming",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "ground vehicle"
+      }
+    ],
     "faction": null,
     "keywords": [
       "AI",
@@ -2438,6 +3294,11 @@
     "slot": "hardpoint",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "DSD1 Dwarf Spider Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -2453,6 +3314,11 @@
     "slot": "crew",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Raddaugh Gnasp Fluttercraft"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Overrun",
@@ -2467,6 +3333,11 @@
     "slot": "hardpoint",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "DSD1 Dwarf Spider Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -2483,6 +3354,11 @@
     "slot": "hardpoint",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "DSD1 Dwarf Spider Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical",
@@ -2497,6 +3373,11 @@
     "slot": "pilot",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Infantry Support Platform"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/327th-star-corps-pilot.webp"
@@ -2508,6 +3389,11 @@
     "slot": "hardpoint",
     "cost": 25,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Infantry Support Platform"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Gunslinger",
@@ -2523,6 +3409,11 @@
     "slot": "hardpoint",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Infantry Support Platform"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Beam",
@@ -2537,6 +3428,11 @@
     "slot": "hardpoint",
     "cost": 25,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Infantry Support Platform"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Gunslinger",
@@ -2565,6 +3461,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Pyke Syndicate Foot Soldiers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -2578,6 +3479,11 @@
     "slot": "heavy weapon",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Pyke Syndicate Foot Soldiers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Immobilize",
@@ -2592,6 +3498,11 @@
     "slot": "personnel",
     "cost": 9,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Pyke Syndicate Foot Soldiers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cache"
@@ -2605,6 +3516,11 @@
     "slot": "personnel",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Pyke Syndicate Foot Soldiers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Independent",
@@ -2619,6 +3535,11 @@
     "slot": "personnel",
     "cost": 11,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Black Sun Enforcers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cache"
@@ -2632,6 +3553,11 @@
     "slot": "personnel",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Black Sun Enforcers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Independent",
@@ -2646,6 +3572,11 @@
     "slot": "heavy weapon",
     "cost": 16,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Black Sun Enforcers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -2660,6 +3591,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Black Sun Enforcers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Pierce"
@@ -2699,6 +3635,12 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Maul",
+        "title": "A Rival"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cunning",
@@ -2740,6 +3682,11 @@
     "slot": "gear",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Shielded"
@@ -2753,6 +3700,11 @@
     "slot": "armament",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -2768,6 +3720,11 @@
     "slot": "heavy weapon",
     "cost": 24,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cache"
@@ -2781,6 +3738,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/super-commando-gunslinger.webp"
@@ -2792,6 +3754,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Precise"
@@ -2805,6 +3772,11 @@
     "slot": "heavy weapon",
     "cost": 35,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Retinue",
@@ -2830,6 +3802,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Gar Saxon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "High Velocity",
@@ -2845,6 +3822,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Gar Saxon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -2860,6 +3842,11 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Gar Saxon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -2875,6 +3862,12 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "rank": "heavy",
+        "affiliation": "raider"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/frenzied-gunner.webp"
@@ -2886,6 +3879,12 @@
     "slot": "pilot",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "rank": "heavy",
+        "affiliation": "raider"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Allies of Convenience",
@@ -2901,6 +3900,11 @@
     "slot": "gear",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Gar Saxon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Shielded",
@@ -2915,6 +3919,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Din Djarin"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Immobilize",
@@ -2929,6 +3938,11 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Din Djarin"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -2944,6 +3958,11 @@
     "slot": "gear",
     "cost": 15,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Din Djarin"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Jump"
@@ -2957,6 +3976,11 @@
     "slot": "armament",
     "cost": 15,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Din Djarin"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Duelist",
@@ -2971,6 +3995,12 @@
     "slot": "squad leader",
     "cost": 20,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper",
+        "rank": "corps"
+      }
+    ],
     "faction": "republic",
     "keywords": [
       "Guardian 1",
@@ -2986,6 +4016,12 @@
     "slot": "squad leader",
     "cost": 20,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper",
+        "rank": "corps"
+      }
+    ],
     "faction": "republic",
     "keywords": [
       "Disciplined",
@@ -3001,6 +4037,11 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Boba Fett"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -3016,6 +4057,11 @@
     "slot": "armament",
     "cost": 15,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Moff Gideon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Demoralize",
@@ -3032,6 +4078,11 @@
     "slot": "heavy weapon",
     "cost": 49,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Dark Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical"
@@ -3045,6 +4096,11 @@
     "slot": "heavy weapon",
     "cost": 40,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Dark Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -3060,6 +4116,11 @@
     "slot": "heavy weapon",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Dark Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Suppressive"
@@ -3073,6 +4134,11 @@
     "slot": "personnel",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Dark Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/imperial-dark-trooper.webp"
@@ -3084,6 +4150,11 @@
     "slot": "programming",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Dark Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Retinue"
@@ -3097,6 +4168,21 @@
     "slot": "training",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Wicket"
+      },
+      {
+        "cardName": "Logray"
+      },
+      {
+        "cardName": "Ewok Skirmishers"
+      },
+      {
+        "cardName": "Ewok Slingers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Scout"
@@ -3111,6 +4197,21 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Wicket"
+      },
+      {
+        "cardName": "Logray"
+      },
+      {
+        "cardName": "Ewok Skirmishers"
+      },
+      {
+        "cardName": "Ewok Slingers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge"
@@ -3124,6 +4225,15 @@
     "slot": "heavy weapon",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Ewok Skirmishers"
+      },
+      {
+        "cardName": "Ewok Slingers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Pierce",
@@ -3138,6 +4248,15 @@
     "slot": "training",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Ewok Skirmishers"
+      },
+      {
+        "cardName": "Ewok Slingers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/insatiable-curiosity.webp"
@@ -3149,6 +4268,15 @@
     "slot": "personnel",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Ewok Skirmishers"
+      },
+      {
+        "cardName": "Ewok Slingers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/ewok-trapper.webp"
@@ -3160,6 +4288,11 @@
     "slot": "training",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Logray"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Aid"
@@ -3173,6 +4306,11 @@
     "slot": "training",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Logray"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/herbal-medicine.webp"
@@ -3184,6 +4322,11 @@
     "slot": "training",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Logray"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/onward-to-victory.webp"
@@ -3195,6 +4338,15 @@
     "slot": "training",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Fifth Brother"
+      },
+      {
+        "cardName": "Seventh Sister"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/inquisitorius-training.webp"
@@ -3206,6 +4358,11 @@
     "slot": "heavy weapon",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Geonosian Warriors"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Overrun",
@@ -3220,6 +4377,11 @@
     "slot": "heavy weapon",
     "cost": 25,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Geonosian Warriors"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Scatter",
@@ -3234,6 +4396,11 @@
     "slot": "personnel",
     "cost": 11,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Geonosian Warriors"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/geonosian-warrior.webp"
@@ -3245,6 +4412,11 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact",
@@ -3262,6 +4434,11 @@
     "slot": "gear",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/katarn-pattern-armor.webp"
@@ -3273,6 +4450,11 @@
     "slot": "personnel",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Range Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/range-trooper.webp"
@@ -3284,6 +4466,11 @@
     "slot": "heavy weapon",
     "cost": 25,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Range Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/dlt-20a-range-trooper.webp"
@@ -3295,6 +4482,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Range Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Suppressive"
@@ -3308,6 +4500,11 @@
     "slot": "heavy weapon",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "The Bad Batch"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Reliable"
@@ -3321,6 +4518,11 @@
     "slot": "heavy weapon",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "The Bad Batch"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader"
@@ -3334,6 +4536,11 @@
     "slot": "heavy weapon",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "The Bad Batch"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/wrecker.webp"
@@ -3345,6 +4552,11 @@
     "slot": "heavy weapon",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "The Bad Batch"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cache",
@@ -3359,6 +4571,11 @@
     "slot": "heavy weapon",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "The Bad Batch"
+      }
+    ],
     "faction": "republic",
     "keywords": [
       "Critical",
@@ -3375,6 +4592,11 @@
     "slot": "heavy weapon",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtrooper Riot Squad"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -3388,6 +4610,11 @@
     "slot": "personnel",
     "cost": 52,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Shoretroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3402,6 +4629,11 @@
     "slot": "personnel",
     "cost": 40,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Snowtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3416,6 +4648,11 @@
     "slot": "heavy weapon",
     "cost": 11,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtrooper Riot Squad"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/stormtrooper-marksman.webp"
@@ -3427,6 +4664,11 @@
     "slot": "personnel",
     "cost": 40,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Stormtroopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3441,6 +4683,11 @@
     "slot": "personnel",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Sleeper Cell"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Noncombatant"
@@ -3454,6 +4701,11 @@
     "slot": "personnel",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Ewok Skirmishers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3468,6 +4720,11 @@
     "slot": "personnel",
     "cost": 27,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Ewok Slingers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3482,6 +4739,11 @@
     "slot": "personnel",
     "cost": 40,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Fleet Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3496,6 +4758,11 @@
     "slot": "heavy weapon",
     "cost": 16,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Sleeper Cell"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/rebel-marksman.webp"
@@ -3507,6 +4774,11 @@
     "slot": "personnel",
     "cost": 40,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3521,6 +4793,11 @@
     "slot": "personnel",
     "cost": 38,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B1 Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3535,6 +4812,11 @@
     "slot": "personnel",
     "cost": 77,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "B2 Super Battle Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3549,6 +4831,11 @@
     "slot": "personnel",
     "cost": 51,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Geonosian Warriors"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3563,6 +4850,11 @@
     "slot": "hardpoint",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "LM-432 Crab Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact",
@@ -3577,6 +4869,11 @@
     "slot": "hardpoint",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "LM-432 Crab Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Fixed"
@@ -3590,6 +4887,11 @@
     "slot": "personnel",
     "cost": 53,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Trooper Infantry"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3604,6 +4906,11 @@
     "slot": "personnel",
     "cost": 13,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Trooper Infantry"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/clone-trooper-infantry.webp"
@@ -3615,6 +4922,11 @@
     "slot": "personnel",
     "cost": 50,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Rebel Veterans"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -3629,6 +4941,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Aqua Droids"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Impact"
@@ -3642,6 +4959,15 @@
     "slot": "squad leader",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      "AND",
+      {
+        "cardSubtype": "clone trooper"
+      },
+      {
+        "rank": "special"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -3659,6 +4985,11 @@
     "slot": "heavy weapon",
     "cost": 24,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "ARF Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cumbersome",
@@ -3673,6 +5004,11 @@
     "slot": "personnel",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "ARF Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cache"
@@ -3686,6 +5022,11 @@
     "slot": "squad leader",
     "cost": 35,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "clone trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -3706,6 +5047,11 @@
     "slot": "gear",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Resistance"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Shielded"
@@ -3719,6 +5065,13 @@
     "slot": "training",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "keywords": [
+          "Speeder"
+        ]
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/strike-and-fade.webp"
@@ -3730,6 +5083,11 @@
     "slot": "training",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      {
+        "rank": "operative"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/strike-team-leader.webp"
@@ -3741,6 +5099,30 @@
     "slot": "training",
     "cost": 6,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "trooper"
+      },
+      {
+        "cardSubtype": "clone trooper"
+      },
+      {
+        "cardSubtype": "creature trooper"
+      },
+      {
+        "cardSubtype": "droid trooper"
+      },
+      {
+        "cardSubtype": "emplacement trooper"
+      },
+      {
+        "cardSubtype": "wookiee trooper"
+      },
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/mission-objective.webp"
@@ -3763,6 +5145,12 @@
     "slot": "training",
     "cost": 6,
     "isUnique": false,
+    "requirements": [
+      {
+        "faction": "empire",
+        "rank": "corps"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge"
@@ -3776,6 +5164,11 @@
     "slot": "force",
     "cost": 6,
     "isUnique": false,
+    "requirements": [
+      {
+        "forceAffinity": "dark side"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/terror.webp"
@@ -3787,6 +5180,38 @@
     "slot": "training",
     "cost": 6,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "emplacement trooper"
+      },
+      [
+        "AND",
+        {
+          "keywords": [
+            "Prepared Position"
+          ]
+        },
+        [
+          "OR",
+          {
+            "cardSubtype": "trooper"
+          },
+          {
+            "cardSubtype": "clone trooper"
+          },
+          {
+            "cardSubtype": "creature trooper"
+          },
+          {
+            "cardSubtype": "droid trooper"
+          },
+          {
+            "cardSubtype": "wookiee trooper"
+          }
+        ]
+      ]
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/dug-in.webp"
@@ -3798,6 +5223,11 @@
     "slot": "force",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "forceAffinity": "light side"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/tranquility.webp"
@@ -3844,6 +5274,13 @@
     "slot": "crew",
     "cost": 12,
     "isUnique": false,
+    "requirements": [
+      {
+        "keywords": [
+          "Transport"
+        ]
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/door-gunners.webp"
@@ -3855,6 +5292,15 @@
     "slot": "gear",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Rebel Agent"
+      },
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/combat-armor.webp"
@@ -3866,6 +5312,15 @@
     "slot": "gear",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/combat-armor-2.webp"
@@ -3877,6 +5332,11 @@
     "slot": "doctrine",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Exemplar",
@@ -3892,6 +5352,15 @@
     "slot": "doctrine",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Aid Empire Trooper Unit",
@@ -3907,6 +5376,15 @@
     "slot": "doctrine",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Aid Emplacement Trooper",
@@ -3922,6 +5400,11 @@
     "slot": "doctrine",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Imperial Agent"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Retinue Imperial Agent",
@@ -3936,6 +5419,15 @@
     "slot": "gear",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Recharge 1",
@@ -3951,6 +5443,15 @@
     "slot": "gear",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/command-and-control-uplink.webp"
@@ -3962,6 +5463,15 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Sharpshooter 1",
@@ -3978,6 +5488,15 @@
     "slot": "armament",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Demoralize 1",
@@ -3992,6 +5511,15 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Imperial Agent"
+      },
+      {
+        "cardName": "Imperial Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Immune: Melee Pierce",
@@ -4006,6 +5534,11 @@
     "slot": "doctrine",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Dauntless",
@@ -4023,6 +5556,15 @@
     "slot": "doctrine",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Rebel Agent"
+      },
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Prepared Position",
@@ -4037,6 +5579,11 @@
     "slot": "doctrine",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Reinforcements",
@@ -4052,6 +5599,11 @@
     "slot": "doctrine",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Rebel Agent"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Critical 1",
@@ -4067,6 +5619,15 @@
     "slot": "armament",
     "cost": 25,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Rebel Agent"
+      },
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Precise 2",
@@ -4083,6 +5644,15 @@
     "slot": "armament",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Rebel Agent"
+      },
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Arsenal 2",
@@ -4097,6 +5667,15 @@
     "slot": "armament",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Rebel Agent"
+      },
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -4112,6 +5691,15 @@
     "slot": "grenades",
     "cost": 3,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Rebel Agent"
+      },
+      {
+        "cardName": "Rebel Officer"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Blast",
@@ -4126,6 +5714,11 @@
     "slot": "doctrine",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Bolster 2",
@@ -4141,6 +5734,15 @@
     "slot": "doctrine",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Steady"
@@ -4154,6 +5756,15 @@
     "slot": "doctrine",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/jedi-negotiator.webp"
@@ -4165,6 +5776,15 @@
     "slot": "doctrine",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -4179,6 +5799,15 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Block"
@@ -4192,6 +5821,15 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/twin-lightsabers.webp"
@@ -4203,6 +5841,15 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -4218,6 +5865,15 @@
     "cost": 8,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Block",
@@ -4235,6 +5891,15 @@
     "cost": 8,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Prepared Position",
@@ -4252,6 +5917,15 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Jump 2"
@@ -4266,6 +5940,15 @@
     "cost": 8,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Jedi Knight"
+      },
+      {
+        "cardName": "Jedi Knight General"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Guidance Core Trooper Unit"
@@ -4280,6 +5963,11 @@
     "cost": 8,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/tyrannical-taskmaster.webp"
@@ -4292,6 +5980,11 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Demoralize 1",
@@ -4308,6 +6001,11 @@
     "cost": 8,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/sliced-comms.webp"
@@ -4320,6 +6018,11 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/overclock.webp"
@@ -4332,6 +6035,11 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/targeting-relay.webp"
@@ -4344,6 +6052,11 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/limiter-override.webp"
@@ -4355,6 +6068,11 @@
     "slot": "programming",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Direct AI Unit"
@@ -4368,6 +6086,11 @@
     "slot": "programming",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Strategize 1"
@@ -4381,6 +6104,11 @@
     "slot": "programming",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Sharpshooter 1",
@@ -4395,6 +6123,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -4409,6 +6142,11 @@
     "slot": "armament",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/heavy-arm-cannon.webp"
@@ -4420,6 +6158,11 @@
     "slot": "gear",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Scale",
@@ -4434,6 +6177,11 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Tactical Command Droid"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/expanded-databanks.webp"
@@ -4445,6 +6193,15 @@
     "slot": "gear",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "TSMEU-6 Wheel Bikes"
+      },
+      {
+        "title": "Wheel Bike Warlord"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/turbo-charge.webp"
@@ -4456,6 +6213,11 @@
     "slot": "personnel",
     "cost": 53,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Trooper Marksmen"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/clone-trooper-marksmen-squad.webp"
@@ -4467,6 +6229,11 @@
     "slot": "personnel",
     "cost": 14,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clone Trooper Marksmen"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/clone-trooper-marksman.webp"
@@ -4478,6 +6245,13 @@
     "slot": "heavy weapon",
     "cost": 30,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "separatists",
+        "rank": "corps",
+        "cardSubtype": "droid trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4492,6 +6266,17 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "faction": "empire",
+        "rank": "corps"
+      },
+      {
+        "faction": "empire",
+        "rank": "special"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4507,6 +6292,13 @@
     "slot": "squad leader",
     "cost": 38,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "republic",
+        "rank": "corps",
+        "cardSubtype": "clone trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader"
@@ -4520,6 +6312,12 @@
     "slot": "heavy weapon",
     "cost": 25,
     "isUnique": true,
+    "requirements": [
+      {
+        "faction": "rebels",
+        "rank": "corps"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4536,6 +6334,11 @@
     "slot": "crew",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "WLO-5 Speeder Tank"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/black-sun-crew.webp"
@@ -4547,6 +6350,11 @@
     "slot": "crew",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "WLO-5 Speeder Tank"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/pyke-syndicate-crew.webp"
@@ -4558,6 +6366,11 @@
     "slot": "crew",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "WLO-5 Speeder Tank"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/weequay-crew.webp"
@@ -4569,6 +6382,11 @@
     "slot": "pilot",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "WLO-5 Speeder Tank"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/pirate-captain.webp"
@@ -4580,6 +6398,12 @@
     "slot": "pilot",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "raider",
+        "rank": "heavy"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Command Vehicle 2"
@@ -4593,6 +6417,11 @@
     "slot": "pilot",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "TSMEU-6 Wheel Bikes"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/ig-100-magnaguard-pilot.webp"
@@ -4604,6 +6433,11 @@
     "slot": "training",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "General Tagge"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Calculate Odds",
@@ -4618,6 +6452,11 @@
     "slot": "training",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Imperial Death Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Guardian 2",
@@ -4632,6 +6471,11 @@
     "slot": "heavy weapon",
     "cost": 20,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Weequay Pirates"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/long-rifle-pirate.webp"
@@ -4643,6 +6487,11 @@
     "slot": "personnel",
     "cost": 18,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Weequay Pirates"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader"
@@ -4656,6 +6505,11 @@
     "slot": "personnel",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Weequay Pirates"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -4670,6 +6524,11 @@
     "slot": "heavy weapon",
     "cost": 15,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Weequay Pirates"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Immune: Melee Pierce",
@@ -4684,6 +6543,11 @@
     "slot": "command",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Plo Koon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Retinue Plo Koon"
@@ -4714,6 +6578,11 @@
     "slot": "personnel",
     "cost": 30,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Children of the Watch"
+      }
+    ],
     "faction": "mercenary",
     "keywords": [
       "Leader",
@@ -4728,6 +6597,11 @@
     "slot": "personnel",
     "cost": 40,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Children of the Watch"
+      }
+    ],
     "faction": "mercenary",
     "keywords": [
       "Leader",
@@ -4742,6 +6616,11 @@
     "slot": "command",
     "cost": 0,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Admiral Trench"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/caught-in-a-web.webp"
@@ -4753,6 +6632,12 @@
     "slot": "heavy weapon",
     "cost": 26,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "ARC Troopers",
+        "rank": "special"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-gunner.webp"
@@ -4764,6 +6649,24 @@
     "slot": "heavy weapon",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      "AND",
+      {
+        "faction": "empire"
+      },
+      [
+        "OR",
+        {
+          "rank": "corps"
+        },
+        {
+          "rank": "special"
+        },
+        {
+          "rank": "support"
+        }
+      ]
+    ],
     "faction": null,
     "keywords": [
       "Observe",
@@ -4778,6 +6681,11 @@
     "slot": "personnel",
     "cost": 38,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Pyke Syndicate Foot Soldiers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable"
@@ -4791,6 +6699,11 @@
     "slot": "heavy weapon",
     "cost": 32,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Stormtrooper Riot Squad"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4806,6 +6719,18 @@
     "slot": "heavy weapon",
     "cost": 30,
     "isUnique": true,
+    "requirements": [
+      "AND",
+      {
+        "cardName": "Imperial Special Forces"
+      },
+      [
+        "NOT",
+        {
+          "title": "Inferno Squad"
+        }
+      ]
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4821,6 +6746,19 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Guerilla Troopers"
+      },
+      {
+        "cardName": "Rebel Commandos",
+        "rank": "special"
+      },
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4839,6 +6777,15 @@
     "slot": "heavy weapon",
     "cost": 25,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Rebel Veterans"
+      },
+      {
+        "cardName": "Rebel Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4854,6 +6801,11 @@
     "slot": "squad leader",
     "cost": 25,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "ARF Troopers"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4869,6 +6821,15 @@
     "slot": "squad leader",
     "cost": 28,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "ARF Troopers"
+      },
+      {
+        "cardName": "Clone Trooper Marksmen"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4884,6 +6845,16 @@
     "slot": "heavy weapon",
     "cost": 26,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "B1 Battle Droids"
+      },
+      {
+        "cardName": "BX-Series Droid Commandos",
+        "rank": "special"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4901,6 +6872,15 @@
     "slot": "heavy weapon",
     "cost": 36,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "B1 Battle Droids"
+      },
+      {
+        "cardName": "IG-100 MagnaGuard"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -4916,6 +6896,11 @@
     "slot": "heavy weapon",
     "cost": 40,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardSubtype": "wookiee trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader"
@@ -4929,6 +6914,11 @@
     "slot": "personnel",
     "cost": 45,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Initiates"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Indomitable",
@@ -4943,6 +6933,27 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "AND",
+      {
+        "cardName": "Mandalorian Warriors"
+      },
+      [
+        "OR",
+        {
+          "affiliation": "Clan Kryze"
+        },
+        {
+          "affiliation": "Clan Saxon"
+        },
+        {
+          "affiliation": "Clan Wren"
+        },
+        {
+          "affiliation": "Mandalore"
+        }
+      ]
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/galaar-15-carbines.webp"
@@ -4954,6 +6965,21 @@
     "slot": "heavy weapon",
     "cost": 35,
     "isUnique": false,
+    "requirements": [
+      "AND",
+      {
+        "cardSubtype": "mandalorian trooper"
+      },
+      [
+        "OR",
+        {
+          "rank": "special"
+        },
+        {
+          "rank": "support"
+        }
+      ]
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/galaar-90-sniper-rifle.webp"
@@ -4965,6 +6991,11 @@
     "slot": "heavy weapon",
     "cost": 28,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/shukur-05-repeater.webp"
@@ -4976,6 +7007,11 @@
     "slot": "heavy weapon",
     "cost": 22,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Cycle"
@@ -4989,6 +7025,11 @@
     "slot": "personnel",
     "cost": 30,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Clan Kryze"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -5004,6 +7045,11 @@
     "slot": "personnel",
     "cost": 30,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Clan Kryze"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -5018,6 +7064,11 @@
     "slot": "personnel",
     "cost": 40,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Children of the Watch"
+      }
+    ],
     "faction": "mercenary",
     "keywords": [
       "Leader",
@@ -5032,6 +7083,11 @@
     "slot": "heavy weapon",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Clan Wren Veterans"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/beskad-duelist-2.webp"
@@ -5043,6 +7099,11 @@
     "slot": "personnel",
     "cost": 25,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Clan Saxon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Retinue",
@@ -5057,6 +7118,11 @@
     "slot": "clan",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Mandalorians Are Stronger Together"
@@ -5070,6 +7136,11 @@
     "slot": "clan",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "We Fight for Our Family"
@@ -5083,6 +7154,11 @@
     "slot": "clan",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "This is the Way"
@@ -5096,6 +7172,11 @@
     "slot": "clan",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Victory or Death"
@@ -5109,6 +7190,17 @@
     "slot": "clan",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "mandalorian trooper",
+        "rank": "commander"
+      },
+      {
+        "cardSubtype": "mandalorian trooper",
+        "rank": "operative"
+      }
+    ],
     "faction": null,
     "keywords": [
       "This is the Way"
@@ -5122,6 +7214,11 @@
     "slot": "heavy weapon",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/super-commando-gunslinger-2.webp"
@@ -5133,6 +7230,11 @@
     "slot": "heavy weapon",
     "cost": 30,
     "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "Super Commandos"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/super-commando-marksman-2.webp"
@@ -5144,6 +7246,24 @@
     "slot": "gear",
     "cost": 10,
     "isUnique": false,
+    "requirements": [
+      "AND",
+      {
+        "cardSubtype": "mandalorian trooper"
+      },
+      [
+        "OR",
+        {
+          "rank": "special"
+        },
+        {
+          "rank": "support"
+        },
+        {
+          "rank": "corps"
+        }
+      ]
+    ],
     "faction": null,
     "keywords": [
       "Shielded"
@@ -5158,6 +7278,11 @@
     "cost": 10,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/jetpack-rockets-2.webp"
@@ -5170,6 +7295,17 @@
     "cost": 10,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "mandalorian trooper",
+        "rank": "commander"
+      },
+      {
+        "cardSubtype": "mandalorian trooper",
+        "rank": "operative"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Shielded",
@@ -5185,6 +7321,11 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      {
+        "cardSubtype": "mandalorian trooper"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/flame-projector.webp"
@@ -5197,6 +7338,17 @@
     "cost": 5,
     "isUnique": false,
     "limit": 2,
+    "requirements": [
+      "OR",
+      {
+        "cardSubtype": "mandalorian trooper",
+        "rank": "commander"
+      },
+      {
+        "cardSubtype": "mandalorian trooper",
+        "rank": "operative"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/whipcord-launcher.webp"
@@ -5208,6 +7360,11 @@
     "slot": "personnel",
     "cost": 45,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Clan Saxon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Compel",
@@ -5222,6 +7379,11 @@
     "slot": "personnel",
     "cost": 25,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Clan Wren"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader"
@@ -5235,6 +7397,15 @@
     "slot": "personnel",
     "cost": 25,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "affiliation": "Clan Saxon"
+      },
+      {
+        "affiliation": "Clan Wren"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -5249,6 +7420,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Bo-Katan Kryze"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Allies of Convenience",
@@ -5264,6 +7440,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Din Djarin"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Immune: Pierce"
@@ -5277,6 +7458,11 @@
     "slot": "armament",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "title": "Head of Clan Saxon"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -5292,6 +7478,11 @@
     "slot": "personnel",
     "cost": 25,
     "isUnique": true,
+    "requirements": [
+      {
+        "affiliation": "Clan Wren"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Leader",
@@ -5306,6 +7497,11 @@
     "slot": "doctrine",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Bounty"
@@ -5319,6 +7515,15 @@
     "slot": "doctrine",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Mandalorian Leader"
+      },
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Target 1",
@@ -5333,6 +7538,15 @@
     "slot": "doctrine",
     "cost": 8,
     "isUnique": true,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Mandalorian Leader"
+      },
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Death from Above"
@@ -5346,6 +7560,15 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Mandalorian Leader"
+      },
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Sharpshooter 1"
@@ -5359,6 +7582,15 @@
     "slot": "armament",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Mandalorian Leader"
+      },
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -5373,6 +7605,15 @@
     "slot": "armament",
     "cost": 8,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Mandalorian Leader"
+      },
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Charge",
@@ -5387,6 +7628,15 @@
     "slot": "armament",
     "cost": 5,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Mandalorian Leader"
+      },
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/ee-3-carbine-rifle.webp"
@@ -5398,6 +7648,15 @@
     "slot": "armament",
     "cost": 0,
     "isUnique": false,
+    "requirements": [
+      "OR",
+      {
+        "cardName": "Mandalorian Leader"
+      },
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/galaar-15-carbine.webp"
@@ -5409,6 +7668,11 @@
     "slot": "doctrine",
     "cost": 5,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Leader"
+      }
+    ],
     "faction": null,
     "keywords": [
       "Direct Mercenary Trooper",
@@ -5423,6 +7687,11 @@
     "slot": "gear",
     "cost": 10,
     "isUnique": true,
+    "requirements": [
+      {
+        "cardName": "Mandalorian Hunter"
+      }
+    ],
     "faction": null,
     "keywords": [],
     "cardImage": "/images/upgrades/full-beskar-armor.webp"

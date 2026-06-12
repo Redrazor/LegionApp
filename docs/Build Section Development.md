@@ -189,6 +189,41 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-12 — A4 implemented (side cycle, ahead of A3)
+**Branch:** `feature/upgrade-eligibility` (off `main`). **Status:** code complete, awaiting AC sign-off + PR.
+Done out of order (user asked for the Browse-profile angle first); A3 still pending.
+
+**A4 — Upgrade eligibility (`requirements`): DONE.** The upgrade picker (Build) AND the Browse profile's
+"Available Upgrades" now only offer upgrades a unit can legally equip.
+
+- **Data was present but dropped, as the plan predicted.** The legionhq2 source carries a structured
+  `requirements` array on **364/413 upgrades** — no card-text parsing. Verified shape: a group = array of
+  criterion objects and/or nested sub-groups, optionally led by `AND`/`OR`/`NOT` (default AND). Criterion
+  keys: `cardName, cardSubtype (unitType), rank, faction, title, affiliation, keywords[], upgradeBar[],
+  forceAffinity`. Examples: Jedi Training `["OR",{cardName:"Jedi Knight"},{cardName:"Jedi Knight General"}]`;
+  Echo `["AND",{cardSubtype:"clone trooper"},["OR",{rank:"corps"},{rank:"special"}]]`; T-21
+  `["AND",{cardName:"Imperial Special Forces"},["NOT",{title:"Inferno Squad"}]]`.
+- **Pipeline:** `scraper/normalise.ts` — carry `requirements` in `buildUpgrades`; carry unit `affiliation`
+  (also dropped; needed for `{affiliation}` criteria, e.g. Mandalorian clans). New `UpgradeRequirement`
+  types (NB: modelled the recursive group as an `interface … extends Array` — a recursive `… | T[]` type
+  alias trips TS2589 "excessively deep" when inferred through the upgrades store's `byId` Map). Added to
+  `src/types/index.ts`, `server/db/schema.ts` + `seed.ts` (`requirements` JSON col on upgrades,
+  `affiliation` col on units), and both routes. Re-scrape diff: +`affiliation` on 179 units, +`requirements`
+  on 364 upgrades, nothing else.
+- **Matcher:** pure `unitMeetsRequirements(unit, requirements)` in `src/utils/army.ts` (+ `evalReqGroup` /
+  `matchCriterion` / `unitHasKeyword`). Empty/absent ⇒ equippable; criteria the unit can't determine fail
+  open. `forceAffinity` (light/dark) is the only criterion with no unit field → hand-set `FORCE_SIDE` map in
+  `utils/factions.ts` (keyed by lowercased name; unlisted Force users fail open). **Audit: every force-slot
+  unit in the catalogue is covered — no fail-open gaps.**
+- **Consumers:** `stores/upgrades.ts` `forSlot(slot, faction, unit?)` ANDs the matcher when a unit is given;
+  `ProfileUpgrades.vue` now takes the whole `unit` (was bar+faction); `UpgradePickerDrawer.vue` takes a
+  `unit?` prop, threaded from `ArmyUnitCard.vue`.
+- **Real-data sanity:** Stormtroopers 198→31 legal, The Bad Batch 92→4 (Bad-Batch-only heavy weapons),
+  Luke sees only light Force powers, Vader only dark. **Tests:** +8 matcher specs; **118 pass; coverage
+  73.25% (≥50). vue-tsc clean.**
+
+**Next up:** A3 (mercenary affiliation counting), then B1 (layout shell) — the Roster Canvas UI epics.
+
 ### 2026-06-11 — A2 implemented
 **Branch:** `feature/build-keyword-rules` (off `main`). **Status:** code complete, awaiting AC sign-off + PR.
 

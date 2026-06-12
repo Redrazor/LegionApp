@@ -22,7 +22,13 @@ Sub-features ship one per `/workflow` cycle:
   keyword), **Entourage** (`"Entourage X"` widens X's rank max +1), **Detachment** (`"Detachment X"` needs
   a parent unit/rank present), and **limited cards** — the source's `uniqueCount` caps 16 non-unique
   upgrades at 2 (HQ Uplink, Jedi Training family, …); `Upgrade.limit` now flows through scrape → seed →
-  API and folds into the Uniques check. Next: A3 (mercenary affiliation), A4 (upgrade `requirements`).
+  API and folds into the Uniques check.
+- **A4 — Upgrade eligibility** (branch `feature/upgrade-eligibility`, done as a side cycle ahead of A3).
+  The Browse profile's "Available Upgrades" and Build's upgrade picker now only show upgrades a unit can
+  legally equip. The legionhq2 source's structured `requirements` (on 364/413 upgrades) + unit `affiliation`
+  were being dropped by `normalise.ts`; both now flow scrape → seed → API. Pure `unitMeetsRequirements`
+  matcher in `utils/army.ts` (AND/OR/NOT groups, nested; `forceAffinity` via a hand-set `FORCE_SIDE` list,
+  fail-open). Next: A3 (mercenary affiliation), then the Roster Canvas UI epics (B1+).
 
 ## Feature 3 — Dice roller
 

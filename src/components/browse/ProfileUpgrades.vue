@@ -1,24 +1,25 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import type { Faction, Upgrade } from '../../types/index.ts'
+import type { Unit, Upgrade } from '../../types/index.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
 import { slotLabel } from '../../utils/factions.ts'
 
-const props = defineProps<{ upgradeBar: string[]; faction: Faction }>()
+const props = defineProps<{ unit: Unit }>()
 
 const upgradesStore = useUpgradesStore()
 const enlarged = ref<Upgrade | null>(null)
 
 onMounted(() => upgradesStore.load())
 
-// One group per distinct slot in the unit's upgrade bar.
+// One group per distinct slot in the unit's upgrade bar — only upgrades this unit
+// can legally equip (slot + faction + requirements).
 const groups = computed(() => {
-  const slots = [...new Set(props.upgradeBar)]
+  const slots = [...new Set(props.unit.upgradeBar)]
   return slots
     .map((slot) => ({
       slot,
       upgrades: upgradesStore
-        .forSlot(slot, props.faction)
+        .forSlot(slot, props.unit.faction, props.unit)
         .slice()
         .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name)),
     }))

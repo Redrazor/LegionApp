@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
+  unitMeetsRequirements,
   encodeArmy, decodeArmy, toCompact, fromCompact,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
@@ -10,7 +11,7 @@ import type { Army, Unit, Upgrade } from '../src/types/index.ts'
 function unit(id: string, over: Partial<Unit> = {}): Unit {
   return {
     id, slug: id, name: id, title: '', faction: 'empire', rank: 'corps',
-    unitType: 'trooper', cost: 50, defense: 'white', surgeAttack: null,
+    unitType: 'trooper', affiliation: null, cost: 50, defense: 'white', surgeAttack: null,
     surgeDefense: false, speed: 2, wounds: 5, courage: 1, isUnique: false,
     keywords: [], upgradeBar: [], cardImage: null, portraitImage: null,
     hasFullData: true, history: [], ...over,
@@ -446,6 +447,63 @@ describe('Detachment', () => {
     const item = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Detachment')
     expect(item?.ok).toBe(false)
     expect(item?.detail).toContain('needs Shoretroopers')
+  })
+})
+
+describe('unitMeetsRequirements', () => {
+  it('treats absent or empty requirements as always equippable', () => {
+    const u = unit('x')
+    expect(unitMeetsRequirements(u, undefined)).toBe(true)
+    expect(unitMeetsRequirements(u, [])).toBe(true)
+  })
+
+  it('matches a single criterion by cardName (case-insensitive)', () => {
+    const u = unit('hunter', { name: 'The Bad Batch' })
+    expect(unitMeetsRequirements(u, [{ cardName: 'the bad batch' }])).toBe(true)
+    expect(unitMeetsRequirements(unit('storm', { name: 'Stormtroopers' }), [{ cardName: 'The Bad Batch' }])).toBe(false)
+  })
+
+  it('ANDs the fields within one criterion object', () => {
+    const u = unit('clone', { unitType: 'clone trooper', rank: 'corps' })
+    expect(unitMeetsRequirements(u, [{ cardSubtype: 'clone trooper', rank: 'corps' }])).toBe(true)
+    expect(unitMeetsRequirements(u, [{ cardSubtype: 'clone trooper', rank: 'special' }])).toBe(false)
+  })
+
+  it('handles an OR group (Jedi Training: Jedi Knight OR Jedi Knight General)', () => {
+    const req = ['OR', { cardName: 'Jedi Knight' }, { cardName: 'Jedi Knight General' }]
+    expect(unitMeetsRequirements(unit('jk', { name: 'Jedi Knight' }), req)).toBe(true)
+    expect(unitMeetsRequirements(unit('jkg', { name: 'Jedi Knight General' }), req)).toBe(true)
+    expect(unitMeetsRequirements(unit('luke', { name: 'Luke Skywalker' }), req)).toBe(false)
+  })
+
+  it('handles a nested AND + NOT group (Imperial Special Forces, not Inferno Squad)', () => {
+    const req = ['AND', { cardName: 'Imperial Special Forces' }, ['NOT', { title: 'Inferno Squad' }]]
+    const isf = (title: string) => unit('isf', { name: 'Imperial Special Forces', title })
+    expect(unitMeetsRequirements(isf('Strike Team'), req)).toBe(true)
+    expect(unitMeetsRequirements(isf('Inferno Squad'), req)).toBe(false)
+    expect(unitMeetsRequirements(unit('other', { name: 'Shoretroopers' }), req)).toBe(false)
+  })
+
+  it('handles a nested OR inside AND (Echo: clone trooper of corps OR special rank)', () => {
+    const req = ['AND', { cardSubtype: 'clone trooper' }, ['OR', { rank: 'corps' }, { rank: 'special' }]]
+    expect(unitMeetsRequirements(unit('a', { unitType: 'clone trooper', rank: 'corps' }), req)).toBe(true)
+    expect(unitMeetsRequirements(unit('b', { unitType: 'clone trooper', rank: 'heavy' }), req)).toBe(false)
+    expect(unitMeetsRequirements(unit('c', { unitType: 'trooper', rank: 'corps' }), req)).toBe(false)
+  })
+
+  it('matches affiliation and a keyword (value-suffixed keywords match the base)', () => {
+    const u = unit('mando', { name: 'Mandalorian Warriors', affiliation: 'Mandalore', keywords: ['Sharpshooter 2'] })
+    expect(unitMeetsRequirements(u, [{ affiliation: 'Mandalore' }])).toBe(true)
+    expect(unitMeetsRequirements(u, [{ affiliation: 'Clan Wren' }])).toBe(false)
+    expect(unitMeetsRequirements(u, [{ keywords: ['Sharpshooter'] }])).toBe(true)
+    expect(unitMeetsRequirements(u, [{ keywords: ['Nimble'] }])).toBe(false)
+  })
+
+  it('gates forceAffinity by the hand-set Force-user list, failing open when unknown', () => {
+    const darkReq = [{ forceAffinity: 'dark side' }]
+    expect(unitMeetsRequirements(unit('vader', { name: 'Darth Vader' }), darkReq)).toBe(true)
+    expect(unitMeetsRequirements(unit('luke', { name: 'Luke Skywalker' }), darkReq)).toBe(false) // light user, dark power
+    expect(unitMeetsRequirements(unit('nobody', { name: 'Unlisted Jedi' }), darkReq)).toBe(true) // unknown → fail open
   })
 })
 

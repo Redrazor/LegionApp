@@ -1,5 +1,8 @@
-import type { Army, ArmyUnit, CompactArmy, Faction, Rank, Unit, Upgrade } from '../types/index.ts'
-import { rankLimits, RANK_ORDER, rankName } from './factions.ts'
+import type {
+  Army, ArmyUnit, CompactArmy, Faction, Rank, Unit, Upgrade,
+  UpgradeRequirementCriterion, UpgradeRequirementList,
+} from '../types/index.ts'
+import { rankLimits, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
 
 export interface ValidationItem {
   ok: boolean
@@ -182,6 +185,64 @@ export function unmetDetachments(army: Army, unitsById: Map<string, Unit>): stri
     }
   }
   return unmet
+}
+
+// ── Upgrade equip-eligibility (requirements matcher) ─────────────────────────
+
+function unitHasKeyword(unit: Unit, kw: string): boolean {
+  const lk = kw.toLowerCase()
+  // Unit keywords may carry a value suffix ("Sharpshooter 2") — match the base.
+  return unit.keywords.some((k) => {
+    const lc = k.toLowerCase()
+    return lc === lk || lc.startsWith(lk + ' ')
+  })
+}
+
+function matchCriterion(c: UpgradeRequirementCriterion, unit: Unit): boolean {
+  const eq = (a: string | null | undefined, b: string) =>
+    a != null && a.toLowerCase() === b.toLowerCase()
+  if (c.cardName != null && !eq(unit.name, c.cardName)) return false
+  if (c.title != null && !eq(unit.title, c.title)) return false
+  if (c.cardSubtype != null && !eq(unit.unitType, c.cardSubtype)) return false
+  if (c.rank != null && !eq(unit.rank, c.rank)) return false
+  if (c.faction != null && !eq(unit.faction, c.faction)) return false
+  if (c.affiliation != null && !eq(unit.affiliation, c.affiliation)) return false
+  if (c.keywords && !c.keywords.every((kw) => unitHasKeyword(unit, kw))) return false
+  if (c.upgradeBar && !c.upgradeBar.every((s) => unit.upgradeBar.includes(s))) return false
+  if (c.forceAffinity != null) {
+    const side = FORCE_SIDE[unit.name.toLowerCase()]
+    // Known Force user → must match the required side; unknown → fail open.
+    if (side && side !== c.forceAffinity) return false
+  }
+  return true
+}
+
+function evalReqGroup(group: UpgradeRequirementList, unit: Unit): boolean {
+  if (group.length === 0) return true
+  let op: 'AND' | 'OR' | 'NOT' = 'AND'
+  let terms = group
+  const head = group[0]
+  if (head === 'AND' || head === 'OR' || head === 'NOT') {
+    op = head
+    terms = group.slice(1)
+  }
+  const results = terms.map((t) =>
+    Array.isArray(t) ? evalReqGroup(t, unit) : typeof t === 'string' ? true : matchCriterion(t, unit),
+  )
+  if (results.length === 0) return true
+  if (op === 'OR') return results.some(Boolean)
+  const all = results.every(Boolean)
+  return op === 'NOT' ? !all : all
+}
+
+/**
+ * Whether a unit can legally equip an upgrade, per the upgrade's `requirements`
+ * (see UpgradeRequirement). Absent/empty requirements ⇒ always true. Criteria the
+ * unit can't determine (e.g. forceAffinity for an unlisted Force user) fail open.
+ */
+export function unitMeetsRequirements(unit: Unit, requirements?: UpgradeRequirementList): boolean {
+  if (!requirements || requirements.length === 0) return true
+  return evalReqGroup(requirements, unit)
 }
 
 export function validateArmy(

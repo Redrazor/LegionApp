@@ -10,6 +10,7 @@ export const units = sqliteTable('units', {
   faction: text('faction').notNull().default('mercenary'),
   rank: text('rank').notNull().default('corps'),
   unitType: text('unit_type').notNull().default('trooper'),
+  affiliation: text('affiliation'),
   cost: integer('cost'),
   defense: text('defense'),
   surgeAttack: text('surge_attack'),
@@ -35,6 +36,7 @@ export const upgrades = sqliteTable('upgrades', {
   cost: integer('cost'),
   isUnique: integer('is_unique').notNull().default(0),
   limit: integer('limit_count'), // "limit" is a SQL reserved word
+  requirements: text('requirements'), // JSON: equip-eligibility
   faction: text('faction'),
   keywords: text('keywords').notNull().default('[]'),
   cardImage: text('card_image'),

@@ -2,8 +2,11 @@
 import { ref, onMounted } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import { useTheme } from './composables/useTheme.ts'
+import ChangelogModal from './components/ChangelogModal.vue'
 
 const menuOpen = ref(false)
+const showChangelog = ref(false)
+const APP_VERSION = '0.13.0' // keep in sync with package.json + ChangelogModal's top entry
 const router = useRouter()
 const { theme, toggle, init } = useTheme()
 
@@ -90,14 +93,20 @@ onMounted(init)
       <div>
         <span>LegionApp — fan-made companion for Star Wars: Legion</span>
         <span class="mx-2">·</span>
+        <a href="https://ko-fi.com/redrazor" target="_blank" rel="noopener" class="text-lg-accent hover:underline">Buy me a coffee on Ko-fi ☕</a>
+        <span class="mx-2">·</span>
         <a href="https://github.com/Redrazor" target="_blank" rel="noopener" class="hover:underline text-lg-accent">GitHub</a>
       </div>
       <div class="text-xs text-lg-text/35 px-4">
         Unofficial fan tool, not affiliated with Atomic Mass Games or Lucasfilm Ltd. Star Wars: Legion and all related
         marks, card text, and artwork are © Atomic Mass Games, Lucasfilm Ltd. &amp; Disney. Card data via Legion HQ.
+        <span class="mx-2">·</span>
+        <button class="text-lg-text/30 transition-colors hover:text-lg-accent" @click="showChangelog = true">v{{ APP_VERSION }}</button>
       </div>
     </footer>
   </div>
+
+  <ChangelogModal :show="showChangelog" @close="showChangelog = false" />
 </template>
 
 <style>

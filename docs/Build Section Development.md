@@ -213,8 +213,18 @@ picker that takes over the **left catalogue pane**.
   definitions + stats/weapons but drops the **errata history** and **Available Upgrades** list; (3)
   `UpgradeCatalogue` rows got a **🔍 inspect** button → a lightbox of the full upgrade card (no selection);
   row restructured so inspect isn't nested in the pick button.
+- **Inspect → swipeable gallery (3rd round):** `UpgradeCatalogue`'s inspect is now a full-card **carousel**
+  over the slot candidates (chevrons / ArrowLeft-Right / touch-swipe, position counter, **Select** button that
+  equips the shown card). The 🔍 icon is now a verbal **"Inspect"** label (matches "Remove").
+- **Upgrade keyword enrichment (owner-approved TTA data exception):** LHQ2 leaves ~123/413 upgrades with empty
+  `keywords`. New `scraper/upgradeKeywords.ts` (`npm run upgrade-keywords`) fills ONLY the empty ones from
+  TTA `keyword_ids` → `/api/keywords` names (strips the literal "X" value placeholder), matched by name —
+  **+24** (Situational Awareness → Outmaneuver; the other ~99 are genuinely effect-only). **Effect text is in
+  no data source** (LHQ2 + TTA `text` null) — only on the card, hence the inspect gallery. Run order now
+  `scrape → portraits → upgrade-keywords → seed`. CLAUDE.md + [[data-source-single-truth]] updated.
 - **140 tests pass; vue-tsc clean; coverage 73.9%.** Verified: pick/equip/cost-update, re-open filled slot →
-  Remove, ✕ close, disabled empty slots, mobile force-pane flow, army→simplified-profile, upgrade inspect.
+  Remove, ✕ close, disabled empty slots, mobile force-pane flow, army→simplified-profile, inspect gallery
+  swipe+Select, Situational Awareness → Outmaneuver.
 
 **Next up: B4** — quantity (`×N`) + delete controls on army units. Then EPIC D (battle-card scrape D0,
 command-hand D1, battle-deck D2), E (export/print), F (DnD). See [[build-roster-canvas-rebuild]].

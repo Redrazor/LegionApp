@@ -14,6 +14,7 @@ const entries = [
       'Build — Upgrade picker now shows each upgrade\'s card art and what it does (its keywords), not just a name',
       'Build — Inspect upgrades: tap Inspect in the picker to open a swipeable card gallery — flip through every option (full rules and art) and Select the one you want',
       'Build — Tap a unit in your army list to open its profile — a focused view with stats, weapons, and keyword definitions',
+      'Data — Filled in missing upgrade keywords (e.g. Situational Awareness now shows Outmaneuver) so most upgrades say what they grant at a glance',
     ],
   },
   {

@@ -406,7 +406,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "High Velocity",
+      "Overwhelm",
+      "Sniper Team"
+    ],
     "cardImage": "/images/upgrades/dh-447-sniper.webp"
   },
   {
@@ -498,7 +502,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "High Velocity",
+      "Overwhelm",
+      "Sniper Team"
+    ],
     "cardImage": "/images/upgrades/dlt-19x-sniper.webp"
   },
   {
@@ -2220,7 +2228,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "High Velocity",
+      "Overwhelm",
+      "Sniper Team"
+    ],
     "cardImage": "/images/upgrades/bx-series-droid-sniper.webp"
   },
   {
@@ -2237,7 +2249,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "High Velocity",
+      "Overwhelm",
+      "Sniper Team"
+    ],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-sniper.webp"
   },
   {
@@ -2300,7 +2316,9 @@
     "cost": 4,
     "isUnique": false,
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Outmaneuver"
+    ],
     "cardImage": "/images/upgrades/situational-awareness.webp"
   },
   {
@@ -2485,7 +2503,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Anti-Materiel",
+      "Impact",
+      "Blast"
+    ],
     "cardImage": "/images/upgrades/jetpack-rockets.webp"
   },
   {
@@ -3744,7 +3766,10 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Overwhelm",
+      "Lethal"
+    ],
     "cardImage": "/images/upgrades/super-commando-gunslinger.webp"
   },
   {
@@ -4348,7 +4373,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Demoralize"
+    ],
     "cardImage": "/images/upgrades/inquisitorius-training.webp"
   },
   {
@@ -4472,7 +4499,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Impact"
+    ],
     "cardImage": "/images/upgrades/dlt-20a-range-trooper.webp"
   },
   {
@@ -5766,7 +5795,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Blast",
+      "Spray",
+      "Suppressive"
+    ],
     "cardImage": "/images/upgrades/jedi-negotiator.webp"
   },
   {
@@ -5831,7 +5864,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "High Velocity",
+      "Impact",
+      "Pierce"
+    ],
     "cardImage": "/images/upgrades/twin-lightsabers.webp"
   },
   {
@@ -6148,7 +6185,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Suppressive"
+    ],
     "cardImage": "/images/upgrades/heavy-arm-cannon.webp"
   },
   {
@@ -6219,7 +6258,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Indomitable"
+    ],
     "cardImage": "/images/upgrades/clone-trooper-marksmen-squad.webp"
   },
   {
@@ -6423,7 +6464,10 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Immune: Melee Pierce",
+      "Scatter"
+    ],
     "cardImage": "/images/upgrades/ig-100-magnaguard-pilot.webp"
   },
   {
@@ -6477,7 +6521,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Lethal"
+    ],
     "cardImage": "/images/upgrades/long-rifle-pirate.webp"
   },
   {
@@ -6639,7 +6685,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Overwhelm"
+    ],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-gunner.webp"
   },
   {
@@ -6981,7 +7029,12 @@
       ]
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Lethal",
+      "Sharpshooter",
+      "High Velocity",
+      "Pierce"
+    ],
     "cardImage": "/images/upgrades/galaar-90-sniper-rifle.webp"
   },
   {
@@ -6997,7 +7050,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Overwhelm"
+    ],
     "cardImage": "/images/upgrades/shukur-05-repeater.webp"
   },
   {
@@ -7089,7 +7144,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Duelist",
+      "Charge",
+      "Pierce"
+    ],
     "cardImage": "/images/upgrades/beskad-duelist-2.webp"
   },
   {
@@ -7220,7 +7279,10 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Overwhelm",
+      "Lethal"
+    ],
     "cardImage": "/images/upgrades/super-commando-gunslinger-2.webp"
   },
   {
@@ -7236,7 +7298,10 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Precise",
+      "Lethal"
+    ],
     "cardImage": "/images/upgrades/super-commando-marksman-2.webp"
   },
   {
@@ -7284,7 +7349,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Anti-Materiel",
+      "Impact",
+      "Blast"
+    ],
     "cardImage": "/images/upgrades/jetpack-rockets-2.webp"
   },
   {
@@ -7327,7 +7396,11 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Blast",
+      "Spray",
+      "Suppressive"
+    ],
     "cardImage": "/images/upgrades/flame-projector.webp"
   },
   {
@@ -7638,7 +7711,9 @@
       }
     ],
     "faction": null,
-    "keywords": [],
+    "keywords": [
+      "Overwhelm"
+    ],
     "cardImage": "/images/upgrades/ee-3-carbine-rifle.webp"
   },
   {

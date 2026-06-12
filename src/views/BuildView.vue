@@ -10,6 +10,7 @@ import { encodeArmy, decodeArmy, entourageBonuses } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import UnitPickerDrawer from '../components/build/UnitPickerDrawer.vue'
+import BuildLayout from '../components/build/BuildLayout.vue'
 
 const armyStore = useArmyStore()
 const unitsStore = useUnitsStore()
@@ -102,58 +103,43 @@ function printSheet() {
     </div>
   </div>
 
-  <div v-else>
+  <BuildLayout v-else>
     <!-- Header controls -->
-    <div class="mb-4 flex flex-wrap items-center gap-3 no-print">
-      <input
-        :value="draft.name"
-        placeholder="Army name…"
-        class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
-        @input="armyStore.setName(($event.target as HTMLInputElement).value)"
-      />
-      <div class="flex overflow-hidden rounded-lg border border-lg-border">
-        <button
-          v-for="f in FORMATS" :key="f.id"
-          class="px-3 py-2 text-xs font-semibold transition-colors"
-          :class="draft.gameSize === f.cap ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
-          :title="`${f.name} · ${f.cap} pts`"
-          @click="armyStore.setGameSize(f.cap)"
-        >{{ f.name }}<span class="ml-1 text-lg-muted/70">{{ f.cap }}</span></button>
-      </div>
-      <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-accent" @click="armyStore.newArmy()">New</button>
-    </div>
-
-    <!-- Sticky summary -->
-    <div class="sticky top-[57px] z-30 -mx-4 mb-4 border-y border-lg-border bg-lg-bg/95 px-4 py-2.5 backdrop-blur-sm">
-      <div class="flex items-center justify-between gap-3">
-        <div class="flex items-baseline gap-2">
-          <span class="font-display text-xl font-bold" :class="validation.points > draft.gameSize ? 'text-faction-rebels' : 'text-lg-accent'">
-            {{ validation.points }}
-          </span>
-          <span class="text-sm text-lg-muted">/ {{ draft.gameSize }}</span>
-          <span class="text-xs" :class="pointsRemaining < 0 ? 'text-faction-rebels' : 'text-lg-muted'">
-            ({{ pointsRemaining }} left)
-          </span>
-        </div>
-        <div class="flex items-center gap-3 text-xs text-lg-muted">
-          <span>{{ validation.activations }} activations</span>
-          <span
-            class="rounded-full px-2 py-0.5 font-semibold"
-            :class="validation.valid ? 'bg-lg-valid/15 text-lg-valid' : 'bg-faction-rebels/15 text-faction-rebels'"
-          >{{ validation.valid ? 'Legal' : 'Illegal' }}</span>
-        </div>
-      </div>
-      <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-lg-dark">
-        <div
-          class="h-full rounded-full transition-all"
-          :class="validation.points > draft.gameSize ? 'bg-faction-rebels' : 'bg-lg-accent'"
-          :style="{ width: pointsPct + '%' }"
+    <template #header>
+      <div class="mb-4 flex flex-wrap items-center gap-3">
+        <input
+          :value="draft.name"
+          placeholder="Army name…"
+          class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+          @input="armyStore.setName(($event.target as HTMLInputElement).value)"
         />
+        <div class="flex overflow-hidden rounded-lg border border-lg-border">
+          <button
+            v-for="f in FORMATS" :key="f.id"
+            class="px-3 py-2 text-xs font-semibold transition-colors"
+            :class="draft.gameSize === f.cap ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
+            :title="`${f.name} · ${f.cap} pts`"
+            @click="armyStore.setGameSize(f.cap)"
+          >{{ f.name }}<span class="ml-1 text-lg-muted/70">{{ f.cap }}</span></button>
+        </div>
+        <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-accent" @click="armyStore.newArmy()">New</button>
       </div>
-    </div>
+    </template>
 
-    <div class="grid gap-5 lg:grid-cols-[1fr_300px]">
-      <!-- Rank sections -->
+    <!-- Catalogue pane — always-visible rank-grouped catalogue lands in B3.
+         Until then, units are added via each rank's "+ Add" → unit picker. -->
+    <template #catalogue>
+      <div class="rounded-xl border border-dashed border-lg-border bg-lg-surface/40 p-6 text-center no-print">
+        <p class="font-display text-sm font-bold uppercase tracking-widest text-lg-text/70">Catalogue</p>
+        <p class="mt-1.5 text-xs text-lg-muted">
+          The always-visible unit catalogue arrives next. For now, add units with the
+          <span class="text-lg-accent">+ Add</span> button on each rank.
+        </p>
+      </div>
+    </template>
+
+    <!-- Army pane: rank sections + validation + saved -->
+    <template #army>
       <div class="space-y-5">
         <section v-for="rank in RANK_ORDER" :key="rank">
           <div class="mb-2 flex items-center justify-between">
@@ -181,10 +167,8 @@ function printSheet() {
             No {{ rankName(rank) }} units
           </div>
         </section>
-      </div>
 
-      <!-- Sidebar: validation + saved -->
-      <aside class="space-y-4">
+        <!-- Army status + saved (footer tap → checklist comes in B2) -->
         <div class="rounded-xl border border-lg-border bg-lg-surface p-4">
           <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Army Status</h3>
           <ul class="space-y-1.5">
@@ -198,15 +182,6 @@ function printSheet() {
           </ul>
         </div>
 
-        <div class="flex gap-2 no-print">
-          <button class="flex-1 rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-2 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25" @click="armyStore.saveCurrent()">
-            {{ activeIndex >= 0 ? 'Update' : 'Save' }}
-          </button>
-          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="share">Share</button>
-          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="printSheet">Print</button>
-        </div>
-        <p v-if="shareMsg" class="break-all text-xs text-lg-holo no-print">{{ shareMsg }}</p>
-
         <div v-if="saved.length" class="rounded-xl border border-lg-border bg-lg-surface p-4 no-print">
           <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Saved Armies</h3>
           <ul class="space-y-1">
@@ -219,8 +194,43 @@ function printSheet() {
             </li>
           </ul>
         </div>
-      </aside>
-    </div>
+      </div>
+    </template>
+
+    <!-- Pinned footer: live totals + actions (rank chips + format switcher in B2) -->
+    <template #footer>
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-baseline gap-2">
+          <span class="font-display text-xl font-bold" :class="validation.points > draft.gameSize ? 'text-faction-rebels' : 'text-lg-accent'">
+            {{ validation.points }}
+          </span>
+          <span class="text-sm text-lg-muted">/ {{ draft.gameSize }}</span>
+          <span class="text-xs" :class="pointsRemaining < 0 ? 'text-faction-rebels' : 'text-lg-muted'">
+            ({{ pointsRemaining }} left)
+          </span>
+          <span class="ml-1 hidden text-xs text-lg-muted sm:inline">· {{ validation.activations }} act</span>
+          <span
+            class="ml-1 rounded-full px-2 py-0.5 text-xs font-semibold"
+            :class="validation.valid ? 'bg-lg-valid/15 text-lg-valid' : 'bg-faction-rebels/15 text-faction-rebels'"
+          >{{ validation.valid ? 'Legal' : 'Illegal' }}</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-1.5 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25" @click="armyStore.saveCurrent()">
+            {{ activeIndex >= 0 ? 'Update' : 'Save' }}
+          </button>
+          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="share">Share</button>
+          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="printSheet">Print</button>
+        </div>
+      </div>
+      <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-lg-dark">
+        <div
+          class="h-full rounded-full transition-all"
+          :class="validation.points > draft.gameSize ? 'bg-faction-rebels' : 'bg-lg-accent'"
+          :style="{ width: pointsPct + '%' }"
+        />
+      </div>
+      <p v-if="shareMsg" class="mt-1 break-all text-xs text-lg-holo">{{ shareMsg }}</p>
+    </template>
 
     <UnitPickerDrawer
       v-if="pickingRank"
@@ -229,5 +239,5 @@ function printSheet() {
       @pick="pickUnit"
       @close="pickingRank = null"
     />
-  </div>
+  </BuildLayout>
 </template>

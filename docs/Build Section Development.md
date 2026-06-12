@@ -189,6 +189,35 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-12 — B1 implemented & merged (v0.10.0)
+**Branch:** `feature/build-layout-shell` (off `main`). **PR #8 merged (squash, `410f07c`).** Epic A is
+complete; this opens **Epic B — Roster Canvas layout**.
+
+**B1 — Layout shell + breakpoints: DONE.** Foundation only — no new builder behavior; existing Build
+functionality preserved end-to-end.
+- **`src/composables/useBreakpoint.ts`** — reactive `'mobile' | 'tablet' | 'desktop'` (edges **768** /
+  **1024**, Tailwind md/lg-aligned) + `isMobile/isTablet/isDesktop` refs; SSR-safe (defaults desktop when
+  no `window`); resize listener removed on unmount. Pure `resolveBreakpoint(width)` + `TABLET_MIN`/
+  `DESKTOP_MIN` exported for the spec.
+- **`src/components/build/BuildLayout.vue`** — the shell that *morphs* (not swaps): desktop/tablet = two
+  panes `grid lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] md:grid-cols-2` (catalogue | army) + a
+  `fixed bottom-0` footer (safe-area inset); mobile = sticky segmented `[Catalogue][My Army]` toggle
+  (`mobilePane` ref, defaults `army`) showing one pane via `v-show`. Named slots `header` / `catalogue` /
+  `army` / `footer` + a **default slot** for overlays (the pickers live there, else they wouldn't mount).
+  Body has `pb-24` so content clears the fixed footer.
+- **`src/views/BuildView.vue`** — rendered through `BuildLayout`. Header controls → `#header`; rank
+  sections + Army Status checklist + Saved Armies → `#army`; live totals (pts/cap, left, act, Legal pill)
+  + progress bar + **Save/Share/Print moved into the footer** → `#footer`; `UnitPickerDrawer` in the
+  default slot. Catalogue pane is a **dashed placeholder** until B3; per-rank **+ Add** → unit picker flow
+  unchanged. (The old sticky-top summary is gone — its content is now the pinned footer.)
+- **Tests:** `tests/useBreakpoint.spec.ts` +4 (boundaries 767/768/1023/1024). **131 pass; coverage 73.37%
+  (≥50). vue-tsc clean; production build OK.**
+
+**Next up:** **B2** — permanent rank-tracker footer (6 rank chips `count·min–max`, totals) + format
+switcher relocated into the footer; tap → validation checklist. Then B3 (always-visible catalogue grouped
+by rank) → C1 (inline-expand unit detail + slot-filtered upgrade attach). The footer slot + `useBreakpoint`
+from B1 are the hooks B2 builds on.
+
 ### 2026-06-12 — A3 implemented
 **Branch:** `feature/mercenary-counting` (off `main`). **Status:** code complete, awaiting AC sign-off + PR.
 

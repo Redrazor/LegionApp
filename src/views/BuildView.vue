@@ -5,12 +5,13 @@ import { useArmyStore } from '../stores/army.ts'
 import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
-import { FACTION_ORDER, FACTION_META, FORMATS, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
+import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
 import { encodeArmy, decodeArmy, entourageBonuses } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import UnitPickerDrawer from '../components/build/UnitPickerDrawer.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
+import RankTrackerFooter from '../components/build/RankTrackerFooter.vue'
 
 const armyStore = useArmyStore()
 const unitsStore = useUnitsStore()
@@ -81,6 +82,20 @@ const pointsPct = computed(() =>
   Math.min(100, Math.round((validation.value.points / draft.value.gameSize) * 100)),
 )
 
+// Per-rank {count, min, max} for the footer's rank-tracker chips (max already
+// folds in Entourage via `limits`).
+const ranks = computed(() => {
+  const out = {} as Record<Rank, { count: number; min: number; max: number }>
+  for (const rank of RANK_ORDER) {
+    out[rank] = {
+      count: unitsByRank.value[rank].length,
+      min: limits.value[rank].min,
+      max: limits.value[rank].max,
+    }
+  }
+  return out
+})
+
 function printSheet() {
   window.print()
 }
@@ -113,15 +128,6 @@ function printSheet() {
           class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
           @input="armyStore.setName(($event.target as HTMLInputElement).value)"
         />
-        <div class="flex overflow-hidden rounded-lg border border-lg-border">
-          <button
-            v-for="f in FORMATS" :key="f.id"
-            class="px-3 py-2 text-xs font-semibold transition-colors"
-            :class="draft.gameSize === f.cap ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
-            :title="`${f.name} · ${f.cap} pts`"
-            @click="armyStore.setGameSize(f.cap)"
-          >{{ f.name }}<span class="ml-1 text-lg-muted/70">{{ f.cap }}</span></button>
-        </div>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-accent" @click="armyStore.newArmy()">New</button>
       </div>
     </template>
@@ -168,20 +174,7 @@ function printSheet() {
           </div>
         </section>
 
-        <!-- Army status + saved (footer tap → checklist comes in B2) -->
-        <div class="rounded-xl border border-lg-border bg-lg-surface p-4">
-          <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Army Status</h3>
-          <ul class="space-y-1.5">
-            <li v-for="(item, i) in validation.items" :key="i" class="flex items-center justify-between text-sm">
-              <span class="flex items-center gap-1.5">
-                <span :class="item.ok ? 'text-lg-valid' : 'text-faction-rebels'">{{ item.ok ? '✓' : '✕' }}</span>
-                <span class="text-lg-text/80">{{ item.label }}</span>
-              </span>
-              <span class="text-xs" :class="item.ok ? 'text-lg-muted' : 'text-faction-rebels'">{{ item.detail }}</span>
-            </li>
-          </ul>
-        </div>
-
+        <!-- Validation checklist now opens from the footer (tap the totals). -->
         <div v-if="saved.length" class="rounded-xl border border-lg-border bg-lg-surface p-4 no-print">
           <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Saved Armies</h3>
           <ul class="space-y-1">
@@ -197,39 +190,25 @@ function printSheet() {
       </div>
     </template>
 
-    <!-- Pinned footer: live totals + actions (rank chips + format switcher in B2) -->
+    <!-- Pinned rank-tracker footer: chips, totals, format switcher, actions -->
     <template #footer>
-      <div class="flex items-center justify-between gap-3">
-        <div class="flex items-baseline gap-2">
-          <span class="font-display text-xl font-bold" :class="validation.points > draft.gameSize ? 'text-faction-rebels' : 'text-lg-accent'">
-            {{ validation.points }}
-          </span>
-          <span class="text-sm text-lg-muted">/ {{ draft.gameSize }}</span>
-          <span class="text-xs" :class="pointsRemaining < 0 ? 'text-faction-rebels' : 'text-lg-muted'">
-            ({{ pointsRemaining }} left)
-          </span>
-          <span class="ml-1 hidden text-xs text-lg-muted sm:inline">· {{ validation.activations }} act</span>
-          <span
-            class="ml-1 rounded-full px-2 py-0.5 text-xs font-semibold"
-            :class="validation.valid ? 'bg-lg-valid/15 text-lg-valid' : 'bg-faction-rebels/15 text-faction-rebels'"
-          >{{ validation.valid ? 'Legal' : 'Illegal' }}</span>
-        </div>
-        <div class="flex gap-2">
-          <button class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-1.5 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25" @click="armyStore.saveCurrent()">
-            {{ activeIndex >= 0 ? 'Update' : 'Save' }}
-          </button>
-          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="share">Share</button>
-          <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent" :disabled="!draft.units.length" @click="printSheet">Print</button>
-        </div>
-      </div>
-      <div class="mt-1.5 h-1.5 overflow-hidden rounded-full bg-lg-dark">
-        <div
-          class="h-full rounded-full transition-all"
-          :class="validation.points > draft.gameSize ? 'bg-faction-rebels' : 'bg-lg-accent'"
-          :style="{ width: pointsPct + '%' }"
-        />
-      </div>
-      <p v-if="shareMsg" class="mt-1 break-all text-xs text-lg-holo">{{ shareMsg }}</p>
+      <RankTrackerFooter
+        :ranks="ranks"
+        :points="validation.points"
+        :cap="draft.gameSize"
+        :remaining="pointsRemaining"
+        :points-pct="pointsPct"
+        :activations="validation.activations"
+        :valid="validation.valid"
+        :items="validation.items"
+        :can-export="!!draft.units.length"
+        :save-label="activeIndex >= 0 ? 'Update' : 'Save'"
+        :share-msg="shareMsg"
+        @set-game-size="armyStore.setGameSize"
+        @save="armyStore.saveCurrent()"
+        @share="share"
+        @print="printSheet"
+      />
     </template>
 
     <UnitPickerDrawer

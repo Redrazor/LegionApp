@@ -455,6 +455,14 @@ export function fromBase64url(s: string): string {
   return decodeURIComponent(escape(atob(b64)))
 }
 
+/** Rank-tracker chip status for the Build footer: below min / over max / in range. */
+export type RankChipState = 'under' | 'over' | 'ok'
+export function rankChipState(count: number, min: number, max: number): RankChipState {
+  if (count > max) return 'over'
+  if (count < min) return 'under'
+  return 'ok'
+}
+
 export function encodeArmy(army: Army): string {
   return toBase64url(JSON.stringify(toCompact(army)))
 }

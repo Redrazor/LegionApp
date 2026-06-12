@@ -3,7 +3,7 @@ import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction,
-  encodeArmy, decodeArmy, toCompact, fromCompact,
+  encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, Unit, Upgrade } from '../src/types/index.ts'
@@ -636,5 +636,24 @@ describe('army serialisation', () => {
 
   it('returns null for malformed encoded strings', () => {
     expect(decodeArmy('!!!not-valid!!!')).toBeNull()
+  })
+})
+
+describe('rankChipState', () => {
+  it('flags counts below the minimum as under', () => {
+    expect(rankChipState(0, 1, 2)).toBe('under')
+    expect(rankChipState(2, 3, 6)).toBe('under')
+  })
+
+  it('flags counts above the maximum as over', () => {
+    expect(rankChipState(3, 1, 2)).toBe('over')
+    expect(rankChipState(7, 3, 6)).toBe('over')
+  })
+
+  it('treats counts within [min, max] (inclusive) as ok', () => {
+    expect(rankChipState(1, 1, 2)).toBe('ok') // at min
+    expect(rankChipState(2, 1, 2)).toBe('ok') // at max
+    expect(rankChipState(0, 0, 2)).toBe('ok') // optional rank, empty
+    expect(rankChipState(4, 3, 6)).toBe('ok') // mid-range
   })
 })

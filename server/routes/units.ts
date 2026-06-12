@@ -12,6 +12,7 @@ export function rowToUnit(row: Record<string, unknown>) {
     faction: row.faction,
     rank: row.rank,
     unitType: row.unit_type,
+    affiliation: row.affiliation ?? null,
     cost: row.cost ?? null,
     defense: row.defense ?? null,
     surgeAttack: row.surge_attack ?? null,

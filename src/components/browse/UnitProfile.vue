@@ -115,7 +115,7 @@ function close() {
               <!-- Available upgrades -->
               <div v-if="unit.upgradeBar.length">
                 <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Available Upgrades</h3>
-                <ProfileUpgrades :upgrade-bar="unit.upgradeBar" :faction="unit.faction" />
+                <ProfileUpgrades :unit="unit" />
               </div>
             </div>
           </template>

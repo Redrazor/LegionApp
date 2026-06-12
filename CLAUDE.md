@@ -51,8 +51,16 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
   own data. Do NOT reintroduce name-keyed merging.
 - The keyword **glossary** text is the one secondary source: `keywords.js` from
   `Electrynth/legion-hq-web` (MIT), for the Reference tab + keyword popovers only.
-- Rejected earlier: tabletopadmiral.com (its Cloudinary scans were 1st-edition art) and
-  legion-hq-web `cards.json` (older; name collisions cross-contaminated skills).
+- **Unit portrait icons** are the one secondary *image* source: Tabletop Admiral's
+  purpose-made bust portraits (`units-new/portraits/<id>.webp`). LHQ2 ships only full card
+  scans, so the Build catalogue's round icons come from TTA, self-hosted via
+  `npm run portraits` (maps our units→TTA ids by name, downloads to
+  `public/images/portraits/<slug>.webp`, stamps `portraitImage` onto `units.json`; ~174/179
+  covered, the rest fall back to a card-art crop). **This is icons only — all card DATA
+  remains LHQ2-only.** Run order after a re-scrape: `scrape` → `portraits` → `seed`.
+- Rejected as a *data* source: tabletopadmiral.com card scans (1st-edition art) and
+  legion-hq-web `cards.json` (older; name collisions cross-contaminated skills). (TTA is
+  used for portrait images only, per above — never for card stats.)
 - Card art & rules text are © AMG / Lucasfilm — keep the in-app + README disclaimers.
 
 ## Conventions

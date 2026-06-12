@@ -6,6 +6,8 @@ import { useUpgradesStore } from '../../stores/upgrades.ts'
 import { useArmyStore } from '../../stores/army.ts'
 import { slotLabel } from '../../utils/factions.ts'
 import UpgradePickerDrawer from './UpgradePickerDrawer.vue'
+import UnitBadge from './UnitBadge.vue'
+import UnitIndicators from './UnitIndicators.vue'
 
 const props = defineProps<{ armyUnit: ArmyUnit; faction: Faction }>()
 
@@ -44,13 +46,14 @@ function onClear() {
 <template>
   <div v-if="unit" class="rounded-xl border border-lg-border bg-lg-surface p-3">
     <div class="flex items-start gap-3">
-      <img v-if="unit.cardImage" :src="unit.cardImage" :alt="unit.name" loading="lazy" class="h-14 w-20 flex-none rounded object-cover" />
+      <UnitBadge :unit="unit" />
       <div class="min-w-0 flex-1">
         <div class="flex items-center gap-1">
           <span v-if="unit.isUnique" class="text-lg-accent text-xs">◈</span>
           <span class="truncate font-semibold text-lg-text">{{ unit.name }}</span>
         </div>
         <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
+        <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" />
       </div>
       <div class="flex flex-none flex-col items-end gap-1">
         <span class="font-display text-sm font-bold text-lg-accent">{{ lineCost }}</span>

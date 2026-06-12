@@ -9,18 +9,25 @@ import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '.
 import { encodeArmy, decodeArmy, entourageBonuses } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
-import UnitPickerDrawer from '../components/build/UnitPickerDrawer.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
 import RankTrackerFooter from '../components/build/RankTrackerFooter.vue'
+import RankCatalogue from '../components/build/RankCatalogue.vue'
+import UnitProfile from '../components/browse/UnitProfile.vue'
+import { useBreakpoint } from '../composables/useBreakpoint.ts'
 
 const armyStore = useArmyStore()
 const unitsStore = useUnitsStore()
 const upgradesStore = useUpgradesStore()
 const { draft, saved, activeIndex } = storeToRefs(armyStore)
 const { validation, pointsRemaining } = useArmyValidation()
+const { isMobile, isDesktop } = useBreakpoint()
 
-const pickingRank = ref<Rank | null>(null)
 const shareMsg = ref('')
+// Slug of the unit whose profile drawer is open (catalogue "view"); null = closed.
+const viewingSlug = ref<string | null>(null)
+function viewUnit(unitId: string) {
+  viewingSlug.value = unitsStore.byId.get(unitId)?.slug ?? null
+}
 
 onMounted(() => {
   unitsStore.load()
@@ -48,11 +55,6 @@ const unitsByRank = computed(() => {
   }
   return map
 })
-
-function pickUnit(unitId: string) {
-  armyStore.addUnit(unitId)
-  pickingRank.value = null
-}
 
 async function share() {
   const url = `${window.location.origin}/build?a=${encodeArmy(draft.value)}`
@@ -82,16 +84,19 @@ const pointsPct = computed(() =>
   Math.min(100, Math.round((validation.value.points / draft.value.gameSize) * 100)),
 )
 
+// Current army unit count per rank (catalogue tab counters + "+" max gating).
+const counts = computed(() => {
+  const out = {} as Record<Rank, number>
+  for (const rank of RANK_ORDER) out[rank] = unitsByRank.value[rank].length
+  return out
+})
+
 // Per-rank {count, min, max} for the footer's rank-tracker chips (max already
 // folds in Entourage via `limits`).
 const ranks = computed(() => {
   const out = {} as Record<Rank, { count: number; min: number; max: number }>
   for (const rank of RANK_ORDER) {
-    out[rank] = {
-      count: unitsByRank.value[rank].length,
-      min: limits.value[rank].min,
-      max: limits.value[rank].max,
-    }
+    out[rank] = { count: counts.value[rank], min: limits.value[rank].min, max: limits.value[rank].max }
   }
   return out
 })
@@ -132,37 +137,31 @@ function printSheet() {
       </div>
     </template>
 
-    <!-- Catalogue pane — always-visible rank-grouped catalogue lands in B3.
-         Until then, units are added via each rank's "+ Add" → unit picker. -->
+    <!-- Catalogue pane — always-visible, rank-grouped; tap a unit's [+] to add. -->
     <template #catalogue>
-      <div class="rounded-xl border border-dashed border-lg-border bg-lg-surface/40 p-6 text-center no-print">
-        <p class="font-display text-sm font-bold uppercase tracking-widest text-lg-text/70">Catalogue</p>
-        <p class="mt-1.5 text-xs text-lg-muted">
-          The always-visible unit catalogue arrives next. For now, add units with the
-          <span class="text-lg-accent">+ Add</span> button on each rank.
-        </p>
-      </div>
+      <RankCatalogue
+        :units="unitsStore.units"
+        :faction="draft.faction"
+        :counts="counts"
+        :limits="limits"
+        :is-mobile="isMobile"
+        :is-desktop="isDesktop"
+        @add="armyStore.addUnit"
+        @view="viewUnit"
+      />
     </template>
 
     <!-- Army pane: rank sections + validation + saved -->
     <template #army>
       <div class="space-y-5">
         <section v-for="rank in RANK_ORDER" :key="rank">
-          <div class="mb-2 flex items-center justify-between">
-            <h2 class="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-widest text-lg-text/80">
-              {{ rankName(rank) }}
-              <span class="text-xs font-normal text-lg-muted">
-                {{ unitsByRank[rank].length }}<span v-if="limits[rank].min > 0 || limits[rank].max">
-                  · {{ limits[rank].min }}–{{ limits[rank].max }}</span>
-              </span>
-            </h2>
-            <button
-              class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1 text-xs font-medium text-lg-accent hover:bg-lg-accent/10 no-print"
-              :disabled="unitsByRank[rank].length >= limits[rank].max"
-              :class="{ 'opacity-30': unitsByRank[rank].length >= limits[rank].max }"
-              @click="pickingRank = rank"
-            >+ Add</button>
-          </div>
+          <h2 class="mb-2 flex items-center gap-2 font-display text-sm font-bold uppercase tracking-widest text-lg-text/80">
+            {{ rankName(rank) }}
+            <span class="text-xs font-normal text-lg-muted">
+              {{ unitsByRank[rank].length }}<span v-if="limits[rank].min > 0 || limits[rank].max">
+                · {{ limits[rank].min }}–{{ limits[rank].max }}</span>
+            </span>
+          </h2>
           <div v-if="unitsByRank[rank].length" class="space-y-2">
             <ArmyUnitCard
               v-for="au in unitsByRank[rank]" :key="au.uid"
@@ -211,12 +210,7 @@ function printSheet() {
       />
     </template>
 
-    <UnitPickerDrawer
-      v-if="pickingRank"
-      :faction="draft.faction"
-      :rank="pickingRank"
-      @pick="pickUnit"
-      @close="pickingRank = null"
-    />
+    <!-- Catalogue "view" → reuse Browse's unit profile drawer -->
+    <UnitProfile v-if="viewingSlug" :slug="viewingSlug" @close="viewingSlug = null" />
   </BuildLayout>
 </template>

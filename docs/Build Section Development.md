@@ -189,6 +189,64 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-12 — B3 implemented
+**Branch:** `feature/catalogue-by-rank` (off `main`). **Status:** code complete, verified in-app across all
+breakpoints, awaiting PR. Continues **Epic B**; fills `BuildLayout`'s `#catalogue` placeholder.
+
+**B3 — Always-visible catalogue grouped by rank: DONE.** Replaces the per-rank "+ Add" → `UnitPickerDrawer`
+flow with an always-visible, rank-grouped catalogue. `UnitPickerDrawer.vue` deleted.
+- **`utils/army.ts`** — pure `catalogueForRank(units, faction, rank, query)`: units of a rank legal for the
+  faction (`unitAllowedInFaction` — mercs by affiliation), filtered by name/title query, cheapest-first.
+- **`components/build/RankCatalogue.vue`** — morphs per breakpoint: **desktop** all 6 groups open + sticky
+  headers + a **rank-focus chip row** (`All` / per-rank, narrows to one group); **tablet** accordion (one
+  group open, `Rank | null` state, click-open-to-collapse-all); **mobile** horizontal rank **tab-strip**
+  (`mobileRank` falls back to first rank so an empty accordion state can't crash it). Shared search box;
+  `[+]` add disabled when the rank is at its Entourage-adjusted max.
+- **`components/build/CatalogueUnitRow.vue`** — row with a legible **landscape art-crop** thumbnail
+  (`aspect-[1.41/1] object-cover object-top`, ~96px, matches Browse's card treatment — `portraitImage` is
+  never scraped, only the full `cardImage` exists). Tapping the row body **views** the unit; `[+]` adds.
+- **`components/browse/UnitProfile.vue`** — refactored to **dual-mode**: optional `slug` prop + `close`
+  emit (Build mounts it directly) with the original `/browse/:slug` route behavior as fallback (Browse
+  unchanged). Build opens the same full profile drawer (`viewingSlug` ref) — one source of truth, responsive.
+- **`views/BuildView.vue`** — renders `<RankCatalogue>` in `#catalogue` (counts/limits/breakpoint props,
+  `@add`/`@view`); mounts `<UnitProfile>` in the overlay slot; removed per-rank "+ Add" + the picker drawer.
+- **Tests:** `tests/army.spec.ts` +4 `catalogueForRank` (rank+faction filter, sort, merc affiliation gating,
+  query). **138 pass; coverage 73.69% (≥50). vue-tsc clean.** Verified in-browser at 1280/900/375 + Browse
+  drawer regression check.
+
+**Refinements (user-requested mid-cycle, all in):** tap-to-view via the reused Browse drawer; desktop
+rank-focus chips; and a second round on the row itself:
+- **Art-square icon** — the row icon is no longer the squished full card. It's a square crop of the card's
+  right-hand **character portrait**, zoomed past the rules text via `background-image` + `background-size:
+  270%` + `background-position: 86% 9%` in a rounded mask. Legion cards are templated (art always right), so
+  the one fixed crop frames the character across humans/Ewoks/etc. (`portraitImage` is still never scraped —
+  pure CSS crop, no re-scrape). Tuned in-browser.
+- **Stat indicators** — decided by spanning **3 parallel agents** (competitive / rules-efficiency / UX lenses;
+  see session). Consensus set, shown as two clusters: **durability** = defense-die pill (red/white + a surge
+  ring) · `♥ wounds`; **capability** = `⬡ upgrade-slot count` · best-weapon dice pips (red/black/white).
+  **Speed** chevrons are desktop-only (`showSpeed = isDesktop`). Omitted from the row (→ drawer): courage,
+  attack/defense surge as their own cells, raw keyword list. New pure `primaryWeaponDice(unit)` (+2 specs).
+- **Round portrait icons (2nd round, user rejected the card-crop icons).** The card-crop icon read as
+  "awful — white bleeding, miniscule": LHQ2 ships only full card scans, which never crop to a clean bust.
+  **Owner-approved exception to single-source:** new `scraper/portraits.ts` (`npm run portraits`) maps our
+  units → Tabletop Admiral unit ids (normalised name+title, faction tiebreak; **178/179** matched, 1 miss =
+  Paz Vizsla) and self-hosts TTA's bust portraits to `public/images/portraits/<slug>.webp` (**174** have a
+  portrait), stamping `portraitImage` onto `units.json`. The whole `portraitImage` pipeline (type, schema
+  `portrait_image`, seed, units route) already existed — only needed populating. `CatalogueUnitRow` now shows
+  a **round** `<img>` portrait (w-14), `@error`/no-portrait → card-art crop fallback. **Icons only; all card
+  DATA stays LHQ2.** CLAUDE.md sourcing section updated; run order `scrape → portraits → seed`.
+- **Shared visual language (3rd round).** Extracted `UnitBadge.vue` (round portrait in a faction-coloured
+  ring, card-crop/initials fallback) + `UnitIndicators.vue` (the durability/capability/speed cluster) and
+  reused both in the catalogue row AND `ArmyUnitCard` — so a fielded unit now shows the same badge + the same
+  glanceable stats under its name as the picker. Catalogue rows gained a subtle per-row border for separation.
+
+**Bug found & fixed during verification:** tablet "collapse all" set the active rank to `'' as Rank`;
+resizing to mobile then crashed the tab-strip on `undefined.length` — fixed by typing the state `Rank | null`
++ a mobile fallback.
+
+**Next up: C1** — inline-expand unit detail + slot-filtered upgrade attach (reuse `UpgradePickerDrawer`).
+Then B4 (qty ×N) → EPIC D. Each = one `/workflow` cycle.
+
 ### 2026-06-12 — B2 implemented
 **Branch:** `feature/rank-tracker-footer` (off `main`). **Status:** code complete, AC verified in-app,
 awaiting PR. Continues **Epic B — Roster Canvas layout** (builds on B1's `#footer` slot + `useBreakpoint`).

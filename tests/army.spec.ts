@@ -3,7 +3,8 @@ import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction,
-  encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState,
+  encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
+  primaryWeaponDice,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, Unit, Upgrade } from '../src/types/index.ts'
@@ -636,6 +637,52 @@ describe('army serialisation', () => {
 
   it('returns null for malformed encoded strings', () => {
     expect(decodeArmy('!!!not-valid!!!')).toBeNull()
+  })
+})
+
+describe('primaryWeaponDice', () => {
+  const wpn = (red: number, black: number, white: number, name = 'w') => ({ name, range: [1, 3], dice: { red, black, white }, keywords: [] })
+
+  it('returns the dice of the weapon with the most total dice', () => {
+    const u = unit('u', { weapons: [wpn(1, 0, 0, 'sidearm'), wpn(0, 2, 3, 'rifle')] })
+    expect(primaryWeaponDice(u)).toEqual({ red: 0, black: 2, white: 3 })
+  })
+
+  it('returns all-zero when the unit has no weapons', () => {
+    expect(primaryWeaponDice(unit('u', { weapons: [] }))).toEqual({ red: 0, black: 0, white: 0 })
+  })
+})
+
+describe('catalogueForRank', () => {
+  const units = [
+    unit('storm', { name: 'Stormtroopers', rank: 'corps', cost: 44, faction: 'empire' }),
+    unit('snow', { name: 'Snowtroopers', rank: 'corps', cost: 48, faction: 'empire' }),
+    unit('vader', { name: 'Darth Vader', rank: 'commander', cost: 190, faction: 'empire' }),
+    unit('rebel', { name: 'Rebel Troopers', rank: 'corps', cost: 40, faction: 'rebels' }),
+    unit('boba', { name: 'Boba Fett', rank: 'operative', cost: 110, faction: 'mercenary', affiliations: ['empire'] }),
+  ]
+
+  it('returns only units of the given rank legal for the faction', () => {
+    const corps = catalogueForRank(units, 'empire', 'corps')
+    expect(corps.map((u) => u.id)).toEqual(['storm', 'snow']) // rebel corps excluded
+  })
+
+  it('sorts cheapest-first then by name', () => {
+    const corps = catalogueForRank(
+      [unit('b', { name: 'Bravo', cost: 50 }), unit('a', { name: 'Alpha', cost: 50 }), unit('c', { name: 'Cheap', cost: 30 })],
+      'empire', 'corps',
+    )
+    expect(corps.map((u) => u.id)).toEqual(['c', 'a', 'b'])
+  })
+
+  it('gates mercenaries by affiliation', () => {
+    expect(catalogueForRank(units, 'empire', 'operative').map((u) => u.id)).toEqual(['boba'])
+    expect(catalogueForRank(units, 'rebels', 'operative')).toEqual([]) // boba not affiliated with rebels
+  })
+
+  it('filters by a case-insensitive query over name + title', () => {
+    expect(catalogueForRank(units, 'empire', 'corps', 'SNOW').map((u) => u.id)).toEqual(['snow'])
+    expect(catalogueForRank(units, 'empire', 'corps', 'trooper').map((u) => u.id)).toEqual(['storm', 'snow'])
   })
 })
 

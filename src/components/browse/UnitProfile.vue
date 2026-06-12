@@ -8,11 +8,17 @@ import KeywordPill from '../ui/KeywordPill.vue'
 import WeaponsTable from '../ui/WeaponsTable.vue'
 import ProfileUpgrades from './ProfileUpgrades.vue'
 
+// Dual-mode: as Browse's `/browse/:slug` child route it reads the route param and
+// closes by navigating back; given an explicit `slug` prop (e.g. the Build catalogue
+// mounts it directly) it closes via the `close` emit instead.
+const props = defineProps<{ slug?: string }>()
+const emit = defineEmits<{ close: [] }>()
+
 const route = useRoute()
 const router = useRouter()
 const unitsStore = useUnitsStore()
 
-const slug = computed(() => route.params.slug as string)
+const slug = computed(() => props.slug ?? (route.params.slug as string))
 const unit = computed(() => unitsStore.bySlug.get(slug.value))
 const imgError = ref(false)
 
@@ -20,7 +26,8 @@ onMounted(() => unitsStore.load())
 watch(slug, () => { imgError.value = false })
 
 function close() {
-  router.push({ path: '/browse', query: route.query })
+  if (props.slug != null) emit('close')
+  else router.push({ path: '/browse', query: route.query })
 }
 </script>
 

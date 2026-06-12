@@ -11,6 +11,7 @@ export const units = sqliteTable('units', {
   rank: text('rank').notNull().default('corps'),
   unitType: text('unit_type').notNull().default('trooper'),
   affiliation: text('affiliation'),
+  affiliations: text('affiliations').notNull().default('[]'),
   cost: integer('cost'),
   defense: text('defense'),
   surgeAttack: text('surge_attack'),

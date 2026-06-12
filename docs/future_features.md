@@ -28,7 +28,14 @@ Sub-features ship one per `/workflow` cycle:
   legally equip. The legionhq2 source's structured `requirements` (on 364/413 upgrades) + unit `affiliation`
   were being dropped by `normalise.ts`; both now flow scrape → seed → API. Pure `unitMeetsRequirements`
   matcher in `utils/army.ts` (AND/OR/NOT groups, nested; `forceAffinity` via a hand-set `FORCE_SIDE` list,
-  fail-open). Next: A3 (mercenary affiliation), then the Roster Canvas UI epics (B1+).
+  fail-open).
+- **A3 — Mercenary affiliation counting** (branch `feature/mercenary-counting`). Pure logic via the
+  validation checklist: a `mercenary` unit is legal only if the army faction is among its `affiliations`
+  (new **Allies** item); mercenaries capped at ≤2 Corps / ≤1 of each other rank (**Mercenaries** item,
+  `MERC_RANK_CAP`); and they don't satisfy rank minimums (no-min — min measured against non-merc counts).
+  Carried the dropped plural `affiliations` array onto `Unit` (scrape → seed → API). **Epic A (rules) is
+  now complete.** Next: the Roster Canvas UI epics — B1 (layout shell) → B2 (rank-tracker footer) → B3
+  (always-visible catalogue) → C1.
 
 ## Feature 3 — Dice roller
 

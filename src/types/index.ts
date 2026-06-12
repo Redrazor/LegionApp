@@ -48,6 +48,7 @@ export interface Unit {
   rank: Rank
   unitType: string
   affiliation: string | null // allegiance, e.g. "Clan Wren", "rogue" (for upgrade requirements)
+  affiliations: Faction[] // factions a mercenary unit may ally into (empty = none)
   cost: number | null
   defense: 'red' | 'white' | null
   surgeAttack: 'crit' | 'hit' | null

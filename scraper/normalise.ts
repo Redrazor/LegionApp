@@ -34,6 +34,7 @@ export interface Lhq2Card {
   cardSubtype?: string // unit type, upgrade slot, or command pip count
   rank?: string
   affiliation?: string // unit allegiance, e.g. "Clan Wren", "rogue", "Mandalore"
+  affiliations?: string[] // factions a mercenary unit may be hired into, e.g. ["empire"]
   faction?: string
   cost?: number | null
   isUnique?: boolean
@@ -77,6 +78,7 @@ export interface Unit {
   rank: string
   unitType: string
   affiliation: string | null
+  affiliations: string[] // factions a mercenary unit may ally into (empty = none)
   cost: number | null
   defense: string | null
   surgeAttack: string | null
@@ -204,6 +206,7 @@ export function buildUnits(cards: Lhq2Card[]): Unit[] {
         rank: c.rank ?? 'corps',
         unitType: c.cardSubtype ?? 'trooper',
         affiliation: c.affiliation ?? null,
+        affiliations: (c.affiliations ?? []).filter((f) => FACTIONS.includes(f)),
         cost: num(c.cost),
         defense: s.defense === 'r' ? 'red' : s.defense === 'w' ? 'white' : null,
         surgeAttack: s.hitsurge === 'c' ? 'crit' : s.hitsurge === 'h' ? 'hit' : null,

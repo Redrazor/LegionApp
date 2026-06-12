@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import type { Faction, Rank } from '../../types/index.ts'
 import { useUnitsStore } from '../../stores/units.ts'
 import { rankName } from '../../utils/factions.ts'
+import { unitAllowedInFaction } from '../../utils/army.ts'
 
 const props = defineProps<{ faction: Faction; rank: Rank }>()
 const emit = defineEmits<{ pick: [unitId: string]; close: [] }>()
@@ -10,10 +11,12 @@ const emit = defineEmits<{ pick: [unitId: string]; close: [] }>()
 const unitsStore = useUnitsStore()
 const query = ref('')
 
+// Only suggest units legal for this faction — mercenaries gated by their
+// affiliations (e.g. the Empire-affiliated Boba, not the Rebel one).
 const candidates = computed(() => {
   const q = query.value.trim().toLowerCase()
   return unitsStore.units
-    .filter((u) => u.rank === props.rank && (u.faction === props.faction || u.faction === 'mercenary'))
+    .filter((u) => u.rank === props.rank && unitAllowedInFaction(u, props.faction))
     .filter((u) => !q || `${u.name} ${u.title}`.toLowerCase().includes(q))
     .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name))
 })

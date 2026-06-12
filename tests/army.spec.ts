@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
-  unitMeetsRequirements,
+  unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction,
   encodeArmy, decodeArmy, toCompact, fromCompact,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
@@ -11,7 +11,7 @@ import type { Army, Unit, Upgrade } from '../src/types/index.ts'
 function unit(id: string, over: Partial<Unit> = {}): Unit {
   return {
     id, slug: id, name: id, title: '', faction: 'empire', rank: 'corps',
-    unitType: 'trooper', affiliation: null, cost: 50, defense: 'white', surgeAttack: null,
+    unitType: 'trooper', affiliation: null, affiliations: [], cost: 50, defense: 'white', surgeAttack: null,
     surgeDefense: false, speed: 2, wounds: 5, courage: 1, isUnique: false,
     keywords: [], upgradeBar: [], cardImage: null, portraitImage: null,
     hasFullData: true, history: [], ...over,
@@ -447,6 +447,108 @@ describe('Detachment', () => {
     const item = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Detachment')
     expect(item?.ok).toBe(false)
     expect(item?.detail).toContain('needs Shoretroopers')
+  })
+})
+
+describe('unitAllowedInFaction', () => {
+  it('keeps non-mercenaries to their own faction', () => {
+    const u = unit('storm', { faction: 'empire' })
+    expect(unitAllowedInFaction(u, 'empire')).toBe(true)
+    expect(unitAllowedInFaction(u, 'rebels')).toBe(false)
+  })
+
+  it('gates mercenaries by their affiliations (the two-Boba case)', () => {
+    const bobaEmpire = unit('boba-e', { name: 'Boba Fett', faction: 'mercenary', affiliations: ['empire'] })
+    const bobaRebel = unit('boba-r', { name: 'Boba Fett', faction: 'mercenary', affiliations: ['rebels'] })
+    expect(unitAllowedInFaction(bobaEmpire, 'empire')).toBe(true)
+    expect(unitAllowedInFaction(bobaEmpire, 'rebels')).toBe(false)
+    expect(unitAllowedInFaction(bobaRebel, 'empire')).toBe(false)
+    expect(unitAllowedInFaction(bobaRebel, 'rebels')).toBe(true)
+  })
+
+  it('allows any mercenary into a mercenary-faction army, and none with no affiliations into a standard one', () => {
+    const lone = unit('lone', { faction: 'mercenary', affiliations: [] })
+    expect(unitAllowedInFaction(lone, 'mercenary')).toBe(true)
+    expect(unitAllowedInFaction(lone, 'empire')).toBe(false)
+    expect(unitAllowedInFaction(lone, null)).toBe(false)
+  })
+})
+
+describe('mercenaryIssues', () => {
+  const merc = (id: string, over: Partial<Unit> = {}) =>
+    unit(id, { faction: 'mercenary', affiliations: ['empire'], ...over })
+  const armyOf = (faction: Army['faction'], units: Unit[]): Army => ({
+    name: '', faction, gameSize: 1000,
+    units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+  })
+
+  it('flags mercenaries whose affiliations exclude the army faction', () => {
+    const units = [merc('boba', { affiliations: ['empire'] }), merc('lone', { affiliations: [] })]
+    const { unitsById } = makeMaps(units)
+    expect(mercenaryIssues(armyOf('empire', units), unitsById).illegalAllies).toEqual(['lone'])
+    expect(mercenaryIssues(armyOf('rebels', units), unitsById).illegalAllies.sort()).toEqual(['boba', 'lone'])
+  })
+
+  it('fields mercenaries natively in a mercenary-faction army (no affiliation check)', () => {
+    const units = [merc('a', { affiliations: [] })]
+    const { unitsById } = makeMaps(units)
+    expect(mercenaryIssues(armyOf('mercenary', units), unitsById).illegalAllies).toEqual([])
+  })
+
+  it('caps mercenaries at ≤2 corps and ≤1 of each other rank', () => {
+    expect(MERC_RANK_CAP).toMatchObject({ corps: 2, commander: 1, heavy: 1 })
+    const units = [
+      merc('c1', { rank: 'corps' }), merc('c2', { rank: 'corps' }), merc('c3', { rank: 'corps' }),
+      merc('h1', { rank: 'heavy' }),
+    ]
+    const { unitsById } = makeMaps(units)
+    const issues = mercenaryIssues(armyOf('empire', units), unitsById)
+    expect(issues.capExceeded).toEqual([{ rank: 'corps', count: 3, cap: 2 }])
+    expect(issues.rankCounts.corps).toBe(3)
+  })
+})
+
+describe('mercenary rules in validateArmy', () => {
+  const emp = (id: string, over: Partial<Unit> = {}) => unit(id, { faction: 'empire', ...over })
+  const merc = (id: string, over: Partial<Unit> = {}) =>
+    unit(id, { faction: 'mercenary', affiliations: ['empire'], ...over })
+  const build = (units: Unit[], faction: Army['faction'] = 'empire'): Army => ({
+    name: '', faction, gameSize: 1000,
+    units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+  })
+
+  it('mercenaries do not satisfy a rank minimum (no-min rule)', () => {
+    // 1 commander + 3 corps total, but one corps is a merc → only 2 non-merc corps.
+    const units = [
+      emp('cmd', { rank: 'commander' }),
+      emp('c1', { rank: 'corps' }), emp('c2', { rank: 'corps' }), merc('m1', { rank: 'corps' }),
+    ]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const corps = validateArmy(build(units), unitsById, upgradesById).items.find((i) => i.label === 'Corps')
+    expect(corps?.ok).toBe(false)
+    expect(corps?.detail).toBe('3 (need 3 non-merc)')
+    // Add a 4th, non-merc corps → 3 non-merc → satisfied.
+    const ok = [...units, emp('c3', { rank: 'corps' })]
+    expect(validateArmy(build(ok), makeMaps(ok).unitsById, upgradesById).items.find((i) => i.label === 'Corps')?.ok).toBe(true)
+  })
+
+  it('surfaces an Allies failure for an unaffiliated mercenary', () => {
+    const units = [emp('cmd', { rank: 'commander' }), emp('c1', { rank: 'corps' }),
+      emp('c2', { rank: 'corps' }), emp('c3', { rank: 'corps' }),
+      merc('boba', { rank: 'operative', affiliations: ['separatists'] })]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const allies = validateArmy(build(units, 'empire'), unitsById, upgradesById).items.find((i) => i.label === 'Allies')
+    expect(allies?.ok).toBe(false)
+    expect(allies?.detail).toContain('boba')
+  })
+
+  it('surfaces a Mercenaries cap failure (3 merc corps)', () => {
+    const units = [emp('cmd', { rank: 'commander' }),
+      merc('m1', { rank: 'corps' }), merc('m2', { rank: 'corps' }), merc('m3', { rank: 'corps' })]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const item = validateArmy(build(units), unitsById, upgradesById).items.find((i) => i.label === 'Mercenaries')
+    expect(item?.ok).toBe(false)
+    expect(item?.detail).toContain('Corps 3 (max 2)')
   })
 })
 

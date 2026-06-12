@@ -189,6 +189,36 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-12 — A3 implemented
+**Branch:** `feature/mercenary-counting` (off `main`). **Status:** code complete, awaiting AC sign-off + PR.
+
+**A3 — Mercenary affiliation counting: DONE.** Pure logic in `src/utils/army.ts`, surfaced via the
+validation checklist. Rules confirmed with the user: affiliation match + per-rank caps + no-min.
+
+- **Data:** carried the dropped plural `affiliations` (joinable factions, e.g. Boba `["empire"]`, Cad Bane
+  `["empire","separatists"]`, Pyke Foot Soldiers all four) onto `Unit` — scrape → normalise (filtered to
+  valid FACTIONS) → schema/seed (`affiliations` JSON col) → `units` route. 26/40 mercenary units carry it;
+  the 14 without are Mandalorian/clan units (Battle Force still out of scope). Re-scrape diff = +affiliations
+  on units only (reverted a transient Philibert `products.json` drop — unrelated live-fetch churn).
+- **Rules (`validateArmy` + `mercenaryIssues` / `MERC_RANK_CAP`):**
+  - **Affiliation** — a `faction:'mercenary'` unit is legal only if `army.faction ∈ unit.affiliations`
+    (none ⇒ can't ally; flagged). A mercenary-faction army fields them natively (check skipped). New
+    **Allies** checklist item.
+  - **Caps** — ≤2 mercenary Corps, ≤1 of each other rank (`MERC_RANK_CAP`). New **Mercenaries** item.
+  - **No-min** — mercenaries count toward rank *maximums* but not *minimums*: the rank loop measures the
+    minimum against non-merc counts (`count − merc.rankCounts[rank]`), detail reads e.g. `3 (need 3 non-merc)`.
+    Field Commander relaxation now also keys off the non-merc commander count.
+- **One UI touch:** shared helper `unitAllowedInFaction(unit, faction)` (non-merc → own faction; merc →
+  affiliation match / native in a merc army) gates the Build **unit picker** (`UnitPickerDrawer.vue`) so it
+  only *suggests* legal choices — e.g. the two Boba Fett operatives (`aw` Empire / `tl` Rebels) no longer
+  both appear; Empire offers only `aw`. The same helper backs `mercenaryIssues`' Allies check, so picker and
+  validation can't diverge. (Mirrors how A4 gated the upgrade picker.)
+- **Tests:** +6 specs (mercenaryIssues affiliation/native/caps; validateArmy no-min/Allies/Mercenaries).
+  **124 pass; coverage 74.12% (≥50). vue-tsc clean.** Real-data check: Boba legal in Empire, flagged in Rebels.
+
+**Next up:** Epic B — the Roster Canvas UI. **B1** (layout shell + breakpoints: `useBreakpoint`, `BuildLayout`)
+→ B2 (permanent rank-tracker footer + format switcher) → B3 (always-visible catalogue grouped by rank) → C1.
+
 ### 2026-06-12 — A4 implemented (side cycle, ahead of A3)
 **Branch:** `feature/upgrade-eligibility` (off `main`). **Status:** code complete, awaiting AC sign-off + PR.
 Done out of order (user asked for the Browse-profile angle first); A3 still pending.

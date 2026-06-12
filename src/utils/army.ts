@@ -18,6 +18,26 @@ export interface ArmyValidation {
   items: ValidationItem[]
 }
 
+export interface WeaponDice { red: number; black: number; white: number }
+
+/**
+ * The unit's headline attack dice for the catalogue row: the dice pool of its
+ * strongest weapon (most total dice), ignoring tiny sidearms. Pure so the row and
+ * its spec share the derivation. Returns all-zero when the unit has no weapons.
+ */
+export function primaryWeaponDice(unit: Unit): WeaponDice {
+  let best: WeaponDice = { red: 0, black: 0, white: 0 }
+  let bestTotal = -1
+  for (const w of unit.weapons) {
+    const total = w.dice.red + w.dice.black + w.dice.white
+    if (total > bestTotal) {
+      bestTotal = total
+      best = w.dice
+    }
+  }
+  return best
+}
+
 /** Total point cost of a single army unit including its equipped upgrades. */
 export function unitCost(
   au: ArmyUnit,
@@ -204,6 +224,25 @@ export function unitAllowedInFaction(unit: Unit, faction: Faction | null): boole
   if (unit.faction !== 'mercenary') return unit.faction === faction
   if (faction === 'mercenary') return true
   return faction != null && unit.affiliations.includes(faction)
+}
+
+/**
+ * Catalogue candidates for one rank: the units a faction may legally field at that
+ * rank (`unitAllowedInFaction` — mercs gated by affiliation), optionally filtered by
+ * a free-text query over name + title, sorted cheapest-first then by name. Pure so
+ * the always-visible Build catalogue and its specs share one source of truth.
+ */
+export function catalogueForRank(
+  units: Unit[],
+  faction: Faction | null,
+  rank: Rank,
+  query = '',
+): Unit[] {
+  const q = query.trim().toLowerCase()
+  return units
+    .filter((u) => u.rank === rank && unitAllowedInFaction(u, faction))
+    .filter((u) => !q || `${u.name} ${u.title}`.toLowerCase().includes(q))
+    .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name))
 }
 
 export interface MercenaryIssues {

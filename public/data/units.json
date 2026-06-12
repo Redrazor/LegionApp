@@ -48,7 +48,7 @@
       }
     ],
     "cardImage": "/images/units/darth-vader-dark-lord-of-the-sith.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/darth-vader-dark-lord-of-the-sith.webp",
     "hasFullData": true,
     "history": [
       {
@@ -127,7 +127,7 @@
       }
     ],
     "cardImage": "/images/units/director-orson-krennic-architect-of-terror.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/director-orson-krennic-architect-of-terror.webp",
     "hasFullData": true,
     "history": [
       {
@@ -199,7 +199,7 @@
       }
     ],
     "cardImage": "/images/units/general-tagge-imperial-high-command.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/general-tagge-imperial-high-command.webp",
     "hasFullData": true,
     "history": []
   },
@@ -261,7 +261,7 @@
       }
     ],
     "cardImage": "/images/units/general-veers-master-tactician.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/general-veers-master-tactician.webp",
     "hasFullData": true,
     "history": [
       {
@@ -340,7 +340,7 @@
       }
     ],
     "cardImage": "/images/units/grand-admiral-thrawn-imperial-high-command.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/grand-admiral-thrawn-imperial-high-command.webp",
     "hasFullData": true,
     "history": []
   },
@@ -386,7 +386,7 @@
       }
     ],
     "cardImage": "/images/units/grand-moff-tarkin-imperial-high-command.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/grand-moff-tarkin-imperial-high-command.webp",
     "hasFullData": true,
     "history": []
   },
@@ -467,7 +467,7 @@
       }
     ],
     "cardImage": "/images/units/iden-versio-inferno-squad-leader.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/iden-versio-inferno-squad-leader.webp",
     "hasFullData": true,
     "history": [
       {
@@ -535,7 +535,7 @@
       }
     ],
     "cardImage": "/images/units/imperial-officer-ruthless-efficiency.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/imperial-officer-ruthless-efficiency.webp",
     "hasFullData": true,
     "history": []
   },
@@ -601,7 +601,7 @@
       }
     ],
     "cardImage": "/images/units/moff-gideon-long-live-the-empire.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/moff-gideon-long-live-the-empire.webp",
     "hasFullData": true,
     "history": [
       {
@@ -739,7 +739,7 @@
       }
     ],
     "cardImage": "/images/units/darth-vader-the-emperors-apprentice.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/darth-vader-the-emperors-apprentice.webp",
     "hasFullData": true,
     "history": [
       {
@@ -820,7 +820,7 @@
       }
     ],
     "cardImage": "/images/units/fifth-brother-the-kill-is-mine.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/fifth-brother-the-kill-is-mine.webp",
     "hasFullData": true,
     "history": [
       {
@@ -887,7 +887,7 @@
       }
     ],
     "cardImage": "/images/units/imperial-agent-bringing-order-to-the-galaxy.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/imperial-agent-bringing-order-to-the-galaxy.webp",
     "hasFullData": true,
     "history": []
   },
@@ -957,7 +957,7 @@
       }
     ],
     "cardImage": "/images/units/seventh-sister-compelled-to-inflict-pain.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/seventh-sister-compelled-to-inflict-pain.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1028,7 +1028,7 @@
       }
     ],
     "cardImage": "/images/units/df-90-mortar-trooper.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/df-90-mortar-trooper.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1108,7 +1108,7 @@
       }
     ],
     "cardImage": "/images/units/shoretroopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/shoretroopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1176,7 +1176,7 @@
       }
     ],
     "cardImage": "/images/units/snowtroopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/snowtroopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1248,7 +1248,7 @@
       }
     ],
     "cardImage": "/images/units/stormtrooper-riot-squad.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/stormtrooper-riot-squad.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1312,7 +1312,7 @@
       }
     ],
     "cardImage": "/images/units/stormtroopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/stormtroopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1377,7 +1377,7 @@
       }
     ],
     "cardImage": "/images/units/stormtroopers-heavy-response-unit.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/stormtroopers-heavy-response-unit.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1458,7 +1458,7 @@
       }
     ],
     "cardImage": "/images/units/imperial-death-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/imperial-death-troopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1514,7 +1514,7 @@
       }
     ],
     "cardImage": "/images/units/imperial-probe-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/imperial-probe-droid.webp",
     "hasFullData": true,
     "history": []
   },
@@ -1577,7 +1577,7 @@
       }
     ],
     "cardImage": "/images/units/imperial-special-forces.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/imperial-special-forces.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1652,7 +1652,7 @@
       }
     ],
     "cardImage": "/images/units/imperial-special-forces-inferno-squad.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/imperial-special-forces-inferno-squad.webp",
     "hasFullData": true,
     "history": []
   },
@@ -1714,7 +1714,7 @@
       }
     ],
     "cardImage": "/images/units/scout-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/scout-troopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1779,7 +1779,7 @@
       }
     ],
     "cardImage": "/images/units/74-z-speeder-bikes.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/74-z-speeder-bikes.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1848,7 +1848,7 @@
       }
     ],
     "cardImage": "/images/units/dewback-rider.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/dewback-rider.webp",
     "hasFullData": true,
     "history": [
       {
@@ -1933,7 +1933,7 @@
       }
     ],
     "cardImage": "/images/units/e-web-heavy-blaster-team.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/e-web-heavy-blaster-team.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2005,7 +2005,7 @@
       }
     ],
     "cardImage": "/images/units/range-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/range-troopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2078,7 +2078,7 @@
       }
     ],
     "cardImage": "/images/units/scout-troopers-strike-team.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/scout-troopers-strike-team.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2156,7 +2156,7 @@
       }
     ],
     "cardImage": "/images/units/at-st.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/at-st.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2235,7 +2235,7 @@
       }
     ],
     "cardImage": "/images/units/imperial-dark-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/imperial-dark-troopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2297,7 +2297,7 @@
       }
     ],
     "cardImage": "/images/units/laat-le-patrol-transport.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/laat-le-patrol-transport.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2390,7 +2390,7 @@
       }
     ],
     "cardImage": "/images/units/major-marquand-tempest-scout-2.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/major-marquand-tempest-scout-2.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2464,7 +2464,7 @@
       }
     ],
     "cardImage": "/images/units/tx-225-gavw-occupier-tank.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/tx-225-gavw-occupier-tank.webp",
     "hasFullData": true,
     "history": [
       {
@@ -2549,7 +2549,7 @@
       }
     ],
     "cardImage": "/images/units/gar-saxon-head-of-clan-saxon.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/gar-saxon-head-of-clan-saxon.webp",
     "hasFullData": true,
     "history": []
   },
@@ -2604,7 +2604,7 @@
       }
     ],
     "cardImage": "/images/units/rook-kast-devoted-to-the-cause.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rook-kast-devoted-to-the-cause.webp",
     "hasFullData": true,
     "history": []
   },
@@ -2659,7 +2659,7 @@
       }
     ],
     "cardImage": "/images/units/sabine-wren-back-in-the-fold.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/sabine-wren-back-in-the-fold.webp",
     "hasFullData": true,
     "history": []
   },
@@ -2724,7 +2724,7 @@
       }
     ],
     "cardImage": "/images/units/super-commandos.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/super-commandos.webp",
     "hasFullData": true,
     "history": []
   },
@@ -2787,7 +2787,7 @@
       }
     ],
     "cardImage": "/images/units/black-sun-vigo.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/black-sun-vigo.webp",
     "hasFullData": true,
     "history": []
   },
@@ -2847,7 +2847,7 @@
       }
     ],
     "cardImage": "/images/units/bo-katan-kryze-savior-of-mandalore.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/bo-katan-kryze-savior-of-mandalore.webp",
     "hasFullData": true,
     "history": []
   },
@@ -2878,7 +2878,7 @@
     "upgradeBar": [],
     "weapons": [],
     "cardImage": "/images/units/c-3p0-golden-god.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/c-3p0-golden-god.webp",
     "hasFullData": true,
     "history": []
   },
@@ -2946,7 +2946,7 @@
       }
     ],
     "cardImage": "/images/units/gar-saxon-militant-commando.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/gar-saxon-militant-commando.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3015,7 +3015,7 @@
       }
     ],
     "cardImage": "/images/units/logray-superstitious-shaman.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/logray-superstitious-shaman.webp",
     "hasFullData": true,
     "history": []
   },
@@ -3084,7 +3084,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-leader.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-leader.webp",
     "hasFullData": true,
     "history": []
   },
@@ -3149,7 +3149,7 @@
       }
     ],
     "cardImage": "/images/units/pyke-syndicate-capo.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/pyke-syndicate-capo.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3215,7 +3215,7 @@
       }
     ],
     "cardImage": "/images/units/the-armorer-forging-the-future.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/the-armorer-forging-the-future.webp",
     "hasFullData": true,
     "history": []
   },
@@ -3273,7 +3273,7 @@
       }
     ],
     "cardImage": "/images/units/ursa-wren-leader-of-clan-wren.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ursa-wren-leader-of-clan-wren.webp",
     "hasFullData": true,
     "history": []
   },
@@ -3345,7 +3345,7 @@
       }
     ],
     "cardImage": "/images/units/wicket-hero-of-bright-tree.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/wicket-hero-of-bright-tree.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3412,7 +3412,7 @@
       }
     ],
     "cardImage": "/images/units/axe-woves-cunning-warrior.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/axe-woves-cunning-warrior.webp",
     "hasFullData": true,
     "history": []
   },
@@ -3498,7 +3498,7 @@
       }
     ],
     "cardImage": "/images/units/boba-fett-infamous-bounty-hunter.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/boba-fett-infamous-bounty-hunter.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3589,7 +3589,7 @@
       }
     ],
     "cardImage": "/images/units/boba-fett-daimyo-of-mos-espa.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/boba-fett-daimyo-of-mos-espa.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3665,7 +3665,7 @@
       }
     ],
     "cardImage": "/images/units/bossk-trandoshan-terror.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/bossk-trandoshan-terror.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3742,7 +3742,7 @@
       }
     ],
     "cardImage": "/images/units/cad-bane-needs-no-introduction.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/cad-bane-needs-no-introduction.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3826,7 +3826,7 @@
       }
     ],
     "cardImage": "/images/units/din-djarin-the-mandalorian.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/din-djarin-the-mandalorian.webp",
     "hasFullData": true,
     "history": [
       {
@@ -3868,7 +3868,7 @@
     "upgradeBar": [],
     "weapons": [],
     "cardImage": "/images/units/han-chewie-notorious-scoundrels.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/han-chewie-notorious-scoundrels.webp",
     "hasFullData": true,
     "history": []
   },
@@ -3941,7 +3941,7 @@
       }
     ],
     "cardImage": "/images/units/hondo-ohnaka-trustworthy-compatriot.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/hondo-ohnaka-trustworthy-compatriot.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4023,7 +4023,7 @@
       }
     ],
     "cardImage": "/images/units/ig-11-nurse-and-protect.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ig-11-nurse-and-protect.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4105,7 +4105,7 @@
       }
     ],
     "cardImage": "/images/units/ig-88-notorious-assassin-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ig-88-notorious-assassin-droid.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4178,7 +4178,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-hunter.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-hunter.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4233,7 +4233,7 @@
       }
     ],
     "cardImage": "/images/units/maul-a-rival.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/maul-a-rival.webp",
     "hasFullData": true,
     "history": [
       {
@@ -4376,7 +4376,7 @@
       }
     ],
     "cardImage": "/images/units/savage-opress-mauls-enforcer.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/savage-opress-mauls-enforcer.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4443,7 +4443,7 @@
       }
     ],
     "cardImage": "/images/units/the-bad-batch-clone-force-99-2.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/the-bad-batch-clone-force-99-2.webp",
     "hasFullData": true,
     "history": [
       {
@@ -4514,7 +4514,7 @@
       }
     ],
     "cardImage": "/images/units/black-sun-enforcers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/black-sun-enforcers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -4569,7 +4569,7 @@
       }
     ],
     "cardImage": "/images/units/ewok-skirmishers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ewok-skirmishers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -4635,7 +4635,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-initiates.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-initiates.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4702,7 +4702,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-warriors.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-warriors.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4770,7 +4770,7 @@
       }
     ],
     "cardImage": "/images/units/pyke-syndicate-foot-soldiers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/pyke-syndicate-foot-soldiers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -4851,7 +4851,7 @@
       }
     ],
     "cardImage": "/images/units/weequay-pirates.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/weequay-pirates.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4919,7 +4919,7 @@
       }
     ],
     "cardImage": "/images/units/clan-kryze-veterans.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clan-kryze-veterans.webp",
     "hasFullData": true,
     "history": []
   },
@@ -4987,7 +4987,7 @@
       }
     ],
     "cardImage": "/images/units/clan-wren-veterans.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clan-wren-veterans.webp",
     "hasFullData": true,
     "history": []
   },
@@ -5053,7 +5053,7 @@
       }
     ],
     "cardImage": "/images/units/ewok-slingers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ewok-slingers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5127,7 +5127,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-super-commandos.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-super-commandos.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5213,7 +5213,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-warriors-fire-support.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-warriors-fire-support.webp",
     "hasFullData": true,
     "history": []
   },
@@ -5278,7 +5278,7 @@
       }
     ],
     "cardImage": "/images/units/swoop-bike-riders.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/swoop-bike-riders.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5329,7 +5329,7 @@
     ],
     "weapons": [],
     "cardImage": "/images/units/a-a5-speeder-truck-2.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/a-a5-speeder-truck-2.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5417,7 +5417,7 @@
       }
     ],
     "cardImage": "/images/units/chewbacca-let-the-wookiee-win.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/chewbacca-let-the-wookiee-win.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5495,7 +5495,7 @@
       }
     ],
     "cardImage": "/images/units/wlo-5-speeder-tank.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/wlo-5-speeder-tank.webp",
     "hasFullData": true,
     "history": []
   },
@@ -5559,7 +5559,7 @@
       }
     ],
     "cardImage": "/images/units/han-solo-unorthodox-general.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/han-solo-unorthodox-general.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5628,7 +5628,7 @@
       }
     ],
     "cardImage": "/images/units/lando-calrissian-canny-general.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/lando-calrissian-canny-general.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5700,7 +5700,7 @@
       }
     ],
     "cardImage": "/images/units/leia-organa-fearless-and-inventive.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/leia-organa-fearless-and-inventive.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5783,7 +5783,7 @@
       }
     ],
     "cardImage": "/images/units/luke-skywalker-hero-of-the-rebellion.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/luke-skywalker-hero-of-the-rebellion.webp",
     "hasFullData": true,
     "history": [
       {
@@ -5865,7 +5865,7 @@
       }
     ],
     "cardImage": "/images/units/luke-skywalker-commander-skywalker.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/luke-skywalker-commander-skywalker.webp",
     "hasFullData": true,
     "history": []
   },
@@ -5928,7 +5928,7 @@
       }
     ],
     "cardImage": "/images/units/rebel-officer-fighting-for-freedom.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rebel-officer-fighting-for-freedom.webp",
     "hasFullData": true,
     "history": []
   },
@@ -5982,7 +5982,7 @@
       }
     ],
     "cardImage": "/images/units/ahsoka-tano-fulcrum.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ahsoka-tano-fulcrum.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6053,7 +6053,7 @@
       }
     ],
     "cardImage": "/images/units/cassian-andor-capable-intelligence-agent.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/cassian-andor-capable-intelligence-agent.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6124,7 +6124,7 @@
       }
     ],
     "cardImage": "/images/units/chewbacca-walking-carpet.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/chewbacca-walking-carpet.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6203,7 +6203,7 @@
       }
     ],
     "cardImage": "/images/units/han-solo-reluctant-hero.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/han-solo-reluctant-hero.webp",
     "hasFullData": true,
     "history": []
   },
@@ -6339,7 +6339,7 @@
       }
     ],
     "cardImage": "/images/units/k-2so-sardonic-security-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/k-2so-sardonic-security-droid.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6398,7 +6398,7 @@
       }
     ],
     "cardImage": "/images/units/luke-skywalker-jedi-knight.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/luke-skywalker-jedi-knight.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6460,7 +6460,7 @@
       }
     ],
     "cardImage": "/images/units/r2-d2-hero-of-a-thousand-devices.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/r2-d2-hero-of-a-thousand-devices.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6536,7 +6536,7 @@
       }
     ],
     "cardImage": "/images/units/rebel-agent-defender-of-democracy.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rebel-agent-defender-of-democracy.webp",
     "hasFullData": true,
     "history": []
   },
@@ -6588,7 +6588,7 @@
       }
     ],
     "cardImage": "/images/units/sabine-wren-explosive-artist.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/sabine-wren-explosive-artist.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6644,7 +6644,7 @@
       }
     ],
     "cardImage": "/images/units/fleet-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/fleet-troopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6732,7 +6732,7 @@
       }
     ],
     "cardImage": "/images/units/mark-ii-medium-blaster-trooper.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mark-ii-medium-blaster-trooper.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6801,7 +6801,7 @@
       }
     ],
     "cardImage": "/images/units/rebel-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rebel-troopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6868,7 +6868,7 @@
       }
     ],
     "cardImage": "/images/units/rebel-veterans.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rebel-veterans.webp",
     "hasFullData": true,
     "history": [
       {
@@ -6932,7 +6932,7 @@
       }
     ],
     "cardImage": "/images/units/guerilla-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/guerilla-troopers.webp",
     "hasFullData": true,
     "history": []
   },
@@ -6983,7 +6983,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-resistance.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-resistance.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7058,7 +7058,7 @@
       }
     ],
     "cardImage": "/images/units/mandalorian-resistance-clan-wren.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mandalorian-resistance-clan-wren.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7125,7 +7125,7 @@
       }
     ],
     "cardImage": "/images/units/rebel-commandos.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rebel-commandos.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7216,7 +7216,7 @@
       }
     ],
     "cardImage": "/images/units/rebel-sleeper-cell-ready-to-strike.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rebel-sleeper-cell-ready-to-strike.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7284,7 +7284,7 @@
       }
     ],
     "cardImage": "/images/units/wookiee-warriors-freedom-fighters.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/wookiee-warriors-freedom-fighters.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7354,7 +7354,7 @@
       }
     ],
     "cardImage": "/images/units/wookiee-warriors-kashyyyk-resistance.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/wookiee-warriors-kashyyyk-resistance.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7435,7 +7435,7 @@
       }
     ],
     "cardImage": "/images/units/14-fd-laser-cannon-team.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/14-fd-laser-cannon-team.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7493,7 +7493,7 @@
       }
     ],
     "cardImage": "/images/units/at-rt.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/at-rt.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7566,7 +7566,7 @@
       }
     ],
     "cardImage": "/images/units/rebel-commandos-strike-team.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/rebel-commandos-strike-team.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7642,7 +7642,7 @@
       }
     ],
     "cardImage": "/images/units/tauntaun-riders.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/tauntaun-riders.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7693,7 +7693,7 @@
     ],
     "weapons": [],
     "cardImage": "/images/units/a-a5-speeder-truck.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/a-a5-speeder-truck.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7757,7 +7757,7 @@
       }
     ],
     "cardImage": "/images/units/t-47-airspeeder.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/t-47-airspeeder.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7821,7 +7821,7 @@
       }
     ],
     "cardImage": "/images/units/x-34-landspeeder.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/x-34-landspeeder.webp",
     "hasFullData": true,
     "history": [
       {
@@ -7884,7 +7884,7 @@
       }
     ],
     "cardImage": "/images/units/ahsoka-tano-padawan-commander.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ahsoka-tano-padawan-commander.webp",
     "hasFullData": true,
     "history": []
   },
@@ -7939,7 +7939,7 @@
       }
     ],
     "cardImage": "/images/units/anakin-skywalker-the-chosen-one.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/anakin-skywalker-the-chosen-one.webp",
     "hasFullData": true,
     "history": [
       {
@@ -8019,7 +8019,7 @@
       }
     ],
     "cardImage": "/images/units/chewbacca-hero-of-kashyyyk.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/chewbacca-hero-of-kashyyyk.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8083,7 +8083,7 @@
       }
     ],
     "cardImage": "/images/units/clone-captain-rex-honorable-soldier.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clone-captain-rex-honorable-soldier.webp",
     "hasFullData": true,
     "history": [
       {
@@ -8152,7 +8152,7 @@
       }
     ],
     "cardImage": "/images/units/clone-commander-trained-for-leadership.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clone-commander-trained-for-leadership.webp",
     "hasFullData": true,
     "history": [
       {
@@ -8222,7 +8222,7 @@
       }
     ],
     "cardImage": "/images/units/clone-commander-cody-leader-of-the-212th.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clone-commander-cody-leader-of-the-212th.webp",
     "hasFullData": true,
     "history": [
       {
@@ -8295,7 +8295,7 @@
       }
     ],
     "cardImage": "/images/units/jedi-knight-mounted-jedi-general.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/jedi-knight-mounted-jedi-general.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8333,7 +8333,7 @@
     ],
     "weapons": [],
     "cardImage": "/images/units/jedi-knight-general-strong-in-the-force.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/jedi-knight-general-strong-in-the-force.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8385,7 +8385,7 @@
       }
     ],
     "cardImage": "/images/units/ki-adi-mundi-jedi-council.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ki-adi-mundi-jedi-council.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8459,7 +8459,7 @@
       }
     ],
     "cardImage": "/images/units/mace-windu-jedi-council.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/mace-windu-jedi-council.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8515,7 +8515,7 @@
       }
     ],
     "cardImage": "/images/units/obi-wan-kenobi-civilized-warrior.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/obi-wan-kenobi-civilized-warrior.webp",
     "hasFullData": true,
     "history": [
       {
@@ -8590,7 +8590,7 @@
       }
     ],
     "cardImage": "/images/units/wookiee-chieftain-clan-leader.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/wookiee-chieftain-clan-leader.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8659,7 +8659,7 @@
       }
     ],
     "cardImage": "/images/units/yoda-grand-master-of-the-jedi-order.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/yoda-grand-master-of-the-jedi-order.webp",
     "hasFullData": true,
     "history": [
       {
@@ -8774,7 +8774,7 @@
     ],
     "weapons": [],
     "cardImage": "/images/units/jedi-knight-keeper-of-the-peace.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/jedi-knight-keeper-of-the-peace.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8836,7 +8836,7 @@
       }
     ],
     "cardImage": "/images/units/padme-amidala-spirited-senator.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/padme-amidala-spirited-senator.webp",
     "hasFullData": true,
     "history": [
       {
@@ -8902,7 +8902,7 @@
       }
     ],
     "cardImage": "/images/units/plo-koon-jedi-council.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/plo-koon-jedi-council.webp",
     "hasFullData": true,
     "history": []
   },
@@ -8950,7 +8950,7 @@
       }
     ],
     "cardImage": "/images/units/r2-d2-independent-astromech.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/r2-d2-independent-astromech.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9015,7 +9015,7 @@
       }
     ],
     "cardImage": "/images/units/shaak-ti-jedi-council.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/shaak-ti-jedi-council.webp",
     "hasFullData": true,
     "history": []
   },
@@ -9080,7 +9080,7 @@
       }
     ],
     "cardImage": "/images/units/the-bad-batch-clone-force-99.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/the-bad-batch-clone-force-99.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9146,7 +9146,7 @@
       }
     ],
     "cardImage": "/images/units/clone-trooper-infantry.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clone-trooper-infantry.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9222,7 +9222,7 @@
       }
     ],
     "cardImage": "/images/units/clone-trooper-marksmen.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clone-trooper-marksmen.webp",
     "hasFullData": true,
     "history": []
   },
@@ -9276,7 +9276,7 @@
       }
     ],
     "cardImage": "/images/units/arc-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/arc-troopers.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9365,7 +9365,7 @@
       }
     ],
     "cardImage": "/images/units/arf-troopers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/arf-troopers.webp",
     "hasFullData": true,
     "history": []
   },
@@ -9426,7 +9426,7 @@
       }
     ],
     "cardImage": "/images/units/wookiee-warriors-kashyyyk-defenders.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/wookiee-warriors-kashyyyk-defenders.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9494,7 +9494,7 @@
       }
     ],
     "cardImage": "/images/units/wookiee-warriors-noble-fighters.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/wookiee-warriors-noble-fighters.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9638,7 +9638,7 @@
       }
     ],
     "cardImage": "/images/units/at-rt-2.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/at-rt-2.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9709,7 +9709,7 @@
       }
     ],
     "cardImage": "/images/units/barc-speeder.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/barc-speeder.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9793,7 +9793,7 @@
       }
     ],
     "cardImage": "/images/units/clone-commandos.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clone-commandos.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9867,7 +9867,7 @@
       }
     ],
     "cardImage": "/images/units/clone-commandos-delta-squad.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/clone-commandos-delta-squad.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9922,7 +9922,7 @@
       }
     ],
     "cardImage": "/images/units/raddaugh-gnasp-fluttercraft.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/raddaugh-gnasp-fluttercraft.webp",
     "hasFullData": true,
     "history": []
   },
@@ -9974,7 +9974,7 @@
       }
     ],
     "cardImage": "/images/units/raddaugh-gnasp-fluttercraft-attack-craft.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/raddaugh-gnasp-fluttercraft-attack-craft.webp",
     "hasFullData": true,
     "history": []
   },
@@ -10023,7 +10023,7 @@
       }
     ],
     "cardImage": "/images/units/infantry-support-platform.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/infantry-support-platform.webp",
     "hasFullData": true,
     "history": []
   },
@@ -10083,7 +10083,7 @@
       }
     ],
     "cardImage": "/images/units/laat-le-patrol-transport-2.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/laat-le-patrol-transport-2.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10156,7 +10156,7 @@
       }
     ],
     "cardImage": "/images/units/saber-class-tank.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/saber-class-tank.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10240,7 +10240,7 @@
       }
     ],
     "cardImage": "/images/units/count-dooku-darth-tyranus.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/count-dooku-darth-tyranus.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10331,7 +10331,7 @@
       }
     ],
     "cardImage": "/images/units/general-grievous-wheel-bike-warlord.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/general-grievous-wheel-bike-warlord.webp",
     "hasFullData": true,
     "history": []
   },
@@ -10397,7 +10397,7 @@
       }
     ],
     "cardImage": "/images/units/kalani-super-tactical-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/kalani-super-tactical-droid.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10470,7 +10470,7 @@
       }
     ],
     "cardImage": "/images/units/kraken-super-tactical-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/kraken-super-tactical-droid.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10538,7 +10538,7 @@
       }
     ],
     "cardImage": "/images/units/poggle-the-lesser-public-leader-of-the-geonosians.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/poggle-the-lesser-public-leader-of-the-geonosians.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10611,7 +10611,7 @@
       }
     ],
     "cardImage": "/images/units/super-tactical-command-droid-command-and-control-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/super-tactical-command-droid-command-and-control-droid.webp",
     "hasFullData": true,
     "history": []
   },
@@ -10671,7 +10671,7 @@
       }
     ],
     "cardImage": "/images/units/t-series-tactical-droid-programmed-for-strategy.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/t-series-tactical-droid-programmed-for-strategy.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10731,7 +10731,7 @@
       }
     ],
     "cardImage": "/images/units/asajj-ventress-separatist-assassin.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/asajj-ventress-separatist-assassin.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10792,7 +10792,7 @@
       }
     ],
     "cardImage": "/images/units/maul-impatient-apprentice.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/maul-impatient-apprentice.webp",
     "hasFullData": true,
     "history": [
       {
@@ -10867,7 +10867,7 @@
       }
     ],
     "cardImage": "/images/units/savage-opress-dookus-apprentice.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/savage-opress-dookus-apprentice.webp",
     "hasFullData": true,
     "history": []
   },
@@ -10935,7 +10935,7 @@
       }
     ],
     "cardImage": "/images/units/sun-fac-ruthless-lieutenant.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/sun-fac-ruthless-lieutenant.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11008,7 +11008,7 @@
       }
     ],
     "cardImage": "/images/units/super-tactical-command-droid-auxiliary-command-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/super-tactical-command-droid-auxiliary-command-droid.webp",
     "hasFullData": true,
     "history": []
   },
@@ -11067,7 +11067,7 @@
       }
     ],
     "cardImage": "/images/units/b1-battle-droids.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/b1-battle-droids.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11131,7 +11131,7 @@
       }
     ],
     "cardImage": "/images/units/b2-super-battle-droids.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/b2-super-battle-droids.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11200,7 +11200,7 @@
       }
     ],
     "cardImage": "/images/units/geonosian-warriors-soldiers-of-the-hive.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/geonosian-warriors-soldiers-of-the-hive.webp",
     "hasFullData": true,
     "history": []
   },
@@ -11259,7 +11259,7 @@
       }
     ],
     "cardImage": "/images/units/geonosian-warriors-geonosian-engineers.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/geonosian-warriors-geonosian-engineers.webp",
     "hasFullData": true,
     "history": []
   },
@@ -11324,7 +11324,7 @@
       }
     ],
     "cardImage": "/images/units/bx-series-droid-commandos.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/bx-series-droid-commandos.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11385,7 +11385,7 @@
       }
     ],
     "cardImage": "/images/units/drk-1-sith-probe-droids.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/drk-1-sith-probe-droids.webp",
     "hasFullData": true,
     "history": []
   },
@@ -11450,7 +11450,7 @@
       }
     ],
     "cardImage": "/images/units/ig-100-magnaguard.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ig-100-magnaguard.webp",
     "hasFullData": true,
     "history": []
   },
@@ -11512,7 +11512,7 @@
       }
     ],
     "cardImage": "/images/units/ig-100-magnaguard-prototype-assassin-droids.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/ig-100-magnaguard-prototype-assassin-droids.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11584,7 +11584,7 @@
       }
     ],
     "cardImage": "/images/units/tsmeu-6-wheel-bikes.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/tsmeu-6-wheel-bikes.webp",
     "hasFullData": true,
     "history": []
   },
@@ -11649,7 +11649,7 @@
       }
     ],
     "cardImage": "/images/units/bx-series-droid-commandos-strike-team.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/bx-series-droid-commandos-strike-team.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11711,7 +11711,7 @@
       }
     ],
     "cardImage": "/images/units/droidekas.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/droidekas.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11786,7 +11786,7 @@
       }
     ],
     "cardImage": "/images/units/dsd1-dwarf-spider-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/dsd1-dwarf-spider-droid.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11849,7 +11849,7 @@
       }
     ],
     "cardImage": "/images/units/lm-432-crab-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/lm-432-crab-droid.webp",
     "hasFullData": true,
     "history": []
   },
@@ -11900,7 +11900,7 @@
       }
     ],
     "cardImage": "/images/units/stap-riders.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/stap-riders.webp",
     "hasFullData": true,
     "history": [
       {
@@ -11984,7 +11984,7 @@
       }
     ],
     "cardImage": "/images/units/aat-battle-tank.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/aat-battle-tank.webp",
     "hasFullData": true,
     "history": [
       {
@@ -12060,7 +12060,7 @@
       }
     ],
     "cardImage": "/images/units/aqua-droids.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/aqua-droids.webp",
     "hasFullData": true,
     "history": [
       {
@@ -12143,7 +12143,7 @@
       }
     ],
     "cardImage": "/images/units/persuader-class-tank-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/persuader-class-tank-droid.webp",
     "hasFullData": true,
     "history": [
       {
@@ -12221,7 +12221,7 @@
       }
     ],
     "cardImage": "/images/units/persuader-class-tank-droid-prototype-tank-droid.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/persuader-class-tank-droid-prototype-tank-droid.webp",
     "hasFullData": true,
     "history": [
       {

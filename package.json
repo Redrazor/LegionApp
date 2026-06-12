@@ -10,6 +10,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "scrape": "tsx scraper/scrape.ts",
+    "portraits": "tsx scraper/portraits.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx server/db/migrate.ts",
     "seed": "tsx server/db/seed.ts",

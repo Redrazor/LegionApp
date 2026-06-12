@@ -189,6 +189,36 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-12 — B2 implemented
+**Branch:** `feature/rank-tracker-footer` (off `main`). **Status:** code complete, AC verified in-app,
+awaiting PR. Continues **Epic B — Roster Canvas layout** (builds on B1's `#footer` slot + `useBreakpoint`).
+
+**B2 — Permanent rank-tracker footer + live totals + format switcher: DONE.** Fills the pinned footer
+slot with the real rank tracker; the standalone "Army Status" block left over in B1's army pane is gone.
+- **`src/components/build/RankTrackerFooter.vue`** (new) — presentational; all data via props, all actions
+  via emits (`setGameSize`/`save`/`share`/`print`). Renders: **6 rank chips** (`RANK_ORDER`) each
+  `Abbr count ·min–max` coloured by `rankChipState` (under = faction-rebels tint, over = same + ring, ok =
+  neutral); **totals** (points/cap, `(N left)`, activations `sm:` only, Legal/Illegal pill); the **format
+  switcher relocated from the header** (`FORMATS`, `cap`-active); **Save/Share/Print** (Update label when
+  editing; Share/Print disabled on empty army); points **progress bar** + optional `shareMsg`.
+- **Expanding checklist (revised from plan).** Original build used a Teleported bottom-sheet popup; on
+  review we switched to an **in-place footer expansion** — the totals button **toggles** an inline panel at
+  the top of the footer that grows **upward** via a `grid-template-rows: 0fr → 1fr` transition (300ms ease-out,
+  `max-h-[50vh]` internal scroll). Chevron rotates up↔down; `aria-expanded` reflects state. No Teleport/backdrop.
+- **`src/utils/army.ts`** — new pure `rankChipState(count, min, max) → 'under'|'over'|'ok'` (+ `RankChipState`).
+- **`src/views/BuildView.vue`** — `ranks` computed (`{count,min,max}` per rank; **max folds in the Entourage
+  bonus** via `limits`, not raw `rankLimits`); renders `<RankTrackerFooter>` in `#footer`; header format
+  switcher + the old inline footer/Army-Status blocks removed.
+- **Tests:** `tests/army.spec.ts` +3 `rankChipState` cases (at-min/at-max ok, over, under, optional-empty).
+  **134 pass; vue-tsc clean.** AC 1–10 verified in-browser (Playwright): chips colour live, format switch
+  recomputes limits, footer expands/collapses up with animation.
+
+**Decisions locked:** footer is a dumb presentational component (no store access — BuildView owns state);
+checklist is inline-expand, not a popup (user preference); chip max uses Entourage-adjusted `limits`.
+
+**Next up:** **B3** — always-visible catalogue grouped by rank (fills the `#catalogue` placeholder) → C1
+(inline-expand unit detail + slot-filtered upgrade attach) → B4 (qty ×N). Each = one `/workflow` cycle.
+
 ### 2026-06-12 — B1 implemented & merged (v0.10.0)
 **Branch:** `feature/build-layout-shell` (off `main`). **PR #8 merged (squash, `410f07c`).** Epic A is
 complete; this opens **Epic B — Roster Canvas layout**.

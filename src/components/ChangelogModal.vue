@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.14.0',
+    date: '2026-06-12',
+    changes: [
+      'Build — Equip upgrades inline: tap an army unit\'s upgrade slot to pick from its valid upgrades right in the left pane (the pop-out drawer is gone). Pick to equip, ✕ to close',
+      'Build — Upgrade picker now shows each upgrade\'s card art and what it does (its keywords), not just a name',
+    ],
+  },
+  {
     version: '0.13.0',
     date: '2026-06-12',
     changes: [

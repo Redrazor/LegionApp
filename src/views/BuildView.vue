@@ -12,6 +12,7 @@ import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
 import RankTrackerFooter from '../components/build/RankTrackerFooter.vue'
 import RankCatalogue from '../components/build/RankCatalogue.vue'
+import UpgradeCatalogue from '../components/build/UpgradeCatalogue.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
 
@@ -27,6 +28,27 @@ const shareMsg = ref('')
 const viewingSlug = ref<string | null>(null)
 function viewUnit(unitId: string) {
   viewingSlug.value = unitsStore.byId.get(unitId)?.slug ?? null
+}
+
+// Contextual upgrade picking: a chosen army-unit slot takes over the left pane.
+const picking = ref<{ uid: string; slot: string; index: number } | null>(null)
+const pickingCtx = computed(() => {
+  if (!picking.value) return null
+  const au = armyStore.findUnit(picking.value.uid)
+  const unit = au && unitsStore.byId.get(au.unitId)
+  if (!au || !unit) return null
+  return {
+    unit,
+    equippedIds: au.upgrades.map((u) => u.upgradeId),
+    filled: armyStore.upgradeInSlot(picking.value.uid, picking.value.slot, picking.value.index) != null,
+  }
+})
+function onPickUpgrade(p: { uid: string; slot: string; index: number }) {
+  picking.value = p
+}
+function applyUpgrade(upgradeId: string | null) {
+  if (picking.value) armyStore.setUpgrade(picking.value.uid, picking.value.slot, picking.value.index, upgradeId)
+  picking.value = null
 }
 
 onMounted(() => {
@@ -123,7 +145,7 @@ function printSheet() {
     </div>
   </div>
 
-  <BuildLayout v-else>
+  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null">
     <!-- Header controls -->
     <template #header>
       <div class="mb-4 flex flex-wrap items-center gap-3">
@@ -137,9 +159,22 @@ function printSheet() {
       </div>
     </template>
 
-    <!-- Catalogue pane — always-visible, rank-grouped; tap a unit's [+] to add. -->
+    <!-- Catalogue pane — the unit catalogue, or the contextual upgrade picker when a
+         slot is selected (tap a unit's [+] to add; tap an army-unit slot to upgrade). -->
     <template #catalogue>
+      <UpgradeCatalogue
+        v-if="picking && pickingCtx"
+        :slot="picking.slot"
+        :faction="draft.faction"
+        :unit="pickingCtx.unit"
+        :equipped-ids="pickingCtx.equippedIds"
+        :filled="pickingCtx.filled"
+        @pick="applyUpgrade"
+        @clear="applyUpgrade(null)"
+        @close="picking = null"
+      />
       <RankCatalogue
+        v-else
         :units="unitsStore.units"
         :faction="draft.faction"
         :counts="counts"
@@ -166,6 +201,7 @@ function printSheet() {
             <ArmyUnitCard
               v-for="au in unitsByRank[rank]" :key="au.uid"
               :army-unit="au" :faction="draft.faction"
+              @pick-upgrade="onPickUpgrade"
             />
           </div>
           <div v-else class="rounded-lg border border-dashed border-lg-border py-4 text-center text-xs text-lg-muted">

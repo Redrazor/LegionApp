@@ -2,6 +2,7 @@
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUnitsStore } from '../../stores/units.ts'
+import { useKeywordsStore } from '../../stores/keywords.ts'
 import { factionColor, factionName, rankName, slotLabel } from '../../utils/factions.ts'
 import UnitStatBlock from '../ui/UnitStatBlock.vue'
 import KeywordPill from '../ui/KeywordPill.vue'
@@ -18,12 +19,18 @@ const emit = defineEmits<{ close: [] }>()
 const route = useRoute()
 const router = useRouter()
 const unitsStore = useUnitsStore()
+const keywordsStore = useKeywordsStore()
 
 const slug = computed(() => props.slug ?? (route.params.slug as string))
 const unit = computed(() => unitsStore.bySlug.get(slug.value))
 const imgError = ref(false)
 
-onMounted(() => unitsStore.load())
+// Load both units and the keyword glossary so KeywordPill popovers work wherever this
+// drawer is mounted — Browse loads the glossary in its view, Build does not.
+onMounted(() => {
+  unitsStore.load()
+  keywordsStore.load()
+})
 watch(slug, () => { imgError.value = false })
 
 function close() {

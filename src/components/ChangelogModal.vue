@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.14.1',
+    date: '2026-06-13',
+    changes: [
+      'Build — Tapping a keyword in a unit\'s profile now shows its rulebook definition (previously this only worked on the Browse tab) — including weapon keywords',
+      'App — Keyword definition popovers flip above the keyword when it\'s near the bottom of the screen, so they\'re always readable',
+    ],
+  },
+  {
     version: '0.14.0',
     date: '2026-06-12',
     changes: [

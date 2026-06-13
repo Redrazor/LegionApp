@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import type Database from 'better-sqlite3'
-import type { Unit, Upgrade, CommandCard, Product } from '../../src/types/index.ts'
+import type { Unit, Upgrade, CommandCard, Product, BattleForce } from '../../src/types/index.ts'
 
 type Sqlite = InstanceType<typeof Database>
 
@@ -39,7 +39,21 @@ export function createTables(sqlite: Sqlite): void {
       card_image TEXT,
       portrait_image TEXT,
       has_full_data INTEGER NOT NULL DEFAULT 0,
-      history TEXT NOT NULL DEFAULT '[]'
+      history TEXT NOT NULL DEFAULT '[]',
+      special_issue TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS battle_forces (
+      link_id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      faction TEXT NOT NULL DEFAULT 'mercenary',
+      force_affinity TEXT,
+      rank_units TEXT NOT NULL DEFAULT '{}',
+      allowed_upgrades TEXT NOT NULL DEFAULT '[]',
+      disallowed_upgrades TEXT NOT NULL DEFAULT '[]',
+      rules TEXT NOT NULL DEFAULT '{}',
+      rules_text TEXT NOT NULL DEFAULT '[]',
+      modes TEXT NOT NULL DEFAULT '{}'
     );
 
     CREATE TABLE IF NOT EXISTS upgrades (
@@ -85,6 +99,7 @@ export function dropTables(sqlite: Sqlite): void {
     DROP TABLE IF EXISTS upgrades;
     DROP TABLE IF EXISTS commands;
     DROP TABLE IF EXISTS products;
+    DROP TABLE IF EXISTS battle_forces;
   `)
 }
 
@@ -93,11 +108,11 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
     INSERT INTO units (
       id, slug, name, title, faction, rank, unit_type, affiliation, affiliations, cost, defense,
       surge_attack, surge_defense, speed, wounds, courage, is_unique,
-      keywords, upgrade_bar, weapons, card_image, portrait_image, has_full_data, history
+      keywords, upgrade_bar, weapons, card_image, portrait_image, has_full_data, history, special_issue
     ) VALUES (
       @id, @slug, @name, @title, @faction, @rank, @unitType, @affiliation, @affiliations, @cost, @defense,
       @surgeAttack, @surgeDefense, @speed, @wounds, @courage, @isUnique,
-      @keywords, @upgradeBar, @weapons, @cardImage, @portraitImage, @hasFullData, @history
+      @keywords, @upgradeBar, @weapons, @cardImage, @portraitImage, @hasFullData, @history, @specialIssue
     )
   `)
   const run = sqlite.transaction((rows: Unit[]) => {
@@ -116,6 +131,7 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
         cardImage: u.cardImage, portraitImage: u.portraitImage,
         hasFullData: u.hasFullData ? 1 : 0,
         history: JSON.stringify(u.history ?? []),
+        specialIssue: u.specialIssue ?? null,
       })
     }
   })
@@ -174,6 +190,33 @@ export function seedProducts(sqlite: Sqlite, list: Product[]): void {
   run(list)
 }
 
+export function seedBattleForces(sqlite: Sqlite, list: BattleForce[]): void {
+  const insert = sqlite.prepare(`
+    INSERT INTO battle_forces (
+      link_id, name, faction, force_affinity, rank_units,
+      allowed_upgrades, disallowed_upgrades, rules, rules_text, modes
+    ) VALUES (
+      @linkId, @name, @faction, @forceAffinity, @rankUnits,
+      @allowedUpgrades, @disallowedUpgrades, @rules, @rulesText, @modes
+    )
+  `)
+  const run = sqlite.transaction((rows: BattleForce[]) => {
+    for (const b of rows) {
+      insert.run({
+        linkId: b.linkId, name: b.name, faction: b.faction,
+        forceAffinity: b.forceAffinity ?? null,
+        rankUnits: JSON.stringify(b.rankUnits ?? {}),
+        allowedUpgrades: JSON.stringify(b.allowedUpgrades ?? []),
+        disallowedUpgrades: JSON.stringify(b.disallowedUpgrades ?? []),
+        rules: JSON.stringify(b.rules ?? {}),
+        rulesText: JSON.stringify(b.rulesText ?? []),
+        modes: JSON.stringify(b.modes ?? {}),
+      })
+    }
+  })
+  run(list)
+}
+
 export function runSeed(sqlite: Sqlite): void {
   dropTables(sqlite)
   createTables(sqlite)
@@ -181,11 +224,13 @@ export function runSeed(sqlite: Sqlite): void {
   const up = readJson<Upgrade>('upgrades.json')
   const c = readJson<CommandCard>('commands.json')
   const p = readJson<Product>('products.json')
+  const bf = readJson<BattleForce>('battleForces.json')
   seedUnits(sqlite, u)
   seedUpgrades(sqlite, up)
   seedCommands(sqlite, c)
   seedProducts(sqlite, p)
-  console.log(`Seed complete: ${u.length} units, ${up.length} upgrades, ${c.length} commands, ${p.length} products`)
+  seedBattleForces(sqlite, bf)
+  console.log(`Seed complete: ${u.length} units, ${up.length} upgrades, ${c.length} commands, ${p.length} products, ${bf.length} battle forces`)
 }
 
 async function main(): Promise<void> {

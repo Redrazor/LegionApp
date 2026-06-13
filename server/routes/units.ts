@@ -29,6 +29,7 @@ export function rowToUnit(row: Record<string, unknown>) {
     portraitImage: row.portrait_image ?? null,
     hasFullData: !!row.has_full_data,
     history: JSON.parse((row.history as string) || '[]'),
+    ...(row.special_issue ? { specialIssue: row.special_issue } : {}),
   }
 }
 

@@ -14,8 +14,8 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { tmpdir } from 'os'
 import {
-  buildUnits, buildUpgrades, buildCommands,
-  type Lhq2Card, type Unit,
+  buildUnits, buildUpgrades, buildCommands, buildBattleForces,
+  type Lhq2Card, type Lhq2BattleForce, type Unit,
 } from './normalise.ts'
 import { parseProductCards, buildProductCatalog, type PhilibertEntry } from './products.ts'
 
@@ -47,13 +47,84 @@ async function fetchText(url: string): Promise<string> {
   return res.text()
 }
 
-/** Fetch the Legion HQ 2 SPA bundle and extract every embedded card object. */
-async function fetchLhq2Cards(): Promise<Lhq2Card[]> {
+/** Fetch the Legion HQ 2 SPA main JS bundle (it embeds the full card database). */
+async function fetchLhq2MainJs(): Promise<string> {
   const html = await fetchText(`${LHQ2_ORIGIN}/`)
   const m = html.match(/\/static\/js\/main\.[a-z0-9]+\.js/i)
   if (!m) throw new Error('Could not locate Legion HQ 2 JS bundle')
-  const js = await fetchText(`${LHQ2_ORIGIN}${m[0]}`)
-  return extractCards(js)
+  return fetchText(`${LHQ2_ORIGIN}${m[0]}`)
+}
+
+/**
+ * Parse the webpack chunk map embedded in main.js — the object literal mapping
+ * chunk numbers to content hashes that feeds `"static/js/"+e+"."+{…}[e]+".chunk.js"`.
+ */
+export function parseChunkMap(js: string): Record<string, string> {
+  const m = js.match(/\{(?:\s*\d+:"[a-z0-9]+",?\s*)+\}(?=\[\w+\]\+"\.chunk\.js")/)
+  const map: Record<string, string> = {}
+  if (m) for (const e of m[0].matchAll(/(\d+):"([a-z0-9]+)"/g)) map[e[1]] = e[2]
+  return map
+}
+
+/**
+ * Battle-force definitions live in a lazy-loaded chunk (chunk 526 today). The
+ * hash rotates on every deploy and the chunk number can move, so resolve the map
+ * fresh, try 526 first, then scan the remaining chunks by content as a fallback.
+ */
+async function fetchLhq2BattleForces(mainJs: string): Promise<Lhq2BattleForce[]> {
+  const map = parseChunkMap(mainJs)
+  const tryChunk = async (num: string): Promise<Lhq2BattleForce[] | null> => {
+    const hash = map[num]
+    if (!hash) return null
+    const js = await fetchText(`${LHQ2_ORIGIN}/static/js/${num}.${hash}.chunk.js`).catch(() => '')
+    const bfs = extractBattleForces(js)
+    return bfs.length ? bfs : null
+  }
+  const primary = await tryChunk('526')
+  if (primary) return primary
+  console.warn('  ! battle forces not in chunk 526; scanning other chunks…')
+  for (const num of Object.keys(map)) {
+    if (num === '526') continue
+    const bfs = await tryChunk(num)
+    if (bfs) { console.log(`  ✓ battle forces found in chunk ${num}`); return bfs }
+  }
+  throw new Error('Could not locate the Legion HQ 2 battle-force chunk')
+}
+
+/** Brace-match each battle-force object (`…linkId:"xx"…`) and eval it. */
+export function extractBattleForces(js: string): Lhq2BattleForce[] {
+  const out: Lhq2BattleForce[] = []
+  const seen = new Set<number>()
+  let idx = 0
+  while ((idx = js.indexOf('linkId:', idx)) !== -1) {
+    // Walk back to the start of the enclosing object.
+    let depth = 0, start = -1
+    for (let i = idx; i >= 0; i--) {
+      const c = js[i]
+      if (c === '}') depth++
+      else if (c === '{') { if (depth === 0) { start = i; break } depth-- }
+    }
+    if (start === -1 || seen.has(start)) { idx += 7; continue }
+    seen.add(start)
+    // Brace-match forward.
+    let d = 0, end = -1
+    for (let j = start; j < js.length; j++) {
+      const c = js[j]
+      if (c === '{') d++
+      else if (c === '}') { d--; if (d === 0) { end = j + 1; break } }
+    }
+    if (end === -1) { idx += 7; continue }
+    const seg = js.slice(start, end)
+    idx = end
+    // BF objects use unquoted keys and !0/!1 booleans → eval, not JSON.parse.
+    try {
+      const obj = new Function(`return (${seg})`)() as Lhq2BattleForce
+      if (obj && obj.linkId && obj.name) out.push(obj)
+    } catch {
+      // Not a battle-force object literal (e.g. an unrelated `linkId:` use).
+    }
+  }
+  return out
 }
 
 /** Brace-match the object enclosing each `"cardType":` and parse it. */
@@ -173,14 +244,20 @@ async function runJobs(label: string, jobs: ImgJob[]) {
 
 async function main() {
   console.log('Fetching Legion HQ 2 card database…')
-  const [cards, keywords] = await Promise.all([fetchLhq2Cards(), fetchKeywords()])
+  const [mainJs, keywords] = await Promise.all([fetchLhq2MainJs(), fetchKeywords()])
+  const cards = extractCards(mainJs)
   const counts = cards.reduce<Record<string, number>>((a, c) => ((a[c.cardType] = (a[c.cardType] ?? 0) + 1), a), {})
   console.log(`  cards: ${cards.length}`, counts)
+
+  console.log('Fetching Legion HQ 2 battle forces…')
+  const rawBFs = await fetchLhq2BattleForces(mainJs)
+  console.log(`  battle forces: ${rawBFs.length}`)
 
   console.log('Building…')
   const units = buildUnits(cards)
   const upgrades = buildUpgrades(cards)
   const commands = buildCommands(cards)
+  const battleForces = buildBattleForces(rawBFs)
 
   const overrides = await overrideSlugs()
   for (const u of units) if (overrides.has(u.slug)) u.cardImage = `/images/units/${u.slug}.webp`
@@ -201,6 +278,7 @@ async function main() {
   await writeJson('units.json', units)
   await writeJson('upgrades.json', upgrades)
   await writeJson('commands.json', commands)
+  await writeJson('battleForces.json', battleForces)
   await writeJson('products.json', products)
   await writeJson('keywords.json', keywords)
 

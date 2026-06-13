@@ -60,6 +60,37 @@ export interface Lhq2Card {
     keywords?: (string | { name: string; value?: number })[]
   }[]
   history?: { date: string; description: string }[]
+  specialIssue?: string // battle force this unit may ONLY be fielded in
+}
+
+/** Raw battle-force object as authored in the legionhq2 SPA chunk bundle. */
+export interface Lhq2BattleForce {
+  name: string
+  faction: string
+  linkId: string
+  forceAffinity?: string
+  commander?: string[]
+  operative?: string[]
+  corps?: string[]
+  special?: string[]
+  support?: string[]
+  heavy?: string[]
+  allowedUpgrades?: string[]
+  disallowedUpgrades?: string[]
+  plainTextRules?: string[]
+  rules?: Record<string, unknown>
+  'standard mode'?: Lhq2RankTable
+  '500-point mode'?: Lhq2RankTable
+}
+
+interface Lhq2RankTable {
+  commander?: [number, number]
+  operative?: [number, number]
+  corps?: [number, number]
+  special?: [number, number]
+  support?: [number, number]
+  heavy?: [number, number]
+  commOp?: number
 }
 
 export interface Weapon {
@@ -94,6 +125,32 @@ export interface Unit {
   portraitImage: string | null
   hasFullData: boolean
   history: { date: string; description: string }[]
+  specialIssue?: string // battle force this unit may ONLY be fielded in
+}
+
+export type RankBracket = [number, number]
+
+export interface BattleForceRankTable {
+  commander: RankBracket
+  operative: RankBracket
+  corps: RankBracket
+  special: RankBracket
+  support: RankBracket
+  heavy: RankBracket
+  commOp: number | null
+}
+
+export interface BattleForce {
+  linkId: string
+  name: string
+  faction: string
+  forceAffinity: string | null
+  rankUnits: Record<string, string[]>
+  allowedUpgrades: string[]
+  disallowedUpgrades: string[]
+  rules: Record<string, unknown>
+  rulesText: string[]
+  modes: { standard: BattleForceRankTable; '500': BattleForceRankTable }
 }
 
 export interface Upgrade {
@@ -222,6 +279,7 @@ export function buildUnits(cards: Lhq2Card[]): Unit[] {
         portraitImage: null,
         hasFullData: true,
         history: c.history ?? [],
+        ...(c.specialIssue ? { specialIssue: c.specialIssue } : {}),
       }
     })
 
@@ -253,6 +311,52 @@ export function buildUpgrades(cards: Lhq2Card[]): Upgrade[] {
         cardImage: c.imageName ? `/images/upgrades/${slug}.webp` : null,
       }
     })
+}
+
+const BF_RANKS = ['commander', 'operative', 'corps', 'special', 'support', 'heavy'] as const
+
+/** A [min, max] pair, defaulting to [0, 0] for an absent/malformed entry. */
+function bracket(t: Lhq2RankTable | undefined, rank: string): RankBracket {
+  const v = t?.[rank as keyof Lhq2RankTable]
+  return Array.isArray(v) && v.length === 2 ? [Number(v[0]), Number(v[1])] : [0, 0]
+}
+
+function rankTable(raw: Lhq2RankTable | undefined): BattleForceRankTable {
+  return {
+    commander: bracket(raw, 'commander'),
+    operative: bracket(raw, 'operative'),
+    corps: bracket(raw, 'corps'),
+    special: bracket(raw, 'special'),
+    support: bracket(raw, 'support'),
+    heavy: bracket(raw, 'heavy'),
+    commOp: typeof raw?.commOp === 'number' ? raw.commOp : null,
+  }
+}
+
+/**
+ * Normalize raw legionhq2 battle-force objects into BattleForce records. Renames
+ * the source's `"standard mode"` / `"500-point mode"` keys to `standard` / `500`,
+ * coerces each rank to a [min, max] bracket, and passes `rules` through verbatim
+ * (its flags are resolved when battle forces drive validation, in a later stage).
+ */
+export function buildBattleForces(raw: Lhq2BattleForce[]): BattleForce[] {
+  return raw
+    .map((b) => ({
+      linkId: b.linkId,
+      name: b.name.trim(),
+      faction: mapFaction(b.faction),
+      forceAffinity: b.forceAffinity ? b.forceAffinity : null,
+      rankUnits: Object.fromEntries(BF_RANKS.map((r) => [r, b[r] ?? []])) as Record<string, string[]>,
+      allowedUpgrades: b.allowedUpgrades ?? [],
+      disallowedUpgrades: b.disallowedUpgrades ?? [],
+      rules: b.rules ?? {},
+      rulesText: b.plainTextRules ?? [],
+      modes: {
+        standard: rankTable(b['standard mode']),
+        '500': rankTable(b['500-point mode']),
+      },
+    }))
+    .sort((a, b) => a.faction.localeCompare(b.faction) || a.name.localeCompare(b.name))
 }
 
 export function buildCommands(cards: Lhq2Card[]): CommandCard[] {

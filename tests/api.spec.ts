@@ -2,12 +2,13 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import express from 'express'
 import Database from 'better-sqlite3'
 import request from 'supertest'
-import { createTables, seedUnits, seedUpgrades, seedCommands, seedProducts } from '../server/db/seed.ts'
+import { createTables, seedUnits, seedUpgrades, seedCommands, seedProducts, seedBattleForces } from '../server/db/seed.ts'
 import { createUnitsRouter } from '../server/routes/units.ts'
 import { createUpgradesRouter } from '../server/routes/upgrades.ts'
 import { createCommandsRouter } from '../server/routes/commands.ts'
 import { createProductsRouter } from '../server/routes/products.ts'
-import type { Unit, Upgrade, CommandCard, Product } from '../src/types/index.ts'
+import { createBattleForcesRouter } from '../server/routes/battleForces.ts'
+import type { Unit, Upgrade, CommandCard, Product, BattleForce } from '../src/types/index.ts'
 
 function makeUnit(over: Partial<Unit>): Unit {
   return {
@@ -42,12 +43,35 @@ beforeAll(() => {
   seedProducts(sqlite, [
     { code: 'exp-vader', name: 'Darth Vader Commander Expansion', faction: 'empire', type: 'unit-expansion', unitSlugs: ['darth-vader'] } as Product,
   ])
+  seedBattleForces(sqlite, [
+    {
+      linkId: 'mc', name: 'Mandalorian Clans', faction: 'mandalorians', forceAffinity: null,
+      rankUnits: { commander: ['x'], operative: [], corps: ['storm'], special: [], support: [], heavy: [] },
+      allowedUpgrades: ['u1'], disallowedUpgrades: [],
+      rules: { countMercs: true }, rulesText: ['Mercenaries count as native.'],
+      modes: {
+        standard: { commander: [1, 2], operative: [0, 2], corps: [2, 6], special: [0, 3], support: [0, 3], heavy: [0, 2], commOp: null },
+        '500': { commander: [1, 1], operative: [0, 1], corps: [2, 4], special: [0, 2], support: [0, 2], heavy: [0, 1], commOp: 3 },
+      },
+    } as BattleForce,
+    {
+      linkId: 'bf', name: 'Blizzard Force', faction: 'empire', forceAffinity: null,
+      rankUnits: { commander: [], operative: [], corps: ['storm'], special: [], support: [], heavy: [] },
+      allowedUpgrades: [], disallowedUpgrades: [],
+      rules: {}, rulesText: [],
+      modes: {
+        standard: { commander: [1, 2], operative: [0, 1], corps: [3, 6], special: [0, 3], support: [0, 2], heavy: [0, 2], commOp: null },
+        '500': { commander: [1, 1], operative: [0, 1], corps: [2, 4], special: [0, 2], support: [0, 1], heavy: [0, 1], commOp: null },
+      },
+    } as BattleForce,
+  ])
 
   app = express()
   app.use('/api/units', createUnitsRouter(sqlite))
   app.use('/api/upgrades', createUpgradesRouter(sqlite))
   app.use('/api/commands', createCommandsRouter(sqlite))
   app.use('/api/products', createProductsRouter(sqlite))
+  app.use('/api/battle-forces', createBattleForcesRouter(sqlite))
 })
 
 afterAll(() => sqlite.close())
@@ -114,5 +138,35 @@ describe('GET /api/commands & /api/products', () => {
   it('returns products with parsed unitSlugs', async () => {
     const res = await request(app).get('/api/products')
     expect(res.body[0].unitSlugs).toEqual(['darth-vader'])
+  })
+})
+
+describe('GET /api/battle-forces', () => {
+  it('returns all battle forces with parsed object/array fields', async () => {
+    const res = await request(app).get('/api/battle-forces')
+    expect(res.status).toBe(200)
+    expect(res.body).toHaveLength(2)
+    const mc = res.body.find((b: BattleForce) => b.linkId === 'mc')
+    expect(mc.rankUnits.corps).toEqual(['storm'])
+    expect(mc.modes.standard.corps).toEqual([2, 6])
+    expect(mc.rules).toEqual({ countMercs: true })
+    expect(mc.rulesText).toEqual(['Mercenaries count as native.'])
+  })
+
+  it('filters by faction', async () => {
+    const res = await request(app).get('/api/battle-forces?faction=empire')
+    expect(res.body).toHaveLength(1)
+    expect(res.body[0].name).toBe('Blizzard Force')
+  })
+
+  it('returns one battle force by linkId', async () => {
+    const res = await request(app).get('/api/battle-forces/mc')
+    expect(res.status).toBe(200)
+    expect(res.body.name).toBe('Mandalorian Clans')
+  })
+
+  it('404s for unknown linkId', async () => {
+    const res = await request(app).get('/api/battle-forces/nope')
+    expect(res.status).toBe(404)
   })
 })

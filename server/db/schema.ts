@@ -27,6 +27,20 @@ export const units = sqliteTable('units', {
   portraitImage: text('portrait_image'),
   hasFullData: integer('has_full_data').notNull().default(0),
   history: text('history').notNull().default('[]'),
+  specialIssue: text('special_issue'),
+})
+
+export const battleForces = sqliteTable('battle_forces', {
+  linkId: text('link_id').primaryKey(),
+  name: text('name').notNull(),
+  faction: text('faction').notNull().default('mercenary'),
+  forceAffinity: text('force_affinity'),
+  rankUnits: text('rank_units').notNull().default('{}'),
+  allowedUpgrades: text('allowed_upgrades').notNull().default('[]'),
+  disallowedUpgrades: text('disallowed_upgrades').notNull().default('[]'),
+  rules: text('rules').notNull().default('{}'),
+  rulesText: text('rules_text').notNull().default('[]'),
+  modes: text('modes').notNull().default('{}'),
 })
 
 export const upgrades = sqliteTable('upgrades', {

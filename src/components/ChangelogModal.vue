@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.20.0',
+    date: '2026-06-13',
+    changes: [
+      'Behind the scenes — every faction\'s battle forces (the 212th Attack Battalion, Blizzard Force, Echo Base Defenders, Shadow Collective and 16 more) are now in the catalogue, with their rank requirements and special rules. Groundwork for picking a battle force in the builder — coming next',
+    ],
+  },
+  {
     version: '0.19.0',
     date: '2026-06-13',
     changes: [

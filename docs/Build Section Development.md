@@ -236,8 +236,21 @@ The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls leg
   share an affiliation with a fielded Commander/Operative"); and scraping BF defs from LHQ2 for all future
   battle forces. Our native-clan handling already approximates countMercs/affiliation in practice.
 
-**Next up: EPIC D** — battle-card D0 (scrape `cardType:"battle"` from the LHQ2 bundle: 9-card v2 deck =
-3 objective / 3 secondary / 3 advantage; map cards absent — flag the gap), then command-hand D1, battle-deck D2.
+### 2026-06-13 — Feature 5 (battle forces) + EPIC D0 done
+- **Feature 5 battle-force support** (separate from EPIC D) shipped in two cycles: **Stage 1 scrape**
+  (v0.20.0, #20 — all 20 BF defs → `battleForces.json` + `specialIssue` on units) and **Stage 2 picker +
+  data-driven validation** (v0.21.0, #21 — opt-in `Battle force ▾` chip, `rankUnits`-driven eligibility/rank
+  placement, BF rank tables + `commOp` + `unitLimits` + Wookiee/Field-Commander rules, additive upgrades;
+  retired `BATTLE_FORCE_RANKS`, kept `MANDO_CLANS` as the standard Mandalorian roster). 4 in-game-only BF
+  rules surfaced as text, not auto-enforced.
+- **D0 — battle-card scrape** (v0.22.0, #22). Data layer only, no UI. `BattleCard` + `buildBattleCards`
+  (`normalise.ts`): 43 cards (13 objective[=LHQ2 "primary"] / 13 secondary / 17 advantage), `isRecon` from
+  the "Recon" keyword (9), faction mapped, standard/Recon dup names slug-deduped. `battleCards.json` + images
+  (`battleCards/` CDN → `public/images/battle/`); `battle_cards` table + `GET /api/battle-cards`. **Map cards
+  absent from LHQ2 — known gap.**
+
+**Next up: D1 — command-hand builder** (2/2/2 + auto Standing Orders; commander/faction/unique gating; command
+data already scraped), then D2 battle-deck builder (3/3/3 from `battleCards.json`, no dupes, hidden in Recon).
 
 ### 2026-06-12 — C1 implemented
 **Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,

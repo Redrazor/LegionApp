@@ -40,9 +40,14 @@ EPIC D/E of Feature 4 but is independent of them.
 **Status:** in progress — see the full plan in `docs/Build Section Development.md` (Epics A–F).
 
 A multi-feature rebuild of the Build tab into the core army-list builder: permanent rank-tracker
-footer, always-visible catalogue, tap-to-add + desktop drag-and-drop, render-time `×N` quantities,
-inline-expand unit detail + slot-filtered upgrade attach, command-hand + battle-deck builders,
-print/share/Longshanks export. Multi-format (Recon 600 / Standard 800 / Standard 1000 / Grand Army 1600).
+footer, always-visible catalogue, tap-to-add, render-time `×N` quantities, inline-expand unit detail +
+slot-filtered upgrade attach, command-hand + battle-deck builders, print/share/Longshanks export, and an
+**Army Stats analytics panel**. Multi-format (Recon 600 / Standard 800 / Standard 1000 / Grand Army 1600).
+
+> **Scope change (2026-06-13):** EPIC F **drag-and-drop dropped** (no longer fits the tap-first catalogue)
+> and replaced by **F1 — Army Stats panel**: a full statistics breakdown of the built list (dice pool by
+> colour + expected hits/crits via the dice engine, defence-die mix, durability/effective-HP, points-by-rank
+> and other graphs, keyword tallies, mobility/morale). See `docs/Build Section Development.md` EPIC F.
 
 Sub-features ship one per `/workflow` cycle:
 

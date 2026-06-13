@@ -171,11 +171,30 @@ Each feature = one `/workflow` cycle (branch → implement → AC → tests → 
 - **E4. Longshanks JSON export** `[NICE] M` — includes id-crosswalk verification (live legionhq2 diff).
   Deps: E3.
 
-### EPIC F — Enhancements
-- **F1. Desktop-only drag-and-drop** (`vue-draggable-plus`, tap fallback) `[NICE] S/M`. Deps: B3, B4.
+### EPIC F — Army analytics
+*(Drag-and-drop dropped — no longer fits the tap-first catalogue UX. Replaced by the stats panel.)*
+- **F1. Army Stats panel** `[NICE] M/L` — an accessible, full statistics breakdown of the built list, all
+  derived from data already in the army (units + upgrades + weapons + keywords) and the existing dice engine
+  (`utils/dice.ts`, Feature 3). Pure derivations in a new tested `utils/armyStats.ts`; UI is a slide-in / sheet
+  panel opened from the footer. Deps: B3 (a built list); the offense section reuses the dice model. Independent
+  of D/E. Contents (the "whole slew"):
+  - **Composition** — points by rank (donut/bar), points split units vs upgrades, activations, unit count,
+    mini/model count, average unit cost, rank min/max compliance at a glance.
+  - **Offense** — aggregate attack-dice pool by colour (red/black/white): totals + average per activation;
+    **expected hits + crits** at each range band (reuse `resolveCombat`/EV with no defender, surge per unit);
+    melee vs ranged dice; weapon-keyword tallies (Pierce/Impact/Blast/Suppressive/Critical/High Velocity…).
+  - **Defence / durability** — total wounds; defence-die mix (count of red- vs white-defence units, with/
+    without defence surge); average defence saves; rough **effective-HP** estimate (wounds × avg save);
+    Armor/Cover/Shield/Impervious tallies.
+  - **Mobility & morale** — speed distribution + average; Jump/Climb/Relentless counts; average courage,
+    units that are Fearless / have no courage; suppression resilience.
+  - **Keywords** — frequency table of notable keywords across the list.
+  - **Graphs** — a few small charts (rank-points donut, dice-by-colour bars, expected-damage curve).
+    **Decision pending:** hand-rolled SVG/CSS bars (matches the app's lightweight, dependency-light ethos —
+    preferred) vs a tiny chart lib.
 
 ### Delivery order
-A1 → A2/A3 → B1 → B2 → B3 → C1 → B4 → D0 → D1 → D2 → E1 → E2/E3 → E4 → F1.
+A1 → A2/A3 → B1 → B2 → B3 → C1 → B4 → D0 → D1 → D2 → E1 → E2/E3 → E4 → F1 (Army Stats).
 
 Data model stays compatible throughout (additive `Army.format`/`commandHand`/`battleDeck`; no `qty`;
 `v:2` share format still decodes old `?a=` links).

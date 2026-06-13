@@ -186,6 +186,7 @@ export interface Army {
   battleForce: string | null // optional battle-force linkId (e.g. 'mc'); null = standard
   gameSize: number // points cap; resolves to a format via rankLimits() — 600 Recon, 800 legacy, 1000 Standard, 1600 Grand Army
   units: ArmyUnit[]
+  commandHand: string[] // chosen command-card ids (the 6 picks; Standing Orders is auto)
 }
 
 /** Compact, ID-only serialised army for save/share. */
@@ -195,6 +196,7 @@ export interface CompactArmy {
   b?: string | null // battle-force linkId (optional; absent/null = standard)
   g: number // game size
   u: [string, [string, string][]][] // [unitId, [[slot, upgradeId], ...]]
+  c?: string[] // command-hand card ids (optional; absent = none)
 }
 
 // ── Display metadata ─────────────────────────────────────────────────────────

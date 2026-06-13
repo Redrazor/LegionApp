@@ -5,9 +5,10 @@ import { useArmyStore } from '../stores/army.ts'
 import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useBattleForcesStore } from '../stores/battleForces.ts'
+import { useCommandsStore } from '../stores/commands.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -15,6 +16,7 @@ import RankTrackerFooter from '../components/build/RankTrackerFooter.vue'
 import RankCatalogue from '../components/build/RankCatalogue.vue'
 import UpgradeCatalogue from '../components/build/UpgradeCatalogue.vue'
 import BattleForcePicker from '../components/build/BattleForcePicker.vue'
+import CommandHandView from '../components/build/CommandHandView.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
 
@@ -22,6 +24,7 @@ const armyStore = useArmyStore()
 const unitsStore = useUnitsStore()
 const upgradesStore = useUpgradesStore()
 const bfStore = useBattleForcesStore()
+const commandsStore = useCommandsStore()
 const { draft, saved, activeIndex } = storeToRefs(armyStore)
 const { validation, pointsRemaining, battleForce } = useArmyValidation()
 const { isMobile, isDesktop } = useBreakpoint()
@@ -62,6 +65,7 @@ onMounted(() => {
   unitsStore.load()
   upgradesStore.load()
   bfStore.load()
+  commandsStore.load()
   // Import a shared army from the URL (?a=...)
   const params = new URLSearchParams(window.location.search)
   const a = params.get('a')
@@ -127,6 +131,11 @@ const pointsPct = computed(() =>
 // "Detachment X" unit appears only once X is fielded).
 const presentParents = computed(() => presentDetachmentParents(draft.value, unitsStore.byId))
 
+// Command hand: the cards this army may pick (pips 1–3, eligibility-filtered) + the
+// auto Standing Orders (4-pip) shown fixed.
+const eligibleCommands = computed(() => eligibleCommandCards(commandsStore.commands, draft.value, unitsStore.byId))
+const standingOrders = computed(() => commandsStore.commands.find((c) => c.pips >= 4) ?? null)
+
 // Current army unit count per rank (catalogue tab counters + "+" max gating).
 const counts = computed(() => {
   const out = {} as Record<Rank, number>
@@ -166,7 +175,7 @@ function printSheet() {
     </div>
   </div>
 
-  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null">
+  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null" :has-command="true">
     <!-- Header controls -->
     <template #header>
       <div class="mb-4 flex flex-wrap items-center gap-3">
@@ -272,6 +281,17 @@ function printSheet() {
           </ul>
         </div>
       </div>
+    </template>
+
+    <!-- Command-hand builder (its own tab/segment) -->
+    <template #command>
+      <CommandHandView
+        :eligible="eligibleCommands"
+        :selected="draft.commandHand ?? []"
+        :standing-orders="standingOrders"
+        :has-commander="draft.units.length > 0"
+        @toggle="armyStore.toggleCommandCard"
+      />
     </template>
 
     <!-- Pinned rank-tracker footer: chips, totals, format switcher, actions -->

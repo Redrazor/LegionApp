@@ -1,5 +1,5 @@
 import type {
-  Army, ArmyUnit, BattleForce, CompactArmy, Faction, Rank, Unit, Upgrade,
+  Army, ArmyUnit, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
 import { rankLimits, battleForceRankTable, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
@@ -576,11 +576,88 @@ export function unitMeetsRequirements(unit: Unit, requirements?: UpgradeRequirem
   return evalReqGroup(requirements, unit)
 }
 
+// ── Command hand ─────────────────────────────────────────────────────────────
+
+/** Lowercased names of every unit fielded in the army (for command-card gating). */
+export function fieldedUnitNames(army: Army, unitsById: Map<string, Unit>): Set<string> {
+  const set = new Set<string>()
+  for (const au of army.units) {
+    const u = unitsById.get(au.unitId)
+    if (u) set.add(u.name.toLowerCase())
+  }
+  return set
+}
+
+/** The commander name(s) a command card belongs to (LHQ2 joins multi-name cards). */
+export function commandCommanders(card: CommandCard): string[] {
+  return (card.commander ?? '')
+    .split(',')
+    .map((n) => n.trim())
+    .filter(Boolean)
+}
+
+/**
+ * Whether a command card may be included in this army. Commander cards need one of
+ * their named commanders fielded; faction-generic cards need the army's faction; the
+ * universal pip cards (no faction, no commander — Assault, Push, …) are always legal.
+ * The auto 4-pip Standing Orders is excluded (it is always in the hand, never chosen).
+ */
+export function commandCardEligible(card: CommandCard, army: Army, fieldedNames: Set<string>): boolean {
+  if (card.pips >= 4) return false // Standing Orders — auto, not selectable
+  const commanders = commandCommanders(card)
+  if (commanders.length) return commanders.some((n) => fieldedNames.has(n.toLowerCase()))
+  return !card.faction || card.faction === army.faction
+}
+
+/** The command cards selectable for this army (eligible, pip 1–3), cheapest pip first. */
+export function eligibleCommandCards(
+  commands: CommandCard[],
+  army: Army,
+  unitsById: Map<string, Unit>,
+): CommandCard[] {
+  const fielded = fieldedUnitNames(army, unitsById)
+  return commands
+    .filter((c) => commandCardEligible(c, army, fielded))
+    .sort((a, b) => a.pips - b.pips || a.name.localeCompare(b.name))
+}
+
+export interface CommandHandValidation {
+  byPip: Record<number, number> // chosen count per pip (1, 2, 3)
+  ineligible: string[] // names of chosen cards not eligible in this army
+  hasDuplicates: boolean
+  complete: boolean // 2 of each of pips 1/2/3
+  valid: boolean
+}
+
+/**
+ * Validate the chosen command hand (excludes the auto Standing Orders). A legal hand
+ * is exactly 2 cards of each of pips 1/2/3, no duplicates, every card eligible.
+ */
+export function validateCommandHand(
+  army: Army,
+  commandsById: Map<string, CommandCard>,
+  fieldedNames: Set<string>,
+): CommandHandValidation {
+  const hand = army.commandHand ?? []
+  const byPip: Record<number, number> = { 1: 0, 2: 0, 3: 0 }
+  const ineligible: string[] = []
+  for (const id of hand) {
+    const card = commandsById.get(id)
+    if (!card) continue
+    if (card.pips >= 1 && card.pips <= 3) byPip[card.pips]++
+    if (!commandCardEligible(card, army, fieldedNames)) ineligible.push(card.name)
+  }
+  const hasDuplicates = new Set(hand).size !== hand.length
+  const complete = byPip[1] === 2 && byPip[2] === 2 && byPip[3] === 2
+  return { byPip, ineligible, hasDuplicates, complete, valid: complete && !hasDuplicates && ineligible.length === 0 }
+}
+
 export function validateArmy(
   army: Army,
   unitsById: Map<string, Unit>,
   upgradesById: Map<string, Upgrade>,
   bf?: BattleForce | null,
+  commandsById?: Map<string, CommandCard>,
 ): ArmyValidation {
   const rankCounts: Record<Rank, number> = {
     commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
@@ -753,6 +830,19 @@ export function validateArmy(
     })
   }
 
+  // Command hand — 2/2/2 + auto Standing Orders, no dupes, all eligible. Only once the
+  // army has units (a commander to pick cards for); the auto card is the +1 in "/7".
+  if (commandsById && army.units.length > 0) {
+    const ch = validateCommandHand(army, commandsById, fieldedUnitNames(army, unitsById))
+    const chosen = (army.commandHand ?? []).length
+    const detail = ch.ineligible.length
+      ? `Ineligible: ${ch.ineligible.join(', ')}`
+      : ch.hasDuplicates
+      ? 'Duplicate cards'
+      : `${chosen + 1} / 7` // +1 for Standing Orders
+    items.push({ ok: ch.valid, label: 'Command hand', detail })
+  }
+
   const valid = items.every((i) => i.ok) && army.units.length > 0
   return { valid, points, activations: army.units.length, rankCounts, items }
 }
@@ -767,6 +857,7 @@ export function toCompact(army: Army): CompactArmy {
     ...(army.battleForce ? { b: army.battleForce } : {}),
     g: army.gameSize,
     u: army.units.map((au) => [au.unitId, au.upgrades.map((x) => [x.slot, x.upgradeId] as [string, string])]),
+    ...(army.commandHand?.length ? { c: army.commandHand } : {}),
   }
 }
 
@@ -782,6 +873,7 @@ export function fromCompact(c: CompactArmy): Army {
       unitId,
       upgrades: (ups ?? []).map(([slot, upgradeId]) => ({ slot, upgradeId })),
     })),
+    commandHand: c.c ?? [],
   }
 }
 

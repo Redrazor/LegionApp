@@ -2,6 +2,39 @@
 
 A running log of features for LegionApp, newest first.
 
+## Feature 5 — Full battle-force support (all factions)
+
+**Status:** planned (not started). Deferred from the 2026-06-13 Mandalorian validation work, where
+only the **Mandalorian Clans** battle force was handled — and only its Corps-min override.
+
+**Problem.** Battle forces are alternative army-building rules that replace the standard rank table and
+restrict eligible units. Today we model exactly ONE, by accident of the data model: LHQ2 ships
+**Mandalorian Clans** as its own faction (`mandalorians`), so it flows into our catalogue as a normal
+buildable army. Every other battle force — **Blizzard Force, Echo Base Defenders, Bright Tree Village,
+Shadow Collective**, the Separatist/Republic ones, etc. — sits *underneath* a parent faction in LHQ2
+(pick faction → battle-force dropdown). Our scraper never extracts those, so they aren't selectable and
+none of their rules exist. Even for Mandalorians we only did the rank override, skipping `countMercs`
+and the affiliation-cohesion rule.
+
+**Scope (single source of truth = LHQ2 bundle).**
+- **Scrape battle-force definitions** from the LHQ2 bundle (the `faction`/`linkId` BF objects already
+  found at research time): rank tables (per format), eligible-unit lists, `unitLimits`, `countMercs`,
+  affiliation/cohesion rules, `plainTextRules`. Emit `public/data/battleForces.json`. Run order
+  `scrape → … → seed`. Keep card DATA LHQ2-only (see `data-source-single-truth`).
+- **Battle force becomes a first-class concept**, not a faction alias. A **selector in Build**
+  (faction → optional battle force, since they're a layer below faction). `Army` gains an optional
+  `battleForce` id.
+- **Validation driven by BF data**, replacing the hard-coded `BATTLE_FORCE_RANKS` override in
+  `factions.ts`: per-BF rank table, per-BF unit eligibility, `countMercs` (no merc caps; mercs satisfy
+  minimums), affiliation-cohesion ("all units share an affiliation with a fielded Commander/Operative"),
+  and the **`Special Issue`** keyword (already in `keywords.json`: *"This unit may only be included in X
+  battleforce"*) gating units to their BF.
+- **Migrate the existing Mandalorian Clans handling** onto this system (retire the bespoke `MANDO_CLANS`
+  set / `isMandalorianClanUnit` / the `corps:{min:2}` override once the data-driven path covers them).
+
+**Effort:** multi-cycle. Pure logic + scraper + a UI selector + a real data-model addition. Pairs with
+EPIC D/E of Feature 4 but is independent of them.
+
 ## Feature 4 — Build section redesign ("Roster Canvas")
 
 **Status:** in progress — see the full plan in `docs/Build Section Development.md` (Epics A–F).

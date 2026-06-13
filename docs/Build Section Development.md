@@ -189,6 +189,37 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-13 — B4 + Mandalorian-Clans validation-correctness sweep (all merged, main = v0.19.0)
+All landed to `main` this session via PRs #15–#19; 166 tests pass, vue-tsc clean.
+
+- **B4 — Quantity (×N) + delete: DONE** (v0.16.0, #15). Pure `groupArmyUnits`/`ArmyUnitGroup` (`army.ts`):
+  collapse same unit + same loadout into render-time groups (order-preserving; `ArmyUnit` entries stay
+  distinct for order tokens). `army` store `addCopy(uid)`. `ArmyUnitCard` → `×N` badge + `[− N +]` stepper
+  (hidden for uniques; `+` disabled at rank-full), group-total cost, 🗑 removes the whole stack. `BuildView`
+  renders `groupedByRank`.
+
+The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls legal but we flagged illegal:
+- **Heavy Weapon Team enforcement** (v0.17.0, #16) — `heavyWeaponTeamUnmet`; the keyword mandates a heavy
+  weapon → new "Heavy Weapon" validation row. (Data already carried the keyword; we just never enforced it.)
+- **Clan-detachment native fix** (v0.17.1, #17) — `mercenaryIssues` now treats a mercenary **detachment whose
+  parent is fielded** as native (not a capped/illegal ally), mirroring `catalogueForRank`. Fixes the
+  affiliation-less Support "Mandalorian Warriors" (Detachment) being flagged a foreign merc.
+- **Per-unit legality indicators** (v0.18.0, #18) — pure `unitLegalityIssues`; illegal cards get a red
+  border + "⚠ Illegal" badge + reason ("Needs a heavy weapon" / "Needs &lt;parent&gt;" / "Can't ally here" /
+  "No points cost") + faint watermark, clearing live. Extracted shared `needsHeavyWeapon`/`detachmentUnmetFor`
+  so the card and `validateArmy` agree. Verified in-app via Playwright.
+- **Battle-force rank limits** (v0.19.0, #19) — `BATTLE_FORCE_RANKS` sparse override (`factions.ts`);
+  `rankLimits(cap, faction?)` applies it. Mandalorian Clans = Corps min **2** (not 3) Standard, verified from
+  the **LHQ2 source bundle** (Corps 2–6 Standard, 2–4 Recon). `validateArmy` + `BuildView` pass the army
+  faction. The reporter's list now validates fully legal end-to-end. Also stripped a stray NUL byte B4 put in
+  `groupArmyUnits`' key. **Deferred (user picked rank-override-only scope):** deeper Mandalorian Clans BF rules
+  from the bundle — `countMercs` (no merc caps; mercs satisfy minimums) + affiliation-cohesion ("all units
+  share an affiliation with a fielded Commander/Operative"); and scraping BF defs from LHQ2 for all future
+  battle forces. Our native-clan handling already approximates countMercs/affiliation in practice.
+
+**Next up: EPIC D** — battle-card D0 (scrape `cardType:"battle"` from the LHQ2 bundle: 9-card v2 deck =
+3 objective / 3 secondary / 3 advantage; map cards absent — flag the gap), then command-hand D1, battle-deck D2.
+
 ### 2026-06-12 — C1 implemented
 **Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,
 awaiting PR. Will be **v0.14.0**.

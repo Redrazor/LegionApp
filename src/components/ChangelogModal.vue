@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.22.1',
+    date: '2026-06-13',
+    changes: [
+      'Behind the scenes — battle cards now use the official 2024 deck terminology (Primary Objective / Secondary Objective / Advantage). Confirmed there are no separate “map” cards in the current edition — the old deployment cards were folded into Primary Objectives',
+    ],
+  },
+  {
     version: '0.22.0',
     date: '2026-06-13',
     changes: [

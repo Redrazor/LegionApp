@@ -267,10 +267,10 @@ describe('buildBattleCards', () => {
     { id: 'u1', cardName: 'Stormtroopers', cardType: 'unit' }, // ignored
   ]
 
-  it('maps primary→objective, keeps secondary/advantage', () => {
+  it('keeps the v2 deck types (primary / secondary / advantage)', () => {
     const out = buildBattleCards(cards)
     expect(out).toHaveLength(4)
-    expect(out.find((c) => c.id === 'p1')!.subtype).toBe('objective')
+    expect(out.find((c) => c.id === 'p1')!.subtype).toBe('primary')
     expect(out.find((c) => c.id === 'p2')!.subtype).toBe('secondary')
     expect(out.find((c) => c.id === 'a1')!.subtype).toBe('advantage')
   })

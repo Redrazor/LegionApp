@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ArmyUnitGroup } from '../../utils/army.ts'
+import { unitLegalityIssues } from '../../utils/army.ts'
 import type { Faction } from '../../types/index.ts'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
@@ -34,6 +35,10 @@ const lineCost = computed(() => {
 })
 const groupCost = computed(() => lineCost.value * qty.value)
 
+// Per-unit legality (all members of a ×N group are identical, so one verdict). Live —
+// clears as soon as the missing condition (e.g. a mandatory heavy weapon) is met.
+const issues = computed(() => unitLegalityIssues(armyUnit.value, armyStore.draft, unitsStore.byId))
+
 function equipped(slot: string, index: number) {
   const id = armyStore.upgradeInSlot(armyUnit.value.uid, slot, index)
   return id ? upgradesStore.byId.get(id) ?? null : null
@@ -56,8 +61,29 @@ function removeGroup() {
 </script>
 
 <template>
-  <div v-if="unit" class="rounded-xl border border-lg-border bg-lg-surface p-3">
-    <div class="flex items-start gap-3">
+  <div
+    v-if="unit"
+    class="relative overflow-hidden rounded-xl border p-3 transition-colors"
+    :class="issues.length ? 'border-faction-rebels/70 bg-faction-rebels/5' : 'border-lg-border bg-lg-surface'"
+  >
+    <!-- Illegal watermark: large, faint, behind the content -->
+    <span
+      v-if="issues.length"
+      class="pointer-events-none absolute -right-3 top-1/2 -translate-y-1/2 select-none font-display text-4xl font-black uppercase tracking-widest text-faction-rebels/10"
+      aria-hidden="true"
+    >Illegal</span>
+
+    <!-- Illegal banner: badge + the unmet condition(s) -->
+    <div
+      v-if="issues.length"
+      class="relative mb-2 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[11px]"
+      role="alert"
+    >
+      <span class="rounded bg-faction-rebels px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">⚠ Illegal</span>
+      <span class="font-medium text-faction-rebels">{{ issues.join(' · ') }}</span>
+    </div>
+
+    <div class="relative flex items-start gap-3">
       <button class="flex min-w-0 flex-1 items-start gap-3 text-left" :title="`View ${unit.name}`" @click="emit('view', unit.id)">
         <UnitBadge :unit="unit" />
         <span class="min-w-0 flex-1">
@@ -97,7 +123,7 @@ function removeGroup() {
     </div>
 
     <!-- Upgrade slots — click opens the contextual picker in the left pane -->
-    <div v-if="unit.upgradeBar.length" class="mt-3 flex flex-wrap gap-1.5">
+    <div v-if="unit.upgradeBar.length" class="relative mt-3 flex flex-wrap gap-1.5">
       <button
         v-for="(slot, i) in unit.upgradeBar" :key="i"
         class="inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-40"

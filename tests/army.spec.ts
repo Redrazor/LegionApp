@@ -5,6 +5,7 @@ import {
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction, isMandalorianClanUnit,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
   primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
+  heavyWeaponTeamUnmet,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, Unit, Upgrade } from '../src/types/index.ts'
@@ -112,6 +113,52 @@ describe('groupArmyUnits', () => {
 
   it('returns no groups for an empty army', () => {
     expect(groupArmyUnits([])).toEqual([])
+  })
+})
+
+describe('heavyWeaponTeamUnmet', () => {
+  const hwt = unit('warriors', {
+    name: 'Mandalorian Warriors',
+    keywords: ['Jump 2', 'Heavy Weapon Team', 'Duelist'],
+    upgradeBar: ['heavy weapon', 'training', 'gear'],
+  })
+  const plain = unit('storm', { keywords: ['Precise 1'], upgradeBar: ['heavy weapon', 'gear'] })
+  const { unitsById } = makeMaps([hwt, plain])
+
+  it('flags a Heavy Weapon Team unit with an empty heavy-weapon slot', () => {
+    const army: Army = {
+      name: '', faction: 'mandalorians', gameSize: 1000,
+      units: [{ uid: '1', unitId: 'warriors', upgrades: [{ slot: 'training#1', upgradeId: 't' }] }],
+    }
+    expect(heavyWeaponTeamUnmet(army, unitsById)).toEqual(['Mandalorian Warriors'])
+  })
+
+  it('passes when a heavy weapon is equipped', () => {
+    const army: Army = {
+      name: '', faction: 'mandalorians', gameSize: 1000,
+      units: [{ uid: '1', unitId: 'warriors', upgrades: [{ slot: 'heavy weapon#0', upgradeId: 'hw' }] }],
+    }
+    expect(heavyWeaponTeamUnmet(army, unitsById)).toEqual([])
+  })
+
+  it('ignores units without the keyword even with an empty heavy-weapon slot', () => {
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: [{ uid: '1', unitId: 'storm', upgrades: [] }],
+    }
+    expect(heavyWeaponTeamUnmet(army, unitsById)).toEqual([])
+  })
+
+  it('lists each offending unit instance', () => {
+    const army: Army = {
+      name: '', faction: 'mandalorians', gameSize: 1000,
+      units: [
+        { uid: '1', unitId: 'warriors', upgrades: [] },
+        { uid: '2', unitId: 'warriors', upgrades: [{ slot: 'heavy weapon#0', upgradeId: 'hw' }] },
+        { uid: '3', unitId: 'warriors', upgrades: [] },
+      ],
+    }
+    expect(heavyWeaponTeamUnmet(army, unitsById)).toEqual(['Mandalorian Warriors', 'Mandalorian Warriors'])
   })
 })
 

@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.17.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — Units with the Heavy Weapon Team keyword (Mandalorian Warriors, Scout Troopers, Rebel Commandos, ARC Troopers, BX-Series Droid Commandos) are now flagged illegal until you equip a heavy weapon, as the rules require',
+    ],
+  },
+  {
     version: '0.16.0',
     date: '2026-06-13',
     changes: [

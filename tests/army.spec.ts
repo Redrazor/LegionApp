@@ -301,6 +301,17 @@ describe('game formats / rankLimits', () => {
     })
   })
 
+  it('applies the Mandalorian Clans battle-force rank override (Corps min 2)', () => {
+    // Standard: Corps 3→2; everything else inherited from the base format.
+    expect(rankLimits(1000, 'mandalorians').corps).toEqual({ min: 2, max: 6 })
+    expect(rankLimits(1000, 'mandalorians').commander).toEqual({ min: 1, max: 2 })
+    // Recon already had Corps min 2 → unchanged.
+    expect(rankLimits(600, 'mandalorians').corps).toEqual({ min: 2, max: 4 })
+    // Other factions and the no-faction call keep the standard table.
+    expect(rankLimits(1000, 'empire').corps).toEqual({ min: 3, max: 6 })
+    expect(rankLimits(1000).corps).toEqual({ min: 3, max: 6 })
+  })
+
   it('exposes ascending caps and human names', () => {
     expect(FORMATS.map((f) => f.cap)).toEqual([600, 800, 1000, 1600])
     expect(formatName(1000)).toBe('Standard')

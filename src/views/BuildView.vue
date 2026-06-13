@@ -101,7 +101,7 @@ async function share() {
 // bonuses folded into each rank's max so the catalogue "+ Add" gating and the
 // header caps match validateArmy (e.g. Tarkin's "Entourage Darth Vader" → 1–3).
 const limits = computed(() => {
-  const base = rankLimits(draft.value.gameSize)
+  const base = rankLimits(draft.value.gameSize, draft.value.faction)
   const bonus = entourageBonuses(draft.value, unitsStore.byId)
   const out = {} as Record<Rank, { min: number; max: number }>
   for (const rank of RANK_ORDER) {

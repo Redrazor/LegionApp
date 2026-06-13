@@ -10,8 +10,9 @@ import ProfileUpgrades from './ProfileUpgrades.vue'
 
 // Dual-mode: as Browse's `/browse/:slug` child route it reads the route param and
 // closes by navigating back; given an explicit `slug` prop (e.g. the Build catalogue
-// mounts it directly) it closes via the `close` emit instead.
-const props = defineProps<{ slug?: string }>()
+// mounts it directly) it closes via the `close` emit instead. `simplified` (Build) keeps
+// the keyword definitions but drops the errata history + available-upgrades list.
+const props = defineProps<{ slug?: string; simplified?: boolean }>()
 const emit = defineEmits<{ close: [] }>()
 
 const route = useRoute()
@@ -104,8 +105,8 @@ function close() {
                 </div>
               </div>
 
-              <!-- Points history -->
-              <div v-if="unit.history && unit.history.length">
+              <!-- Points history (hidden in the simplified Build view) -->
+              <div v-if="!simplified && unit.history && unit.history.length">
                 <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Errata &amp; Points History</h3>
                 <ul class="space-y-1 text-xs text-lg-muted">
                   <li v-for="(h, i) in unit.history" :key="i" class="flex gap-2">
@@ -119,8 +120,8 @@ function close() {
                 Full stat data for this unit isn't available yet — see the card scan above for complete details.
               </p>
 
-              <!-- Available upgrades -->
-              <div v-if="unit.upgradeBar.length">
+              <!-- Available upgrades (hidden in the simplified Build view) -->
+              <div v-if="!simplified && unit.upgradeBar.length">
                 <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Available Upgrades</h3>
                 <ProfileUpgrades :unit="unit" />
               </div>

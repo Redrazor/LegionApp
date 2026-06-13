@@ -51,16 +51,24 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
   own data. Do NOT reintroduce name-keyed merging.
 - The keyword **glossary** text is the one secondary source: `keywords.js` from
   `Electrynth/legion-hq-web` (MIT), for the Reference tab + keyword popovers only.
-- **Unit portrait icons** are the one secondary *image* source: Tabletop Admiral's
-  purpose-made bust portraits (`units-new/portraits/<id>.webp`). LHQ2 ships only full card
-  scans, so the Build catalogue's round icons come from TTA, self-hosted via
-  `npm run portraits` (maps our units→TTA ids by name, downloads to
-  `public/images/portraits/<slug>.webp`, stamps `portraitImage` onto `units.json`; ~174/179
-  covered, the rest fall back to a card-art crop). **This is icons only — all card DATA
-  remains LHQ2-only.** Run order after a re-scrape: `scrape` → `portraits` → `seed`.
-- Rejected as a *data* source: tabletopadmiral.com card scans (1st-edition art) and
-  legion-hq-web `cards.json` (older; name collisions cross-contaminated skills). (TTA is
-  used for portrait images only, per above — never for card stats.)
+- **Tabletop Admiral is a secondary source for two owner-approved things only:**
+  - **Unit portrait icons** — TTA's purpose-made busts (`units-new/portraits/<id>.webp`). LHQ2
+    ships only full card scans, so the Build round icons come from TTA, self-hosted via
+    `npm run portraits` (maps our units→TTA ids by name, downloads to
+    `public/images/portraits/<slug>.webp`, stamps `portraitImage`; ~174/179, rest fall back to a
+    card-art crop).
+  - **Missing upgrade keywords** — LHQ2 leaves ~123/413 upgrades with empty `keywords` (e.g.
+    Situational Awareness → Outmaneuver). `npm run upgrade-keywords` fills ONLY the empty ones from
+    TTA's `keyword_ids` (+`/api/keywords` names; strips the literal "X" value placeholder), matched
+    by name (+24; the rest are genuinely effect-only upgrades). LHQ2 stays authoritative where it
+    has keywords.
+  - **Effect *text* exists nowhere as data** (LHQ2 + TTA `text` both null) — only on the card image,
+    which the Build inspect gallery shows. Do not try to source it.
+  - **Everything else stays LHQ2-only** (stats, weapons, costs, ranks, requirements, etc.). Run order
+    after a re-scrape: `scrape` → `portraits` → `upgrade-keywords` → `seed`.
+- Rejected as a *data* source for stats/scans: tabletopadmiral.com card scans (1st-edition art) and
+  legion-hq-web `cards.json` (older; name collisions cross-contaminated skills). TTA is used only for
+  the two narrow things above — never for unit/upgrade stats.
 - Card art & rules text are © AMG / Lucasfilm — keep the in-app + README disclaimers.
 
 ## Conventions

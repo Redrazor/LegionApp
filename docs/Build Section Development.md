@@ -189,6 +189,46 @@ Data model stays compatible throughout (additive `Army.format`/`commandHand`/`ba
 
 ## Status log / resume point
 
+### 2026-06-12 — C1 implemented
+**Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,
+awaiting PR. Will be **v0.14.0**.
+
+**C1 — Inline upgrade picking + upgrade images: DONE.** Replaces the upgrade side-drawer with a contextual
+picker that takes over the **left catalogue pane**.
+- **`UpgradeCatalogue.vue`** (new) — fills `#catalogue` when a slot is selected: header `"<Slot> upgrade /
+  for <unit>"` + ✕, search (name + keywords), and `upgradesStore.forSlot` candidates. Each row = an upgrade
+  **art thumbnail** + name + **its keywords (what it does)** + cost. Picking equips + closes; ✕ closes; a
+  "Remove upgrade" row appears when the slot is filled; unique-equipped options are disabled.
+- **`UpgradeThumb.vue`** (new) — small **card-art crop** of the upgrade card (per user direction: a mini card,
+  not a round badge), `background-size: 195%` + `position center 19%` to show the art band and drop the
+  header + lower text. (TTA has no upgrade portraits — only full `image_url` — so we crop our own LHQ2 scan.)
+- **`BuildView`** — lifted picking state `{uid, slot, index}`; `pickingCtx` resolves unit/equippedIds/filled;
+  renders `UpgradeCatalogue` vs `RankCatalogue` in `#catalogue`; `applyUpgrade()` calls `armyStore.setUpgrade`.
+- **`ArmyUnitCard`** — emits `pick-upgrade` up instead of owning a drawer; a slot with **0 valid upgrades is
+  disabled** (don't-open rule). `UpgradePickerDrawer.vue` retired.
+- **`BuildLayout`** — new `forcePane` prop forces the catalogue pane on mobile while picking and hides the
+  segmented toggle (the picker has its own ✕).
+- **Refinements (same cycle):** (1) army-list unit cards are now tappable → open the profile (`ArmyUnitCard`
+  emits `view`); (2) `UnitProfile` gained a **`simplified`** prop (Build passes it) that keeps the keyword
+  definitions + stats/weapons but drops the **errata history** and **Available Upgrades** list; (3)
+  `UpgradeCatalogue` rows got a **🔍 inspect** button → a lightbox of the full upgrade card (no selection);
+  row restructured so inspect isn't nested in the pick button.
+- **Inspect → swipeable gallery (3rd round):** `UpgradeCatalogue`'s inspect is now a full-card **carousel**
+  over the slot candidates (chevrons / ArrowLeft-Right / touch-swipe, position counter, **Select** button that
+  equips the shown card). The 🔍 icon is now a verbal **"Inspect"** label (matches "Remove").
+- **Upgrade keyword enrichment (owner-approved TTA data exception):** LHQ2 leaves ~123/413 upgrades with empty
+  `keywords`. New `scraper/upgradeKeywords.ts` (`npm run upgrade-keywords`) fills ONLY the empty ones from
+  TTA `keyword_ids` → `/api/keywords` names (strips the literal "X" value placeholder), matched by name —
+  **+24** (Situational Awareness → Outmaneuver; the other ~99 are genuinely effect-only). **Effect text is in
+  no data source** (LHQ2 + TTA `text` null) — only on the card, hence the inspect gallery. Run order now
+  `scrape → portraits → upgrade-keywords → seed`. CLAUDE.md + [[data-source-single-truth]] updated.
+- **140 tests pass; vue-tsc clean; coverage 73.9%.** Verified: pick/equip/cost-update, re-open filled slot →
+  Remove, ✕ close, disabled empty slots, mobile force-pane flow, army→simplified-profile, inspect gallery
+  swipe+Select, Situational Awareness → Outmaneuver.
+
+**Next up: B4** — quantity (`×N`) + delete controls on army units. Then EPIC D (battle-card scrape D0,
+command-hand D1, battle-deck D2), E (export/print), F (DnD). See [[build-roster-canvas-rebuild]].
+
 ### 2026-06-12 — B3 implemented
 **Branch:** `feature/catalogue-by-rank` (off `main`). **Status:** code complete, verified in-app across all
 breakpoints, awaiting PR. Continues **Epic B**; fills `BuildLayout`'s `#catalogue` placeholder.

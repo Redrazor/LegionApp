@@ -7,6 +7,17 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.14.0',
+    date: '2026-06-12',
+    changes: [
+      'Build — Equip upgrades inline: tap an army unit\'s upgrade slot to pick from its valid upgrades right in the left pane (the pop-out drawer is gone). Pick to equip, ✕ to close',
+      'Build — Upgrade picker now shows each upgrade\'s card art and what it does (its keywords), not just a name',
+      'Build — Inspect upgrades: tap Inspect in the picker to open a swipeable card gallery — flip through every option (full rules and art) and Select the one you want',
+      'Build — Tap a unit in your army list to open its profile — a focused view with stats, weapons, and keyword definitions',
+      'Data — Filled in missing upgrade keywords (e.g. Situational Awareness now shows Outmaneuver) so most upgrades say what they grant at a glance',
+    ],
+  },
+  {
     version: '0.13.0',
     date: '2026-06-12',
     changes: [

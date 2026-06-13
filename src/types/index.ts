@@ -135,12 +135,13 @@ export interface BattleForce {
 
 // ── Battle deck ──────────────────────────────────────────────────────────────
 
-export type BattleCardSubtype = 'objective' | 'secondary' | 'advantage'
+export type BattleCardSubtype = 'primary' | 'secondary' | 'advantage'
 
 /**
- * A battle-deck card (Objective / Secondary / Advantage). A standard battle deck is
- * 3 of each; Recon uses its own pool, flagged by `isRecon`. (Map cards are not in the
- * Legion HQ 2 data.)
+ * A battle-deck card. The 2024 v2 battle deck (AMG 2.6) is built from three types —
+ * Primary Objective / Secondary Objective / Advantage — 3 of each; Recon uses its own
+ * pool, flagged by `isRecon`. (The pre-2.6 Deployment/"map" cards were folded into
+ * Primary Objective cards, so there is no separate map-card type.)
  */
 export interface BattleCard {
   id: string

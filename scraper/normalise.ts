@@ -177,7 +177,7 @@ export interface CommandCard {
   cardImage: string | null
 }
 
-export type BattleCardSubtype = 'objective' | 'secondary' | 'advantage'
+export type BattleCardSubtype = 'primary' | 'secondary' | 'advantage'
 
 export interface BattleCard {
   id: string
@@ -372,9 +372,9 @@ export function buildBattleForces(raw: Lhq2BattleForce[]): BattleForce[] {
     .sort((a, b) => a.faction.localeCompare(b.faction) || a.name.localeCompare(b.name))
 }
 
-/** LHQ2 names the objective deck "primary"; the game/UI calls it "objective". */
+/** Map the LHQ2 battle subtype to the v2 deck type (it already uses the v2 names). */
 function battleCardSubtype(sub: string | undefined): BattleCardSubtype {
-  return sub === 'primary' ? 'objective' : sub === 'advantage' ? 'advantage' : 'secondary'
+  return sub === 'primary' ? 'primary' : sub === 'advantage' ? 'advantage' : 'secondary'
 }
 
 export function buildBattleCards(cards: Lhq2Card[]): BattleCard[] {

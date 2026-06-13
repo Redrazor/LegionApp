@@ -68,7 +68,7 @@ beforeAll(() => {
   ])
 
   seedBattleCards(sqlite, [
-    { id: 'p1', slug: 'breakthrough', name: 'Breakthrough', subtype: 'objective', keywords: [], faction: null, isRecon: false, cardImage: null } as BattleCard,
+    { id: 'p1', slug: 'breakthrough', name: 'Breakthrough', subtype: 'primary', keywords: [], faction: null, isRecon: false, cardImage: null } as BattleCard,
     { id: 's1', slug: 'recon-mission', name: 'Recon Mission', subtype: 'secondary', keywords: ['Recon'], faction: null, isRecon: true, cardImage: null } as BattleCard,
     { id: 'a1', slug: 'fortified-position', name: 'Fortified Position', subtype: 'advantage', keywords: [], faction: 'empire', isRecon: false, cardImage: null } as BattleCard,
   ])
@@ -191,7 +191,7 @@ describe('GET /api/battle-cards', () => {
   })
 
   it('filters by subtype', async () => {
-    const res = await request(app).get('/api/battle-cards?subtype=objective')
+    const res = await request(app).get('/api/battle-cards?subtype=primary')
     expect(res.body).toHaveLength(1)
     expect(res.body[0].name).toBe('Breakthrough')
   })

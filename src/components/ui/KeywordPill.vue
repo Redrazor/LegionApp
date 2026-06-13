@@ -7,7 +7,7 @@ const keywordsStore = useKeywordsStore()
 
 const open = ref(false)
 const btn = ref<HTMLElement | null>(null)
-const pos = ref({ top: 0, left: 0 })
+const pos = ref<{ top: number | null; bottom: number | null; left: number }>({ top: 0, bottom: null, left: 0 })
 const POPOVER_W = 256
 
 const def = () => keywordsStore.define(props.keyword)
@@ -18,7 +18,14 @@ function place() {
   const r = el.getBoundingClientRect()
   // Clamp horizontally to the viewport (8px gutter).
   const left = Math.min(Math.max(8, r.left), window.innerWidth - POPOVER_W - 8)
-  pos.value = { top: r.bottom + 6, left }
+  // Flip the popover above the keyword when there isn't enough room below it (e.g.
+  // keywords near the bottom of the page). Bottom-anchoring avoids needing the
+  // popover's variable height.
+  const spaceBelow = window.innerHeight - r.bottom
+  const flipUp = spaceBelow < 200 && r.top > spaceBelow
+  pos.value = flipUp
+    ? { top: null, bottom: window.innerHeight - r.top + 6, left }
+    : { top: r.bottom + 6, bottom: null, left }
 }
 
 function toggle() {
@@ -69,8 +76,8 @@ onBeforeUnmount(teardown)
       <Transition name="fade">
         <div
           v-if="open && def()"
-          class="fixed z-[70] w-64 rounded-lg border border-lg-border bg-lg-dark p-3 text-xs leading-relaxed text-lg-text/90 shadow-2xl"
-          :style="{ top: pos.top + 'px', left: pos.left + 'px' }"
+          class="fixed z-[70] max-h-[60vh] w-64 overflow-y-auto rounded-lg border border-lg-border bg-lg-dark p-3 text-xs leading-relaxed text-lg-text/90 shadow-2xl"
+          :style="{ top: pos.top != null ? pos.top + 'px' : undefined, bottom: pos.bottom != null ? pos.bottom + 'px' : undefined, left: pos.left + 'px' }"
           @click.stop
         >
           <div class="mb-1 font-semibold text-lg-accent">{{ keyword }}</div>

@@ -16,11 +16,20 @@ export const useKeywordsStore = defineStore('keywords', () => {
     loaded.value = true
   }
 
-  /** Look up a keyword definition, ignoring any trailing numeric value (e.g. "Arsenal 2"). */
+  /**
+   * Look up a keyword definition, tolerating the value/qualifier forms that upgrades and
+   * weapons use: a trailing number ("Arsenal 2"), a ":" qualifier ("Immune: Pierce" →
+   * Immune), and as a last resort the keyword family's first word ("Fixed Front" →
+   * Fixed). Returns null when the keyword is genuinely absent from the glossary.
+   */
   function define(keyword: string): string | null {
-    if (glossary.value[keyword]) return glossary.value[keyword]
-    const base = keyword.replace(/\s+\d+$/, '').trim()
-    return glossary.value[base] ?? null
+    const g = glossary.value
+    if (g[keyword]) return g[keyword]
+    const noNum = keyword.replace(/\s+\d+$/, '').trim()
+    if (g[noNum]) return g[noNum]
+    const beforeColon = keyword.split(':')[0].trim()
+    if (g[beforeColon]) return g[beforeColon]
+    return g[keyword.split(/\s+/)[0]] ?? null
   }
 
   return { glossary, loaded, load, define }

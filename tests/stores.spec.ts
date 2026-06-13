@@ -27,6 +27,31 @@ describe('army store', () => {
     expect(s.draft.units).toHaveLength(0)
   })
 
+  it('duplicates a unit with its loadout via addCopy', () => {
+    const s = useArmyStore()
+    s.setFaction('empire')
+    s.addUnit('storm')
+    const uid = s.draft.units[0].uid
+    s.setUpgrade(uid, 'heavy', 0, 'dlt')
+    s.addCopy(uid)
+    expect(s.draft.units).toHaveLength(2)
+    const copy = s.draft.units[1]
+    expect(copy.uid).not.toBe(uid) // distinct instance
+    expect(copy.unitId).toBe('storm')
+    expect(copy.upgrades).toEqual([{ slot: 'heavy#0', upgradeId: 'dlt' }])
+    // Deep copy — mutating the copy must not affect the source.
+    copy.upgrades[0].upgradeId = 'other'
+    expect(s.upgradeInSlot(uid, 'heavy', 0)).toBe('dlt')
+  })
+
+  it('addCopy on an unknown uid is a no-op', () => {
+    const s = useArmyStore()
+    s.setFaction('empire')
+    s.addUnit('storm')
+    s.addCopy('nope')
+    expect(s.draft.units).toHaveLength(1)
+  })
+
   it('equips and clears upgrades per slot index', () => {
     const s = useArmyStore()
     s.setFaction('empire')

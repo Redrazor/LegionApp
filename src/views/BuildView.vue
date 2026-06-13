@@ -6,7 +6,7 @@ import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -76,6 +76,14 @@ const unitsByRank = computed(() => {
     if (u) map[u.rank].push(au)
   }
   return map
+})
+
+// Same units, collapsed into render-time `×N` groups (same unit + same loadout)
+// for the army-pane cards. The underlying ArmyUnit entries stay distinct.
+const groupedByRank = computed(() => {
+  const out = {} as Record<Rank, ReturnType<typeof groupArmyUnits>>
+  for (const rank of RANK_ORDER) out[rank] = groupArmyUnits(unitsByRank.value[rank])
+  return out
 })
 
 async function share() {
@@ -202,10 +210,11 @@ function printSheet() {
                 · {{ limits[rank].min }}–{{ limits[rank].max }}</span>
             </span>
           </h2>
-          <div v-if="unitsByRank[rank].length" class="space-y-2">
+          <div v-if="groupedByRank[rank].length" class="space-y-2">
             <ArmyUnitCard
-              v-for="au in unitsByRank[rank]" :key="au.uid"
-              :army-unit="au" :faction="draft.faction"
+              v-for="group in groupedByRank[rank]" :key="group.key"
+              :group="group" :faction="draft.faction"
+              :can-add="counts[rank] < limits[rank].max"
               @pick-upgrade="onPickUpgrade"
               @view="viewUnit"
             />

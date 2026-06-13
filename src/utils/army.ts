@@ -1,8 +1,62 @@
 import type {
-  Army, ArmyUnit, CompactArmy, Faction, Rank, Unit, Upgrade,
+  Army, ArmyUnit, BattleForce, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
+import { rankLimits, battleForceRankTable, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
+
+// ── Battle-force helpers ─────────────────────────────────────────────────────
+
+/**
+ * The typed shape of a battle force's `rules` blob (a passthrough of the LHQ2
+ * source). Only the list-building-relevant flags are typed; in-game-only rules
+ * (remnantEquipRules, sortOfDetachment, etc.) are surfaced as `rulesText` rather
+ * than enforced here.
+ */
+export interface BattleForceUnitLimit {
+  ids: string[]
+  count: [number, number]
+}
+export interface BattleForceRules {
+  unitLimits?: BattleForceUnitLimit[]
+  noFieldComm?: boolean
+  ignoreDetach?: string
+  minimum3Wookiees?: boolean
+  countMercs?: boolean
+  addAdditionalUpgradeSlots?: [string, string[]][]
+}
+
+export function battleForceRules(bf: BattleForce | null | undefined): BattleForceRules {
+  return (bf?.rules ?? {}) as BattleForceRules
+}
+
+/** Every unit id eligible in a battle force (across all six rank lists). */
+export function battleForcePool(bf: BattleForce): Set<string> {
+  return new Set(RANK_ORDER.flatMap((rank) => bf.rankUnits[rank] ?? []))
+}
+
+/**
+ * The rank a unit occupies inside an army. A battle force can place a unit in a
+ * different rank than its printed one (e.g. an "as Corps" unit), so its `rankUnits`
+ * lists are authoritative; outside a battle force (or for an ineligible unit) the
+ * unit's own rank applies.
+ */
+export function effectiveRank(unit: Unit, bf?: BattleForce | null): Rank {
+  if (bf) {
+    for (const rank of RANK_ORDER) {
+      if (bf.rankUnits[rank]?.includes(unit.id)) return rank
+    }
+  }
+  return unit.rank
+}
+
+/**
+ * A unit's upgrade bar, extended with any extra slots a battle force grants it
+ * (addAdditionalUpgradeSlots — e.g. Ohnaka Gang gives Hondo a Command slot).
+ */
+export function effectiveUpgradeBar(unit: Unit, bf?: BattleForce | null): string[] {
+  const add = battleForceRules(bf).addAdditionalUpgradeSlots?.find(([id]) => id === unit.id)?.[1]
+  return add ? [...unit.upgradeBar, ...add] : unit.upgradeBar
+}
 
 export interface ValidationItem {
   ok: boolean
@@ -286,16 +340,27 @@ export function heavyWeaponTeamUnmet(army: Army, unitsById: Map<string, Unit>): 
  * they belong to the footer checklist, not to one card. Pure; recomputes live as the
  * loadout or army composition changes.
  */
-export function unitLegalityIssues(au: ArmyUnit, army: Army, unitsById: Map<string, Unit>): string[] {
+export function unitLegalityIssues(
+  au: ArmyUnit,
+  army: Army,
+  unitsById: Map<string, Unit>,
+  bf?: BattleForce | null,
+): string[] {
   const unit = unitsById.get(au.unitId)
   if (!unit) return []
   const issues: string[] = []
   if (unit.cost == null) issues.push('No points cost')
+  // In a battle force, eligibility is the BF's own whitelist — a unit not on it
+  // (e.g. one left over from before the BF was picked) is illegal here.
+  if (bf && !battleForcePool(bf).has(unit.id)) issues.push(`Not in ${bf.name}`)
   if (needsHeavyWeapon(unit, au)) issues.push('Needs a heavy weapon')
-  const needsParent = detachmentUnmetFor(au, unit, army, unitsById)
+  const ignoresDetach = !!bf && battleForceRules(bf).ignoreDetach === unit.id
+  const needsParent = ignoresDetach ? null : detachmentUnmetFor(au, unit, army, unitsById)
   if (needsParent) {
     issues.push(`Needs ${needsParent}`)
   } else if (
+    // Allies-of-convenience caps only apply outside a battle force.
+    !bf &&
     !detachmentTarget(unit) &&
     unit.faction === 'mercenary' &&
     army.faction &&
@@ -360,6 +425,11 @@ export function detachmentTarget(unit: Unit): string | null {
  * parent-less detachment (e.g. Mandalorian Warriors — Fire Support, which carries no
  * faction affiliation) appears purely because its parent is present. Omit it (Browse,
  * specs) to skip detachment gating. Pure — the catalogue and its specs share it.
+ *
+ * With a battle force (`bf`), eligibility is the battle force's own `rankUnits`
+ * whitelist for that rank (which also places units in their battle-force rank), so
+ * faction/detachment gating is bypassed. Without one, `specialIssue` units — which may
+ * only ever be fielded in their named battle force — are excluded.
  */
 export function catalogueForRank(
   units: Unit[],
@@ -367,11 +437,15 @@ export function catalogueForRank(
   rank: Rank,
   query = '',
   presentParents?: ReadonlySet<string>,
+  bf?: BattleForce | null,
 ): Unit[] {
   const q = query.trim().toLowerCase()
+  const eligible = bf ? new Set(bf.rankUnits[rank] ?? []) : null
   return units
     .filter((u) => {
+      if (eligible) return eligible.has(u.id)
       if (u.rank !== rank) return false
+      if (u.specialIssue) return false // standard armies can't field special-issue units
       const parent = presentParents ? detachmentTarget(u) : null
       // Detachment units are gated solely by their parent's presence (which already
       // establishes the army's faction); everything else by normal faction legality.
@@ -506,6 +580,7 @@ export function validateArmy(
   army: Army,
   unitsById: Map<string, Unit>,
   upgradesById: Map<string, Upgrade>,
+  bf?: BattleForce | null,
 ): ArmyValidation {
   const rankCounts: Record<Rank, number> = {
     commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
@@ -516,13 +591,15 @@ export function validateArmy(
   for (const au of army.units) {
     const unit = unitsById.get(au.unitId)
     if (!unit) continue
-    rankCounts[unit.rank]++
+    // A battle force can place a unit in a rank other than its printed one.
+    rankCounts[effectiveRank(unit, bf)]++
     if (unit.cost == null) unpriced++
     points += unitCost(au, unitsById, upgradesById)
     factions.add(unit.faction)
   }
 
   const items: ValidationItem[] = []
+  const rules = battleForceRules(bf)
 
   // Points
   items.push({
@@ -540,20 +617,33 @@ export function validateArmy(
     })
   }
 
-  // Rank limits — per-format (see rankLimits / FORMATS). Required ranks (min > 0)
-  // surface even when empty so their unmet minimum is always visible.
-  // Entourage widens a rank's max; Field Commander relaxes the commander minimum.
-  // Mercenaries count toward maximums but NOT minimums (no-min rule), so the
-  // rank loop measures minimums against non-mercenary counts.
-  const merc = mercenaryIssues(army, unitsById)
-  const limits = rankLimits(army.gameSize, army.faction)
+  // Battle-force eligibility — every unit must be on the battle force's roster.
+  if (bf) {
+    const pool = battleForcePool(bf)
+    const ineligible = [...new Set(
+      army.units.map((au) => unitsById.get(au.unitId)).filter((u): u is Unit => !!u && !pool.has(u.id)).map((u) => u.name),
+    )]
+    if (ineligible.length) {
+      items.push({ ok: false, label: 'Battle force', detail: `Not in ${bf.name}: ${ineligible.join(', ')}` })
+    }
+  }
+
+  // Rank limits — the battle force's own rank table when one is set, else per-format
+  // (rankLimits / FORMATS). Required ranks (min > 0) surface even when empty so their
+  // unmet minimum is always visible. Entourage widens a rank's max; Field Commander
+  // relaxes the commander minimum (unless the battle force forbids it via noFieldComm).
+  // Outside a battle force, mercenaries count toward maximums but NOT minimums (no-min
+  // rule), so minimums are measured against non-mercenary counts.
+  const merc = bf ? null : mercenaryIssues(army, unitsById)
+  const limits = rankLimits(army.gameSize, bf)
   const entourage = entourageBonuses(army, unitsById)
-  const fieldCommander = hasFieldCommander(army, unitsById)
+  const fieldCommander = !rules.noFieldComm && hasFieldCommander(army, unitsById)
   for (const rank of RANK_ORDER) {
     const max = limits[rank].max + (entourage[rank] ?? 0)
     let min = limits[rank].min
     const count = rankCounts[rank]
-    const nonMerc = count - merc.rankCounts[rank]
+    const mercCount = merc?.rankCounts[rank] ?? 0
+    const nonMerc = count - mercCount
     let note = ''
     if (rank === 'commander' && min > 0 && nonMerc === 0 && fieldCommander) {
       min = 0
@@ -563,7 +653,7 @@ export function validateArmy(
     const minOk = nonMerc >= min
     const maxOk = count <= max
     const detail = !minOk
-      ? merc.rankCounts[rank] > 0
+      ? mercCount > 0
         ? `${count} (need ${min} non-merc)`
         : `${count} (need ${min})`
       : !maxOk
@@ -572,8 +662,42 @@ export function validateArmy(
     items.push({ ok: minOk && maxOk, label: rankName(rank), detail: detail + note })
   }
 
-  // Detachment — a detachment unit needs its parent unit/rank in the list.
-  const detachIssues = unmetDetachments(army, unitsById)
+  // Combined Commander + Operative cap (some battle forces share one pool).
+  if (bf) {
+    const commOp = battleForceRankTable(bf, army.gameSize).commOp
+    if (commOp != null) {
+      const used = rankCounts.commander + rankCounts.operative
+      items.push({
+        ok: used <= commOp,
+        label: 'Cmd + Op',
+        detail: `${used} / ${commOp}`,
+      })
+    }
+  }
+
+  // Per-unit-id limits (e.g. ≤2 HQ units, ≥1 of a required unit).
+  for (const lim of rules.unitLimits ?? []) {
+    const [min, max] = lim.count
+    const n = army.units.filter((au) => lim.ids.includes(au.unitId)).length
+    const names = lim.ids.map((id) => unitsById.get(id)?.name).filter(Boolean)
+    const label = names.length ? names.join(' / ') : 'Unit limit'
+    if (n < min) items.push({ ok: false, label, detail: `${n} (need ${min})` })
+    else if (n > max) items.push({ ok: false, label, detail: `${n} (max ${max})` })
+  }
+
+  // Minimum-Wookiee rule (Wookiee Defenders): at least 3 Wookiee Trooper units.
+  if (rules.minimum3Wookiees) {
+    const wookiees = army.units.filter((au) => /wookiee/i.test(unitsById.get(au.unitId)?.unitType ?? '')).length
+    items.push({ ok: wookiees >= 3, label: 'Wookiees', detail: `${wookiees} / 3 min` })
+  }
+
+  // Detachment — a detachment unit needs its parent unit/rank in the list. A battle
+  // force may exempt a specific unit (ignoreDetach).
+  const detachIssues = unmetDetachments(army, unitsById).filter((s) => {
+    if (!rules.ignoreDetach) return true
+    const exempt = unitsById.get(rules.ignoreDetach)
+    return !exempt || !s.startsWith(`${exempt.name} →`)
+  })
   if (detachIssues.length) {
     items.push({ ok: false, label: 'Detachment', detail: detachIssues.join('; ') })
   }
@@ -588,26 +712,29 @@ export function validateArmy(
     })
   }
 
-  // Single faction (mercenaries may mix in via Allies of Convenience — allowed)
-  const nonMerc = [...factions].filter((f) => f !== 'mercenary')
-  const factionOk = nonMerc.length <= 1
-  if (factions.size > 0) {
-    items.push({
-      ok: factionOk,
-      label: 'Faction',
-      detail: factionOk ? 'Single faction' : `Mixed: ${nonMerc.join(', ')}`,
-    })
+  // Single faction (mercenaries may mix in via Allies of Convenience — allowed).
+  // A battle force defines its own cross-faction roster, so this check is skipped.
+  if (!bf) {
+    const nonMerc = [...factions].filter((f) => f !== 'mercenary')
+    const factionOk = nonMerc.length <= 1
+    if (factions.size > 0) {
+      items.push({
+        ok: factionOk,
+        label: 'Faction',
+        detail: factionOk ? 'Single faction' : `Mixed: ${nonMerc.join(', ')}`,
+      })
+    }
   }
 
-  // Mercenary "Allies of Convenience" — affiliation match + per-rank caps.
-  if (merc.illegalAllies.length) {
+  // Mercenary "Allies of Convenience" — affiliation match + per-rank caps (no BF only).
+  if (merc && merc.illegalAllies.length) {
     items.push({
       ok: false,
       label: 'Allies',
       detail: `Can't ally: ${merc.illegalAllies.join(', ')}`,
     })
   }
-  if (merc.capExceeded.length) {
+  if (merc && merc.capExceeded.length) {
     items.push({
       ok: false,
       label: 'Mercenaries',
@@ -636,6 +763,8 @@ export function toCompact(army: Army): CompactArmy {
   return {
     n: army.name,
     f: army.faction,
+    // Only serialise a battle force when one is set, to keep legacy share codes stable.
+    ...(army.battleForce ? { b: army.battleForce } : {}),
     g: army.gameSize,
     u: army.units.map((au) => [au.unitId, au.upgrades.map((x) => [x.slot, x.upgradeId] as [string, string])]),
   }
@@ -646,6 +775,7 @@ export function fromCompact(c: CompactArmy): Army {
   return {
     name: c.n ?? '',
     faction: c.f ?? null,
+    battleForce: c.b ?? null,
     gameSize: c.g ?? 800,
     units: (c.u ?? []).map(([unitId, ups]) => ({
       uid: `u${counter++}`,

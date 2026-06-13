@@ -7,6 +7,15 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.21.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — Battle forces are here. Tap the “Battle force” button in the builder header to switch any army to one of its faction\'s battle forces (212th Attack Battalion, Blizzard Force, Echo Base Defenders, Shadow Collective, the Mandalorian clans, and more). It\'s fully optional — a standard faction army is still the default',
+      'Build — A battle force swaps in its own roster, rank limits and special rules: only its eligible units are offered (placed in their battle-force rank), its rank table and combined Commander/Operative caps apply, per-unit limits are enforced, and its battle-specific upgrades become available. The full rules text is shown so nothing is hidden',
+      'Build — Switching battle force keeps your current list and flags any units that aren\'t eligible, so you can adjust rather than start over',
+    ],
+  },
+  {
     version: '0.20.0',
     date: '2026-06-13',
     changes: [

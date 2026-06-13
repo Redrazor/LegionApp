@@ -4,24 +4,31 @@ import { storeToRefs } from 'pinia'
 import { useArmyStore } from '../stores/army.ts'
 import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
+import { useBattleForcesStore } from '../stores/battleForces.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
 import RankTrackerFooter from '../components/build/RankTrackerFooter.vue'
 import RankCatalogue from '../components/build/RankCatalogue.vue'
 import UpgradeCatalogue from '../components/build/UpgradeCatalogue.vue'
+import BattleForcePicker from '../components/build/BattleForcePicker.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
 
 const armyStore = useArmyStore()
 const unitsStore = useUnitsStore()
 const upgradesStore = useUpgradesStore()
+const bfStore = useBattleForcesStore()
 const { draft, saved, activeIndex } = storeToRefs(armyStore)
-const { validation, pointsRemaining } = useArmyValidation()
+const { validation, pointsRemaining, battleForce } = useArmyValidation()
 const { isMobile, isDesktop } = useBreakpoint()
+
+// Battle-force picker overlay (header chip → choose/clear a battle force).
+const pickingBattleForce = ref(false)
+const availableBattleForces = computed(() => bfStore.forFaction(draft.value.faction))
 
 const shareMsg = ref('')
 // Slug of the unit whose profile drawer is open (catalogue "view"); null = closed.
@@ -54,6 +61,7 @@ function applyUpgrade(upgradeId: string | null) {
 onMounted(() => {
   unitsStore.load()
   upgradesStore.load()
+  bfStore.load()
   // Import a shared army from the URL (?a=...)
   const params = new URLSearchParams(window.location.search)
   const a = params.get('a')
@@ -73,7 +81,8 @@ const unitsByRank = computed(() => {
   }
   for (const au of draft.value.units) {
     const u = unitsStore.byId.get(au.unitId)
-    if (u) map[u.rank].push(au)
+    // A battle force can place a unit in a rank other than its printed one.
+    if (u) map[effectiveRank(u, battleForce.value)].push(au)
   }
   return map
 })
@@ -101,7 +110,7 @@ async function share() {
 // bonuses folded into each rank's max so the catalogue "+ Add" gating and the
 // header caps match validateArmy (e.g. Tarkin's "Entourage Darth Vader" → 1–3).
 const limits = computed(() => {
-  const base = rankLimits(draft.value.gameSize, draft.value.faction)
+  const base = rankLimits(draft.value.gameSize, battleForce.value)
   const bonus = entourageBonuses(draft.value, unitsStore.byId)
   const out = {} as Record<Rank, { min: number; max: number }>
   for (const rank of RANK_ORDER) {
@@ -167,8 +176,30 @@ function printSheet() {
           class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
           @input="armyStore.setName(($event.target as HTMLInputElement).value)"
         />
+        <!-- Battle-force chip — opt-in; only shown when this faction has any. -->
+        <button
+          v-if="availableBattleForces.length"
+          class="flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-medium transition-colors"
+          :class="battleForce
+            ? 'border-lg-accent/60 bg-lg-accent/10 text-lg-accent'
+            : 'border-lg-border bg-lg-surface text-lg-muted hover:text-lg-accent'"
+          @click="pickingBattleForce = true"
+        >
+          <span class="text-[10px] uppercase tracking-wider opacity-70">Battle force</span>
+          <span class="font-semibold">{{ battleForce?.name ?? 'None' }}</span>
+          <span aria-hidden="true">▾</span>
+        </button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-xs font-medium text-lg-muted hover:text-lg-accent" @click="armyStore.newArmy()">New</button>
       </div>
+      <!-- Active battle force's special rules (incl. ones not auto-validated). -->
+      <details v-if="battleForce?.rulesText.length" class="mb-4 rounded-xl border border-lg-accent/30 bg-lg-accent/5 px-4 py-3 no-print">
+        <summary class="cursor-pointer text-xs font-bold uppercase tracking-widest text-lg-accent">
+          {{ battleForce.name }} — special rules
+        </summary>
+        <ul class="mt-2 list-disc space-y-1.5 pl-5 text-xs leading-relaxed text-lg-text/80">
+          <li v-for="(rule, i) in battleForce.rulesText" :key="i">{{ rule }}</li>
+        </ul>
+      </details>
     </template>
 
     <!-- Catalogue pane — the unit catalogue, or the contextual upgrade picker when a
@@ -179,6 +210,7 @@ function printSheet() {
         :slot="picking.slot"
         :faction="draft.faction"
         :unit="pickingCtx.unit"
+        :battle-force="battleForce"
         :equipped-ids="pickingCtx.equippedIds"
         :filled="pickingCtx.filled"
         @pick="applyUpgrade"
@@ -189,6 +221,7 @@ function printSheet() {
         v-else
         :units="unitsStore.units"
         :faction="draft.faction"
+        :battle-force="battleForce"
         :counts="counts"
         :limits="limits"
         :present-parents="presentParents"
@@ -214,6 +247,7 @@ function printSheet() {
             <ArmyUnitCard
               v-for="group in groupedByRank[rank]" :key="group.key"
               :group="group" :faction="draft.faction"
+              :battle-force="battleForce"
               :can-add="counts[rank] < limits[rank].max"
               @pick-upgrade="onPickUpgrade"
               @view="viewUnit"
@@ -264,5 +298,15 @@ function printSheet() {
     <!-- Catalogue/army "view" → reuse Browse's unit profile drawer (simplified: keeps
          keyword definitions, drops errata + available-upgrades to stay focused). -->
     <UnitProfile v-if="viewingSlug" :slug="viewingSlug" simplified @close="viewingSlug = null" />
+
+    <!-- Battle-force picker overlay (faction's battle forces + "None"). -->
+    <BattleForcePicker
+      v-if="pickingBattleForce"
+      :options="availableBattleForces"
+      :selected="draft.battleForce"
+      :game-size="draft.gameSize"
+      @select="armyStore.setBattleForce($event); pickingBattleForce = false"
+      @close="pickingBattleForce = false"
+    />
   </BuildLayout>
 </template>

@@ -6,9 +6,10 @@ import {
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
   primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
   heavyWeaponTeamUnmet, unitLegalityIssues,
+  effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
-import type { Army, Unit, Upgrade } from '../src/types/index.ts'
+import type { Army, BattleForce, Unit, Upgrade } from '../src/types/index.ts'
 
 function unit(id: string, over: Partial<Unit> = {}): Unit {
   return {
@@ -27,6 +28,19 @@ function makeMaps(units: Unit[], upgrades: Upgrade[] = []) {
   return {
     unitsById: new Map(units.map((u) => [u.id, u])),
     upgradesById: new Map(upgrades.map((u) => [u.id, u])),
+  }
+}
+
+function makeBattleForce(over: Partial<BattleForce> = {}): BattleForce {
+  return {
+    linkId: 'tbf', name: 'Test Battle Force', faction: 'empire', forceAffinity: null,
+    rankUnits: { commander: [], operative: [], corps: [], special: [], support: [], heavy: [] },
+    allowedUpgrades: [], disallowedUpgrades: [], rules: {}, rulesText: [],
+    modes: {
+      standard: { commander: [1, 2], operative: [0, 2], corps: [3, 6], special: [0, 3], support: [0, 3], heavy: [0, 2], commOp: null },
+      '500': { commander: [1, 1], operative: [0, 1], corps: [2, 4], special: [0, 2], support: [0, 2], heavy: [0, 1], commOp: null },
+    },
+    ...over,
   }
 }
 
@@ -301,14 +315,18 @@ describe('game formats / rankLimits', () => {
     })
   })
 
-  it('applies the Mandalorian Clans battle-force rank override (Corps min 2)', () => {
-    // Standard: Corps 3→2; everything else inherited from the base format.
-    expect(rankLimits(1000, 'mandalorians').corps).toEqual({ min: 2, max: 6 })
-    expect(rankLimits(1000, 'mandalorians').commander).toEqual({ min: 1, max: 2 })
-    // Recon already had Corps min 2 → unchanged.
-    expect(rankLimits(600, 'mandalorians').corps).toEqual({ min: 2, max: 4 })
-    // Other factions and the no-faction call keep the standard table.
-    expect(rankLimits(1000, 'empire').corps).toEqual({ min: 3, max: 6 })
+  it('uses the battle force rank table (and its mode) when one is given', () => {
+    // Mandalorian Clans: Corps 2–6 standard, 2–4 in the 500-point (Recon) mode.
+    const mc = makeBattleForce({
+      modes: {
+        standard: { commander: [1, 2], operative: [0, 2], corps: [2, 6], special: [0, 3], support: [0, 3], heavy: [0, 2], commOp: null },
+        '500': { commander: [1, 1], operative: [0, 1], corps: [2, 4], special: [0, 2], support: [0, 2], heavy: [0, 1], commOp: 3 },
+      },
+    })
+    expect(rankLimits(1000, mc).corps).toEqual({ min: 2, max: 6 })
+    expect(rankLimits(1000, mc).commander).toEqual({ min: 1, max: 2 })
+    expect(rankLimits(600, mc).corps).toEqual({ min: 2, max: 4 }) // Recon → 500-point mode
+    // No battle force keeps the standard format table.
     expect(rankLimits(1000).corps).toEqual({ min: 3, max: 6 })
   })
 
@@ -965,5 +983,135 @@ describe('rankChipState', () => {
     expect(rankChipState(2, 1, 2)).toBe('ok') // at max
     expect(rankChipState(0, 0, 2)).toBe('ok') // optional rank, empty
     expect(rankChipState(4, 3, 6)).toBe('ok') // mid-range
+  })
+})
+
+describe('battle forces', () => {
+  // A small battle force: Vader as commander (printed commander), a Scout placed
+  // "as Corps" (printed special), one native corps. Allows one extra upgrade.
+  const bf = makeBattleForce({
+    linkId: 'tf', name: 'Test Force', faction: 'empire',
+    rankUnits: { commander: ['vader'], operative: [], corps: ['scout', 'storm'], special: [], support: [], heavy: [] },
+    allowedUpgrades: ['special-op'],
+    disallowedUpgrades: ['banned'],
+    rules: { unitLimits: [{ ids: ['vader'], count: [1, 1] }], addAdditionalUpgradeSlots: [['vader', ['command']]] },
+    rulesText: ['A test rule.'],
+  })
+  const vader = unit('vader', { name: 'Vader', rank: 'commander', isUnique: true, cost: 150, upgradeBar: ['force'] })
+  const scout = unit('scout', { name: 'Scout', rank: 'special', cost: 60 }) // printed special, "as Corps" in BF
+  const storm = unit('storm', { name: 'Storm', rank: 'corps', cost: 50 })
+  const outsider = unit('outsider', { name: 'Outsider', rank: 'corps', cost: 40 })
+  const units = [vader, scout, storm, outsider]
+
+  describe('effectiveRank', () => {
+    it('uses the battle force rank list, not the printed rank', () => {
+      expect(effectiveRank(scout, bf)).toBe('corps') // printed special → corps in BF
+      expect(effectiveRank(vader, bf)).toBe('commander')
+    })
+    it('falls back to the printed rank with no BF, or for an ineligible unit', () => {
+      expect(effectiveRank(scout, null)).toBe('special')
+      expect(effectiveRank(outsider, bf)).toBe('corps') // not in BF → printed rank
+    })
+  })
+
+  describe('battleForcePool / battleForceRules', () => {
+    it('collects all eligible ids and typed rules', () => {
+      expect(battleForcePool(bf)).toEqual(new Set(['vader', 'scout', 'storm']))
+      expect(battleForceRules(bf).unitLimits).toHaveLength(1)
+      expect(battleForceRules(null)).toEqual({})
+    })
+  })
+
+  describe('catalogueForRank with a battle force', () => {
+    it('returns the BF whitelist for the rank (placing "as Corps" units there)', () => {
+      const corps = catalogueForRank(units, 'empire', 'corps', '', undefined, bf)
+      expect(corps.map((u) => u.id).sort()).toEqual(['scout', 'storm'])
+      expect(catalogueForRank(units, 'empire', 'special', '', undefined, bf)).toEqual([])
+    })
+    it('excludes special-issue units from a standard (no-BF) army', () => {
+      const si = unit('si', { name: 'SpecialOne', rank: 'corps', specialIssue: 'Test Force' })
+      const corps = catalogueForRank([si, storm], 'empire', 'corps')
+      expect(corps.map((u) => u.id)).toEqual(['storm'])
+    })
+  })
+
+  describe('effectiveUpgradeBar', () => {
+    it('appends battle-force-granted slots to the named unit', () => {
+      expect(effectiveUpgradeBar(vader, bf)).toEqual(['force', 'command'])
+      expect(effectiveUpgradeBar(storm, bf)).toEqual([]) // not granted any
+      expect(effectiveUpgradeBar(vader, null)).toEqual(['force'])
+    })
+  })
+
+  describe('validateArmy with a battle force', () => {
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army = (ids: string[]): Army => ({
+      name: '', faction: 'empire', battleForce: 'tf', gameSize: 1000,
+      units: ids.map((id, i) => ({ uid: `u${i}`, unitId: id, upgrades: [] })),
+    })
+
+    it('uses the BF rank table and counts by effective rank', () => {
+      const v = validateArmy(army(['vader', 'scout', 'storm']), unitsById, upgradesById, bf)
+      const corps = v.items.find((i) => i.label === 'Corps')!
+      expect(corps.detail).toBe('2 (need 3)') // scout (as corps) + storm, BF corps min 3
+      expect(v.rankCounts.corps).toBe(2) // scout counts as corps despite its printed special rank
+      expect(v.rankCounts.special).toBe(0)
+    })
+
+    it('flags units not on the battle force roster', () => {
+      const v = validateArmy(army(['vader', 'outsider']), unitsById, upgradesById, bf)
+      const row = v.items.find((i) => i.label === 'Battle force')!
+      expect(row.ok).toBe(false)
+      expect(row.detail).toContain('Outsider')
+      expect(unitLegalityIssues(army(['outsider']).units[0], army(['outsider']), unitsById, bf))
+        .toContain('Not in Test Force')
+    })
+
+    it('enforces per-unit-id limits', () => {
+      const v = validateArmy(army(['scout', 'storm']), unitsById, upgradesById, bf)
+      const lim = v.items.find((i) => i.label === 'Vader')!
+      expect(lim.ok).toBe(false) // needs 1 Vader, has 0
+      expect(lim.detail).toBe('0 (need 1)')
+    })
+
+    it('enforces the combined Cmd+Op cap when set', () => {
+      const capped = makeBattleForce({
+        rankUnits: { commander: ['vader', 'storm'], operative: [], corps: [], special: [], support: [], heavy: [] },
+        modes: { ...bf.modes, standard: { ...bf.modes.standard, commOp: 1 } },
+      })
+      const a: Army = { name: '', faction: 'empire', battleForce: 'tbf', gameSize: 1000,
+        units: [{ uid: 'a', unitId: 'vader', upgrades: [] }, { uid: 'b', unitId: 'storm', upgrades: [] }] }
+      const v = validateArmy(a, unitsById, upgradesById, capped)
+      const row = v.items.find((i) => i.label === 'Cmd + Op')!
+      expect(row.ok).toBe(false)
+      expect(row.detail).toBe('2 / 1')
+    })
+
+    it('enforces minimum-3-Wookiees', () => {
+      const wbf = makeBattleForce({
+        rankUnits: { commander: [], operative: [], corps: ['ww'], special: [], support: [], heavy: [] },
+        rules: { minimum3Wookiees: true },
+      })
+      const ww = unit('ww', { name: 'Wookiee Warriors', unitType: 'wookiee trooper', rank: 'corps' })
+      const maps = makeMaps([ww])
+      const a: Army = { name: '', faction: 'rebels', battleForce: 'tbf', gameSize: 1000,
+        units: [{ uid: 'a', unitId: 'ww', upgrades: [] }, { uid: 'b', unitId: 'ww', upgrades: [] }] }
+      const row = validateArmy(a, maps.unitsById, maps.upgradesById, wbf).items.find((i) => i.label === 'Wookiees')!
+      expect(row.ok).toBe(false)
+      expect(row.detail).toBe('2 / 3 min')
+    })
+  })
+
+  describe('compact round-trip', () => {
+    it('preserves the battle force', () => {
+      const a: Army = { name: 'X', faction: 'empire', battleForce: 'mc', gameSize: 1000, units: [] }
+      expect(toCompact(a).b).toBe('mc')
+      expect(fromCompact(toCompact(a)).battleForce).toBe('mc')
+    })
+    it('omits the battle force when none is set, defaulting to null on load', () => {
+      const a: Army = { name: 'X', faction: 'empire', battleForce: null, gameSize: 1000, units: [] }
+      expect('b' in toCompact(a)).toBe(false)
+      expect(fromCompact(toCompact(a)).battleForce).toBeNull()
+    })
   })
 })

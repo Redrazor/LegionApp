@@ -4,7 +4,7 @@ import type { Army, ArmyUnit, CompactArmy, Faction } from '../types/index.ts'
 import { toCompact, fromCompact } from '../utils/army.ts'
 
 function emptyArmy(): Army {
-  return { name: '', faction: null, gameSize: 1000, units: [] }
+  return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [] }
 }
 
 let uidCounter = 0
@@ -22,11 +22,22 @@ export const useArmyStore = defineStore(
     const activeIndex = ref(-1)
 
     function setFaction(faction: Faction) {
-      if (draft.value.faction !== faction && draft.value.units.length > 0) {
-        // Switching faction clears incompatible units.
-        draft.value.units = []
+      if (draft.value.faction !== faction) {
+        // Switching faction clears incompatible units and any battle force (BFs
+        // belong to a single faction).
+        if (draft.value.units.length > 0) draft.value.units = []
+        draft.value.battleForce = null
       }
       draft.value.faction = faction
+    }
+
+    /**
+     * Select (or clear, with null) the army's battle force. Deliberately does NOT
+     * clear units — switching battle force keeps the list and lets validation flag
+     * any now-ineligible units, so the user can fix rather than lose their work.
+     */
+    function setBattleForce(linkId: string | null) {
+      draft.value.battleForce = linkId
     }
 
     function setGameSize(size: number) {
@@ -120,7 +131,7 @@ export const useArmyStore = defineStore(
 
     return {
       draft, saved, activeIndex, isDirty,
-      setFaction, setGameSize, setName,
+      setFaction, setBattleForce, setGameSize, setName,
       addUnit, removeUnit, addCopy, findUnit, setUpgrade, upgradeInSlot,
       newArmy, loadDraft, saveCurrent, loadSaved, deleteSaved, renameSaved,
     }

@@ -135,3 +135,34 @@ describe('favorites store', () => {
     expect(f.isFavorite('vader')).toBe(false)
   })
 })
+
+describe('army store — battle force', () => {
+  it('keeps units when setting a battle force (warn + keep-flag), and resets it on faction change', () => {
+    const s = useArmyStore()
+    s.setFaction('mandalorians')
+    s.addUnit('din')
+    s.setBattleForce('mc')
+    expect(s.draft.battleForce).toBe('mc')
+    expect(s.draft.units).toHaveLength(1) // not cleared
+    s.setBattleForce(null)
+    expect(s.draft.battleForce).toBeNull()
+    s.setBattleForce('mc')
+    s.setFaction('empire') // changing faction drops the battle force
+    expect(s.draft.battleForce).toBeNull()
+  })
+})
+
+describe('battleForces store', () => {
+  it('indexes by linkId and filters by faction', async () => {
+    const { useBattleForcesStore } = await import('../src/stores/battleForces.ts')
+    const s = useBattleForcesStore()
+    s.battleForces = [
+      { linkId: 'mc', name: 'Mandalorian Clans', faction: 'mandalorians' } as never,
+      { linkId: 'bf', name: 'Blizzard Force', faction: 'empire' } as never,
+      { linkId: 'tf', name: 'Tempest Force', faction: 'empire' } as never,
+    ]
+    expect(s.byId.get('mc')?.name).toBe('Mandalorian Clans')
+    expect(s.forFaction('empire').map((b) => b.name)).toEqual(['Blizzard Force', 'Tempest Force'])
+    expect(s.forFaction(null)).toEqual([])
+  })
+})

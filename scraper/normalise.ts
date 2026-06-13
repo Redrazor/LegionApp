@@ -177,6 +177,19 @@ export interface CommandCard {
   cardImage: string | null
 }
 
+export type BattleCardSubtype = 'objective' | 'secondary' | 'advantage'
+
+export interface BattleCard {
+  id: string
+  slug: string
+  name: string
+  subtype: BattleCardSubtype
+  keywords: string[]
+  faction: string | null
+  isRecon: boolean
+  cardImage: string | null
+}
+
 export type ProductType = 'expansion' | 'army-box' | 'starter' | 'specialists'
 
 export interface Product {
@@ -357,6 +370,32 @@ export function buildBattleForces(raw: Lhq2BattleForce[]): BattleForce[] {
       },
     }))
     .sort((a, b) => a.faction.localeCompare(b.faction) || a.name.localeCompare(b.name))
+}
+
+/** LHQ2 names the objective deck "primary"; the game/UI calls it "objective". */
+function battleCardSubtype(sub: string | undefined): BattleCardSubtype {
+  return sub === 'primary' ? 'objective' : sub === 'advantage' ? 'advantage' : 'secondary'
+}
+
+export function buildBattleCards(cards: Lhq2Card[]): BattleCard[] {
+  const seen = new Set<string>()
+  return cards
+    .filter((c) => c.cardType === 'battle')
+    .map((c) => {
+      const slug = uniqueSlug(slugify(c.cardName), seen)
+      const keywords = normalizeKeywords(c.keywords)
+      return {
+        id: c.id,
+        slug,
+        name: c.cardName.trim(),
+        subtype: battleCardSubtype(c.cardSubtype),
+        keywords,
+        faction: c.faction ? mapFaction(c.faction) : null,
+        // The Recon-format pool is flagged by a "Recon" keyword in the source.
+        isRecon: keywords.some((k) => /^recon$/i.test(k)),
+        cardImage: c.imageName ? `/images/battle/${slug}.webp` : null,
+      }
+    })
 }
 
 export function buildCommands(cards: Lhq2Card[]): CommandCard[] {

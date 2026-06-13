@@ -2,13 +2,14 @@ import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import express from 'express'
 import Database from 'better-sqlite3'
 import request from 'supertest'
-import { createTables, seedUnits, seedUpgrades, seedCommands, seedProducts, seedBattleForces } from '../server/db/seed.ts'
+import { createTables, seedUnits, seedUpgrades, seedCommands, seedProducts, seedBattleForces, seedBattleCards } from '../server/db/seed.ts'
 import { createUnitsRouter } from '../server/routes/units.ts'
 import { createUpgradesRouter } from '../server/routes/upgrades.ts'
 import { createCommandsRouter } from '../server/routes/commands.ts'
 import { createProductsRouter } from '../server/routes/products.ts'
 import { createBattleForcesRouter } from '../server/routes/battleForces.ts'
-import type { Unit, Upgrade, CommandCard, Product, BattleForce } from '../src/types/index.ts'
+import { createBattleCardsRouter } from '../server/routes/battleCards.ts'
+import type { Unit, Upgrade, CommandCard, Product, BattleForce, BattleCard } from '../src/types/index.ts'
 
 function makeUnit(over: Partial<Unit>): Unit {
   return {
@@ -66,12 +67,19 @@ beforeAll(() => {
     } as BattleForce,
   ])
 
+  seedBattleCards(sqlite, [
+    { id: 'p1', slug: 'breakthrough', name: 'Breakthrough', subtype: 'objective', keywords: [], faction: null, isRecon: false, cardImage: null } as BattleCard,
+    { id: 's1', slug: 'recon-mission', name: 'Recon Mission', subtype: 'secondary', keywords: ['Recon'], faction: null, isRecon: true, cardImage: null } as BattleCard,
+    { id: 'a1', slug: 'fortified-position', name: 'Fortified Position', subtype: 'advantage', keywords: [], faction: 'empire', isRecon: false, cardImage: null } as BattleCard,
+  ])
+
   app = express()
   app.use('/api/units', createUnitsRouter(sqlite))
   app.use('/api/upgrades', createUpgradesRouter(sqlite))
   app.use('/api/commands', createCommandsRouter(sqlite))
   app.use('/api/products', createProductsRouter(sqlite))
   app.use('/api/battle-forces', createBattleForcesRouter(sqlite))
+  app.use('/api/battle-cards', createBattleCardsRouter(sqlite))
 })
 
 afterAll(() => sqlite.close())
@@ -168,5 +176,29 @@ describe('GET /api/battle-forces', () => {
   it('404s for unknown linkId', async () => {
     const res = await request(app).get('/api/battle-forces/nope')
     expect(res.status).toBe(404)
+  })
+})
+
+describe('GET /api/battle-cards', () => {
+  it('returns all battle cards with parsed fields', async () => {
+    const res = await request(app).get('/api/battle-cards')
+    expect(res.status).toBe(200)
+    expect(res.body).toHaveLength(3)
+    const recon = res.body.find((c: BattleCard) => c.slug === 'recon-mission')
+    expect(recon.subtype).toBe('secondary')
+    expect(recon.isRecon).toBe(true)
+    expect(recon.keywords).toEqual(['Recon'])
+  })
+
+  it('filters by subtype', async () => {
+    const res = await request(app).get('/api/battle-cards?subtype=objective')
+    expect(res.body).toHaveLength(1)
+    expect(res.body[0].name).toBe('Breakthrough')
+  })
+
+  it('filters by faction including faction-agnostic cards', async () => {
+    const res = await request(app).get('/api/battle-cards?faction=empire')
+    // empire-restricted + the two null-faction cards
+    expect(res.body.map((c: BattleCard) => c.slug).sort()).toEqual(['breakthrough', 'fortified-position', 'recon-mission'])
   })
 })

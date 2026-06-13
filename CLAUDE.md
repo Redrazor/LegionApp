@@ -9,7 +9,7 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
 - **`scraper/`** — `scrape.ts` (orchestrator + Legion HQ 2 bundle extraction + image
   download), `normalise.ts` (pure, testable transforms from the single source). Run `npm run scrape`.
 - **`public/data/*.json`** — generated catalogue: `units`, `upgrades`, `commands`,
-  `products`, `keywords`. **`public/images/{units,upgrades,commands}/`** — self-hosted
+  `products`, `keywords`, `battleForces`, `battleCards`. **`public/images/{units,upgrades,commands,battle}/`** — self-hosted
   card scans (git-ignored). **`public/images/overrides/<slug>.webp`** — hand-placed
   high-res cards; copied in and never overwritten (tracked in git).
 - **`server/`** — Express API. `db/schema.ts` + `db/seed.ts` (raw-SQL create + JSON seed;

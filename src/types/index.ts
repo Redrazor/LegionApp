@@ -133,6 +133,26 @@ export interface BattleForce {
   }
 }
 
+// ── Battle deck ──────────────────────────────────────────────────────────────
+
+export type BattleCardSubtype = 'objective' | 'secondary' | 'advantage'
+
+/**
+ * A battle-deck card (Objective / Secondary / Advantage). A standard battle deck is
+ * 3 of each; Recon uses its own pool, flagged by `isRecon`. (Map cards are not in the
+ * Legion HQ 2 data.)
+ */
+export interface BattleCard {
+  id: string
+  slug: string
+  name: string
+  subtype: BattleCardSubtype
+  keywords: string[]
+  faction: Faction | null // a few cards are faction-restricted; null = any
+  isRecon: boolean // belongs to the Recon-format pool
+  cardImage: string | null
+}
+
 export type ProductType = 'expansion' | 'army-box' | 'starter' | 'specialists'
 
 export interface Product {

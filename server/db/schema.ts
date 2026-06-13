@@ -67,6 +67,17 @@ export const commands = sqliteTable('commands', {
   cardImage: text('card_image'),
 })
 
+export const battleCards = sqliteTable('battle_cards', {
+  id: text('id').primaryKey(),
+  slug: text('slug').notNull().default(''),
+  name: text('name').notNull(),
+  subtype: text('subtype').notNull().default('secondary'),
+  keywords: text('keywords').notNull().default('[]'),
+  faction: text('faction'),
+  isRecon: integer('is_recon').notNull().default(0),
+  cardImage: text('card_image'),
+})
+
 export const products = sqliteTable('products', {
   code: text('code').primaryKey(),
   name: text('name').notNull(),

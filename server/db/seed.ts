@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import type Database from 'better-sqlite3'
-import type { Unit, Upgrade, CommandCard, Product, BattleForce } from '../../src/types/index.ts'
+import type { Unit, Upgrade, CommandCard, Product, BattleForce, BattleCard } from '../../src/types/index.ts'
 
 type Sqlite = InstanceType<typeof Database>
 
@@ -80,6 +80,17 @@ export function createTables(sqlite: Sqlite): void {
       card_image TEXT
     );
 
+    CREATE TABLE IF NOT EXISTS battle_cards (
+      id TEXT PRIMARY KEY,
+      slug TEXT NOT NULL DEFAULT '',
+      name TEXT NOT NULL,
+      subtype TEXT NOT NULL DEFAULT 'secondary',
+      keywords TEXT NOT NULL DEFAULT '[]',
+      faction TEXT,
+      is_recon INTEGER NOT NULL DEFAULT 0,
+      card_image TEXT
+    );
+
     CREATE TABLE IF NOT EXISTS products (
       code TEXT PRIMARY KEY,
       name TEXT NOT NULL,
@@ -100,6 +111,7 @@ export function dropTables(sqlite: Sqlite): void {
     DROP TABLE IF EXISTS commands;
     DROP TABLE IF EXISTS products;
     DROP TABLE IF EXISTS battle_forces;
+    DROP TABLE IF EXISTS battle_cards;
   `)
 }
 
@@ -217,6 +229,23 @@ export function seedBattleForces(sqlite: Sqlite, list: BattleForce[]): void {
   run(list)
 }
 
+export function seedBattleCards(sqlite: Sqlite, list: BattleCard[]): void {
+  const insert = sqlite.prepare(`
+    INSERT INTO battle_cards (id, slug, name, subtype, keywords, faction, is_recon, card_image)
+    VALUES (@id, @slug, @name, @subtype, @keywords, @faction, @isRecon, @cardImage)
+  `)
+  const run = sqlite.transaction((rows: BattleCard[]) => {
+    for (const c of rows) {
+      insert.run({
+        id: c.id, slug: c.slug, name: c.name, subtype: c.subtype,
+        keywords: JSON.stringify(c.keywords ?? []),
+        faction: c.faction ?? null, isRecon: c.isRecon ? 1 : 0, cardImage: c.cardImage,
+      })
+    }
+  })
+  run(list)
+}
+
 export function runSeed(sqlite: Sqlite): void {
   dropTables(sqlite)
   createTables(sqlite)
@@ -225,12 +254,14 @@ export function runSeed(sqlite: Sqlite): void {
   const c = readJson<CommandCard>('commands.json')
   const p = readJson<Product>('products.json')
   const bf = readJson<BattleForce>('battleForces.json')
+  const bc = readJson<BattleCard>('battleCards.json')
   seedUnits(sqlite, u)
   seedUpgrades(sqlite, up)
   seedCommands(sqlite, c)
   seedProducts(sqlite, p)
   seedBattleForces(sqlite, bf)
-  console.log(`Seed complete: ${u.length} units, ${up.length} upgrades, ${c.length} commands, ${p.length} products, ${bf.length} battle forces`)
+  seedBattleCards(sqlite, bc)
+  console.log(`Seed complete: ${u.length} units, ${up.length} upgrades, ${c.length} commands, ${p.length} products, ${bf.length} battle forces, ${bc.length} battle cards`)
 }
 
 async function main(): Promise<void> {

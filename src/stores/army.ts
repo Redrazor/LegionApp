@@ -45,6 +45,17 @@ export const useArmyStore = defineStore(
       draft.value.units = draft.value.units.filter((u) => u.uid !== uid)
     }
 
+    /** Duplicate a unit (incl. its current upgrade loadout) as a new instance. */
+    function addCopy(uid: string) {
+      const src = findUnit(uid)
+      if (!src) return
+      draft.value.units.push({
+        uid: nextUid(),
+        unitId: src.unitId,
+        upgrades: src.upgrades.map((u) => ({ ...u })),
+      })
+    }
+
     function findUnit(uid: string): ArmyUnit | undefined {
       return draft.value.units.find((u) => u.uid === uid)
     }
@@ -110,7 +121,7 @@ export const useArmyStore = defineStore(
     return {
       draft, saved, activeIndex, isDirty,
       setFaction, setGameSize, setName,
-      addUnit, removeUnit, findUnit, setUpgrade, upgradeInSlot,
+      addUnit, removeUnit, addCopy, findUnit, setUpgrade, upgradeInSlot,
       newArmy, loadDraft, saveCurrent, loadSaved, deleteSaved, renameSaved,
     }
   },

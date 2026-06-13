@@ -4,7 +4,7 @@ import {
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction, isMandalorianClanUnit,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
-  primaryWeaponDice, detachmentTarget, presentDetachmentParents,
+  primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, Unit, Upgrade } from '../src/types/index.ts'
@@ -63,6 +63,55 @@ describe('uniqueNames', () => {
       ],
     }
     expect(uniqueNames(army, unitsById, upgradesById).sort()).toEqual(['saber', 'vader'])
+  })
+})
+
+describe('groupArmyUnits', () => {
+  it('collapses same unit + same loadout into one ×N group', () => {
+    const groups = groupArmyUnits([
+      { uid: 'a', unitId: 'storm', upgrades: [] },
+      { uid: 'b', unitId: 'storm', upgrades: [] },
+      { uid: 'c', unitId: 'storm', upgrades: [] },
+    ])
+    expect(groups).toHaveLength(1)
+    expect(groups[0].qty).toBe(3)
+    expect(groups[0].uids).toEqual(['a', 'b', 'c'])
+    expect(groups[0].representative.uid).toBe('a')
+  })
+
+  it('keeps differently-equipped copies in separate groups', () => {
+    const groups = groupArmyUnits([
+      { uid: 'a', unitId: 'storm', upgrades: [{ slot: 'heavy#0', upgradeId: 'dlt' }] },
+      { uid: 'b', unitId: 'storm', upgrades: [] },
+      { uid: 'c', unitId: 'storm', upgrades: [{ slot: 'heavy#0', upgradeId: 'dlt' }] },
+    ])
+    expect(groups).toHaveLength(2)
+    expect(groups[0].uids).toEqual(['a', 'c']) // both DLT-equipped
+    expect(groups[1].uids).toEqual(['b']) // bare
+  })
+
+  it('treats loadout as order-independent', () => {
+    const groups = groupArmyUnits([
+      { uid: 'a', unitId: 'u', upgrades: [{ slot: 'g#0', upgradeId: 'x' }, { slot: 'g#1', upgradeId: 'y' }] },
+      { uid: 'b', unitId: 'u', upgrades: [{ slot: 'g#1', upgradeId: 'y' }, { slot: 'g#0', upgradeId: 'x' }] },
+    ])
+    expect(groups).toHaveLength(1)
+    expect(groups[0].qty).toBe(2)
+  })
+
+  it('separates different units and preserves first-appearance order', () => {
+    const groups = groupArmyUnits([
+      { uid: 'a', unitId: 'corps', upgrades: [] },
+      { uid: 'b', unitId: 'cmd', upgrades: [] },
+      { uid: 'c', unitId: 'corps', upgrades: [] },
+    ])
+    expect(groups.map((g) => g.unitId)).toEqual(['corps', 'cmd'])
+    expect(groups[0].qty).toBe(2)
+    expect(groups[1].qty).toBe(1)
+  })
+
+  it('returns no groups for an empty army', () => {
+    expect(groupArmyUnits([])).toEqual([])
   })
 })
 

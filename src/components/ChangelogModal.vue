@@ -7,6 +7,16 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.16.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — Identical units now stack into one card with a ×N count and a [− N +] stepper, so adding a third Stormtrooper squad no longer fills your list with separate rows',
+      'Build — Each stacked card shows the group\'s total cost; the + button is disabled once that rank is full',
+      'Build — Give one copy a different upgrade and it splits out into its own card; unique units never get a stepper',
+      'Build — A 🗑 button removes a whole stack at once',
+    ],
+  },
+  {
     version: '0.15.0',
     date: '2026-06-13',
     changes: [

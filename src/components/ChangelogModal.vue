@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.15.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — The Mandalorian Clans army now fields its full roster (16 units): Din Djarin, Bo-Katan Kryze, The Armorer, Ursa Wren, Paz Vizsla, Axe Woves, Mandalorian Warriors / Initiates, Clan Wren & Clan Kryze Veterans, and more — not just the four it had before',
+      'Build — Those clan units count as native Mandalorians (no mercenary ally caps) when building a Mandalorian army',
+    ],
+  },
+  {
     version: '0.14.1',
     date: '2026-06-13',
     changes: [

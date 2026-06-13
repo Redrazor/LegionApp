@@ -2,7 +2,7 @@ import type {
   Army, ArmyUnit, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
+import { rankLimits, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
 
 export interface ValidationItem {
   ok: boolean
@@ -215,12 +215,24 @@ export const MERC_RANK_CAP: Record<Rank, number> = {
 }
 
 /**
+ * A unit that belongs to the **Mandalorian Clans** army by affiliation (most carry
+ * `faction: 'mercenary'`, e.g. Din Djarin, Bo-Katan, Mandalorian Warriors). Such units
+ * are *native* to a Mandalorian army — they're selectable there and not subject to the
+ * mercenary ally caps. See [[MANDO_CLANS]].
+ */
+export function isMandalorianClanUnit(unit: Unit): boolean {
+  return unit.affiliation != null && MANDO_CLANS.has(unit.affiliation)
+}
+
+/**
  * Whether a unit may be fielded in an army of `faction`. Non-mercenaries belong to
  * exactly their own faction; a mercenary may be hired only into a faction listed in
- * its `affiliations` (and natively into a mercenary-faction army). Used to gate both
- * the unit picker (suggest only legal choices) and `validateArmy`'s Allies check.
+ * its `affiliations` (and natively into a mercenary-faction army). A Mandalorian-clan
+ * unit is native to a `mandalorians` army regardless of its `faction`. Used to gate
+ * both the unit picker (suggest only legal choices) and `validateArmy`'s Allies check.
  */
 export function unitAllowedInFaction(unit: Unit, faction: Faction | null): boolean {
+  if (faction === 'mandalorians' && isMandalorianClanUnit(unit)) return true
   if (unit.faction !== 'mercenary') return unit.faction === faction
   if (faction === 'mercenary') return true
   return faction != null && unit.affiliations.includes(faction)
@@ -268,6 +280,9 @@ export function mercenaryIssues(army: Army, unitsById: Map<string, Unit>): Merce
   for (const au of army.units) {
     const unit = unitsById.get(au.unitId)
     if (!unit || unit.faction !== 'mercenary') continue
+    // In a Mandalorian Clans army, clan units are the army's own — native, not capped
+    // allies, and they satisfy rank minimums.
+    if (armyFaction === 'mandalorians' && isMandalorianClanUnit(unit)) continue
     rankCounts[unit.rank]++
     if (armyFaction && !unitAllowedInFaction(unit, armyFaction)) {
       illegal.push(unit.name)

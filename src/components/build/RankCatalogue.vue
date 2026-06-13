@@ -17,6 +17,8 @@ const props = defineProps<{
   // Per-rank current army count + Entourage-adjusted min/max (gating matches the footer).
   counts: Record<Rank, number>
   limits: Record<Rank, { min: number; max: number }>
+  // Lowercased names + ranks already in the army, for Detachment availability gating.
+  presentParents: ReadonlySet<string>
   isMobile: boolean
   isDesktop: boolean
 }>()
@@ -45,7 +47,7 @@ const RANK_ABBR: Record<Rank, string> = {
 const candidatesByRank = computed(() => {
   const out = {} as Record<Rank, Unit[]>
   for (const rank of RANK_ORDER) {
-    out[rank] = catalogueForRank(props.units, props.faction, rank, query.value)
+    out[rank] = catalogueForRank(props.units, props.faction, rank, query.value, props.presentParents)
   }
   return out
 })

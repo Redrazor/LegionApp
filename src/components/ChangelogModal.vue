@@ -14,6 +14,8 @@ const entries = [
       'Build — Those clan units count as native Mandalorians (no mercenary ally caps) when building a Mandalorian army',
       'Build — The upgrade picker now stays in view (sticky) while you scroll your army list, so you can equip units near the bottom without scrolling back to the top',
       'Build — Equipped upgrades on a unit now show their point cost',
+      'Build — Detachment units (Fire Support, the Strike Teams, DF-90 Mortar Trooper, Imperial Probe Droid, …) now appear in the catalogue only once their parent unit is in your list',
+      'Build — Restored keyword/skill definitions in the unit profile — tap a keyword (unit or weapon) for its rulebook text',
     ],
   },
   {

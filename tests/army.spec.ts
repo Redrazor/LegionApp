@@ -4,7 +4,7 @@ import {
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction, isMandalorianClanUnit,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
-  primaryWeaponDice,
+  primaryWeaponDice, detachmentTarget, presentDetachmentParents,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, Unit, Upgrade } from '../src/types/index.ts'
@@ -722,6 +722,45 @@ describe('catalogueForRank', () => {
   it('filters by a case-insensitive query over name + title', () => {
     expect(catalogueForRank(units, 'empire', 'corps', 'SNOW').map((u) => u.id)).toEqual(['snow'])
     expect(catalogueForRank(units, 'empire', 'corps', 'trooper').map((u) => u.id)).toEqual(['storm', 'snow'])
+  })
+
+  it('gates Detachment units on their parent being present (named + rank targets)', () => {
+    const det = [
+      unit('fs', { name: 'Fire Support', rank: 'support', faction: 'mercenary', keywords: ['Detachment Mandalorian Warriors'] }),
+      unit('probe', { name: 'Imperial Probe Droid', rank: 'special', faction: 'empire', keywords: ['Detachment special'] }),
+    ]
+    // With no parents present, neither detachment appears…
+    expect(catalogueForRank(det, 'mercenary', 'support', '', new Set())).toEqual([])
+    expect(catalogueForRank(det, 'empire', 'special', '', new Set())).toEqual([])
+    // …named parent present → the named detachment appears (even with no faction match)…
+    expect(catalogueForRank(det, 'mandalorians', 'support', '', new Set(['mandalorian warriors'])).map((u) => u.id)).toEqual(['fs'])
+    // …rank parent present → the rank detachment appears.
+    expect(catalogueForRank(det, 'empire', 'special', '', new Set(['special'])).map((u) => u.id)).toEqual(['probe'])
+  })
+
+  it('without presentParents, does not apply detachment gating (Browse-style)', () => {
+    const fs = unit('fs', { name: 'Fire Support', rank: 'support', faction: 'mercenary', keywords: ['Detachment Mandalorian Warriors'] })
+    expect(catalogueForRank([fs], 'mercenary', 'support').map((u) => u.id)).toEqual(['fs'])
+  })
+})
+
+describe('detachmentTarget / presentDetachmentParents', () => {
+  it('extracts the Detachment target, or null', () => {
+    expect(detachmentTarget(unit('a', { keywords: ['Detachment Mandalorian Warriors', 'Impervious'] }))).toBe('Mandalorian Warriors')
+    expect(detachmentTarget(unit('b', { keywords: ['Impervious'] }))).toBeNull()
+  })
+
+  it('collects fielded ranks + non-detachment unit names', () => {
+    const warriors = unit('w', { name: 'Mandalorian Warriors', rank: 'corps' })
+    const fs = unit('fs', { name: 'Fire Support', rank: 'support', keywords: ['Detachment Mandalorian Warriors'] })
+    const army: Army = { name: '', faction: 'mandalorians', gameSize: 1000, units: [
+      { uid: '1', unitId: 'w', upgrades: [] }, { uid: '2', unitId: 'fs', upgrades: [] },
+    ] }
+    const set = presentDetachmentParents(army, new Map([['w', warriors], ['fs', fs]]))
+    expect(set.has('mandalorian warriors')).toBe(true) // the corps unit's name
+    expect(set.has('corps')).toBe(true)                 // its rank
+    expect(set.has('support')).toBe(true)               // Fire Support's rank
+    expect(set.has('fire support')).toBe(false)         // …but a detachment doesn't satisfy others
   })
 })
 

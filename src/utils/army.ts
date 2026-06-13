@@ -238,23 +238,61 @@ export function unitAllowedInFaction(unit: Unit, faction: Faction | null): boole
   return faction != null && unit.affiliations.includes(faction)
 }
 
+/** The parent a "Detachment X" unit depends on (a unit name or a rank), else null. */
+export function detachmentTarget(unit: Unit): string | null {
+  for (const kw of unit.keywords) {
+    const m = KW.detachment.exec(kw)
+    if (m) return m[1].trim()
+  }
+  return null
+}
+
 /**
  * Catalogue candidates for one rank: the units a faction may legally field at that
- * rank (`unitAllowedInFaction` — mercs gated by affiliation), optionally filtered by
- * a free-text query over name + title, sorted cheapest-first then by name. Pure so
- * the always-visible Build catalogue and its specs share one source of truth.
+ * rank (`unitAllowedInFaction` — mercs gated by affiliation), optionally filtered by a
+ * free-text query over name + title, sorted cheapest-first then by name.
+ *
+ * `presentParents` (lowercased unit names + ranks already in the army) gates the
+ * **Detachment** units: a "Detachment X" unit only becomes available once X is in the
+ * list — so Fire Support / Strike Team / etc. appear only with their parent, and a
+ * parent-less detachment (e.g. Mandalorian Warriors — Fire Support, which carries no
+ * faction affiliation) appears purely because its parent is present. Omit it (Browse,
+ * specs) to skip detachment gating. Pure — the catalogue and its specs share it.
  */
 export function catalogueForRank(
   units: Unit[],
   faction: Faction | null,
   rank: Rank,
   query = '',
+  presentParents?: ReadonlySet<string>,
 ): Unit[] {
   const q = query.trim().toLowerCase()
   return units
-    .filter((u) => u.rank === rank && unitAllowedInFaction(u, faction))
+    .filter((u) => {
+      if (u.rank !== rank) return false
+      const parent = presentParents ? detachmentTarget(u) : null
+      // Detachment units are gated solely by their parent's presence (which already
+      // establishes the army's faction); everything else by normal faction legality.
+      return parent ? presentParents!.has(parent.toLowerCase()) : unitAllowedInFaction(u, faction)
+    })
     .filter((u) => !q || `${u.name} ${u.title}`.toLowerCase().includes(q))
     .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name))
+}
+
+/**
+ * The set of "parents" present in an army for Detachment gating: every fielded unit
+ * contributes its rank and — unless it is itself a detachment — its lowercased name.
+ * Matches `unmetDetachments` (detachments don't satisfy other detachments).
+ */
+export function presentDetachmentParents(army: Army, unitsById: Map<string, Unit>): Set<string> {
+  const set = new Set<string>()
+  for (const au of army.units) {
+    const u = unitsById.get(au.unitId)
+    if (!u) continue
+    set.add(u.rank)
+    if (!detachmentTarget(u)) set.add(u.name.toLowerCase())
+  }
+  return set
 }
 
 export interface MercenaryIssues {

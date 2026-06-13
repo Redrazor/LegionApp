@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.19.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — Mandalorian Clans armies now use the battle force\'s own rank requirements (Corps minimum 2, not 3 at Standard), so legal clan lists are no longer wrongly flagged for being short on Corps',
+    ],
+  },
+  {
     version: '0.18.0',
     date: '2026-06-13',
     changes: [

@@ -76,9 +76,32 @@ export function formatForCap(cap: number): GameFormat {
   return chosen
 }
 
-/** Rank min/max limits for a points cap. */
-export function rankLimits(cap: number): RankLimits {
-  return formatForCap(cap).ranks
+/**
+ * Battle forces replace the standard rank table with their own. We model the
+ * difference as a sparse override layered over the base format, since only a few
+ * ranks change. The **Mandalorian Clans** battle force (LHQ2 `faction:'mandalorians'`)
+ * lowers the Corps minimum to 2 (verified from the LHQ2 source bundle: Corps 2–6 at
+ * Standard, 2–4 at Recon — i.e. min 2 across formats; Recon already matched). The max
+ * and every other rank are inherited from the format. Keyed by faction because each
+ * battle force surfaces as its own faction in the app.
+ */
+type RankOverride = Partial<Record<Rank, Partial<{ min: number; max: number }>>>
+const BATTLE_FORCE_RANKS: Partial<Record<Faction, RankOverride>> = {
+  mandalorians: { corps: { min: 2 } },
+}
+
+/**
+ * Rank min/max limits for a points cap, applying a battle-force override when the
+ * army's `faction` has one (e.g. Mandalorian Clans → Corps min 2). Faction is
+ * optional so callers that just want the base format table need not pass it.
+ */
+export function rankLimits(cap: number, faction?: Faction | null): RankLimits {
+  const base = formatForCap(cap).ranks
+  const override = faction ? BATTLE_FORCE_RANKS[faction] : undefined
+  if (!override) return base
+  const out = {} as RankLimits
+  for (const rank of RANK_ORDER) out[rank] = { ...base[rank], ...override[rank] }
+  return out
 }
 
 /** Display name for a points cap (e.g. 1000 → "Standard", 750 → "Standard (800)"). */

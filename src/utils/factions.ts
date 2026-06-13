@@ -11,6 +11,16 @@ export const FACTION_META: Record<Faction, FactionMeta> = {
 
 export const FACTION_ORDER: Faction[] = ['rebels', 'empire', 'republic', 'separatists', 'mercenary', 'mandalorians']
 
+/**
+ * Unit `affiliation` values that make up the **Mandalorian Clans** army (LHQ2's
+ * `mandalorians` faction is this battle force). Most of these units carry
+ * `faction: 'mercenary'`, so they're flagged Mandalorian-legal by affiliation rather
+ * than the faction field — see `isMandalorianClanUnit` / `unitAllowedInFaction`.
+ */
+export const MANDO_CLANS: ReadonlySet<string> = new Set([
+  'Mandalore', 'Clan Kryze', 'Clan Saxon', 'Clan Wren', 'Children of the Watch',
+])
+
 export const RANK_ORDER: Rank[] = ['commander', 'operative', 'corps', 'special', 'support', 'heavy']
 
 // Human-readable rank names (limits live per-format in FORMATS — see rankLimits()).

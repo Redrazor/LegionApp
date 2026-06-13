@@ -6,7 +6,7 @@ import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -106,6 +106,10 @@ const pointsPct = computed(() =>
   Math.min(100, Math.round((validation.value.points / draft.value.gameSize) * 100)),
 )
 
+// Parents present in the army, for Detachment availability in the catalogue (a
+// "Detachment X" unit appears only once X is fielded).
+const presentParents = computed(() => presentDetachmentParents(draft.value, unitsStore.byId))
+
 // Current army unit count per rank (catalogue tab counters + "+" max gating).
 const counts = computed(() => {
   const out = {} as Record<Rank, number>
@@ -179,6 +183,7 @@ function printSheet() {
         :faction="draft.faction"
         :counts="counts"
         :limits="limits"
+        :present-parents="presentParents"
         :is-mobile="isMobile"
         :is-desktop="isDesktop"
         @add="armyStore.addUnit"

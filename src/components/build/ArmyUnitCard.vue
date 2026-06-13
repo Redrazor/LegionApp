@@ -73,7 +73,10 @@ function hasCandidates(slot: string): boolean {
         @click="emit('pickUpgrade', { uid: armyUnit.uid, slot, index: i })"
       >
         <span class="text-[9px] font-bold uppercase tracking-wide text-lg-muted">{{ slotLabel(slot) }}</span>
-        <span v-if="equipped(slot, i)" class="font-medium">{{ equipped(slot, i)!.name }}</span>
+        <template v-if="equipped(slot, i)">
+          <span class="font-display font-bold text-lg-accent">{{ equipped(slot, i)!.cost ?? 0 }}</span>
+          <span class="font-medium">{{ equipped(slot, i)!.name }}</span>
+        </template>
         <span v-else>+</span>
       </button>
     </div>

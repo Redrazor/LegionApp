@@ -7,6 +7,18 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.15.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — The Mandalorian Clans army now fields its full roster (16 units): Din Djarin, Bo-Katan Kryze, The Armorer, Ursa Wren, Paz Vizsla, Axe Woves, Mandalorian Warriors / Initiates, Clan Wren & Clan Kryze Veterans, and more — not just the four it had before',
+      'Build — Those clan units count as native Mandalorians (no mercenary ally caps) when building a Mandalorian army',
+      'Build — The upgrade picker now stays in view (sticky) while you scroll your army list, so you can equip units near the bottom without scrolling back to the top',
+      'Build — Equipped upgrades on a unit now show their point cost',
+      'Build — Detachment units (Fire Support, the Strike Teams, DF-90 Mortar Trooper, Imperial Probe Droid, …) now appear in the catalogue only once their parent unit is in your list',
+      'Build — Restored keyword/skill definitions in the unit profile — tap a keyword (unit or weapon) for its rulebook text',
+    ],
+  },
+  {
     version: '0.14.1',
     date: '2026-06-13',
     changes: [

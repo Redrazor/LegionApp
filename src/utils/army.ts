@@ -2,7 +2,7 @@ import type {
   Army, ArmyUnit, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
+import { rankLimits, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
 
 export interface ValidationItem {
   ok: boolean
@@ -215,34 +215,84 @@ export const MERC_RANK_CAP: Record<Rank, number> = {
 }
 
 /**
+ * A unit that belongs to the **Mandalorian Clans** army by affiliation (most carry
+ * `faction: 'mercenary'`, e.g. Din Djarin, Bo-Katan, Mandalorian Warriors). Such units
+ * are *native* to a Mandalorian army — they're selectable there and not subject to the
+ * mercenary ally caps. See [[MANDO_CLANS]].
+ */
+export function isMandalorianClanUnit(unit: Unit): boolean {
+  return unit.affiliation != null && MANDO_CLANS.has(unit.affiliation)
+}
+
+/**
  * Whether a unit may be fielded in an army of `faction`. Non-mercenaries belong to
  * exactly their own faction; a mercenary may be hired only into a faction listed in
- * its `affiliations` (and natively into a mercenary-faction army). Used to gate both
- * the unit picker (suggest only legal choices) and `validateArmy`'s Allies check.
+ * its `affiliations` (and natively into a mercenary-faction army). A Mandalorian-clan
+ * unit is native to a `mandalorians` army regardless of its `faction`. Used to gate
+ * both the unit picker (suggest only legal choices) and `validateArmy`'s Allies check.
  */
 export function unitAllowedInFaction(unit: Unit, faction: Faction | null): boolean {
+  if (faction === 'mandalorians' && isMandalorianClanUnit(unit)) return true
   if (unit.faction !== 'mercenary') return unit.faction === faction
   if (faction === 'mercenary') return true
   return faction != null && unit.affiliations.includes(faction)
 }
 
+/** The parent a "Detachment X" unit depends on (a unit name or a rank), else null. */
+export function detachmentTarget(unit: Unit): string | null {
+  for (const kw of unit.keywords) {
+    const m = KW.detachment.exec(kw)
+    if (m) return m[1].trim()
+  }
+  return null
+}
+
 /**
  * Catalogue candidates for one rank: the units a faction may legally field at that
- * rank (`unitAllowedInFaction` — mercs gated by affiliation), optionally filtered by
- * a free-text query over name + title, sorted cheapest-first then by name. Pure so
- * the always-visible Build catalogue and its specs share one source of truth.
+ * rank (`unitAllowedInFaction` — mercs gated by affiliation), optionally filtered by a
+ * free-text query over name + title, sorted cheapest-first then by name.
+ *
+ * `presentParents` (lowercased unit names + ranks already in the army) gates the
+ * **Detachment** units: a "Detachment X" unit only becomes available once X is in the
+ * list — so Fire Support / Strike Team / etc. appear only with their parent, and a
+ * parent-less detachment (e.g. Mandalorian Warriors — Fire Support, which carries no
+ * faction affiliation) appears purely because its parent is present. Omit it (Browse,
+ * specs) to skip detachment gating. Pure — the catalogue and its specs share it.
  */
 export function catalogueForRank(
   units: Unit[],
   faction: Faction | null,
   rank: Rank,
   query = '',
+  presentParents?: ReadonlySet<string>,
 ): Unit[] {
   const q = query.trim().toLowerCase()
   return units
-    .filter((u) => u.rank === rank && unitAllowedInFaction(u, faction))
+    .filter((u) => {
+      if (u.rank !== rank) return false
+      const parent = presentParents ? detachmentTarget(u) : null
+      // Detachment units are gated solely by their parent's presence (which already
+      // establishes the army's faction); everything else by normal faction legality.
+      return parent ? presentParents!.has(parent.toLowerCase()) : unitAllowedInFaction(u, faction)
+    })
     .filter((u) => !q || `${u.name} ${u.title}`.toLowerCase().includes(q))
     .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name))
+}
+
+/**
+ * The set of "parents" present in an army for Detachment gating: every fielded unit
+ * contributes its rank and — unless it is itself a detachment — its lowercased name.
+ * Matches `unmetDetachments` (detachments don't satisfy other detachments).
+ */
+export function presentDetachmentParents(army: Army, unitsById: Map<string, Unit>): Set<string> {
+  const set = new Set<string>()
+  for (const au of army.units) {
+    const u = unitsById.get(au.unitId)
+    if (!u) continue
+    set.add(u.rank)
+    if (!detachmentTarget(u)) set.add(u.name.toLowerCase())
+  }
+  return set
 }
 
 export interface MercenaryIssues {
@@ -268,6 +318,9 @@ export function mercenaryIssues(army: Army, unitsById: Map<string, Unit>): Merce
   for (const au of army.units) {
     const unit = unitsById.get(au.unitId)
     if (!unit || unit.faction !== 'mercenary') continue
+    // In a Mandalorian Clans army, clan units are the army's own — native, not capped
+    // allies, and they satisfy rank minimums.
+    if (armyFaction === 'mandalorians' && isMandalorianClanUnit(unit)) continue
     rankCounts[unit.rank]++
     if (armyFaction && !unitAllowedInFaction(unit, armyFaction)) {
       illegal.push(unit.name)

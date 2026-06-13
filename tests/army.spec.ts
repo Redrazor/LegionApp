@@ -2,9 +2,9 @@ import { describe, it, expect } from 'vitest'
 import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
-  unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction,
+  unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction, isMandalorianClanUnit,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
-  primaryWeaponDice,
+  primaryWeaponDice, detachmentTarget, presentDetachmentParents,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, Unit, Upgrade } from '../src/types/index.ts'
@@ -473,6 +473,28 @@ describe('unitAllowedInFaction', () => {
     expect(unitAllowedInFaction(lone, 'empire')).toBe(false)
     expect(unitAllowedInFaction(lone, null)).toBe(false)
   })
+
+  it('treats Mandalorian-clan units as native to a mandalorians army regardless of faction', () => {
+    // A mercenary clan unit (e.g. Din Djarin) is legal in a Mandalorian Clans army…
+    const din = unit('din', { faction: 'mercenary', affiliation: 'Children of the Watch', affiliations: [] })
+    expect(unitAllowedInFaction(din, 'mandalorians')).toBe(true)
+    // …but a non-clan mercenary is not.
+    const blackSun = unit('bs', { faction: 'mercenary', affiliation: 'black sun', affiliations: ['empire'] })
+    expect(unitAllowedInFaction(blackSun, 'mandalorians')).toBe(false)
+    // A native faction='mandalorians' unit stays legal too.
+    const garSaxon = unit('gar', { faction: 'mandalorians', affiliation: 'Clan Saxon' })
+    expect(unitAllowedInFaction(garSaxon, 'mandalorians')).toBe(true)
+  })
+})
+
+describe('isMandalorianClanUnit', () => {
+  it('matches the five Mandalorian clan affiliations only', () => {
+    for (const aff of ['Mandalore', 'Clan Kryze', 'Clan Saxon', 'Clan Wren', 'Children of the Watch']) {
+      expect(isMandalorianClanUnit(unit('u', { affiliation: aff }))).toBe(true)
+    }
+    expect(isMandalorianClanUnit(unit('u', { affiliation: 'black sun' }))).toBe(false)
+    expect(isMandalorianClanUnit(unit('u', { affiliation: null }))).toBe(false)
+  })
 })
 
 describe('mercenaryIssues', () => {
@@ -506,6 +528,23 @@ describe('mercenaryIssues', () => {
     const issues = mercenaryIssues(armyOf('empire', units), unitsById)
     expect(issues.capExceeded).toEqual([{ rank: 'corps', count: 3, cap: 2 }])
     expect(issues.rankCounts.corps).toBe(3)
+  })
+
+  it('treats Mandalorian-clan units as native (no caps, satisfy minimums) in a mandalorians army', () => {
+    // Three Mandalorian Warriors (mercenary clan corps) in a Mandalorian Clans army.
+    const units = [
+      merc('w1', { rank: 'corps', affiliation: 'Mandalore', affiliations: [] }),
+      merc('w2', { rank: 'corps', affiliation: 'Mandalore', affiliations: [] }),
+      merc('w3', { rank: 'corps', affiliation: 'Mandalore', affiliations: [] }),
+    ]
+    const { unitsById } = makeMaps(units)
+    const issues = mercenaryIssues(armyOf('mandalorians', units), unitsById)
+    expect(issues.capExceeded).toEqual([])     // not capped — they're native
+    expect(issues.rankCounts.corps).toBe(0)    // excluded from the no-min subtraction
+    expect(issues.illegalAllies).toEqual([])
+    // A non-clan mercenary in the same army is still an (illegal) ally.
+    const mixed = [...units, merc('bs', { affiliation: 'black sun', affiliations: ['empire'] })]
+    expect(mercenaryIssues(armyOf('mandalorians', mixed), makeMaps(mixed).unitsById).illegalAllies).toEqual(['bs'])
   })
 })
 
@@ -683,6 +722,45 @@ describe('catalogueForRank', () => {
   it('filters by a case-insensitive query over name + title', () => {
     expect(catalogueForRank(units, 'empire', 'corps', 'SNOW').map((u) => u.id)).toEqual(['snow'])
     expect(catalogueForRank(units, 'empire', 'corps', 'trooper').map((u) => u.id)).toEqual(['storm', 'snow'])
+  })
+
+  it('gates Detachment units on their parent being present (named + rank targets)', () => {
+    const det = [
+      unit('fs', { name: 'Fire Support', rank: 'support', faction: 'mercenary', keywords: ['Detachment Mandalorian Warriors'] }),
+      unit('probe', { name: 'Imperial Probe Droid', rank: 'special', faction: 'empire', keywords: ['Detachment special'] }),
+    ]
+    // With no parents present, neither detachment appears…
+    expect(catalogueForRank(det, 'mercenary', 'support', '', new Set())).toEqual([])
+    expect(catalogueForRank(det, 'empire', 'special', '', new Set())).toEqual([])
+    // …named parent present → the named detachment appears (even with no faction match)…
+    expect(catalogueForRank(det, 'mandalorians', 'support', '', new Set(['mandalorian warriors'])).map((u) => u.id)).toEqual(['fs'])
+    // …rank parent present → the rank detachment appears.
+    expect(catalogueForRank(det, 'empire', 'special', '', new Set(['special'])).map((u) => u.id)).toEqual(['probe'])
+  })
+
+  it('without presentParents, does not apply detachment gating (Browse-style)', () => {
+    const fs = unit('fs', { name: 'Fire Support', rank: 'support', faction: 'mercenary', keywords: ['Detachment Mandalorian Warriors'] })
+    expect(catalogueForRank([fs], 'mercenary', 'support').map((u) => u.id)).toEqual(['fs'])
+  })
+})
+
+describe('detachmentTarget / presentDetachmentParents', () => {
+  it('extracts the Detachment target, or null', () => {
+    expect(detachmentTarget(unit('a', { keywords: ['Detachment Mandalorian Warriors', 'Impervious'] }))).toBe('Mandalorian Warriors')
+    expect(detachmentTarget(unit('b', { keywords: ['Impervious'] }))).toBeNull()
+  })
+
+  it('collects fielded ranks + non-detachment unit names', () => {
+    const warriors = unit('w', { name: 'Mandalorian Warriors', rank: 'corps' })
+    const fs = unit('fs', { name: 'Fire Support', rank: 'support', keywords: ['Detachment Mandalorian Warriors'] })
+    const army: Army = { name: '', faction: 'mandalorians', gameSize: 1000, units: [
+      { uid: '1', unitId: 'w', upgrades: [] }, { uid: '2', unitId: 'fs', upgrades: [] },
+    ] }
+    const set = presentDetachmentParents(army, new Map([['w', warriors], ['fs', fs]]))
+    expect(set.has('mandalorian warriors')).toBe(true) // the corps unit's name
+    expect(set.has('corps')).toBe(true)                 // its rank
+    expect(set.has('support')).toBe(true)               // Fire Support's rank
+    expect(set.has('fire support')).toBe(false)         // …but a detachment doesn't satisfy others
   })
 })
 

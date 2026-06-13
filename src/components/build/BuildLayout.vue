@@ -38,9 +38,14 @@ const activePane = computed(() => props.forcePane ?? mobilePane.value)
       >{{ pane === 'catalogue' ? 'Catalogue' : 'My Army' }}</button>
     </div>
 
-    <!-- Panes -->
+    <!-- Panes. On tablet/desktop the catalogue pane is sticky with its own internal
+         scroll, so the upgrade picker stays in view while you scroll the army list
+         (no scrolling back to the top to equip a unit near the bottom). -->
     <div :class="isMobile ? '' : 'grid gap-5 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] md:grid-cols-2'">
-      <section v-show="!isMobile || activePane === 'catalogue'" class="min-w-0">
+      <section
+        v-show="!isMobile || activePane === 'catalogue'"
+        class="min-w-0 md:sticky md:top-[68px] md:self-start md:h-[calc(100vh-150px)]"
+      >
         <slot name="catalogue" />
       </section>
       <section v-show="!isMobile || activePane === 'army'" class="min-w-0">

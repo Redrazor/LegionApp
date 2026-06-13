@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ArmyUnitGroup } from '../../utils/army.ts'
-import { unitLegalityIssues } from '../../utils/army.ts'
-import type { Faction } from '../../types/index.ts'
+import { unitLegalityIssues, effectiveUpgradeBar } from '../../utils/army.ts'
+import type { BattleForce, Faction } from '../../types/index.ts'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
 import { useArmyStore } from '../../stores/army.ts'
@@ -13,7 +13,7 @@ import UnitIndicators from './UnitIndicators.vue'
 // One card per render-time `×N` group (same unit + same loadout). The stepper adds
 // or removes whole copies; editing a slot acts on the representative, which splits
 // it into its own group. `canAdd` mirrors the catalogue's rank-full gating.
-const props = defineProps<{ group: ArmyUnitGroup; faction: Faction; canAdd: boolean }>()
+const props = defineProps<{ group: ArmyUnitGroup; faction: Faction; battleForce: BattleForce | null; canAdd: boolean }>()
 const emit = defineEmits<{
   pickUpgrade: [payload: { uid: string; slot: string; index: number }]
   view: [unitId: string]
@@ -37,7 +37,10 @@ const groupCost = computed(() => lineCost.value * qty.value)
 
 // Per-unit legality (all members of a ×N group are identical, so one verdict). Live —
 // clears as soon as the missing condition (e.g. a mandatory heavy weapon) is met.
-const issues = computed(() => unitLegalityIssues(armyUnit.value, armyStore.draft, unitsStore.byId))
+const issues = computed(() => unitLegalityIssues(armyUnit.value, armyStore.draft, unitsStore.byId, props.battleForce))
+
+// Upgrade bar incl. any extra slots the battle force grants this unit.
+const upgradeBar = computed(() => (unit.value ? effectiveUpgradeBar(unit.value, props.battleForce) : []))
 
 function equipped(slot: string, index: number) {
   const id = armyStore.upgradeInSlot(armyUnit.value.uid, slot, index)
@@ -46,7 +49,7 @@ function equipped(slot: string, index: number) {
 
 // Whether a slot has any legal upgrade to offer — a slot with none isn't openable.
 function hasCandidates(slot: string): boolean {
-  return !!unit.value && upgradesStore.forSlot(slot, props.faction, unit.value).length > 0
+  return !!unit.value && upgradesStore.forSlot(slot, props.faction, unit.value, props.battleForce).length > 0
 }
 
 function addCopy() {
@@ -123,9 +126,9 @@ function removeGroup() {
     </div>
 
     <!-- Upgrade slots — click opens the contextual picker in the left pane -->
-    <div v-if="unit.upgradeBar.length" class="relative mt-3 flex flex-wrap gap-1.5">
+    <div v-if="upgradeBar.length" class="relative mt-3 flex flex-wrap gap-1.5">
       <button
-        v-for="(slot, i) in unit.upgradeBar" :key="i"
+        v-for="(slot, i) in upgradeBar" :key="i"
         class="inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-40"
         :class="equipped(slot, i)
           ? 'border-lg-accent/50 bg-lg-accent/10 text-lg-text'

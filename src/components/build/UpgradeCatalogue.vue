@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import type { Faction, Unit } from '../../types/index.ts'
+import type { BattleForce, Faction, Unit } from '../../types/index.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
 import { slotLabel } from '../../utils/factions.ts'
 import UpgradeThumb from './UpgradeThumb.vue'
@@ -10,7 +10,7 @@ import UpgradeThumb from './UpgradeThumb.vue'
 // card-art thumbnail + name + what it does (keywords). Picking equips and closes;
 // the ✕ closes without changing anything. BuildView only mounts this when there is at
 // least one candidate, so there is no empty state to land on.
-const props = defineProps<{ slot: string; faction: Faction; unit: Unit; equippedIds: string[]; filled: boolean }>()
+const props = defineProps<{ slot: string; faction: Faction; unit: Unit; battleForce: BattleForce | null; equippedIds: string[]; filled: boolean }>()
 const emit = defineEmits<{ pick: [upgradeId: string]; clear: []; close: [] }>()
 
 const upgradesStore = useUpgradesStore()
@@ -19,7 +19,7 @@ const query = ref('')
 const candidates = computed(() => {
   const q = query.value.trim().toLowerCase()
   return upgradesStore
-    .forSlot(props.slot, props.faction, props.unit)
+    .forSlot(props.slot, props.faction, props.unit, props.battleForce)
     .filter((u) => !q || u.name.toLowerCase().includes(q) || u.keywords.some((k) => k.toLowerCase().includes(q)))
     .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name))
 })

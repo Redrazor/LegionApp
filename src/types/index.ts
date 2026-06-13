@@ -162,6 +162,7 @@ export interface ArmyUnit {
 export interface Army {
   name: string
   faction: Faction | null
+  battleForce: string | null // optional battle-force linkId (e.g. 'mc'); null = standard
   gameSize: number // points cap; resolves to a format via rankLimits() — 600 Recon, 800 legacy, 1000 Standard, 1600 Grand Army
   units: ArmyUnit[]
 }
@@ -170,6 +171,7 @@ export interface Army {
 export interface CompactArmy {
   n: string // name
   f: Faction | null // faction
+  b?: string | null // battle-force linkId (optional; absent/null = standard)
   g: number // game size
   u: [string, [string, string][]][] // [unitId, [[slot, upgradeId], ...]]
 }

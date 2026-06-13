@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import type { Faction, Rank, Unit } from '../../types/index.ts'
+import type { BattleForce, Faction, Rank, Unit } from '../../types/index.ts'
 import { catalogueForRank } from '../../utils/army.ts'
 import { RANK_ORDER, rankName } from '../../utils/factions.ts'
 import CatalogueUnitRow from './CatalogueUnitRow.vue'
@@ -14,6 +14,7 @@ import CatalogueUnitRow from './CatalogueUnitRow.vue'
 const props = defineProps<{
   units: Unit[]
   faction: Faction | null
+  battleForce: BattleForce | null
   // Per-rank current army count + Entourage-adjusted min/max (gating matches the footer).
   counts: Record<Rank, number>
   limits: Record<Rank, { min: number; max: number }>
@@ -47,7 +48,7 @@ const RANK_ABBR: Record<Rank, string> = {
 const candidatesByRank = computed(() => {
   const out = {} as Record<Rank, Unit[]>
   for (const rank of RANK_ORDER) {
-    out[rank] = catalogueForRank(props.units, props.faction, rank, query.value, props.presentParents)
+    out[rank] = catalogueForRank(props.units, props.faction, rank, query.value, props.presentParents, props.battleForce)
   }
   return out
 })

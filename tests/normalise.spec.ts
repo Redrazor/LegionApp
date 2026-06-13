@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest'
 import {
   slugify, mapFaction, normalizeKeyword, rankIndex,
-  buildUnits, buildUpgrades, buildCommands,
-  type Lhq2Card,
+  buildUnits, buildUpgrades, buildCommands, buildBattleForces,
+  type Lhq2Card, type Lhq2BattleForce,
 } from '../scraper/normalise.ts'
-import { extractCards } from '../scraper/scrape.ts'
+import { extractCards, extractBattleForces, parseChunkMap } from '../scraper/scrape.ts'
 
 function card(over: Partial<Lhq2Card> = {}): Lhq2Card {
   return {
@@ -148,5 +148,112 @@ describe('extractCards', () => {
     const bundle = `{"id":"x","cardName":"Han\\'s Crew","cardType":"unit"}`
     const cards = extractCards(bundle)
     expect(cards[0].cardName).toBe("Han's Crew")
+  })
+
+  it('stamps specialIssue onto units that carry it', () => {
+    const units = buildUnits([
+      card({ id: 'storm', cardName: 'Stormtroopers', specialIssue: 'Blizzard Force' }),
+      card({ id: 'plain', cardName: 'Snowtroopers' }),
+    ])
+    expect(units.find((u) => u.id === 'storm')!.specialIssue).toBe('Blizzard Force')
+    expect(units.find((u) => u.id === 'plain')!.specialIssue).toBeUndefined()
+  })
+})
+
+function rawBf(over: Partial<Lhq2BattleForce> = {}): Lhq2BattleForce {
+  return {
+    name: '212th Attack Battalion',
+    faction: 'republic',
+    linkId: '2t',
+    commander: ['gw', 'ue'],
+    operative: ['Da'],
+    corps: ['fz', 'Bi'],
+    special: ['Ay'],
+    support: ['mb'],
+    heavy: ['gb', 'oo', 'qs'],
+    allowedUpgrades: ['uf', 'Io'],
+    plainTextRules: ['When an allied non-COMMANDER Vehicle unit attacks…'],
+    rules: {},
+    'standard mode': {
+      commander: [1, 2], operative: [0, 1], corps: [1, 4],
+      special: [0, 3], support: [0, 3], heavy: [1, 3],
+    },
+    '500-point mode': {
+      commander: [1, 2], operative: [0, 1], corps: [1, 3],
+      special: [0, 2], support: [0, 3], heavy: [1, 2],
+    },
+    ...over,
+  }
+}
+
+describe('buildBattleForces', () => {
+  it('normalizes mode keys, brackets, and rank-unit lists', () => {
+    const [bf] = buildBattleForces([rawBf()])
+    expect(bf.linkId).toBe('2t')
+    expect(bf.faction).toBe('republic')
+    expect(bf.rankUnits.corps).toEqual(['fz', 'Bi'])
+    expect(bf.rankUnits.heavy).toEqual(['gb', 'oo', 'qs'])
+    expect(bf.modes.standard.corps).toEqual([1, 4])
+    expect(bf.modes['500'].corps).toEqual([1, 3])
+    expect(bf.rulesText).toHaveLength(1)
+  })
+
+  it('captures commOp when present, null otherwise', () => {
+    const withCommOp = rawBf({
+      linkId: '5t', name: '501st Legion',
+      'standard mode': { commander: [1, 2], operative: [0, 2], corps: [1, 4], special: [0, 3], support: [0, 3], heavy: [1, 3], commOp: 2 },
+    })
+    const [a, b] = buildBattleForces([withCommOp, rawBf()])
+    // sorted by faction then name: 501st before 212th? both republic → name order
+    const f501 = [a, b].find((x) => x.linkId === '5t')!
+    const f212 = [a, b].find((x) => x.linkId === '2t')!
+    expect(f501.modes.standard.commOp).toBe(2)
+    expect(f212.modes.standard.commOp).toBeNull()
+  })
+
+  it('passes rules through verbatim and maps forceAffinity', () => {
+    const [bf] = buildBattleForces([rawBf({
+      linkId: 'mc', name: 'Mandalorian Clans', faction: 'mandalorians', forceAffinity: '',
+      rules: { unitLimits: [{ ids: ['Hq'], count: [0, 2] }], countMercs: true },
+    })])
+    expect(bf.faction).toBe('mandalorians')
+    expect(bf.forceAffinity).toBeNull() // empty string → null
+    expect(bf.rules).toEqual({ unitLimits: [{ ids: ['Hq'], count: [0, 2] }], countMercs: true })
+  })
+
+  it('defaults absent rank brackets and lists safely', () => {
+    const [bf] = buildBattleForces([{ name: 'Sparse', faction: 'empire', linkId: 'sp' }])
+    expect(bf.rankUnits.commander).toEqual([])
+    expect(bf.modes.standard.corps).toEqual([0, 0])
+    expect(bf.modes.standard.commOp).toBeNull()
+    expect(bf.allowedUpgrades).toEqual([])
+    expect(bf.disallowedUpgrades).toEqual([])
+  })
+})
+
+describe('parseChunkMap', () => {
+  it('extracts the chunk-number → hash map from a main bundle', () => {
+    const js = 'r.u=function(e){return"static/js/"+e+"."+{148:"d6bdac75",526:"023fe73c",799:"63d3a998"}[e]+".chunk.js"}'
+    const map = parseChunkMap(js)
+    expect(map['526']).toBe('023fe73c')
+    expect(map['148']).toBe('d6bdac75')
+  })
+})
+
+describe('extractBattleForces', () => {
+  it('brace-matches battle-force objects with unquoted keys and !0/!1', () => {
+    const chunk = 'var v={"212th Attack Battalion":{name:"212th Attack Battalion",faction:"republic",' +
+      'linkId:"2t",corps:["fz"],allowedUpgrades:["uf"],rules:{countMercs:!0},' +
+      '"standard mode":{corps:[1,4]}},"x":{name:"X",faction:"empire",linkId:"xx",rules:{}}};use(v)'
+    const bfs = extractBattleForces(chunk)
+    expect(bfs).toHaveLength(2)
+    const f = bfs.find((b) => b.linkId === '2t')!
+    expect(f.name).toBe('212th Attack Battalion')
+    expect(f.corps).toEqual(['fz'])
+    expect(f.rules).toEqual({ countMercs: true })
+  })
+
+  it('skips matches that are not battle-force objects', () => {
+    expect(extractBattleForces('var z={foo:1, linkId:undefined}')).toEqual([])
   })
 })

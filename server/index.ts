@@ -10,6 +10,7 @@ import { createUnitsRouter } from './routes/units.ts'
 import { createUpgradesRouter } from './routes/upgrades.ts'
 import { createCommandsRouter } from './routes/commands.ts'
 import { createProductsRouter } from './routes/products.ts'
+import { createBattleForcesRouter } from './routes/battleForces.ts'
 import { createRoom, joinRoom, getRoomBySocket, removePlayer } from './rooms.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -32,6 +33,7 @@ app.use('/api/units', createUnitsRouter(sqlite))
 app.use('/api/upgrades', createUpgradesRouter(sqlite))
 app.use('/api/commands', createCommandsRouter(sqlite))
 app.use('/api/products', createProductsRouter(sqlite))
+app.use('/api/battle-forces', createBattleForcesRouter(sqlite))
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }))
 

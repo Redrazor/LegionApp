@@ -1384,7 +1384,8 @@
         "date": "5 June 2023",
         "description": "Cost increased from 30 to 40 points."
       }
-    ]
+    ],
+    "specialIssue": "Blizzard Force"
   },
   {
     "id": "bd",
@@ -2397,7 +2398,8 @@
         "date": "19 July 2024",
         "description": "Cost reduced from 190 to 180 points. Armor reduced to 5."
       }
-    ]
+    ],
+    "specialIssue": "Tempest Force"
   },
   {
     "id": "bh",
@@ -9976,7 +9978,8 @@
     "cardImage": "/images/units/raddaugh-gnasp-fluttercraft-attack-craft.webp",
     "portraitImage": "/images/portraits/raddaugh-gnasp-fluttercraft-attack-craft.webp",
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "specialIssue": "Wookiee Defenders"
   },
   {
     "id": "qs",
@@ -11261,7 +11264,8 @@
     "cardImage": "/images/units/geonosian-warriors-geonosian-engineers.webp",
     "portraitImage": "/images/portraits/geonosian-warriors-geonosian-engineers.webp",
     "hasFullData": true,
-    "history": []
+    "history": [],
+    "specialIssue": "Rapid Interdiction Force"
   },
   {
     "id": "la",
@@ -11519,7 +11523,8 @@
         "date": "19 July 2024",
         "description": "Cost reduced from 60 to 56 points."
       }
-    ]
+    ],
+    "specialIssue": "Experimental Droids"
   },
   {
     "id": "Eg",
@@ -12228,6 +12233,7 @@
         "date": "19 July 2024",
         "description": "Cost reduced from 145 to 130 points. Armor reduced to 5. Gained a second Ordnance upgrade. Ion Cannons gained Impact 1 keyword. Heavy Blasters gained Critical 1 keyword. Gained Direct: Core Trooper Unit and lost Command Node keywords."
       }
-    ]
+    ],
+    "specialIssue": "Experimental Droids"
   }
 ]

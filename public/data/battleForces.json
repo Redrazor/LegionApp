@@ -1,0 +1,2297 @@
+[
+  {
+    "linkId": "bf",
+    "name": "Blizzard Force",
+    "faction": "empire",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "at",
+        "au",
+        "Cb"
+      ],
+      "operative": [],
+      "corps": [
+        "az",
+        "ay",
+        "sr"
+      ],
+      "special": [
+        "Fa"
+      ],
+      "support": [
+        "bf",
+        "be"
+      ],
+      "heavy": [
+        "bg"
+      ]
+    },
+    "allowedUpgrades": [
+      "Ce",
+      "Cg",
+      "fl",
+      "cw",
+      "Cf"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "noFieldComm": true,
+      "unitLimits": [
+        {
+          "ids": [
+            "ay",
+            "sr"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "ignoreDetach": "Fa"
+    },
+    "rulesText": [],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          0
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": null
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          0
+        ],
+        "corps": [
+          3,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          1,
+          4
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "ir",
+    "name": "Imperial Remnant",
+    "faction": "empire",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "ui",
+        "Cb"
+      ],
+      "operative": [
+        "Ca"
+      ],
+      "corps": [
+        "ay",
+        "hg",
+        "ba",
+        "bd"
+      ],
+      "special": [],
+      "support": [
+        "bf",
+        "be"
+      ],
+      "heavy": [
+        "tm"
+      ]
+    },
+    "allowedUpgrades": [
+      "Ce",
+      "Cj",
+      "Cg",
+      "cw",
+      "Ch",
+      "Bl",
+      "Cf",
+      "uj",
+      "Bn"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "unitLimits": [
+        {
+          "ids": [
+            "ay"
+          ],
+          "count": [
+            1,
+            2
+          ]
+        },
+        {
+          "ids": [
+            "hg"
+          ],
+          "count": [
+            1,
+            2
+          ]
+        }
+      ],
+      "buildsAsCorps": [
+        "ba",
+        "bd"
+      ],
+      "minOneOfEachCorps": true,
+      "remnantEquipRules": true
+    },
+    "rulesText": [
+      "When issuing Orders, the nominated Commander can only issue Orders         to allied units within 2 of them. Undeployed units or units not within         2 of any allied COMMANDER units gain Independent: Aim 1 or Dodge 1.         When an allied unit checks to see if it is Panicked, it can never use the         Courage of an allied unit that is not within 2"
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          0
+        ],
+        "support": [
+          0,
+          1
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": 2
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          3,
+          6
+        ],
+        "special": [
+          0,
+          0
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": 2
+      }
+    }
+  },
+  {
+    "linkId": "sb",
+    "name": "Stormtrooper Battalion",
+    "faction": "empire",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "at",
+        "Cb"
+      ],
+      "operative": [
+        "Ca"
+      ],
+      "corps": [
+        "xz",
+        "ay"
+      ],
+      "special": [
+        "Fa",
+        "ba"
+      ],
+      "support": [
+        "bf",
+        "be",
+        "bb"
+      ],
+      "heavy": [
+        "bg",
+        "bh",
+        "on"
+      ]
+    },
+    "allowedUpgrades": [
+      "Ce",
+      "Eo",
+      "Cf",
+      "Cg",
+      "Ch",
+      "Cj",
+      "Bn",
+      "cw"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {},
+    "rulesText": [
+      "Non-unique COMMANDER and non-unique OPERATIVE units in this army gain Target 2.       When a non-unique COMMANDER or non-unique OPERATIVE unit in this army is issued an Order, it gains 1 Surge token       COMMANDER units in this army have Compel while they are the nominated Commander."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          1
+        ],
+        "corps": [
+          4,
+          6
+        ],
+        "special": [
+          0,
+          2
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": null
+      },
+      "standard": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          4,
+          7
+        ],
+        "special": [
+          0,
+          2
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "tf",
+    "name": "Tempest Force",
+    "faction": "empire",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Cb"
+      ],
+      "operative": [
+        "Ca"
+      ],
+      "corps": [
+        "ay"
+      ],
+      "special": [
+        "Fa",
+        "ba"
+      ],
+      "support": [
+        "bf"
+      ],
+      "heavy": [
+        "we",
+        "bg"
+      ]
+    },
+    "allowedUpgrades": [
+      "Ce",
+      "Cf",
+      "Ch",
+      "Cj",
+      "cw"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {},
+    "rulesText": [
+      "Vehicles in this army gain Scout 2.",
+      "Units that are not within 3 of an allied COMMANDER unit and do not have a COMMS         upgrade equipped remove 1 less Suppression token during the Remove Tokens step.",
+      "During Setup, you may set aside 1 allied SPECIAL FORCES or SUPPORT unit that is not         holding an Asset Objective token, marking the unit with an Advantage         token. The first time the set-aside unit would Activate this game, you         must place that unit in cohesion onto the battlefield not within 2         of any enemy units, if able. If you do, that unit is treated as activated         and its Order token is placed facedown. Then, the unit loses its         Advantage token."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          1,
+          2
+        ],
+        "special": [
+          1,
+          4
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": 2
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          1,
+          3
+        ],
+        "special": [
+          2,
+          6
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          3
+        ],
+        "commOp": 2
+      }
+    }
+  },
+  {
+    "linkId": "cotw",
+    "name": "Children of the Watch",
+    "faction": "mandalorians",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Hy",
+        "Hu"
+      ],
+      "operative": [
+        "Hz",
+        "Hv",
+        "tk"
+      ],
+      "corps": [
+        "Hq",
+        "Hr"
+      ],
+      "special": [],
+      "support": [
+        "Hs"
+      ],
+      "heavy": []
+    },
+    "allowedUpgrades": [
+      "tn",
+      "ts",
+      "Kp",
+      "to",
+      "Ho",
+      "tr",
+      "cw",
+      "Ji",
+      "se",
+      "Hp",
+      "Ks",
+      "Kt",
+      "Ku",
+      "Lc",
+      "Ld"
+    ],
+    "disallowedUpgrades": [
+      "Jy",
+      "Jz",
+      "Kb"
+    ],
+    "rules": {
+      "countMercs": true
+    },
+    "rulesText": [
+      "You army may include any number of Mandalorian Initiate units,       but must still follow this battle forces Rank Requirements.       When a Mandalorian Initiate unit equips a unique Personnel upgrade,       reduce the cost of that upgrade by 5 points."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          0
+        ],
+        "commOp": 3
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "ck",
+    "name": "Clan Kryze",
+    "faction": "mandalorians",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Hw",
+        "Hu"
+      ],
+      "operative": [
+        "Hx",
+        "Hv"
+      ],
+      "corps": [
+        "Hq",
+        "Hr"
+      ],
+      "special": [
+        "Ht"
+      ],
+      "support": [
+        "Hs"
+      ],
+      "heavy": []
+    },
+    "allowedUpgrades": [
+      "Jg",
+      "Jh",
+      "Ko",
+      "cw",
+      "Ks",
+      "Kt",
+      "Ku",
+      "Lc",
+      "Ld"
+    ],
+    "disallowedUpgrades": [
+      "Jz",
+      "Ka",
+      "Kb",
+      "Kc"
+    ],
+    "rules": {
+      "unitLimits": [
+        {
+          "ids": [
+            "Hq"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "countMercs": true
+    },
+    "rulesText": [
+      "During the Remove Tokens step of the End Phase,       choose up to 3 green tokens on allied units. The chosen tokens are not removed."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          0
+        ],
+        "commOp": 3
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "cs",
+    "name": "Clan Saxon",
+    "faction": "mandalorians",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Jp",
+        "Hu"
+      ],
+      "operative": [
+        "Jq",
+        "Hv"
+      ],
+      "corps": [
+        "Hq",
+        "Hr"
+      ],
+      "special": [
+        "Jv"
+      ],
+      "support": [
+        "Hs"
+      ],
+      "heavy": []
+    },
+    "allowedUpgrades": [
+      "cw",
+      "Kq",
+      "Kl",
+      "Jx",
+      "Kn",
+      "Ks",
+      "Kt",
+      "Ku",
+      "Lc",
+      "Ld"
+    ],
+    "disallowedUpgrades": [
+      "Jy",
+      "Jz",
+      "Ka",
+      "Kc"
+    ],
+    "rules": {
+      "unitLimits": [
+        {
+          "ids": [
+            "Hq"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "countMercs": true
+    },
+    "rulesText": [
+      "When an allied unit defeats an enemy unit, after the effect is resolved,       the allied unit may make a Recover action or may make a Speed-1 Move"
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          0
+        ],
+        "commOp": 3
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "cw",
+    "name": "Clan Wren",
+    "faction": "mandalorians",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Jj",
+        "Hu"
+      ],
+      "operative": [
+        "Jo",
+        "Hv"
+      ],
+      "corps": [
+        "Hq",
+        "Hr"
+      ],
+      "special": [
+        "Ia"
+      ],
+      "support": [
+        "Hs"
+      ],
+      "heavy": []
+    },
+    "allowedUpgrades": [
+      "cw",
+      "eb",
+      "Km",
+      "Kn",
+      "Kr",
+      "Ks",
+      "Kt",
+      "Ku",
+      "Lc",
+      "Ld"
+    ],
+    "disallowedUpgrades": [
+      "Jy",
+      "Ka",
+      "Kb",
+      "Kc"
+    ],
+    "rules": {
+      "unitLimits": [
+        {
+          "ids": [
+            "Hq"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "countMercs": true
+    },
+    "rulesText": [
+      "Allied Mandalorian Trooper units gain Guardian 1: Clan Wren Units with Guardian X in this army       can use the Guardian X keyword on other allied units that have the Guardian X keyword.       Commander and Operative units in this army that have the Guardian X keyword can benefit from Backup"
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          0
+        ],
+        "commOp": 3
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "cc",
+    "name": "Custom Clan",
+    "faction": "mandalorians",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Hu"
+      ],
+      "operative": [
+        "Hv"
+      ],
+      "corps": [
+        "Hq",
+        "Hr"
+      ],
+      "special": [],
+      "support": [
+        "Hs"
+      ],
+      "heavy": []
+    },
+    "allowedUpgrades": [
+      "cw",
+      "Ks",
+      "Kt",
+      "Ku",
+      "Lc",
+      "Ld"
+    ],
+    "disallowedUpgrades": [
+      "Jy",
+      "Jz",
+      "Ka",
+      "Kb",
+      "Kc"
+    ],
+    "rules": {
+      "unitLimits": [
+        {
+          "ids": [
+            "Hq"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "countMercs": true
+    },
+    "rulesText": [
+      "You can choose 2 of the benefits listed."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          0
+        ],
+        "commOp": 3
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "mc",
+    "name": "Mandalorian Clans",
+    "faction": "mandalorians",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Jp",
+        "Hu",
+        "Jj",
+        "Hw",
+        "Hy"
+      ],
+      "operative": [
+        "Hx",
+        "tk",
+        "Hz",
+        "Jq",
+        "Jo",
+        "Hv"
+      ],
+      "corps": [
+        "Hq",
+        "Hr"
+      ],
+      "special": [
+        "Ht",
+        "Ia",
+        "Jv"
+      ],
+      "support": [
+        "Hs"
+      ],
+      "heavy": []
+    },
+    "allowedUpgrades": [
+      "cw",
+      "Jg",
+      "tn",
+      "ts",
+      "to",
+      "tr",
+      "Jh",
+      "Ko",
+      "Kp",
+      "Kq",
+      "Ho",
+      "Kl",
+      "Ji",
+      "Km",
+      "Kn",
+      "Hp",
+      "Kr",
+      "Ks",
+      "Kt",
+      "Ku",
+      "Lc",
+      "Ld"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "unitLimits": [
+        {
+          "ids": [
+            "Hq"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "countMercs": true
+    },
+    "rulesText": [
+      "Mercenary units do count toward the minimum number of Ranks required and the army may include any number of Mercenaries at each Rank.       All units included in this army must have the same Affiliation as at least 1 Commander or Operative unit in this army"
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          0
+        ],
+        "commOp": 3
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "sc",
+    "name": "Shadow Collective",
+    "faction": "mercenary",
+    "forceAffinity": "dark side",
+    "rankUnits": {
+      "commander": [
+        "ra",
+        "rd",
+        "qy"
+      ],
+      "operative": [
+        "rc",
+        "kx",
+        "ax",
+        "Gn",
+        "Hb"
+      ],
+      "corps": [
+        "rb",
+        "qz",
+        "Fd"
+      ],
+      "special": [
+        "re"
+      ],
+      "support": [
+        "sq"
+      ],
+      "heavy": [
+        "sm",
+        "Fe"
+      ]
+    },
+    "allowedUpgrades": [
+      "rq",
+      "so",
+      "se",
+      "sp",
+      "sg",
+      "sh",
+      "si",
+      "Bn",
+      "Fn",
+      "cw",
+      "Fj",
+      "Fk"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "countMercs": true
+    },
+    "rulesText": [
+      "A Shadow Collective Battle Force is aligned with the Dark Side.",
+      "Units in this army with the Transport keyword may issue Orders to transported units regardless of Affiliation."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          1,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": 2
+      },
+      "standard": {
+        "commander": [
+          1,
+          4
+        ],
+        "operative": [
+          0,
+          4
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          4
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": 4
+      }
+    }
+  },
+  {
+    "linkId": "og",
+    "name": "The Ohnaka Gang",
+    "faction": "mercenary",
+    "forceAffinity": "dark side",
+    "rankUnits": {
+      "commander": [],
+      "operative": [
+        "Bj"
+      ],
+      "corps": [
+        "Fd"
+      ],
+      "special": [],
+      "support": [
+        "sq"
+      ],
+      "heavy": [
+        "Fe"
+      ]
+    },
+    "allowedUpgrades": [
+      "Fn",
+      "cw",
+      "so"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "countMercs": true,
+      "sortOfDetachment": [
+        [
+          "Fe",
+          "Weequay Pirates"
+        ]
+      ],
+      "addAdditionalUpgradeSlots": [
+        [
+          "Bj",
+          [
+            "command"
+          ]
+        ]
+      ]
+    },
+    "rulesText": [],
+    "modes": {
+      "500": {
+        "commander": [
+          0,
+          0
+        ],
+        "operative": [
+          1,
+          1
+        ],
+        "corps": [
+          2,
+          5
+        ],
+        "special": [
+          0,
+          0
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          1,
+          3
+        ],
+        "commOp": null
+      },
+      "standard": {
+        "commander": [
+          0,
+          0
+        ],
+        "operative": [
+          1,
+          1
+        ],
+        "corps": [
+          3,
+          6
+        ],
+        "special": [
+          0,
+          0
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          2,
+          4
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "btv",
+    "name": "Bright Tree Village",
+    "faction": "rebels",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "vv",
+        "ac",
+        "ab",
+        "wd",
+        "ve"
+      ],
+      "operative": [
+        "af"
+      ],
+      "corps": [
+        "vk",
+        "ah"
+      ],
+      "special": [
+        "vu",
+        "ak"
+      ],
+      "support": [],
+      "heavy": [
+        "vj"
+      ]
+    },
+    "allowedUpgrades": [
+      "wb",
+      "cw",
+      "wc",
+      "wa"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "countMercs": true,
+      "take2NonEwokRebs": true,
+      "unitLimits": [
+        {
+          "ids": [
+            "ah"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        },
+        {
+          "ids": [
+            "ak"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    "rulesText": [
+      "During the End Phase, EWOK units in this army remove 1 fewer Suppression token during the Remove Tokens step.",
+      "REBEL COMMANDER units in this army gain Allies of Convenience"
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          4
+        ],
+        "operative": [
+          0,
+          4
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          0
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": 4
+      },
+      "standard": {
+        "commander": [
+          1,
+          5
+        ],
+        "operative": [
+          0,
+          5
+        ],
+        "corps": [
+          3,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          0
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": 5
+      }
+    }
+  },
+  {
+    "linkId": "ebd",
+    "name": "Echo Base Defenders",
+    "faction": "rebels",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "ab",
+        "ad",
+        "Fb",
+        "ac",
+        "Bz"
+      ],
+      "operative": [
+        "af",
+        "Fc",
+        "jg",
+        "ji",
+        "By"
+      ],
+      "corps": [
+        "gv",
+        "if"
+      ],
+      "special": [],
+      "support": [
+        "an",
+        "he"
+      ],
+      "heavy": [
+        "ap"
+      ]
+    },
+    "allowedUpgrades": [
+      "Cp",
+      "cw",
+      "Im",
+      "Cr",
+      "Cs",
+      "Bn",
+      "Cq",
+      "fk"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "noFieldComm": true
+    },
+    "rulesText": [],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          0
+        ],
+        "support": [
+          1,
+          3
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": 3
+      },
+      "standard": {
+        "commander": [
+          1,
+          4
+        ],
+        "operative": [
+          0,
+          4
+        ],
+        "corps": [
+          3,
+          6
+        ],
+        "special": [
+          0,
+          0
+        ],
+        "support": [
+          1,
+          4
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": 4
+      }
+    }
+  },
+  {
+    "linkId": "2t",
+    "name": "212th Attack Battalion",
+    "faction": "republic",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "gw",
+        "ue"
+      ],
+      "operative": [
+        "Da"
+      ],
+      "corps": [
+        "fz",
+        "Bi"
+      ],
+      "special": [
+        "Ay"
+      ],
+      "support": [
+        "mb"
+      ],
+      "heavy": [
+        "gb",
+        "oo",
+        "qs"
+      ]
+    },
+    "allowedUpgrades": [
+      "uf",
+      "Io",
+      "cw",
+      "Dc",
+      "De",
+      "Dd",
+      "In",
+      "Bl",
+      "ug"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {},
+    "rulesText": [
+      "When an allied non-COMMANDER non-OPERATIVE Vehicle unit is attacking or defending,         it may spend up to 1 Aim token, Dodge token, or Surge token belonging to a non-COMMANDER non-OPERATIVE allied Vehicle unit within 2 and in LOS,         or up to 1 Aim or Dodge token belonging to an allied Clone Trooper unit within 2 and in LOS, as if the attacking or defending vehicle unit had that token."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          1
+        ],
+        "corps": [
+          1,
+          3
+        ],
+        "special": [
+          0,
+          2
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          1,
+          2
+        ],
+        "commOp": null
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          1
+        ],
+        "corps": [
+          1,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          1,
+          3
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "5t",
+    "name": "501st Legion",
+    "faction": "republic",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Bc",
+        "na",
+        "fy",
+        "ns"
+      ],
+      "operative": [],
+      "corps": [
+        "fz",
+        "Bi"
+      ],
+      "special": [
+        "kz",
+        "Ay"
+      ],
+      "support": [
+        "ky",
+        "mb",
+        "ic",
+        "xj",
+        "xp"
+      ],
+      "heavy": [
+        "oo"
+      ]
+    },
+    "allowedUpgrades": [
+      "Bd",
+      "Ep",
+      "lh",
+      "lg",
+      "cw"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {},
+    "rulesText": [],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          1
+        ],
+        "operative": [
+          0,
+          1
+        ],
+        "corps": [
+          1,
+          4
+        ],
+        "special": [
+          1,
+          4
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": null
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          1,
+          4
+        ],
+        "special": [
+          1,
+          4
+        ],
+        "support": [
+          1,
+          2
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": 2
+      }
+    }
+  },
+  {
+    "linkId": "wd",
+    "name": "Wookiee Defenders",
+    "faction": "republic",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "ol",
+        "po",
+        "ph"
+      ],
+      "operative": [
+        "Da"
+      ],
+      "corps": [
+        "fz",
+        "pm"
+      ],
+      "special": [
+        "kz",
+        "pg"
+      ],
+      "support": [
+        "qh",
+        "xf",
+        "ic"
+      ],
+      "heavy": [
+        "gb",
+        "qs"
+      ]
+    },
+    "allowedUpgrades": [
+      "Ir",
+      "Bl",
+      "Dc",
+      "Dd",
+      "De",
+      "cw"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "buildsAsCorps": [
+        "pm"
+      ],
+      "ccAsCorps": true,
+      "unitLimits": [
+        {
+          "ids": [
+            "kz"
+          ],
+          "count": [
+            0,
+            1
+          ]
+        },
+        {
+          "ids": [
+            "fz"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        },
+        {
+          "ids": [
+            "ic"
+          ],
+          "count": [
+            0,
+            1
+          ]
+        },
+        {
+          "ids": [
+            "qs"
+          ],
+          "count": [
+            0,
+            1
+          ]
+        },
+        {
+          "ids": [
+            "gb"
+          ],
+          "count": [
+            0,
+            1
+          ]
+        }
+      ],
+      "minimum3Wookiees": true
+    },
+    "rulesText": [
+      "Your army must include at least 3 Wookiee Trooper units.",
+      "The first time 1 or more miniatures in each Wookiee Trooper unit are           defeated each Round, that unit may make a Speed-1 Move. A unit can           make this Move regardless of its speed."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          5
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": 2
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          3,
+          6
+        ],
+        "special": [
+          0,
+          4
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": 2
+      }
+    }
+  },
+  {
+    "linkId": "exd",
+    "name": "Experimental Droids",
+    "faction": "separatists",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "qa",
+        "pz",
+        "nr"
+      ],
+      "operative": [],
+      "corps": [
+        "gx",
+        "ga",
+        "xd"
+      ],
+      "special": [
+        "la"
+      ],
+      "support": [
+        "ie"
+      ],
+      "heavy": [
+        "xe"
+      ]
+    },
+    "allowedUpgrades": [
+      "cw",
+      "Bl",
+      "En"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "buildsAsCorps": [
+        "xd"
+      ],
+      "ccAsCorps": true,
+      "unitLimits": [
+        {
+          "ids": [
+            "gx"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        },
+        {
+          "ids": [
+            "ga"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        },
+        {
+          "ids": [
+            "la"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ],
+      "rankLimits": [
+        {
+          "ids": [
+            "la"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        },
+        {
+          "ids": [
+            "gx"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        },
+        {
+          "ids": [
+            "ga"
+          ],
+          "count": [
+            0,
+            2
+          ]
+        }
+      ]
+    },
+    "rulesText": [
+      "At the start of each Activation Phase, choose up to 1 of your COMMANDER units.         If you do, put 3 Surge tokens on that unit’s Unit Card. Once during its         Activation, an allied SPECIAL FORCES, CORPS, or SUPPORT unit that has the AI keyword may         make a free action to spend 1 Surge token on the chosen COMMANDER unit, if it         is within 3. If it does, choose 1 of the following:\n        • Increase their Speed by 1 during their next Move action this Turn.\n        • Gain 1 Aim token or 1 Dodge token.\n        • Add 1 black die and 1 white die to 1 of their Attack Pools during         their next Attack action this turn.\n        • Remove up to 2 Suppression tokens."
+    ],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          1
+        ],
+        "operative": [
+          0,
+          0
+        ],
+        "corps": [
+          2,
+          4
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          1
+        ],
+        "heavy": [
+          0,
+          1
+        ],
+        "commOp": null
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          0
+        ],
+        "corps": [
+          3,
+          6
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": null
+      }
+    }
+  },
+  {
+    "linkId": "rf",
+    "name": "Rapid Interdiction Force",
+    "faction": "separatists",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "Ef",
+        "Do"
+      ],
+      "operative": [
+        "Dp"
+      ],
+      "corps": [
+        "la",
+        "Is"
+      ],
+      "special": [
+        "Eg"
+      ],
+      "support": [
+        "ie",
+        "qk",
+        "ya",
+        "mc"
+      ],
+      "heavy": [
+        "gc"
+      ]
+    },
+    "allowedUpgrades": [
+      "cw"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "buildsAsCorps": [
+        "la"
+      ]
+    },
+    "rulesText": [],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          1,
+          1
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          0,
+          2
+        ],
+        "commOp": 2
+      },
+      "standard": {
+        "commander": [
+          1,
+          3
+        ],
+        "operative": [
+          0,
+          3
+        ],
+        "corps": [
+          3,
+          3
+        ],
+        "special": [
+          0,
+          3
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          0,
+          3
+        ],
+        "commOp": 3
+      }
+    }
+  },
+  {
+    "linkId": "si",
+    "name": "Separatist Invasion",
+    "faction": "separatists",
+    "forceAffinity": null,
+    "rankUnits": {
+      "commander": [
+        "fx",
+        "ia",
+        "nr",
+        "Ef"
+      ],
+      "operative": [
+        "nb"
+      ],
+      "corps": [
+        "gx"
+      ],
+      "special": [
+        "px"
+      ],
+      "support": [
+        "ie",
+        "mc"
+      ],
+      "heavy": [
+        "gc"
+      ]
+    },
+    "allowedUpgrades": [
+      "Iq",
+      "cw"
+    ],
+    "disallowedUpgrades": [],
+    "rules": {
+      "noFieldComm": true
+    },
+    "rulesText": [],
+    "modes": {
+      "500": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          2,
+          6
+        ],
+        "special": [
+          0,
+          1
+        ],
+        "support": [
+          0,
+          2
+        ],
+        "heavy": [
+          1,
+          1
+        ],
+        "commOp": 2
+      },
+      "standard": {
+        "commander": [
+          1,
+          2
+        ],
+        "operative": [
+          0,
+          2
+        ],
+        "corps": [
+          4,
+          8
+        ],
+        "special": [
+          0,
+          2
+        ],
+        "support": [
+          0,
+          3
+        ],
+        "heavy": [
+          1,
+          2
+        ],
+        "commOp": 2
+      }
+    }
+  }
+]

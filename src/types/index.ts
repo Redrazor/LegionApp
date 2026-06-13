@@ -64,6 +64,7 @@ export interface Unit {
   portraitImage: string | null
   hasFullData: boolean
   history: HistoryEntry[]
+  specialIssue?: string // battle force this unit may ONLY be fielded in (e.g. "Blizzard Force")
 }
 
 export interface Upgrade {
@@ -88,6 +89,48 @@ export interface CommandCard {
   commander: string | null
   faction: Faction | null
   cardImage: string | null
+}
+
+// ── Battle forces ────────────────────────────────────────────────────────────
+
+/** A rank's per-format [min, max] count. */
+export type RankBracket = [number, number]
+
+/**
+ * A battle force's rank table for one game mode. Each rank maps to a [min, max]
+ * count; `commOp` (when set) is a combined commander+operative cap that overrides
+ * the individual maxima.
+ */
+export interface BattleForceRankTable {
+  commander: RankBracket
+  operative: RankBracket
+  corps: RankBracket
+  special: RankBracket
+  support: RankBracket
+  heavy: RankBracket
+  commOp: number | null
+}
+
+/**
+ * An alternative army-building ruleset (replaces the standard rank table). A unit
+ * is legal in a battle force iff its id appears in one of the six `rankUnits`
+ * lists — which also sets the rank it fills. `rules` is a passthrough of the
+ * source's special-rule flags (resolved/applied in Stage 2). Data-only here.
+ */
+export interface BattleForce {
+  linkId: string // short id, e.g. "2t" (212th), "mc" (Mandalorian Clans)
+  name: string
+  faction: Faction
+  forceAffinity: string | null // 'dark side' | 'light side' | null
+  rankUnits: Record<Rank, string[]> // eligible unit ids per rank
+  allowedUpgrades: string[] // upgrade ids permitted on top of unit upgrade bars
+  disallowedUpgrades: string[] // upgrade ids forbidden in this battle force
+  rules: Record<string, unknown> // source special-rule flags (passthrough)
+  rulesText: string[] // human-readable rule text (from the source)
+  modes: {
+    standard: BattleForceRankTable // 1000-point / standard mode
+    '500': BattleForceRankTable // 500-point mode
+  }
 }
 
 export type ProductType = 'expansion' | 'army-box' | 'starter' | 'specialists'

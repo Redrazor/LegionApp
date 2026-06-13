@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.18.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — Illegal units in your army list now stand out: a red border, an "⚠ Illegal" badge, and the exact reason (e.g. "Needs a heavy weapon", "Needs <parent unit>", "Can\'t ally here") — the warning clears the moment you fix it',
+    ],
+  },
+  {
     version: '0.17.1',
     date: '2026-06-13',
     changes: [

@@ -5,7 +5,7 @@ import {
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction, isMandalorianClanUnit,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
   primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
-  heavyWeaponTeamUnmet,
+  heavyWeaponTeamUnmet, unitLegalityIssues,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, Unit, Upgrade } from '../src/types/index.ts'
@@ -669,6 +669,56 @@ describe('mercenaryIssues', () => {
     const { unitsById } = makeMaps([detach])
     // No parent in the list → falls through to the normal (illegal) ally check.
     expect(mercenaryIssues(armyOf('mandalorians', [detach]), unitsById).illegalAllies).toEqual(['Mandalorian Warriors'])
+  })
+})
+
+describe('unitLegalityIssues', () => {
+  const armyOf = (faction: Army['faction'], aus: Army['units']): Army =>
+    ({ name: '', faction, gameSize: 1000, units: aus })
+  const au = (unitId: string, upgrades: { slot: string; upgradeId: string }[] = []) =>
+    ({ uid: unitId + Math.random(), unitId, upgrades })
+
+  it('returns no issues for a plain, legal unit', () => {
+    const u = unit('storm', { faction: 'empire' })
+    const a = armyOf('empire', [au('storm')])
+    expect(unitLegalityIssues(a.units[0], a, makeMaps([u]).unitsById)).toEqual([])
+  })
+
+  it('flags a Heavy Weapon Team unit missing its heavy weapon, and clears once equipped', () => {
+    const u = unit('arc', { faction: 'republic', keywords: ['Heavy Weapon Team'], upgradeBar: ['heavy weapon'] })
+    const { unitsById } = makeMaps([u])
+    const empty = armyOf('republic', [au('arc')])
+    expect(unitLegalityIssues(empty.units[0], empty, unitsById)).toEqual(['Needs a heavy weapon'])
+    const armed = armyOf('republic', [au('arc', [{ slot: 'heavy weapon#0', upgradeId: 'hw' }])])
+    expect(unitLegalityIssues(armed.units[0], armed, unitsById)).toEqual([])
+  })
+
+  it('flags a detachment whose parent is absent and clears when present', () => {
+    const parent = unit('warriors', { name: 'Mandalorian Warriors', faction: 'mercenary', affiliation: 'Mandalore', rank: 'corps' })
+    const detach = unit('warriors-hw', {
+      name: 'Mandalorian Warriors', faction: 'mercenary', affiliation: null, rank: 'support',
+      keywords: ['Detachment Mandalorian Warriors'],
+    })
+    const { unitsById } = makeMaps([parent, detach])
+    const lone = armyOf('mandalorians', [au('warriors-hw')])
+    expect(unitLegalityIssues(lone.units[0], lone, unitsById)).toEqual(['Needs Mandalorian Warriors'])
+    const withParent = armyOf('mandalorians', [au('warriors'), au('warriors-hw')])
+    expect(unitLegalityIssues(withParent.units[1], withParent, unitsById)).toEqual([])
+  })
+
+  it('flags a mercenary that cannot ally into the army faction', () => {
+    const m = unit('bossk', { faction: 'mercenary', affiliations: ['empire'] })
+    const { unitsById } = makeMaps([m])
+    const inRebels = armyOf('rebels', [au('bossk')])
+    expect(unitLegalityIssues(inRebels.units[0], inRebels, unitsById)).toEqual([`Can't ally here`])
+    const inEmpire = armyOf('empire', [au('bossk')])
+    expect(unitLegalityIssues(inEmpire.units[0], inEmpire, unitsById)).toEqual([])
+  })
+
+  it('flags an unpriced unit', () => {
+    const u = unit('new', { faction: 'empire', cost: null })
+    const a = armyOf('empire', [au('new')])
+    expect(unitLegalityIssues(a.units[0], a, makeMaps([u]).unitsById)).toEqual(['No points cost'])
   })
 })
 

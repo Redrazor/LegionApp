@@ -166,3 +166,25 @@ describe('battleForces store', () => {
     expect(s.forFaction(null)).toEqual([])
   })
 })
+
+describe('army store — command hand', () => {
+  it('toggles command cards on/off and clears them on faction change', () => {
+    const s = useArmyStore()
+    s.setFaction('empire')
+    s.toggleCommandCard('v1')
+    s.toggleCommandCard('v2')
+    expect(s.draft.commandHand).toEqual(['v1', 'v2'])
+    s.toggleCommandCard('v1') // toggle off
+    expect(s.draft.commandHand).toEqual(['v2'])
+    s.setFaction('rebels')
+    expect(s.draft.commandHand).toEqual([]) // cleared with faction
+  })
+
+  it('clearCommandHand empties the hand', () => {
+    const s = useArmyStore()
+    s.setFaction('empire')
+    s.toggleCommandCard('x')
+    s.clearCommandHand()
+    expect(s.draft.commandHand).toEqual([])
+  })
+})

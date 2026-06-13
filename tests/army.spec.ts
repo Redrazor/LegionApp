@@ -7,9 +7,10 @@ import {
   primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
   heavyWeaponTeamUnmet, unitLegalityIssues,
   effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
+  commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
-import type { Army, BattleForce, Unit, Upgrade } from '../src/types/index.ts'
+import type { Army, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
 
 function unit(id: string, over: Partial<Unit> = {}): Unit {
   return {
@@ -1112,6 +1113,111 @@ describe('battle forces', () => {
       const a: Army = { name: 'X', faction: 'empire', battleForce: null, gameSize: 1000, units: [] }
       expect('b' in toCompact(a)).toBe(false)
       expect(fromCompact(toCompact(a)).battleForce).toBeNull()
+    })
+  })
+})
+
+describe('command hand', () => {
+  const cmd = (id: string, over: Partial<CommandCard> = {}): CommandCard => ({
+    id, slug: id, name: id, pips: 1, commander: '', faction: null, cardImage: null, ...over,
+  })
+  // Army with Vader (commander) fielded, faction empire.
+  const vader = unit('vader', { name: 'Darth Vader', rank: 'commander' })
+  const { unitsById } = makeMaps([vader])
+  const army = (hand: string[] = []): Army => ({
+    name: '', faction: 'empire', battleForce: null, gameSize: 1000,
+    units: [{ uid: 'a', unitId: 'vader', upgrades: [] }], commandHand: hand,
+  })
+
+  describe('commandCardEligible', () => {
+    const fielded = fieldedUnitNames(army(), unitsById)
+    it('allows a commander card whose commander is fielded', () => {
+      expect(commandCardEligible(cmd('v1', { commander: 'Darth Vader' }), army(), fielded)).toBe(true)
+      expect(commandCardEligible(cmd('l1', { commander: 'Luke Skywalker' }), army(), fielded)).toBe(false)
+    })
+    it('splits multi-commander cards and matches any', () => {
+      expect(commandCommanders(cmd('x', { commander: 'Han Solo, Darth Vader' }))).toEqual(['Han Solo', 'Darth Vader'])
+      expect(commandCardEligible(cmd('x', { commander: 'Han Solo, Darth Vader' }), army(), fielded)).toBe(true)
+    })
+    it('allows faction-generic cards for the army faction, and universal cards always', () => {
+      expect(commandCardEligible(cmd('fe', { faction: 'empire' }), army(), fielded)).toBe(true)
+      expect(commandCardEligible(cmd('fr', { faction: 'rebels' }), army(), fielded)).toBe(false)
+      expect(commandCardEligible(cmd('u', { faction: null }), army(), fielded)).toBe(true)
+    })
+    it('never offers Standing Orders / 4-pip cards (auto-included)', () => {
+      expect(commandCardEligible(cmd('so', { pips: 4, name: 'Standing Orders' }), army(), fielded)).toBe(false)
+    })
+  })
+
+  describe('eligibleCommandCards', () => {
+    it('returns eligible pip 1–3 cards, pip-sorted, excluding Standing Orders', () => {
+      const commands = [
+        cmd('so', { pips: 4, name: 'Standing Orders' }),
+        cmd('v3', { pips: 3, commander: 'Darth Vader' }),
+        cmd('u1', { pips: 1, faction: null }),
+        cmd('rebel', { pips: 1, faction: 'rebels' }),
+      ]
+      const out = eligibleCommandCards(commands, army(), unitsById)
+      expect(out.map((c) => c.id)).toEqual(['u1', 'v3']) // rebel + standing orders excluded; pip-sorted
+    })
+  })
+
+  describe('validateCommandHand', () => {
+    const commands = [
+      cmd('a1', { pips: 1, faction: null }), cmd('a2', { pips: 1, faction: null }),
+      cmd('b1', { pips: 2, faction: null }), cmd('b2', { pips: 2, faction: null }),
+      cmd('c1', { pips: 3, faction: null }), cmd('c2', { pips: 3, faction: null }),
+    ]
+    const byId = new Map(commands.map((c) => [c.id, c]))
+    const fielded = fieldedUnitNames(army(), unitsById)
+
+    it('is valid at exactly 2/2/2 with no dupes', () => {
+      const v = validateCommandHand(army(['a1', 'a2', 'b1', 'b2', 'c1', 'c2']), byId, fielded)
+      expect(v.complete).toBe(true)
+      expect(v.valid).toBe(true)
+    })
+    it('is incomplete below 2 of a pip', () => {
+      const v = validateCommandHand(army(['a1', 'b1', 'b2', 'c1', 'c2']), byId, fielded)
+      expect(v.byPip[1]).toBe(1)
+      expect(v.complete).toBe(false)
+      expect(v.valid).toBe(false)
+    })
+    it('flags duplicates and ineligible cards', () => {
+      const dup = validateCommandHand(army(['a1', 'a1', 'b1', 'b2', 'c1', 'c2']), byId, fielded)
+      expect(dup.hasDuplicates).toBe(true)
+      const badById = new Map([...byId, ['r1', cmd('r1', { pips: 1, faction: 'rebels' })]])
+      const inel = validateCommandHand(army(['r1', 'a2', 'b1', 'b2', 'c1', 'c2']), badById, fielded)
+      expect(inel.ineligible).toContain('r1')
+      expect(inel.valid).toBe(false)
+    })
+  })
+
+  describe('validateArmy command-hand row', () => {
+    const commands = [
+      cmd('a1', { pips: 1, faction: null }), cmd('a2', { pips: 1, faction: null }),
+      cmd('b1', { pips: 2, faction: null }), cmd('b2', { pips: 2, faction: null }),
+      cmd('c1', { pips: 3, faction: null }), cmd('c2', { pips: 3, faction: null }),
+    ]
+    const byId = new Map(commands.map((c) => [c.id, c]))
+    it('adds a Command hand row reading n/7 (incl. Standing Orders) once units exist', () => {
+      const v = validateArmy(army(['a1', 'a2', 'b1', 'b2', 'c1', 'c2']), unitsById, new Map(), null, byId)
+      const row = v.items.find((i) => i.label === 'Command hand')!
+      expect(row.ok).toBe(true)
+      expect(row.detail).toBe('7 / 7')
+    })
+    it('omits the row when no commandsById is provided', () => {
+      const v = validateArmy(army([]), unitsById, new Map(), null)
+      expect(v.items.find((i) => i.label === 'Command hand')).toBeUndefined()
+    })
+  })
+
+  describe('compact round-trip', () => {
+    it('preserves the command hand, omitting it when empty', () => {
+      const a = army(['a1', 'b1'])
+      expect(toCompact(a).c).toEqual(['a1', 'b1'])
+      expect(fromCompact(toCompact(a)).commandHand).toEqual(['a1', 'b1'])
+      expect('c' in toCompact(army([]))).toBe(false)
+      expect(fromCompact(toCompact(army([]))).commandHand).toEqual([])
     })
   })
 })

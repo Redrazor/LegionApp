@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.23.0',
+    date: '2026-06-13',
+    changes: [
+      'Build — New Command Hand tab: build your 7-card command hand (2 one-pip, 2 two-pip, 2 three-pip, plus the auto-included Standing Orders). Only cards you can actually field are shown — your commanders\' own cards, your faction\'s generics, and the universal cards',
+      'Build — The command hand is validated live (2/2/2, no duplicates, all eligible) and feeds the Legal/Illegal check; cards that stop being eligible (e.g. after removing a commander) are flagged so you can fix them. Your hand saves and shares with the army',
+    ],
+  },
+  {
     version: '0.22.1',
     date: '2026-06-13',
     changes: [

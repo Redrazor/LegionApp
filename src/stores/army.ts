@@ -4,7 +4,7 @@ import type { Army, ArmyUnit, CompactArmy, Faction } from '../types/index.ts'
 import { toCompact, fromCompact } from '../utils/army.ts'
 
 function emptyArmy(): Army {
-  return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [] }
+  return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [], commandHand: [] }
 }
 
 let uidCounter = 0
@@ -23,10 +23,11 @@ export const useArmyStore = defineStore(
 
     function setFaction(faction: Faction) {
       if (draft.value.faction !== faction) {
-        // Switching faction clears incompatible units and any battle force (BFs
-        // belong to a single faction).
+        // Switching faction clears incompatible units, the battle force, and the
+        // command hand (all are faction-bound).
         if (draft.value.units.length > 0) draft.value.units = []
         draft.value.battleForce = null
+        draft.value.commandHand = []
       }
       draft.value.faction = faction
     }
@@ -38,6 +39,20 @@ export const useArmyStore = defineStore(
      */
     function setBattleForce(linkId: string | null) {
       draft.value.battleForce = linkId
+    }
+
+    /** Add a command card to the hand if absent, else remove it (deck-builder toggle). */
+    function toggleCommandCard(cardId: string) {
+      // Legacy drafts persisted before command hands existed have no array yet.
+      if (!draft.value.commandHand) draft.value.commandHand = []
+      const hand = draft.value.commandHand
+      const i = hand.indexOf(cardId)
+      if (i >= 0) hand.splice(i, 1)
+      else hand.push(cardId)
+    }
+
+    function clearCommandHand() {
+      draft.value.commandHand = []
     }
 
     function setGameSize(size: number) {
@@ -131,7 +146,7 @@ export const useArmyStore = defineStore(
 
     return {
       draft, saved, activeIndex, isDirty,
-      setFaction, setBattleForce, setGameSize, setName,
+      setFaction, setBattleForce, toggleCommandCard, clearCommandHand, setGameSize, setName,
       addUnit, removeUnit, addCopy, findUnit, setUpgrade, upgradeInSlot,
       newArmy, loadDraft, saveCurrent, loadSaved, deleteSaved, renameSaved,
     }

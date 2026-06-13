@@ -243,14 +243,22 @@ The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls leg
   placement, BF rank tables + `commOp` + `unitLimits` + Wookiee/Field-Commander rules, additive upgrades;
   retired `BATTLE_FORCE_RANKS`, kept `MANDO_CLANS` as the standard Mandalorian roster). 4 in-game-only BF
   rules surfaced as text, not auto-enforced.
-- **D0 — battle-card scrape** (v0.22.0, #22). Data layer only, no UI. `BattleCard` + `buildBattleCards`
-  (`normalise.ts`): 43 cards (13 objective[=LHQ2 "primary"] / 13 secondary / 17 advantage), `isRecon` from
-  the "Recon" keyword (9), faction mapped, standard/Recon dup names slug-deduped. `battleCards.json` + images
-  (`battleCards/` CDN → `public/images/battle/`); `battle_cards` table + `GET /api/battle-cards`. **Map cards
-  absent from LHQ2 — known gap.**
+- **D0 — battle-card scrape** (v0.22.0, #22) + **subtype fix** (v0.22.1, #23). Data layer only, no UI.
+  `BattleCard` + `buildBattleCards` (`normalise.ts`): 43 cards (**13 primary / 13 secondary / 17 advantage**),
+  `isRecon` from the "Recon" keyword (9), faction mapped, standard/Recon dup names slug-deduped.
+  `battleCards.json` + images (`battleCards/` CDN → `public/images/battle/`); `battle_cards` table +
+  `GET /api/battle-cards`. **Map-card investigation settled:** the 2024 v2 deck (AMG 2.6) is Primary/
+  Secondary/Advantage — the pre-2.6 Deployment/"map" cards were folded into Primary Objectives, so there is
+  **no separate map-card type** and nothing is missing from LHQ2. TTA exposes battle-deck data but under the
+  old names with 1st-ed scans — adds nothing; stays restricted to portraits + upgrade keywords.
+- **D1 — command-hand builder** (v0.23.0, #24). Dedicated **Command** tab (BuildLayout: mobile 3-segment;
+  desktop `[Roster][Command Hand]` toggle). `CommandHandView` deck-builder: 3 pip sections (2 each) + pinned
+  Standing Orders. Pure logic: `commandCardEligible` (commander fielded / faction-generic / universal),
+  `eligibleCommandCards`, `validateCommandHand` (2/2/2, no dupes, all eligible); `validateArmy` "Command hand"
+  row. `Army.commandHand` + `CompactArmy.c`. Rule: 2×1pip + 2×2pip + 2×3pip + auto Standing Orders (4pip).
 
-**Next up: D1 — command-hand builder** (2/2/2 + auto Standing Orders; commander/faction/unique gating; command
-data already scraped), then D2 battle-deck builder (3/3/3 from `battleCards.json`, no dupes, hidden in Recon).
+**Next up: D2 — battle-deck builder** (3 primary / 3 secondary / 3 advantage from `battleCards.json`, no
+dupes, hidden in Recon). Reuse D1's tab + deck-builder pattern. Then E1 (versioned share) → E2/E3 → E4 → F1.
 
 ### 2026-06-12 — C1 implemented
 **Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,

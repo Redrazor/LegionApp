@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.17.1',
+    date: '2026-06-13',
+    changes: [
+      'Build — Fixed Mandalorian Clans armies wrongly flagging their own units (e.g. the Heavy Weapon Team Mandalorian Warriors detachment) as illegal foreign mercenaries — detachment units whose parent is in your list now count as native',
+    ],
+  },
+  {
     version: '0.17.0',
     date: '2026-06-13',
     changes: [

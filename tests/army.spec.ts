@@ -642,6 +642,34 @@ describe('mercenaryIssues', () => {
     const mixed = [...units, merc('bs', { affiliation: 'black sun', affiliations: ['empire'] })]
     expect(mercenaryIssues(armyOf('mandalorians', mixed), makeMaps(mixed).unitsById).illegalAllies).toEqual(['bs'])
   })
+
+  it('treats an affiliation-less detachment as native when its parent is fielded', () => {
+    // The Support Mandalorian Warriors (a "Detachment Mandalorian Warriors" / Heavy
+    // Weapon Team unit) has no affiliation, so it relies on its parent being present.
+    const parent = merc('warriors', {
+      name: 'Mandalorian Warriors', rank: 'corps', affiliation: 'Mandalore', affiliations: [],
+    })
+    const detach = merc('warriors-hw', {
+      name: 'Mandalorian Warriors', rank: 'support', affiliation: null, affiliations: [],
+      keywords: ['Detachment Mandalorian Warriors', 'Heavy Weapon Team'],
+    })
+    const units = [parent, detach, detach] // two support detachments (would exceed merc cap of 1)
+    const { unitsById } = makeMaps([parent, detach])
+    const issues = mercenaryIssues(armyOf('mandalorians', units), unitsById)
+    expect(issues.illegalAllies).toEqual([]) // not a foreign ally
+    expect(issues.capExceeded).toEqual([])   // not subject to the merc per-rank cap
+    expect(issues.rankCounts.support).toBe(0)
+  })
+
+  it('still flags a detachment whose parent is absent', () => {
+    const detach = merc('warriors-hw', {
+      name: 'Mandalorian Warriors', rank: 'support', affiliation: null, affiliations: [],
+      keywords: ['Detachment Mandalorian Warriors'],
+    })
+    const { unitsById } = makeMaps([detach])
+    // No parent in the list → falls through to the normal (illegal) ally check.
+    expect(mercenaryIssues(armyOf('mandalorians', [detach]), unitsById).illegalAllies).toEqual(['Mandalorian Warriors'])
+  })
 })
 
 describe('mercenary rules in validateArmy', () => {

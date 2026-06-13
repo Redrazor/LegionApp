@@ -1,0 +1,462 @@
+[
+  {
+    "id": "yu",
+    "slug": "advanced-intel",
+    "name": "Advanced Intel",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/advanced-intel.webp"
+  },
+  {
+    "id": "yv",
+    "slug": "cunning-deployment",
+    "name": "Cunning Deployment",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/cunning-deployment.webp"
+  },
+  {
+    "id": "yw",
+    "slug": "fortified-position",
+    "name": "Fortified Position",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/fortified-position.webp"
+  },
+  {
+    "id": "yx",
+    "slug": "garrison",
+    "name": "Garrison",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/garrison.webp"
+  },
+  {
+    "id": "yy",
+    "slug": "ordnance",
+    "name": "Ordnance",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/ordnance.webp"
+  },
+  {
+    "id": "yz",
+    "slug": "strafing-run",
+    "name": "Strafing Run",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/strafing-run.webp"
+  },
+  {
+    "id": "Aa",
+    "slug": "bring-them-to-heel",
+    "name": "Bring Them to Heel",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/bring-them-to-heel.webp"
+  },
+  {
+    "id": "Ab",
+    "slug": "destroy-enemy-base",
+    "name": "Destroy Enemy Base",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/destroy-enemy-base.webp"
+  },
+  {
+    "id": "Ac",
+    "slug": "marked-targets",
+    "name": "Marked Targets",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/marked-targets.webp"
+  },
+  {
+    "id": "Ad",
+    "slug": "recon-mission",
+    "name": "Recon Mission",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/recon-mission.webp"
+  },
+  {
+    "id": "Ae",
+    "slug": "surface-scan",
+    "name": "Surface Scan",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/surface-scan.webp"
+  },
+  {
+    "id": "Af",
+    "slug": "sweep-and-clear",
+    "name": "Sweep and Clear",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/sweep-and-clear.webp"
+  },
+  {
+    "id": "Ag",
+    "slug": "breakthrough",
+    "name": "Breakthrough",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/breakthrough.webp"
+  },
+  {
+    "id": "Ah",
+    "slug": "bunker-assault",
+    "name": "Bunker Assault",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/bunker-assault.webp"
+  },
+  {
+    "id": "Ai",
+    "slug": "close-the-pocket",
+    "name": "Close the Pocket",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/close-the-pocket.webp"
+  },
+  {
+    "id": "Aj",
+    "slug": "intercept-signals",
+    "name": "Intercept Signals",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/intercept-signals.webp"
+  },
+  {
+    "id": "Ak",
+    "slug": "recover-the-research",
+    "name": "Recover the Research",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/recover-the-research.webp"
+  },
+  {
+    "id": "Al",
+    "slug": "shifting-priorities",
+    "name": "Shifting Priorities",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/shifting-priorities.webp"
+  },
+  {
+    "id": "An",
+    "slug": "bunker-assault-2",
+    "name": "Bunker Assault",
+    "subtype": "objective",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/bunker-assault-2.webp"
+  },
+  {
+    "id": "Ao",
+    "slug": "close-the-pocket-2",
+    "name": "Close the Pocket",
+    "subtype": "objective",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/close-the-pocket-2.webp"
+  },
+  {
+    "id": "Ap",
+    "slug": "intercept-signals-2",
+    "name": "Intercept Signals",
+    "subtype": "objective",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/intercept-signals-2.webp"
+  },
+  {
+    "id": "Aq",
+    "slug": "bring-them-to-heel-2",
+    "name": "Bring Them to Heel",
+    "subtype": "secondary",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/bring-them-to-heel-2.webp"
+  },
+  {
+    "id": "Ar",
+    "slug": "recon-mission-2",
+    "name": "Recon Mission",
+    "subtype": "secondary",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/recon-mission-2.webp"
+  },
+  {
+    "id": "As",
+    "slug": "surface-scan-2",
+    "name": "Surface Scan",
+    "subtype": "secondary",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/surface-scan-2.webp"
+  },
+  {
+    "id": "At",
+    "slug": "advanced-intel-2",
+    "name": "Advanced Intel",
+    "subtype": "advantage",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/advanced-intel-2.webp"
+  },
+  {
+    "id": "Au",
+    "slug": "cunning-deployment-2",
+    "name": "Cunning Deployment",
+    "subtype": "advantage",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/cunning-deployment-2.webp"
+  },
+  {
+    "id": "Av",
+    "slug": "fortified-position-2",
+    "name": "Fortified Position",
+    "subtype": "advantage",
+    "keywords": [
+      "Recon"
+    ],
+    "faction": null,
+    "isRecon": true,
+    "cardImage": "/images/battle/fortified-position-2.webp"
+  },
+  {
+    "id": "Er",
+    "slug": "black-ops",
+    "name": "Black Ops",
+    "subtype": "advantage",
+    "keywords": [
+      "Infiltrate"
+    ],
+    "faction": "empire",
+    "isRecon": false,
+    "cardImage": "/images/battle/black-ops.webp"
+  },
+  {
+    "id": "Es",
+    "slug": "coordinated-strike",
+    "name": "Coordinated Strike",
+    "subtype": "advantage",
+    "keywords": [
+      "Coordinate Clone Trooper or Coordinate Vehicle"
+    ],
+    "faction": "republic",
+    "isRecon": false,
+    "cardImage": "/images/battle/coordinated-strike.webp"
+  },
+  {
+    "id": "Et",
+    "slug": "command-override",
+    "name": "Command Override",
+    "subtype": "advantage",
+    "keywords": [
+      "AI"
+    ],
+    "faction": "separatists",
+    "isRecon": false,
+    "cardImage": "/images/battle/command-override.webp"
+  },
+  {
+    "id": "Eu",
+    "slug": "no-time-to-lose",
+    "name": "No Time to Lose",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": "rebels",
+    "isRecon": false,
+    "cardImage": "/images/battle/no-time-to-lose.webp"
+  },
+  {
+    "id": "Ev",
+    "slug": "outflank",
+    "name": "Outflank",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/outflank.webp"
+  },
+  {
+    "id": "Ew",
+    "slug": "supply-run",
+    "name": "Supply Run",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/supply-run.webp"
+  },
+  {
+    "id": "Gd",
+    "slug": "cauldron",
+    "name": "Cauldron",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/cauldron.webp"
+  },
+  {
+    "id": "Ge",
+    "slug": "contact-contact",
+    "name": "Contact, Contact!",
+    "subtype": "objective",
+    "keywords": [
+      "Precise 1"
+    ],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/contact-contact.webp"
+  },
+  {
+    "id": "Gf",
+    "slug": "payload",
+    "name": "Payload",
+    "subtype": "objective",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/payload.webp"
+  },
+  {
+    "id": "Gg",
+    "slug": "retrieve-the-data",
+    "name": "Retrieve the Data",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/retrieve-the-data.webp"
+  },
+  {
+    "id": "Gh",
+    "slug": "failed-negotiations",
+    "name": "Failed Negotiations",
+    "subtype": "secondary",
+    "keywords": [
+      "Incognito"
+    ],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/failed-negotiations.webp"
+  },
+  {
+    "id": "Gi",
+    "slug": "align-the-relay",
+    "name": "Align the Relay",
+    "subtype": "secondary",
+    "keywords": [],
+    "faction": null,
+    "isRecon": false,
+    "cardImage": "/images/battle/align-the-relay.webp"
+  },
+  {
+    "id": "Gj",
+    "slug": "scrambled-orders",
+    "name": "Scrambled Orders",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": "rebels",
+    "isRecon": false,
+    "cardImage": "/images/battle/scrambled-orders.webp"
+  },
+  {
+    "id": "Gk",
+    "slug": "extreme-discipline",
+    "name": "Extreme Discipline",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": "empire",
+    "isRecon": false,
+    "cardImage": "/images/battle/extreme-discipline.webp"
+  },
+  {
+    "id": "Gl",
+    "slug": "armored-assault",
+    "name": "Armored Assault",
+    "subtype": "advantage",
+    "keywords": [],
+    "faction": "separatists",
+    "isRecon": false,
+    "cardImage": "/images/battle/armored-assault.webp"
+  },
+  {
+    "id": "Gm",
+    "slug": "rapid-deployment",
+    "name": "Rapid Deployment",
+    "subtype": "advantage",
+    "keywords": [
+      "Reinforcements"
+    ],
+    "faction": "republic",
+    "isRecon": false,
+    "cardImage": "/images/battle/rapid-deployment.webp"
+  }
+]

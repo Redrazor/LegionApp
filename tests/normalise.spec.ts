@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   slugify, mapFaction, normalizeKeyword, rankIndex,
-  buildUnits, buildUpgrades, buildCommands, buildBattleForces,
+  buildUnits, buildUpgrades, buildCommands, buildBattleForces, buildBattleCards,
   type Lhq2Card, type Lhq2BattleForce,
 } from '../scraper/normalise.ts'
 import { extractCards, extractBattleForces, parseChunkMap } from '../scraper/scrape.ts'
@@ -255,5 +255,43 @@ describe('extractBattleForces', () => {
 
   it('skips matches that are not battle-force objects', () => {
     expect(extractBattleForces('var z={foo:1, linkId:undefined}')).toEqual([])
+  })
+})
+
+describe('buildBattleCards', () => {
+  const cards: Lhq2Card[] = [
+    { id: 'p1', cardName: 'Breakthrough', cardType: 'battle', cardSubtype: 'primary', keywords: [], imageName: 'Breakthrough.webp' },
+    { id: 'p2', cardName: 'Recon Mission', cardType: 'battle', cardSubtype: 'secondary', keywords: ['Recon'], imageName: 'Recon Mission.webp' },
+    { id: 'a1', cardName: 'Fortified Position', cardType: 'battle', cardSubtype: 'advantage', keywords: [], faction: 'fringe' },
+    { id: 'a2', cardName: 'Fortified Position', cardType: 'battle', cardSubtype: 'advantage', keywords: ['Recon'] },
+    { id: 'u1', cardName: 'Stormtroopers', cardType: 'unit' }, // ignored
+  ]
+
+  it('maps primary→objective, keeps secondary/advantage', () => {
+    const out = buildBattleCards(cards)
+    expect(out).toHaveLength(4)
+    expect(out.find((c) => c.id === 'p1')!.subtype).toBe('objective')
+    expect(out.find((c) => c.id === 'p2')!.subtype).toBe('secondary')
+    expect(out.find((c) => c.id === 'a1')!.subtype).toBe('advantage')
+  })
+
+  it('flags Recon-pool cards by keyword and maps faction', () => {
+    const out = buildBattleCards(cards)
+    expect(out.find((c) => c.id === 'p2')!.isRecon).toBe(true)
+    expect(out.find((c) => c.id === 'p1')!.isRecon).toBe(false)
+    expect(out.find((c) => c.id === 'a1')!.faction).toBe('mercenary') // fringe → mercenary
+    expect(out.find((c) => c.id === 'p1')!.faction).toBeNull()
+  })
+
+  it('deduplicates slugs for same-named standard/Recon variants', () => {
+    const out = buildBattleCards(cards)
+    const forts = out.filter((c) => c.name === 'Fortified Position').map((c) => c.slug)
+    expect(forts).toEqual(['fortified-position', 'fortified-position-2'])
+  })
+
+  it('derives the card image path from the slug, null when imageless', () => {
+    const out = buildBattleCards(cards)
+    expect(out.find((c) => c.id === 'p1')!.cardImage).toBe('/images/battle/breakthrough.webp')
+    expect(out.find((c) => c.id === 'a2')!.cardImage).toBeNull() // no imageName
   })
 })

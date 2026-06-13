@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.22.0',
+    date: '2026-06-13',
+    changes: [
+      'Behind the scenes — the full battle deck (Objective, Secondary and Advantage cards, plus the Recon-format set) is now in the catalogue with card scans. Groundwork for the command-hand and battle-deck builders — coming next',
+    ],
+  },
+  {
     version: '0.21.0',
     date: '2026-06-13',
     changes: [

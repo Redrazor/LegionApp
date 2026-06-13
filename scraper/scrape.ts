@@ -14,7 +14,7 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { tmpdir } from 'os'
 import {
-  buildUnits, buildUpgrades, buildCommands, buildBattleForces,
+  buildUnits, buildUpgrades, buildCommands, buildBattleForces, buildBattleCards,
   type Lhq2Card, type Lhq2BattleForce, type Unit,
 } from './normalise.ts'
 import { parseProductCards, buildProductCatalog, type PhilibertEntry } from './products.ts'
@@ -257,6 +257,7 @@ async function main() {
   const units = buildUnits(cards)
   const upgrades = buildUpgrades(cards)
   const commands = buildCommands(cards)
+  const battleCards = buildBattleCards(cards)
   const battleForces = buildBattleForces(rawBFs)
 
   const overrides = await overrideSlugs()
@@ -278,6 +279,7 @@ async function main() {
   await writeJson('units.json', units)
   await writeJson('upgrades.json', upgrades)
   await writeJson('commands.json', commands)
+  await writeJson('battleCards.json', battleCards)
   await writeJson('battleForces.json', battleForces)
   await writeJson('products.json', products)
   await writeJson('keywords.json', keywords)
@@ -292,6 +294,7 @@ async function main() {
   const imgByUnitId = new Map(cards.filter((c) => c.cardType === 'unit').map((c) => [c.id, c.imageName]))
   const imgByUpId = new Map(cards.filter((c) => c.cardType === 'upgrade').map((c) => [c.id, c.imageName]))
   const imgByCmdId = new Map(cards.filter((c) => c.cardType === 'command').map((c) => [c.id, c.imageName]))
+  const imgByBattleId = new Map(cards.filter((c) => c.cardType === 'battle').map((c) => [c.id, c.imageName]))
 
   await mkdir(join(IMG_DIR, 'units'), { recursive: true })
   for (const slug of overrides) await copyFile(join(OVERRIDE_DIR, `${slug}.webp`), join(IMG_DIR, 'units', `${slug}.webp`))
@@ -311,6 +314,10 @@ async function main() {
     const img = imgByCmdId.get(c.id)
     return img ? [{ url: `${LHQ2_CDN}/commandCards/${enc(img)}`, dest: join(IMG_DIR, 'commands', `${c.slug}.webp`) }] : []
   })
+  const battleJobs = battleCards.flatMap((c) => {
+    const img = imgByBattleId.get(c.id)
+    return img ? [{ url: `${LHQ2_CDN}/battleCards/${enc(img)}`, dest: join(IMG_DIR, 'battle', `${c.slug}.webp`) }] : []
+  })
   // Box art for real Philibert boxes (synthetic products reuse the unit card scan).
   const imgBoxByEan = new Map(philibert.map((e) => [e.ean, e.image]))
   const boxJobs = products.flatMap((p) =>
@@ -322,6 +329,7 @@ async function main() {
   await runJobs('unit', unitJobs)
   await runJobs('upgrade', upJobs)
   await runJobs('command', cmdJobs)
+  await runJobs('battle', battleJobs)
   await runJobs('product', boxJobs)
   console.log('Done.')
 }

@@ -168,8 +168,10 @@ const exportText = computed(() => armyToText(armySheet.value))
 const exportJson = computed(() =>
   JSON.stringify(armyToListJSON(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId), null, 2),
 )
+// Download base name = the list's own name, readable (kept as typed); only strip
+// characters illegal in filenames and collapse whitespace. Falls back to "army".
 const exportFilename = computed(() =>
-  (draft.value.name || 'army').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'army',
+  (draft.value.name || '').replace(/[\\/:*?"<>|]+/g, '').replace(/\s+/g, ' ').trim() || 'army',
 )
 
 // Import modal: load a native file or a TTS/Longshanks JSON back into the draft.

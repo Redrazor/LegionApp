@@ -1315,7 +1315,7 @@ describe('battle deck', () => {
 })
 
 describe('buildArmySheet', () => {
-  const vader = unit('vader', { name: 'Darth Vader', title: 'Dark Lord', rank: 'commander', cost: 190 })
+  const vader = unit('vader', { name: 'Darth Vader', title: 'Dark Lord', rank: 'commander', cost: 190, portraitImage: '/images/portraits/darth-vader.webp' })
   const storm = unit('storm', { name: 'Stormtroopers', rank: 'corps', cost: 44 })
   const ups = [upgrade('saber', { name: 'Force Reflexes', cost: 5 })]
   const { unitsById, upgradesById } = makeMaps([vader, storm], ups)
@@ -1345,8 +1345,8 @@ describe('buildArmySheet', () => {
     expect(s.points).toBe(190 + 5 + 44 + 44)
     expect(s.activations).toBe(3)
     const cmd = s.ranks.find((r) => r.rank === 'commander')!
-    expect(cmd.units[0]).toMatchObject({ name: 'Darth Vader', title: 'Dark Lord', qty: 1, cost: 195 })
-    expect(cmd.units[0].upgrades).toEqual([{ name: 'Force Reflexes', cost: 5 }])
+    expect(cmd.units[0]).toMatchObject({ name: 'Darth Vader', title: 'Dark Lord', qty: 1, cost: 195, portrait: '/images/portraits/darth-vader.webp' })
+    expect(cmd.units[0].upgrades).toEqual([{ name: 'Force Reflexes', cost: 5, slot: 'Gear' }])
     const corps = s.ranks.find((r) => r.rank === 'corps')!
     expect(corps.units[0]).toMatchObject({ name: 'Stormtroopers', qty: 2, cost: 88 })
   })

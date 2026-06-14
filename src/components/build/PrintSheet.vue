@@ -45,11 +45,14 @@ function deckGroups(sheet: ArmySheet) {
         <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 6px;">{{ r.label }}</h2>
         <div v-for="(u, i) in r.units" :key="i" style="margin-bottom: 6px;">
           <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; font-weight: 600;">
-            <span><template v-if="u.qty > 1">{{ u.qty }}× </template>{{ u.name }}<span v-if="u.title" style="font-weight: 400; font-style: italic; color: #555;"> — {{ u.title }}</span></span>
+            <span style="display: flex; align-items: center; gap: 8px;">
+              <img v-if="u.portrait" :src="u.portrait" alt="" style="width: 28px; height: 28px; border-radius: 9999px; object-fit: cover; flex: none;" />
+              <span><template v-if="u.qty > 1">{{ u.qty }}× </template>{{ u.name }}<span v-if="u.title" style="font-weight: 400; font-style: italic; color: #555;"> — {{ u.title }}</span></span>
+            </span>
             <span style="white-space: nowrap;">{{ u.cost }}</span>
           </div>
-          <ul v-if="u.upgrades.length" style="margin: 2px 0 0; padding-left: 18px; font-size: 12px; color: #444;">
-            <li v-for="(up, j) in u.upgrades" :key="j">{{ up.name }} <span style="color: #888;">({{ up.cost }})</span></li>
+          <ul v-if="u.upgrades.length" style="margin: 2px 0 0; padding-left: 36px; font-size: 12px; color: #444;">
+            <li v-for="(up, j) in u.upgrades" :key="j"><span style="color: #888;">[{{ up.slot }}]</span> {{ up.name }} <span style="color: #888;">({{ up.cost }})</span></li>
           </ul>
         </div>
       </section>
@@ -57,8 +60,11 @@ function deckGroups(sheet: ArmySheet) {
       <!-- Command hand -->
       <section v-if="sheet.commandHand.length" style="margin-bottom: 14px; break-inside: avoid;">
         <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 6px;">Command Hand</h2>
-        <ul style="margin: 0; padding-left: 18px; font-size: 13px; columns: 2;">
-          <li v-for="(c, i) in sheet.commandHand" :key="i">{{ c.pip }} pip — {{ c.name }}</li>
+        <ul style="margin: 0; padding-left: 18px; font-size: 13px; columns: 2; list-style: none;">
+          <li v-for="(c, i) in sheet.commandHand" :key="i">
+            <span style="letter-spacing: 1px; color: #000;" :aria-label="`${c.pip} pip`">{{ '●'.repeat(c.pip) }}</span>
+            {{ c.name }}
+          </li>
         </ul>
       </section>
 

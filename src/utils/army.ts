@@ -2,7 +2,7 @@ import type {
   Army, ArmyUnit, BattleCard, BattleCardSubtype, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
+import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
 
 // ── Battle-force helpers ─────────────────────────────────────────────────────
 
@@ -701,8 +701,8 @@ export function validateBattleDeck(army: Army, battleCardsById: Map<string, Batt
 
 // ── Printable / exportable army sheet ────────────────────────────────────────
 
-export interface ArmySheetUpgrade { name: string; cost: number }
-export interface ArmySheetUnit { name: string; title: string; qty: number; cost: number; upgrades: ArmySheetUpgrade[] }
+export interface ArmySheetUpgrade { name: string; cost: number; slot: string } // slot = display label, e.g. "Heavy Weapon"
+export interface ArmySheetUnit { name: string; title: string; qty: number; cost: number; portrait: string | null; upgrades: ArmySheetUpgrade[] }
 export interface ArmySheetRank { rank: Rank; label: string; units: ArmySheetUnit[] }
 export interface ArmySheet {
   name: string
@@ -744,10 +744,10 @@ export function buildArmySheet(
       const u = unitsById.get(g.unitId)
       const upgrades = g.representative.upgrades.map((x) => {
         const up = upgradesById.get(x.upgradeId)
-        return { name: up?.name ?? x.upgradeId, cost: up?.cost ?? 0 }
+        return { name: up?.name ?? x.upgradeId, cost: up?.cost ?? 0, slot: slotLabel(up?.slot ?? x.slot.split('#')[0]) }
       })
       const lineCost = (u?.cost ?? 0) + upgrades.reduce((a, x) => a + x.cost, 0)
-      return { name: u?.name ?? g.unitId, title: u?.title ?? '', qty: g.qty, cost: lineCost * g.qty, upgrades }
+      return { name: u?.name ?? g.unitId, title: u?.title ?? '', qty: g.qty, cost: lineCost * g.qty, portrait: u?.portraitImage ?? null, upgrades }
     })
     ranks.push({ rank: r, label: rankName(r), units })
   }

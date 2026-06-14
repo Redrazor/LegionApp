@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ArmySheet } from '../../utils/army.ts'
 import type { BattleCardSubtype } from '../../types/index.ts'
+import { imageUrl } from '../../utils/imageUrl.ts'
 
 // A clean, print-only army sheet. Hidden on screen (.print-sheet); replaces the app
 // when printing (see style.css). Uses explicit black/white colours rather than theme
@@ -46,7 +47,7 @@ function deckGroups(sheet: ArmySheet) {
         <div v-for="(u, i) in r.units" :key="i" style="margin-bottom: 6px;">
           <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 14px; font-weight: 600;">
             <span style="display: flex; align-items: center; gap: 8px;">
-              <img v-if="u.portrait" :src="u.portrait" alt="" style="width: 28px; height: 28px; border-radius: 9999px; object-fit: cover; flex: none;" />
+              <img v-if="u.portrait" :src="imageUrl(u.portrait)" alt="" style="width: 28px; height: 28px; border-radius: 9999px; object-fit: cover; flex: none;" />
               <span><template v-if="u.qty > 1">{{ u.qty }}× </template>{{ u.name }}<span v-if="u.title" style="font-weight: 400; font-style: italic; color: #555;"> — {{ u.title }}</span></span>
             </span>
             <span style="white-space: nowrap;">{{ u.cost }}</span>

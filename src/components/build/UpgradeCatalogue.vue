@@ -3,6 +3,7 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import type { BattleForce, Faction, Unit } from '../../types/index.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
 import { slotLabel } from '../../utils/factions.ts'
+import { imageUrl } from '../../utils/imageUrl.ts'
 import UpgradeThumb from './UpgradeThumb.vue'
 
 // Contextual upgrade picker that lives in the LEFT catalogue pane (replaces the old
@@ -118,7 +119,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
             :disabled="inspectIndex === 0" aria-label="Previous" @click="inspectPrev"
           >‹</button>
           <img
-            v-if="inspected.cardImage" :src="inspected.cardImage" :alt="inspected.name"
+            v-if="inspected.cardImage" :src="imageUrl(inspected.cardImage)" :alt="inspected.name"
             class="max-h-[72vh] w-auto max-w-[88vw] rounded-xl border border-lg-border shadow-2xl"
           />
           <div v-else class="grid h-[60vh] w-[42vh] place-items-center rounded-xl border border-lg-border bg-lg-surface text-center text-lg-muted">{{ inspected.name }}</div>

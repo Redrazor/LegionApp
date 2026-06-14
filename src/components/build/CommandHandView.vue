@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { CommandCard } from '../../types/index.ts'
+import { imageUrl } from '../../utils/imageUrl.ts'
 
 // The command-hand builder (its own Build view/segment). A legal hand is 2 cards of
 // each of pips 1/2/3 plus the auto-included Standing Orders (4 pip). Cards are picked
@@ -58,7 +59,7 @@ const total = computed(() => props.selected.length + (props.standingOrders ? 1 :
             @click="emit('toggle', card.id)"
           >
             <img
-              v-if="card.cardImage" :src="card.cardImage" :alt="card.name"
+              v-if="card.cardImage" :src="imageUrl(card.cardImage)" :alt="card.name"
               class="aspect-[5/7] w-full object-cover" loading="lazy"
             />
             <div v-else class="flex aspect-[5/7] w-full items-center justify-center bg-lg-dark p-2 text-center text-[11px] text-lg-muted">{{ card.name }}</div>
@@ -79,7 +80,7 @@ const total = computed(() => props.selected.length + (props.standingOrders ? 1 :
         <h3 class="mb-2 font-display text-xs font-bold uppercase tracking-widest text-lg-text/80">Always included</h3>
         <div class="flex items-center gap-3 rounded-lg border border-lg-border bg-lg-surface p-2">
           <img
-            v-if="standingOrders.cardImage" :src="standingOrders.cardImage" :alt="standingOrders.name"
+            v-if="standingOrders.cardImage" :src="imageUrl(standingOrders.cardImage)" :alt="standingOrders.name"
             class="h-16 w-auto rounded object-contain" loading="lazy"
           />
           <div>

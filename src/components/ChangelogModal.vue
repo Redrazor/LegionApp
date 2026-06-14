@@ -7,9 +7,10 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
-    version: '0.26.0',
+    version: '1.0.0',
     date: '2026-06-14',
     changes: [
+      '🎉 LegionApp 1.0 — the first public release. Browse the full current-edition catalogue, build and validate armies for any format, track your collection, and look up the rules glossary — installable to your phone and usable offline. (Play, the at-the-table tracker, is coming soon.)',
       'Build — Export your army: a new Export button offers three formats. The LegionApp file is a lossless backup you can re-import later. Plain text is a clean, readable list to paste into Discord or forums. The TTS / Longshanks format is a single JSON payload that imports into the Tabletop Simulator Legion mod and registers your list on Longshanks for event stats. Copy to clipboard or download as a file.',
       'Build — Import a list: the new Import button loads a previously-exported list back in. A LegionApp file restores everything exactly; a TTS / Longshanks JSON is matched by card name, with a note for anything that could not be found.',
     ],

@@ -17,7 +17,9 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['images/**/*', 'data/**/*'],
+      // Card images live on the Firebase CDN (cross-origin), not this origin — only
+      // precache the catalogue JSON. Images are runtime-cached by destination below.
+      includeAssets: ['data/**/*'],
       manifest: {
         name: 'LegionApp',
         short_name: 'LegionApp',
@@ -37,7 +39,9 @@ export default defineConfig({
         globIgnores: ['images/**'],
         runtimeCaching: [
           {
-            urlPattern: /^\/api\//,
+            // API on Render (cross-origin in prod) — match by pathname so it works
+            // whether same-origin (dev) or on the Render host.
+            urlPattern: ({ url }) => url.pathname.startsWith('/api/'),
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',
@@ -45,10 +49,13 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /^\/images\//,
+            // Card/portrait/product images — origin-agnostic (Firebase CDN in prod,
+            // public/ in dev). Match any image request so offline works either way.
+            urlPattern: ({ request }) => request.destination === 'image',
             handler: 'CacheFirst',
             options: {
               cacheName: 'image-cache',
+              cacheableResponse: { statuses: [0, 200] },
               expiration: { maxEntries: 1000, maxAgeSeconds: 60 * 60 * 24 * 30 },
             },
           },

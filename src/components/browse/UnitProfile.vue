@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useKeywordsStore } from '../../stores/keywords.ts'
 import { factionColor, factionName, rankName, slotLabel } from '../../utils/factions.ts'
+import { imageUrl } from '../../utils/imageUrl.ts'
 import UnitStatBlock from '../ui/UnitStatBlock.vue'
 import KeywordPill from '../ui/KeywordPill.vue'
 import WeaponsTable from '../ui/WeaponsTable.vue'
@@ -81,7 +82,7 @@ function close() {
             <div class="space-y-5 p-5">
               <!-- Card image -->
               <div v-if="unit.cardImage && !imgError" class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark">
-                <img :src="unit.cardImage" :alt="`${unit.name} unit card`" class="w-full" @error="imgError = true" />
+                <img :src="imageUrl(unit.cardImage)" :alt="`${unit.name} unit card`" class="w-full" @error="imgError = true" />
               </div>
 
               <!-- Native stat block -->

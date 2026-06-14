@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Unit } from '../../types/index.ts'
 import { factionColor, rankName } from '../../utils/factions.ts'
+import { imageUrl } from '../../utils/imageUrl.ts'
 import { useFavoritesStore } from '../../stores/favorites.ts'
 
 defineProps<{ unit: Unit }>()
@@ -19,7 +20,7 @@ const favorites = useFavoritesStore()
     <div class="relative aspect-[1.41/1] w-full overflow-hidden bg-lg-dark">
       <img
         v-if="unit.cardImage"
-        :src="unit.cardImage"
+        :src="imageUrl(unit.cardImage)"
         :alt="unit.name"
         loading="lazy"
         class="h-full w-full object-cover object-top"

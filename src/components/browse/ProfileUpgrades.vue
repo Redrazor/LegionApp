@@ -3,6 +3,7 @@ import { computed, onMounted, ref } from 'vue'
 import type { Unit, Upgrade } from '../../types/index.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
 import { slotLabel } from '../../utils/factions.ts'
+import { imageUrl } from '../../utils/imageUrl.ts'
 
 const props = defineProps<{ unit: Unit }>()
 
@@ -41,7 +42,7 @@ const groups = computed(() => {
           @click="enlarged = u"
         >
           <div class="relative aspect-[1.4/1] w-full bg-lg-panel">
-            <img v-if="u.cardImage" :src="u.cardImage" :alt="u.name" loading="lazy" class="h-full w-full object-cover" />
+            <img v-if="u.cardImage" :src="imageUrl(u.cardImage)" :alt="u.name" loading="lazy" class="h-full w-full object-cover" />
             <div v-else class="flex h-full items-center justify-center px-1 text-center text-[9px] text-lg-muted">{{ u.name }}</div>
             <span class="absolute right-1 top-1 rounded bg-lg-dark/90 px-1 font-display text-[10px] font-bold text-lg-accent">{{ u.cost ?? 0 }}</span>
           </div>
@@ -64,7 +65,7 @@ const groups = computed(() => {
         <div class="max-w-md" @click.stop>
           <img
             v-if="enlarged.cardImage"
-            :src="enlarged.cardImage"
+            :src="imageUrl(enlarged.cardImage)"
             :alt="enlarged.name"
             class="w-full rounded-xl border border-lg-border shadow-2xl"
           />

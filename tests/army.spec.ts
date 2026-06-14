@@ -9,7 +9,7 @@ import {
   effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
-  buildArmySheet, COMPACT_VERSION,
+  buildArmySheet, armyToText, armyToListJSON, COMPACT_VERSION,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
@@ -1364,6 +1364,57 @@ describe('buildArmySheet', () => {
     expect(recon.showBattleDeck).toBe(false)
     expect(recon.battleForceName).toBe('Blizzard Force')
     expect(recon.formatName).toBe('Recon')
+  })
+
+  describe('armyToText', () => {
+    it('renders a readable list with header, ranked units, upgrades, command hand + deck', () => {
+      const txt = armyToText(buildArmySheet(army, unitsById, upgradesById, commandsById, battleCardsById, null))
+      expect(txt).toContain('Test List [Galactic Empire]')
+      expect(txt).toContain('Standard — 283/1000 pts, 3 activations')
+      expect(txt).toContain('COMMANDER')
+      expect(txt).toContain('• Darth Vader, Dark Lord (195)')
+      expect(txt).toContain('    - [Gear] Force Reflexes (5)')
+      expect(txt).toContain('• Stormtroopers ×2 (88)') // grouped ×N
+      expect(txt).toContain('COMMAND HAND')
+      expect(txt).toContain('• 1 New Ways')
+      expect(txt).toContain('• 4 Standing Orders')
+      expect(txt).toContain('BATTLE DECK')
+      expect(txt).toContain('• [primary] Breakthrough')
+    })
+
+    it('omits the battle deck section in Recon and names the battle force', () => {
+      const bf = makeBattleForce({ name: 'Blizzard Force' })
+      const txt = armyToText(buildArmySheet({ ...army, gameSize: 600 }, unitsById, upgradesById, commandsById, battleCardsById, bf))
+      expect(txt).toContain('Test List [Galactic Empire — Blizzard Force]')
+      expect(txt).not.toContain('BATTLE DECK')
+    })
+  })
+
+  describe('armyToListJSON', () => {
+    it('emits the name-based TTS/Longshanks payload (faction enum, names, auto Standing Orders, subtype→deck slots)', () => {
+      const json = armyToListJSON(army, unitsById, upgradesById, commandsById, battleCardsById)
+      expect(json).toMatchObject({
+        author: 'LegionApp',
+        listname: 'Test List',
+        points: 283,
+        armyFaction: 'imperial',
+        contingencies: [],
+      })
+      expect(json.units).toEqual([
+        { name: 'Darth Vader', upgrades: ['Force Reflexes'], loadout: [] },
+        { name: 'Stormtroopers', upgrades: [], loadout: [] }, // one entry per instance, not grouped
+        { name: 'Stormtroopers', upgrades: [], loadout: [] },
+      ])
+      expect(json.commandCards).toEqual(['New Ways', 'Standing Orders']) // Standing Orders always appended
+      expect(json.battlefieldDeck.objective).toEqual(['Breakthrough']) // primary → objective
+      expect(json.battlefieldDeck.deployment).toEqual(['Recon Mission']) // secondary → deployment
+      expect(json.battlefieldDeck.conditions).toEqual([]) // no advantage cards
+    })
+
+    it('maps mercenary faction to an empty armyFaction string', () => {
+      const json = armyToListJSON({ ...army, faction: 'mercenary' }, unitsById, upgradesById, commandsById, battleCardsById)
+      expect(json.armyFaction).toBe('')
+    })
   })
 })
 

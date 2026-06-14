@@ -9,7 +9,7 @@ import { useCommandsStore } from '../stores/commands.ts'
 import { useBattleCardsStore } from '../stores/battleCards.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -20,6 +20,7 @@ import BattleForcePicker from '../components/build/BattleForcePicker.vue'
 import CommandHandView from '../components/build/CommandHandView.vue'
 import BattleDeckView from '../components/build/BattleDeckView.vue'
 import PrintSheet from '../components/build/PrintSheet.vue'
+import ExportModal from '../components/build/ExportModal.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
 
@@ -157,6 +158,16 @@ const pickedBattleCards = computed(() =>
 // Print-ready snapshot of the army (units, command hand, battle deck, totals).
 const armySheet = computed(() =>
   buildArmySheet(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId, battleForce.value),
+)
+
+// Export modal: plain-text + TTS/Longshanks JSON (rendered lazily on open).
+const exportOpen = ref(false)
+const exportText = computed(() => armyToText(armySheet.value))
+const exportJson = computed(() =>
+  JSON.stringify(armyToListJSON(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId), null, 2),
+)
+const exportFilename = computed(() =>
+  (draft.value.name || 'army').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'army',
 )
 
 // Current army unit count per rank (catalogue tab counters + "+" max gating).
@@ -349,6 +360,7 @@ function printSheet() {
         @save="armyStore.saveCurrent()"
         @share="share"
         @print="printSheet"
+        @export="exportOpen = true"
       />
     </template>
 
@@ -358,6 +370,15 @@ function printSheet() {
 
     <!-- Print-only army sheet (teleported to body; shown only when printing) -->
     <PrintSheet :sheet="armySheet" :valid="validation.valid" />
+
+    <!-- Export modal: plain-text + TTS/Longshanks JSON. -->
+    <ExportModal
+      :show="exportOpen"
+      :text="exportText"
+      :json="exportJson"
+      :filename="exportFilename"
+      @close="exportOpen = false"
+    />
 
     <!-- Battle-force picker overlay (faction's battle forces + "None"). -->
     <BattleForcePicker

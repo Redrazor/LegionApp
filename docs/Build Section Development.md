@@ -266,8 +266,17 @@ The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls leg
   validation checklist). Logic: `usesBattleDeck`, `battleCardEligible`, `validateBattleDeck` (3/3/3);
   `Army.battleDeck` + `CompactArmy.d`. Battle scans git-ignored (fetched by scrape on deploy).
 
-**EPIC D COMPLETE** (D0 + D1 + D2). **Next up: EPIC E — export/print** (E1 versioned share `v:2`, E2 print
-sheet, E4 Longshanks/TTS JSON), then F1 Army Stats panel.
+**EPIC D COMPLETE** (D0 + D1 + D2).
+
+- **E2 + E1 — print sheet + versioned share** (v0.25.0, #26). `buildArmySheet` (pure) → flat snapshot;
+  `PrintSheet.vue` (teleported, `@media print` hides `#app`/shows `.print-sheet`): units by rank w/ portrait
+  badges + `[Slot]` upgrade prefix + costs, command hand as **● pip circles** (+ Standing Orders), battle
+  deck colour-coded by type, totals. Footer Print button. E1: `CompactArmy.v`/`COMPACT_VERSION=2`,
+  `fromCompact` tolerant of legacy v1. Print path verified via Playwright. Also: removed scraping/groundwork
+  wording from user-facing copy (changelog + "card scan"→"card image").
+
+**Next up: E4 — Longshanks/TTS + plain-text export** (`Unit.id` = LHQ2 short code), then **F1 Army Stats
+panel** (`utils/armyStats.ts` + footer panel).
 
 ### 2026-06-12 — C1 implemented
 **Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,

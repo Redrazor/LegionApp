@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "generate:sitemap": "tsx scripts/generate-sitemap.ts",
+    "og": "tsx scripts/generate-og.ts",
+    "build": "npm run generate:sitemap && vue-tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",

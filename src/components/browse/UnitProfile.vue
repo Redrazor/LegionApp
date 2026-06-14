@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
+import { useHead } from '@vueuse/head'
 import { useRoute, useRouter } from 'vue-router'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useKeywordsStore } from '../../stores/keywords.ts'
@@ -38,6 +39,32 @@ function close() {
   if (props.slug != null) emit('close')
   else router.push({ path: '/browse', query: route.query })
 }
+
+// Per-unit SEO/share head — ONLY when this is the `/browse/:slug` route page (no
+// `slug` prop). When mounted inside the Build catalogue we leave the head alone.
+// og:image is the unit's own card scan from the Firebase CDN (absolute URL in prod);
+// falls back to the static share card if unresolved (e.g. local dev, no image).
+useHead(computed(() => {
+  if (props.slug != null || !unit.value) return {}
+  const u = unit.value
+  const resolved = u.cardImage ? imageUrl(u.cardImage) : ''
+  const image = resolved.startsWith('http') ? resolved : 'https://www.legion-app.com/og-image.png'
+  const desc = `${u.name}${u.title ? ` (${u.title})` : ''} — ${factionName(u.faction)} ${rankName(u.rank)}, ${u.cost ?? '?'} points. Card, stats, weapons, keywords and upgrade options on LegionApp.`
+  const url = `https://www.legion-app.com/browse/${u.slug}`
+  return {
+    title: `${u.name}${u.title ? ` — ${u.title}` : ''} — LegionApp`,
+    meta: [
+      { name: 'description', content: desc },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:title', content: `${u.name}${u.title ? ` — ${u.title}` : ''}` },
+      { property: 'og:description', content: desc },
+      { property: 'og:url', content: url },
+      { property: 'og:image', content: image },
+      { name: 'twitter:image', content: image },
+    ],
+    link: [{ rel: 'canonical', href: url }],
+  }
+}))
 </script>
 
 <template>

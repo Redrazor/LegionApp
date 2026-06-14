@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useHead } from '@vueuse/head'
 import { useProductsStore } from '../stores/products.ts'
 import { useCollectionStore } from '../stores/collection.ts'
 import { useDataBackup } from '../composables/useDataBackup.ts'
@@ -41,6 +42,17 @@ async function onFile(e: Event) {
   if (file) await importData(file)
   if (fileInput.value) fileInput.value.value = ''
 }
+
+useHead({
+  title: 'Collection — LegionApp',
+  meta: [
+    { name: 'description', content: 'Track which Star Wars: Legion expansions you own, see collection progress by faction, and filter Browse to just the units you can field.' },
+    { property: 'og:title', content: 'Collection — LegionApp' },
+    { property: 'og:description', content: 'Track which Star Wars: Legion expansions you own and filter Browse to the units you can field.' },
+    { property: 'og:url', content: 'https://www.legion-app.com/collection' },
+  ],
+  link: [{ rel: 'canonical', href: 'https://www.legion-app.com/collection' }],
+})
 </script>
 
 <template>

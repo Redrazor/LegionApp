@@ -2,6 +2,41 @@
 
 A running log of features for LegionApp, newest first.
 
+> **Status: 1.0 LAUNCHED (2026-06-15)** — live at https://www.legion-app.com (Vercel SPA + Firebase
+> image CDN + Render API; see Feature 6). SEO/social/sitemap + Vercel Web Analytics done (Feature 7).
+
+## Roadmap (post-1.0, priority order)
+
+1. **Play tab** — the big open feature. Live at-the-table tracker (wounds, suppression, tokens, command
+   pips, order pool, battle deck) + real-time multiplayer via room codes. socket.io + `server/rooms.ts`
+   are scaffolded; this is the main reason the Render backend exists.
+2. **Launch loose ends** — reverse ShatterApp→Legion footer link (edit + deploy in `../ShatterApp`);
+   asset kit (3 screenshots + a build→validate→share GIF); post the `community/` launch copy.
+3. **Feature 5 — full battle-force support** (all factions) — see below; still planned.
+4. **Brand polish** — a real logo to replace the placeholder "L" mark.
+
+## Backlog (to detail)
+
+_Placeholders for items the owner will spec out — do not invent scope; fill in when described._
+
+- **TBD #1** — _(to detail)_
+- **TBD #2** — _(to detail)_
+- **TBD #3** — _(to detail)_
+
+---
+
+## Feature 7 — SEO, social share cards & launch comms
+
+**Status:** done (v1.1.0). Made the app discoverable + shareable at every level: full Open Graph + Twitter
+Card + canonical + JSON-LD (`WebApplication`) base tags in `index.html`, per-route `useHead`
+(Browse/Build/Collection/Reference/Roll/Play), and per-unit `useHead` on `/browse/:slug` whose
+`og:image` is the unit's **own Firebase card scan** (rich per-unit previews, no serverless function).
+Added a generated 1200×630 `public/og-image.png` (`npm run og`), `public/robots.txt`, and a
+build-time `public/sitemap.xml` (`npm run generate:sitemap`, wired into `build`; 179 units + static
+routes). Also modernised the `community/` launch copy — corrected formats (Standard **1000** / Recon
+**600**, not the old 800/500), the real `www.legion-app.com` domain, and the current feature set
+(command hand, battle deck, export/import).
+
 ## Feature 6 — 1.0 release (Vercel + Firebase + Render deployment)
 
 **Status:** done (v1.0.0). The first public deployment. Three hosts:

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useHead } from '@vueuse/head'
 import { useKeywordsStore } from '../stores/keywords.ts'
 import { SLOT_LABELS, RANK_META, RANK_ORDER, FACTION_ORDER, FACTION_META } from '../utils/factions.ts'
 
@@ -22,6 +23,17 @@ const filteredKeywords = computed(() => {
 })
 
 const slots = Object.entries(SLOT_LABELS)
+
+useHead({
+  title: 'Reference & Rules Glossary — LegionApp',
+  meta: [
+    { name: 'description', content: 'Searchable Star Wars: Legion keyword glossary plus upgrade-slot, rank and faction reference and the embedded core rulebook.' },
+    { property: 'og:title', content: 'Reference & Rules Glossary — LegionApp' },
+    { property: 'og:description', content: 'Searchable Star Wars: Legion keyword glossary plus slot/rank/faction reference and the embedded rulebook.' },
+    { property: 'og:url', content: 'https://www.legion-app.com/reference' },
+  ],
+  link: [{ rel: 'canonical', href: 'https://www.legion-app.com/reference' }],
+})
 </script>
 
 <template>

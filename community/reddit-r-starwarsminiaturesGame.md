@@ -14,12 +14,12 @@ Cross-game AMG miniatures sub. You already post ShatterApp here — lean into th
 
 A while back I shared ShatterApp here (my free Shatterpoint companion). I've now built the same kind of thing for **Legion** — same approach: free, no account, mobile-first, installable as a PWA.
 
-**LegionApp** — [legionapp.com](https://legionapp.com) *(update once live)*
+**LegionApp** — [legion-app.com](https://www.legion-app.com)
 
 What it covers:
 
 - **Browse** — every unit by faction with card scans, native stat blocks, upgrade-slot bars, and tap-to-define keywords
-- **Build** — army builder at Standard (800) / Skirmish (500) with slot-aware upgrades and live legality validation (rank limits, points, single-faction, uniques), share-by-link and printable sheets
+- **Build** — army builder at Standard (1000) / Recon (600) with slot-aware upgrades and live legality validation (rank limits, points, single-faction, uniques), command-hand + battle-deck builders, share-by-link, printable sheets, and export/import (incl. TTS / Longshanks)
 - **Collection** — expansion ownership tracking with an owned-only filter and JSON backup
 - **Reference** — keyword glossary, slot/rank/faction reference, embedded rulebook
 
@@ -27,7 +27,7 @@ An at-the-table **Play** tracker with real-time multiplayer is next (same engine
 
 If you play both games, the two apps share a look and feel by design.
 
-👉 **[legionapp.com](https://legionapp.com)** · Shatterpoint: [shatterapp.com](https://shatterapp.com)
+👉 **[legion-app.com](https://www.legion-app.com)** · Shatterpoint: [shatterapp.com](https://shatterapp.com)
 
 Feedback very welcome — what's missing?
 

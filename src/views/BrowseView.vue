@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, watch } from 'vue'
+import { useHead } from '@vueuse/head'
 import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useUnitsStore } from '../stores/units.ts'
@@ -60,6 +61,17 @@ watch(
   },
   { deep: true },
 )
+
+useHead({
+  title: 'Browse Units — LegionApp',
+  meta: [
+    { name: 'description', content: 'Browse every Star Wars: Legion unit grouped by faction — card scans, stat blocks, weapons, upgrade-slot bars and a tap-to-define keyword glossary.' },
+    { property: 'og:title', content: 'Browse Units — LegionApp' },
+    { property: 'og:description', content: 'Browse every Star Wars: Legion unit grouped by faction — card scans, stats, weapons, upgrade slots and keywords.' },
+    { property: 'og:url', content: 'https://www.legion-app.com/browse' },
+  ],
+  link: [{ rel: 'canonical', href: 'https://www.legion-app.com/browse' }],
+})
 </script>
 
 <template>

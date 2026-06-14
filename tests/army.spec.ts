@@ -9,7 +9,7 @@ import {
   effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
-  buildArmySheet, COMPACT_VERSION,
+  buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
@@ -1364,6 +1364,127 @@ describe('buildArmySheet', () => {
     expect(recon.showBattleDeck).toBe(false)
     expect(recon.battleForceName).toBe('Blizzard Force')
     expect(recon.formatName).toBe('Recon')
+  })
+
+  describe('armyToText', () => {
+    it('renders a readable list with header, ranked units, upgrades, command hand + deck', () => {
+      const txt = armyToText(buildArmySheet(army, unitsById, upgradesById, commandsById, battleCardsById, null))
+      expect(txt).toContain('Test List [Galactic Empire]')
+      expect(txt).toContain('Standard — 283/1000 pts, 3 activations')
+      expect(txt).toContain('COMMANDER')
+      expect(txt).toContain('• Darth Vader, Dark Lord (195)')
+      expect(txt).toContain('    - [Gear] Force Reflexes (5)')
+      expect(txt).toContain('• Stormtroopers ×2 (88)') // grouped ×N
+      expect(txt).toContain('COMMAND HAND')
+      expect(txt).toContain('• 1 New Ways')
+      expect(txt).toContain('• 4 Standing Orders')
+      expect(txt).toContain('BATTLE DECK')
+      expect(txt).toContain('• [primary] Breakthrough')
+    })
+
+    it('omits the battle deck section in Recon and names the battle force', () => {
+      const bf = makeBattleForce({ name: 'Blizzard Force' })
+      const txt = armyToText(buildArmySheet({ ...army, gameSize: 600 }, unitsById, upgradesById, commandsById, battleCardsById, bf))
+      expect(txt).toContain('Test List [Galactic Empire — Blizzard Force]')
+      expect(txt).not.toContain('BATTLE DECK')
+    })
+  })
+
+  describe('armyToListJSON', () => {
+    it('emits the name-based TTS/Longshanks payload (faction enum, names, auto Standing Orders, subtype→deck slots)', () => {
+      const json = armyToListJSON(army, unitsById, upgradesById, commandsById, battleCardsById)
+      expect(json).toMatchObject({
+        author: 'LegionApp',
+        listname: 'Test List',
+        points: 283,
+        armyFaction: 'imperial',
+        contingencies: [],
+      })
+      expect(json.units).toEqual([
+        { name: 'Darth Vader', upgrades: ['Force Reflexes'], loadout: [] },
+        { name: 'Stormtroopers', upgrades: [], loadout: [] }, // one entry per instance, not grouped
+        { name: 'Stormtroopers', upgrades: [], loadout: [] },
+      ])
+      expect(json.commandCards).toEqual(['New Ways', 'Standing Orders']) // Standing Orders always appended
+      expect(json.battlefieldDeck.objective).toEqual(['Breakthrough']) // primary → objective
+      expect(json.battlefieldDeck.deployment).toEqual(['Recon Mission']) // secondary → deployment
+      expect(json.battlefieldDeck.conditions).toEqual([]) // no advantage cards
+    })
+
+    it('maps mercenary faction to an empty armyFaction string', () => {
+      const json = armyToListJSON({ ...army, faction: 'mercenary' }, unitsById, upgradesById, commandsById, battleCardsById)
+      expect(json.armyFaction).toBe('')
+    })
+  })
+
+  describe('importArmy', () => {
+    const catalog = {
+      units: [vader, storm],
+      upgrades: ups,
+      commands: [...commandsById.values()],
+      battleCards: [...battleCardsById.values()],
+    }
+
+    it('round-trips a native LegionApp file losslessly (ids preserved)', () => {
+      const file = JSON.stringify(toCompact(army), null, 2)
+      const res = importArmy(file, catalog)!
+      expect(res.source).toBe('native')
+      expect(res.warnings).toEqual([])
+      expect(res.army.faction).toBe('empire')
+      expect(res.army.gameSize).toBe(1000)
+      expect(res.army.units.map((u) => u.unitId)).toEqual(['vader', 'storm', 'storm'])
+      expect(res.army.units[0].upgrades).toEqual([{ slot: 'force#0', upgradeId: 'saber' }])
+      expect(res.army.commandHand).toEqual(['c1'])
+      expect(res.army.battleDeck).toEqual(['b2', 'b1'])
+    })
+
+    it('flags unknown ids in a native file but keeps them', () => {
+      const file = JSON.stringify(toCompact({ ...army, units: [{ uid: '1', unitId: 'ghost', upgrades: [] }] }))
+      const res = importArmy(file, catalog)!
+      expect(res.source).toBe('native')
+      expect(res.army.units[0].unitId).toBe('ghost')
+      expect(res.warnings.some((w) => w.includes('ghost'))).toBe(true)
+    })
+
+    it('imports a TTS/Longshanks JSON by name, rebuilding upgrades + command hand + deck', () => {
+      const json = JSON.stringify(armyToListJSON(army, unitsById, upgradesById, commandsById, battleCardsById))
+      const res = importArmy(json, catalog)!
+      expect(res.source).toBe('tts')
+      expect(res.army.faction).toBe('empire')
+      expect(res.army.units.map((u) => u.unitId)).toEqual(['vader', 'storm', 'storm'])
+      expect(res.army.units[0].upgrades).toEqual([{ slot: 'gear#0', upgradeId: 'saber' }]) // re-slotted by upgrade.slot
+      expect(res.army.commandHand).toEqual(['c1']) // Standing Orders dropped (auto)
+      expect(res.army.battleDeck.sort()).toEqual(['b1', 'b2'])
+      expect(res.warnings.some((w) => w.includes('Standard'))).toBe(true) // cap not stored
+    })
+
+    it('warns on unmatched card names instead of dropping them silently', () => {
+      const res = importArmy(JSON.stringify({
+        armyFaction: 'imperial',
+        units: [{ name: 'Darth Vader', upgrades: ['Nonexistent Gear'] }, { name: 'Ghost Unit', upgrades: [] }],
+        commandCards: ['Unknown Card', 'Standing Orders'],
+        battlefieldDeck: { objective: ['No Such Mission'] },
+      }), catalog)!
+      expect(res.army.units.map((u) => u.unitId)).toEqual(['vader']) // ghost dropped
+      expect(res.army.units[0].upgrades).toEqual([]) // bad upgrade dropped
+      expect(res.warnings).toEqual(expect.arrayContaining([
+        expect.stringContaining('Ghost Unit'),
+        expect.stringContaining('Nonexistent Gear'),
+        expect.stringContaining('Unknown Card'),
+        expect.stringContaining('No Such Mission'),
+      ]))
+    })
+
+    it('maps empty armyFaction back to Mercenary with a note', () => {
+      const res = importArmy(JSON.stringify({ armyFaction: '', units: [] }), catalog)!
+      expect(res.army.faction).toBe('mercenary')
+      expect(res.warnings.some((w) => w.includes('Mercenary'))).toBe(true)
+    })
+
+    it('returns null for non-JSON or unrecognised shapes', () => {
+      expect(importArmy('not json', catalog)).toBeNull()
+      expect(importArmy('{"hello":"world"}', catalog)).toBeNull()
+    })
   })
 })
 

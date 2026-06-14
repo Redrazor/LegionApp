@@ -275,8 +275,33 @@ The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls leg
   `fromCompact` tolerant of legacy v1. Print path verified via Playwright. Also: removed scraping/groundwork
   wording from user-facing copy (changelog + "card scan"→"card image").
 
-**Next up: E4 — Longshanks/TTS + plain-text export** (`Unit.id` = LHQ2 short code), then **F1 Army Stats
-panel** (`utils/armyStats.ts` + footer panel).
+- **E3 + E4 — army export (plain-text + TTS/Longshanks JSON)** (v0.26.0, #—). **Key research finding:** TTS
+  and Longshanks use the SAME format — Longshanks ingests the exact `swlegion/tts` "Export TTS JSON"
+  `listData` object, so E3's TTS half and E4 collapse into ONE export. The schema keys off **card display
+  NAMES**, not ids — and our catalogue already stores names, so there is **no id→name crosswalk** to build
+  (the original E4 "live legionhq2 id-crosswalk" worry dissolves). Two pure fns in `army.ts`:
+  `armyToText(sheet)` (readable list off the existing `ArmySheet` snapshot) and `armyToListJSON(army, …maps)`
+  → `{author, listname, points, armyFaction, commandCards (+auto "Standing Orders"), contingencies, units[
+  {name, upgrades[], loadout[]} ] (one per instance), battlefieldDeck}`. Faction map: rebels→`rebel`,
+  empire→`imperial`, separatists→`separatist`, mercenary/mandalorians→`""`. Battle deck: subtype→old
+  objective/deployment/condition slots best-effort (schema predates the 2024 v2 primary/secondary/advantage
+  deck). UI: `ExportModal.vue` (teleported, 2 tabs: Plain text / TTS·Longshanks, Copy + Download .txt/.json);
+  footer **Export** button. Output verified via Playwright (valid JSON, names, auto Standing Orders).
+  **Caveat surfaced in-UI:** names must match the importer's catalogue spelling (no hard guarantee vs the TTS
+  mod's own card DB).
+  - **Import (round-trip, same cycle).** A 3rd export tab — **LegionApp file** (`JSON.stringify(toCompact())`,
+    lossless, id-based) — gives a re-importable backup. New footer **Import** button → `ImportModal.vue`
+    (file picker + paste). `importArmy(text, catalog)` (pure) auto-detects: native CompactArmy → `fromCompact`
+    (lossless; unknown ids warned-but-kept) vs TTS/Longshanks JSON → best-effort name match (reverse faction
+    map, name→id for units/upgrades/commands/battle cards, re-slots upgrades by `upgrade.slot#i`, drops the
+    auto Standing Orders, defaults cap to Standard 1000). Unmatched/ambiguous names go to a `warnings[]` shown
+    in the modal, not silently dropped. Replace-confirm guards a non-empty draft. Both paths verified via
+    Playwright (native = zero-warning lossless restore incl. format; TTS = matched + ambiguity/not-found
+    warnings). Download names disambiguated: `<slug>.legionapp.json` / `.tts.json` / `.txt`.
+
+**EPIC E COMPLETE** (E1 + E2 + E3 + E4). **Next up: F1 — Army Stats panel** (`utils/armyStats.ts` + footer
+slide-in: composition / offense via the dice engine / durability / mobility-morale / keyword tallies + small
+SVG charts). Independent of everything shipped; the last Feature-4 epic.
 
 ### 2026-06-12 — C1 implemented
 **Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,

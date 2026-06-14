@@ -785,6 +785,294 @@ export function buildArmySheet(
   }
 }
 
+// ── Export formats (EPIC E3/E4) ──────────────────────────────────────────────
+
+/**
+ * Plain-text army list — the conventional readable block players paste into
+ * Discord/forums. Pure: derived entirely from the `ArmySheet` snapshot so it
+ * stays in lockstep with the print sheet (same names, costs, grouping, order).
+ */
+export function armyToText(sheet: ArmySheet): string {
+  const lines: string[] = []
+  const bf = sheet.battleForceName ? ` — ${sheet.battleForceName}` : ''
+  lines.push(`${sheet.name} [${sheet.factionName}${bf}]`)
+  lines.push(`${sheet.formatName} — ${sheet.points}/${sheet.cap} pts, ${sheet.activations} activations`)
+
+  for (const rank of sheet.ranks) {
+    lines.push('', rank.label.toUpperCase())
+    for (const u of rank.units) {
+      const qty = u.qty > 1 ? ` ×${u.qty}` : ''
+      const title = u.title ? `, ${u.title}` : ''
+      lines.push(`• ${u.name}${title}${qty} (${u.cost})`)
+      for (const up of u.upgrades) lines.push(`    - [${up.slot}] ${up.name} (${up.cost})`)
+    }
+  }
+
+  if (sheet.commandHand.length) {
+    lines.push('', 'COMMAND HAND')
+    for (const c of sheet.commandHand) lines.push(`• ${c.pip} ${c.name}`)
+  }
+
+  if (sheet.showBattleDeck && sheet.battleDeck.length) {
+    lines.push('', 'BATTLE DECK')
+    for (const c of sheet.battleDeck) lines.push(`• [${c.subtype}] ${c.name}`)
+  }
+
+  return lines.join('\n')
+}
+
+/** Our factions → the name-based interchange `armyFaction` enum (mercenary → ""). */
+const TTS_FACTION: Record<Faction, string> = {
+  rebels: 'rebel',
+  empire: 'imperial',
+  republic: 'republic',
+  separatists: 'separatist',
+  mercenary: '', // fringe/mercenary → "" (TTS coerces to "shadowcollective")
+  mandalorians: '', // Mandalorian Clans is a Shadow Collective battle force
+}
+
+export interface ListExportUnit {
+  name: string
+  upgrades: string[]
+  loadout: string[]
+}
+export interface ListExportJSON {
+  author: string
+  listname: string
+  points: number
+  armyFaction: string
+  commandCards: string[]
+  contingencies: string[]
+  units: ListExportUnit[]
+  battlefieldDeck: {
+    scenario: string
+    objective: string[]
+    deployment: string[]
+    conditions: string[]
+  }
+}
+
+/**
+ * The name-based "Export TTS JSON" interchange object. One payload serves BOTH the
+ * `swlegion/tts` Tabletop Simulator mod (paste-import) AND Longshanks event
+ * registration (which ingests this exact schema for metagame stats). Every card is
+ * referenced by its exact display NAME — the importers key on names, not ids — so we
+ * emit the catalogue names directly (no id crosswalk).
+ *
+ * Note: the schema predates the 2024 v2 battle deck, so its objective/deployment/
+ * condition trichotomy doesn't map cleanly to the current primary/secondary/advantage
+ * subtypes. We slot them best-effort (primary→objective, secondary→deployment,
+ * advantage→conditions) so the names still flow into Longshanks stats.
+ */
+export function armyToListJSON(
+  army: Army,
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+  commandsById: Map<string, CommandCard>,
+  battleCardsById: Map<string, BattleCard>,
+): ListExportJSON {
+  let points = 0
+  for (const au of army.units) points += unitCost(au, unitsById, upgradesById)
+
+  const units: ListExportUnit[] = army.units.map((au) => ({
+    name: unitsById.get(au.unitId)?.name ?? au.unitId,
+    upgrades: au.upgrades
+      .map((x) => upgradesById.get(x.upgradeId)?.name)
+      .filter((n): n is string => !!n),
+    loadout: [],
+  }))
+
+  const commandCards = (army.commandHand ?? [])
+    .map((id) => commandsById.get(id)?.name)
+    .filter((n): n is string => !!n)
+  commandCards.push('Standing Orders')
+
+  const deck = { primary: [] as string[], secondary: [] as string[], advantage: [] as string[] }
+  for (const id of army.battleDeck ?? []) {
+    const card = battleCardsById.get(id)
+    if (card) deck[card.subtype].push(card.name)
+  }
+
+  return {
+    author: 'LegionApp',
+    listname: army.name || 'Untitled',
+    points,
+    armyFaction: army.faction ? TTS_FACTION[army.faction] : '',
+    commandCards,
+    contingencies: [],
+    units,
+    battlefieldDeck: {
+      scenario: 'standard',
+      objective: deck.primary,
+      deployment: deck.secondary,
+      conditions: deck.advantage,
+    },
+  }
+}
+
+// ── Import (round-trip a previously-exported list) ───────────────────────────
+
+/** Reverse of TTS_FACTION ("" maps back to mercenary; see importTTS). */
+const TTS_FACTION_REVERSE: Record<string, Faction> = {
+  rebel: 'rebels',
+  imperial: 'empire',
+  republic: 'republic',
+  separatist: 'separatists',
+}
+
+export interface ListCatalog {
+  units: Unit[]
+  upgrades: Upgrade[]
+  commands: CommandCard[]
+  battleCards: BattleCard[]
+}
+export interface ImportResult {
+  army: Army
+  warnings: string[]
+  source: 'native' | 'tts'
+}
+
+/** Lowercased-name → first card index, plus the set of names that resolve to >1 card. */
+function nameIndex<T extends { name: string }>(items: T[]): { map: Map<string, T>; ambiguous: Set<string> } {
+  const map = new Map<string, T>()
+  const ambiguous = new Set<string>()
+  for (const it of items) {
+    const k = it.name.trim().toLowerCase()
+    if (map.has(k)) ambiguous.add(k)
+    else map.set(k, it)
+  }
+  return { map, ambiguous }
+}
+
+/**
+ * Parse a previously-exported list back into an `Army`, auto-detecting the format:
+ *  - **native** LegionApp file (id-based CompactArmy) — lossless via `fromCompact`;
+ *    unknown ids (e.g. a newer data version) are reported but kept.
+ *  - **TTS / Longshanks JSON** (name-based) — best-effort: cards matched by display
+ *    name against `catalog`; unmatched/ambiguous names are reported in `warnings`
+ *    rather than silently dropped. That schema stores no format/points cap, so it
+ *    defaults to Standard 1000.
+ * Returns `null` if the text isn't valid JSON or a recognised list shape.
+ */
+export function importArmy(text: string, catalog: ListCatalog): ImportResult | null {
+  let data: unknown
+  try {
+    data = JSON.parse(text)
+  } catch {
+    return null
+  }
+  if (!data || typeof data !== 'object') return null
+  const obj = data as Record<string, unknown>
+
+  // Native CompactArmy: carries the `u` units tuples (possibly empty).
+  if (Array.isArray(obj.u) || (typeof obj.g === 'number' && 'n' in obj)) {
+    const army = fromCompact(obj as unknown as CompactArmy)
+    const warnings: string[] = []
+    const knownUnit = new Set(catalog.units.map((u) => u.id))
+    const knownUp = new Set(catalog.upgrades.map((u) => u.id))
+    for (const au of army.units) {
+      if (!knownUnit.has(au.unitId)) warnings.push(`Unknown unit id "${au.unitId}" — kept but may not resolve.`)
+      for (const x of au.upgrades) if (!knownUp.has(x.upgradeId)) warnings.push(`Unknown upgrade id "${x.upgradeId}".`)
+    }
+    return { army, warnings, source: 'native' }
+  }
+
+  // TTS / Longshanks JSON: name-based.
+  if ('armyFaction' in obj && Array.isArray(obj.units)) return importTTS(obj, catalog)
+
+  return null
+}
+
+function importTTS(obj: Record<string, unknown>, catalog: ListCatalog): ImportResult {
+  const warnings: string[] = []
+  const units = nameIndex(catalog.units)
+  const upgrades = nameIndex(catalog.upgrades)
+  const commands = nameIndex(catalog.commands)
+  const battle = nameIndex(catalog.battleCards)
+
+  const factionRaw = String(obj.armyFaction ?? '')
+  let faction: Faction | null
+  if (!factionRaw) {
+    faction = 'mercenary'
+    warnings.push('Faction was empty (Mercenary / Mandalorian Clans are indistinguishable in this format) — set to Mercenary.')
+  } else if (TTS_FACTION_REVERSE[factionRaw]) {
+    faction = TTS_FACTION_REVERSE[factionRaw]
+  } else {
+    faction = null
+    warnings.push(`Unrecognised faction "${factionRaw}".`)
+  }
+
+  let counter = 0
+  const armyUnits: ArmyUnit[] = []
+  for (const raw of obj.units as Record<string, unknown>[]) {
+    const name = String(raw?.name ?? '').trim()
+    if (!name) continue
+    const key = name.toLowerCase()
+    const unit = units.map.get(key)
+    if (!unit) {
+      warnings.push(`Unit not found: "${name}".`)
+      continue
+    }
+    if (units.ambiguous.has(key)) {
+      warnings.push(`Ambiguous unit "${name}" — used "${unit.name}${unit.title ? `, ${unit.title}` : ''}".`)
+    }
+
+    const slotCount: Record<string, number> = {}
+    const ups: { slot: string; upgradeId: string }[] = []
+    const upNames = [...((raw.upgrades as unknown[]) ?? []), ...((raw.loadout as unknown[]) ?? [])]
+    for (const upRaw of upNames) {
+      const uk = String(upRaw ?? '').trim().toLowerCase()
+      if (!uk) continue
+      const up = upgrades.map.get(uk)
+      if (!up) {
+        warnings.push(`Upgrade not found: "${upRaw}" (on ${name}).`)
+        continue
+      }
+      const idx = slotCount[up.slot] ?? 0
+      ups.push({ slot: `${up.slot}#${idx}`, upgradeId: up.id })
+      slotCount[up.slot] = idx + 1
+    }
+    armyUnits.push({ uid: `u${counter++}`, unitId: unit.id, upgrades: ups })
+  }
+
+  const commandHand: string[] = []
+  for (const cRaw of (obj.commandCards as unknown[]) ?? []) {
+    const n = String(cRaw ?? '').trim()
+    if (!n || n.toLowerCase() === 'standing orders') continue // auto card, not a pick
+    const c = commands.map.get(n.toLowerCase())
+    if (c) commandHand.push(c.id)
+    else warnings.push(`Command card not found: "${n}".`)
+  }
+
+  const bd = (obj.battlefieldDeck ?? {}) as Record<string, unknown>
+  const battleDeck: string[] = []
+  for (const arr of [bd.objective, bd.deployment, bd.condition, bd.conditions]) {
+    for (const bRaw of (arr as unknown[]) ?? []) {
+      const n = String(bRaw ?? '').trim()
+      if (!n) continue
+      const b = battle.map.get(n.toLowerCase())
+      if (b) battleDeck.push(b.id)
+      else warnings.push(`Battle card not found: "${n}".`)
+    }
+  }
+
+  warnings.push("Format/points cap isn't stored in this file — set to Standard (1000).")
+
+  return {
+    army: {
+      name: String(obj.listname ?? ''),
+      faction,
+      battleForce: null,
+      gameSize: 1000,
+      units: armyUnits,
+      commandHand,
+      battleDeck,
+    },
+    warnings,
+    source: 'tts',
+  }
+}
+
 export function validateArmy(
   army: Army,
   unitsById: Map<string, Unit>,

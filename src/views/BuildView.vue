@@ -6,9 +6,10 @@ import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useBattleForcesStore } from '../stores/battleForces.ts'
 import { useCommandsStore } from '../stores/commands.ts'
+import { useBattleCardsStore } from '../stores/battleCards.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -17,6 +18,7 @@ import RankCatalogue from '../components/build/RankCatalogue.vue'
 import UpgradeCatalogue from '../components/build/UpgradeCatalogue.vue'
 import BattleForcePicker from '../components/build/BattleForcePicker.vue'
 import CommandHandView from '../components/build/CommandHandView.vue'
+import BattleDeckView from '../components/build/BattleDeckView.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
 
@@ -25,6 +27,7 @@ const unitsStore = useUnitsStore()
 const upgradesStore = useUpgradesStore()
 const bfStore = useBattleForcesStore()
 const commandsStore = useCommandsStore()
+const battleCardsStore = useBattleCardsStore()
 const { draft, saved, activeIndex } = storeToRefs(armyStore)
 const { validation, pointsRemaining, battleForce } = useArmyValidation()
 const { isMobile, isDesktop } = useBreakpoint()
@@ -66,6 +69,7 @@ onMounted(() => {
   upgradesStore.load()
   bfStore.load()
   commandsStore.load()
+  battleCardsStore.load()
   // Import a shared army from the URL (?a=...)
   const params = new URLSearchParams(window.location.search)
   const a = params.get('a')
@@ -136,6 +140,19 @@ const presentParents = computed(() => presentDetachmentParents(draft.value, unit
 const eligibleCommands = computed(() => eligibleCommandCards(commandsStore.commands, draft.value, unitsStore.byId))
 const standingOrders = computed(() => commandsStore.commands.find((c) => c.pips >= 4) ?? null)
 
+// Battle deck: eligible Standard-pool cards + the picked deck resolved to cards. The
+// deck is a Standard-format concept — Recon has none.
+const showBattleDeck = computed(() => usesBattleDeck(draft.value.gameSize))
+const eligibleBattle = computed(() => eligibleBattleCards(battleCardsStore.battleCards, draft.value))
+
+// Picked cards resolved to records, for the footer's at-a-glance summary.
+const pickedCommandCards = computed(() =>
+  (draft.value.commandHand ?? []).map((id) => commandsStore.byId.get(id)).filter((c): c is NonNullable<typeof c> => !!c),
+)
+const pickedBattleCards = computed(() =>
+  (draft.value.battleDeck ?? []).map((id) => battleCardsStore.byId.get(id)).filter((c): c is NonNullable<typeof c> => !!c),
+)
+
 // Current army unit count per rank (catalogue tab counters + "+" max gating).
 const counts = computed(() => {
   const out = {} as Record<Rank, number>
@@ -175,7 +192,7 @@ function printSheet() {
     </div>
   </div>
 
-  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null" :has-command="true">
+  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null" :has-command="true" :has-battle-deck="showBattleDeck">
     <!-- Header controls -->
     <template #header>
       <div class="mb-4 flex flex-wrap items-center gap-3">
@@ -294,6 +311,16 @@ function printSheet() {
       />
     </template>
 
+    <!-- Battle-deck builder (its own tab/segment; Standard formats only) -->
+    <template #battle>
+      <BattleDeckView
+        :eligible="eligibleBattle"
+        :selected="draft.battleDeck ?? []"
+        :has-units="draft.units.length > 0"
+        @toggle="armyStore.toggleBattleCard"
+      />
+    </template>
+
     <!-- Pinned rank-tracker footer: chips, totals, format switcher, actions -->
     <template #footer>
       <RankTrackerFooter
@@ -308,6 +335,10 @@ function printSheet() {
         :can-export="!!draft.units.length"
         :save-label="activeIndex >= 0 ? 'Update' : 'Save'"
         :share-msg="shareMsg"
+        :command-hand-cards="pickedCommandCards"
+        :standing-orders="standingOrders"
+        :battle-deck-cards="pickedBattleCards"
+        :show-battle-deck="showBattleDeck"
         @set-game-size="armyStore.setGameSize"
         @save="armyStore.saveCurrent()"
         @share="share"

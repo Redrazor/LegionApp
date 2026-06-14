@@ -187,6 +187,7 @@ export interface Army {
   gameSize: number // points cap; resolves to a format via rankLimits() — 600 Recon, 800 legacy, 1000 Standard, 1600 Grand Army
   units: ArmyUnit[]
   commandHand: string[] // chosen command-card ids (the 6 picks; Standing Orders is auto)
+  battleDeck: string[] // chosen battle-card ids (3 primary + 3 secondary + 3 advantage; Standard only)
 }
 
 /** Compact, ID-only serialised army for save/share. */
@@ -197,6 +198,7 @@ export interface CompactArmy {
   g: number // game size
   u: [string, [string, string][]][] // [unitId, [[slot, upgradeId], ...]]
   c?: string[] // command-hand card ids (optional; absent = none)
+  d?: string[] // battle-deck card ids (optional; absent = none)
 }
 
 // ── Display metadata ─────────────────────────────────────────────────────────

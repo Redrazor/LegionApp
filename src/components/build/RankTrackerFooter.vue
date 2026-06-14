@@ -34,6 +34,7 @@ const emit = defineEmits<{
   share: []
   print: []
   export: []
+  import: []
 }>()
 
 const checklistOpen = ref(false)
@@ -227,6 +228,7 @@ const chipClass: Record<ReturnType<typeof rankChipState>, string> = {
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('share')">Share</button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('print')">Print</button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('export')">Export</button>
+        <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent" @click="emit('import')">Import</button>
       </div>
     </div>
 

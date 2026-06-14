@@ -9,7 +9,7 @@ import {
   effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
-  buildArmySheet, armyToText, armyToListJSON, COMPACT_VERSION,
+  buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
@@ -1414,6 +1414,76 @@ describe('buildArmySheet', () => {
     it('maps mercenary faction to an empty armyFaction string', () => {
       const json = armyToListJSON({ ...army, faction: 'mercenary' }, unitsById, upgradesById, commandsById, battleCardsById)
       expect(json.armyFaction).toBe('')
+    })
+  })
+
+  describe('importArmy', () => {
+    const catalog = {
+      units: [vader, storm],
+      upgrades: ups,
+      commands: [...commandsById.values()],
+      battleCards: [...battleCardsById.values()],
+    }
+
+    it('round-trips a native LegionApp file losslessly (ids preserved)', () => {
+      const file = JSON.stringify(toCompact(army), null, 2)
+      const res = importArmy(file, catalog)!
+      expect(res.source).toBe('native')
+      expect(res.warnings).toEqual([])
+      expect(res.army.faction).toBe('empire')
+      expect(res.army.gameSize).toBe(1000)
+      expect(res.army.units.map((u) => u.unitId)).toEqual(['vader', 'storm', 'storm'])
+      expect(res.army.units[0].upgrades).toEqual([{ slot: 'force#0', upgradeId: 'saber' }])
+      expect(res.army.commandHand).toEqual(['c1'])
+      expect(res.army.battleDeck).toEqual(['b2', 'b1'])
+    })
+
+    it('flags unknown ids in a native file but keeps them', () => {
+      const file = JSON.stringify(toCompact({ ...army, units: [{ uid: '1', unitId: 'ghost', upgrades: [] }] }))
+      const res = importArmy(file, catalog)!
+      expect(res.source).toBe('native')
+      expect(res.army.units[0].unitId).toBe('ghost')
+      expect(res.warnings.some((w) => w.includes('ghost'))).toBe(true)
+    })
+
+    it('imports a TTS/Longshanks JSON by name, rebuilding upgrades + command hand + deck', () => {
+      const json = JSON.stringify(armyToListJSON(army, unitsById, upgradesById, commandsById, battleCardsById))
+      const res = importArmy(json, catalog)!
+      expect(res.source).toBe('tts')
+      expect(res.army.faction).toBe('empire')
+      expect(res.army.units.map((u) => u.unitId)).toEqual(['vader', 'storm', 'storm'])
+      expect(res.army.units[0].upgrades).toEqual([{ slot: 'gear#0', upgradeId: 'saber' }]) // re-slotted by upgrade.slot
+      expect(res.army.commandHand).toEqual(['c1']) // Standing Orders dropped (auto)
+      expect(res.army.battleDeck.sort()).toEqual(['b1', 'b2'])
+      expect(res.warnings.some((w) => w.includes('Standard'))).toBe(true) // cap not stored
+    })
+
+    it('warns on unmatched card names instead of dropping them silently', () => {
+      const res = importArmy(JSON.stringify({
+        armyFaction: 'imperial',
+        units: [{ name: 'Darth Vader', upgrades: ['Nonexistent Gear'] }, { name: 'Ghost Unit', upgrades: [] }],
+        commandCards: ['Unknown Card', 'Standing Orders'],
+        battlefieldDeck: { objective: ['No Such Mission'] },
+      }), catalog)!
+      expect(res.army.units.map((u) => u.unitId)).toEqual(['vader']) // ghost dropped
+      expect(res.army.units[0].upgrades).toEqual([]) // bad upgrade dropped
+      expect(res.warnings).toEqual(expect.arrayContaining([
+        expect.stringContaining('Ghost Unit'),
+        expect.stringContaining('Nonexistent Gear'),
+        expect.stringContaining('Unknown Card'),
+        expect.stringContaining('No Such Mission'),
+      ]))
+    })
+
+    it('maps empty armyFaction back to Mercenary with a note', () => {
+      const res = importArmy(JSON.stringify({ armyFaction: '', units: [] }), catalog)!
+      expect(res.army.faction).toBe('mercenary')
+      expect(res.warnings.some((w) => w.includes('Mercenary'))).toBe(true)
+    })
+
+    it('returns null for non-JSON or unrecognised shapes', () => {
+      expect(importArmy('not json', catalog)).toBeNull()
+      expect(importArmy('{"hello":"world"}', catalog)).toBeNull()
     })
   })
 })

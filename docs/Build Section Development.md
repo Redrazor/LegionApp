@@ -289,6 +289,15 @@ The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls leg
   footer **Export** button. Output verified via Playwright (valid JSON, names, auto Standing Orders).
   **Caveat surfaced in-UI:** names must match the importer's catalogue spelling (no hard guarantee vs the TTS
   mod's own card DB).
+  - **Import (round-trip, same cycle).** A 3rd export tab — **LegionApp file** (`JSON.stringify(toCompact())`,
+    lossless, id-based) — gives a re-importable backup. New footer **Import** button → `ImportModal.vue`
+    (file picker + paste). `importArmy(text, catalog)` (pure) auto-detects: native CompactArmy → `fromCompact`
+    (lossless; unknown ids warned-but-kept) vs TTS/Longshanks JSON → best-effort name match (reverse faction
+    map, name→id for units/upgrades/commands/battle cards, re-slots upgrades by `upgrade.slot#i`, drops the
+    auto Standing Orders, defaults cap to Standard 1000). Unmatched/ambiguous names go to a `warnings[]` shown
+    in the modal, not silently dropped. Replace-confirm guards a non-empty draft. Both paths verified via
+    Playwright (native = zero-warning lossless restore incl. format; TTS = matched + ambiguity/not-found
+    warnings). Download names disambiguated: `<slug>.legionapp.json` / `.tts.json` / `.txt`.
 
 **EPIC E COMPLETE** (E1 + E2 + E3 + E4). **Next up: F1 — Army Stats panel** (`utils/armyStats.ts` + footer
 slide-in: composition / offense via the dice engine / durability / mobility-morale / keyword tallies + small

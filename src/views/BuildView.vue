@@ -9,7 +9,7 @@ import { useCommandsStore } from '../stores/commands.ts'
 import { useBattleCardsStore } from '../stores/battleCards.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON, importArmy, toCompact } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -21,6 +21,7 @@ import CommandHandView from '../components/build/CommandHandView.vue'
 import BattleDeckView from '../components/build/BattleDeckView.vue'
 import PrintSheet from '../components/build/PrintSheet.vue'
 import ExportModal from '../components/build/ExportModal.vue'
+import ImportModal from '../components/build/ImportModal.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
 
@@ -160,8 +161,9 @@ const armySheet = computed(() =>
   buildArmySheet(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId, battleForce.value),
 )
 
-// Export modal: plain-text + TTS/Longshanks JSON (rendered lazily on open).
+// Export modal: native LegionApp file + plain-text + TTS/Longshanks JSON.
 const exportOpen = ref(false)
+const exportNative = computed(() => JSON.stringify(toCompact(draft.value), null, 2))
 const exportText = computed(() => armyToText(armySheet.value))
 const exportJson = computed(() =>
   JSON.stringify(armyToListJSON(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId), null, 2),
@@ -169,6 +171,30 @@ const exportJson = computed(() =>
 const exportFilename = computed(() =>
   (draft.value.name || 'army').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'army',
 )
+
+// Import modal: load a native file or a TTS/Longshanks JSON back into the draft.
+const importOpen = ref(false)
+const importResult = ref<{ ok: boolean; warnings: string[]; error?: string } | null>(null)
+function openImport() {
+  importResult.value = null
+  importOpen.value = true
+}
+function doImport(text: string) {
+  const res = importArmy(text, {
+    units: unitsStore.units,
+    upgrades: upgradesStore.upgrades,
+    commands: commandsStore.commands,
+    battleCards: battleCardsStore.battleCards,
+  })
+  if (!res) {
+    importResult.value = { ok: false, warnings: [], error: 'Not a recognised LegionApp or TTS / Longshanks list file.' }
+    return
+  }
+  if (draft.value.units.length && !window.confirm('Replace your current army with the imported list?')) return
+  armyStore.loadDraft(res.army)
+  activeIndex.value = -1
+  importResult.value = { ok: true, warnings: res.warnings }
+}
 
 // Current army unit count per rank (catalogue tab counters + "+" max gating).
 const counts = computed(() => {
@@ -361,6 +387,7 @@ function printSheet() {
         @share="share"
         @print="printSheet"
         @export="exportOpen = true"
+        @import="openImport"
       />
     </template>
 
@@ -371,13 +398,22 @@ function printSheet() {
     <!-- Print-only army sheet (teleported to body; shown only when printing) -->
     <PrintSheet :sheet="armySheet" :valid="validation.valid" />
 
-    <!-- Export modal: plain-text + TTS/Longshanks JSON. -->
+    <!-- Export modal: native LegionApp file + plain-text + TTS/Longshanks JSON. -->
     <ExportModal
       :show="exportOpen"
+      :native="exportNative"
       :text="exportText"
       :json="exportJson"
       :filename="exportFilename"
       @close="exportOpen = false"
+    />
+
+    <!-- Import modal: load a previously-exported list back into the draft. -->
+    <ImportModal
+      :show="importOpen"
+      :result="importResult"
+      @load="doImport"
+      @close="importOpen = false"
     />
 
     <!-- Battle-force picker overlay (faction's battle forces + "None"). -->

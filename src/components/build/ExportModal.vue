@@ -7,19 +7,24 @@ import { ref, computed } from 'vue'
 // build modals. Parent passes the two pre-rendered strings + a filename slug.
 const props = defineProps<{
   show: boolean
+  native: string
   text: string
   json: string
   filename: string
 }>()
 const emit = defineEmits<{ close: [] }>()
 
-type Tab = 'text' | 'json'
-const tab = ref<Tab>('text')
+type Tab = 'native' | 'text' | 'json'
+const tab = ref<Tab>('native')
 const copied = ref(false)
 
-const current = computed(() => (tab.value === 'text' ? props.text : props.json))
+const current = computed(() => (tab.value === 'native' ? props.native : tab.value === 'text' ? props.text : props.json))
 const ext = computed(() => (tab.value === 'text' ? 'txt' : 'json'))
 const mime = computed(() => (tab.value === 'text' ? 'text/plain' : 'application/json'))
+// Distinguish the two JSON downloads so a folder of exports stays legible.
+const downloadName = computed(() =>
+  tab.value === 'native' ? `${props.filename}.legionapp.json` : tab.value === 'json' ? `${props.filename}.tts.json` : `${props.filename}.txt`,
+)
 
 async function copy() {
   try {
@@ -36,7 +41,7 @@ function download() {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `${props.filename}.${ext.value}`
+  a.download = downloadName.value
   a.click()
   URL.revokeObjectURL(url)
 }
@@ -72,6 +77,11 @@ function setTab(t: Tab) {
           <div class="flex gap-2 border-b border-lg-border px-5 pt-3">
             <button
               class="-mb-px border-b-2 px-2 pb-2 text-sm font-medium transition-colors"
+              :class="tab === 'native' ? 'border-lg-accent text-lg-accent' : 'border-transparent text-lg-muted hover:text-lg-text'"
+              @click="setTab('native')"
+            >LegionApp file</button>
+            <button
+              class="-mb-px border-b-2 px-2 pb-2 text-sm font-medium transition-colors"
               :class="tab === 'text' ? 'border-lg-accent text-lg-accent' : 'border-transparent text-lg-muted hover:text-lg-text'"
               @click="setTab('text')"
             >Plain text</button>
@@ -84,6 +94,11 @@ function setTab(t: Tab) {
 
           <!-- Body -->
           <div class="flex flex-col gap-3 overflow-y-auto px-5 py-4">
+            <p v-if="tab === 'native'" class="text-xs leading-relaxed text-lg-muted">
+              A complete, lossless backup of this list. Download it, then load it back any time with the
+              <span class="text-lg-text/80">Import</span> button — units, upgrades, command hand and battle
+              deck all restore exactly.
+            </p>
             <p v-if="tab === 'json'" class="text-xs leading-relaxed text-lg-muted">
               Paste into the <span class="text-lg-text/80">swlegion</span> Tabletop Simulator mod's list
               importer, or into a Longshanks event's list field for metagame stats. Cards are matched by

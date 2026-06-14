@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.1.0',
+    date: '2026-06-15',
+    changes: [
+      'Sharing a link now shows a rich preview card — share the app or any unit (e.g. /browse/darth-vader) to Discord, Reddit or social and it unfurls with a title, description, and image (the unit\'s own card for unit links).',
+      'Search-engine ready — added a sitemap, descriptive page titles/descriptions per section, and structured data so LegionApp is easier to find.',
+    ],
+  },
+  {
     version: '1.0.1',
     date: '2026-06-15',
     changes: [

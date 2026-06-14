@@ -10,7 +10,11 @@ useHead({
   title: 'Dice Roller — LegionApp',
   meta: [
     { name: 'description', content: 'Roll Star Wars: Legion attack and defense dice with surge, aim, cover, dodge and pierce, plus a wound-probability calculator.' },
+    { property: 'og:title', content: 'Dice Roller — LegionApp' },
+    { property: 'og:description', content: 'Roll Star Wars: Legion attack and defense dice with modifiers, plus a wound-probability calculator.' },
+    { property: 'og:url', content: 'https://www.legion-app.com/roll' },
   ],
+  link: [{ rel: 'canonical', href: 'https://www.legion-app.com/roll' }],
 })
 </script>
 

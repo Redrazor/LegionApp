@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useHead } from '@vueuse/head'
 import { storeToRefs } from 'pinia'
 import { useArmyStore } from '../stores/army.ts'
 import { useUnitsStore } from '../stores/units.ts'
@@ -218,6 +219,17 @@ const ranks = computed(() => {
 function printSheet() {
   window.print()
 }
+
+useHead({
+  title: 'Army Builder — LegionApp',
+  meta: [
+    { name: 'description', content: 'Build and validate Star Wars: Legion armies for Standard (1000) or Recon (600). Slot-aware upgrade picker with live rank, points, single-faction and unique-conflict checks. Save, share, print, export.' },
+    { property: 'og:title', content: 'Army Builder — LegionApp' },
+    { property: 'og:description', content: 'Build and validate Star Wars: Legion armies with live rank/points/faction/unique checks. Save, share, print and export your lists.' },
+    { property: 'og:url', content: 'https://www.legion-app.com/build' },
+  ],
+  link: [{ rel: 'canonical', href: 'https://www.legion-app.com/build' }],
+})
 </script>
 
 <template>

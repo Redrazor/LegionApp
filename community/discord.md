@@ -16,12 +16,13 @@ The main hub for Star Wars: Legion. Unofficial, community-run.
 
 Hey all — I've been building a free web companion for Legion and wanted to share it here.
 
-**legionapp.com** *(update once live)* — no login, works on mobile, installs as a PWA. It's the sister app to my Shatterpoint one (shatterapp.com).
+**www.legion-app.com** — no login, works on mobile, installs as a PWA. It's the sister app to my Shatterpoint one (shatterapp.com).
 
 What it covers right now:
 → Browse every unit by faction, with card scans, stat blocks, upgrade-slot bars, and a tap-to-define keyword glossary
-→ Full army builder for Standard (800) / Skirmish (500) — slot-aware upgrade picker, live rank/points/single-faction/unique validation with plain-English ✓/✕
-→ Save, load, and share lists via link; print a clean army sheet
+→ Full army builder for Standard (1000) / Recon (600) — slot-aware upgrade picker, live rank/points/single-faction/unique validation with plain-English ✓/✕
+→ Command-hand and battle-deck builders, validated alongside your army
+→ Save, share via link, print a clean sheet, and export/import your list (incl. TTS / Longshanks)
 → Collection tracker by expansion, with an "owned" filter feeding back into Browse
 → Keyword glossary, upgrade/rank/faction reference, embedded rulebook
 

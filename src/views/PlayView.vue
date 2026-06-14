@@ -1,4 +1,17 @@
 <script setup lang="ts">
+import { useHead } from '@vueuse/head'
+
+useHead({
+  title: 'Play (Coming Soon) — LegionApp',
+  meta: [
+    { name: 'description', content: 'A live at-the-table Star Wars: Legion game tracker — wounds, suppression, tokens, command pips and real-time multiplayer. Coming soon to LegionApp.' },
+    { property: 'og:title', content: 'Play (Coming Soon) — LegionApp' },
+    { property: 'og:description', content: 'A live at-the-table Star Wars: Legion game tracker with real-time multiplayer. Coming soon.' },
+    { property: 'og:url', content: 'https://www.legion-app.com/play' },
+  ],
+  link: [{ rel: 'canonical', href: 'https://www.legion-app.com/play' }],
+})
+
 const roadmap = [
   'Live unit tracker — wounds, suppression, tokens & damage per unit',
   'Command-pip play — step through your command hierarchy each turn',

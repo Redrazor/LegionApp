@@ -192,6 +192,7 @@ export interface Army {
 
 /** Compact, ID-only serialised army for save/share. */
 export interface CompactArmy {
+  v?: number // schema version (2 = battle force/command hand/battle deck era; absent = legacy v1)
   n: string // name
   f: Faction | null // faction
   b?: string | null // battle-force linkId (optional; absent/null = standard)

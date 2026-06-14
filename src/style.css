@@ -106,7 +106,13 @@ body, nav, aside, footer, .theme-tx {
   background: var(--color-lg-accent);
 }
 
+/* The printable army sheet is hidden on screen and replaces the app when printing. */
+.print-sheet { display: none; }
+
 @media print {
   .no-print { display: none !important; }
-  body { background: #fff; color: #000; }
+  html, body { background: #fff; color: #000; }
+  /* Show only the print sheet; hide the live app. */
+  #app { display: none !important; }
+  .print-sheet { display: block !important; }
 }

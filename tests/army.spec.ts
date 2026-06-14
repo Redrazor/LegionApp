@@ -9,6 +9,7 @@ import {
   effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
+  buildArmySheet, COMPACT_VERSION,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
@@ -1310,5 +1311,80 @@ describe('battle deck', () => {
       expect('d' in toCompact(army([]))).toBe(false)
       expect(fromCompact(toCompact(army([]))).battleDeck).toEqual([])
     })
+  })
+})
+
+describe('buildArmySheet', () => {
+  const vader = unit('vader', { name: 'Darth Vader', title: 'Dark Lord', rank: 'commander', cost: 190, portraitImage: '/images/portraits/darth-vader.webp' })
+  const storm = unit('storm', { name: 'Stormtroopers', rank: 'corps', cost: 44 })
+  const ups = [upgrade('saber', { name: 'Force Reflexes', cost: 5 })]
+  const { unitsById, upgradesById } = makeMaps([vader, storm], ups)
+  const commandsById = new Map<string, CommandCard>([
+    ['c1', { id: 'c1', slug: 'c1', name: 'New Ways', pips: 1, commander: 'Darth Vader', faction: null, cardImage: null }],
+    ['so', { id: 'so', slug: 'so', name: 'Standing Orders', pips: 4, commander: '', faction: null, cardImage: null }],
+  ])
+  const battleCardsById = new Map<string, BattleCard>([
+    ['b1', { id: 'b1', slug: 'b1', name: 'Breakthrough', subtype: 'primary', keywords: [], faction: null, isRecon: false, cardImage: null }],
+    ['b2', { id: 'b2', slug: 'b2', name: 'Recon Mission', subtype: 'secondary', keywords: [], faction: null, isRecon: false, cardImage: null }],
+  ])
+  const army: Army = {
+    name: 'Test List', faction: 'empire', battleForce: null, gameSize: 1000,
+    units: [
+      { uid: '1', unitId: 'vader', upgrades: [{ slot: 'force#0', upgradeId: 'saber' }] },
+      { uid: '2', unitId: 'storm', upgrades: [] },
+      { uid: '3', unitId: 'storm', upgrades: [] },
+    ],
+    commandHand: ['c1'], battleDeck: ['b2', 'b1'],
+  }
+
+  it('groups units by rank into ×N rows with resolved upgrades + costs', () => {
+    const s = buildArmySheet(army, unitsById, upgradesById, commandsById, battleCardsById, null)
+    expect(s.name).toBe('Test List')
+    expect(s.factionName).toBe('Galactic Empire')
+    expect(s.formatName).toBe('Standard')
+    expect(s.points).toBe(190 + 5 + 44 + 44)
+    expect(s.activations).toBe(3)
+    const cmd = s.ranks.find((r) => r.rank === 'commander')!
+    expect(cmd.units[0]).toMatchObject({ name: 'Darth Vader', title: 'Dark Lord', qty: 1, cost: 195, portrait: '/images/portraits/darth-vader.webp' })
+    expect(cmd.units[0].upgrades).toEqual([{ name: 'Force Reflexes', cost: 5, slot: 'Gear' }])
+    const corps = s.ranks.find((r) => r.rank === 'corps')!
+    expect(corps.units[0]).toMatchObject({ name: 'Stormtroopers', qty: 2, cost: 88 })
+  })
+
+  it('orders the command hand by pip with Standing Orders last, and the deck by type', () => {
+    const s = buildArmySheet(army, unitsById, upgradesById, commandsById, battleCardsById, null)
+    expect(s.commandHand).toEqual([{ pip: 1, name: 'New Ways' }, { pip: 4, name: 'Standing Orders' }])
+    expect(s.battleDeck.map((c) => c.name)).toEqual(['Breakthrough', 'Recon Mission']) // primary before secondary
+    expect(s.showBattleDeck).toBe(true)
+  })
+
+  it('hides the battle deck in Recon and names the battle force', () => {
+    const bf = makeBattleForce({ name: 'Blizzard Force' })
+    const recon = buildArmySheet({ ...army, gameSize: 600 }, unitsById, upgradesById, commandsById, battleCardsById, bf)
+    expect(recon.showBattleDeck).toBe(false)
+    expect(recon.battleForceName).toBe('Blizzard Force')
+    expect(recon.formatName).toBe('Recon')
+  })
+})
+
+describe('compact version (v2)', () => {
+  const army: Army = { name: 'X', faction: 'empire', battleForce: 'mc', gameSize: 1000, units: [], commandHand: ['c1'], battleDeck: ['b1'] }
+  it('stamps the schema version on encode', () => {
+    expect(toCompact(army).v).toBe(COMPACT_VERSION)
+    expect(COMPACT_VERSION).toBe(2)
+  })
+  it('decodes a legacy v1 compact (no version, no b/c/d) with safe defaults', () => {
+    const legacy = { n: 'Old', f: 'rebels' as const, g: 800, u: [['luke', []]] as [string, [string, string][]][] }
+    const decoded = fromCompact(legacy)
+    expect(decoded.battleForce).toBeNull()
+    expect(decoded.commandHand).toEqual([])
+    expect(decoded.battleDeck).toEqual([])
+    expect(decoded.units).toHaveLength(1)
+  })
+  it('round-trips a v2 army through encode/decode', () => {
+    const back = decodeArmy(encodeArmy(army))!
+    expect(back.battleForce).toBe('mc')
+    expect(back.commandHand).toEqual(['c1'])
+    expect(back.battleDeck).toEqual(['b1'])
   })
 })

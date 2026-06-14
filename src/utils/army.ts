@@ -2,7 +2,7 @@ import type {
   Army, ArmyUnit, BattleCard, BattleCardSubtype, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, battleForceRankTable, formatForCap, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
+import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
 
 // ── Battle-force helpers ─────────────────────────────────────────────────────
 
@@ -699,6 +699,92 @@ export function validateBattleDeck(army: Army, battleCardsById: Map<string, Batt
   return { bySubtype, ineligible, hasDuplicates, complete, valid: complete && !hasDuplicates && ineligible.length === 0 }
 }
 
+// ── Printable / exportable army sheet ────────────────────────────────────────
+
+export interface ArmySheetUpgrade { name: string; cost: number; slot: string } // slot = display label, e.g. "Heavy Weapon"
+export interface ArmySheetUnit { name: string; title: string; qty: number; cost: number; portrait: string | null; upgrades: ArmySheetUpgrade[] }
+export interface ArmySheetRank { rank: Rank; label: string; units: ArmySheetUnit[] }
+export interface ArmySheet {
+  name: string
+  factionName: string
+  battleForceName: string | null
+  formatName: string
+  points: number
+  cap: number
+  activations: number
+  ranks: ArmySheetRank[]
+  commandHand: { pip: number; name: string }[] // chosen cards (pip-sorted) + Standing Orders
+  battleDeck: { subtype: BattleCardSubtype; name: string }[] // ordered primary → secondary → advantage
+  showBattleDeck: boolean
+}
+
+/**
+ * Build a flat, display-ready snapshot of an army for printing/export. Pure: resolves
+ * ids to names + costs, groups units by their (battle-force-aware) rank into ×N rows,
+ * and orders the command hand by pip and the battle deck by type.
+ */
+export function buildArmySheet(
+  army: Army,
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+  commandsById: Map<string, CommandCard>,
+  battleCardsById: Map<string, BattleCard>,
+  bf?: BattleForce | null,
+): ArmySheet {
+  const byRank = {} as Record<Rank, ArmyUnit[]>
+  for (const r of RANK_ORDER) byRank[r] = []
+  for (const au of army.units) {
+    const u = unitsById.get(au.unitId)
+    if (u) byRank[effectiveRank(u, bf)].push(au)
+  }
+  const ranks: ArmySheetRank[] = []
+  for (const r of RANK_ORDER) {
+    if (!byRank[r].length) continue
+    const units = groupArmyUnits(byRank[r]).map((g) => {
+      const u = unitsById.get(g.unitId)
+      const upgrades = g.representative.upgrades.map((x) => {
+        const up = upgradesById.get(x.upgradeId)
+        return { name: up?.name ?? x.upgradeId, cost: up?.cost ?? 0, slot: slotLabel(up?.slot ?? x.slot.split('#')[0]) }
+      })
+      const lineCost = (u?.cost ?? 0) + upgrades.reduce((a, x) => a + x.cost, 0)
+      return { name: u?.name ?? g.unitId, title: u?.title ?? '', qty: g.qty, cost: lineCost * g.qty, portrait: u?.portraitImage ?? null, upgrades }
+    })
+    ranks.push({ rank: r, label: rankName(r), units })
+  }
+
+  let points = 0
+  for (const au of army.units) points += unitCost(au, unitsById, upgradesById)
+
+  const standingOrders = [...commandsById.values()].find((c) => c.pips >= 4)
+  const commandHand = (army.commandHand ?? [])
+    .map((id) => commandsById.get(id))
+    .filter((c): c is CommandCard => !!c)
+    .sort((a, b) => a.pips - b.pips || a.name.localeCompare(b.name))
+    .map((c) => ({ pip: c.pips, name: c.name }))
+  if (standingOrders) commandHand.push({ pip: standingOrders.pips, name: standingOrders.name })
+
+  const order: Record<BattleCardSubtype, number> = { primary: 0, secondary: 1, advantage: 2 }
+  const battleDeck = (army.battleDeck ?? [])
+    .map((id) => battleCardsById.get(id))
+    .filter((c): c is BattleCard => !!c)
+    .sort((a, b) => order[a.subtype] - order[b.subtype] || a.name.localeCompare(b.name))
+    .map((c) => ({ subtype: c.subtype, name: c.name }))
+
+  return {
+    name: army.name || 'Untitled army',
+    factionName: factionName(army.faction),
+    battleForceName: bf?.name ?? null,
+    formatName: formatName(army.gameSize),
+    points,
+    cap: army.gameSize,
+    activations: army.units.length,
+    ranks,
+    commandHand,
+    battleDeck,
+    showBattleDeck: usesBattleDeck(army.gameSize),
+  }
+}
+
 export function validateArmy(
   army: Army,
   unitsById: Map<string, Unit>,
@@ -909,8 +995,12 @@ export function validateArmy(
 
 // ── Compact serialisation for save / share ───────────────────────────────────
 
+/** Compact-format schema version. v2 added battle force / command hand / battle deck. */
+export const COMPACT_VERSION = 2
+
 export function toCompact(army: Army): CompactArmy {
   return {
+    v: COMPACT_VERSION,
     n: army.name,
     f: army.faction,
     // Only serialise a battle force when one is set, to keep legacy share codes stable.

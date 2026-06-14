@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.25.0',
+    date: '2026-06-14',
+    changes: [
+      'Build — Print your army: the Print button now produces a clean one-page sheet with units (and their upgrades + points) grouped by rank, your command hand, your battle deck, and totals',
+    ],
+  },
+  {
     version: '0.24.0',
     date: '2026-06-14',
     changes: [

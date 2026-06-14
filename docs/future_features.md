@@ -2,6 +2,25 @@
 
 A running log of features for LegionApp, newest first.
 
+## Feature 6 — 1.0 release (Vercel + Firebase + Render deployment)
+
+**Status:** done (v1.0.0). The first public deployment. Three hosts:
+
+- **Vercel** — the Vue SPA + the committed `public/data/*.json` catalogue. SPA rewrite in
+  `vercel.json`. Build-time env (`VITE_API_BASE`, `VITE_IMAGE_BASE`, `VITE_WS_URL`) set in the
+  Vercel dashboard (see `.env.production.example`).
+- **Firebase Hosting** (`legionapp-images`) — the 105 MB of card scans, compressed to ~52 MB WebP
+  (`npm run images:compress` → `images-compressed/`, deployed with `npm run images:deploy`). The app
+  rewrites `/images/...` paths to the CDN via `src/utils/imageUrl.ts` (`VITE_IMAGE_BASE`); empty base =
+  local `public/images`. Output lives at repo root (not under `public/`) so Vite never bundles it.
+- **Render.com** (`legionapp-api`) — the Express API + socket.io (`render.yaml`). Stateless: SQLite
+  reseeds from `public/data` on boot. The SPA falls back to static JSON, so a cold/absent backend
+  doesn't break Browse/Build/Collection/Reference. (Play, which needs the socket server, ships later.)
+
+Also: generated the missing PWA install icons from `public/favicon.svg` (`npm run icons` →
+`public/icons/`), and made the service worker cross-origin aware (precache JSON only; runtime-cache
+images by request destination). Runbook: `community/RELEASE-1.0-CHECKLIST.md`.
+
 ## Feature 5 — Full battle-force support (all factions)
 
 **Status:** planned (not started). Deferred from the 2026-06-13 Mandalorian validation work, where

@@ -1,0 +1,18 @@
+# Render.com blueprint for the LegionApp backend (Express API + socket.io).
+# The frontend (Vercel) talks to this via VITE_API_BASE; card images are served
+# from Firebase, not here. SQLite is reseeded from public/data on every boot, so
+# the instance is stateless and the free plan's ephemeral disk is fine.
+services:
+  - type: web
+    name: legionapp-api
+    runtime: node
+    plan: free
+    region: oregon
+    branch: main
+    buildCommand: npm ci
+    startCommand: npm run server
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      # Render injects PORT automatically; server/index.ts reads process.env.PORT.

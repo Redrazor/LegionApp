@@ -4,6 +4,7 @@ import { useProductsStore } from '../stores/products.ts'
 import { useCollectionStore } from '../stores/collection.ts'
 import { useDataBackup } from '../composables/useDataBackup.ts'
 import { FACTION_ORDER, FACTION_META } from '../utils/factions.ts'
+import { imageUrl } from '../utils/imageUrl.ts'
 import type { Faction } from '../types/index.ts'
 
 const productsStore = useProductsStore()
@@ -93,7 +94,7 @@ async function onFile(e: Event) {
             :class="collection.isOwned(p.code) ? 'border-lg-accent/40 bg-lg-accent/5' : 'border-lg-border bg-lg-surface'"
           >
             <div class="grid h-24 w-24 flex-none place-items-center overflow-hidden rounded-md bg-lg-dark">
-              <img v-if="p.image" :src="p.image" :alt="p.name" loading="lazy" class="h-full w-full object-contain" />
+              <img v-if="p.image" :src="imageUrl(p.image)" :alt="p.name" loading="lazy" class="h-full w-full object-contain" />
               <span v-else class="text-lg-muted/50 text-2xl">▢</span>
             </div>
             <div class="min-w-0 flex-1">

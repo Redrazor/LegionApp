@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { BattleCard, BattleCardSubtype } from '../../types/index.ts'
+import { imageUrl } from '../../utils/imageUrl.ts'
 
 // The battle-deck builder (its own Build view/segment). A legal deck is 3 cards of
 // each type — Primary Objective, Secondary Objective, Advantage — colour-coded by
@@ -65,7 +66,7 @@ const total = computed(() => props.selected.length)
             @click="emit('toggle', card.id)"
           >
             <img
-              v-if="card.cardImage" :src="card.cardImage" :alt="card.name"
+              v-if="card.cardImage" :src="imageUrl(card.cardImage)" :alt="card.name"
               class="block w-full h-auto" loading="lazy"
             />
             <div v-else class="flex aspect-[5/7] w-full items-center justify-center bg-lg-dark p-2 text-center text-[11px] text-lg-muted">{{ card.name }}</div>

@@ -11,10 +11,10 @@ LegionApp lets you browse units, build and validate armies, and track your colle
 ## Features
 
 ### Browse
-- **Faction-grouped grid** of every unit, with card-scan thumbnails, points cost, rank, and unique markers
+- **Faction-grouped grid** of every unit, with card-image thumbnails, points cost, rank, and unique markers
 - **Search** by name, title, or keyword; **filter** by faction, rank, keyword (type-ahead), favorites, and owned-only
 - Filter state is reflected in the URL for **shareable links**
-- **Unit profile drawer** — full card scan, a native stat block (defense / wounds / courage / speed / surge), the upgrade-slot bar, keywords with **tap-to-define glossary popovers**, errata & points history, and related units
+- **Unit profile drawer** — full card image, a native stat block (defense / wounds / courage / speed / surge), the upgrade-slot bar, keywords with **tap-to-define glossary popovers**, errata & points history, and related units
 - **Favorites** persist across sessions
 
 ### Build *(the heart of the app)*

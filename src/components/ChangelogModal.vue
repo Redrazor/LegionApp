@@ -23,33 +23,12 @@ const entries = [
     ],
   },
   {
-    version: '0.22.1',
-    date: '2026-06-13',
-    changes: [
-      'Behind the scenes — battle cards now use the official 2024 deck terminology (Primary Objective / Secondary Objective / Advantage). Confirmed there are no separate “map” cards in the current edition — the old deployment cards were folded into Primary Objectives',
-    ],
-  },
-  {
-    version: '0.22.0',
-    date: '2026-06-13',
-    changes: [
-      'Behind the scenes — the full battle deck (Objective, Secondary and Advantage cards, plus the Recon-format set) is now in the catalogue with card scans. Groundwork for the command-hand and battle-deck builders — coming next',
-    ],
-  },
-  {
     version: '0.21.0',
     date: '2026-06-13',
     changes: [
       'Build — Battle forces are here. Tap the “Battle force” button in the builder header to switch any army to one of its faction\'s battle forces (212th Attack Battalion, Blizzard Force, Echo Base Defenders, Shadow Collective, the Mandalorian clans, and more). It\'s fully optional — a standard faction army is still the default',
       'Build — A battle force swaps in its own roster, rank limits and special rules: only its eligible units are offered (placed in their battle-force rank), its rank table and combined Commander/Operative caps apply, per-unit limits are enforced, and its battle-specific upgrades become available. The full rules text is shown so nothing is hidden',
       'Build — Switching battle force keeps your current list and flags any units that aren\'t eligible, so you can adjust rather than start over',
-    ],
-  },
-  {
-    version: '0.20.0',
-    date: '2026-06-13',
-    changes: [
-      'Behind the scenes — every faction\'s battle forces (the 212th Attack Battalion, Blizzard Force, Echo Base Defenders, Shadow Collective and 16 more) are now in the catalogue, with their rank requirements and special rules. Groundwork for picking a battle force in the builder — coming next',
     ],
   },
   {
@@ -193,7 +172,7 @@ const entries = [
     version: '0.4.0',
     date: '2026-06-10',
     changes: [
-      'Collection — Real product boxes from the Philibert catalogue with cover art',
+      'Collection — Real Star Wars: Legion product boxes with cover art',
     ],
   },
   {

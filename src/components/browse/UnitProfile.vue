@@ -79,7 +79,7 @@ function close() {
             </div>
 
             <div class="space-y-5 p-5">
-              <!-- Card scan -->
+              <!-- Card image -->
               <div v-if="unit.cardImage && !imgError" class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark">
                 <img :src="unit.cardImage" :alt="`${unit.name} unit card`" class="w-full" @error="imgError = true" />
               </div>
@@ -124,7 +124,7 @@ function close() {
               </div>
 
               <p v-if="!unit.hasFullData" class="rounded-lg border border-lg-border bg-lg-dark/50 p-2 text-[11px] text-lg-muted">
-                Full stat data for this unit isn't available yet — see the card scan above for complete details.
+                Full stat data for this unit isn't available yet — see the card image above for complete details.
               </p>
 
               <!-- Available upgrades (hidden in the simplified Build view) -->

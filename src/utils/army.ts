@@ -1,8 +1,8 @@
 import type {
-  Army, ArmyUnit, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
+  Army, ArmyUnit, BattleCard, BattleCardSubtype, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, battleForceRankTable, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
+import { rankLimits, battleForceRankTable, formatForCap, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
 
 // ── Battle-force helpers ─────────────────────────────────────────────────────
 
@@ -652,12 +652,60 @@ export function validateCommandHand(
   return { byPip, ineligible, hasDuplicates, complete, valid: complete && !hasDuplicates && ineligible.length === 0 }
 }
 
+// ── Battle deck ──────────────────────────────────────────────────────────────
+
+export const BATTLE_SUBTYPES: BattleCardSubtype[] = ['primary', 'secondary', 'advantage']
+
+/** Whether a points cap uses a Standard battle deck (Recon does not). */
+export function usesBattleDeck(cap: number): boolean {
+  return formatForCap(cap).id !== 'recon'
+}
+
+/**
+ * Whether a battle card may go in this army's deck: it must be a Standard-pool card
+ * (not Recon) and either faction-agnostic or matching the army's faction.
+ */
+export function battleCardEligible(card: BattleCard, army: Army): boolean {
+  if (card.isRecon) return false
+  return !card.faction || card.faction === army.faction
+}
+
+/** Battle cards selectable for this army (Standard pool, faction-eligible), name-sorted. */
+export function eligibleBattleCards(cards: BattleCard[], army: Army): BattleCard[] {
+  return cards.filter((c) => battleCardEligible(c, army)).sort((a, b) => a.name.localeCompare(b.name))
+}
+
+export interface BattleDeckValidation {
+  bySubtype: Record<BattleCardSubtype, number>
+  ineligible: string[]
+  hasDuplicates: boolean
+  complete: boolean // 3 of each subtype
+  valid: boolean
+}
+
+/** Validate the battle deck: exactly 3 each of primary/secondary/advantage, no dupes, all eligible. */
+export function validateBattleDeck(army: Army, battleCardsById: Map<string, BattleCard>): BattleDeckValidation {
+  const deck = army.battleDeck ?? []
+  const bySubtype: Record<BattleCardSubtype, number> = { primary: 0, secondary: 0, advantage: 0 }
+  const ineligible: string[] = []
+  for (const id of deck) {
+    const card = battleCardsById.get(id)
+    if (!card) continue
+    bySubtype[card.subtype]++
+    if (!battleCardEligible(card, army)) ineligible.push(card.name)
+  }
+  const hasDuplicates = new Set(deck).size !== deck.length
+  const complete = BATTLE_SUBTYPES.every((s) => bySubtype[s] === 3)
+  return { bySubtype, ineligible, hasDuplicates, complete, valid: complete && !hasDuplicates && ineligible.length === 0 }
+}
+
 export function validateArmy(
   army: Army,
   unitsById: Map<string, Unit>,
   upgradesById: Map<string, Upgrade>,
   bf?: BattleForce | null,
   commandsById?: Map<string, CommandCard>,
+  battleCardsById?: Map<string, BattleCard>,
 ): ArmyValidation {
   const rankCounts: Record<Rank, number> = {
     commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
@@ -843,6 +891,18 @@ export function validateArmy(
     items.push({ ok: ch.valid, label: 'Command hand', detail })
   }
 
+  // Battle deck — 3 primary / 3 secondary / 3 advantage, no dupes, all eligible.
+  // Standard formats only (Recon has no battle deck); only once the army has units.
+  if (battleCardsById && usesBattleDeck(army.gameSize) && army.units.length > 0) {
+    const bd = validateBattleDeck(army, battleCardsById)
+    const detail = bd.ineligible.length
+      ? `Ineligible: ${bd.ineligible.join(', ')}`
+      : bd.hasDuplicates
+      ? 'Duplicate cards'
+      : `${(army.battleDeck ?? []).length} / 9`
+    items.push({ ok: bd.valid, label: 'Battle deck', detail })
+  }
+
   const valid = items.every((i) => i.ok) && army.units.length > 0
   return { valid, points, activations: army.units.length, rankCounts, items }
 }
@@ -858,6 +918,7 @@ export function toCompact(army: Army): CompactArmy {
     g: army.gameSize,
     u: army.units.map((au) => [au.unitId, au.upgrades.map((x) => [x.slot, x.upgradeId] as [string, string])]),
     ...(army.commandHand?.length ? { c: army.commandHand } : {}),
+    ...(army.battleDeck?.length ? { d: army.battleDeck } : {}),
   }
 }
 
@@ -874,6 +935,7 @@ export function fromCompact(c: CompactArmy): Army {
       upgrades: (ups ?? []).map(([slot, upgradeId]) => ({ slot, upgradeId })),
     })),
     commandHand: c.c ?? [],
+    battleDeck: c.d ?? [],
   }
 }
 

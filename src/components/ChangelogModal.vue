@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '0.24.0',
+    date: '2026-06-14',
+    changes: [
+      'Build — New Battle Deck tab: build your 9-card deck (3 Primary Objectives, 3 Secondary Objectives, 3 Advantage cards), each colour-coded by type. Only Standard-pool cards for your faction are offered; the tab is hidden in Recon (which has no battle deck)',
+      'Build — A new "Cards" button in the footer shows your picked command hand (by pip) and battle deck (colour-coded) at a glance, without leaving the roster. Both are validated live and saved/shared with your army',
+    ],
+  },
+  {
     version: '0.23.0',
     date: '2026-06-13',
     changes: [

@@ -4,7 +4,7 @@ import type { Army, ArmyUnit, CompactArmy, Faction } from '../types/index.ts'
 import { toCompact, fromCompact } from '../utils/army.ts'
 
 function emptyArmy(): Army {
-  return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [], commandHand: [] }
+  return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [], commandHand: [], battleDeck: [] }
 }
 
 let uidCounter = 0
@@ -53,6 +53,19 @@ export const useArmyStore = defineStore(
 
     function clearCommandHand() {
       draft.value.commandHand = []
+    }
+
+    /** Add a battle card to the deck if absent, else remove it (deck-builder toggle). */
+    function toggleBattleCard(cardId: string) {
+      if (!draft.value.battleDeck) draft.value.battleDeck = []
+      const deck = draft.value.battleDeck
+      const i = deck.indexOf(cardId)
+      if (i >= 0) deck.splice(i, 1)
+      else deck.push(cardId)
+    }
+
+    function clearBattleDeck() {
+      draft.value.battleDeck = []
     }
 
     function setGameSize(size: number) {
@@ -146,7 +159,8 @@ export const useArmyStore = defineStore(
 
     return {
       draft, saved, activeIndex, isDirty,
-      setFaction, setBattleForce, toggleCommandCard, clearCommandHand, setGameSize, setName,
+      setFaction, setBattleForce, toggleCommandCard, clearCommandHand,
+      toggleBattleCard, clearBattleDeck, setGameSize, setName,
       addUnit, removeUnit, addCopy, findUnit, setUpgrade, upgradeInSlot,
       newArmy, loadDraft, saveCurrent, loadSaved, deleteSaved, renameSaved,
     }

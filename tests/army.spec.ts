@@ -8,9 +8,10 @@ import {
   heavyWeaponTeamUnmet, unitLegalityIssues,
   effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
+  battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
-import type { Army, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
+import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
 
 function unit(id: string, over: Partial<Unit> = {}): Unit {
   return {
@@ -1218,6 +1219,96 @@ describe('command hand', () => {
       expect(fromCompact(toCompact(a)).commandHand).toEqual(['a1', 'b1'])
       expect('c' in toCompact(army([]))).toBe(false)
       expect(fromCompact(toCompact(army([]))).commandHand).toEqual([])
+    })
+  })
+})
+
+describe('battle deck', () => {
+  const bc = (id: string, over: Partial<BattleCard> = {}): BattleCard => ({
+    id, slug: id, name: id, subtype: 'primary', keywords: [], faction: null, isRecon: false, cardImage: null, ...over,
+  })
+  const army = (deck: string[] = [], faction: Army['faction'] = 'empire', gameSize = 1000): Army => ({
+    name: '', faction, battleForce: null, gameSize,
+    units: [{ uid: 'a', unitId: 'u', upgrades: [] }], commandHand: [], battleDeck: deck,
+  })
+
+  describe('usesBattleDeck', () => {
+    it('is true for Standard formats and false for Recon (600)', () => {
+      expect(usesBattleDeck(1000)).toBe(true)
+      expect(usesBattleDeck(800)).toBe(true)
+      expect(usesBattleDeck(1600)).toBe(true)
+      expect(usesBattleDeck(600)).toBe(false)
+    })
+  })
+
+  describe('battleCardEligible / eligibleBattleCards', () => {
+    it('excludes Recon-pool cards and faction-mismatched cards', () => {
+      expect(battleCardEligible(bc('a'), army())).toBe(true) // null faction
+      expect(battleCardEligible(bc('r', { isRecon: true }), army())).toBe(false)
+      expect(battleCardEligible(bc('e', { faction: 'empire' }), army())).toBe(true)
+      expect(battleCardEligible(bc('reb', { faction: 'rebels' }), army())).toBe(false)
+    })
+    it('returns eligible cards name-sorted', () => {
+      const out = eligibleBattleCards([bc('z', { name: 'Zeta' }), bc('a', { name: 'Alpha' }), bc('r', { isRecon: true })], army())
+      expect(out.map((c) => c.name)).toEqual(['Alpha', 'Zeta'])
+    })
+  })
+
+  describe('validateBattleDeck', () => {
+    const cards = [
+      ...['p1', 'p2', 'p3'].map((id) => bc(id, { subtype: 'primary' })),
+      ...['s1', 's2', 's3'].map((id) => bc(id, { subtype: 'secondary' })),
+      ...['a1', 'a2', 'a3'].map((id) => bc(id, { subtype: 'advantage' })),
+    ]
+    const byId = new Map(cards.map((c) => [c.id, c]))
+    it('is valid at exactly 3 of each subtype, no dupes', () => {
+      const v = validateBattleDeck(army(['p1', 'p2', 'p3', 's1', 's2', 's3', 'a1', 'a2', 'a3']), byId)
+      expect(v.complete).toBe(true)
+      expect(v.valid).toBe(true)
+      expect(v.bySubtype).toEqual({ primary: 3, secondary: 3, advantage: 3 })
+    })
+    it('is incomplete below 3 of a subtype', () => {
+      const v = validateBattleDeck(army(['p1', 'p2', 's1', 's2', 's3', 'a1', 'a2', 'a3']), byId)
+      expect(v.bySubtype.primary).toBe(2)
+      expect(v.valid).toBe(false)
+    })
+    it('flags duplicates and ineligible (Recon/faction) cards', () => {
+      const dup = validateBattleDeck(army(['p1', 'p1', 'p3', 's1', 's2', 's3', 'a1', 'a2', 'a3']), byId)
+      expect(dup.hasDuplicates).toBe(true)
+      const bad = new Map([...byId, ['rec', bc('rec', { subtype: 'primary', isRecon: true })]])
+      const v = validateBattleDeck(army(['rec', 'p2', 'p3', 's1', 's2', 's3', 'a1', 'a2', 'a3']), bad)
+      expect(v.ineligible).toContain('rec')
+      expect(v.valid).toBe(false)
+    })
+  })
+
+  describe('validateArmy battle-deck row', () => {
+    const cards = [
+      ...['p1', 'p2', 'p3'].map((id) => bc(id, { subtype: 'primary' })),
+      ...['s1', 's2', 's3'].map((id) => bc(id, { subtype: 'secondary' })),
+      ...['a1', 'a2', 'a3'].map((id) => bc(id, { subtype: 'advantage' })),
+    ]
+    const byId = new Map(cards.map((c) => [c.id, c]))
+    const full = ['p1', 'p2', 'p3', 's1', 's2', 's3', 'a1', 'a2', 'a3']
+    it('adds a Battle deck row in Standard reading n/9', () => {
+      const v = validateArmy(army(full), new Map([['u', unit('u')]]), new Map(), null, undefined, byId)
+      const row = v.items.find((i) => i.label === 'Battle deck')!
+      expect(row.ok).toBe(true)
+      expect(row.detail).toBe('9 / 9')
+    })
+    it('omits the row in Recon (600)', () => {
+      const v = validateArmy(army(full, 'empire', 600), new Map([['u', unit('u')]]), new Map(), null, undefined, byId)
+      expect(v.items.find((i) => i.label === 'Battle deck')).toBeUndefined()
+    })
+  })
+
+  describe('compact round-trip', () => {
+    it('preserves the battle deck, omitting it when empty', () => {
+      const a = army(['p1', 's1'])
+      expect(toCompact(a).d).toEqual(['p1', 's1'])
+      expect(fromCompact(toCompact(a)).battleDeck).toEqual(['p1', 's1'])
+      expect('d' in toCompact(army([]))).toBe(false)
+      expect(fromCompact(toCompact(army([]))).battleDeck).toEqual([])
     })
   })
 })

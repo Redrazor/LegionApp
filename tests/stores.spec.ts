@@ -188,3 +188,19 @@ describe('army store — command hand', () => {
     expect(s.draft.commandHand).toEqual([])
   })
 })
+
+describe('army store — battle deck', () => {
+  it('toggles battle cards and keeps them across faction change', () => {
+    const s = useArmyStore()
+    s.setFaction('empire')
+    s.toggleBattleCard('p1')
+    s.toggleBattleCard('s1')
+    expect(s.draft.battleDeck).toEqual(['p1', 's1'])
+    s.toggleBattleCard('p1')
+    expect(s.draft.battleDeck).toEqual(['s1'])
+    s.setFaction('rebels') // battle deck is mostly faction-agnostic → kept
+    expect(s.draft.battleDeck).toEqual(['s1'])
+    s.clearBattleDeck()
+    expect(s.draft.battleDeck).toEqual([])
+  })
+})

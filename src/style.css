@@ -31,6 +31,12 @@
   --color-lg-valid: #4ade80;
   --color-lg-invalid: #f87171;
 
+  /* Battle-deck objective types, matching the printed cards: Primary = red,
+     Secondary = orange, Advantage = green. */
+  --color-obj-primary: #e2483d;
+  --color-obj-secondary: #f5912e;
+  --color-obj-advantage: #46c468;
+
   --font-display: 'Orbitron', system-ui, sans-serif;
 }
 
@@ -54,6 +60,11 @@ html.light {
   --color-faction-empire: #46545f;
   --color-faction-republic: #a9791f;
   --color-faction-mandalorians: #b06f1c;
+
+  /* Darker objective-type colours for contrast on the white background */
+  --color-obj-primary: #c0392b;
+  --color-obj-secondary: #c2701a;
+  --color-obj-advantage: #2f9e54;
 }
 
 * {

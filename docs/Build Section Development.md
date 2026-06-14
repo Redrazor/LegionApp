@@ -257,8 +257,17 @@ The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls leg
   `eligibleCommandCards`, `validateCommandHand` (2/2/2, no dupes, all eligible); `validateArmy` "Command hand"
   row. `Army.commandHand` + `CompactArmy.c`. Rule: 2×1pip + 2×2pip + 2×3pip + auto Standing Orders (4pip).
 
-**Next up: D2 — battle-deck builder** (3 primary / 3 secondary / 3 advantage from `battleCards.json`, no
-dupes, hidden in Recon). Reuse D1's tab + deck-builder pattern. Then E1 (versioned share) → E2/E3 → E4 → F1.
+- **D2 — battle-deck builder + footer card summary** (v0.24.0, #25). **Battle Deck tab** (mobile 4th
+  segment; desktop `[Roster][Command Hand][Battle Deck]`), hidden in Recon. `BattleDeckView`: 3 colour-coded
+  sections (Primary=red / Secondary=orange / Advantage=green — `--color-obj-*` tokens), 3 each, capped per
+  type; cards render at natural ratio (Primary Objectives are double-height ~1:2, so a fixed 5:7 cropped
+  them). **Footer "Cards" drawer** surfaces the picked command hand (pip+name) + battle deck (colour-coded)
+  at a glance on the main page (collapsed `Cards n/7·n/9` pill → 2nd drawer, mutually exclusive with the
+  validation checklist). Logic: `usesBattleDeck`, `battleCardEligible`, `validateBattleDeck` (3/3/3);
+  `Army.battleDeck` + `CompactArmy.d`. Battle scans git-ignored (fetched by scrape on deploy).
+
+**EPIC D COMPLETE** (D0 + D1 + D2). **Next up: EPIC E — export/print** (E1 versioned share `v:2`, E2 print
+sheet, E4 Longshanks/TTS JSON), then F1 Army Stats panel.
 
 ### 2026-06-12 — C1 implemented
 **Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,

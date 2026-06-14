@@ -2,11 +2,12 @@
 import { ref, onMounted } from 'vue'
 import { RouterLink, RouterView, useRouter } from 'vue-router'
 import { useTheme } from './composables/useTheme.ts'
+import { Analytics } from '@vercel/analytics/vue'
 import ChangelogModal from './components/ChangelogModal.vue'
 
 const menuOpen = ref(false)
 const showChangelog = ref(false)
-const APP_VERSION = '1.0.0' // keep in sync with package.json + ChangelogModal's top entry
+const APP_VERSION = '1.0.1' // keep in sync with package.json + ChangelogModal's top entry
 const router = useRouter()
 const { theme, toggle, init } = useTheme()
 
@@ -96,6 +97,8 @@ onMounted(init)
         <a href="https://ko-fi.com/redrazor" target="_blank" rel="noopener" class="text-lg-accent hover:underline">Buy me a coffee on Ko-fi ☕</a>
         <span class="mx-2">·</span>
         <a href="https://github.com/Redrazor" target="_blank" rel="noopener" class="hover:underline text-lg-accent">GitHub</a>
+        <span class="mx-2">·</span>
+        <a href="https://shatterapp.com" target="_blank" rel="noopener" class="hover:underline text-lg-accent">Play Shatterpoint? Try ShatterApp ↗</a>
       </div>
       <div class="text-xs text-lg-text/35 px-4">
         Unofficial fan tool, not affiliated with Atomic Mass Games or Lucasfilm Ltd. Star Wars: Legion and all related
@@ -107,6 +110,7 @@ onMounted(init)
   </div>
 
   <ChangelogModal :show="showChangelog" @close="showChangelog = false" />
+  <Analytics />
 </template>
 
 <style>

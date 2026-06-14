@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.0.1',
+    date: '2026-06-15',
+    changes: [
+      'Added a footer link to ShatterApp — the sister companion app for Star Wars: Shatterpoint.',
+    ],
+  },
+  {
     version: '1.0.0',
     date: '2026-06-14',
     changes: [

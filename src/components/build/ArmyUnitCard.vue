@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ArmyUnitGroup } from '../../utils/army.ts'
-import { unitLegalityIssues, effectiveUpgradeBar } from '../../utils/army.ts'
+import { unitLegalityIssues, effectiveUpgradeBar, unitModelCount } from '../../utils/army.ts'
 import type { BattleForce, Faction } from '../../types/index.ts'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
@@ -16,7 +16,7 @@ import UnitIndicators from './UnitIndicators.vue'
 const props = defineProps<{ group: ArmyUnitGroup; faction: Faction; battleForce: BattleForce | null; canAdd: boolean }>()
 const emit = defineEmits<{
   pickUpgrade: [payload: { uid: string; slot: string; index: number }]
-  view: [unitId: string]
+  view: [unitId: string, uid: string]
 }>()
 
 const unitsStore = useUnitsStore()
@@ -39,8 +39,14 @@ const groupCost = computed(() => lineCost.value * qty.value)
 // clears as soon as the missing condition (e.g. a mandatory heavy weapon) is met.
 const issues = computed(() => unitLegalityIssues(armyUnit.value, armyStore.draft, unitsStore.byId, props.battleForce))
 
-// Upgrade bar incl. any extra slots the battle force grants this unit.
-const upgradeBar = computed(() => (unit.value ? effectiveUpgradeBar(unit.value, props.battleForce) : []))
+// Upgrade bar incl. extra slots granted by the battle force AND by the upgrades
+// currently equipped on this unit (e.g. a Comms Technician adds a `comms` slot).
+const upgradeBar = computed(() =>
+  unit.value ? effectiveUpgradeBar(unit.value, props.battleForce, armyUnit.value.upgrades, upgradesStore.byId) : [],
+)
+
+// Per-unit miniature count including any mini-adding upgrades equipped on this unit.
+const modelCount = computed(() => unitModelCount(armyUnit.value, unitsStore.byId, upgradesStore.byId))
 
 function equipped(slot: string, index: number) {
   const id = armyStore.upgradeInSlot(armyUnit.value.uid, slot, index)
@@ -87,7 +93,7 @@ function removeGroup() {
     </div>
 
     <div class="relative flex items-start gap-3">
-      <button class="flex min-w-0 flex-1 items-start gap-3 text-left" :title="`View ${unit.name}`" @click="emit('view', unit.id)">
+      <button class="flex min-w-0 flex-1 items-start gap-3 text-left" :title="`View ${unit.name}`" @click="emit('view', unit.id, armyUnit.uid)">
         <UnitBadge :unit="unit" />
         <span class="min-w-0 flex-1">
           <span class="flex items-center gap-1">
@@ -96,7 +102,7 @@ function removeGroup() {
             <span v-if="qty > 1" class="flex-none rounded bg-lg-accent/15 px-1.5 text-[11px] font-bold text-lg-accent">×{{ qty }}</span>
           </span>
           <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
-          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" />
+          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" :models="modelCount" />
         </span>
       </button>
       <div class="flex flex-none flex-col items-end gap-1.5">

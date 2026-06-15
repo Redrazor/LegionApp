@@ -8,6 +8,7 @@
     "isUnique": true,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/improvised-orders.webp"
   },
   {
@@ -19,6 +20,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/strict-orders.webp"
   },
   {
@@ -32,6 +34,7 @@
     "keywords": [
       "Scout"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/recon-intel.webp"
   },
   {
@@ -43,6 +46,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/emergency-stims.webp"
   },
   {
@@ -56,6 +60,7 @@
     "keywords": [
       "Precise"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/targeting-scopes.webp"
   },
   {
@@ -69,6 +74,7 @@
     "keywords": [
       "Expert Climber"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/grappling-hooks.webp"
   },
   {
@@ -82,6 +88,7 @@
     "keywords": [
       "Unhindered"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/environmental-gear.webp"
   },
   {
@@ -93,6 +100,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/tenacity.webp"
   },
   {
@@ -104,6 +112,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/on-the-hunt.webp"
   },
   {
@@ -115,6 +124,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/duck-and-cover.webp"
   },
   {
@@ -126,6 +136,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/endurance.webp"
   },
   {
@@ -137,6 +148,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/fragmentation-grenades.webp"
   },
   {
@@ -150,6 +162,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/impact-grenades.webp"
   },
   {
@@ -163,6 +176,7 @@
     "keywords": [
       "Blast"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/concussion-grenades.webp"
   },
   {
@@ -175,6 +189,7 @@
     "limit": 2,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/hq-uplink.webp"
   },
   {
@@ -186,6 +201,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/comms-jammer.webp"
   },
   {
@@ -200,6 +216,7 @@
       "Fixed",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/overcharged-generator.webp"
   },
   {
@@ -214,6 +231,7 @@
       "Fixed",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/barrage-generator.webp"
   },
   {
@@ -225,6 +243,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/force-push.webp"
   },
   {
@@ -236,6 +255,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/force-reflexes.webp"
   },
   {
@@ -247,6 +267,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/saber-throw.webp"
   },
   {
@@ -263,6 +284,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jedi-mind-trick.webp"
   },
   {
@@ -279,6 +301,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/anger.webp"
   },
   {
@@ -295,6 +318,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/force-choke.webp"
   },
   {
@@ -314,6 +338,7 @@
       "Dauntless",
       "Immune: Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/the-darksaber.webp"
   },
   {
@@ -335,6 +360,7 @@
       "Ion",
       "Ion Token"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mpl-57-ion-trooper.webp"
   },
   {
@@ -351,6 +377,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/z-6-trooper.webp"
   },
   {
@@ -370,6 +397,7 @@
       "Impact",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bowcaster-wookiee.webp"
   },
   {
@@ -390,6 +418,7 @@
       "Assault",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/proton-charge-saboteur.webp"
   },
   {
@@ -411,6 +440,7 @@
       "Overwhelm",
       "Sniper Team"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dh-447-sniper.webp"
   },
   {
@@ -429,6 +459,7 @@
     "keywords": [
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/scatter-gun-trooper.webp"
   },
   {
@@ -449,6 +480,7 @@
       "Impact",
       "Cycle"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mpl-57-barrage-trooper.webp"
   },
   {
@@ -467,6 +499,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dlt-19-stormtrooper.webp"
   },
   {
@@ -486,6 +519,7 @@
       "Cumbersome",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/hh-12-stormtrooper.webp"
   },
   {
@@ -507,6 +541,7 @@
       "Overwhelm",
       "Sniper Team"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dlt-19x-sniper.webp"
   },
   {
@@ -528,6 +563,7 @@
       "Suppressive",
       "Assault"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sonic-charge-saboteur.webp"
   },
   {
@@ -549,6 +585,7 @@
       "Ion",
       "Ion Token"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-7-ion-snowtrooper.webp"
   },
   {
@@ -568,6 +605,7 @@
       "Blast",
       "Spray"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/flametrooper.webp"
   },
   {
@@ -586,6 +624,9 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [
+      "comms"
+    ],
     "cardImage": "/images/upgrades/rebel-comms-technician.webp"
   },
   {
@@ -607,6 +648,7 @@
       "Inspire",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rebel-officer.webp"
   },
   {
@@ -623,6 +665,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rebel-trooper.webp"
   },
   {
@@ -644,6 +687,7 @@
       "Repair",
       "Noncombatant"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/r5-astromech-droid.webp"
   },
   {
@@ -665,6 +709,7 @@
       "Treat",
       "Noncombatant"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/2-1b-medical-droid.webp"
   },
   {
@@ -681,6 +726,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/fleet-trooper.webp"
   },
   {
@@ -701,6 +747,7 @@
       "Inspire",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/imperial-officer.webp"
   },
   {
@@ -717,6 +764,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/stormtrooper.webp"
   },
   {
@@ -734,6 +782,9 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [
+      "comms"
+    ],
     "cardImage": "/images/upgrades/imperial-comms-technician.webp"
   },
   {
@@ -754,6 +805,7 @@
       "Treat",
       "Noncombatant"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/fx-9-medical-droid.webp"
   },
   {
@@ -774,6 +826,7 @@
       "Repair",
       "Noncombatant"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/r4-astromech.webp"
   },
   {
@@ -790,6 +843,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/snowtrooper.webp"
   },
   {
@@ -808,6 +862,7 @@
     "keywords": [
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/at-rt-rotary-blaster.webp"
   },
   {
@@ -828,6 +883,7 @@
       "Fixed",
       "Spray"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/at-rt-flamethrower.webp"
   },
   {
@@ -847,6 +903,7 @@
       "Impact",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/at-rt-laser-cannon.webp"
   },
   {
@@ -865,6 +922,7 @@
     "keywords": [
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ax-108-ground-buzzer.webp"
   },
   {
@@ -884,6 +942,7 @@
       "Fixed",
       "Tow Cable"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mo-dk-power-harpoon.webp"
   },
   {
@@ -903,6 +962,7 @@
       "Impact",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/88i-twin-light-blaster.webp"
   },
   {
@@ -922,6 +982,7 @@
       "Fixed",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/at-st-mortar-launcher.webp"
   },
   {
@@ -941,6 +1002,7 @@
       "Fixed",
       "Blast"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dw-3-grenade-launcher.webp"
   },
   {
@@ -961,6 +1023,7 @@
       "Full Pivot",
       "Field Commander"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/wedge-antilles.webp"
   },
   {
@@ -981,6 +1044,7 @@
       "Arsenal",
       "Field Commander"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/general-weiss.webp"
   },
   {
@@ -999,6 +1063,7 @@
     "keywords": [
       "Demoralize"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/fear.webp"
   },
   {
@@ -1021,6 +1086,7 @@
       "Ion",
       "Ion Token"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/barc-ion-gunner.webp"
   },
   {
@@ -1039,6 +1105,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/barc-rps-6-gunner.webp"
   },
   {
@@ -1057,6 +1124,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-21b-shoretrooper.webp"
   },
   {
@@ -1073,6 +1141,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rt-97c-blaster-rifle.webp"
   },
   {
@@ -1092,6 +1161,7 @@
       "Blast",
       "Spray"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/cr-24-flame-rifle.webp"
   },
   {
@@ -1105,6 +1175,7 @@
     "keywords": [
       "Sentinel"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/overwatch.webp"
   },
   {
@@ -1125,6 +1196,7 @@
       "Shielded",
       "Recharge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sabines-combat-shield.webp"
   },
   {
@@ -1144,6 +1216,7 @@
       "Compel",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dt-f16.webp"
   },
   {
@@ -1162,6 +1235,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dlt-19d-trooper.webp"
   },
   {
@@ -1182,6 +1256,7 @@
       "Suppressive",
       "Reconfigure"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/e-11d-focused-fire-configuration.webp"
   },
   {
@@ -1199,6 +1274,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/imperial-hammers-elite-armor-pilot.webp"
   },
   {
@@ -1218,6 +1294,7 @@
     "keywords": [
       "Cover"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/outer-rim-speeder-jockey.webp"
   },
   {
@@ -1236,6 +1313,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rps-6-rocket-gunner.webp"
   },
   {
@@ -1252,6 +1330,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/a-300-rifle-gunner.webp"
   },
   {
@@ -1268,6 +1347,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rebel-veteran.webp"
   },
   {
@@ -1287,6 +1367,7 @@
     "keywords": [
       "Tactical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/first-sergeant-arbmab.webp"
   },
   {
@@ -1305,6 +1386,7 @@
     "keywords": [
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mark-ii-medium-blaster.webp"
   },
   {
@@ -1327,6 +1409,7 @@
       "Ion",
       "Ion Token"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/m-45-ion-blaster.webp"
   },
   {
@@ -1345,6 +1428,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/pintle-mounted-dlt-19.webp"
   },
   {
@@ -1361,6 +1445,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/pintle-mounted-rt-97c.webp"
   },
   {
@@ -1377,6 +1462,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/shoretrooper.webp"
   },
   {
@@ -1393,6 +1479,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/b1-battle-droid.webp"
   },
   {
@@ -1409,6 +1496,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/e-5c-b1-battle-droid.webp"
   },
   {
@@ -1425,6 +1513,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/z-6-clone-trooper.webp"
   },
   {
@@ -1443,6 +1532,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dc-15-clone-trooper.webp"
   },
   {
@@ -1462,6 +1552,7 @@
       "Cumbersome",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/e-60r-b1-battle-droid.webp"
   },
   {
@@ -1480,6 +1571,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-21-blaster-rifle.webp"
   },
   {
@@ -1493,6 +1585,7 @@
     "keywords": [
       "Surge Token"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/force-guidance.webp"
   },
   {
@@ -1506,6 +1599,7 @@
     "keywords": [
       "Spotter"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/electrobinoculars.webp"
   },
   {
@@ -1531,6 +1625,7 @@
     "keywords": [
       "Target"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/linked-targeting-array.webp"
   },
   {
@@ -1544,6 +1639,7 @@
     "keywords": [
       "Smoke"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/smoke-grenades.webp"
   },
   {
@@ -1562,6 +1658,7 @@
     "keywords": [
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/barc-twin-laser-gunner.webp"
   },
   {
@@ -1580,6 +1677,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/cm-0-93-trooper.webp"
   },
   {
@@ -1596,6 +1694,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/electro-grappling-line.webp"
   },
   {
@@ -1613,6 +1712,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ryder-azadi.webp"
   },
   {
@@ -1631,6 +1731,7 @@
     "keywords": [
       "Inspire"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/hope.webp"
   },
   {
@@ -1647,6 +1748,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/b2-super-battle-droid.webp"
   },
   {
@@ -1666,6 +1768,7 @@
       "Inspire",
       "Field Commander"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/aayla-secura.webp"
   },
   {
@@ -1685,6 +1788,7 @@
       "AI",
       "Field Commander"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-series-tactical-droid-pilot.webp"
   },
   {
@@ -1703,6 +1807,7 @@
     "keywords": [
       "AI"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/b1-security-droid.webp"
   },
   {
@@ -1721,6 +1826,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dlt-20a-trooper.webp"
   },
   {
@@ -1739,6 +1845,7 @@
     "keywords": [
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dp-23-clone-trooper.webp"
   },
   {
@@ -1757,6 +1864,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/e-5s-b1-battle-droid.webp"
   },
   {
@@ -1780,6 +1888,7 @@
       "Cumbersome",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rps-6-clone-trooper.webp"
   },
   {
@@ -1796,6 +1905,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rt-97c-stormtrooper.webp"
   },
   {
@@ -1814,6 +1924,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sx-21-trooper.webp"
   },
   {
@@ -1832,6 +1943,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-21-stormtrooper.webp"
   },
   {
@@ -1845,6 +1957,7 @@
     "keywords": [
       "Tactical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/offensive-push.webp"
   },
   {
@@ -1862,6 +1975,9 @@
     "faction": null,
     "keywords": [
       "Leader"
+    ],
+    "grantedSlots": [
+      "training"
     ],
     "cardImage": "/images/upgrades/stormtrooper-captain.webp"
   },
@@ -1881,6 +1997,9 @@
     "keywords": [
       "Leader"
     ],
+    "grantedSlots": [
+      "training"
+    ],
     "cardImage": "/images/upgrades/rebel-trooper-captain.webp"
   },
   {
@@ -1899,6 +2018,9 @@
     "keywords": [
       "Surge Token"
     ],
+    "grantedSlots": [
+      "gear"
+    ],
     "cardImage": "/images/upgrades/rebel-trooper-specialist.webp"
   },
   {
@@ -1916,6 +2038,9 @@
     "faction": null,
     "keywords": [
       "Surge Token"
+    ],
+    "grantedSlots": [
+      "gear"
     ],
     "cardImage": "/images/upgrades/stormtrooper-specialist.webp"
   },
@@ -1936,6 +2061,7 @@
       "Coordinate",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/oom-series-battle-droid.webp"
   },
   {
@@ -1954,6 +2080,7 @@
     "keywords": [
       "Poison Token"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/radiation-cannon-b1-battle-droid.webp"
   },
   {
@@ -1974,6 +2101,7 @@
       "Outmaneuver",
       "Defend"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-captain.webp"
   },
   {
@@ -1991,6 +2119,9 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [
+      "gear"
+    ],
     "cardImage": "/images/upgrades/clone-specialist.webp"
   },
   {
@@ -2007,6 +2138,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/b2-acm-battle-droid.webp"
   },
   {
@@ -2028,6 +2160,7 @@
       "Pierce",
       "Reconfigure"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/a280.webp"
   },
   {
@@ -2045,6 +2178,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/veteran-clone-pilot.webp"
   },
   {
@@ -2063,6 +2197,7 @@
     "keywords": [
       "Beam"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/beam-turret.webp"
   },
   {
@@ -2078,6 +2213,7 @@
       "Fixed",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/armor-piercing-shells.webp"
   },
   {
@@ -2102,6 +2238,7 @@
       "Suppressive",
       "Cumbersome"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mortar-clone-trooper.webp"
   },
   {
@@ -2122,6 +2259,7 @@
       "Cycle",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/b2-ha-battle-droid.webp"
   },
   {
@@ -2141,6 +2279,7 @@
       "AI",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/lok-durd.webp"
   },
   {
@@ -2159,6 +2298,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/twin-laser-turret.webp"
   },
   {
@@ -2177,6 +2317,7 @@
     "keywords": [
       "Agile"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/plo-koon.webp"
   },
   {
@@ -2193,6 +2334,7 @@
       "Fixed",
       "Scatter"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bunker-buster-shells.webp"
   },
   {
@@ -2209,6 +2351,7 @@
       "High Velocity",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/high-energy-shells.webp"
   },
   {
@@ -2227,6 +2370,7 @@
     "keywords": [
       "Coordinate"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/oom-series-droid-pilot.webp"
   },
   {
@@ -2246,6 +2390,7 @@
       "Shields",
       "Recharge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bx-deflector-shields.webp"
   },
   {
@@ -2267,6 +2412,7 @@
       "Overwhelm",
       "Sniper Team"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bx-series-droid-sniper.webp"
   },
   {
@@ -2280,6 +2426,7 @@
     "keywords": [
       "Ion"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/emp-droid-poppers.webp"
   },
   {
@@ -2301,6 +2448,7 @@
       "Overwhelm",
       "Sniper Team"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-sniper.webp"
   },
   {
@@ -2321,6 +2469,7 @@
       "Coordinate",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/fives.webp"
   },
   {
@@ -2353,6 +2502,7 @@
       "Immune: Deflect",
       "Lethal 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/echo.webp"
   },
   {
@@ -2366,6 +2516,7 @@
     "keywords": [
       "Outmaneuver"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/situational-awareness.webp"
   },
   {
@@ -2384,6 +2535,7 @@
     "keywords": [
       "Charge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bx-vibroswords.webp"
   },
   {
@@ -2403,6 +2555,7 @@
       "Immobilize",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/electro-gauntlets.webp"
   },
   {
@@ -2422,6 +2575,7 @@
       "Suppressive",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jyns-se-14-blaster.webp"
   },
   {
@@ -2444,6 +2598,7 @@
     "keywords": [
       "Coordinate"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/command-control-array.webp"
   },
   {
@@ -2472,6 +2627,7 @@
       "Coordinate",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/gideon-hask.webp"
   },
   {
@@ -2502,6 +2658,7 @@
       "Lethal",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/del-meeko.webp"
   },
   {
@@ -2515,6 +2672,7 @@
     "keywords": [
       "Scale"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ascension-cables.webp"
   },
   {
@@ -2535,6 +2693,7 @@
       "Poison",
       "Assault"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dioxis-mine-saboteur.webp"
   },
   {
@@ -2555,6 +2714,7 @@
       "Impact",
       "Blast"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jetpack-rockets.webp"
   },
   {
@@ -2575,6 +2735,7 @@
       "Pierce",
       "Immune: Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/beskad-duelist.webp"
   },
   {
@@ -2595,6 +2756,7 @@
       "Leader",
       "Long Shot"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ursa-wren.webp"
   },
   {
@@ -2614,6 +2776,7 @@
       "Lethal",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/tristan-wren.webp"
   },
   {
@@ -2636,6 +2799,7 @@
       "Leader",
       "Sidearm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-series-tactical-droid.webp"
   },
   {
@@ -2649,6 +2813,7 @@
     "keywords": [
       "Take Cover"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/portable-scanner.webp"
   },
   {
@@ -2669,6 +2834,7 @@
     "keywords": [
       "Reconfigure"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/offensive-stance.webp"
   },
   {
@@ -2694,6 +2860,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-21-special-forces-trooper.webp"
   },
   {
@@ -2705,6 +2872,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/force-barrier.webp"
   },
   {
@@ -2725,6 +2893,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/seize-the-initiative.webp"
   },
   {
@@ -2736,6 +2905,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/inspiring-presence.webp"
   },
   {
@@ -2747,6 +2917,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/vigilance.webp"
   },
   {
@@ -2766,6 +2937,7 @@
     "keywords": [
       "Fire Support"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-comms-technician.webp"
   },
   {
@@ -2785,6 +2957,7 @@
     "keywords": [
       "Repair"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-engineer.webp"
   },
   {
@@ -2803,6 +2976,7 @@
     "keywords": [
       "Treat"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-medic.webp"
   },
   {
@@ -2823,6 +2997,7 @@
       "Reliable",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-commander.webp"
   },
   {
@@ -2843,6 +3018,7 @@
       "Observe",
       "Sidearm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/viper-recon-droid.webp"
   },
   {
@@ -2863,6 +3039,7 @@
       "Repair",
       "Noncombatant"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/pk-series-worker-droid.webp"
   },
   {
@@ -2883,6 +3060,7 @@
       "Treat",
       "Noncombatant"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ev-series-medical-droid.webp"
   },
   {
@@ -2901,6 +3079,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/heavy-laser-retrofit.webp"
   },
   {
@@ -2920,6 +3099,7 @@
     "keywords": [
       "Field Commander"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/shriv-suurgav.webp"
   },
   {
@@ -2939,6 +3119,7 @@
     "keywords": [
       "Field Commander"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/governor-pryce.webp"
   },
   {
@@ -2958,6 +3139,7 @@
     "keywords": [
       "Field Commander"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-commander-fox.webp"
   },
   {
@@ -2980,6 +3162,7 @@
     "keywords": [
       "Coordinate"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/onboard-comms-channel.webp"
   },
   {
@@ -2998,6 +3181,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ag-2g-quad-laser.webp"
   },
   {
@@ -3017,6 +3201,7 @@
     "keywords": [
       "Sharpshooter"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/hotshot-pilot.webp"
   },
   {
@@ -3033,6 +3218,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/backworld-medic.webp"
   },
   {
@@ -3053,6 +3239,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/unstable-astromech.webp"
   },
   {
@@ -3069,6 +3256,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/unorthodox-tactician.webp"
   },
   {
@@ -3088,6 +3276,7 @@
     "keywords": [
       "Marksman"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/baron-rudor.webp"
   },
   {
@@ -3107,6 +3296,7 @@
     "keywords": [
       "Observe"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/hound-grizzer.webp"
   },
   {
@@ -3124,6 +3314,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/imperial-tie-pilot.webp"
   },
   {
@@ -3141,6 +3332,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-shock-trooper-pilot.webp"
   },
   {
@@ -3160,6 +3352,7 @@
       "Armor",
       "Reconfigure"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/battle-shield-wookiee.webp"
   },
   {
@@ -3178,6 +3371,7 @@
     "keywords": [
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/long-gun-wookiee.webp"
   },
   {
@@ -3189,6 +3383,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/burst-of-speed.webp"
   },
   {
@@ -3200,6 +3395,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/into-the-fray.webp"
   },
   {
@@ -3211,6 +3407,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/protector.webp"
   },
   {
@@ -3230,6 +3427,7 @@
       "Immobilize",
       "Versatile"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/electro-whip-magnaguard.webp"
   },
   {
@@ -3246,6 +3444,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ig-100-magnaguard.webp"
   },
   {
@@ -3265,6 +3464,7 @@
       "Critical",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rps-6-magnaguard.webp"
   },
   {
@@ -3285,6 +3485,7 @@
       "Impact",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/gnasp-gunner.webp"
   },
   {
@@ -3296,6 +3497,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/hacked-comms-unit.webp"
   },
   {
@@ -3314,6 +3516,7 @@
     "keywords": [
       "AI"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/engagement-protocols.webp"
   },
   {
@@ -3335,6 +3538,7 @@
       "Nimble",
       "Outmaneuver"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/defense-protocols.webp"
   },
   {
@@ -3354,6 +3558,7 @@
       "AI",
       "Precise"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/attack-protocols.webp"
   },
   {
@@ -3374,6 +3579,7 @@
       "Fixed",
       "Spray"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/nose-mounted-flamethrower.webp"
   },
   {
@@ -3393,6 +3599,7 @@
       "Overrun",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/gnasp-bombardier.webp"
   },
   {
@@ -3414,6 +3621,7 @@
       "Impact",
       "Ion"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/nose-mounted-ion-blaster.webp"
   },
   {
@@ -3433,6 +3641,7 @@
       "Critical",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/nose-mounted-laser-cannon.webp"
   },
   {
@@ -3449,6 +3658,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/327th-star-corps-pilot.webp"
   },
   {
@@ -3469,6 +3679,7 @@
       "Critical",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/twin-blaster-cannons.webp"
   },
   {
@@ -3488,6 +3699,7 @@
       "Beam",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/twin-beam-cannons.webp"
   },
   {
@@ -3508,6 +3720,7 @@
       "Impact",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/twin-missile-pods.webp"
   },
   {
@@ -3521,6 +3734,7 @@
     "keywords": [
       "Allies of Convenience"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/underworld-connections.webp"
   },
   {
@@ -3539,6 +3753,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/p13-m-disruptor-soldier.webp"
   },
   {
@@ -3558,6 +3773,7 @@
       "Immobilize",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/electro-whip-soldier.webp"
   },
   {
@@ -3576,6 +3792,7 @@
     "keywords": [
       "Cache"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/pyke-syndicate-foot-soldier.webp"
   },
   {
@@ -3595,6 +3812,7 @@
       "Independent",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/pyke-syndicate-capo.webp"
   },
   {
@@ -3613,6 +3831,7 @@
     "keywords": [
       "Cache"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/black-sun-enforcer.webp"
   },
   {
@@ -3632,6 +3851,7 @@
       "Independent",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/black-sun-vigo.webp"
   },
   {
@@ -3651,6 +3871,7 @@
       "Blast",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mag-det-enforcer.webp"
   },
   {
@@ -3669,6 +3890,7 @@
     "keywords": [
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/scatter-gun-enforcer.webp"
   },
   {
@@ -3682,6 +3904,7 @@
     "keywords": [
       "Cache"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/prepared-supplies.webp"
   },
   {
@@ -3695,6 +3918,7 @@
     "keywords": [
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sonic-imploders.webp"
   },
   {
@@ -3718,6 +3942,7 @@
       "Impact",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/the-darksaber-maul.webp"
   },
   {
@@ -3729,6 +3954,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/up-close-and-personal.webp"
   },
   {
@@ -3742,6 +3968,7 @@
     "keywords": [
       "Inspire 2"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/lead-by-example.webp"
   },
   {
@@ -3760,6 +3987,7 @@
     "keywords": [
       "Shielded"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/super-commando-combat-shields.webp"
   },
   {
@@ -3780,6 +4008,7 @@
       "Critical",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/super-commando-jetpack-rockets.webp"
   },
   {
@@ -3798,6 +4027,7 @@
     "keywords": [
       "Cache"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mandalorian-super-commando.webp"
   },
   {
@@ -3817,6 +4047,7 @@
       "Overwhelm",
       "Lethal"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/super-commando-gunslinger.webp"
   },
   {
@@ -3835,6 +4066,7 @@
     "keywords": [
       "Precise"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/super-commando-marksman.webp"
   },
   {
@@ -3854,6 +4086,7 @@
       "Retinue",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rook-kast.webp"
   },
   {
@@ -3865,6 +4098,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/emergency-transponder.webp"
   },
   {
@@ -3885,6 +4119,7 @@
       "Lethal",
       "Long Shot"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/saxons-galar-90-rifle.webp"
   },
   {
@@ -3905,6 +4140,7 @@
       "Cycle",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/saxons-jetpack-rockets.webp"
   },
   {
@@ -3925,6 +4161,7 @@
       "Spray",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/saxons-zx-flame-projector.webp"
   },
   {
@@ -3942,6 +4179,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/frenzied-gunner.webp"
   },
   {
@@ -3963,6 +4201,7 @@
       "Field Commander",
       "Demoralize"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/raiding-party-leader.webp"
   },
   {
@@ -3982,6 +4221,7 @@
       "Shielded",
       "Recharge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/saxons-combat-shield.webp"
   },
   {
@@ -4001,6 +4241,7 @@
       "Immobilize",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dins-amban-rifle.webp"
   },
   {
@@ -4020,6 +4261,7 @@
       "Counterpart",
       "AI"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/nanny-programming.webp"
   },
   {
@@ -4040,6 +4282,7 @@
       "Spray",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dins-flame-projector.webp"
   },
   {
@@ -4058,6 +4301,7 @@
     "keywords": [
       "Jump"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dins-jetpack.webp"
   },
   {
@@ -4077,6 +4321,7 @@
       "Duelist",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/beskar-spear.webp"
   },
   {
@@ -4098,6 +4343,7 @@
       "Pierce",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bounty-programming.webp"
   },
   {
@@ -4119,6 +4365,7 @@
       "Scout 1",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/boil.webp"
   },
   {
@@ -4140,6 +4387,7 @@
       "Scout",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/waxer.webp"
   },
   {
@@ -4160,6 +4408,7 @@
       "Spray",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bobas-flame-projector.webp"
   },
   {
@@ -4181,6 +4430,7 @@
       "Impact",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/the-darksaber-gideon.webp"
   },
   {
@@ -4199,6 +4449,7 @@
     "keywords": [
       "Critical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/xs-iv-assault-cannon.webp"
   },
   {
@@ -4219,6 +4470,7 @@
       "Impact",
       "Cycle"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sm-9-frag-launcher.webp"
   },
   {
@@ -4237,6 +4489,7 @@
     "keywords": [
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mertalizer.webp"
   },
   {
@@ -4253,6 +4506,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/imperial-dark-trooper.webp"
   },
   {
@@ -4271,6 +4525,7 @@
     "keywords": [
       "Retinue"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/programmed-loyalty.webp"
   },
   {
@@ -4299,6 +4554,7 @@
     "keywords": [
       "Scout"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/forest-dwellers.webp"
   },
   {
@@ -4328,6 +4584,7 @@
     "keywords": [
       "Charge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/call-to-arms.webp"
   },
   {
@@ -4351,6 +4608,7 @@
       "Pierce",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/axe-ewok.webp"
   },
   {
@@ -4371,6 +4629,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/insatiable-curiosity.webp"
   },
   {
@@ -4391,6 +4650,9 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [
+      "training"
+    ],
     "cardImage": "/images/upgrades/ewok-trapper.webp"
   },
   {
@@ -4409,6 +4671,7 @@
     "keywords": [
       "Aid"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/secret-ingredients.webp"
   },
   {
@@ -4425,6 +4688,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/herbal-medicine.webp"
   },
   {
@@ -4441,6 +4705,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/onward-to-victory.webp"
   },
   {
@@ -4463,6 +4728,7 @@
     "keywords": [
       "Demoralize"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/inquisitorius-training.webp"
   },
   {
@@ -4482,6 +4748,7 @@
       "Overrun",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/force-pike-warrior.webp"
   },
   {
@@ -4501,6 +4768,7 @@
       "Scatter",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sonic-cannon-warrior.webp"
   },
   {
@@ -4517,6 +4785,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/geonosian-warrior.webp"
   },
   {
@@ -4539,6 +4808,7 @@
       "High Velocity",
       "Reconfigure"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dc-17m-icws-config.webp"
   },
   {
@@ -4555,6 +4825,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/katarn-pattern-armor.webp"
   },
   {
@@ -4571,6 +4842,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/range-trooper.webp"
   },
   {
@@ -4589,6 +4861,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dlt-20a-range-trooper.webp"
   },
   {
@@ -4607,6 +4880,7 @@
     "keywords": [
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/t-21a-range-trooper.webp"
   },
   {
@@ -4625,6 +4899,7 @@
     "keywords": [
       "Reliable"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/echo-2.webp"
   },
   {
@@ -4643,6 +4918,7 @@
     "keywords": [
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/hunter.webp"
   },
   {
@@ -4659,6 +4935,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/wrecker.webp"
   },
   {
@@ -4678,6 +4955,7 @@
       "Cache",
       "Tactical"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/tech.webp"
   },
   {
@@ -4699,6 +4977,7 @@
       "Pierce",
       "Precise"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/crosshair.webp"
   },
   {
@@ -4717,6 +4996,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/kx-series-security-droids.webp"
   },
   {
@@ -4736,6 +5016,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/shoretrooper-squad.webp"
   },
   {
@@ -4755,6 +5036,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/snowtrooper-squad.webp"
   },
   {
@@ -4771,6 +5053,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/stormtrooper-marksman.webp"
   },
   {
@@ -4790,6 +5073,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/stormtrooper-squad.webp"
   },
   {
@@ -4808,6 +5092,7 @@
     "keywords": [
       "Noncombatant"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/astromech.webp"
   },
   {
@@ -4827,6 +5112,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ewok-skirmisher-squad.webp"
   },
   {
@@ -4846,6 +5132,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ewok-slinger-squad.webp"
   },
   {
@@ -4865,6 +5152,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/fleet-trooper-squad.webp"
   },
   {
@@ -4881,6 +5169,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rebel-marksman.webp"
   },
   {
@@ -4900,6 +5189,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rebel-trooper-squad.webp"
   },
   {
@@ -4919,6 +5209,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/b1-battle-droid-squad.webp"
   },
   {
@@ -4938,6 +5229,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/b2-super-battle-droid-squad.webp"
   },
   {
@@ -4957,6 +5249,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/geonosian-warrior-squad.webp"
   },
   {
@@ -4976,6 +5269,7 @@
       "Impact",
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/heavy-laser-cannon.webp"
   },
   {
@@ -4994,6 +5288,7 @@
     "keywords": [
       "Fixed"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/twin-blaster-cannons-2.webp"
   },
   {
@@ -5013,6 +5308,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-trooper-infantry-squad.webp"
   },
   {
@@ -5029,6 +5325,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-trooper-infantry.webp"
   },
   {
@@ -5048,6 +5345,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rebel-veteran-squad.webp"
   },
   {
@@ -5066,6 +5364,7 @@
     "keywords": [
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/heavy-aqua-droid.webp"
   },
   {
@@ -5092,6 +5391,7 @@
       "Pierce",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jedi-guardian.webp"
   },
   {
@@ -5111,6 +5411,7 @@
       "Cumbersome",
       "Impact"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rps-6-arf-trooper.webp"
   },
   {
@@ -5129,6 +5430,7 @@
     "keywords": [
       "Cache"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/arf-trooper-duo.webp"
   },
   {
@@ -5154,6 +5456,7 @@
       "Impact",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ahsoka-tano.webp"
   },
   {
@@ -5172,6 +5475,7 @@
     "keywords": [
       "Shielded"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mandalorian-combat-shields.webp"
   },
   {
@@ -5190,6 +5494,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/strike-and-fade.webp"
   },
   {
@@ -5206,6 +5511,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/strike-team-leader.webp"
   },
   {
@@ -5241,6 +5547,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mission-objective.webp"
   },
   {
@@ -5252,6 +5559,7 @@
     "isUnique": true,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/trusted-agent.webp"
   },
   {
@@ -5271,6 +5579,7 @@
     "keywords": [
       "Charge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/imperial-march.webp"
   },
   {
@@ -5287,6 +5596,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/terror.webp"
   },
   {
@@ -5330,6 +5640,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dug-in.webp"
   },
   {
@@ -5346,6 +5657,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/tranquility.webp"
   },
   {
@@ -5357,6 +5669,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/extra-supplies.webp"
   },
   {
@@ -5368,6 +5681,7 @@
     "isUnique": false,
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clairvoyance.webp"
   },
   {
@@ -5381,6 +5695,7 @@
     "keywords": [
       "Sharpshooter"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/spotter-uplink.webp"
   },
   {
@@ -5399,6 +5714,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/door-gunners.webp"
   },
   {
@@ -5419,6 +5735,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/combat-armor.webp"
   },
   {
@@ -5439,6 +5756,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/combat-armor-2.webp"
   },
   {
@@ -5459,6 +5777,7 @@
       "Inspire 1",
       "Strategize 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/academy-trained.webp"
   },
   {
@@ -5483,6 +5802,7 @@
       "Direct Core Trooper Unit",
       "Tactical 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/tip-of-the-spear.webp"
   },
   {
@@ -5507,6 +5827,7 @@
       "Prepared Position",
       "Spotter 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/defend-in-depth.webp"
   },
   {
@@ -5526,6 +5847,7 @@
       "Retinue Imperial Agent",
       "Sharpshooter 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/platoon-commander.webp"
   },
   {
@@ -5550,6 +5872,7 @@
       "Shielded 1",
       "Observe 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/seeker-droid.webp"
   },
   {
@@ -5570,6 +5893,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/command-and-control-uplink.webp"
   },
   {
@@ -5595,6 +5919,7 @@
       "Lethal 1",
       "Long Shot"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/heavy-blaster-pistol.webp"
   },
   {
@@ -5618,6 +5943,7 @@
       "Demoralize 1",
       "Immobilize 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/stun-baton.webp"
   },
   {
@@ -5641,6 +5967,7 @@
       "Immune: Melee Pierce",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/z-6-riot-baton.webp"
   },
   {
@@ -5663,6 +5990,7 @@
       "Spur",
       "Tactical 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/frontline-commander.webp"
   },
   {
@@ -5686,6 +6014,7 @@
       "Prepared Position",
       "Low Profile"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/unseen-saboteur.webp"
   },
   {
@@ -5706,6 +6035,7 @@
       "Quick Thinking",
       "Exemplar"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/proven-tactician.webp"
   },
   {
@@ -5726,6 +6056,7 @@
       "Infiltrate",
       "Relentless"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/reluctant-hero.webp"
   },
   {
@@ -5751,6 +6082,7 @@
       "Impact 1",
       "Long Shot"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/repeating-blaster.webp"
   },
   {
@@ -5774,6 +6106,7 @@
       "Arsenal 2",
       "Lethal 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/heavy-blaster-pistol-2.webp"
   },
   {
@@ -5798,6 +6131,7 @@
       "Impact 1",
       "Lethal 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/vibro-axe.webp"
   },
   {
@@ -5821,6 +6155,7 @@
       "Blast",
       "Impact 4"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/thermal-detonator.webp"
   },
   {
@@ -5840,6 +6175,9 @@
       "Bolster 2",
       "Direct Clone Trooper",
       "Inspire 1"
+    ],
+    "grantedSlots": [
+      "command"
     ],
     "cardImage": "/images/upgrades/general-of-the-republic.webp"
   },
@@ -5862,6 +6200,9 @@
     "faction": null,
     "keywords": [
       "Steady"
+    ],
+    "grantedSlots": [
+      "force"
     ],
     "cardImage": "/images/upgrades/jedi-consular.webp"
   },
@@ -5887,6 +6228,9 @@
       "Spray",
       "Suppressive"
     ],
+    "grantedSlots": [
+      "training"
+    ],
     "cardImage": "/images/upgrades/jedi-negotiator.webp"
   },
   {
@@ -5910,6 +6254,7 @@
       "Charge",
       "Lethal 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jedi-guardian-2.webp"
   },
   {
@@ -5932,6 +6277,7 @@
     "keywords": [
       "Block"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/lightsaber.webp"
   },
   {
@@ -5956,6 +6302,7 @@
       "Impact",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/twin-lightsabers.webp"
   },
   {
@@ -5979,6 +6326,7 @@
       "Charge",
       "Tactical 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/double-bladed-lightsaber.webp"
   },
   {
@@ -6005,6 +6353,7 @@
       "Critical 1",
       "Jump 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jedi-training.webp"
   },
   {
@@ -6031,6 +6380,7 @@
       "Reliable 2",
       "Sentinel"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jedi-training-2.webp"
   },
   {
@@ -6053,6 +6403,9 @@
     "faction": null,
     "keywords": [
       "Jump 2"
+    ],
+    "grantedSlots": [
+      "force"
     ],
     "cardImage": "/images/upgrades/jedi-training-3.webp"
   },
@@ -6077,6 +6430,7 @@
     "keywords": [
       "Guidance Core Trooper Unit"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jedi-training-4.webp"
   },
   {
@@ -6094,6 +6448,9 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [
+      "programming"
+    ],
     "cardImage": "/images/upgrades/tyrannical-taskmaster.webp"
   },
   {
@@ -6115,6 +6472,9 @@
       "Marksman",
       "Target 1"
     ],
+    "grantedSlots": [
+      "training"
+    ],
     "cardImage": "/images/upgrades/seek-and-destroy.webp"
   },
   {
@@ -6132,6 +6492,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sliced-comms.webp"
   },
   {
@@ -6149,6 +6510,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/overclock.webp"
   },
   {
@@ -6166,6 +6528,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/targeting-relay.webp"
   },
   {
@@ -6183,6 +6546,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/limiter-override.webp"
   },
   {
@@ -6201,6 +6565,7 @@
     "keywords": [
       "Direct AI Unit"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/optimized-task-flow.webp"
   },
   {
@@ -6219,6 +6584,7 @@
     "keywords": [
       "Strategize 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/strategic-programming.webp"
   },
   {
@@ -6238,6 +6604,7 @@
       "Sharpshooter 1",
       "Lethal 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/enhanced-combat-subroutines.webp"
   },
   {
@@ -6257,6 +6624,7 @@
       "Charge",
       "Immune: Melee Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/electrostaff.webp"
   },
   {
@@ -6275,6 +6643,7 @@
     "keywords": [
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/heavy-arm-cannon.webp"
   },
   {
@@ -6294,6 +6663,7 @@
       "Scale",
       "Steady"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mobility-upgrade.webp"
   },
   {
@@ -6310,6 +6680,9 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [
+      "programming"
+    ],
     "cardImage": "/images/upgrades/expanded-databanks.webp"
   },
   {
@@ -6330,6 +6703,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/turbo-charge.webp"
   },
   {
@@ -6348,6 +6722,7 @@
     "keywords": [
       "Indomitable"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-trooper-marksmen-squad.webp"
   },
   {
@@ -6364,6 +6739,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-trooper-marksman.webp"
   },
   {
@@ -6384,6 +6760,9 @@
     "keywords": [
       "Leader",
       "AI"
+    ],
+    "grantedSlots": [
+      "heavy weapon"
     ],
     "cardImage": "/images/upgrades/kraken.webp"
   },
@@ -6411,6 +6790,9 @@
       "Demoralize 1",
       "Sidearm"
     ],
+    "grantedSlots": [
+      "heavy weapon"
+    ],
     "cardImage": "/images/upgrades/agent-kallus.webp"
   },
   {
@@ -6430,6 +6812,10 @@
     "faction": null,
     "keywords": [
       "Leader"
+    ],
+    "grantedSlots": [
+      "command",
+      "training"
     ],
     "cardImage": "/images/upgrades/clone-captain-rex.webp"
   },
@@ -6453,6 +6839,9 @@
       "Secret Mission",
       "Uncanny Luck 1"
     ],
+    "grantedSlots": [
+      "heavy weapon"
+    ],
     "cardImage": "/images/upgrades/cassian-andor.webp"
   },
   {
@@ -6469,6 +6858,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/black-sun-crew.webp"
   },
   {
@@ -6485,6 +6875,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/pyke-syndicate-crew.webp"
   },
   {
@@ -6501,6 +6892,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/weequay-crew.webp"
   },
   {
@@ -6517,6 +6909,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/pirate-captain.webp"
   },
   {
@@ -6536,6 +6929,7 @@
     "keywords": [
       "Command Vehicle 2"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/gang-boss.webp"
   },
   {
@@ -6555,6 +6949,7 @@
       "Immune: Melee Pierce",
       "Scatter"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ig-100-magnaguard-pilot.webp"
   },
   {
@@ -6574,6 +6969,7 @@
       "Calculate Odds",
       "Cache"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/logistical-prowess.webp"
   },
   {
@@ -6593,6 +6989,7 @@
       "Guardian 2",
       "Retinue"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/security-detail.webp"
   },
   {
@@ -6611,6 +7008,7 @@
     "keywords": [
       "Lethal"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/long-rifle-pirate.webp"
   },
   {
@@ -6629,6 +7027,7 @@
     "keywords": [
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/weequay-captain.webp"
   },
   {
@@ -6648,6 +7047,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/weequay-pirate-squad.webp"
   },
   {
@@ -6667,6 +7067,7 @@
       "Immune: Melee Pierce",
       "Sidearm Melee"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/electrostaff-pirate.webp"
   },
   {
@@ -6685,6 +7086,7 @@
     "keywords": [
       "Retinue Plo Koon"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/youre-not-all-the-same-to-me.webp"
   },
   {
@@ -6702,6 +7104,7 @@
       "Immune: Melee Pierce",
       "Self-Preservation"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/shaak-ti.webp"
   },
   {
@@ -6721,6 +7124,7 @@
       "Leader",
       "This is the Way"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/din-djarin.webp"
   },
   {
@@ -6740,6 +7144,7 @@
       "Leader",
       "Reliable 2"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/the-armorer.webp"
   },
   {
@@ -6756,6 +7161,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/caught-in-a-web.webp"
   },
   {
@@ -6775,6 +7181,7 @@
     "keywords": [
       "Overwhelm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-gunner.webp"
   },
   {
@@ -6807,6 +7214,9 @@
       "Observe",
       "Noncombatant"
     ],
+    "grantedSlots": [
+      "heavy weapon"
+    ],
     "cardImage": "/images/upgrades/imperial-probe-droid.webp"
   },
   {
@@ -6824,6 +7234,9 @@
     "faction": null,
     "keywords": [
       "Indomitable"
+    ],
+    "grantedSlots": [
+      "heavy weapon"
     ],
     "cardImage": "/images/upgrades/pyke-syndicate-foot-soldier-squad.webp"
   },
@@ -6845,6 +7258,7 @@
       "Spur",
       "Sidearm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/fifth-brother.webp"
   },
   {
@@ -6872,6 +7286,7 @@
       "Demoralize",
       "Sidearm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/seventh-sister.webp"
   },
   {
@@ -6903,6 +7318,9 @@
       "Impact",
       "Pierce"
     ],
+    "grantedSlots": [
+      "heavy weapon"
+    ],
     "cardImage": "/images/upgrades/jyn-erso.webp"
   },
   {
@@ -6927,6 +7345,9 @@
       "Sidearm",
       "Critical"
     ],
+    "grantedSlots": [
+      "heavy weapon"
+    ],
     "cardImage": "/images/upgrades/luke-skywalker.webp"
   },
   {
@@ -6947,6 +7368,7 @@
       "Immune: Melee Pierce",
       "Sidearm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/obi-wan-kenobi.webp"
   },
   {
@@ -6971,6 +7393,7 @@
       "Mechanized Infantry",
       "Precise"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clone-commander-cody.webp"
   },
   {
@@ -6998,6 +7421,9 @@
       "Demoralize",
       "Sidearm"
     ],
+    "grantedSlots": [
+      "heavy weapon"
+    ],
     "cardImage": "/images/upgrades/asajj-ventress.webp"
   },
   {
@@ -7022,6 +7448,9 @@
       "AI",
       "Sidearm"
     ],
+    "grantedSlots": [
+      "heavy weapon"
+    ],
     "cardImage": "/images/upgrades/general-grievous.webp"
   },
   {
@@ -7040,6 +7469,7 @@
     "keywords": [
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/chewbacca.webp"
   },
   {
@@ -7059,6 +7489,7 @@
       "Indomitable",
       "Transport"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/mandalorian-initiate-squad.webp"
   },
   {
@@ -7091,6 +7522,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/galaar-15-carbines.webp"
   },
   {
@@ -7122,6 +7554,7 @@
       "High Velocity",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/galaar-90-sniper-rifle.webp"
   },
   {
@@ -7140,6 +7573,7 @@
     "keywords": [
       "Overwhelm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/shukur-05-repeater.webp"
   },
   {
@@ -7158,6 +7592,7 @@
     "keywords": [
       "Cycle"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/micro-grenade-launcher.webp"
   },
   {
@@ -7178,6 +7613,7 @@
       "Independent",
       "Infiltrate"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/axe-woves.webp"
   },
   {
@@ -7197,6 +7633,7 @@
       "Leader",
       "Charge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/bo-katan-kryze.webp"
   },
   {
@@ -7216,6 +7653,7 @@
       "Leader",
       "This is the Way"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/paz-vizsla.webp"
   },
   {
@@ -7236,6 +7674,7 @@
       "Charge",
       "Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/beskad-duelist-2.webp"
   },
   {
@@ -7255,6 +7694,7 @@
       "Retinue",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/rook-kast-2.webp"
   },
   {
@@ -7273,6 +7713,7 @@
     "keywords": [
       "Mandalorians Are Stronger Together"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clan-kryze.webp"
   },
   {
@@ -7291,6 +7732,7 @@
     "keywords": [
       "We Fight for Our Family"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clan-wren.webp"
   },
   {
@@ -7309,6 +7751,7 @@
     "keywords": [
       "This is the Way"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/children-of-the-watch.webp"
   },
   {
@@ -7327,6 +7770,7 @@
     "keywords": [
       "Victory or Death"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/clan-saxon.webp"
   },
   {
@@ -7351,6 +7795,7 @@
     "keywords": [
       "This is the Way"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/champion-of-the-watch.webp"
   },
   {
@@ -7370,6 +7815,7 @@
       "Overwhelm",
       "Lethal"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/super-commando-gunslinger-2.webp"
   },
   {
@@ -7389,6 +7835,7 @@
       "Precise",
       "Lethal"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/super-commando-marksman-2.webp"
   },
   {
@@ -7420,6 +7867,7 @@
     "keywords": [
       "Shielded"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/combat-shields.webp"
   },
   {
@@ -7441,6 +7889,7 @@
       "Impact",
       "Blast"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/jetpack-rockets-2.webp"
   },
   {
@@ -7467,6 +7916,7 @@
       "Shielded",
       "Recharge"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/personal-combat-shield.webp"
   },
   {
@@ -7488,6 +7938,7 @@
       "Spray",
       "Suppressive"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/flame-projector.webp"
   },
   {
@@ -7511,6 +7962,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/whipcord-launcher.webp"
   },
   {
@@ -7530,6 +7982,7 @@
       "Compel",
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/gar-saxon.webp"
   },
   {
@@ -7548,6 +8001,7 @@
     "keywords": [
       "Leader"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/sabine-wren.webp"
   },
   {
@@ -7571,6 +8025,7 @@
       "Leader",
       "Precise 2"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/tristan-wren-2.webp"
   },
   {
@@ -7591,6 +8046,7 @@
       "Immune: Pierce",
       "Mandalorians Are Stronger Together"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/the-darksaber-2.webp"
   },
   {
@@ -7609,6 +8065,7 @@
     "keywords": [
       "Immune: Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/the-darksaber-3.webp"
   },
   {
@@ -7629,6 +8086,7 @@
       "Demoralize 2",
       "Immune: Pierce"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/the-darksaber-4.webp"
   },
   {
@@ -7648,6 +8106,7 @@
       "Leader",
       "Defend 2"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ursa-wren-2.webp"
   },
   {
@@ -7666,6 +8125,7 @@
     "keywords": [
       "Bounty"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/guild-member.webp"
   },
   {
@@ -7689,6 +8149,7 @@
       "Target 1",
       "Sharpshooter 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/deadeye.webp"
   },
   {
@@ -7711,6 +8172,7 @@
     "keywords": [
       "Death from Above"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/battlemaster.webp"
   },
   {
@@ -7733,6 +8195,7 @@
     "keywords": [
       "Sharpshooter 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/galaar-90-sniper-rifle-2.webp"
   },
   {
@@ -7756,6 +8219,7 @@
       "Charge",
       "Duelist"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/vibrosword.webp"
   },
   {
@@ -7779,6 +8243,7 @@
       "Charge",
       "Gunslinger"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/dual-armaments.webp"
   },
   {
@@ -7801,6 +8266,7 @@
     "keywords": [
       "Overwhelm"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/ee-3-carbine-rifle.webp"
   },
   {
@@ -7821,6 +8287,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/galaar-15-carbine.webp"
   },
   {
@@ -7840,6 +8307,7 @@
       "Direct Mercenary Trooper",
       "Inspire 1"
     ],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/war-party-leader.webp"
   },
   {
@@ -7856,6 +8324,7 @@
     ],
     "faction": null,
     "keywords": [],
+    "grantedSlots": [],
     "cardImage": "/images/upgrades/full-beskar-armor.webp"
   }
 ]

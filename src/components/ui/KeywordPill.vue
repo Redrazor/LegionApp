@@ -2,8 +2,16 @@
 import { ref, onBeforeUnmount } from 'vue'
 import { useKeywordsStore } from '../../stores/keywords.ts'
 
-const props = defineProps<{ keyword: string }>()
+const props = defineProps<{ keyword: string; variant?: 'innate' | 'granted' }>()
 const keywordsStore = useKeywordsStore()
+
+// `granted` keywords (conferred by an equipped upgrade) read in the holo accent so
+// they're visually distinct from the unit's innate (default) keywords.
+const pillClass =
+  props.variant === 'granted'
+    ? 'bg-lg-holo/10 border-lg-holo/40 text-lg-holo hover:border-lg-holo'
+    : 'bg-lg-panel border-lg-border text-lg-text/85 hover:border-lg-accent/50'
+const infoClass = props.variant === 'granted' ? 'text-lg-holo/70' : 'text-lg-accent/70'
 
 const open = ref(false)
 const btn = ref<HTMLElement | null>(null)
@@ -64,12 +72,12 @@ onBeforeUnmount(teardown)
     <button
       ref="btn"
       type="button"
-      class="inline-flex items-center gap-1 rounded bg-lg-panel border border-lg-border px-2 py-0.5 text-xs font-medium text-lg-text/85 hover:border-lg-accent/50 transition-colors"
-      :class="def() ? 'cursor-help' : 'cursor-default'"
+      class="inline-flex items-center gap-1 rounded border px-2 py-0.5 text-xs font-medium transition-colors"
+      :class="[pillClass, def() ? 'cursor-help' : 'cursor-default']"
       @click.stop="toggle"
     >
       {{ keyword }}
-      <span v-if="def()" class="text-lg-accent/70 text-[10px]">ⓘ</span>
+      <span v-if="def()" class="text-[10px]" :class="infoClass">ⓘ</span>
     </button>
 
     <Teleport to="body">

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Army, ArmyUnit, CompactArmy, Faction } from '../types/index.ts'
-import { toCompact, fromCompact } from '../utils/army.ts'
+import type { Army, ArmyUnit, BattleForce, CompactArmy, Faction, Unit, Upgrade } from '../types/index.ts'
+import { toCompact, fromCompact, pruneOrphanedUpgrades } from '../utils/army.ts'
 
 function emptyArmy(): Army {
   return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [], commandHand: [], battleDeck: [] }
@@ -99,14 +99,27 @@ export const useArmyStore = defineStore(
       return draft.value.units.find((u) => u.uid === uid)
     }
 
-    /** Equip an upgrade into the Nth slot of `slotType` for the given army unit. */
-    function setUpgrade(uid: string, slot: string, slotIndex: number, upgradeId: string | null) {
+    /**
+     * Equip an upgrade into the Nth slot of `slotType` for the given army unit.
+     * When `reconcile` (the unit + battle force + upgrade catalogue) is supplied,
+     * prune any upgrades left in slots that no longer exist — e.g. removing the
+     * upgrade that granted a slot also drops whatever was sitting in it.
+     */
+    function setUpgrade(
+      uid: string,
+      slot: string,
+      slotIndex: number,
+      upgradeId: string | null,
+      reconcile?: { unit: Unit; bf: BattleForce | null; upgradesById: Map<string, Upgrade> },
+    ) {
       const au = findUnit(uid)
       if (!au) return
-      // Track per (slot, index) by storing an occurrence marker on the slot string.
       const key = `${slot}#${slotIndex}`
       au.upgrades = au.upgrades.filter((u) => u.slot !== key)
       if (upgradeId) au.upgrades.push({ slot: key, upgradeId })
+      if (reconcile) {
+        au.upgrades = pruneOrphanedUpgrades(reconcile.unit, reconcile.bf, au.upgrades, reconcile.upgradesById)
+      }
     }
 
     function upgradeInSlot(uid: string, slot: string, slotIndex: number): string | null {

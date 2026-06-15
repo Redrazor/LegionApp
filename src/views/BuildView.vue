@@ -24,6 +24,7 @@ import PrintSheet from '../components/build/PrintSheet.vue'
 import ExportModal from '../components/build/ExportModal.vue'
 import ArmyStatsPanel from '../components/build/ArmyStatsPanel.vue'
 import { computeArmyStats } from '../utils/armyStats.ts'
+import { armyModelCount } from '../utils/army.ts'
 import ImportModal from '../components/build/ImportModal.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
@@ -45,9 +46,22 @@ const availableBattleForces = computed(() => bfStore.forFaction(draft.value.fact
 const shareMsg = ref('')
 // Slug of the unit whose profile drawer is open (catalogue "view"); null = closed.
 const viewingSlug = ref<string | null>(null)
-function viewUnit(unitId: string) {
+// When the profile is opened from an army card, the uid lets us surface the keywords
+// its equipped upgrades grant (distinct from the unit's innate keywords).
+const viewingUid = ref<string | null>(null)
+function viewUnit(unitId: string, uid?: string) {
   viewingSlug.value = unitsStore.byId.get(unitId)?.slug ?? null
+  viewingUid.value = uid ?? null
 }
+const grantedKeywords = computed(() => {
+  const au = viewingUid.value ? armyStore.findUnit(viewingUid.value) : null
+  if (!au) return []
+  const set = new Set<string>()
+  for (const u of au.upgrades) {
+    for (const kw of upgradesStore.byId.get(u.upgradeId)?.keywords ?? []) set.add(kw)
+  }
+  return [...set]
+})
 
 // Contextual upgrade picking: a chosen army-unit slot takes over the left pane.
 const picking = ref<{ uid: string; slot: string; index: number } | null>(null)
@@ -66,7 +80,14 @@ function onPickUpgrade(p: { uid: string; slot: string; index: number }) {
   picking.value = p
 }
 function applyUpgrade(upgradeId: string | null) {
-  if (picking.value) armyStore.setUpgrade(picking.value.uid, picking.value.slot, picking.value.index, upgradeId)
+  if (picking.value) {
+    const au = armyStore.findUnit(picking.value.uid)
+    const unit = au && unitsStore.byId.get(au.unitId)
+    armyStore.setUpgrade(
+      picking.value.uid, picking.value.slot, picking.value.index, upgradeId,
+      unit ? { unit, bf: battleForce.value, upgradesById: upgradesStore.byId } : undefined,
+    )
+  }
   picking.value = null
 }
 
@@ -163,6 +184,9 @@ const pickedBattleCards = computed(() =>
 const armySheet = computed(() =>
   buildArmySheet(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId, battleForce.value),
 )
+
+// Total miniatures across the army (printed counts + mini-adding upgrades).
+const modelCount = computed(() => armyModelCount(draft.value, unitsStore.byId, upgradesStore.byId))
 
 // Army Stats panel (Epic F1): derived analytics of the built list (opened from the footer).
 const statsOpen = ref(false)
@@ -395,6 +419,7 @@ useHead({
         :remaining="pointsRemaining"
         :points-pct="pointsPct"
         :activations="validation.activations"
+        :models="modelCount"
         :valid="validation.valid"
         :items="validation.items"
         :can-export="!!draft.units.length"
@@ -416,7 +441,7 @@ useHead({
 
     <!-- Catalogue/army "view" → reuse Browse's unit profile drawer (simplified: keeps
          keyword definitions, drops errata + available-upgrades to stay focused). -->
-    <UnitProfile v-if="viewingSlug" :slug="viewingSlug" simplified @close="viewingSlug = null" />
+    <UnitProfile v-if="viewingSlug" :slug="viewingSlug" simplified :granted-keywords="grantedKeywords" @close="viewingSlug = null; viewingUid = null" />
 
     <!-- Print-only army sheet (teleported to body; shown only when printing) -->
     <PrintSheet :sheet="armySheet" :valid="validation.valid" />

@@ -5,7 +5,7 @@
 // keywords); no sampling, so the numbers are stable and the spec isn't flaky.
 import type { Army, BattleForce, Rank, Unit, Upgrade, Weapon } from '../types/index.ts'
 import { attackEV, defenseEV, type AttackColor } from './dice.ts'
-import { effectiveRank, unitCost } from './army.ts'
+import { effectiveRank, unitCost, unitModelCount } from './army.ts'
 import { RANK_ORDER, rankName } from './factions.ts'
 
 export interface DicePool { red: number; black: number; white: number }
@@ -20,6 +20,7 @@ export interface ArmyStats {
   unitPoints: number
   upgradePoints: number
   activations: number
+  models: number // total miniatures across the army
   avgUnitCost: number
   pointsByRank: RankPoints[]
   // ── Offense ──
@@ -125,11 +126,13 @@ export function computeArmyStats(
   const unitKwCount = new Map<string, number>()
 
   let activations = 0
+  let models = 0
 
   for (const au of army.units) {
     const unit = unitsById.get(au.unitId)
     if (!unit) continue
     activations++
+    models += unitModelCount(au, unitsById, upgradesById)
 
     // ── Composition ──
     unitPoints += unit.cost ?? 0
@@ -196,6 +199,7 @@ export function computeArmyStats(
     unitPoints,
     upgradePoints,
     activations,
+    models,
     avgUnitCost: activations ? Math.round(totalPoints / activations) : 0,
     pointsByRank,
     attackPool,

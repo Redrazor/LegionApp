@@ -17,10 +17,11 @@ A running log of features for LegionApp, newest first.
 
 ## Backlog — owner-specified (2026-06-15)
 
-Features the owner detailed post-launch. **B1 is DONE (v1.2.1).** B2/B3 are blocked on a
-curated upgrade-effects data layer (see notes); B4 is a self-contained print enhancement;
-B5 is a self-contained scraper tech-debt fix (curated `keywords.json` survives a re-scrape).
-Priority among B2/B3/B4/B5: TBD by owner.
+Features the owner detailed post-launch. **B1 is DONE (v1.2.1). B2 + B3 are DONE (v1.4.0, PR #38)
+— the "data blocker" turned out not to exist: LHQ2's source carries `additionalUpgradeSlots` on
+upgrades and `stats.minicount` on units; we just hadn't extracted them, so no curated layer was
+needed after all.** B4 is a self-contained print enhancement; B5 is a self-contained scraper
+tech-debt fix (curated `keywords.json` survives a re-scrape). Priority among B4/B5: TBD by owner.
 
 ### B1 — Complete keyword tooltip coverage ✅ DONE (v1.2.1, PRs #33 + #34)
 
@@ -46,33 +47,34 @@ Priority among B2/B3/B4/B5: TBD by owner.
 scrape introduces an unresolved keyword outside the 3-term allowlist. Re-run
 `npm run audit:keywords` after a scrape; full detail in `docs/keyword-tooltip-gaps.md`.
 
-### B2 — Upgrades that modify the unit profile (granted slots & keywords) in Build
+### B2 — Upgrades that modify the unit profile (granted slots & keywords) in Build ✅ DONE (v1.4.0, PR #38)
 
-When an equipped upgrade **grants a new upgrade slot**, the Build roster must add that slot to the
-unit's `upgradeBar` live (and allow filling it). When an upgrade **grants keywords** to the unit,
-those keywords must appear on the Build "inspect" profile **in a distinct colour** so they read as
+When an equipped upgrade **grants a new upgrade slot**, the Build roster adds that slot to the unit's
+bar live (and lets you fill it; removing the granter prunes the slot + anything in it). Upgrade-granted
+**keywords** show on the Build "inspect" profile **in the holo accent colour** so they read as
 upgrade-added, not innate.
 
-> **⚠ Data blocker — needs a new curated layer.** This behaviour is encoded in upgrade **effect
-> text**, which per `CLAUDE.md` exists **nowhere as structured data** (LHQ2 + TTA `text` both null).
-> An upgrade's `keywords[]` are its *own* keywords, with no flag for "grants this slot/keyword to the
-> equipping unit." So B2 requires a hand-maintained map: `upgrade → { grantsSlots: [...], grantsKeywords: [...] }`.
-> Build then merges these into the unit's slot bar + keyword list (tagged "from upgrade") reactively.
+> **Resolved — no curated layer needed.** The presumed data blocker was wrong. LHQ2 upgrade cards
+> carry `additionalUpgradeSlots` (25/418 grant a slot: comms/training/gear/command/force/programming/
+> heavy weapon); the scraper just never extracted it. Now mapped → `Upgrade.grantedSlots`.
+> `effectiveUpgradeBar(unit, bf, equipped, upgradesById)` appends granted slots; `pruneOrphanedUpgrades`
+> (fixpoint) drops equips whose slot vanished. Granted keywords reuse the upgrade's own `keywords[]`,
+> surfaced via `UnitProfile`'s `grantedKeywords` prop + `KeywordPill variant="granted"`.
 
-### B3 — Explicit model (mini) count, adjusted by upgrades
+### B3 — Explicit model (mini) count, adjusted by upgrades ✅ DONE (v1.4.0, PR #38)
 
-A unit added to a list should clearly show its **number of models/minis**. Upgrades that **add a
-mini** to the unit increase that count (and the unit's effective wounds / attack dice etc. scale
-with it); an upgrade that **replaces** a mini does not; an upgrade that adds **X** minis adds X.
+A built list shows its total **model/mini count** (footer + Army Stats panel). Each unit contributes
+its printed mini count; equipped **heavy weapon / personnel** upgrades add +1 each (the standard
+mini-adding slot types).
 
-> **⚠ Data blocker — needs a new curated layer.** Units have **no `miniCount` field** today (stats
-> are per-mini), and upgrades have no "adds/replaces N minis" data (again, effect-text only). B3
-> requires: (a) a base mini count per unit, and (b) per-upgrade mini delta (`+N` / `replace` / `none`).
-> Both must be curated (or sourced) before the UI aggregation can be built.
-
-**Note:** B2 and B3 share the same root — both need a small **owner-curated data layer** for
-upgrade effects, since the card effect text isn't scrapeable. Worth designing that layer once
-(e.g. `public/data/upgrade-effects.json`, keyed by upgrade slug) and serving both features.
+> **Resolved — base count is real data.** LHQ2 carries `stats.minicount` on every unit (180/180);
+> now mapped → `Unit.miniCount`. Pure `unitModelCount` / `armyModelCount` in `army.ts`. The "adds a
+> mini" delta has no explicit LHQ2 flag, so `upgradeMinisAdded` resolves it as: a curated count for
+> the 16 "Squad" personnel upgrades (`UPGRADE_MINIS_ADDED`, keyed by slug — read from the cards, since
+> they add a whole squad, e.g. Stormtrooper Squad +5, B1 Battle Droid Squad +7, Weequay Pirate +3),
+> else **+1** for any other heavy weapon / personnel upgrade (verified: DLT-19 Stormtrooper, Comms
+> Technician each "Add 1 …"), else 0. A new Squad upgrade must be added to the map or it under-counts.
+> Replace/+X distinctions aren't modelled (no data); revisit if needed.
 
 ### B4 — Configurable print: opt-in sections via checkboxes
 

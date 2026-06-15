@@ -16,6 +16,7 @@ const props = defineProps<{
   remaining: number
   pointsPct: number
   activations: number
+  models: number
   valid: boolean
   items: ValidationItem[]
   canExport: boolean
@@ -187,7 +188,7 @@ const chipClass: Record<ReturnType<typeof rankChipState>, string> = {
           <span class="font-display text-xl font-bold" :class="points > cap ? 'text-faction-rebels' : 'text-lg-accent'">{{ points }}</span>
           <span class="text-sm text-lg-muted">/ {{ cap }}</span>
           <span class="text-xs" :class="remaining < 0 ? 'text-faction-rebels' : 'text-lg-muted'">({{ remaining }} left)</span>
-          <span class="hidden text-xs text-lg-muted sm:inline">· {{ activations }} act</span>
+          <span class="hidden text-xs text-lg-muted sm:inline">· {{ activations }} act · {{ models }} models</span>
           <span
             class="ml-0.5 rounded-full px-2 py-0.5 text-xs font-semibold"
             :class="valid ? 'bg-lg-valid/15 text-lg-valid' : 'bg-faction-rebels/15 text-faction-rebels'"

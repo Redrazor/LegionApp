@@ -32,6 +32,7 @@ export function createTables(sqlite: Sqlite): void {
       speed INTEGER,
       wounds INTEGER,
       courage INTEGER,
+      mini_count INTEGER,
       is_unique INTEGER NOT NULL DEFAULT 0,
       keywords TEXT NOT NULL DEFAULT '[]',
       upgrade_bar TEXT NOT NULL DEFAULT '[]',
@@ -67,6 +68,7 @@ export function createTables(sqlite: Sqlite): void {
       requirements TEXT,
       faction TEXT,
       keywords TEXT NOT NULL DEFAULT '[]',
+      granted_slots TEXT NOT NULL DEFAULT '[]',
       card_image TEXT
     );
 
@@ -119,11 +121,11 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
   const insert = sqlite.prepare(`
     INSERT INTO units (
       id, slug, name, title, faction, rank, unit_type, affiliation, affiliations, cost, defense,
-      surge_attack, surge_defense, speed, wounds, courage, is_unique,
+      surge_attack, surge_defense, speed, wounds, courage, mini_count, is_unique,
       keywords, upgrade_bar, weapons, card_image, portrait_image, has_full_data, history, special_issue
     ) VALUES (
       @id, @slug, @name, @title, @faction, @rank, @unitType, @affiliation, @affiliations, @cost, @defense,
-      @surgeAttack, @surgeDefense, @speed, @wounds, @courage, @isUnique,
+      @surgeAttack, @surgeDefense, @speed, @wounds, @courage, @miniCount, @isUnique,
       @keywords, @upgradeBar, @weapons, @cardImage, @portraitImage, @hasFullData, @history, @specialIssue
     )
   `)
@@ -136,7 +138,7 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
         affiliations: JSON.stringify(u.affiliations ?? []),
         cost: u.cost, defense: u.defense, surgeAttack: u.surgeAttack,
         surgeDefense: u.surgeDefense ? 1 : 0, speed: u.speed, wounds: u.wounds,
-        courage: u.courage, isUnique: u.isUnique ? 1 : 0,
+        courage: u.courage, miniCount: u.miniCount ?? null, isUnique: u.isUnique ? 1 : 0,
         keywords: JSON.stringify(u.keywords ?? []),
         upgradeBar: JSON.stringify(u.upgradeBar ?? []),
         weapons: JSON.stringify(u.weapons ?? []),
@@ -152,8 +154,8 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
 
 export function seedUpgrades(sqlite: Sqlite, list: Upgrade[]): void {
   const insert = sqlite.prepare(`
-    INSERT INTO upgrades (id, slug, name, slot, cost, is_unique, limit_count, requirements, faction, keywords, card_image)
-    VALUES (@id, @slug, @name, @slot, @cost, @isUnique, @limit, @requirements, @faction, @keywords, @cardImage)
+    INSERT INTO upgrades (id, slug, name, slot, cost, is_unique, limit_count, requirements, faction, keywords, granted_slots, card_image)
+    VALUES (@id, @slug, @name, @slot, @cost, @isUnique, @limit, @requirements, @faction, @keywords, @grantedSlots, @cardImage)
   `)
   const run = sqlite.transaction((rows: Upgrade[]) => {
     for (const u of rows) {
@@ -162,7 +164,9 @@ export function seedUpgrades(sqlite: Sqlite, list: Upgrade[]): void {
         isUnique: u.isUnique ? 1 : 0, limit: u.limit ?? null,
         requirements: u.requirements ? JSON.stringify(u.requirements) : null,
         faction: u.faction,
-        keywords: JSON.stringify(u.keywords ?? []), cardImage: u.cardImage,
+        keywords: JSON.stringify(u.keywords ?? []),
+        grantedSlots: JSON.stringify(u.grantedSlots ?? []),
+        cardImage: u.cardImage,
       })
     }
   })

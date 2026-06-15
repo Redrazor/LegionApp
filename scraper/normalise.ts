@@ -43,6 +43,7 @@ export interface Lhq2Card {
   commander?: string | string[]
   keywords?: (string | { name: string; value?: number })[]
   upgradeBar?: string[]
+  additionalUpgradeSlots?: string[] // slot types an equipped upgrade grants the unit (e.g. ["comms"])
   requirements?: UpgradeRequirementList
   stats?: {
     minicount?: number
@@ -117,6 +118,7 @@ export interface Unit {
   speed: number | null
   wounds: number | null
   courage: number | null
+  miniCount: number | null // number of miniatures in the unit (LHQ2 stats.minicount)
   isUnique: boolean
   keywords: string[]
   upgradeBar: string[]
@@ -164,6 +166,7 @@ export interface Upgrade {
   requirements?: UpgradeRequirementList // equip-eligibility; omitted when unconditional
   faction: string | null
   keywords: string[]
+  grantedSlots: string[] // upgrade slot types this upgrade adds to its unit when equipped (LHQ2 additionalUpgradeSlots)
   cardImage: string | null
 }
 
@@ -288,6 +291,7 @@ export function buildUnits(cards: Lhq2Card[]): Unit[] {
         speed: num(s.speed),
         wounds: num(s.hp),
         courage: num(s.courage),
+        miniCount: num(s.minicount),
         isUnique: !!c.isUnique,
         keywords: normalizeKeywords(c.keywords),
         upgradeBar: c.upgradeBar ?? [],
@@ -325,6 +329,7 @@ export function buildUpgrades(cards: Lhq2Card[]): Upgrade[] {
         ...(c.requirements?.length ? { requirements: c.requirements } : {}),
         faction: c.faction ? mapFaction(c.faction) : null,
         keywords: normalizeKeywords(c.keywords),
+        grantedSlots: c.additionalUpgradeSlots ?? [],
         cardImage: c.imageName ? `/images/upgrades/${slug}.webp` : null,
       }
     })

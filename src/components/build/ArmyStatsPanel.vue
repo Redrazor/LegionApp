@@ -106,7 +106,7 @@ const upgradePct = computed(() => (s.value.totalPoints ? Math.round((s.value.upg
             <!-- ── Composition ── -->
             <section>
               <h3 class="mb-2 text-[11px] font-bold uppercase tracking-widest text-lg-muted">Composition</h3>
-              <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="grid grid-cols-4 gap-2 text-center">
                 <div class="rounded-lg bg-lg-dark/60 py-2">
                   <p class="font-display text-lg font-bold text-lg-text">{{ s.totalPoints }}</p>
                   <p class="text-[10px] uppercase tracking-wider text-lg-muted">Points</p>
@@ -114,6 +114,10 @@ const upgradePct = computed(() => (s.value.totalPoints ? Math.round((s.value.upg
                 <div class="rounded-lg bg-lg-dark/60 py-2">
                   <p class="font-display text-lg font-bold text-lg-text">{{ s.activations }}</p>
                   <p class="text-[10px] uppercase tracking-wider text-lg-muted">Activations</p>
+                </div>
+                <div class="rounded-lg bg-lg-dark/60 py-2">
+                  <p class="font-display text-lg font-bold text-lg-text">{{ s.models }}</p>
+                  <p class="text-[10px] uppercase tracking-wider text-lg-muted">Models</p>
                 </div>
                 <div class="rounded-lg bg-lg-dark/60 py-2">
                   <p class="font-display text-lg font-bold text-lg-text">{{ s.avgUnitCost }}</p>

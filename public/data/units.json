@@ -16,6 +16,7 @@
     "speed": 1,
     "wounds": 8,
     "courage": 0,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Deflect",
@@ -86,6 +87,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Spotter 1",
@@ -157,6 +159,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Equip Logistical Prowess",
@@ -220,6 +223,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Guidance Ground Vehicle",
@@ -295,6 +299,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Strategize 2",
@@ -361,6 +366,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Pull The Strings Empire Trooper",
@@ -407,6 +413,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Quick Thinking",
@@ -493,6 +500,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Inspire 1",
@@ -556,6 +564,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Observe 1",
@@ -627,6 +636,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Observe 2",
@@ -691,6 +701,7 @@
     "speed": 2,
     "wounds": 7,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Deflect",
@@ -773,6 +784,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Dauntless",
@@ -846,6 +858,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Relentless",
@@ -908,6 +921,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -983,6 +997,7 @@
     "speed": 1,
     "wounds": 3,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Detachment Shoretroopers",
@@ -1066,6 +1081,7 @@
     "speed": 1,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Coordinate Emplacement Trooper",
@@ -1138,6 +1154,7 @@
     "speed": 1,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Steady"
@@ -1206,6 +1223,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Charge",
@@ -1274,6 +1292,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Precise 1"
@@ -1338,6 +1357,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Flexible Response 2",
@@ -1404,6 +1424,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Disciplined 2",
@@ -1489,6 +1510,7 @@
     "speed": 1,
     "wounds": 4,
     "courage": 1,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Observe 3",
@@ -1536,6 +1558,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Infiltrate",
@@ -1608,6 +1631,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Equip Del Meeko, Gideon Hask",
@@ -1674,6 +1698,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Low Profile",
@@ -1741,6 +1766,7 @@
     "speed": 3,
     "wounds": 3,
     "courage": 0,
+    "miniCount": 2,
     "isUnique": false,
     "keywords": [
       "Cover 1",
@@ -1818,6 +1844,7 @@
     "speed": 1,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 1",
@@ -1879,6 +1906,7 @@
     "speed": 1,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Prepared Position",
@@ -1964,6 +1992,7 @@
     "speed": 1,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Advanced Targeting Trooper 1",
@@ -2036,6 +2065,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Detachment Scout Troopers",
@@ -2113,6 +2143,7 @@
     "speed": 2,
     "wounds": 11,
     "courage": 8,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -2195,6 +2226,7 @@
     "speed": 1,
     "wounds": 2,
     "courage": 0,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Armor 3",
@@ -2262,6 +2294,7 @@
     "speed": 2,
     "wounds": 8,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -2332,6 +2365,7 @@
     "speed": 2,
     "wounds": 11,
     "courage": 8,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Armor 5",
@@ -2418,6 +2452,7 @@
     "speed": 1,
     "wounds": 8,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -2500,6 +2535,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -2572,6 +2608,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -2627,6 +2664,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -2682,6 +2720,7 @@
     "speed": 3,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Jump 2",
@@ -2750,6 +2789,7 @@
     "speed": 2,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Mercenary Empire, Separatists",
@@ -2813,6 +2853,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels, Republic",
@@ -2870,6 +2911,7 @@
     "speed": 2,
     "wounds": 3,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Master Storyteller",
@@ -2901,6 +2943,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -2986,6 +3029,7 @@
     "speed": 2,
     "wounds": 4,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Aid Ewok",
@@ -3038,6 +3082,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Jump 2",
@@ -3112,6 +3157,7 @@
     "speed": 2,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Mercenary All",
@@ -3181,6 +3227,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -3240,6 +3287,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Bolster 2",
@@ -3298,6 +3346,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels",
@@ -3380,6 +3429,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels, Republic",
@@ -3437,6 +3487,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Empire",
@@ -3544,6 +3595,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels",
@@ -3620,6 +3672,7 @@
     "speed": 2,
     "wounds": 7,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Empire, Separatists",
@@ -3696,6 +3749,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Empire, Separatists",
@@ -3777,6 +3831,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Empire, Rebels",
@@ -3860,6 +3915,7 @@
     "speed": 2,
     "wounds": 0,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels",
@@ -3896,6 +3952,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": -1,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Empire, Rebels, Republic, Separatists",
@@ -3967,6 +4024,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Empire, Rebels",
@@ -4048,6 +4106,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Mercenary Empire",
@@ -4133,6 +4192,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Mercenary All",
@@ -4201,6 +4261,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -4265,6 +4326,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -4333,6 +4395,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -4401,6 +4464,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 3,
+    "miniCount": 0,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels",
@@ -4474,6 +4538,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Mercenary Empire, Separatists",
@@ -4544,6 +4609,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 6,
     "isUnique": false,
     "keywords": [
       "Mercenary Rebels",
@@ -4597,6 +4663,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 5,
     "isUnique": false,
     "keywords": [],
     "upgradeBar": [
@@ -4658,6 +4725,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 5,
     "isUnique": false,
     "keywords": [
       "Jump 2",
@@ -4730,6 +4798,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Mercenary All",
@@ -4807,6 +4876,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Mercenary Empire, Rebels, Republics, Separatists",
@@ -4877,6 +4947,7 @@
     "speed": 3,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 5,
     "isUnique": false,
     "keywords": [
       "Mercenary Rebels, Republic",
@@ -4944,6 +5015,7 @@
     "speed": 3,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Mercenary Rebels",
@@ -5012,6 +5084,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 6,
     "isUnique": false,
     "keywords": [
       "Mercenary Rebels",
@@ -5085,6 +5158,7 @@
     "speed": 3,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Jump 2",
@@ -5167,6 +5241,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Jump 2",
@@ -5239,6 +5314,7 @@
     "speed": 3,
     "wounds": 3,
     "courage": 0,
+    "miniCount": 2,
     "isUnique": false,
     "keywords": [
       "Mercenary Rebel, Republic",
@@ -5314,6 +5390,7 @@
     "speed": 1,
     "wounds": 8,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -5361,6 +5438,7 @@
     "speed": 2,
     "wounds": 11,
     "courage": 8,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Armor 5",
@@ -5450,6 +5528,7 @@
     "speed": 1,
     "wounds": 10,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Mercenary Empire, Rebels, Republics, Separatists",
@@ -5518,6 +5597,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Steady",
@@ -5587,6 +5667,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Guidance Corps Trooper Unit",
@@ -5660,6 +5741,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Take Cover 2",
@@ -5736,6 +5818,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -5815,6 +5898,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Spotter 1",
@@ -5888,6 +5972,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Inspire 1",
@@ -5951,6 +6036,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -6010,6 +6096,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Danger Sense 3",
@@ -6081,6 +6168,7 @@
     "speed": 2,
     "wounds": 9,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Enrage 4",
@@ -6156,6 +6244,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Arsenal 2",
@@ -6226,6 +6315,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Agile 1",
@@ -6311,6 +6401,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Calculate Odds",
@@ -6367,6 +6458,7 @@
     "speed": 2,
     "wounds": 7,
     "courage": 4,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -6434,6 +6526,7 @@
     "speed": 1,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Repair 2: Capacity 2",
@@ -6496,6 +6589,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Nimble",
@@ -6559,6 +6653,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -6620,6 +6715,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Charge"
@@ -6676,6 +6772,7 @@
     "speed": 1,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Detachment Rebel Veterans",
@@ -6764,6 +6861,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Agile 1",
@@ -6829,6 +6927,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Coordinate Emplacement Trooper",
@@ -6896,6 +6995,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Flexible Response 2",
@@ -6955,6 +7055,7 @@
     "speed": 3,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Jump 2",
@@ -7015,6 +7116,7 @@
     "speed": 3,
     "wounds": 2,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Jump 2",
@@ -7086,6 +7188,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Low Profile",
@@ -7161,6 +7264,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 6,
     "isUnique": false,
     "keywords": [
       "Nimble",
@@ -7244,6 +7348,7 @@
     "speed": 2,
     "wounds": 3,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Charge",
@@ -7316,6 +7421,7 @@
     "speed": 2,
     "wounds": 3,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Indomitable",
@@ -7382,6 +7488,7 @@
     "speed": 0,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Full Pivot",
@@ -7467,6 +7574,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 4,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 2",
@@ -7525,6 +7633,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Detachment Rebel Commandos",
@@ -7602,6 +7711,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 2,
     "isUnique": false,
     "keywords": [
       "Agile 1",
@@ -7678,6 +7788,7 @@
     "speed": 1,
     "wounds": 8,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -7725,6 +7836,7 @@
     "speed": 3,
     "wounds": 7,
     "courage": 5,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 3",
@@ -7793,6 +7905,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 4,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 2",
@@ -7853,6 +7966,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -7907,6 +8021,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -7975,6 +8090,7 @@
     "speed": 2,
     "wounds": 9,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Enrage 4",
@@ -8042,6 +8158,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Gunslinger",
@@ -8115,6 +8232,7 @@
     "speed": 2,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Bolster 2",
@@ -8180,6 +8298,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Observe 2",
@@ -8250,6 +8369,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Aid Clone Trooper",
@@ -8318,6 +8438,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Deflect",
@@ -8356,6 +8477,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -8408,6 +8530,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -8482,6 +8605,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -8547,6 +8671,7 @@
     "speed": 2,
     "wounds": 7,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Agile 1",
@@ -8613,6 +8738,7 @@
     "speed": 1,
     "wounds": 5,
     "courage": 4,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Guidance Trooper",
@@ -8695,6 +8821,7 @@
     "speed": 3,
     "wounds": 6,
     "courage": 0,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Cover 2",
@@ -8762,6 +8889,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Deflect",
@@ -8797,6 +8925,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Bolster 2",
@@ -8872,6 +9001,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -8925,6 +9055,7 @@
     "speed": 1,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Repair 2: Capacity 2",
@@ -8986,6 +9117,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -9038,6 +9170,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 3,
+    "miniCount": 0,
     "isUnique": true,
     "keywords": [
       "Equip Hunter, Wrecker, Echo, Tech, Crosshair",
@@ -9108,6 +9241,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Reliable 1"
@@ -9182,6 +9316,7 @@
     "speed": 1,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Prepared Position",
@@ -9245,6 +9380,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Charge",
@@ -9324,6 +9460,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Observe 2",
@@ -9388,6 +9525,7 @@
     "speed": 2,
     "wounds": 3,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Indomitable",
@@ -9454,6 +9592,7 @@
     "speed": 2,
     "wounds": 3,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Charge",
@@ -9522,6 +9661,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Detachment ARC Troopers",
@@ -9596,6 +9736,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 4,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 2",
@@ -9670,6 +9811,7 @@
     "speed": 3,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Arsenal 2",
@@ -9749,6 +9891,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Complete the Mission",
@@ -9821,6 +9964,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 0,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Complete the Mission",
@@ -9895,6 +10039,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Cover 2",
@@ -9945,6 +10090,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Attack Run",
@@ -9998,6 +10144,7 @@
     "speed": 3,
     "wounds": 7,
     "courage": 5,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 3",
@@ -10047,6 +10194,7 @@
     "speed": 2,
     "wounds": 8,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -10124,6 +10272,7 @@
     "speed": 2,
     "wounds": 9,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -10193,6 +10342,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Cunning",
@@ -10281,6 +10431,7 @@
     "speed": 2,
     "wounds": 8,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Block",
@@ -10369,6 +10520,7 @@
     "speed": 2,
     "wounds": 8,
     "courage": 0,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Armor 1",
@@ -10443,6 +10595,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Strategize 2",
@@ -10514,6 +10667,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Strategize 1",
@@ -10587,6 +10741,7 @@
     "speed": 1,
     "wounds": 4,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -10659,6 +10814,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Override",
@@ -10723,6 +10879,7 @@
     "speed": 2,
     "wounds": 4,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Bolster 2",
@@ -10788,6 +10945,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 2",
@@ -10852,6 +11010,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -10913,6 +11072,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 1",
@@ -10979,6 +11139,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": true,
     "keywords": [
       "Jump 3",
@@ -11056,6 +11217,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Override",
@@ -11120,6 +11282,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 6,
     "isUnique": false,
     "keywords": [
       "AI Attack",
@@ -11184,6 +11347,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "AI Attack"
@@ -11252,6 +11416,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Jump 3",
@@ -11312,6 +11477,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Jump 3",
@@ -11372,6 +11538,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Jump 1",
@@ -11450,6 +11617,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 3,
     "isUnique": true,
     "keywords": [
       "Observe 3",
@@ -11498,6 +11666,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 2,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "AI Dodge, Move",
@@ -11563,6 +11732,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "AI Dodge",
@@ -11631,6 +11801,7 @@
     "speed": 2,
     "wounds": 3,
     "courage": 0,
+    "miniCount": 2,
     "isUnique": false,
     "keywords": [
       "AI Dodge",
@@ -11698,6 +11869,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "AI Dodge",
@@ -11772,6 +11944,7 @@
     "speed": 1,
     "wounds": 3,
     "courage": 0,
+    "miniCount": 2,
     "isUnique": false,
     "keywords": [
       "AI Attack",
@@ -11850,6 +12023,7 @@
     "speed": 2,
     "wounds": 6,
     "courage": 4,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Self-Destruct 3",
@@ -11909,6 +12083,7 @@
     "speed": 2,
     "wounds": 5,
     "courage": 3,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 2",
@@ -11963,6 +12138,7 @@
     "speed": 3,
     "wounds": 3,
     "courage": 0,
+    "miniCount": 2,
     "isUnique": false,
     "keywords": [
       "Agile 1",
@@ -12027,6 +12203,7 @@
     "speed": 1,
     "wounds": 9,
     "courage": 6,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "AI Attack",
@@ -12111,6 +12288,7 @@
     "speed": 1,
     "wounds": 3,
     "courage": 0,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "AI Attack",
@@ -12183,6 +12361,7 @@
     "speed": 1,
     "wounds": 11,
     "courage": 7,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",
@@ -12262,6 +12441,7 @@
     "speed": 1,
     "wounds": 11,
     "courage": 7,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Armor 5",

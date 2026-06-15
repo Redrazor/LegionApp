@@ -75,6 +75,11 @@ mini-adding slot types).
 > else **+1** for any other heavy weapon / personnel upgrade (verified: DLT-19 Stormtrooper, Comms
 > Technician each "Add 1 …"), else 0. A new Squad upgrade must be added to the map or it under-counts.
 > Replace/+X distinctions aren't modelled (no data); revisit if needed.
+>
+> **Base-count caveat:** LHQ2's `stats.minicount` is wrong for a few units (a "Strike Team" detachment
+> can inherit its parent squad's count, e.g. Scout Troopers Strike Team → 4 when the card shows 1; The
+> Bad Batch ships as 0). `normalise.ts` `MINICOUNT_OVERRIDES` (keyed by slug, verified against the card
+> art) corrects them; `catalogue-integrity.spec.ts` guards the values across re-scrapes.
 
 ### B4 — Configurable print: opt-in sections via checkboxes
 

@@ -267,6 +267,19 @@ function uniqueSlug(base: string, seen: Set<string>): string {
   return slug
 }
 
+/**
+ * Corrections for units whose LHQ2 `stats.minicount` is wrong, verified against the
+ * card's printed miniature count. Two failure modes seen: a "Strike Team" detachment
+ * inheriting its parent squad's count (Scout Troopers Strike Team → 4, really 1), and
+ * units shipping with 0 (The Bad Batch). Keyed by the generated slug. Re-verify after
+ * a re-scrape if LHQ2 fixes these upstream.
+ */
+export const MINICOUNT_OVERRIDES: Record<string, number> = {
+  'scout-troopers-strike-team': 1,
+  'the-bad-batch-clone-force-99': 5,
+  'the-bad-batch-clone-force-99-2': 5,
+}
+
 export function buildUnits(cards: Lhq2Card[]): Unit[] {
   const seen = new Set<string>()
   const units = cards
@@ -291,7 +304,7 @@ export function buildUnits(cards: Lhq2Card[]): Unit[] {
         speed: num(s.speed),
         wounds: num(s.hp),
         courage: num(s.courage),
-        miniCount: num(s.minicount),
+        miniCount: MINICOUNT_OVERRIDES[slug] ?? num(s.minicount),
         isUnique: !!c.isUnique,
         keywords: normalizeKeywords(c.keywords),
         upgradeBar: c.upgradeBar ?? [],

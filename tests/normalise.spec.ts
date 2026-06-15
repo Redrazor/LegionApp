@@ -71,6 +71,19 @@ describe('buildUnits', () => {
     expect(u.hasFullData).toBe(true)
   })
 
+  it('maps stats.minicount to miniCount', () => {
+    const [u] = buildUnits([card({ stats: { minicount: 4 } })])
+    expect(u.miniCount).toBe(4)
+  })
+
+  it('applies MINICOUNT_OVERRIDES where LHQ2 minicount is wrong', () => {
+    // Scout Troopers Strike Team inherits the parent squad's count (4) in LHQ2; the
+    // card shows 1, so the override corrects it.
+    const [u] = buildUnits([card({ cardName: 'Scout Troopers', title: 'Strike Team', stats: { minicount: 4 } })])
+    expect(u.slug).toBe('scout-troopers-strike-team')
+    expect(u.miniCount).toBe(1)
+  })
+
   it('decodes red defense and crit/block surges', () => {
     const [u] = buildUnits([card({ stats: { defense: 'r', hitsurge: 'c', defsurge: 'b', hp: 8, speed: 2, courage: 2 } })])
     expect(u.defense).toBe('red')

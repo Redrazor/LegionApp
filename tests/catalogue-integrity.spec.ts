@@ -26,4 +26,12 @@ describe('catalogue data integrity', () => {
     expect(kw('Jetpack Rockets')).toContain('Anti-Materiel')
     expect(kw('Situational Awareness')).toContain('Outmaneuver')
   })
+
+  it('applies the miniCount corrections (MINICOUNT_OVERRIDES survived the last scrape)', () => {
+    const units = load('units.json')
+    const mc = (slug: string) => units.find((u) => u.slug === slug)?.miniCount
+    expect(mc('scout-troopers-strike-team')).toBe(1) // not the parent squad's 4
+    expect(mc('the-bad-batch-clone-force-99')).toBe(5) // not 0
+    expect(mc('the-bad-batch-clone-force-99-2')).toBe(5)
+  })
 })

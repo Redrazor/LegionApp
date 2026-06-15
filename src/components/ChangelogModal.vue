@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.2.3',
+    date: '2026-06-15',
+    changes: [
+      'Fixed the Build unit badges showing cropped card art instead of the proper round portrait busts, and restored missing keyword tooltips on a handful of upgrades — both lost in the 1.2.2 data refresh.',
+    ],
+  },
+  {
     version: '1.2.2',
     date: '2026-06-15',
     changes: [

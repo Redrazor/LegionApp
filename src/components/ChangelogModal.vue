@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.2.0',
+    date: '2026-06-15',
+    changes: [
+      'More keyword tooltips: keywords with a value or qualifier (e.g. "Weak Point 1: Rear", "Reliable 2", "Special Issue Blizzard Force", "Mercenary Rebels") now show their definition, and several keywords that were missing one — Transport, Reliable, Primitive, Death from Above, Advanced Targeting, Weighed Down, Mercenary and more — have been added from the official rulebook.',
+    ],
+  },
+  {
     version: '1.1.1',
     date: '2026-06-15',
     changes: [

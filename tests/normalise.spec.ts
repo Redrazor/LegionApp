@@ -105,6 +105,17 @@ describe('buildUnits', () => {
     expect(u.weapons[0].keywords).toEqual(['Fixed Front', 'Blast', 'Suppressive'])
   })
 
+  it('blanks a quote-only placeholder weapon name but keeps legit quoted names', () => {
+    const [u] = buildUnits([card({
+      weapons: [
+        { name: '""', range: [0], dice: { r: 0, b: 2, w: 2 }, keywords: ['Versatile'] },
+        { name: 'Ax-108 "Ground Buzzer"', range: [1, 2], dice: { r: 0, b: 4, w: 0 }, keywords: [] },
+      ],
+    })])
+    expect(u.weapons[0].name).toBe('')
+    expect(u.weapons[1].name).toBe('Ax-108 "Ground Buzzer"')
+  })
+
   it('ignores non-unit cards', () => {
     expect(buildUnits([card({ cardType: 'upgrade' })])).toHaveLength(0)
   })
@@ -148,6 +159,24 @@ describe('extractCards', () => {
     const bundle = `{"id":"x","cardName":"Han\\'s Crew","cardType":"unit"}`
     const cards = extractCards(bundle)
     expect(cards[0].cardName).toBe("Han's Crew")
+  })
+
+  it('recovers cards whose names carry double-escaped quotes (\\\\" → \\")', () => {
+    // The minifier emits \\" where a single \" was meant, which breaks BOTH JSON.parse
+    // and `new Function` — this silently dropped 6 real cards (e.g. Ax-108 "Ground Buzzer",
+    // General Grievous "Sinister Cyborg") until parseSegment learned to repair it.
+    // The bundle bytes here are:  "cardName":"Ax-108 \\"Ground Buzzer\\""
+    const bundle = `{"id":"gb","cardName":"Ax-108 \\\\"Ground Buzzer\\\\"","cardType":"upgrade"}`
+    const cards = extractCards(bundle)
+    expect(cards).toHaveLength(1)
+    expect(cards[0].cardName).toBe('Ax-108 "Ground Buzzer"')
+  })
+
+  it('keeps a unit with a double-escaped weapon name (the Grievous case)', () => {
+    const bundle = `{"id":"ia","cardName":"General Grievous","title":"Sinister Cyborg","cardType":"unit","weapons":[{"name":"\\\\"\\\\"","range":[0]}]}`
+    const cards = extractCards(bundle)
+    expect(cards).toHaveLength(1)
+    expect(cards[0].cardName).toBe('General Grievous')
   })
 
   it('stamps specialIssue onto units that carry it', () => {

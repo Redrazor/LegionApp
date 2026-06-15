@@ -406,11 +406,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "High Velocity",
-      "Overwhelm",
-      "Sniper Team"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/dh-447-sniper.webp"
   },
   {
@@ -502,11 +498,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "High Velocity",
-      "Overwhelm",
-      "Sniper Team"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/dlt-19x-sniper.webp"
   },
   {
@@ -848,6 +840,24 @@
       "Fixed"
     ],
     "cardImage": "/images/upgrades/at-rt-laser-cannon.webp"
+  },
+  {
+    "id": "ff",
+    "slug": "ax-108-ground-buzzer",
+    "name": "Ax-108 \"Ground Buzzer\"",
+    "slot": "hardpoint",
+    "cost": 10,
+    "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "T-47 Airspeeder"
+      }
+    ],
+    "faction": null,
+    "keywords": [
+      "Fixed"
+    ],
+    "cardImage": "/images/upgrades/ax-108-ground-buzzer.webp"
   },
   {
     "id": "fg",
@@ -2162,6 +2172,22 @@
     "cardImage": "/images/upgrades/plo-koon.webp"
   },
   {
+    "id": "kt",
+    "slug": "bunker-buster-shells",
+    "name": "\"Bunker Buster\" Shells",
+    "slot": "ordnance",
+    "cost": 12,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Blast",
+      "Cycle",
+      "Fixed",
+      "Scatter"
+    ],
+    "cardImage": "/images/upgrades/bunker-buster-shells.webp"
+  },
+  {
     "id": "ku",
     "slug": "high-energy-shells",
     "name": "High-Energy Shells",
@@ -2228,12 +2254,21 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "High Velocity",
-      "Overwhelm",
-      "Sniper Team"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/bx-series-droid-sniper.webp"
+  },
+  {
+    "id": "le",
+    "slug": "emp-droid-poppers",
+    "name": "EMP \"Droid Poppers\"",
+    "slot": "grenades",
+    "cost": 3,
+    "isUnique": false,
+    "faction": null,
+    "keywords": [
+      "Ion"
+    ],
+    "cardImage": "/images/upgrades/emp-droid-poppers.webp"
   },
   {
     "id": "lf",
@@ -2249,11 +2284,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "High Velocity",
-      "Overwhelm",
-      "Sniper Team"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-sniper.webp"
   },
   {
@@ -2316,9 +2347,7 @@
     "cost": 4,
     "isUnique": false,
     "faction": null,
-    "keywords": [
-      "Outmaneuver"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/situational-awareness.webp"
   },
   {
@@ -2503,11 +2532,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Anti-Materiel",
-      "Impact",
-      "Blast"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/jetpack-rockets.webp"
   },
   {
@@ -3766,10 +3791,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Overwhelm",
-      "Lethal"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/super-commando-gunslinger.webp"
   },
   {
@@ -3957,6 +3979,25 @@
     "cardImage": "/images/upgrades/dins-amban-rifle.webp"
   },
   {
+    "id": "tp",
+    "slug": "nanny-programming",
+    "name": "\"Nanny\" Programming",
+    "slot": "programming",
+    "cost": 0,
+    "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "IG-11"
+      }
+    ],
+    "faction": "rebels",
+    "keywords": [
+      "Counterpart",
+      "AI"
+    ],
+    "cardImage": "/images/upgrades/nanny-programming.webp"
+  },
+  {
     "id": "tq",
     "slug": "dins-flame-projector",
     "name": "Din's Flame Projector",
@@ -4012,6 +4053,27 @@
       "Pierce"
     ],
     "cardImage": "/images/upgrades/beskar-spear.webp"
+  },
+  {
+    "id": "ub",
+    "slug": "bounty-programming",
+    "name": "\"Bounty\" Programming",
+    "slot": "programming",
+    "cost": 5,
+    "isUnique": false,
+    "requirements": [
+      {
+        "cardName": "IG-11"
+      }
+    ],
+    "faction": null,
+    "keywords": [
+      "Bounty",
+      "AI",
+      "Pierce",
+      "Suppressive"
+    ],
+    "cardImage": "/images/upgrades/bounty-programming.webp"
   },
   {
     "id": "uf",
@@ -4373,9 +4435,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Demoralize"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/inquisitorius-training.webp"
   },
   {
@@ -4499,9 +4559,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Impact"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/dlt-20a-range-trooper.webp"
   },
   {
@@ -5795,11 +5853,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Blast",
-      "Spray",
-      "Suppressive"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/jedi-negotiator.webp"
   },
   {
@@ -5864,11 +5918,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "High Velocity",
-      "Impact",
-      "Pierce"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/twin-lightsabers.webp"
   },
   {
@@ -6185,9 +6235,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Suppressive"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/heavy-arm-cannon.webp"
   },
   {
@@ -6258,9 +6306,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Indomitable"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/clone-trooper-marksmen-squad.webp"
   },
   {
@@ -6464,10 +6510,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Immune: Melee Pierce",
-      "Scatter"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/ig-100-magnaguard-pilot.webp"
   },
   {
@@ -6521,9 +6564,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Lethal"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/long-rifle-pirate.webp"
   },
   {
@@ -6685,9 +6726,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Overwhelm"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/dc-15x-arc-trooper-gunner.webp"
   },
   {
@@ -7029,12 +7068,7 @@
       ]
     ],
     "faction": null,
-    "keywords": [
-      "Lethal",
-      "Sharpshooter",
-      "High Velocity",
-      "Pierce"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/galaar-90-sniper-rifle.webp"
   },
   {
@@ -7050,9 +7084,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Overwhelm"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/shukur-05-repeater.webp"
   },
   {
@@ -7144,11 +7176,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Duelist",
-      "Charge",
-      "Pierce"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/beskad-duelist-2.webp"
   },
   {
@@ -7279,10 +7307,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Overwhelm",
-      "Lethal"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/super-commando-gunslinger-2.webp"
   },
   {
@@ -7298,10 +7323,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Precise",
-      "Lethal"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/super-commando-marksman-2.webp"
   },
   {
@@ -7349,11 +7371,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Anti-Materiel",
-      "Impact",
-      "Blast"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/jetpack-rockets-2.webp"
   },
   {
@@ -7396,11 +7414,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Blast",
-      "Spray",
-      "Suppressive"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/flame-projector.webp"
   },
   {
@@ -7711,9 +7725,7 @@
       }
     ],
     "faction": null,
-    "keywords": [
-      "Overwhelm"
-    ],
+    "keywords": [],
     "cardImage": "/images/upgrades/ee-3-carbine-rifle.webp"
   },
   {

@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.2.2',
+    date: '2026-06-15',
+    changes: [
+      'Added the on-foot General Grievous (Sinister Cyborg) commander, plus five upgrade cards (Ax-108 "Ground Buzzer", "Bunker Buster" Shells, EMP "Droid Poppers", "Nanny" Programming and "Bounty" Programming) — a card-import bug had been silently dropping any card whose name contained quotation marks.',
+    ],
+  },
+  {
     version: '1.2.1',
     date: '2026-06-15',
     changes: [

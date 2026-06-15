@@ -159,15 +159,25 @@ export function extractCards(js: string): Lhq2Card[] {
 }
 
 function parseSegment(seg: string): Lhq2Card | null {
-  // The bundle emits JSON-shaped objects with the occasional JS apostrophe
-  // escape (\'), which is invalid JSON — strip it, then fall back to Function.
+  // Most segments are valid JSON. A few embed JS-style escapes the minifier emitted that
+  // aren't valid JSON and break BOTH JSON.parse and `new Function`, silently dropping the
+  // card: a lone apostrophe escape (\'), and double-escaped quotes in names (\\" where a
+  // single \" was meant) — e.g. Ax-108 "Ground Buzzer", "Bunker Buster" Shells, and General
+  // Grievous "Sinister Cyborg"'s unnamed melee. Try strict JSON first (the common case,
+  // untouched), then repair and retry. Collapsing \\" → \" is safe here: Legion card data
+  // has no genuine trailing-backslash string values.
   try {
-    return JSON.parse(seg.replace(/\\'/g, "'")) as Lhq2Card
+    return JSON.parse(seg) as Lhq2Card
   } catch {
+    const repaired = seg.replace(/\\\\"/g, '\\"').replace(/\\'/g, "'")
     try {
-      return new Function(`return (${seg})`)() as Lhq2Card
+      return JSON.parse(repaired) as Lhq2Card
     } catch {
-      return null
+      try {
+        return new Function(`return (${repaired})`)() as Lhq2Card
+      } catch {
+        return null
+      }
     }
   }
 }

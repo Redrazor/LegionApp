@@ -242,8 +242,12 @@ function num(v: unknown): number | null {
 }
 
 function mapWeapon(w: NonNullable<Lhq2Card['weapons']>[number]): Weapon {
+  // A few cards (e.g. General Grievous "Sinister Cyborg"'s second melee) carry a
+  // placeholder weapon name that is only quote characters ("") — blank it so the UI
+  // doesn't render a literal `""`. Names with internal/legit quotes are left intact.
+  const rawName = w.name ?? ''
   return {
-    name: w.name,
+    name: /^"*$/.test(rawName.trim()) ? '' : rawName,
     range: w.range ?? [],
     dice: { red: w.dice?.r ?? 0, black: w.dice?.b ?? 0, white: w.dice?.w ?? 0 },
     // Some entries pack two keywords into one string ("Fixed Front, Blast");

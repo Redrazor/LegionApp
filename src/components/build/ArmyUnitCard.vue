@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ArmyUnitGroup } from '../../utils/army.ts'
-import { unitLegalityIssues, effectiveUpgradeBar } from '../../utils/army.ts'
+import { unitLegalityIssues, effectiveUpgradeBar, unitModelCount } from '../../utils/army.ts'
 import type { BattleForce, Faction } from '../../types/index.ts'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
@@ -44,6 +44,9 @@ const issues = computed(() => unitLegalityIssues(armyUnit.value, armyStore.draft
 const upgradeBar = computed(() =>
   unit.value ? effectiveUpgradeBar(unit.value, props.battleForce, armyUnit.value.upgrades, upgradesStore.byId) : [],
 )
+
+// Per-unit miniature count including any mini-adding upgrades equipped on this unit.
+const modelCount = computed(() => unitModelCount(armyUnit.value, unitsStore.byId, upgradesStore.byId))
 
 function equipped(slot: string, index: number) {
   const id = armyStore.upgradeInSlot(armyUnit.value.uid, slot, index)
@@ -99,7 +102,7 @@ function removeGroup() {
             <span v-if="qty > 1" class="flex-none rounded bg-lg-accent/15 px-1.5 text-[11px] font-bold text-lg-accent">×{{ qty }}</span>
           </span>
           <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
-          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" />
+          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" :models="modelCount" />
         </span>
       </button>
       <div class="flex flex-none flex-col items-end gap-1.5">

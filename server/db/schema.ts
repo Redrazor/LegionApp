@@ -19,6 +19,7 @@ export const units = sqliteTable('units', {
   speed: integer('speed'),
   wounds: integer('wounds'),
   courage: integer('courage'),
+  miniCount: integer('mini_count'),
   isUnique: integer('is_unique').notNull().default(0),
   keywords: text('keywords').notNull().default('[]'),
   upgradeBar: text('upgrade_bar').notNull().default('[]'),
@@ -54,6 +55,7 @@ export const upgrades = sqliteTable('upgrades', {
   requirements: text('requirements'), // JSON: equip-eligibility
   faction: text('faction'),
   keywords: text('keywords').notNull().default('[]'),
+  grantedSlots: text('granted_slots').notNull().default('[]'),
   cardImage: text('card_image'),
 })
 

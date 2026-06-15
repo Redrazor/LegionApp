@@ -15,6 +15,7 @@ export function rowToUpgrade(row: Record<string, unknown>) {
     ...(row.requirements ? { requirements: JSON.parse(row.requirements as string) } : {}),
     faction: row.faction ?? null,
     keywords: JSON.parse((row.keywords as string) || '[]'),
+    grantedSlots: JSON.parse((row.granted_slots as string) || '[]'),
     cardImage: row.card_image ?? null,
   }
 }

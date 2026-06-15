@@ -56,6 +56,7 @@ export interface Unit {
   speed: number | null
   wounds: number | null
   courage: number | null
+  miniCount: number | null // number of miniatures in the unit
   isUnique: boolean
   keywords: string[]
   upgradeBar: string[]
@@ -78,6 +79,7 @@ export interface Upgrade {
   requirements?: UpgradeRequirementList // equip-eligibility; omitted when unconditional
   faction: Faction | null
   keywords: string[]
+  grantedSlots: string[] // slot types this upgrade adds to its unit's bar when equipped
   cardImage: string | null
 }
 

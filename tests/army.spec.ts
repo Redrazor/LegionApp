@@ -6,7 +6,8 @@ import {
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
   primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
   heavyWeaponTeamUnmet, unitLegalityIssues,
-  effectiveRank, effectiveUpgradeBar, battleForcePool, battleForceRules,
+  effectiveRank, effectiveUpgradeBar, slotKeySet, pruneOrphanedUpgrades,
+  unitModelCount, armyModelCount, MINI_ADDING_SLOTS, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
   buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
@@ -1043,6 +1044,91 @@ describe('battle forces', () => {
       expect(effectiveUpgradeBar(vader, bf)).toEqual(['force', 'command'])
       expect(effectiveUpgradeBar(storm, bf)).toEqual([]) // not granted any
       expect(effectiveUpgradeBar(vader, null)).toEqual(['force'])
+    })
+
+    it('folds in slots granted by currently-equipped upgrades', () => {
+      const trooper = unit('t', { upgradeBar: ['personnel', 'gear'] })
+      const commsTech = upgrade('ct', { slot: 'personnel', grantedSlots: ['comms'] })
+      const { upgradesById } = makeMaps([trooper], [commsTech])
+      // nothing equipped → printed bar only
+      expect(effectiveUpgradeBar(trooper, null, [], upgradesById)).toEqual(['personnel', 'gear'])
+      // equip the comms tech → its `comms` slot appears
+      const equipped = [{ slot: 'personnel#0', upgradeId: 'ct' }]
+      expect(effectiveUpgradeBar(trooper, null, equipped, upgradesById)).toEqual(['personnel', 'gear', 'comms'])
+    })
+
+    it('stacks battle-force + upgrade grants together', () => {
+      const grant = upgrade('g', { slot: 'force', grantedSlots: ['gear'] })
+      const { upgradesById } = makeMaps([vader], [grant])
+      expect(effectiveUpgradeBar(vader, bf, [{ slot: 'force#0', upgradeId: 'g' }], upgradesById))
+        .toEqual(['force', 'command', 'gear'])
+    })
+  })
+
+  describe('slotKeySet', () => {
+    it('keys each slot by its bar position (matching the card`s v-for index)', () => {
+      expect([...slotKeySet(['gear', 'gear', 'comms'])]).toEqual(['gear#0', 'gear#1', 'comms#2'])
+    })
+  })
+
+  describe('pruneOrphanedUpgrades', () => {
+    const trooper = unit('t', { upgradeBar: ['personnel'] })
+    const commsTech = upgrade('ct', { slot: 'personnel', grantedSlots: ['comms'] })
+    const comms = upgrade('cm', { slot: 'comms' })
+    const { upgradesById } = makeMaps([trooper], [commsTech, comms])
+
+    it('keeps upgrades whose slots still exist', () => {
+      const equipped = [{ slot: 'personnel#0', upgradeId: 'ct' }, { slot: 'comms#1', upgradeId: 'cm' }]
+      expect(pruneOrphanedUpgrades(trooper, null, equipped, upgradesById)).toEqual(equipped)
+    })
+
+    it('drops an upgrade left in a slot whose granting upgrade was removed', () => {
+      // comms tech gone; the comms upgrade it had enabled is now orphaned
+      const equipped = [{ slot: 'comms#1', upgradeId: 'cm' }]
+      expect(pruneOrphanedUpgrades(trooper, null, equipped, upgradesById)).toEqual([])
+    })
+  })
+
+  describe('model count', () => {
+    const corps = unit('c', { miniCount: 4 })
+    const hero = unit('h', { miniCount: 1 })
+    const noCount = unit('n', { miniCount: null })
+    const heavy = upgrade('hw', { slot: 'heavy weapon' })
+    const person = upgrade('pn', { slot: 'personnel' })
+    const gear = upgrade('gr', { slot: 'gear' })
+    const { unitsById, upgradesById } = makeMaps([corps, hero, noCount], [heavy, person, gear])
+
+    it('exports the inferred mini-adding slot types', () => {
+      expect(MINI_ADDING_SLOTS).toEqual(['heavy weapon', 'personnel'])
+    })
+
+    it('counts a unit`s printed minis', () => {
+      expect(unitModelCount({ uid: '1', unitId: 'c', upgrades: [] }, unitsById, upgradesById)).toBe(4)
+    })
+
+    it('adds one mini per equipped heavy-weapon / personnel upgrade, not gear', () => {
+      const au = { uid: '1', unitId: 'c', upgrades: [
+        { slot: 'heavy weapon#0', upgradeId: 'hw' },
+        { slot: 'personnel#1', upgradeId: 'pn' },
+        { slot: 'gear#2', upgradeId: 'gr' },
+      ] }
+      expect(unitModelCount(au, unitsById, upgradesById)).toBe(6) // 4 base + heavy + personnel
+    })
+
+    it('defaults a unit with no printed count to 1', () => {
+      expect(unitModelCount({ uid: '1', unitId: 'n', upgrades: [] }, unitsById, upgradesById)).toBe(1)
+    })
+
+    it('sums every unit instance for the army total', () => {
+      const army: Army = {
+        name: '', faction: 'empire', battleForce: null, gameSize: 1000, commandHand: [], battleDeck: [],
+        units: [
+          { uid: '1', unitId: 'c', upgrades: [{ slot: 'heavy weapon#0', upgradeId: 'hw' }] }, // 5
+          { uid: '2', unitId: 'c', upgrades: [] }, // 4
+          { uid: '3', unitId: 'h', upgrades: [] }, // 1
+        ],
+      }
+      expect(armyModelCount(army, unitsById, upgradesById)).toBe(10)
     })
   })
 

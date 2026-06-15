@@ -7,6 +7,15 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.4.0',
+    date: '2026-06-15',
+    changes: [
+      'Upgrades that grant an extra slot (e.g. Comms Technician) now add that slot to the unit live as you equip them — remove the upgrade and the granted slot (and anything in it) goes away again.',
+      'The Build footer and Army Stats panel now show your army\'s total miniature (model) count, including the extra minis added by heavy-weapon and personnel upgrades.',
+      'A unit\'s Build profile now lists the keywords its equipped upgrades grant, highlighted in a distinct colour so you can tell them apart from the unit\'s printed keywords.',
+    ],
+  },
+  {
     version: '1.3.0',
     date: '2026-06-15',
     changes: [

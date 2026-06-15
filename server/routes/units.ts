@@ -21,6 +21,7 @@ export function rowToUnit(row: Record<string, unknown>) {
     speed: row.speed ?? null,
     wounds: row.wounds ?? null,
     courage: row.courage ?? null,
+    miniCount: row.mini_count ?? null,
     isUnique: !!row.is_unique,
     keywords: JSON.parse((row.keywords as string) || '[]'),
     upgradeBar: JSON.parse((row.upgrade_bar as string) || '[]'),

@@ -98,6 +98,18 @@ describe('computeArmyStats — composition', () => {
     expect(s.avgUnitCost).toBe(115)
   })
 
+  it('counts total miniatures (printed count + mini-adding upgrades)', () => {
+    const corps = unit('c', { miniCount: 4 })
+    const hero = unit('h', { miniCount: 1 })
+    const heavy = upgrade('hw', { slot: 'heavy weapon' })
+    const { unitsById, upgradesById } = maps([corps, hero], [heavy])
+    const a = army([
+      { uid: '1', unitId: 'c', upgrades: [{ slot: 'heavy weapon#0', upgradeId: 'hw' }] }, // 4 + 1
+      { uid: '2', unitId: 'h', upgrades: [] }, // 1
+    ])
+    expect(computeArmyStats(a, unitsById, upgradesById).models).toBe(6)
+  })
+
   it('buckets points by effective rank and counts each instance', () => {
     const { unitsById, upgradesById } = maps([
       unit('cmd', { rank: 'commander', cost: 80 }),
@@ -225,6 +237,7 @@ describe('computeArmyStats — mobility, morale, keywords', () => {
     const { unitsById, upgradesById } = maps([])
     const s = computeArmyStats(army([]), unitsById, upgradesById)
     expect(s.totalPoints).toBe(0)
+    expect(s.models).toBe(0)
     expect(s.avgSpeed).toBe(0)
     expect(s.avgCourage).toBe(0)
     expect(s.avgDefenseSave).toBe(0)

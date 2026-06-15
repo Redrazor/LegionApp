@@ -16,7 +16,7 @@ import UnitIndicators from './UnitIndicators.vue'
 const props = defineProps<{ group: ArmyUnitGroup; faction: Faction; battleForce: BattleForce | null; canAdd: boolean }>()
 const emit = defineEmits<{
   pickUpgrade: [payload: { uid: string; slot: string; index: number }]
-  view: [unitId: string]
+  view: [unitId: string, uid: string]
 }>()
 
 const unitsStore = useUnitsStore()
@@ -39,8 +39,11 @@ const groupCost = computed(() => lineCost.value * qty.value)
 // clears as soon as the missing condition (e.g. a mandatory heavy weapon) is met.
 const issues = computed(() => unitLegalityIssues(armyUnit.value, armyStore.draft, unitsStore.byId, props.battleForce))
 
-// Upgrade bar incl. any extra slots the battle force grants this unit.
-const upgradeBar = computed(() => (unit.value ? effectiveUpgradeBar(unit.value, props.battleForce) : []))
+// Upgrade bar incl. extra slots granted by the battle force AND by the upgrades
+// currently equipped on this unit (e.g. a Comms Technician adds a `comms` slot).
+const upgradeBar = computed(() =>
+  unit.value ? effectiveUpgradeBar(unit.value, props.battleForce, armyUnit.value.upgrades, upgradesStore.byId) : [],
+)
 
 function equipped(slot: string, index: number) {
   const id = armyStore.upgradeInSlot(armyUnit.value.uid, slot, index)
@@ -87,7 +90,7 @@ function removeGroup() {
     </div>
 
     <div class="relative flex items-start gap-3">
-      <button class="flex min-w-0 flex-1 items-start gap-3 text-left" :title="`View ${unit.name}`" @click="emit('view', unit.id)">
+      <button class="flex min-w-0 flex-1 items-start gap-3 text-left" :title="`View ${unit.name}`" @click="emit('view', unit.id, armyUnit.uid)">
         <UnitBadge :unit="unit" />
         <span class="min-w-0 flex-1">
           <span class="flex items-center gap-1">

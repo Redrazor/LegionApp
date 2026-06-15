@@ -1,5 +1,5 @@
 import type {
-  Army, ArmyUnit, BattleCard, BattleCardSubtype, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
+  Army, ArmyUnit, ArmyUpgrade, BattleCard, BattleCardSubtype, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
 import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
@@ -53,9 +53,88 @@ export function effectiveRank(unit: Unit, bf?: BattleForce | null): Rank {
  * A unit's upgrade bar, extended with any extra slots a battle force grants it
  * (addAdditionalUpgradeSlots — e.g. Ohnaka Gang gives Hondo a Command slot).
  */
-export function effectiveUpgradeBar(unit: Unit, bf?: BattleForce | null): string[] {
+/**
+ * A unit's upgrade-slot bar as it should appear *right now*: the printed bar, plus
+ * any battle-force-granted slots, plus slots granted by the upgrades currently
+ * equipped on the unit (e.g. a Comms Technician grants a `comms` slot). Granted
+ * slots append after the printed bar, so the printed slots keep their positions
+ * (and thus their `<type>#<index>` keys). Pass `equipped` + `upgradesById` to fold
+ * in upgrade-granted slots; omit them for the static printed bar.
+ */
+export function effectiveUpgradeBar(
+  unit: Unit,
+  bf?: BattleForce | null,
+  equipped?: ArmyUpgrade[],
+  upgradesById?: Map<string, Upgrade>,
+): string[] {
   const add = battleForceRules(bf).addAdditionalUpgradeSlots?.find(([id]) => id === unit.id)?.[1]
-  return add ? [...unit.upgradeBar, ...add] : unit.upgradeBar
+  const base = add ? [...unit.upgradeBar, ...add] : unit.upgradeBar
+  if (!equipped?.length || !upgradesById) return base
+  // Collect grants from every equipped upgrade (incl. ones sitting in granted slots,
+  // so chained grants resolve in one pass). Sorted by slot key for stable ordering.
+  const granted = [...equipped]
+    .sort((a, b) => a.slot.localeCompare(b.slot))
+    .flatMap((e) => upgradesById.get(e.upgradeId)?.grantedSlots ?? [])
+  return granted.length ? [...base, ...granted] : base
+}
+
+/** The set of valid `"<slotType>#<index>"` keys for a (flat) upgrade bar. The index
+ *  is the slot's position in the bar — matching how the Build card keys equipped
+ *  upgrades (its `v-for` index), so a key is valid iff that slot still exists. */
+export function slotKeySet(bar: string[]): Set<string> {
+  return new Set(bar.map((type, i) => `${type}#${i}`))
+}
+
+/**
+ * Drop equipped upgrades whose slot no longer exists — e.g. after removing the
+ * upgrade that granted that slot. Iterates to a fixpoint so removing a granter that
+ * sat in another granted slot cascades correctly. Pure; the store calls it after
+ * every equip/unequip.
+ */
+export function pruneOrphanedUpgrades(
+  unit: Unit,
+  bf: BattleForce | null | undefined,
+  equipped: ArmyUpgrade[],
+  upgradesById: Map<string, Upgrade>,
+): ArmyUpgrade[] {
+  let current = equipped
+  for (let pass = 0; pass < 8; pass++) {
+    const valid = slotKeySet(effectiveUpgradeBar(unit, bf, current, upgradesById))
+    const next = current.filter((u) => valid.has(u.slot))
+    if (next.length === current.length) return next
+    current = next
+  }
+  return current
+}
+
+/** Upgrade slot types that add a miniature to the unit (best-effort: LHQ2 has no
+ *  explicit "adds a mini" flag, so we infer from the slot type). */
+export const MINI_ADDING_SLOTS = ['heavy weapon', 'personnel']
+
+/** Number of miniatures in a single army unit: its printed mini count plus one per
+ *  equipped mini-adding upgrade (heavy weapon / personnel). Defaults to 1 if the
+ *  unit has no printed count. */
+export function unitModelCount(
+  au: ArmyUnit,
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+): number {
+  const unit = unitsById.get(au.unitId)
+  if (!unit) return 0
+  let count = unit.miniCount ?? 1
+  for (const u of au.upgrades) {
+    if (MINI_ADDING_SLOTS.includes(upgradesById.get(u.upgradeId)?.slot ?? '')) count++
+  }
+  return count
+}
+
+/** Total miniatures across the whole army (sum of every unit instance). */
+export function armyModelCount(
+  army: Army,
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+): number {
+  return army.units.reduce((sum, au) => sum + unitModelCount(au, unitsById, upgradesById), 0)
 }
 
 export interface ValidationItem {

@@ -15,7 +15,7 @@ import ProfileUpgrades from './ProfileUpgrades.vue'
 // closes by navigating back; given an explicit `slug` prop (e.g. the Build catalogue
 // mounts it directly) it closes via the `close` emit instead. `simplified` (Build) keeps
 // the keyword definitions but drops the errata history + available-upgrades list.
-const props = defineProps<{ slug?: string; simplified?: boolean }>()
+const props = defineProps<{ slug?: string; simplified?: boolean; grantedKeywords?: string[] }>()
 const emit = defineEmits<{ close: [] }>()
 
 const route = useRoute()
@@ -26,6 +26,13 @@ const keywordsStore = useKeywordsStore()
 const slug = computed(() => props.slug ?? (route.params.slug as string))
 const unit = computed(() => unitsStore.bySlug.get(slug.value))
 const imgError = ref(false)
+
+// Keywords conferred by equipped upgrades (Build), minus any the unit already has
+// innately — shown in a distinct colour so they read as added, not printed.
+const extraKeywords = computed(() => {
+  const innate = new Set(unit.value?.keywords ?? [])
+  return (props.grantedKeywords ?? []).filter((k) => !innate.has(k))
+})
 
 // Load both units and the keyword glossary so KeywordPill popovers work wherever this
 // drawer is mounted — Browse loads the glossary in its view, Build does not.
@@ -132,12 +139,16 @@ useHead(computed(() => {
                 </div>
               </div>
 
-              <!-- Keywords -->
-              <div v-if="unit.keywords.length">
+              <!-- Keywords (innate + any granted by equipped upgrades) -->
+              <div v-if="unit.keywords.length || extraKeywords.length">
                 <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Keywords</h3>
                 <div class="flex flex-wrap gap-1.5">
                   <KeywordPill v-for="k in unit.keywords" :key="k" :keyword="k" />
+                  <KeywordPill v-for="k in extraKeywords" :key="`g-${k}`" :keyword="k" variant="granted" />
                 </div>
+                <p v-if="extraKeywords.length" class="mt-1.5 text-[11px] text-lg-holo/80">
+                  Highlighted keywords are granted by equipped upgrades.
+                </p>
               </div>
 
               <!-- Points history (hidden in the simplified Build view) -->

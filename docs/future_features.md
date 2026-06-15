@@ -17,8 +17,9 @@ A running log of features for LegionApp, newest first.
 
 ## Backlog — owner-specified (2026-06-15)
 
-Three features the owner detailed post-launch. **B1 is DONE (v1.2.1).** B2/B3 are blocked on a
-curated upgrade-effects data layer (see notes). Priority among B2/B3: TBD by owner.
+Features the owner detailed post-launch. **B1 is DONE (v1.2.1).** B2/B3 are blocked on a
+curated upgrade-effects data layer (see notes); B4 is a self-contained print enhancement.
+Priority among B2/B3/B4: TBD by owner.
 
 ### B1 — Complete keyword tooltip coverage ✅ DONE (v1.2.1, PRs #33 + #34)
 
@@ -71,6 +72,46 @@ with it); an upgrade that **replaces** a mini does not; an upgrade that adds **X
 **Note:** B2 and B3 share the same root — both need a small **owner-curated data layer** for
 upgrade effects, since the card effect text isn't scrapeable. Worth designing that layer once
 (e.g. `public/data/upgrade-effects.json`, keyed by upgrade slug) and serving both features.
+
+### B4 — Configurable print: opt-in sections via checkboxes
+
+**Goal:** before printing an army, let the user pick how much detail goes on the printout via a set
+of checkboxes. Each ticked option appends another section to the print output, so a player can print
+anything from a one-page roster up to a full at-the-table packet (roster + reference sheets + every
+card to proxy).
+
+**Where:** extends the existing print flow — `printSheet()` → `window.print()` in
+`src/views/BuildView.vue`, rendering `src/components/build/PrintSheet.vue` (a print-only,
+black-on-white sheet Teleported to `<body>`; the print stylesheet in `style.css` hides `#app` and
+shows `.print-sheet`). Today it prints the roster (units, upgrades, points, activations) plus the
+battle-deck **names**. B4 adds a print-options panel (e.g. a small popover/dialog off the Print
+button) whose state drives which `PrintSheet` sections render.
+
+**Options (each a checkbox; each adds a section):**
+1. **Command Deck Reference** — compact textual list of the army's command cards (name + pips, and
+   rules text where we have it) for quick lookup.
+2. **Battle Deck Reference** — compact textual list of the battle deck (already grouped primary →
+   secondary → advantage); optionally with objective/rules summaries.
+3. **All Unit Cards** — full card scan images for every unit in the list (proxy/print-and-play),
+   from `public/images/units/…` via `imageUrl()`.
+4. **All Upgrade Cards** — full card scan images for every equipped upgrade.
+5. **Command Deck** — full card scan images of the command cards (the deck itself, to cut out).
+6. **Battle Deck** — full card scan images of the battle-deck cards.
+
+> **Distinction:** *Reference* options (1–2) are compact text summaries; *Cards/Deck* options (3–6)
+> are full-bleed card **images** laid out for printing/proxying. Roster sheet stays the default (no
+> checkbox needed — always printed).
+
+**Notes / unknowns:**
+- **Command-deck data:** the army's command cards must be available on the sheet. Confirm `ArmySheet`
+  carries command-card refs (it carries `battleDeck`; check whether command cards are modelled in the
+  builder yet — may need to surface them from the army state first).
+- **Image-heavy print:** options 3–6 emit many full-size images — needs a print-friendly grid
+  (e.g. 2×N per page, page-break rules) and graceful handling of missing scans / `overrides`.
+- **Rules text for references:** unit/upgrade effect text isn't scrapeable (see B2/B3); command &
+  keyword text we partly have. Reference sections should degrade to name-only where text is absent
+  rather than block the option.
+- Persist the user's last-used selection (localStorage) so a re-print doesn't re-tick every box.
 
 ---
 

@@ -18,8 +18,9 @@ A running log of features for LegionApp, newest first.
 ## Backlog — owner-specified (2026-06-15)
 
 Features the owner detailed post-launch. **B1 is DONE (v1.2.1).** B2/B3 are blocked on a
-curated upgrade-effects data layer (see notes); B4 is a self-contained print enhancement.
-Priority among B2/B3/B4: TBD by owner.
+curated upgrade-effects data layer (see notes); B4 is a self-contained print enhancement;
+B5 is a self-contained scraper tech-debt fix (curated `keywords.json` survives a re-scrape).
+Priority among B2/B3/B4/B5: TBD by owner.
 
 ### B1 — Complete keyword tooltip coverage ✅ DONE (v1.2.1, PRs #33 + #34)
 
@@ -112,6 +113,27 @@ button) whose state drives which `PrintSheet` sections render.
   keyword text we partly have. Reference sections should degrade to name-only where text is absent
   rather than block the option.
 - Persist the user's last-used selection (localStorage) so a re-print doesn't re-tick every box.
+
+### B5 — Stop `npm run scrape` from wiping curated `keywords.json`
+
+**Problem:** `scrape.ts` `main()` does `fetchKeywords()` → `writeJson('keywords.json', keywords)`,
+**overwriting** `public/data/keywords.json` wholesale with the upstream Electrynth glossary
+(~169 entries). That silently discards the hand-curated tooltip definitions built up across the
+1.2.x keyword work (~205 entries — the official rules text for Anti-Materiel, Overwhelm, Sniper
+Team, the card-specific abilities, etc.). Today the only safeguard is remembering to
+`git checkout HEAD -- public/data/keywords.json` after every scrape (which is how the foot-Grievous
+fix in 1.2.2 avoided regressing it). Same fragility hits `products.json` (Philibert re-fetch drift).
+
+**Goal:** curated keyword definitions survive a scrape automatically.
+
+**Approach:** keep a tracked **curated overrides** file (e.g. `public/data/keywords.overrides.json`)
+holding only the hand-authored entries, and have `writeJson('keywords.json', …)` write the
+**merge** of upstream ⊕ overrides (overrides win on key collisions). Then a scrape refreshes upstream
+text without ever dropping curation. Move the ~36 curated-only entries into the overrides file as the
+one-time migration; `scripts/audit-keywords.ts` keeps verifying coverage.
+
+> Until this lands, **always** `git checkout HEAD -- public/data/keywords.json public/data/products.json`
+> after `npm run scrape` unless you explicitly intend to refresh them.
 
 ---
 

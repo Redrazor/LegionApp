@@ -7,7 +7,7 @@ import {
   primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
   heavyWeaponTeamUnmet, unitLegalityIssues,
   effectiveRank, effectiveUpgradeBar, slotKeySet, pruneOrphanedUpgrades,
-  unitModelCount, armyModelCount, MINI_ADDING_SLOTS, battleForcePool, battleForceRules,
+  unitModelCount, armyModelCount, upgradeMinisAdded, MINI_ADDING_SLOTS, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
   buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
@@ -1113,6 +1113,14 @@ describe('battle forces', () => {
         { slot: 'gear#2', upgradeId: 'gr' },
       ] }
       expect(unitModelCount(au, unitsById, upgradesById)).toBe(6) // 4 base + heavy + personnel
+    })
+
+    it('adds the curated squad count for "Squad" personnel upgrades (e.g. +5)', () => {
+      const squad = upgrade('sq', { slug: 'stormtrooper-squad', slot: 'personnel' })
+      const maps2 = makeMaps([corps], [squad])
+      const au = { uid: '1', unitId: 'c', upgrades: [{ slot: 'personnel#0', upgradeId: 'sq' }] }
+      expect(unitModelCount(au, maps2.unitsById, maps2.upgradesById)).toBe(9) // 4 base + 5 squad
+      expect(upgradeMinisAdded(squad)).toBe(5)
     })
 
     it('defaults a unit with no printed count to 1', () => {

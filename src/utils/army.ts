@@ -107,13 +107,45 @@ export function pruneOrphanedUpgrades(
   return current
 }
 
-/** Upgrade slot types that add a miniature to the unit (best-effort: LHQ2 has no
- *  explicit "adds a mini" flag, so we infer from the slot type). */
+/** Upgrade slot types whose upgrades add a miniature to the unit. LHQ2 has no
+ *  explicit "adds a mini" flag, so a heavy weapon / personnel upgrade defaults to
+ *  +1 (verified: e.g. DLT-19 Stormtrooper, Comms Technician each "Add 1 …"). */
 export const MINI_ADDING_SLOTS = ['heavy weapon', 'personnel']
 
-/** Number of miniatures in a single army unit: its printed mini count plus one per
- *  equipped mini-adding upgrade (heavy weapon / personnel). Defaults to 1 if the
- *  unit has no printed count. */
+/**
+ * Miniatures added by the "Squad" personnel upgrades, which add a whole squad
+ * rather than one model — the count is printed only on the card (no data field),
+ * so it's curated here by slug from the card text. Anything not listed falls back
+ * to the slot default (+1); a NEW squad upgrade must be added here or it under-counts.
+ */
+export const UPGRADE_MINIS_ADDED: Record<string, number> = {
+  'shoretrooper-squad': 5,
+  'snowtrooper-squad': 5,
+  'stormtrooper-squad': 5,
+  'ewok-skirmisher-squad': 4,
+  'ewok-slinger-squad': 4,
+  'fleet-trooper-squad': 5,
+  'rebel-trooper-squad': 5,
+  'b1-battle-droid-squad': 7,
+  'b2-super-battle-droid-squad': 4,
+  'geonosian-warrior-squad': 5,
+  'clone-trooper-infantry-squad': 5,
+  'rebel-veteran-squad': 5,
+  'clone-trooper-marksmen-squad': 5,
+  'weequay-pirate-squad': 3,
+  'pyke-syndicate-foot-soldier-squad': 5,
+  'mandalorian-initiate-squad': 4,
+}
+
+/** How many miniatures an equipped upgrade adds to its unit (curated squad count,
+ *  else +1 for a heavy weapon / personnel upgrade, else 0). */
+export function upgradeMinisAdded(up: Upgrade): number {
+  if (up.slug in UPGRADE_MINIS_ADDED) return UPGRADE_MINIS_ADDED[up.slug]
+  return MINI_ADDING_SLOTS.includes(up.slot) ? 1 : 0
+}
+
+/** Number of miniatures in a single army unit: its printed mini count plus the
+ *  minis added by each equipped upgrade. Defaults to 1 if the unit has no printed count. */
 export function unitModelCount(
   au: ArmyUnit,
   unitsById: Map<string, Unit>,
@@ -123,7 +155,8 @@ export function unitModelCount(
   if (!unit) return 0
   let count = unit.miniCount ?? 1
   for (const u of au.upgrades) {
-    if (MINI_ADDING_SLOTS.includes(upgradesById.get(u.upgradeId)?.slot ?? '')) count++
+    const up = upgradesById.get(u.upgradeId)
+    if (up) count += upgradeMinisAdded(up)
   }
   return count
 }

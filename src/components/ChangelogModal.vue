@@ -11,7 +11,7 @@ const entries = [
     date: '2026-06-15',
     changes: [
       'Upgrades that grant an extra slot (e.g. Comms Technician) now add that slot to the unit live as you equip them — remove the upgrade and the granted slot (and anything in it) goes away again.',
-      'Model counts everywhere in Build: each unit now shows its number of miniatures (in the catalogue and on its army card), and the footer + Army Stats panel show the army total — all including the extra minis added by heavy-weapon and personnel upgrades.',
+      'Model counts everywhere in Build: each unit shows its number of miniatures (in the catalogue and on its army card) and the footer + Army Stats panel show the army total — correctly counting the minis upgrades add, whether a single trooper (heavy-weapon / personnel upgrades) or a whole extra squad (e.g. a Stormtrooper Squad adds 5).',
       'A unit\'s Build profile now lists the keywords its equipped upgrades grant, highlighted in a distinct colour so you can tell them apart from the unit\'s printed keywords.',
     ],
   },

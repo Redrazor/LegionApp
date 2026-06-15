@@ -69,9 +69,12 @@ mini-adding slot types).
 
 > **Resolved — base count is real data.** LHQ2 carries `stats.minicount` on every unit (180/180);
 > now mapped → `Unit.miniCount`. Pure `unitModelCount` / `armyModelCount` in `army.ts`. The "adds a
-> mini" delta has no explicit LHQ2 flag, so it's **inferred** from the upgrade slot type
-> (`MINI_ADDING_SLOTS = ['heavy weapon', 'personnel']`) — a best-effort approximation (owner-approved),
-> not a per-card curated value. Replace/+X distinctions aren't modelled (no data); revisit if needed.
+> mini" delta has no explicit LHQ2 flag, so `upgradeMinisAdded` resolves it as: a curated count for
+> the 16 "Squad" personnel upgrades (`UPGRADE_MINIS_ADDED`, keyed by slug — read from the cards, since
+> they add a whole squad, e.g. Stormtrooper Squad +5, B1 Battle Droid Squad +7, Weequay Pirate +3),
+> else **+1** for any other heavy weapon / personnel upgrade (verified: DLT-19 Stormtrooper, Comms
+> Technician each "Add 1 …"), else 0. A new Squad upgrade must be added to the map or it under-counts.
+> Replace/+X distinctions aren't modelled (no data); revisit if needed.
 
 ### B4 — Configurable print: opt-in sections via checkboxes
 

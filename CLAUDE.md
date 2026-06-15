@@ -79,7 +79,14 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
 - Keep `vue-tsc --noEmit` clean (strict, `noUnusedLocals`). Run `npm test` before finishing.
 - New pure logic → a `utils/`/`scraper/` module with a spec in `tests/`. Coverage
   threshold 50% (`vitest.config.ts`); scraper/normalise, army utils, API routes carry it.
-- After changing `normalise.ts`, re-run `npm run scrape -- --skip-images` then `npm run seed`.
+- After changing `normalise.ts` (or any re-scrape), run the FULL pipeline, not just seed:
+  `npm run scrape -- --skip-images` → `npm run portraits` → `npm run upgrade-keywords` →
+  `npm run seed`. A scrape regenerates `units.json`/`upgrades.json` from LHQ2, which has **no
+  `portraitImage`** and leaves ~123 upgrades with empty keywords — skipping the portraits/
+  upgrade-keywords steps nulls every Build badge (they fall back to cropped card art) and drops
+  the TTA keyword fills. `tests/catalogue-integrity.spec.ts` guards this; run `npm test` before
+  committing scraped data. Also `git checkout HEAD -- public/data/keywords.json public/data/products.json`
+  after a scrape (it overwrites the curated glossary + drifts Philibert products).
 - Follow the `/workflow` skill for features (branch → implement → AC → tests → merge → bump).
 
 ## Deploy

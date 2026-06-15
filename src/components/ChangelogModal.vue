@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.3.0',
+    date: '2026-06-15',
+    changes: [
+      'New Army Stats panel — open it from the Build footer to see a full breakdown of your list: points by rank, your aggregate attack-dice pool with expected hits and crits at each range band, total wounds and effective HP, defence-die mix, speed and courage averages, and tallies of your weapon and unit keywords.',
+    ],
+  },
+  {
     version: '1.2.3',
     date: '2026-06-15',
     changes: [

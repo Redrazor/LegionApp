@@ -22,6 +22,8 @@ import CommandHandView from '../components/build/CommandHandView.vue'
 import BattleDeckView from '../components/build/BattleDeckView.vue'
 import PrintSheet from '../components/build/PrintSheet.vue'
 import ExportModal from '../components/build/ExportModal.vue'
+import ArmyStatsPanel from '../components/build/ArmyStatsPanel.vue'
+import { computeArmyStats } from '../utils/armyStats.ts'
 import ImportModal from '../components/build/ImportModal.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
@@ -160,6 +162,12 @@ const pickedBattleCards = computed(() =>
 // Print-ready snapshot of the army (units, command hand, battle deck, totals).
 const armySheet = computed(() =>
   buildArmySheet(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId, battleForce.value),
+)
+
+// Army Stats panel (Epic F1): derived analytics of the built list (opened from the footer).
+const statsOpen = ref(false)
+const armyStats = computed(() =>
+  computeArmyStats(draft.value, unitsStore.byId, upgradesStore.byId, battleForce.value),
 )
 
 // Export modal: native LegionApp file + plain-text + TTS/Longshanks JSON.
@@ -402,6 +410,7 @@ useHead({
         @print="printSheet"
         @export="exportOpen = true"
         @import="openImport"
+        @stats="statsOpen = true"
       />
     </template>
 
@@ -411,6 +420,9 @@ useHead({
 
     <!-- Print-only army sheet (teleported to body; shown only when printing) -->
     <PrintSheet :sheet="armySheet" :valid="validation.valid" />
+
+    <!-- Army Stats panel: derived analytics of the built list. -->
+    <ArmyStatsPanel :show="statsOpen" :stats="armyStats" :empty="!draft.units.length" @close="statsOpen = false" />
 
     <!-- Export modal: native LegionApp file + plain-text + TTS/Longshanks JSON. -->
     <ExportModal

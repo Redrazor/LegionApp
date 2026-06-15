@@ -52,6 +52,29 @@ const DEFENSE_TABLES: Record<DefenseColor, DefenseFace[]> = {
   white: ['block', 'surge', 'blank', 'blank', 'blank', 'blank'],
 }
 
+// ── Expected value (pure, deterministic) ────────────────────────────────────
+// Average hits/crits/blocks a single die contributes, derived straight from the
+// face tables above. Surge faces are folded into the chosen result. Used by the
+// Army Stats panel so the numbers are stable (no sampling) and tests aren't flaky.
+export function attackEV(color: AttackColor, surge: AttackSurge): { hits: number; crits: number } {
+  const table = ATTACK_TABLES[color]
+  let hits = 0
+  let crits = 0
+  for (const face of table) {
+    const r = resolveAttackFace(face, surge)
+    if (r === 'hit') hits++
+    else if (r === 'crit') crits++
+  }
+  return { hits: hits / table.length, crits: crits / table.length }
+}
+
+export function defenseEV(color: DefenseColor, surge: DefenseSurge): number {
+  const table = DEFENSE_TABLES[color]
+  let blocks = 0
+  for (const face of table) if (resolveDefenseFace(face, surge) === 'block') blocks++
+  return blocks / table.length
+}
+
 // ── Roll a single die ──────────────────────────────────────────────────────
 export function rollAttack(color: AttackColor): AttackFace {
   const table = ATTACK_TABLES[color]

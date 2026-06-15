@@ -82,6 +82,21 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
 - After changing `normalise.ts`, re-run `npm run scrape -- --skip-images` then `npm run seed`.
 - Follow the `/workflow` skill for features (branch → implement → AC → tests → merge → bump).
 
+## Deploy
+
+- **App** → Vercel (SPA), **API** → Render, **card images** → Firebase Hosting (project
+  `legionapp-images`, live at `https://legionapp-images.web.app`). `src/utils/imageUrl.ts`
+  rewrites `/images/...` paths to that CDN in production.
+- **Images are self-hosted and git-ignored.** Firebase serves the top-level `images-compressed/`
+  dir (NOT `public/images/`). After any scrape that adds units/upgrades, deploy the new scans or
+  production 404s them. Flow: `npm run images:compress` (compresses `public/images` → WebP 800px
+  Q80 into `images-compressed/`, incremental) then deploy.
+- **Deploy gotcha:** the `images:deploy` script is `firebase deploy --only hosting`, which assumes
+  a global `firebase` binary that is often NOT on PATH here. Use
+  `npx -y firebase-tools deploy --only hosting` instead (note: the CLI package is `firebase-tools`,
+  not `firebase` — `npx firebase` resolves the web SDK and fails). The login token is stored in
+  `~/.config/configstore/firebase-tools.json`, so the deploy runs non-interactively.
+
 ## Verify
 
 `npm run dev:all` → 5173 (app) + 3001 (API). Browse groups by faction; Build enforces

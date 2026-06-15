@@ -299,9 +299,31 @@ The rest came out of a user testing a Mandalorian Clans list that LHQ2 calls leg
     Playwright (native = zero-warning lossless restore incl. format; TTS = matched + ambiguity/not-found
     warnings). Download names disambiguated: `<slug>.legionapp.json` / `.tts.json` / `.txt`.
 
-**EPIC E COMPLETE** (E1 + E2 + E3 + E4). **Next up: F1 — Army Stats panel** (`utils/armyStats.ts` + footer
-slide-in: composition / offense via the dice engine / durability / mobility-morale / keyword tallies + small
-SVG charts). Independent of everything shipped; the last Feature-4 epic.
+**EPIC E COMPLETE** (E1 + E2 + E3 + E4).
+
+### 2026-06-15 — F1 — Army Stats panel (v1.3.0)
+**Branch:** `feature/army-stats-panel` (off `main`). The last Feature-4 epic — full derived analytics of the
+built list. Two new pure, fully-tested layers:
+- **`utils/dice.ts`** gained deterministic EV helpers `attackEV(color, surge)` → `{hits, crits}` and
+  `defenseEV(color, surge)` → blocks, derived straight from the existing face tables (no sampling → stable
+  numbers, no flaky specs).
+- **`utils/armyStats.ts`** (`computeArmyStats(army, unitsById, upgradesById, bf?)`) — counts each `ArmyUnit`
+  instance once and returns: **composition** (points total / unit-vs-upgrade split / activations / avg cost /
+  points-by-effective-rank), **offense** (aggregate attack pool by colour + melee/ranged split; expected
+  hits+crits per range band `Melee/1/2/3/4+` via each unit's own `surgeAttack`; notable weapon-keyword
+  tallies), **defence** (total wounds, red/white defence-die mix, wounds-weighted avg save, effective-HP =
+  Σ wounds/(1−save)), **mobility/morale** (speed distribution + avg, Jump/Climb counts, avg courage,
+  Fearless/courage-less), and a **unit-keyword** frequency table. Helpers `baseKeyword` (strips ` N`/` X`),
+  `weaponRange` (null min→0, null max→∞), `poolEV` exported + tested.
+- **UI** — `components/build/ArmyStatsPanel.vue`, a teleported slide-in (right sheet desktop / bottom sheet
+  mobile) opened from a new footer **Stats** button (`canExport`-gated; empty-state when no units). Charts via
+  **chart.js + vue-chartjs** (only Arc/Bar/scales registered): a points-by-rank doughnut + a stacked
+  hits/crits-by-range bar; chart colours resolve theme tokens via `getComputedStyle`. Verified desktop +
+  mobile with Playwright (donut, range bars, keyword chips, durability tiles all render; charts responsive).
+- **Tests:** `tests/armyStats.spec.ts` (22 specs) — EV tables, range-band coverage, composition/defence/
+  mobility derivations, empty-army edge case. armyStats.ts + dice.ts at 100% coverage; suite 287 green.
+
+**EPIC F COMPLETE — Feature 4 (Build "Roster Canvas") is now fully delivered (A–F).**
 
 ### 2026-06-12 — C1 implemented
 **Branch:** `feature/inline-upgrade-picker` (off `main`). **Status:** code complete, verified desktop+mobile,

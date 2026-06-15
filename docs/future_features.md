@@ -17,27 +17,32 @@ A running log of features for LegionApp, newest first.
 
 ## Backlog — owner-specified (2026-06-15)
 
-Three features the owner detailed post-launch. B2/B3 are blocked on a curated upgrade-effects
-data layer (see notes). Priority among the three: TBD by owner.
+Three features the owner detailed post-launch. **B1 is DONE (v1.2.1).** B2/B3 are blocked on a
+curated upgrade-effects data layer (see notes). Priority among B2/B3: TBD by owner.
 
-### B1 — Complete keyword tooltip coverage
+### B1 — Complete keyword tooltip coverage ✅ DONE (v1.2.1, PRs #33 + #34)
 
 **Goal:** every keyword shown anywhere has a tooltip describing what it does.
 
-**Audit (2026-06-15, `npm run audit:keywords`):** 368 distinct keywords used, **63 have no
-tooltip**. Full triaged list in `docs/keyword-tooltip-gaps.md`. The 63 split four ways:
-- **A. Real keywords missing a definition** (Transport×21, Prepared Position×14, Overwhelm×13,
-  Reliable, Sniper Team, Weak Point, Mobile, Strafe, Primitive, Shields, …) — need official rules
-  text. **Source it** (newer Electrynth `keywords.js` / LegionHQ glossary / the rules reference) or
-  the owner provides text. This is the core of the request.
-- **B. Affiliation/special-issue strings** mis-stored in `keywords[]` ("Mercenary Rebels",
-  "Special Issue Tempest Force", …) — **filter out** in `normalise.ts`; not tooltip candidates.
-- **C. Card-specific named abilities** ("This is the Way", "Victory or Death", …) — effect text is
-  card-only; show "see card" rather than a universal glossary entry.
-- **D. Parsing artifacts** — two keywords concatenated ("…Steady", "…Aim 2"); split in the scraper.
+**Outcome (`npm run audit:keywords`):** 368 distinct keywords used, **365 resolve** — down from
+63 missing → 33 → **3 intentional non-keywords**. Two levers got there:
+- A smarter resolver (`src/utils/keywords.ts`) peels value/qualifier forms back to the base entry
+  ("Weak Point 1: Rear" → Weak Point, "Mercenary Rebels" → Mercenary). Adding the **base** glossary
+  entries then auto-resolves the old scraper-concatenation artifacts via whole-word-prefix match
+  ("Eyes on the Prize Steady" → Eyes on the Prize, "Associate Anakin Skywalker" → Associate) — so
+  groups B/D never needed a `normalise.ts` data-layer fix.
+- Official definitions sourced into `keywords.json` for every real keyword (2024 + 2025 rulebook
+  glossaries and verified card/forum text): Transport, Overwhelm, Prepared Position, Sniper Team,
+  Shields, Strafe, Mobile, Vaapad/Shien Mastery, Anti-Materiel, … plus card-specific abilities
+  (This is the Way, Victory or Death, Interrogate, Hold the Line, …).
 
-**Work:** fix B/D classification at the data layer; source A's text into `keywords.json`; decide C's
-UX. Re-run `npm run audit:keywords` after a scrape to keep it at zero.
+**Residual 3 — intentional, render no tooltip by design** (allowlisted; do NOT invent text):
+`Dodge` (a token term), `Ranged` (a `Sidearm` attack-type qualifier LHQ2 split out), and
+`Pull The Strings Empire Trooper` (Tarkin card-specific ability; text lives on the card).
+
+**Regression guard:** `tests/keywords.spec.ts` loads the real catalogue and fails if a future
+scrape introduces an unresolved keyword outside the 3-term allowlist. Re-run
+`npm run audit:keywords` after a scrape; full detail in `docs/keyword-tooltip-gaps.md`.
 
 ### B2 — Upgrades that modify the unit profile (granted slots & keywords) in Build
 

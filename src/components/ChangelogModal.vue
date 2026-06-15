@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.4.1',
+    date: '2026-06-16',
+    changes: [
+      'Audited every unit\'s miniature count against its card and corrected the few the data source got wrong (Stormtroopers Heavy Response Unit, MagnaGuard Prototype Assassin Droids, Clan Wren Veterans, the Scout Troopers Strike Team, and The Bad Batch), so model counts now match the cards.',
+    ],
+  },
+  {
     version: '1.4.0',
     date: '2026-06-15',
     changes: [

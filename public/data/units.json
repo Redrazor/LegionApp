@@ -2065,7 +2065,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 2,
-    "miniCount": 4,
+    "miniCount": 1,
     "isUnique": false,
     "keywords": [
       "Detachment Scout Troopers",
@@ -4464,7 +4464,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 3,
-    "miniCount": 0,
+    "miniCount": 5,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels",
@@ -9170,7 +9170,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 3,
-    "miniCount": 0,
+    "miniCount": 5,
     "isUnique": true,
     "keywords": [
       "Equip Hunter, Wrecker, Echo, Tech, Crosshair",

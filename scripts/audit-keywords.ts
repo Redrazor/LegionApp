@@ -8,6 +8,7 @@
  */
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { resolveKeyword } from '../src/utils/keywords.ts'
 
 const dir = join(process.cwd(), 'public', 'data')
 const load = (f: string) => JSON.parse(readFileSync(join(dir, f), 'utf-8'))
@@ -18,15 +19,7 @@ const upgrades = load('upgrades.json') as any[]
 const commands = load('commands.json') as any[]
 
 // Same resolution as the app's keyword store.
-function define(keyword: string): string | null {
-  const g = glossary
-  if (g[keyword]) return g[keyword]
-  const noNum = keyword.replace(/\s+\d+$/, '').trim()
-  if (g[noNum]) return g[noNum]
-  const beforeColon = keyword.split(':')[0].trim()
-  if (g[beforeColon]) return g[beforeColon]
-  return g[keyword.split(/\s+/)[0]] ?? null
-}
+const define = (keyword: string) => resolveKeyword(glossary, keyword)
 
 const usage = new Map<string, Set<string>>()
 const add = (kw: string, src: string) => {

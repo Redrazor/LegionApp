@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { resolveKeyword } from '../utils/keywords.ts'
 
 export const useKeywordsStore = defineStore('keywords', () => {
   const glossary = ref<Record<string, string>>({})
@@ -17,19 +18,12 @@ export const useKeywordsStore = defineStore('keywords', () => {
   }
 
   /**
-   * Look up a keyword definition, tolerating the value/qualifier forms that upgrades and
-   * weapons use: a trailing number ("Arsenal 2"), a ":" qualifier ("Immune: Pierce" →
-   * Immune), and as a last resort the keyword family's first word ("Fixed Front" →
-   * Fixed). Returns null when the keyword is genuinely absent from the glossary.
+   * Look up a keyword definition, tolerating the value/qualifier forms cards use
+   * ("Reliable 2", "Uncanny Luck X", "Weak Point 1: Rear", "Special Issue Blizzard
+   * Force"). See utils/keywords.ts. Returns null when genuinely absent.
    */
   function define(keyword: string): string | null {
-    const g = glossary.value
-    if (g[keyword]) return g[keyword]
-    const noNum = keyword.replace(/\s+\d+$/, '').trim()
-    if (g[noNum]) return g[noNum]
-    const beforeColon = keyword.split(':')[0].trim()
-    if (g[beforeColon]) return g[beforeColon]
-    return g[keyword.split(/\s+/)[0]] ?? null
+    return resolveKeyword(glossary.value, keyword)
   }
 
   return { glossary, loaded, load, define }

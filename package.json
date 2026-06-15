@@ -6,6 +6,7 @@
     "dev": "vite",
     "generate:sitemap": "tsx scripts/generate-sitemap.ts",
     "og": "tsx scripts/generate-og.ts",
+    "audit:keywords": "tsx scripts/audit-keywords.ts",
     "build": "npm run generate:sitemap && vue-tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",

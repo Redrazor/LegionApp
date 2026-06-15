@@ -15,13 +15,57 @@ A running log of features for LegionApp, newest first.
 3. **Feature 5 — full battle-force support** (all factions) — see below; still planned.
 4. **Brand polish** — a real logo to replace the placeholder "L" mark.
 
-## Backlog (to detail)
+## Backlog — owner-specified (2026-06-15)
 
-_Placeholders for items the owner will spec out — do not invent scope; fill in when described._
+Three features the owner detailed post-launch. B2/B3 are blocked on a curated upgrade-effects
+data layer (see notes). Priority among the three: TBD by owner.
 
-- **TBD #1** — _(to detail)_
-- **TBD #2** — _(to detail)_
-- **TBD #3** — _(to detail)_
+### B1 — Complete keyword tooltip coverage
+
+**Goal:** every keyword shown anywhere has a tooltip describing what it does.
+
+**Audit (2026-06-15, `npm run audit:keywords`):** 368 distinct keywords used, **63 have no
+tooltip**. Full triaged list in `docs/keyword-tooltip-gaps.md`. The 63 split four ways:
+- **A. Real keywords missing a definition** (Transport×21, Prepared Position×14, Overwhelm×13,
+  Reliable, Sniper Team, Weak Point, Mobile, Strafe, Primitive, Shields, …) — need official rules
+  text. **Source it** (newer Electrynth `keywords.js` / LegionHQ glossary / the rules reference) or
+  the owner provides text. This is the core of the request.
+- **B. Affiliation/special-issue strings** mis-stored in `keywords[]` ("Mercenary Rebels",
+  "Special Issue Tempest Force", …) — **filter out** in `normalise.ts`; not tooltip candidates.
+- **C. Card-specific named abilities** ("This is the Way", "Victory or Death", …) — effect text is
+  card-only; show "see card" rather than a universal glossary entry.
+- **D. Parsing artifacts** — two keywords concatenated ("…Steady", "…Aim 2"); split in the scraper.
+
+**Work:** fix B/D classification at the data layer; source A's text into `keywords.json`; decide C's
+UX. Re-run `npm run audit:keywords` after a scrape to keep it at zero.
+
+### B2 — Upgrades that modify the unit profile (granted slots & keywords) in Build
+
+When an equipped upgrade **grants a new upgrade slot**, the Build roster must add that slot to the
+unit's `upgradeBar` live (and allow filling it). When an upgrade **grants keywords** to the unit,
+those keywords must appear on the Build "inspect" profile **in a distinct colour** so they read as
+upgrade-added, not innate.
+
+> **⚠ Data blocker — needs a new curated layer.** This behaviour is encoded in upgrade **effect
+> text**, which per `CLAUDE.md` exists **nowhere as structured data** (LHQ2 + TTA `text` both null).
+> An upgrade's `keywords[]` are its *own* keywords, with no flag for "grants this slot/keyword to the
+> equipping unit." So B2 requires a hand-maintained map: `upgrade → { grantsSlots: [...], grantsKeywords: [...] }`.
+> Build then merges these into the unit's slot bar + keyword list (tagged "from upgrade") reactively.
+
+### B3 — Explicit model (mini) count, adjusted by upgrades
+
+A unit added to a list should clearly show its **number of models/minis**. Upgrades that **add a
+mini** to the unit increase that count (and the unit's effective wounds / attack dice etc. scale
+with it); an upgrade that **replaces** a mini does not; an upgrade that adds **X** minis adds X.
+
+> **⚠ Data blocker — needs a new curated layer.** Units have **no `miniCount` field** today (stats
+> are per-mini), and upgrades have no "adds/replaces N minis" data (again, effect-text only). B3
+> requires: (a) a base mini count per unit, and (b) per-upgrade mini delta (`+N` / `replace` / `none`).
+> Both must be curated (or sourced) before the UI aggregation can be built.
+
+**Note:** B2 and B3 share the same root — both need a small **owner-curated data layer** for
+upgrade effects, since the card effect text isn't scrapeable. Worth designing that layer once
+(e.g. `public/data/upgrade-effects.json`, keyed by upgrade slug) and serving both features.
 
 ---
 

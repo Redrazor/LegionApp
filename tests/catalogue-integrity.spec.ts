@@ -30,8 +30,12 @@ describe('catalogue data integrity', () => {
   it('applies the miniCount corrections (MINICOUNT_OVERRIDES survived the last scrape)', () => {
     const units = load('units.json')
     const mc = (slug: string) => units.find((u) => u.slug === slug)?.miniCount
+    // All verified against the card's printed count badge in the full 180-card audit.
     expect(mc('scout-troopers-strike-team')).toBe(1) // not the parent squad's 4
-    expect(mc('the-bad-batch-clone-force-99')).toBe(5) // not 0
-    expect(mc('the-bad-batch-clone-force-99-2')).toBe(5)
+    expect(mc('stormtroopers-heavy-response-unit')).toBe(3) // not 4
+    expect(mc('ig-100-magnaguard-prototype-assassin-droids')).toBe(4) // not 3
+    expect(mc('clan-wren-veterans')).toBe(4) // not 3
+    expect(mc('the-bad-batch-clone-force-99')).toBe(5) // republic, 5 members (badge 0)
+    expect(mc('the-bad-batch-clone-force-99-2')).toBe(4) // mercenary, 4 members (badge 0)
   })
 })

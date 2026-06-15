@@ -1357,7 +1357,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
-    "miniCount": 4,
+    "miniCount": 3,
     "isUnique": false,
     "keywords": [
       "Flexible Response 2",
@@ -4464,7 +4464,7 @@
     "speed": 2,
     "wounds": 2,
     "courage": 3,
-    "miniCount": 5,
+    "miniCount": 4,
     "isUnique": true,
     "keywords": [
       "Mercenary Rebels",
@@ -5015,7 +5015,7 @@
     "speed": 3,
     "wounds": 1,
     "courage": 2,
-    "miniCount": 3,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "Mercenary Rebels",
@@ -11732,7 +11732,7 @@
     "speed": 2,
     "wounds": 1,
     "courage": 1,
-    "miniCount": 3,
+    "miniCount": 4,
     "isUnique": false,
     "keywords": [
       "AI Dodge",

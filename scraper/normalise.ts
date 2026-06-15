@@ -268,16 +268,24 @@ function uniqueSlug(base: string, seen: Set<string>): string {
 }
 
 /**
- * Corrections for units whose LHQ2 `stats.minicount` is wrong, verified against the
- * card's printed miniature count. Two failure modes seen: a "Strike Team" detachment
- * inheriting its parent squad's count (Scout Troopers Strike Team → 4, really 1), and
- * units shipping with 0 (The Bad Batch). Keyed by the generated slug. Re-verify after
- * a re-scrape if LHQ2 fixes these upstream.
+ * Corrections for units whose LHQ2 `stats.minicount` disagrees with the card's printed
+ * miniature count — found by a full card-by-card audit of all 180 units (every value
+ * here read off the card's top-right count badge, with the controls double-checked).
+ * Keyed by the generated slug; re-verify after a re-scrape if LHQ2 fixes these upstream.
+ *
+ * Failure modes: a variant/detachment inheriting a sibling's count (Scout Troopers Strike
+ * Team, Stormtroopers HRU), a value that's just wrong (MagnaGuard prototype, Clan Wren
+ * Veterans), and "counterpart" units whose badge reads 0 because the models come from
+ * member cards — The Bad Batch fields its clone members (republic 5; mercenary 4, no
+ * Crosshair), so we use the fielded count rather than the literal 0.
  */
 export const MINICOUNT_OVERRIDES: Record<string, number> = {
-  'scout-troopers-strike-team': 1,
-  'the-bad-batch-clone-force-99': 5,
-  'the-bad-batch-clone-force-99-2': 5,
+  'scout-troopers-strike-team': 1, // card 1; LHQ2 had the parent squad's 4
+  'stormtroopers-heavy-response-unit': 3, // card 3; LHQ2 had 4
+  'ig-100-magnaguard-prototype-assassin-droids': 4, // card 4; LHQ2 had 3
+  'clan-wren-veterans': 4, // card 4; LHQ2 had 3
+  'the-bad-batch-clone-force-99': 5, // republic — 5 members (badge shows 0)
+  'the-bad-batch-clone-force-99-2': 4, // mercenary — 4 members, no Crosshair (badge shows 0)
 }
 
 export function buildUnits(cards: Lhq2Card[]): Unit[] {

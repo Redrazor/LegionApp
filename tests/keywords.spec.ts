@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 import { resolveKeyword } from '../src/utils/keywords'
 
 const G = {
@@ -60,5 +62,46 @@ describe('resolveKeyword', () => {
 
   it('does not partial-match a non-boundary prefix (Scout ≠ Scouting)', () => {
     expect(resolveKeyword(G, 'Scouting')).toBeNull()
+  })
+})
+
+// Coverage guard against the real catalogue: every keyword used by a unit (incl. its
+// weapons), upgrade or command must resolve to a glossary tooltip — except a short, known
+// allowlist of terms that aren't glossary keywords (a token term, an attack-type qualifier,
+// and a card-specific ability whose text lives on the card). A new scrape that introduces
+// an unresolved keyword fails here so it gets triaged. See docs/keyword-tooltip-gaps.md.
+describe('glossary coverage (real catalogue)', () => {
+  const load = (f: string) =>
+    JSON.parse(readFileSync(join(__dirname, '../public/data', f), 'utf8'))
+  const glossary = load('keywords.json') as Record<string, string>
+  const units = load('units.json') as any[]
+  const upgrades = load('upgrades.json') as any[]
+  const commands = load('commands.json') as any[]
+
+  // Not glossary keywords — correctly render no tooltip (resolveKeyword → null).
+  const ALLOWED_UNRESOLVED = new Set([
+    'Dodge', // a token term, not a keyword
+    'Ranged', // attack-type qualifier (Sidearm), not a standalone keyword
+    'Pull The Strings Empire Trooper', // card-specific ability; text lives on the card
+  ])
+
+  const used = new Set<string>()
+  for (const u of units) {
+    for (const k of u.keywords ?? []) used.add(k)
+    for (const w of u.weapons ?? []) for (const k of w.keywords ?? []) used.add(k)
+  }
+  for (const u of upgrades) for (const k of u.keywords ?? []) used.add(k)
+  for (const c of commands) for (const k of c.keywords ?? []) used.add(k)
+
+  it('resolves every used keyword except the known non-glossary allowlist', () => {
+    const unresolved = [...used].filter((k) => resolveKeyword(glossary, k) === null)
+    const unexpected = unresolved.filter((k) => !ALLOWED_UNRESOLVED.has(k))
+    expect(unexpected).toEqual([])
+  })
+
+  it('resolves the valued/qualified forms cards actually use', () => {
+    expect(resolveKeyword(glossary, 'Anti-Materiel 4')).not.toBeNull()
+    expect(resolveKeyword(glossary, 'Associate Anakin Skywalker')).not.toBeNull()
+    expect(resolveKeyword(glossary, 'This is the Way Aim 2')).not.toBeNull()
   })
 })

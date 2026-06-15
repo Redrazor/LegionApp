@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.2.1',
+    date: '2026-06-15',
+    changes: [
+      'Keyword tooltip coverage is now effectively complete — added the official definitions for the keywords that were still missing one (Anti-Materiel, Overwhelm, Sniper Team, Shields, Strafe, Mobile, Vaapad Mastery, and more), plus several unit-specific keywords (This is the Way, Victory or Death, Interrogate, Hold the Line and others). Valued and combined forms on cards now resolve too.',
+    ],
+  },
+  {
     version: '1.2.0',
     date: '2026-06-15',
     changes: [

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useHead } from '@vueuse/head'
 import { storeToRefs } from 'pinia'
 import { useArmyStore } from '../stores/army.ts'
@@ -8,9 +8,10 @@ import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useBattleForcesStore } from '../stores/battleForces.ts'
 import { useCommandsStore } from '../stores/commands.ts'
 import { useBattleCardsStore } from '../stores/battleCards.ts'
+import { useKeywordsStore } from '../stores/keywords.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON, importArmy, toCompact } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON, importArmy, toCompact, DEFAULT_PRINT_OPTIONS, type PrintOptions } from '../utils/army.ts'
 import type { Faction, Rank } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -21,6 +22,7 @@ import BattleForcePicker from '../components/build/BattleForcePicker.vue'
 import CommandHandView from '../components/build/CommandHandView.vue'
 import BattleDeckView from '../components/build/BattleDeckView.vue'
 import PrintSheet from '../components/build/PrintSheet.vue'
+import PrintOptionsModal from '../components/build/PrintOptionsModal.vue'
 import ExportModal from '../components/build/ExportModal.vue'
 import ArmyStatsPanel from '../components/build/ArmyStatsPanel.vue'
 import { computeArmyStats } from '../utils/armyStats.ts'
@@ -35,6 +37,7 @@ const upgradesStore = useUpgradesStore()
 const bfStore = useBattleForcesStore()
 const commandsStore = useCommandsStore()
 const battleCardsStore = useBattleCardsStore()
+const keywordsStore = useKeywordsStore()
 const { draft, saved, activeIndex } = storeToRefs(armyStore)
 const { validation, pointsRemaining, battleForce } = useArmyValidation()
 const { isMobile, isDesktop } = useBreakpoint()
@@ -97,6 +100,7 @@ onMounted(() => {
   bfStore.load()
   commandsStore.load()
   battleCardsStore.load()
+  keywordsStore.load() // glossary for the print keyword reference
   // Import a shared army from the URL (?a=...)
   const params = new URLSearchParams(window.location.search)
   const a = params.get('a')
@@ -180,9 +184,10 @@ const pickedBattleCards = computed(() =>
   (draft.value.battleDeck ?? []).map((id) => battleCardsStore.byId.get(id)).filter((c): c is NonNullable<typeof c> => !!c),
 )
 
-// Print-ready snapshot of the army (units, command hand, battle deck, totals).
+// Print-ready snapshot of the army (units, command hand, battle deck, totals + the
+// keyword reference resolved against the glossary).
 const armySheet = computed(() =>
-  buildArmySheet(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId, battleForce.value),
+  buildArmySheet(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId, battleForce.value, keywordsStore.glossary),
 )
 
 // Total miniatures across the army (printed counts + mini-adding upgrades).
@@ -248,8 +253,37 @@ const ranks = computed(() => {
   return out
 })
 
-function printSheet() {
-  window.print()
+// Print options: the footer Print button opens a chooser (which sections to include);
+// confirming prints. Selection persists across sessions so re-prints keep your choices.
+const PRINT_OPTIONS_KEY = 'legion:printOptions'
+const printOptions = ref<PrintOptions>(loadPrintOptions())
+const showPrintOptions = ref(false)
+
+function loadPrintOptions(): PrintOptions {
+  try {
+    const raw = localStorage.getItem(PRINT_OPTIONS_KEY)
+    // Spread over defaults so a newly-added option appears even on an old saved blob.
+    if (raw) return { ...DEFAULT_PRINT_OPTIONS, ...JSON.parse(raw) }
+  } catch {
+    /* corrupt/unavailable storage — fall back to defaults */
+  }
+  return { ...DEFAULT_PRINT_OPTIONS }
+}
+watch(printOptions, (o) => {
+  try {
+    localStorage.setItem(PRINT_OPTIONS_KEY, JSON.stringify(o))
+  } catch {
+    /* storage unavailable — options just won't persist */
+  }
+}, { deep: true })
+
+function openPrint() {
+  showPrintOptions.value = true
+}
+function doPrint() {
+  showPrintOptions.value = false
+  // Let the modal's exit + section toggles flush to the DOM before the print dialog.
+  requestAnimationFrame(() => window.print())
 }
 
 useHead({
@@ -432,7 +466,7 @@ useHead({
         @set-game-size="armyStore.setGameSize"
         @save="armyStore.saveCurrent()"
         @share="share"
-        @print="printSheet"
+        @print="openPrint"
         @export="exportOpen = true"
         @import="openImport"
         @stats="statsOpen = true"
@@ -444,7 +478,16 @@ useHead({
     <UnitProfile v-if="viewingSlug" :slug="viewingSlug" simplified :granted-keywords="grantedKeywords" @close="viewingSlug = null; viewingUid = null" />
 
     <!-- Print-only army sheet (teleported to body; shown only when printing) -->
-    <PrintSheet :sheet="armySheet" :valid="validation.valid" />
+    <PrintSheet :sheet="armySheet" :valid="validation.valid" :options="printOptions" />
+
+    <!-- Print options chooser (which sections to include) → confirms to window.print(). -->
+    <PrintOptionsModal
+      v-model:options="printOptions"
+      :show="showPrintOptions"
+      :has-battle-deck="showBattleDeck"
+      @print="doPrint"
+      @close="showPrintOptions = false"
+    />
 
     <!-- Army Stats panel: derived analytics of the built list. -->
     <ArmyStatsPanel :show="statsOpen" :stats="armyStats" :empty="!draft.units.length" @close="statsOpen = false" />

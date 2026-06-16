@@ -112,7 +112,9 @@ body, nav, aside, footer, .theme-tx {
 @media print {
   .no-print { display: none !important; }
   html, body { background: #fff; color: #000; }
-  /* Show only the print sheet; hide the live app. */
-  #app { display: none !important; }
+  /* Show only the print sheet; hide the live app AND every other body-level node —
+     #app plus any element teleported to <body> (modals, the stats panel, popovers),
+     which would otherwise print over the sheet. */
+  body > *:not(.print-sheet) { display: none !important; }
   .print-sheet { display: block !important; }
 }

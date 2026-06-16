@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.7.1',
+    date: '2026-06-16',
+    changes: [
+      'New app logo — a battle-station-style mark replaces the placeholder "L" in the nav, favicon, install icon and share preview.',
+    ],
+  },
+  {
     version: '1.7.0',
     date: '2026-06-16',
     changes: [

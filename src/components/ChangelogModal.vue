@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.6.1',
+    date: '2026-06-16',
+    changes: [
+      'Fixed Detachment units (e.g. Imperial Probe Droids) counting against your rank maximum — per the rules they don\'t, so you can now field them on top of a full rank (your three Special Forces plus their probe-droid detachments). They still count toward the rank minimum.',
+    ],
+  },
+  {
     version: '1.6.0',
     date: '2026-06-16',
     changes: [

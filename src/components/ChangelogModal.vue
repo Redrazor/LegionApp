@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.5.0',
+    date: '2026-06-16',
+    changes: [
+      'Imperial March and Dug In can now be added to any eligible unit even when it has no Training upgrade slot — the builder gives it a dedicated slot. If the unit already has a Training slot (including one granted by an upgrade like a Stormtrooper Captain), the card fills that instead, so it never doubles up.',
+    ],
+  },
+  {
     version: '1.4.2',
     date: '2026-06-16',
     changes: [

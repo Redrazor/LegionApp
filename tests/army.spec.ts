@@ -989,6 +989,10 @@ describe('catalogueForRank', () => {
     expect(catalogueForRank(det, 'mandalorians', 'support', '', new Set(['mandalorian warriors'])).map((u) => u.id)).toEqual(['fs'])
     // …rank parent present → the rank detachment appears.
     expect(catalogueForRank(det, 'empire', 'special', '', new Set(['special'])).map((u) => u.id)).toEqual(['probe'])
+    // …but a rank-targeting detachment must still pass the faction check: a CIS
+    // army with a present `special` unit (e.g. MagnaGuard) must NOT be offered the
+    // Empire-only Imperial Probe Droid.
+    expect(catalogueForRank(det, 'separatists', 'special', '', new Set(['special']))).toEqual([])
   })
 
   it('without presentParents, does not apply detachment gating (Browse-style)', () => {

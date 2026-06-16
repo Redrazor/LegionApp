@@ -7,7 +7,7 @@ import ChangelogModal from './components/ChangelogModal.vue'
 
 const menuOpen = ref(false)
 const showChangelog = ref(false)
-const APP_VERSION = '1.6.1' // keep in sync with package.json + ChangelogModal's top entry
+const APP_VERSION = '1.7.1' // keep in sync with package.json + ChangelogModal's top entry
 const router = useRouter()
 const { theme, toggle, init } = useTheme()
 
@@ -31,7 +31,13 @@ onMounted(init)
     <nav class="border-b border-lg-border bg-lg-surface/85 backdrop-blur-md sticky top-0 z-40">
       <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
         <RouterLink to="/browse" class="flex items-center gap-2 group">
-          <span class="grid h-7 w-7 place-items-center rounded-md bg-lg-brand/15 text-lg-brand font-display font-black text-sm group-hover:bg-lg-brand/25 transition-colors">L</span>
+          <span class="grid h-7 w-7 place-items-center rounded-md bg-lg-brand/15 text-lg-brand group-hover:bg-lg-brand/25 transition-colors">
+            <svg viewBox="0 0 24 24" class="h-[19px] w-[19px]" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="7.1" />
+              <line x1="5" y1="10.9" x2="19" y2="10.9" />
+              <circle cx="9" cy="7.9" r="1.7" fill="currentColor" stroke="none" />
+            </svg>
+          </span>
           <span class="font-display text-lg font-bold tracking-widest text-lg-text uppercase">Legion<span class="text-lg-brand">App</span></span>
         </RouterLink>
 

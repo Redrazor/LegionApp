@@ -26,7 +26,7 @@ import PrintOptionsModal from '../components/build/PrintOptionsModal.vue'
 import ExportModal from '../components/build/ExportModal.vue'
 import ArmyStatsPanel from '../components/build/ArmyStatsPanel.vue'
 import { computeArmyStats } from '../utils/armyStats.ts'
-import { armyModelCount } from '../utils/army.ts'
+import { armyModelCount, isDetachment } from '../utils/army.ts'
 import ImportModal from '../components/build/ImportModal.vue'
 import UnitProfile from '../components/browse/UnitProfile.vue'
 import { useBreakpoint } from '../composables/useBreakpoint.ts'
@@ -243,12 +243,32 @@ const counts = computed(() => {
   return out
 })
 
+// Detachment units per rank — they don't count toward the rank maximum (rulebook),
+// so the "+ Add" gating and footer chip colour subtract them from the max check.
+const detachmentCounts = computed(() => {
+  const out = {} as Record<Rank, number>
+  for (const rank of RANK_ORDER) {
+    out[rank] = unitsByRank.value[rank].filter((au) => {
+      const u = unitsStore.byId.get(au.unitId)
+      return u && isDetachment(u)
+    }).length
+  }
+  return out
+})
+
+// Whether another unit of a rank can be added: a detachment is never blocked by the
+// max; a normal unit is blocked once the non-detachment count reaches the max.
+function canAddToRank(rank: Rank, unitIsDetachment: boolean): boolean {
+  if (unitIsDetachment) return true
+  return counts.value[rank] - detachmentCounts.value[rank] < limits.value[rank].max
+}
+
 // Per-rank {count, min, max} for the footer's rank-tracker chips (max already
 // folds in Entourage via `limits`).
 const ranks = computed(() => {
-  const out = {} as Record<Rank, { count: number; min: number; max: number }>
+  const out = {} as Record<Rank, { count: number; min: number; max: number; detachments: number }>
   for (const rank of RANK_ORDER) {
-    out[rank] = { count: counts.value[rank], min: limits.value[rank].min, max: limits.value[rank].max }
+    out[rank] = { count: counts.value[rank], min: limits.value[rank].min, max: limits.value[rank].max, detachments: detachmentCounts.value[rank] }
   }
   return out
 })
@@ -372,6 +392,7 @@ useHead({
         :faction="draft.faction"
         :battle-force="battleForce"
         :counts="counts"
+        :detachment-counts="detachmentCounts"
         :limits="limits"
         :present-parents="presentParents"
         :is-mobile="isMobile"
@@ -397,7 +418,7 @@ useHead({
               v-for="group in groupedByRank[rank]" :key="group.key"
               :group="group" :faction="draft.faction"
               :battle-force="battleForce"
-              :can-add="counts[rank] < limits[rank].max"
+              :can-add="canAddToRank(rank, isDetachment(unitsStore.byId.get(group.unitId)!))"
               @pick-upgrade="onPickUpgrade"
               @view="viewUnit"
             />

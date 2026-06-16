@@ -10,7 +10,7 @@ import { FORMATS, RANK_ORDER } from '../../utils/factions.ts'
 // target that expands the footer upward to reveal the validation checklist, and a
 // second "Cards" drawer summarising the picked command hand + battle deck.
 const props = defineProps<{
-  ranks: Record<Rank, { count: number; min: number; max: number }>
+  ranks: Record<Rank, { count: number; min: number; max: number; detachments: number }>
   points: number
   cap: number
   remaining: number
@@ -167,7 +167,7 @@ const chipClass: Record<ReturnType<typeof rankChipState>, string> = {
       <span
         v-for="rank in RANK_ORDER" :key="rank"
         class="inline-flex items-center gap-1 rounded-md border px-1.5 py-0.5 text-[11px] font-semibold tabular-nums"
-        :class="chipClass[rankChipState(ranks[rank].count, ranks[rank].min, ranks[rank].max)]"
+        :class="chipClass[rankChipState(ranks[rank].count, ranks[rank].min, ranks[rank].max, ranks[rank].detachments)]"
         :title="`${RANK_ABBR[rank]} — ${ranks[rank].count} of ${ranks[rank].min}–${ranks[rank].max}`"
       >
         {{ RANK_ABBR[rank] }}

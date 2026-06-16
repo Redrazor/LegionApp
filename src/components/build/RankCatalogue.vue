@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { BattleForce, Faction, Rank, Unit } from '../../types/index.ts'
-import { catalogueForRank } from '../../utils/army.ts'
+import { catalogueForRank, isDetachment } from '../../utils/army.ts'
 import { RANK_ORDER, rankName } from '../../utils/factions.ts'
 import CatalogueUnitRow from './CatalogueUnitRow.vue'
 
@@ -17,6 +17,8 @@ const props = defineProps<{
   battleForce: BattleForce | null
   // Per-rank current army count + Entourage-adjusted min/max (gating matches the footer).
   counts: Record<Rank, number>
+  // Detachment units per rank — exempt from the rank maximum (rulebook).
+  detachmentCounts: Record<Rank, number>
   limits: Record<Rank, { min: number; max: number }>
   // Lowercased names + ranks already in the army, for Detachment availability gating.
   presentParents: ReadonlySet<string>
@@ -53,8 +55,11 @@ const candidatesByRank = computed(() => {
   return out
 })
 
-function rankFull(rank: Rank): boolean {
-  return props.counts[rank] >= props.limits[rank].max
+// A unit's [+] is disabled when its rank is full — but detachments don't count toward
+// the max, so they're never blocked, and the max is measured against non-detachment count.
+function unitAddDisabled(rank: Rank, unit: Unit): boolean {
+  if (isDetachment(unit)) return false
+  return props.counts[rank] - props.detachmentCounts[rank] >= props.limits[rank].max
 }
 
 // Tablet accordion: a header toggles its group (click the open one to collapse all);
@@ -93,7 +98,7 @@ function toggleRank(rank: Rank) {
       <div class="flex-1 space-y-1 overflow-y-auto">
         <CatalogueUnitRow
           v-for="u in candidatesByRank[mobileRank]" :key="u.id"
-          :unit="u" :disabled="rankFull(mobileRank)" :show-speed="isDesktop" @add="$emit('add', $event)" @view="$emit('view', $event)"
+          :unit="u" :disabled="unitAddDisabled(mobileRank, u)" :show-speed="isDesktop" @add="$emit('add', $event)" @view="$emit('view', $event)"
         />
         <p v-if="!candidatesByRank[mobileRank].length" class="py-8 text-center text-sm text-lg-muted">
           No matching {{ rankName(mobileRank).toLowerCase() }} units.
@@ -139,7 +144,7 @@ function toggleRank(rank: Rank) {
           <div v-show="isDesktop || activeRank === rank" class="space-y-1 pb-2">
             <CatalogueUnitRow
               v-for="u in candidatesByRank[rank]" :key="u.id"
-              :unit="u" :disabled="rankFull(rank)" :show-speed="isDesktop" @add="$emit('add', $event)" @view="$emit('view', $event)"
+              :unit="u" :disabled="unitAddDisabled(rank, u)" :show-speed="isDesktop" @add="$emit('add', $event)" @view="$emit('view', $event)"
             />
             <p v-if="!candidatesByRank[rank].length" class="px-1 py-3 text-center text-xs text-lg-muted">
               No matching {{ rankName(rank).toLowerCase() }} units.

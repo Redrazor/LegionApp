@@ -565,6 +565,13 @@ export function detachmentTarget(unit: Unit): string | null {
   return null
 }
 
+/** Whether a unit has the Detachment keyword. Per the rulebook, a Detachment unit
+ *  "doesn't count against the maximum number of units of its rank" during army building
+ *  (it still counts toward the minimum and the displayed total). */
+export function isDetachment(unit: Unit): boolean {
+  return unit.keywords.some((k) => KW.detachment.test(k))
+}
+
 /**
  * Catalogue candidates for one rank: the units a faction may legally field at that
  * rank (`unitAllowedInFaction` — mercs gated by affiliation), optionally filtered by a
@@ -1333,6 +1340,11 @@ export function validateArmy(
   const rankCounts: Record<Rank, number> = {
     commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
   }
+  // Detachment units count toward the displayed total and the minimum, but NOT the
+  // maximum (rulebook) — tracked separately so the max check can subtract them.
+  const detachmentCounts: Record<Rank, number> = {
+    commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
+  }
   let points = 0
   let unpriced = 0
   const factions = new Set<Faction>()
@@ -1340,7 +1352,9 @@ export function validateArmy(
     const unit = unitsById.get(au.unitId)
     if (!unit) continue
     // A battle force can place a unit in a rank other than its printed one.
-    rankCounts[effectiveRank(unit, bf)]++
+    const r = effectiveRank(unit, bf)
+    rankCounts[r]++
+    if (isDetachment(unit)) detachmentCounts[r]++
     if (unit.cost == null) unpriced++
     points += unitCost(au, unitsById, upgradesById)
     factions.add(unit.faction)
@@ -1398,14 +1412,20 @@ export function validateArmy(
       note = ' (Field Commander)'
     }
     if (count === 0 && min === 0 && !note) continue // hide empty optional ranks
+    // Detachments don't count toward the maximum, so the max is measured against the
+    // non-detachment count; the min and the displayed total still count everything.
+    const detachCount = detachmentCounts[rank]
+    const maxCount = count - detachCount
     const minOk = nonMerc >= min
-    const maxOk = count <= max
+    const maxOk = maxCount <= max
     const detail = !minOk
       ? mercCount > 0
         ? `${count} (need ${min} non-merc)`
         : `${count} (need ${min})`
       : !maxOk
-      ? `${count} (max ${max})`
+      ? `${maxCount} (max ${max})`
+      : detachCount > 0
+      ? `${maxCount} / ${max} (+${detachCount} detachment)`
       : `${count} / ${max}`
     items.push({ ok: minOk && maxOk, label: rankName(rank), detail: detail + note })
   }
@@ -1414,7 +1434,7 @@ export function validateArmy(
   if (bf) {
     const commOp = battleForceRankTable(bf, army.gameSize).commOp
     if (commOp != null) {
-      const used = rankCounts.commander + rankCounts.operative
+      const used = (rankCounts.commander - detachmentCounts.commander) + (rankCounts.operative - detachmentCounts.operative)
       items.push({
         ok: used <= commOp,
         label: 'Cmd + Op',
@@ -1579,8 +1599,8 @@ export function fromBase64url(s: string): string {
 
 /** Rank-tracker chip status for the Build footer: below min / over max / in range. */
 export type RankChipState = 'under' | 'over' | 'ok'
-export function rankChipState(count: number, min: number, max: number): RankChipState {
-  if (count > max) return 'over'
+export function rankChipState(count: number, min: number, max: number, detachments = 0): RankChipState {
+  if (count - detachments > max) return 'over' // detachments don't count toward the max
   if (count < min) return 'under'
   return 'ok'
 }

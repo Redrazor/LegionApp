@@ -4,7 +4,7 @@ import {
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction, isMandalorianClanUnit,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
-  primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
+  primaryWeaponDice, detachmentTarget, isDetachment, presentDetachmentParents, groupArmyUnits,
   heavyWeaponTeamUnmet, unitLegalityIssues,
   effectiveRank, effectiveUpgradeBar, slotKeySet, pruneOrphanedUpgrades, upgradeFitsSlot,
   unitModelCount, armyModelCount, upgradeMinisAdded, MINI_ADDING_SLOTS, battleForcePool, battleForceRules,
@@ -338,6 +338,52 @@ describe('game formats / rankLimits', () => {
     expect(FORMATS.map((f) => f.cap)).toEqual([600, 800, 1000, 1600])
     expect(formatName(1000)).toBe('Standard')
     expect(formatName(600)).toBe('Recon')
+  })
+})
+
+describe('detachments and rank limits', () => {
+  it('isDetachment detects the Detachment keyword', () => {
+    expect(isDetachment(unit('p', { keywords: ['Observe 3', 'Detachment special'] }))).toBe(true)
+    expect(isDetachment(unit('p', { keywords: ['Scout 2'] }))).toBe(false)
+  })
+
+  it('rankChipState: detachments do not push a rank over its max', () => {
+    expect(rankChipState(4, 0, 3)).toBe('over') // 4 special, none exempt
+    expect(rankChipState(4, 0, 3, 1)).toBe('ok') // 3 counting + 1 detachment
+    expect(rankChipState(0, 1, 2, 0)).toBe('under') // detachments don't change the min
+  })
+
+  it('validateArmy: a detachment does not count against the rank maximum', () => {
+    const cmd = unit('cmd', { rank: 'commander', cost: 80, isUnique: true })
+    const sf = (id: string) => unit(id, { rank: 'special', cost: 40 })
+    const probe = unit('probe', { name: 'Imperial Probe Droid', rank: 'special', cost: 28, keywords: ['Detachment special'] })
+    const corps = (id: string) => unit(id, { rank: 'corps', cost: 30 })
+    const units = [cmd, sf('s1'), sf('s2'), sf('s3'), probe, corps('c1'), corps('c2'), corps('c3')]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    const v = validateArmy(army, unitsById, upgradesById)
+    const special = v.items.find((i) => i.label === 'Special Forces')!
+    // 3 non-detachment special + 1 probe-droid detachment = legal at max 3.
+    expect(special.ok).toBe(true)
+    expect(special.detail).toBe('3 / 3 (+1 detachment)')
+  })
+
+  it('validateArmy: detachments still count toward the rank minimum', () => {
+    // A "Detachment <name>" corps unit + its parent = 2 corps, still short of the min 3.
+    const cmd = unit('cmd', { rank: 'commander', cost: 80, isUnique: true })
+    const shore = unit('shore', { name: 'Shoretroopers', rank: 'corps', cost: 50 })
+    const df90 = unit('df90', { name: 'DF-90', rank: 'corps', cost: 36, keywords: ['Detachment Shoretroopers'] })
+    const { unitsById, upgradesById } = makeMaps([cmd, shore, df90])
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 1000,
+      units: [cmd, shore, df90].map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    const corpsItem = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Corps')!
+    expect(corpsItem.ok).toBe(false) // 2 corps (incl. the detachment) < min 3
+    expect(corpsItem.detail).toBe('2 (need 3)')
   })
 })
 

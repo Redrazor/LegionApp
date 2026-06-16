@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { BattleForce, Unit, Upgrade } from '../types/index.ts'
 import { loadCatalogue } from '../utils/api.ts'
-import { unitMeetsRequirements } from '../utils/army.ts'
+import { unitMeetsRequirements, upgradeFitsSlot } from '../utils/army.ts'
 
 export const useUpgradesStore = defineStore('upgrades', () => {
   const upgrades = ref<Upgrade[]>([])
@@ -34,7 +34,7 @@ export const useUpgradesStore = defineStore('upgrades', () => {
     const allowed = bf ? new Set(bf.allowedUpgrades) : null
     const disallowed = bf ? new Set(bf.disallowedUpgrades) : null
     return upgrades.value.filter((u) => {
-      if (u.slot !== slot) return false
+      if (!upgradeFitsSlot(u, slot)) return false
       if (disallowed?.has(u.id)) return false
       const factionOk = !u.faction || u.faction === faction || u.faction === 'mercenary' || !!allowed?.has(u.id)
       if (!factionOk) return false

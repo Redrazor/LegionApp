@@ -69,13 +69,51 @@ export function effectiveUpgradeBar(
 ): string[] {
   const add = battleForceRules(bf).addAdditionalUpgradeSlots?.find(([id]) => id === unit.id)?.[1]
   const base = add ? [...unit.upgradeBar, ...add] : unit.upgradeBar
-  if (!equipped?.length || !upgradesById) return base
-  // Collect grants from every equipped upgrade (incl. ones sitting in granted slots,
-  // so chained grants resolve in one pass). Sorted by slot key for stable ordering.
-  const granted = [...equipped]
-    .sort((a, b) => a.slot.localeCompare(b.slot))
-    .flatMap((e) => upgradesById.get(e.upgradeId)?.grantedSlots ?? [])
-  return granted.length ? [...base, ...granted] : base
+  if (!upgradesById) return base
+  // Slots granted by equipped upgrades (e.g. a Comms Technician adds `comms`, a
+  // Stormtrooper Captain adds `training`). Sorted by slot key for stable ordering; one
+  // pass resolves chained grants since granted-slot upgrades are in `equipped` too.
+  const granted = equipped?.length
+    ? [...equipped].sort((a, b) => a.slot.localeCompare(b.slot)).flatMap((e) => upgradesById.get(e.upgradeId)?.grantedSlots ?? [])
+    : []
+  // Self-slotting upgrades (Imperial March, Dug In): a dedicated slot ONLY when the unit
+  // has the printed slot from NO source — not printed/BF (`base`) nor granted by an
+  // equipped upgrade. If a Captain grants a Training slot, Imperial March fills that
+  // instead. Placed before `granted` so its key stays at index `base.length`.
+  const self = selfSlotsFor(unit, [...base, ...granted], upgradesById)
+  return [...base, ...self, ...granted]
+}
+
+/**
+ * A few upgrades (Imperial March, Dug In) carry card text letting any eligible unit
+ * equip them even without the printed upgrade slot. Keyed by slug; their requirements
+ * still gate eligibility (see {@link unitMeetsRequirements}). The dedicated slot a
+ * slot-less unit gets is keyed by the slug itself, so it never collides with a real
+ * slot type and points/equip/prune all flow through the normal slot-key machinery.
+ */
+export const SELF_SLOTTING_UPGRADE_SLUGS = new Set(['imperial-march', 'dug-in'])
+
+/** Dedicated self-slot slugs for the self-slotting upgrades a unit is eligible for AND
+ *  whose printed slot it has from no source (`presentSlots` = base + granted) — i.e. only
+ *  units that can't otherwise equip them. Returns the extra slot types (slugs) to append. */
+function selfSlotsFor(unit: Unit, presentSlots: string[], upgradesById: Map<string, Upgrade>): string[] {
+  const extra: string[] = []
+  for (const up of upgradesById.values()) {
+    if (!SELF_SLOTTING_UPGRADE_SLUGS.has(up.slug)) continue
+    if (presentSlots.includes(up.slot)) continue // has the slot already → fills it, no dedicated slot
+    if (unitMeetsRequirements(unit, up.requirements)) extra.push(up.slug)
+  }
+  return extra.sort()
+}
+
+/**
+ * Whether an upgrade may be offered for a given slot. Self-slotting upgrades match both
+ * their printed slot type AND their own dedicated slug-slot; everything else matches its
+ * printed slot only. Pure; the upgrades store's `forSlot` delegates here.
+ */
+export function upgradeFitsSlot(up: Upgrade, slot: string): boolean {
+  if (SELF_SLOTTING_UPGRADE_SLUGS.has(up.slug)) return up.slug === slot || up.slot === slot
+  return up.slot === slot
 }
 
 /** The set of valid `"<slotType>#<index>"` keys for a (flat) upgrade bar. The index

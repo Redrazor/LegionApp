@@ -6,7 +6,7 @@ import {
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
   primaryWeaponDice, detachmentTarget, presentDetachmentParents, groupArmyUnits,
   heavyWeaponTeamUnmet, unitLegalityIssues,
-  effectiveRank, effectiveUpgradeBar, slotKeySet, pruneOrphanedUpgrades,
+  effectiveRank, effectiveUpgradeBar, slotKeySet, pruneOrphanedUpgrades, upgradeFitsSlot,
   unitModelCount, armyModelCount, upgradeMinisAdded, MINI_ADDING_SLOTS, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
@@ -1062,6 +1062,55 @@ describe('battle forces', () => {
       const { upgradesById } = makeMaps([vader], [grant])
       expect(effectiveUpgradeBar(vader, bf, [{ slot: 'force#0', upgradeId: 'g' }], upgradesById))
         .toEqual(['force', 'command', 'gear'])
+    })
+  })
+
+  describe('self-slotting upgrades (Imperial March / Dug In)', () => {
+    const march = upgrade('imperial-march', { name: 'Imperial March', slot: 'training', requirements: [{ faction: 'empire', rank: 'corps' }] })
+    const dugIn = upgrade('dug-in', { name: 'Dug In', slot: 'training', requirements: [{ cardSubtype: 'emplacement trooper' }] })
+    const { upgradesById } = makeMaps([], [march, dugIn])
+
+    it('adds a dedicated slot to an eligible unit that LACKS a training slot', () => {
+      const storm = unit('storm', { faction: 'empire', rank: 'corps', upgradeBar: ['heavy weapon', 'personnel'] })
+      expect(effectiveUpgradeBar(storm, null, [], upgradesById)).toEqual(['heavy weapon', 'personnel', 'imperial-march'])
+    })
+
+    it('does NOT add a dedicated slot when the unit already has a training slot (it fills it)', () => {
+      const storm = unit('storm', { faction: 'empire', rank: 'corps', upgradeBar: ['training', 'gear'] })
+      expect(effectiveUpgradeBar(storm, null, [], upgradesById)).toEqual(['training', 'gear'])
+    })
+
+    it('does NOT add a dedicated slot when an equipped upgrade GRANTS the training slot (e.g. a Captain)', () => {
+      const captain = upgrade('cpt', { name: 'Stormtrooper Captain', slot: 'personnel', grantedSlots: ['training'] })
+      const { upgradesById: ub } = makeMaps([], [march, dugIn, captain])
+      const storm = unit('storm', { faction: 'empire', rank: 'corps', upgradeBar: ['heavy weapon', 'personnel'] })
+      // No captain → dedicated Imperial March slot.
+      expect(effectiveUpgradeBar(storm, null, [], ub)).toEqual(['heavy weapon', 'personnel', 'imperial-march'])
+      // Captain equipped grants a real Training slot → Imperial March fills THAT, no dedicated slot.
+      const equipped = [{ slot: 'personnel#1', upgradeId: 'cpt' }]
+      expect(effectiveUpgradeBar(storm, null, equipped, ub)).toEqual(['heavy weapon', 'personnel', 'training'])
+    })
+
+    it('does not add a slot to an ineligible unit (wrong faction)', () => {
+      const rebel = unit('reb', { faction: 'rebels', rank: 'corps', upgradeBar: ['gear'] })
+      expect(effectiveUpgradeBar(rebel, null, [], upgradesById)).toEqual(['gear'])
+    })
+
+    it('adds the Dug In slot to an eligible emplacement trooper without a training slot', () => {
+      const emp = unit('emp', { faction: 'empire', rank: 'support', unitType: 'emplacement trooper', upgradeBar: ['gear'] })
+      expect(effectiveUpgradeBar(emp, null, [], upgradesById)).toEqual(['gear', 'dug-in'])
+    })
+
+    it('upgradeFitsSlot: self-slotting upgrade fits both its printed slot AND its dedicated slot', () => {
+      expect(upgradeFitsSlot(march, 'training')).toBe(true) // fills a real training slot when present
+      expect(upgradeFitsSlot(march, 'imperial-march')).toBe(true) // dedicated slug-slot
+      expect(upgradeFitsSlot(march, 'gear')).toBe(false)
+    })
+
+    it('upgradeFitsSlot: a normal upgrade only fits its printed slot, never a dedicated slot', () => {
+      const gear = upgrade('grip', { slot: 'gear' })
+      expect(upgradeFitsSlot(gear, 'gear')).toBe(true)
+      expect(upgradeFitsSlot(gear, 'imperial-march')).toBe(false)
     })
   })
 

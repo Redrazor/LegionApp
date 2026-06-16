@@ -24,27 +24,29 @@ this list (and their detailed write-ups are kept further down for reference).
 2. **Browse command cards & upgrades** _(was B6)_ — Browse is Units-only today; add Command-card and
    Upgrade sections, with a search that filters to a named commander/operative's associated cards. Detail
    below under **B6**.
-3. **Brand polish — real logo** — replace the placeholder text "L" (in `src/App.vue`'s nav +
-   `public/favicon.svg`) with a real logo mark.
-4. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF) and posting the
+3. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF) and posting the
    `community/` launch copy. (The reverse ShatterApp→Legion footer link is already DONE — `src/App.vue`
    footer.)
-5. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated
+4. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated
    `keywords.json` wholesale (and drifts `products.json`); add a tracked overrides file merged in at write
    time so curation survives automatically. Self-contained scraper tech-debt fix. Detail below under **B5**.
-6. **Battle-force follow-ups** — full battle-force support **shipped** (v0.21.0, PRs #20/#21; see Feature 5
+5. **Battle-force follow-ups** — full battle-force support **shipped** (v0.21.0, PRs #20/#21; see Feature 5
    below). Three non-blocking remnants of the original scope remain: `countMercs` is present in
    `battleForces.json` data but never read by `validateArmy`; the bespoke `MANDO_CLANS` /
    `isMandalorianClanUnit` path was never retired onto the data-driven system (the two coexist); and the
    affiliation-cohesion army rule ("all units share an affiliation with a fielded Commander/Operative")
    isn't implemented as an army-wide check.
 
+**Recently shipped (was on this list):** ✅ **Brand logo** (v1.7.1) — the placeholder "L" was replaced
+with an original battle-station-style orb mark across the nav, favicon, PWA install icons and the OG
+share card (`public/favicon.svg`, `src/App.vue` nav, `scripts/generate-og.ts`).
+
 ## Completed backlog — owner-specified (2026-06-15)
 
 The owner detailed B1–B6 post-launch. **DONE:** B1 keyword tooltips (v1.2.1, PRs #33/#34); B2 granted
 slots/keywords + B3 model counts (v1.4.0, PR #38 — the presumed "data blocker" didn't exist: LHQ2 carries
 `additionalUpgradeSlots` on upgrades and `stats.minicount` on units, so no curated layer was needed); B4
-configurable print (v1.6.0, PR #43). **Still open:** B5 → roadmap item 5, B6 → roadmap item 2. The
+configurable print (v1.6.0, PR #43). **Still open:** B5 → roadmap item 4, B6 → roadmap item 2. The
 B-numbered write-ups below are retained as reference detail.
 
 ### B1 — Complete keyword tooltip coverage ✅ DONE (v1.2.1, PRs #33 + #34)

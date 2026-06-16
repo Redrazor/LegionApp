@@ -605,9 +605,19 @@ export function catalogueForRank(
       if (u.rank !== rank) return false
       if (u.specialIssue) return false // standard armies can't field special-issue units
       const parent = presentParents ? detachmentTarget(u) : null
-      // Detachment units are gated solely by their parent's presence (which already
-      // establishes the army's faction); everything else by normal faction legality.
-      return parent ? presentParents!.has(parent.toLowerCase()) : unitAllowedInFaction(u, faction)
+      if (parent) {
+        const plc = parent.toLowerCase()
+        if (!presentParents!.has(plc)) return false
+        // A name-targeting detachment is gated solely by its parent's presence: a
+        // fielded unit of that exact name already establishes the army's faction,
+        // and parent-less detachments (affiliation-less Mandalorian Warriors
+        // detachments) rely on that exemption. A rank-targeting detachment
+        // ("Detachment special", i.e. Imperial Probe Droid) matches ANY fielded
+        // unit of that rank — including another faction's — so it must still pass
+        // the normal faction check, else it leaks across factions.
+        return (RANK_ORDER as readonly string[]).includes(plc) ? unitAllowedInFaction(u, faction) : true
+      }
+      return unitAllowedInFaction(u, faction)
     })
     .filter((u) => !q || `${u.name} ${u.title}`.toLowerCase().includes(q))
     .sort((a, b) => (a.cost ?? 0) - (b.cost ?? 0) || a.name.localeCompare(b.name))

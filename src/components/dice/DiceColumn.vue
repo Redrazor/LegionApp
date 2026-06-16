@@ -141,8 +141,8 @@ function removeDie(id: number) {
   selectedId.value = null
 }
 
-function addDie() {
-  pool.value.push({ id: nextId++, type: props.type, color: colors[0], face: rollOne(colors[0]), locked: false, isBonus: true })
+function addDie(color: DieColor) {
+  pool.value.push({ id: nextId++, type: props.type, color, face: rollOne(color), locked: false, isBonus: true })
   rerollMode.value = false
   selectedId.value = null
 }
@@ -247,7 +247,10 @@ watch(
       <div
         v-for="color in colors"
         :key="color"
-        class="flex items-center gap-2 rounded-lg border border-lg-border bg-lg-panel/40 px-2.5 py-1.5"
+        class="flex cursor-pointer select-none items-center gap-2 rounded-lg border border-lg-border bg-lg-panel/40 px-2.5 py-1.5 transition-colors hover:border-lg-accent/60 active:bg-lg-accent/10"
+        role="button"
+        :aria-label="`Add ${color} die`"
+        @click="setCount(color, (counts[color] || 0) + 1)"
       >
         <span class="h-3.5 w-3.5 rounded-sm border border-black/30" :style="{ background: SWATCH[color] }" />
         <span class="flex-1 text-sm font-semibold capitalize text-lg-text/80">{{ color }}</span>
@@ -255,12 +258,12 @@ watch(
           <button
             class="grid h-6 w-6 place-items-center rounded-md border border-lg-border text-base font-bold text-lg-text/70 hover:border-lg-accent disabled:opacity-30"
             :disabled="(counts[color] || 0) <= 0"
-            @click="setCount(color, (counts[color] || 0) - 1)"
+            @click.stop="setCount(color, (counts[color] || 0) - 1)"
           >−</button>
           <span class="w-5 text-center text-base font-bold tabular-nums text-lg-text">{{ counts[color] || 0 }}</span>
           <button
             class="grid h-6 w-6 place-items-center rounded-md border border-lg-border text-base font-bold text-lg-text/70 hover:border-lg-accent"
-            @click="setCount(color, (counts[color] || 0) + 1)"
+            @click.stop="setCount(color, (counts[color] || 0) + 1)"
           >+</button>
         </div>
       </div>
@@ -396,7 +399,18 @@ watch(
         ]"
         @click="toggleRerollMode"
       >↺ Reroll dice</button>
-      <button class="rounded-lg border border-lg-accent/30 px-2.5 py-1 text-xs font-medium text-lg-text/60 transition-colors hover:border-lg-accent hover:text-lg-text" @click="addDie">+ Add die</button>
+      <div class="flex items-center gap-1 rounded-lg border border-lg-accent/30 px-2 py-1">
+        <span class="text-xs font-medium text-lg-text/60">+ Add</span>
+        <button
+          v-for="color in colors"
+          :key="color"
+          class="grid h-5 w-5 place-items-center rounded-md border border-black/30 transition-transform hover:scale-110 hover:ring-1 hover:ring-lg-accent"
+          :style="{ background: SWATCH[color] }"
+          :title="`Add ${color} die`"
+          :aria-label="`Add ${color} die`"
+          @click="addDie(color)"
+        />
+      </div>
       <button class="ml-auto rounded-lg px-2.5 py-1 text-xs text-lg-text/40 hover:text-lg-text" @click="clear">Clear</button>
     </div>
 

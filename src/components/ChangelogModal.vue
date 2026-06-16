@@ -7,6 +7,29 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.7.2',
+    date: '2026-06-16',
+    changes: [
+      'Dice roller: tap anywhere on a dice-colour row to add one of that die — you no longer have to hit the small "+" button (the − and + steppers still work).',
+      'Dice roller: after a roll, "+ Add" now lets you pick which colour of die to add — a swatch per available colour instead of always adding the first.',
+    ],
+  },
+  {
+    version: '1.7.1',
+    date: '2026-06-16',
+    changes: [
+      'New app logo — a battle-station-style mark replaces the placeholder "L" in the nav, favicon, install icon and share preview.',
+    ],
+  },
+  {
+    version: '1.7.0',
+    date: '2026-06-16',
+    changes: [
+      'Fixed Imperial Probe Droids (and any rank-based detachment) leaking across factions — adding a Special Forces unit to, say, a Separatist army no longer offers the Empire-only Probe Droid. Detachments now still respect your army\'s faction.',
+      'Upgrade picker: the Inspect button is now a magnifying-glass icon, and you can also open the full-card view by tapping an upgrade\'s thumbnail.',
+    ],
+  },
+  {
     version: '1.6.1',
     date: '2026-06-16',
     changes: [

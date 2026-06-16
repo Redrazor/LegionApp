@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.4.2',
+    date: '2026-06-16',
+    changes: [
+      'Corrected Poggle the Lesser\'s defence to red dice (the data source had it as white).',
+    ],
+  },
+  {
     version: '1.4.1',
     date: '2026-06-16',
     changes: [

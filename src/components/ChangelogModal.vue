@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.6.0',
+    date: '2026-06-16',
+    changes: [
+      'Print is now configurable: the Print button opens an options panel where you choose which sections to include. Your roster always prints; tick extras for a command-hand and battle-deck reference, an alphabetical keyword reference covering every keyword in your list, and full card images of your units, upgrades, command cards and objective deck to proxy — with an option to print one image per copy. Your choices are remembered for next time.',
+    ],
+  },
+  {
     version: '1.5.0',
     date: '2026-06-16',
     changes: [

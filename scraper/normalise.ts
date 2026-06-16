@@ -288,6 +288,13 @@ export const MINICOUNT_OVERRIDES: Record<string, number> = {
   'the-bad-batch-clone-force-99-2': 4, // mercenary — 4 members, no Crosshair (badge shows 0)
 }
 
+/**
+ * Defense-die colour corrections where LHQ2's source stat is wrong. Keyed by slug.
+ */
+export const DEFENSE_OVERRIDES: Record<string, 'red' | 'white'> = {
+  'poggle-the-lesser-public-leader-of-the-geonosians': 'red', // card is red; LHQ2 had white
+}
+
 export function buildUnits(cards: Lhq2Card[]): Unit[] {
   const seen = new Set<string>()
   const units = cards
@@ -306,7 +313,7 @@ export function buildUnits(cards: Lhq2Card[]): Unit[] {
         affiliation: c.affiliation ?? null,
         affiliations: (c.affiliations ?? []).filter((f) => FACTIONS.includes(f)),
         cost: num(c.cost),
-        defense: s.defense === 'r' ? 'red' : s.defense === 'w' ? 'white' : null,
+        defense: DEFENSE_OVERRIDES[slug] ?? (s.defense === 'r' ? 'red' : s.defense === 'w' ? 'white' : null),
         surgeAttack: s.hitsurge === 'c' ? 'crit' : s.hitsurge === 'h' ? 'hit' : null,
         surgeDefense: s.defsurge === 'b',
         speed: num(s.speed),

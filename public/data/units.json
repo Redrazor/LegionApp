@@ -10735,7 +10735,7 @@
     "affiliation": null,
     "affiliations": [],
     "cost": 55,
-    "defense": "white",
+    "defense": "red",
     "surgeAttack": "hit",
     "surgeDefense": false,
     "speed": 1,

@@ -91,6 +91,15 @@ describe('buildUnits', () => {
     expect(u.surgeDefense).toBe(true)
   })
 
+  it('applies DEFENSE_OVERRIDES where LHQ2 defense is wrong (Poggle is red, not white)', () => {
+    const [u] = buildUnits([card({
+      cardName: 'Poggle the Lesser', title: 'Public Leader of the Geonosians',
+      stats: { defense: 'w', hp: 4, speed: 1, courage: 2 },
+    })])
+    expect(u.slug).toBe('poggle-the-lesser-public-leader-of-the-geonosians')
+    expect(u.defense).toBe('red')
+  })
+
   it('keeps same-named cards distinct, each with its own data (Han Solo cmd vs op)', () => {
     const units = buildUnits([
       card({ id: 'ac', cardName: 'Han Solo', title: 'Unorthodox General', rank: 'commander', faction: 'rebels', cost: 100, keywords: ['Gunslinger'] }),

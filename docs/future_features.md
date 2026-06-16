@@ -1,27 +1,51 @@
 # Future Features
 
-A running log of features for LegionApp, newest first.
+**This is the single canonical tracker for LegionApp's roadmap and shipped features.** Record every new
+feature idea here, and mark it shipped (with the version + PR) when it lands. The open queue is the one
+numbered list under "Roadmap — open items"; everything completed is logged in the **Feature 1–7** and
+**Completed backlog** sections below (newest first) plus the in-app changelog (`ChangelogModal.vue`).
 
-> **Status: 1.0 LAUNCHED (2026-06-15)** — live at https://www.legion-app.com (Vercel SPA + Firebase
-> image CDN + Render API; see Feature 6). SEO/social/sitemap + Vercel Web Analytics done (Feature 7).
+> **Status: shipped through v1.7.0** (prod auto-deploys on every push to `main`; live at
+> https://www.legion-app.com — Vercel SPA + Firebase image CDN + Render API). 1.0 launched 2026-06-15
+> (Feature 6); SEO/social/sitemap + Vercel Web Analytics done (Feature 7). The Build "Roster Canvas"
+> rebuild (Feature 4, A–F) and full battle-force support (Feature 5) are both fully delivered.
 
-## Roadmap (post-1.0, priority order)
+## Roadmap — open items (single priority list)
 
-1. **Play tab** — the big open feature. Live at-the-table tracker (wounds, suppression, tokens, command
+The one reference for everything still open, highest priority first. Done work is logged in the
+**Feature 1–7** sections below and the in-app changelog; the older "B1–B6" backlog IDs are mapped into
+this list (and their detailed write-ups are kept further down for reference).
+
+1. **Play tab** — the big open feature. A live at-the-table tracker (wounds, suppression, tokens, command
    pips, order pool, battle deck) + real-time multiplayer via room codes. socket.io + `server/rooms.ts`
-   are scaffolded; this is the main reason the Render backend exists.
-2. **Launch loose ends** — reverse ShatterApp→Legion footer link (edit + deploy in `../ShatterApp`);
-   asset kit (3 screenshots + a build→validate→share GIF); post the `community/` launch copy.
-3. **Feature 5 — full battle-force support** (all factions) — see below; still planned.
-4. **Brand polish** — a real logo to replace the placeholder "L" mark.
+   are scaffolded and the `/play` route ships a "Coming Soon" placeholder (`src/views/PlayView.vue`), but
+   `socket.io-client` is not yet wired into the SPA — no tracker/multiplayer UI exists. The main reason
+   the Render backend exists.
+2. **Browse command cards & upgrades** _(was B6)_ — Browse is Units-only today; add Command-card and
+   Upgrade sections, with a search that filters to a named commander/operative's associated cards. Detail
+   below under **B6**.
+3. **Brand polish — real logo** — replace the placeholder text "L" (in `src/App.vue`'s nav +
+   `public/favicon.svg`) with a real logo mark.
+4. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF) and posting the
+   `community/` launch copy. (The reverse ShatterApp→Legion footer link is already DONE — `src/App.vue`
+   footer.)
+5. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated
+   `keywords.json` wholesale (and drifts `products.json`); add a tracked overrides file merged in at write
+   time so curation survives automatically. Self-contained scraper tech-debt fix. Detail below under **B5**.
+6. **Battle-force follow-ups** — full battle-force support **shipped** (v0.21.0, PRs #20/#21; see Feature 5
+   below). Three non-blocking remnants of the original scope remain: `countMercs` is present in
+   `battleForces.json` data but never read by `validateArmy`; the bespoke `MANDO_CLANS` /
+   `isMandalorianClanUnit` path was never retired onto the data-driven system (the two coexist); and the
+   affiliation-cohesion army rule ("all units share an affiliation with a fielded Commander/Operative")
+   isn't implemented as an army-wide check.
 
-## Backlog — owner-specified (2026-06-15)
+## Completed backlog — owner-specified (2026-06-15)
 
-Features the owner detailed post-launch. **B1 is DONE (v1.2.1). B2 + B3 are DONE (v1.4.0, PR #38)
-— the "data blocker" turned out not to exist: LHQ2's source carries `additionalUpgradeSlots` on
-upgrades and `stats.minicount` on units; we just hadn't extracted them, so no curated layer was
-needed after all.** B4 is a self-contained print enhancement; B5 is a self-contained scraper
-tech-debt fix (curated `keywords.json` survives a re-scrape). Priority among B4/B5: TBD by owner.
+The owner detailed B1–B6 post-launch. **DONE:** B1 keyword tooltips (v1.2.1, PRs #33/#34); B2 granted
+slots/keywords + B3 model counts (v1.4.0, PR #38 — the presumed "data blocker" didn't exist: LHQ2 carries
+`additionalUpgradeSlots` on upgrades and `stats.minicount` on units, so no curated layer was needed); B4
+configurable print (v1.6.0, PR #43). **Still open:** B5 → roadmap item 5, B6 → roadmap item 2. The
+B-numbered write-ups below are retained as reference detail.
 
 ### B1 — Complete keyword tooltip coverage ✅ DONE (v1.2.1, PRs #33 + #34)
 
@@ -81,7 +105,7 @@ mini-adding slot types).
 > Bad Batch ships as 0). `normalise.ts` `MINICOUNT_OVERRIDES` (keyed by slug, verified against the card
 > art) corrects them; `catalogue-integrity.spec.ts` guards the values across re-scrapes.
 
-### B4 — Configurable print: opt-in sections via checkboxes
+### B4 — Configurable print: opt-in sections via checkboxes ✅ DONE (v1.6.0, PR #43)
 
 **Goal:** before printing an army, let the user pick how much detail goes on the printout via a set
 of checkboxes. Each ticked option appends another section to the print output, so a player can print
@@ -223,8 +247,23 @@ images by request destination). Runbook: `community/RELEASE-1.0-CHECKLIST.md`.
 
 ## Feature 5 — Full battle-force support (all factions)
 
-**Status:** planned (not started). Deferred from the 2026-06-13 Mandalorian validation work, where
-only the **Mandalorian Clans** battle force was handled — and only its Corps-min override.
+**Status:** ✅ DONE (v0.21.0, PRs #20 Stage 1 + #21 Stage 2). Originally deferred from the 2026-06-13
+Mandalorian validation work (where only the **Mandalorian Clans** battle force was handled, and only its
+Corps-min override); subsequently delivered in full. Verified 2026-06-16: **20 battle forces** across all
+6 factions in `public/data/battleForces.json` (scraped via `extractBattleForces()` in `scraper/scrape.ts`);
+a `BattleForcePicker.vue` selector wired into `BuildView.vue`; `Army.battleForce` (`types/index.ts:188`,
+serialised as key `b`); and data-driven validation in `validateArmy` (per-BF rank table via
+`rankLimits(cap, bf)`, `battleForcePool()` eligibility, combined `commOp` cap, per-unit `unitLimits`,
+`ignoreDetach`, single-faction check skipped under a BF, and **`Special Issue`** gating). The hard-coded
+`BATTLE_FORCE_RANKS` override is gone.
+
+**Remaining follow-ups (none blocking — see Roadmap item 4):** `countMercs` is declared in the rules
+interface and present in 9 BFs' data but never read (inside a BF the merc checks are simply skipped, which
+approximates the intent); the bespoke `MANDO_CLANS` / `isMandalorianClanUnit` handling was never retired
+onto the data-driven path (the two coexist); and the affiliation-cohesion army rule is not implemented as
+an army-wide check (`forceAffinity` is only used for upgrade eligibility).
+
+**Original scope, for reference:**
 
 **Problem.** Battle forces are alternative army-building rules that replace the standard rank table and
 restrict eligible units. Today we model exactly ONE, by accident of the data model: LHQ2 ships

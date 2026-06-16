@@ -1,5 +1,9 @@
 # Build Section Development
 
+> **✅ COMPLETE — Feature 4 fully delivered (Epics A–F, through v1.3.0).** This is the historical design
+> + status log for the Build "Roster Canvas" rebuild; it is no longer an active plan. For the live
+> roadmap and what's still open, see `docs/future_features.md` (the canonical tracker).
+
 The plan for rebuilding LegionApp's **Build** section into the core army-list builder —
 the "Roster Canvas". Derived from a multi-agent design convergence + rules research
 against the AMG Core Rulebook v2.6.0 (eff. 2024-07-19) and Recon Rulebook (eff. 2025-04-30),

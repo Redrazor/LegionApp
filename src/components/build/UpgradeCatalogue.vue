@@ -82,13 +82,21 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         class="flex items-stretch gap-2.5 rounded-lg border border-lg-border/70 bg-lg-surface/40 p-1.5 transition-colors hover:border-lg-accent/40 hover:bg-lg-text/5"
         :class="{ 'opacity-40': u.isUnique && equippedIds.includes(u.id) }"
       >
+        <!-- Thumbnail opens the inspect gallery (mirrors the dedicated inspect button) -->
+        <button
+          class="flex-none rounded-md transition-opacity hover:opacity-80"
+          :title="`Inspect ${u.name}`"
+          :aria-label="`Inspect ${u.name}`"
+          @click="inspectIndex = i"
+        >
+          <UpgradeThumb :upgrade="u" />
+        </button>
         <button
           class="flex min-w-0 flex-1 items-center gap-2.5 text-left disabled:cursor-not-allowed"
           :disabled="u.isUnique && equippedIds.includes(u.id)"
           :title="`Equip ${u.name}`"
           @click="emit('pick', u.id)"
         >
-          <UpgradeThumb :upgrade="u" />
           <span class="min-w-0 flex-1">
             <span class="flex items-center gap-1">
               <span v-if="u.isUnique" class="text-xs text-lg-accent" title="Unique">◈</span>
@@ -99,10 +107,16 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           <span class="flex-none self-start font-display text-sm font-bold text-lg-accent">{{ u.cost ?? 0 }}</span>
         </button>
         <button
-          class="flex-none self-center rounded-md border border-lg-border px-2 py-1 text-[11px] font-semibold uppercase tracking-wide text-lg-muted transition-colors hover:border-lg-accent/50 hover:text-lg-accent"
+          class="grid h-8 w-8 flex-none self-center place-items-center rounded-lg text-lg-muted transition-colors hover:bg-lg-text/8 hover:text-lg-accent"
           :title="`Inspect ${u.name}`"
+          :aria-label="`Inspect ${u.name}`"
           @click="inspectIndex = i"
-        >Inspect</button>
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="h-[18px] w-[18px]" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+        </button>
       </div>
     </div>
 

@@ -144,6 +144,52 @@ one-time migration; `scripts/audit-keywords.ts` keeps verifying coverage.
 
 ---
 
+### B6 — Browse Command cards & Upgrades (+ filter by commander/operative)
+
+**Goal:** the Browse tab currently browses **Units** only. Add two more browsable card
+types — **Command cards** and **Upgrades** — each its own section, with a search bar that, in
+addition to free-text name search, lets you type a **commander/operative's name** to filter the
+list down to just that character's associated cards (their command cards; upgrades restricted to
+them).
+
+**Where / current shape (verified):**
+- `src/views/BrowseView.vue` lists units grouped by faction via the `useSearch()` composable
+  (`src/composables/useSearch.ts` — `filters`/`filtered`/`grouped`), rendering `UnitCard.vue` in a
+  responsive grid. The `/browse/:slug` child route (`src/router/index.ts`) opens
+  `components/browse/UnitProfile.vue` (Teleported drawer, slide transition).
+- **Command data** already supports this: `CommandCard` has `commander: string | null`
+  (`types/index.ts`), the `commands` store exposes a **pre-computed `byCommander` Map**
+  (`stores/commands.ts`), and `commandCommanders(card)` (`utils/army.ts`) splits multi-name cards.
+  Generic/faction cards have `commander: null`. Images: `/images/commands/<slug>.webp`.
+- **Upgrade data**: `Upgrade.requirements` (`UpgradeRequirementList`) can carry a `cardName`
+  criterion tying an upgrade to a named unit; `unitMeetsRequirements(unit, reqs)` (`utils/army.ts`)
+  already matches it (`matchCriterion` tests `cardName`). Images: `/images/upgrades/<slug>.webp`.
+  Reusable thumb: `components/build/UpgradeThumb.vue`.
+
+**Approach (proposed — confirm at kickoff):**
+1. **Browse section switcher** — a segmented toggle in the Browse header: `[Units] [Commands] [Upgrades]`
+   (default Units). Keep faction grouping per section; commands also sort by pip, upgrades by slot.
+2. **Pure filter logic in `utils/` + specs** — extend/clone the search predicate so it covers each
+   card type. The headline behaviour: when the query matches a fielded **commander/operative name**,
+   show only that character's cards. For Commands: `commandsStore.byCommander` (case-insensitive,
+   multi-name via `commandCommanders`). For Upgrades: an upgrade is "associated with" a unit when
+   `unitMeetsRequirements(thatUnit, upgrade.requirements)` is true AND the requirement names that
+   unit (i.e. a `cardName` criterion matches) — so generic upgrades aren't swept in. Free-text name
+   search still works alongside.
+3. **Card grid + profile drawer per type** — reuse the `UnitCard` grid pattern for `CommandCard.vue`
+   / `UpgradeCard.vue` browse tiles (card image + fallback text, pip badge for commands, slot/cost
+   for upgrades). Tap → a profile/lightbox view of the full card scan (commands/upgrades have no
+   stat block, just the card image + keyword tooltips, like the Build inspect gallery).
+4. **Routing/SEO** — extend `/browse` with a section query or sub-routes (`/browse/commands`,
+   `/browse/upgrades`) and `:slug` drawers for each; add titles/canonicals like the unit profile.
+
+**Decisions to settle at kickoff:** segmented toggle vs separate routes for the three sections;
+whether "filter by commander" is automatic (detect when the query resolves to a commander/operative
+name) or an explicit mode/chip; how to present generic (commander-less) command cards and
+unrestricted upgrades when no character filter is active.
+
+---
+
 ## Feature 7 — SEO, social share cards & launch comms
 
 **Status:** done (v1.1.0). Made the app discoverable + shareable at every level: full Open Graph + Twitter

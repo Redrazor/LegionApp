@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.7.2',
+    date: '2026-06-16',
+    changes: [
+      'Dice roller: tap anywhere on a dice-colour row to add one of that die — you no longer have to hit the small "+" button (the − and + steppers still work).',
+      'Dice roller: after a roll, "+ Add" now lets you pick which colour of die to add — a swatch per available colour instead of always adding the first.',
+    ],
+  },
+  {
     version: '1.7.1',
     date: '2026-06-16',
     changes: [

@@ -136,6 +136,8 @@ export const SLOT_LABELS: Record<string, string> = {
   pilot: 'Pilot', comms: 'Comms', crew: 'Crew', generator: 'Generator',
   armament: 'Armament', ordnance: 'Ordnance', training: 'Training', programming: 'Programming',
   'squad leader': 'Squad Leader', doctrine: 'Doctrine', clan: 'Clan',
+  // Dedicated slots for self-slotting upgrades on units lacking a printed Training slot.
+  'imperial-march': 'Imperial March', 'dug-in': 'Dug In',
 }
 
 export function slotLabel(slot: string): string {

@@ -8,11 +8,11 @@ import { mkdirSync, existsSync } from 'fs'
 
 const OUT = 'public/og-image.png'
 const BG = '#0a0a0f'
-const ACCENT = '#d4a23a'
+const ACCENT = '#ff6a2c'
 const TEXT = '#ededee'
 const MUTED = '#9a9aa2'
 
-// 1200×630 card: dark field, orange "L" mark, wordmark, tagline, feature row.
+// 1200×630 card: dark field, orange battle-station orb mark, wordmark, tagline, feature row.
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -23,10 +23,14 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect x="0" y="0" width="1200" height="6" fill="${ACCENT}"/>
 
-  <!-- L mark -->
-  <rect x="90" y="150" width="150" height="150" rx="20" fill="${ACCENT}" opacity="0.14"/>
-  <text x="165" y="270" font-family="Orbitron, Arial, sans-serif" font-size="150" font-weight="900"
-        fill="${ACCENT}" text-anchor="middle">L</text>
+  <!-- Battle-station orb mark -->
+  <circle cx="165" cy="225" r="60" fill="${ACCENT}" opacity="0.10"/>
+  <g fill="none" stroke="${ACCENT}" stroke-width="10" stroke-linecap="round">
+    <circle cx="165" cy="225" r="60"/>
+    <line x1="105.8" y1="215.5" x2="224.2" y2="215.5"/>
+  </g>
+  <circle cx="139.7" cy="190.3" r="15.2" fill="${ACCENT}"/>
+  <circle cx="139.7" cy="190.3" r="5.4" fill="${BG}"/>
 
   <!-- Wordmark -->
   <text x="290" y="245" font-family="Orbitron, Arial, sans-serif" font-size="86" font-weight="900"

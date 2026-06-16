@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { readFileSync } from 'fs'
 import { join } from 'path'
-import { resolveKeyword } from '../src/utils/keywords'
+import { resolveKeyword, resolveKeywordEntry } from '../src/utils/keywords'
 
 const G = {
   Scout: 'Scout def',
@@ -62,6 +62,19 @@ describe('resolveKeyword', () => {
 
   it('does not partial-match a non-boundary prefix (Scout ≠ Scouting)', () => {
     expect(resolveKeyword(G, 'Scouting')).toBeNull()
+  })
+})
+
+describe('resolveKeywordEntry', () => {
+  it('returns the matched base name + text so valued variants dedupe to one entry', () => {
+    expect(resolveKeywordEntry(G, 'Reliable 2')).toEqual({ name: 'Reliable', text: 'Reliable def' })
+    expect(resolveKeywordEntry(G, 'Weak Point 1: Rear')).toEqual({ name: 'Weak Point', text: 'Weak Point def' })
+    expect(resolveKeywordEntry(G, 'Special Issue Blizzard Force')).toEqual({ name: 'Special Issue', text: 'Special Issue def' })
+  })
+
+  it('returns null for an absent keyword', () => {
+    expect(resolveKeywordEntry(G, 'Overwhelm')).toBeNull()
+    expect(resolveKeywordEntry(G, '')).toBeNull()
   })
 })
 

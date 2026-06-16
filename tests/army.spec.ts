@@ -1496,7 +1496,7 @@ describe('buildArmySheet', () => {
 
   it('orders the command hand by pip with Standing Orders last, and the deck by type', () => {
     const s = buildArmySheet(army, unitsById, upgradesById, commandsById, battleCardsById, null)
-    expect(s.commandHand).toEqual([{ pip: 1, name: 'New Ways' }, { pip: 4, name: 'Standing Orders' }])
+    expect(s.commandHand.map((c) => ({ pip: c.pip, name: c.name }))).toEqual([{ pip: 1, name: 'New Ways' }, { pip: 4, name: 'Standing Orders' }])
     expect(s.battleDeck.map((c) => c.name)).toEqual(['Breakthrough', 'Recon Mission']) // primary before secondary
     expect(s.showBattleDeck).toBe(true)
   })
@@ -1507,6 +1507,53 @@ describe('buildArmySheet', () => {
     expect(recon.showBattleDeck).toBe(false)
     expect(recon.battleForceName).toBe('Blizzard Force')
     expect(recon.formatName).toBe('Recon')
+  })
+
+  it('carries card images on the command hand + battle deck', () => {
+    const cmds = new Map<string, CommandCard>([
+      ['c1', { id: 'c1', slug: 'c1', name: 'New Ways', pips: 1, commander: 'Darth Vader', faction: null, cardImage: '/images/commands/new-ways.webp' }],
+    ])
+    const cards = new Map<string, BattleCard>([
+      ['b1', { id: 'b1', slug: 'b1', name: 'Breakthrough', subtype: 'primary', keywords: [], faction: null, isRecon: false, cardImage: '/images/battle/breakthrough.webp' }],
+    ])
+    const s = buildArmySheet({ ...army, commandHand: ['c1'], battleDeck: ['b1'] }, unitsById, upgradesById, cmds, cards, null)
+    expect(s.commandHand[0].cardImage).toBe('/images/commands/new-ways.webp')
+    expect(s.battleDeck[0].cardImage).toBe('/images/battle/breakthrough.webp')
+  })
+
+  it('dedupes unit + upgrade card images by id, counting army-wide copies', () => {
+    const s = buildArmySheet(army, unitsById, upgradesById, commandsById, battleCardsById, null)
+    // two Stormtroopers collapse to one entry with qty 2; vader once
+    expect(s.unitCards).toEqual([
+      { name: 'Darth Vader', cardImage: null, qty: 1 },
+      { name: 'Stormtroopers', cardImage: null, qty: 2 },
+    ])
+    // the single equipped saber upgrade
+    expect(s.upgradeCards).toEqual([{ name: 'Force Reflexes', cardImage: null, qty: 1 }])
+  })
+
+  it('builds an alphabetical keyword reference from units, weapons + upgrades (only when a glossary is given)', () => {
+    const kwUnit = unit('kw', {
+      rank: 'special', keywords: ['Sharpshooter 2'],
+      weapons: [{ name: 'rifle', range: [1, 3], dice: { red: 0, black: 2, white: 0 }, keywords: ['Impact 1'] }],
+    })
+    const kwUp = upgrade('comms', { name: 'Comms', keywords: ['Arsenal 1'] })
+    const { unitsById: u2, upgradesById: up2 } = makeMaps([kwUnit], [kwUp])
+    const glossary = { Sharpshooter: 'Reduce cover.', Impact: 'Convert hits.', Arsenal: 'Extra weapon.' }
+    const a2: Army = {
+      name: 'KW', faction: 'empire', battleForce: null, gameSize: 1000,
+      units: [{ uid: '1', unitId: 'kw', upgrades: [{ slot: 'gear#0', upgradeId: 'comms' }] }],
+      commandHand: [], battleDeck: [],
+    }
+    // no glossary → empty
+    expect(buildArmySheet(a2, u2, up2, commandsById, battleCardsById, null).keywords).toEqual([])
+    // glossary → resolved, deduped to base names, alphabetical
+    const s = buildArmySheet(a2, u2, up2, commandsById, battleCardsById, null, glossary)
+    expect(s.keywords).toEqual([
+      { name: 'Arsenal', text: 'Extra weapon.' },
+      { name: 'Impact', text: 'Convert hits.' },
+      { name: 'Sharpshooter', text: 'Reduce cover.' },
+    ])
   })
 
   describe('armyToText', () => {

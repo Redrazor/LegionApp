@@ -3,6 +3,7 @@ import type {
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
 import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
+import { resolveKeywordEntry, type Glossary } from './keywords.ts'
 
 // ── Battle-force helpers ─────────────────────────────────────────────────────
 
@@ -854,6 +855,10 @@ export function validateBattleDeck(army: Army, battleCardsById: Map<string, Batt
 export interface ArmySheetUpgrade { name: string; cost: number; slot: string } // slot = display label, e.g. "Heavy Weapon"
 export interface ArmySheetUnit { name: string; title: string; qty: number; cost: number; portrait: string | null; upgrades: ArmySheetUpgrade[] }
 export interface ArmySheetRank { rank: Rank; label: string; units: ArmySheetUnit[] }
+/** A printable full-card image entry, deduped by id with a total-copies count. */
+export interface ArmySheetCard { name: string; cardImage: string | null; qty: number }
+/** A resolved keyword + its glossary definition, for the print reference. */
+export interface ArmySheetKeyword { name: string; text: string }
 export interface ArmySheet {
   name: string
   factionName: string
@@ -863,9 +868,35 @@ export interface ArmySheet {
   cap: number
   activations: number
   ranks: ArmySheetRank[]
-  commandHand: { pip: number; name: string }[] // chosen cards (pip-sorted) + Standing Orders
-  battleDeck: { subtype: BattleCardSubtype; name: string }[] // ordered primary → secondary → advantage
+  commandHand: { pip: number; name: string; cardImage: string | null }[] // chosen cards (pip-sorted) + Standing Orders
+  battleDeck: { subtype: BattleCardSubtype; name: string; cardImage: string | null }[] // ordered primary → secondary → advantage
   showBattleDeck: boolean
+  unitCards: ArmySheetCard[] // distinct unit cards (proxy/print-and-play), roster order
+  upgradeCards: ArmySheetCard[] // distinct equipped upgrade cards
+  keywords: ArmySheetKeyword[] // every keyword in use (units/weapons/upgrades), alphabetical
+}
+
+/** Which sections the print sheet renders. The roster is always printed. */
+export interface PrintOptions {
+  commandHand: boolean // text list of the command hand
+  battleDeck: boolean // text list of the battle deck
+  keywordReference: boolean // alphabetical glossary of every keyword in use
+  unitCards: boolean // full unit card images
+  upgradeCards: boolean // full equipped-upgrade card images
+  commandCards: boolean // full command card images
+  battleDeckCards: boolean // full battle-deck card images
+  perCopy: boolean // unit/upgrade image sections: emit ×qty copies (proxy cutouts) vs one per distinct card
+}
+
+export const DEFAULT_PRINT_OPTIONS: PrintOptions = {
+  commandHand: true,
+  battleDeck: true,
+  keywordReference: false,
+  unitCards: false,
+  upgradeCards: false,
+  commandCards: false,
+  battleDeckCards: false,
+  perCopy: false,
 }
 
 /**
@@ -880,6 +911,7 @@ export function buildArmySheet(
   commandsById: Map<string, CommandCard>,
   battleCardsById: Map<string, BattleCard>,
   bf?: BattleForce | null,
+  glossary?: Glossary,
 ): ArmySheet {
   const byRank = {} as Record<Rank, ArmyUnit[]>
   for (const r of RANK_ORDER) byRank[r] = []
@@ -910,15 +942,23 @@ export function buildArmySheet(
     .map((id) => commandsById.get(id))
     .filter((c): c is CommandCard => !!c)
     .sort((a, b) => a.pips - b.pips || a.name.localeCompare(b.name))
-    .map((c) => ({ pip: c.pips, name: c.name }))
-  if (standingOrders) commandHand.push({ pip: standingOrders.pips, name: standingOrders.name })
+    .map((c) => ({ pip: c.pips, name: c.name, cardImage: c.cardImage }))
+  if (standingOrders) commandHand.push({ pip: standingOrders.pips, name: standingOrders.name, cardImage: standingOrders.cardImage })
 
   const order: Record<BattleCardSubtype, number> = { primary: 0, secondary: 1, advantage: 2 }
   const battleDeck = (army.battleDeck ?? [])
     .map((id) => battleCardsById.get(id))
     .filter((c): c is BattleCard => !!c)
     .sort((a, b) => order[a.subtype] - order[b.subtype] || a.name.localeCompare(b.name))
-    .map((c) => ({ subtype: c.subtype, name: c.name }))
+    .map((c) => ({ subtype: c.subtype, name: c.name, cardImage: c.cardImage }))
+
+  // Distinct full-card images for the proxy/print-and-play sections, deduped by id
+  // (same card isn't repeated per loadout) but carrying the army-wide copy count.
+  const unitCards = distinctCards(army.units.map((au) => au.unitId), unitsById)
+  const upgradeCards = distinctCards(
+    army.units.flatMap((au) => au.upgrades.map((x) => x.upgradeId)),
+    upgradesById,
+  )
 
   return {
     name: army.name || 'Untitled army',
@@ -932,7 +972,66 @@ export function buildArmySheet(
     commandHand,
     battleDeck,
     showBattleDeck: usesBattleDeck(army.gameSize),
+    unitCards,
+    upgradeCards,
+    keywords: glossary ? armyKeywordReference(army.units, unitsById, upgradesById, glossary) : [],
   }
+}
+
+/**
+ * Every glossary keyword in use across the army — unit keywords, weapon keywords and
+ * equipped-upgrade keywords — resolved to its base entry, deduped (valued/qualified
+ * variants collapse to one) and sorted alphabetically. For the print keyword reference.
+ */
+export function armyKeywordReference(
+  units: ArmyUnit[],
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+  glossary: Glossary,
+): ArmySheetKeyword[] {
+  const byName = new Map<string, string>()
+  const add = (kw: string) => {
+    const entry = resolveKeywordEntry(glossary, kw)
+    if (entry) byName.set(entry.name, entry.text)
+  }
+  for (const au of units) {
+    const u = unitsById.get(au.unitId)
+    if (u) {
+      for (const kw of u.keywords) add(kw)
+      for (const w of u.weapons ?? []) for (const kw of w.keywords ?? []) add(kw)
+    }
+    for (const x of au.upgrades) {
+      const up = upgradesById.get(x.upgradeId)
+      if (up) for (const kw of up.keywords) add(kw)
+    }
+  }
+  return [...byName.entries()]
+    .map(([name, text]) => ({ name, text }))
+    .sort((a, b) => a.name.localeCompare(b.name))
+}
+
+/**
+ * Collapse a list of card ids into distinct entries (first-seen order) carrying a
+ * total-copies count and the card's scan. Shared by the unit/upgrade proxy sections.
+ */
+function distinctCards(
+  ids: string[],
+  byId: Map<string, { name: string; cardImage: string | null }>,
+): ArmySheetCard[] {
+  const out: ArmySheetCard[] = []
+  const seen = new Map<string, ArmySheetCard>()
+  for (const id of ids) {
+    const existing = seen.get(id)
+    if (existing) {
+      existing.qty++
+      continue
+    }
+    const card = byId.get(id)
+    const entry: ArmySheetCard = { name: card?.name ?? id, cardImage: card?.cardImage ?? null, qty: 1 }
+    seen.set(id, entry)
+    out.push(entry)
+  }
+  return out
 }
 
 // ── Export formats (EPIC E3/E4) ──────────────────────────────────────────────

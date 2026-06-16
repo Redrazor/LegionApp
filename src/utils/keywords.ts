@@ -23,17 +23,26 @@ function stripValue(s: string): string {
  *  5. first word ("Fixed Front" → "Fixed")
  */
 export function resolveKeyword(glossary: Glossary, keyword: string): string | null {
+  return resolveKeywordEntry(glossary, keyword)?.text ?? null
+}
+
+/**
+ * Like {@link resolveKeyword} but returns the matched glossary base entry — its `name`
+ * (the bare keyword, e.g. "Reliable") and `text`. Lets callers dedupe valued/qualified
+ * variants ("Reliable 2", "Reliable 3") back to one alphabetised reference entry.
+ */
+export function resolveKeywordEntry(glossary: Glossary, keyword: string): { name: string; text: string } | null {
   if (!keyword) return null
   const g = glossary
 
-  if (g[keyword]) return g[keyword]
+  if (g[keyword]) return { name: keyword, text: g[keyword] }
 
   const noValue = stripValue(keyword)
-  if (noValue !== keyword && g[noValue]) return g[noValue]
+  if (noValue !== keyword && g[noValue]) return { name: noValue, text: g[noValue] }
 
   if (keyword.includes(':')) {
     const beforeColon = stripValue(keyword.split(':')[0].trim())
-    if (g[beforeColon]) return g[beforeColon]
+    if (g[beforeColon]) return { name: beforeColon, text: g[beforeColon] }
   }
 
   // Longest whole-word prefix that is itself a glossary key.
@@ -43,7 +52,8 @@ export function resolveKeyword(glossary: Glossary, keyword: string): string | nu
       best = key
     }
   }
-  if (best) return g[best]
+  if (best) return { name: best, text: g[best] }
 
-  return g[keyword.split(/\s+/)[0]] ?? null
+  const firstWord = keyword.split(/\s+/)[0]
+  return g[firstWord] ? { name: firstWord, text: g[firstWord] } : null
 }

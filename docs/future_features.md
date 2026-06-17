@@ -233,6 +233,32 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 10 — Build unit-row weapons (best ranged + best melee) & count-first layout
+
+**Phase A — display + reorder (done, v1.14.0).** Each Build unit row (`ArmyUnitCard.vue` roster
++ `CatalogueUnitRow.vue`) now leads with the unit's **miniature count** and shows the **best
+ranged (`R:`) over best melee (`M:`)** weapon as stacked dice pips, replacing the single
+"most dice" pip cluster.
+- "Best" = **highest expected wounds** (hits + crits from the dice EV engine, `poolEV`, under
+  the unit's surge chart) — NOT raw dice count. Owner correction: use the probability model.
+- `src/utils/bestWeapons.ts` (pure, tested): melee-capable = range reaches 0; ranged-capable =
+  reaches band 1+ or rangeless (Fixed). A Versatile [0,2] weapon headlines both pools.
+- `UnitIndicators.vue` gained `hideModels` (army card shows the count at the row head instead)
+  and `extraWeapons` (equipped-upgrade weapons fold into the best-of computation — wired in
+  Phase B).
+
+**Phase B — upgrade weapons via card-image interpretation (planned).** Equipped upgrades that
+add a weapon (heavy weapon, armament, grenades, generator, ordnance, and vehicle crew/pilot/
+hardpoint) should feed the live best-R/best-M so e.g. a Z-6 becomes the displayed ranged
+profile. Upgrades carry no weapon data today. Per the new owner directive
+([[extract-from-card-images-not-scraping]]), extract the ~177 weapon-bearing upgrades'
+`{name,range,dice,keywords}` by **reading the self-hosted card scans** (NOT the scraper), with
+an independent verification re-read, store as owner-maintained `upgrade-weapons.json` merged at
+load/seed, add `weapons` to the `Upgrade` type, and pass them as `extraWeapons` from
+`ArmyUnitCard.vue`.
+
+---
+
 ## Feature 9 — Unit-type (subtype) rules in profile drawer + print
 
 **Status:** done (v1.13.0). Units carry a `unitType` (e.g. `clone trooper`, `droid trooper`,

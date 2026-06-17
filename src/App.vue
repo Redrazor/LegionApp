@@ -7,7 +7,7 @@ import ChangelogModal from './components/ChangelogModal.vue'
 
 const menuOpen = ref(false)
 const showChangelog = ref(false)
-const APP_VERSION = '1.13.1' // keep in sync with package.json + ChangelogModal's top entry
+const APP_VERSION = '1.14.0' // keep in sync with package.json + ChangelogModal's top entry
 const router = useRouter()
 const { theme, toggle, init } = useTheme()
 

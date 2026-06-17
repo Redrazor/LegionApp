@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.11.3',
+    date: '2026-06-17',
+    changes: [
+      'Added Build portraits for the last four units that were missing one — Agent Kallus, Jyn Erso, ARC Troopers (Strike Team) and Paz Vizsla. Every unit now has a proper round portrait.',
+    ],
+  },
+  {
     version: '1.11.2',
     date: '2026-06-17',
     changes: [

@@ -12,6 +12,7 @@ import {
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
   buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
+  armyKeywordReference,
 } from '../src/utils/army.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
@@ -1851,5 +1852,37 @@ describe('compact version (v2)', () => {
     expect(back.battleForce).toBe('mc')
     expect(back.commandHand).toEqual(['c1'])
     expect(back.battleDeck).toEqual(['b1'])
+  })
+})
+
+describe('armyKeywordReference — unit-type rules', () => {
+  const G = {
+    'Droid Trooper': 'Droid trooper rules.',
+    'Ground Vehicle': 'Ground vehicle rules.',
+    'Reliable': 'Reliable def.',
+  }
+
+  it('injects each unit\'s subtype rule, deduped and sorted with the keyword reference', () => {
+    const units = [
+      unit('cc', { unitType: 'droid trooper', keywords: ['Reliable 1'] }),
+      unit('aat', { unitType: 'ground vehicle', keywords: [] }),
+      unit('cc2', { unitType: 'droid trooper', keywords: [] }), // second droid → must dedupe
+    ]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army = units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] }))
+    const ref = armyKeywordReference(army, unitsById, upgradesById, G)
+    expect(ref.map((r) => r.name)).toEqual(['Droid Trooper', 'Ground Vehicle', 'Reliable'])
+    expect(ref.find((r) => r.name === 'Droid Trooper')!.text).toBe('Droid trooper rules.')
+  })
+
+  it('adds no entry for unit types without distinct rules (base/mandalorian/wookiee trooper)', () => {
+    const units = [
+      unit('reb', { unitType: 'trooper', keywords: [] }),
+      unit('mando', { unitType: 'mandalorian trooper', keywords: [] }),
+      unit('chew', { unitType: 'wookiee trooper', keywords: [] }),
+    ]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army = units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] }))
+    expect(armyKeywordReference(army, unitsById, upgradesById, G)).toEqual([])
   })
 })

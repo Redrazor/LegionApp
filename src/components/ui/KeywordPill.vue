@@ -2,16 +2,24 @@
 import { ref, onBeforeUnmount } from 'vue'
 import { useKeywordsStore } from '../../stores/keywords.ts'
 
-const props = defineProps<{ keyword: string; variant?: 'innate' | 'granted' }>()
+const props = defineProps<{ keyword: string; variant?: 'innate' | 'granted' | 'unitType' }>()
 const keywordsStore = useKeywordsStore()
 
-// `granted` keywords (conferred by an equipped upgrade) read in the holo accent so
-// they're visually distinct from the unit's innate (default) keywords.
-const pillClass =
-  props.variant === 'granted'
-    ? 'bg-lg-holo/10 border-lg-holo/40 text-lg-holo hover:border-lg-holo'
-    : 'bg-lg-panel border-lg-border text-lg-text/85 hover:border-lg-accent/50'
-const infoClass = props.variant === 'granted' ? 'text-lg-holo/70' : 'text-lg-accent/70'
+// Pills read in distinct colours by variant: `granted` (conferred by an equipped upgrade)
+// in the holo accent, `unitType` (the unit's subtype rules) in green, and innate keywords
+// in the neutral default.
+const PILL_CLASS: Record<NonNullable<typeof props.variant>, string> = {
+  granted: 'bg-lg-holo/10 border-lg-holo/40 text-lg-holo hover:border-lg-holo',
+  unitType: 'bg-lg-valid/10 border-lg-valid/40 text-lg-valid hover:border-lg-valid',
+  innate: 'bg-lg-panel border-lg-border text-lg-text/85 hover:border-lg-accent/50',
+}
+const INFO_CLASS: Record<NonNullable<typeof props.variant>, string> = {
+  granted: 'text-lg-holo/70',
+  unitType: 'text-lg-valid/70',
+  innate: 'text-lg-accent/70',
+}
+const pillClass = PILL_CLASS[props.variant ?? 'innate']
+const infoClass = INFO_CLASS[props.variant ?? 'innate']
 
 const open = ref(false)
 const btn = ref<HTMLElement | null>(null)

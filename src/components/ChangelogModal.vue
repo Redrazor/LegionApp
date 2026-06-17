@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.11.0',
+    date: '2026-06-17',
+    changes: [
+      'Keyword glossary rebuilt from the official April 2026 rulebook. Around 40 keyword descriptions were wrong or out of date (carried over from a 1st-edition source) — including range errors (Aid, Bolster, Spotter, Strategize, Take Cover, Command Vehicle and more are Range 2, not 1/3) and keywords that had been completely reworked (Fire Support, Infiltrate, Hunted, Scout, Secret Mission, Self-Destruct, Soresu/Djem So Mastery, Tempted, Low Profile, Reinforcements, Impervious, and others). All now match the rulebook.',
+      'Added the two missing keywords Anti-Personnel and "I\'m Part of the Squad Too", and removed a handful of retired entries.',
+    ],
+  },
+  {
     version: '1.10.0',
     date: '2026-06-17',
     changes: [

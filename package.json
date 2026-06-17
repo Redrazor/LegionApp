@@ -22,7 +22,8 @@
     "db:migrate": "tsx server/db/migrate.ts",
     "seed": "tsx server/db/seed.ts",
     "server": "tsx server/index.ts",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "keywords": "tsx scraper/keywords.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

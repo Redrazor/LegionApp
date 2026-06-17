@@ -49,8 +49,14 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
 - Because each card is keyed by id, there is **no merging or name-based reconciliation** —
   multi-card characters (e.g. Han Solo Commander vs Operative) stay distinct with their
   own data. Do NOT reintroduce name-keyed merging.
-- The keyword **glossary** text is the one secondary source: `keywords.js` from
-  `Electrynth/legion-hq-web` (MIT), for the Reference tab + keyword popovers only.
+- The keyword **glossary** text is **owner-maintained**, NOT scraped. `Keyword_glossary.md`
+  (repo root) is the single source of truth — every keyword's name + rules text transcribed
+  verbatim from the official rulebook (currently the April 2026 PDF, glossary pp. 46–63).
+  `npm run keywords` (`scraper/keywords.ts` → pure parser `scraper/keywordGlossary.ts`)
+  regenerates `public/data/keywords.json` from it and fails loudly if any card-referenced
+  keyword stops resolving. **To change a keyword's text, edit the `.md` and re-run `npm run
+  keywords`** — never hand-edit `keywords.json`. (The old `Electrynth/legion-hq-web` keyword
+  dump was 1st-edition and ~41 entries were materially wrong; it is no longer used.)
 - **Tabletop Admiral is a secondary source for two owner-approved things only:**
   - **Unit portrait icons** — TTA's purpose-made busts (`units-new/portraits/<id>.webp`). LHQ2
     ships only full card scans, so the Build round icons come from TTA, self-hosted via
@@ -85,8 +91,9 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
   `portraitImage`** and leaves ~123 upgrades with empty keywords — skipping the portraits/
   upgrade-keywords steps nulls every Build badge (they fall back to cropped card art) and drops
   the TTA keyword fills. `tests/catalogue-integrity.spec.ts` guards this; run `npm test` before
-  committing scraped data. Also `git checkout HEAD -- public/data/keywords.json public/data/products.json`
-  after a scrape (it overwrites the curated glossary + drifts Philibert products).
+  committing scraped data. The scrape no longer touches `keywords.json` (owner-maintained from
+  `Keyword_glossary.md` — see above), but still drifts Philibert products, so
+  `git checkout HEAD -- public/data/products.json` after a scrape.
 - Follow the `/workflow` skill for features (branch → implement → AC → tests → merge → bump).
 
 ## Deploy

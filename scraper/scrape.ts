@@ -3,7 +3,11 @@
 // Single source of truth: Legion HQ 2 (legionhq2.com) — the current-edition
 // army builder. Its JS bundle embeds the full card database (units, upgrades,
 // commands) and its open CDN serves the matching current-edition card images.
-// The keyword glossary text is pulled from Legion HQ (MIT) for the Reference tab.
+//
+// Keyword glossary text is NOT sourced here — it lives in `Keyword_glossary.md`
+// (transcribed verbatim from the official rulebook) and is regenerated into
+// public/data/keywords.json by `npm run keywords` (scraper/keywords.ts). This scrape
+// deliberately leaves keywords.json untouched.
 //
 //   Outputs: public/data/*.json  and  public/images/{units,upgrades,commands}/*.webp
 //
@@ -12,7 +16,6 @@
 import { writeFile, readdir, copyFile, mkdir, access } from 'fs/promises'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { tmpdir } from 'os'
 import {
   buildUnits, buildUpgrades, buildCommands, buildBattleForces, buildBattleCards,
   type Lhq2Card, type Lhq2BattleForce, type Unit,
@@ -27,7 +30,6 @@ const OVERRIDE_DIR = join(IMG_DIR, 'overrides')
 
 const LHQ2_ORIGIN = 'https://legionhq2.com'
 const LHQ2_CDN = 'https://d2maxvwz12z6fm.cloudfront.net'
-const LHQ_KEYWORDS_URL = 'https://raw.githubusercontent.com/Electrynth/legion-hq-web/master/src/constants/keywords.js'
 // Philibert Star Wars: Legion category — box art + store reference (EAN) source.
 const PHILIBERT_LISTING = 'https://www.philibertnet.com/en/11969-star-wars-legion'
 const PHILIBERT_PAGES = 4
@@ -182,14 +184,6 @@ function parseSegment(seg: string): Lhq2Card | null {
   }
 }
 
-async function fetchKeywords(): Promise<Record<string, string>> {
-  const text = await fetchText(LHQ_KEYWORDS_URL)
-  const tmp = join(tmpdir(), `legion-keywords-${Date.now()}.mjs`)
-  await writeFile(tmp, text)
-  const mod = await import(`file://${tmp}`)
-  return (mod.default ?? {}) as Record<string, string>
-}
-
 /** Fetch the Philibert SW:Legion category listing and parse every product card. */
 async function fetchPhilibertProducts(): Promise<PhilibertEntry[]> {
   const entries: PhilibertEntry[] = []
@@ -254,7 +248,7 @@ async function runJobs(label: string, jobs: ImgJob[]) {
 
 async function main() {
   console.log('Fetching Legion HQ 2 card database…')
-  const [mainJs, keywords] = await Promise.all([fetchLhq2MainJs(), fetchKeywords()])
+  const mainJs = await fetchLhq2MainJs()
   const cards = extractCards(mainJs)
   const counts = cards.reduce<Record<string, number>>((a, c) => ((a[c.cardType] = (a[c.cardType] ?? 0) + 1), a), {})
   console.log(`  cards: ${cards.length}`, counts)
@@ -292,7 +286,7 @@ async function main() {
   await writeJson('battleCards.json', battleCards)
   await writeJson('battleForces.json', battleForces)
   await writeJson('products.json', products)
-  await writeJson('keywords.json', keywords)
+  // keywords.json is intentionally NOT written here — see header. Run `npm run keywords`.
 
   if (skipImages) {
     console.log('Skipping image download (--skip-images).')

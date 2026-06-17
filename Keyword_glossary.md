@@ -658,14 +658,51 @@ A unit with the Shielded X keyword has X Shield tokens. Shield tokens belong to 
 ### Strafe
 If a unit with the Hover: Ground/Air X keyword has a base with side notches, the unit may make a Strafe Move as part of a Move action instead of moving normally. A Strafe Move is a normal notched base Standard Move with the following exceptions: • When making a full Strafe Move, instead of placing the Movement Tool in the front notch of the unit leader's base, place it in one of the side notches. Then place the opposite side notch of the unit leader's base on the other end of the Movement Tool. • When making a partial Strafe Move, instead of placing the Movement Tool wholly in the front notch of the unit leader's base at the start of the Move, place the Movement Tool wholly in one of the side notches. When ending a partial Strafe Move, the miniature must be placed in such a way so that the line of the two side notches on its base are parallel to the section of the Movement Tool the miniature reached at the farthest part of the move. • While making a Strafe Move, a unit reduces its Speed by 1 to a minimum of 1.
 
+These unit-type entries are transcribed verbatim from the rulebook's Appendix B: Unit Types (April 2026
+edition, pp. 39–40) and surface as the unit-subtype pill on a unit's profile (Build + Browse) and in the
+print keyword reference. Only subtypes with their OWN special rules are listed — base Trooper, Mandalorian
+Trooper and Wookiee Trooper have no additional unit-type rules and intentionally show no pill. The base
+Vehicle "Resiliency" rules are not listed here because the Resilience stat already conveys them.
+
+### Clone Trooper
+While attacking or defending, a Clone Trooper unit may spend 1 Aim, Dodge, or Surge token belonging to another allied Clone Trooper unit within [Range 2] and in LOS as if the attacking or defending unit had that token.
+
 ### Creature Trooper
-You can: obscure other minis and provide light cover while doing so, pivot and reverse, displace troopers when moving through them. You do not: improve your cover while you have 1 or more suppression tokens, get cover from barricades, embark or disembark, use CLAIM/SABOTAGE/REPAIR abilities, be displaced.
+- Creature Troopers have notched bases.
+- Creature Troopers can make Reverse Moves.
+- Creature Troopers can Pivot, even while they are Engaged.
+- Creature Troopers do not receive Cover from barricades.
+- Creature Troopers can attack and Withdraw during the same Activation.
 
 ### Droid Trooper
-Droid troopers do not lose actions and do not gain cover from suppression. Droids can still become panicked.
+- Droid Troopers do not make 1 less action due to being Suppressed at the start of the Make Actions step.
+- Droid Troopers cannot gain or resolve Poison tokens.
 
 ### Emplacement Trooper
-You can: pivot, reverse. You cannot: climb, use CLAIM/SABOTAGE/REPAIR, be displaced, be moved through by ground vehicles. This unit does not obscure LOS.
+- Emplacement Troopers have notched bases.
+- Emplacement Troopers can make Reverse Moves.
+- Emplacement Troopers can Pivot, even while they are Engaged.
 
-### Vehicle
-You can: pivot, block LOS. Ground vehicles can: reverse, move through repulsor vehicles, perform the standby action, obscure other minis and provide cover. Repulsor vehicles: can move through troopers and vehicles.
+### Heavy Droid Trooper
+Heavy Droid Troopers are both Heavy Troopers and Droid Troopers. As Heavy Troopers, they: may have notched bases; can make Reverse Moves; can Pivot, even when they are Engaged; do not receive Cover from barricades; can attack and Withdraw during the same activation. As Droid Troopers, they: do not make 1 less action due to being Suppressed at the start of the Make Actions step; cannot gain or resolve Poison tokens.
+
+### Ground Vehicle
+- Ground Vehicles have notched bases.
+- Ground Vehicles can Pivot and make Reverse Moves.
+- Ground Vehicles can end a Move with some part of their base partially overlapping terrain.
+- A Ground Vehicle may not end a Move or be placed in a position where the miniature would be physically unstable or fall over, or cause the angle of the miniature's base to be greater than 45°.
+- Ground Vehicles can be in Melee but cannot be Engaged.
+- Ground Vehicles block LOS as if they were a piece of area terrain consisting of the volume of their Silhouette.
+- When determining the number of obscured miniatures and determining Cover during an attack sequence, treat Ground Vehicles as a piece of area terrain consisting of the volume of their Silhouette that provides heavy Cover.
+- When a Ground Vehicle is defending against a Ranged attack, during the Apply Dodge and Cover step, it cannot be obscured and cannot have Cover as a result of being obscured.
+
+### Repulsor Vehicle
+- Repulsor Vehicles have notched bases.
+- Repulsor Vehicles can Pivot.
+- Repulsor Vehicles cannot make the Standby action or gain or spend Standby tokens.
+- Repulsor Vehicles can end a Move with part of their base partially overlapping terrain.
+- Repulsor Vehicles may Move onto or through impassable terrain and may place the Movement Tool overlapping impassable terrain when doing so.
+- A Repulsor Vehicle may not end a Move or be placed in a position where the miniature would be physically unstable or fall over, or cause the angle of the miniature's base to be greater than 45°.
+- Repulsor Vehicles can be in Melee but cannot be Engaged.
+- Repulsor Vehicles do not block LOS, do not obscure miniatures, and do not provide Cover.
+- When a Repulsor Vehicle is defending against a Ranged attack, during the Apply Dodge and Cover step, it cannot be obscured and cannot have Cover as a result of being obscured.

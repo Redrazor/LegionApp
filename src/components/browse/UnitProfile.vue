@@ -5,6 +5,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useKeywordsStore } from '../../stores/keywords.ts'
 import { factionColor, factionName, rankName, slotLabel } from '../../utils/factions.ts'
+import { unitTypeRuleKey } from '../../utils/unitTypes.ts'
 import { imageUrl } from '../../utils/imageUrl.ts'
 import UnitStatBlock from '../ui/UnitStatBlock.vue'
 import KeywordPill from '../ui/KeywordPill.vue'
@@ -33,6 +34,10 @@ const extraKeywords = computed(() => {
   const innate = new Set(unit.value?.keywords ?? [])
   return (props.grantedKeywords ?? []).filter((k) => !innate.has(k))
 })
+
+// The unit's subtype rules (Appendix B), shown as a distinct pill before the keywords —
+// null for base/mandalorian/wookiee troopers, which have no extra unit-type rules.
+const unitTypeRule = computed(() => unitTypeRuleKey(unit.value?.unitType))
 
 // Load both units and the keyword glossary so KeywordPill popovers work wherever this
 // drawer is mounted — Browse loads the glossary in its view, Build does not.
@@ -141,13 +146,17 @@ useHead(computed(() => {
                 </div>
               </div>
 
-              <!-- Keywords (innate + any granted by equipped upgrades) -->
-              <div v-if="unit.keywords.length || extraKeywords.length">
+              <!-- Keywords (unit-subtype rules + innate + any granted by equipped upgrades) -->
+              <div v-if="unitTypeRule || unit.keywords.length || extraKeywords.length">
                 <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Keywords</h3>
                 <div class="flex flex-wrap gap-1.5">
+                  <KeywordPill v-if="unitTypeRule" :keyword="unitTypeRule" variant="unitType" />
                   <KeywordPill v-for="k in unit.keywords" :key="k" :keyword="k" />
                   <KeywordPill v-for="k in extraKeywords" :key="`g-${k}`" :keyword="k" variant="granted" />
                 </div>
+                <p v-if="unitTypeRule" class="mt-1.5 text-[11px] text-lg-valid/80">
+                  The green pill is this unit's subtype rules.
+                </p>
                 <p v-if="extraKeywords.length" class="mt-1.5 text-[11px] text-lg-holo/80">
                   Highlighted keywords are granted by equipped upgrades.
                 </p>

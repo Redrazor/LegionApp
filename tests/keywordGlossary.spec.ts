@@ -88,8 +88,18 @@ describe('buildGlossary (against the real Keyword_glossary.md)', () => {
   })
 
   it('preserves card-referenced reference entries', () => {
-    for (const k of ['Strafe', 'Ion Token', 'Poison Token', 'Shield Token', 'Surge Token', 'Vehicle']) {
+    for (const k of ['Strafe', 'Ion Token', 'Poison Token', 'Shield Token', 'Surge Token']) {
       expect(g[k]).toBeTruthy()
+    }
+  })
+
+  it('carries the verbatim Appendix B unit-subtype rules (and only those with distinct rules)', () => {
+    for (const k of ['Clone Trooper', 'Creature Trooper', 'Droid Trooper', 'Emplacement Trooper', 'Heavy Droid Trooper', 'Ground Vehicle', 'Repulsor Vehicle']) {
+      expect(g[k], `missing unit-type entry "${k}"`).toBeTruthy()
+    }
+    // Base/Mandalorian/Wookiee troopers have no additional rules → no entry, no pill.
+    for (const k of ['Trooper', 'Mandalorian Trooper', 'Wookiee Trooper', 'Vehicle']) {
+      expect(g[k], `unexpected unit-type entry "${k}"`).toBeUndefined()
     }
   })
 })

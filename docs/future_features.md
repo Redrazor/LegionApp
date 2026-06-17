@@ -233,6 +233,31 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 9 — Unit-type (subtype) rules in profile drawer + print
+
+**Status:** done (v1.13.0). Units carry a `unitType` (e.g. `clone trooper`, `droid trooper`,
+`ground vehicle`) that was previously a display-only header label — its associated rulebook rules
+were surfaced nowhere. Now the seven subtypes that have their **own** rules show a green
+unit-subtype pill in the Keywords section of `UnitProfile.vue` (Browse + Build); tapping it shows
+the verbatim rule text, and the rule is folded into the print keyword reference.
+
+- **Source:** transcribed verbatim from the core rulebook **Appendix B: Unit Types** (April 2026
+  edition, pp. 39–40) into the APP REFERENCE section of `Keyword_glossary.md` → `npm run keywords`.
+  The old condensed Creature/Droid/Emplacement entries were replaced with the verbatim Appendix B
+  text, and Clone Trooper, Heavy Droid Trooper, Ground Vehicle and Repulsor Vehicle were added. The
+  stale paraphrased `Vehicle` entry was dropped (split into Ground/Repulsor; base-Vehicle Resiliency
+  rules omitted — the Resilience stat already conveys them).
+- **Mapping:** `src/utils/unitTypes.ts#unitTypeRuleKey` maps a `unitType` to its glossary key, or
+  null for types with no distinct rules — base `trooper`, `mandalorian trooper` (not a rulebook
+  subtype) and `wookiee trooper` (Appendix B: "no additional special rules"). Those show no pill.
+- **UI:** new `unitType` variant on `KeywordPill.vue` (green / `lg-valid`); the pill renders first in
+  the Keywords list. Print: `armyKeywordReference` (`utils/army.ts`) injects each unit's subtype rule
+  into the deduped, alphabetised reference. The Reference tab picks the entries up automatically (it
+  iterates the whole glossary).
+- The scrape does not touch `keywords.json` (owner-maintained), so these survive a re-scrape.
+
+---
+
 ## Feature 8 — Expunge Tabletop Admiral (portraits from card crops; owner-maintained keywords)
 
 **Status:** done (v1.12.0). Removed the last third-party data dependency: Tabletop Admiral was

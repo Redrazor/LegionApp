@@ -4,6 +4,7 @@ import type {
 } from '../types/index.ts'
 import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
 import { resolveKeywordEntry, type Glossary } from './keywords.ts'
+import { unitTypeRuleKey } from './unitTypes.ts'
 
 // ── Battle-force helpers ─────────────────────────────────────────────────────
 
@@ -1113,6 +1114,8 @@ export function armyKeywordReference(
   for (const au of units) {
     const u = unitsById.get(au.unitId)
     if (u) {
+      const typeKey = unitTypeRuleKey(u.unitType)
+      if (typeKey) add(typeKey)
       for (const kw of u.keywords) add(kw)
       for (const w of u.weapons ?? []) for (const kw of w.keywords ?? []) add(kw)
     }

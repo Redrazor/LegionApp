@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.13.0',
+    date: '2026-06-17',
+    changes: [
+      'Unit profiles now show the unit’s subtype rules (e.g. Clone Trooper, Droid Trooper, Ground Vehicle) as a green pill in the Keywords section — tap it for the verbatim rulebook (Appendix B) text. These rules also print with the rest of the army’s keyword reference. Base, Mandalorian and Wookiee troopers have no extra subtype rules, so they show no pill.',
+    ],
+  },
+  {
     version: '1.12.0',
     date: '2026-06-17',
     changes: [

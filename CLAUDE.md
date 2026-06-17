@@ -82,6 +82,13 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
     → Sniper Team) carry **owner-maintained** keyword tags directly in `upgrades.json`, read off
     the physical cards. Every tag resolves against `Keyword_glossary.md`. There is no fetch step;
     edit `upgrades.json` directly to change them. LHQ2 stays authoritative where it has keywords.
+  - **Upgrade weapons** — weapon-granting upgrades (heavy weapons, armaments, grenades, vehicle
+    hardpoints, …) carry their weapon profile(s) in **owner-maintained** `public/data/upgrade-weapons.json`
+    (`{ slug: Weapon[] }`), kept SEPARATE from `upgrades.json` so a re-scrape can't wipe them. The
+    `upgrades` store overlays them by slug at load (`weapons: []` when absent). They feed the Build
+    row's best ranged/melee display. `scraper/upgradeWeapons.ts` (`npm run upgrade-weapons`) was a
+    ONE-TIME materialiser; the file is now hand-edited (verified against the card scans) — do not
+    re-run it as part of the pipeline. `tests/catalogue-integrity.spec.ts` spot-guards key dice.
   - **Effect *text* exists nowhere as data** (LHQ2 `text` is null) — only on the card image, which
     the Build inspect gallery shows. Do not try to source it.
   - **Everything else stays LHQ2-only** (stats, weapons, costs, ranks, requirements, etc.). Run

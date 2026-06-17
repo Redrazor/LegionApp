@@ -48,6 +48,12 @@ const upgradeBar = computed(() =>
 // Per-unit miniature count including any mini-adding upgrades equipped on this unit.
 const modelCount = computed(() => unitModelCount(armyUnit.value, unitsStore.byId, upgradesStore.byId))
 
+// Weapons granted by the equipped upgrades, folded into the row's best-ranged/best-melee
+// display so equipping e.g. a Z-6 can become the unit's shown ranged profile.
+const upgradeWeapons = computed(() =>
+  armyUnit.value.upgrades.flatMap((u) => upgradesStore.byId.get(u.upgradeId)?.weapons ?? []),
+)
+
 function equipped(slot: string, index: number) {
   const id = armyStore.upgradeInSlot(armyUnit.value.uid, slot, index)
   return id ? upgradesStore.byId.get(id) ?? null : null
@@ -113,7 +119,7 @@ function removeGroup() {
             <span v-if="qty > 1" class="flex-none rounded bg-lg-accent/15 px-1.5 text-[11px] font-bold text-lg-accent">×{{ qty }}</span>
           </span>
           <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
-          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" :models="modelCount" :hide-models="true" />
+          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" :models="modelCount" :hide-models="true" :extra-weapons="upgradeWeapons" />
         </span>
       </button>
       <div class="flex flex-none flex-col items-end gap-1.5">

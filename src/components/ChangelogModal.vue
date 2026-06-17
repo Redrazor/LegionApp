@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.15.0',
+    date: '2026-06-17',
+    changes: [
+      'Equipping a weapon upgrade (heavy weapon, armament, grenade, vehicle hardpoint, …) now updates a unit’s best ranged (R:) and melee (M:) weapon shown on its Build row — e.g. adding a DLT-19 swaps the displayed ranged dice from the stock blaster to the heavy weapon when it’s the stronger profile.',
+    ],
+  },
+  {
     version: '1.14.0',
     date: '2026-06-17',
     changes: [

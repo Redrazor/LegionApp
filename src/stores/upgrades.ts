@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { BattleForce, Unit, Upgrade } from '../types/index.ts'
+import type { BattleForce, Unit, Upgrade, Weapon } from '../types/index.ts'
 import { loadCatalogue } from '../utils/api.ts'
 import { unitMeetsRequirements, upgradeFitsSlot } from '../utils/army.ts'
 
@@ -13,11 +13,29 @@ export const useUpgradesStore = defineStore('upgrades', () => {
     if (loaded.value || loading.value) return
     loading.value = true
     try {
-      upgrades.value = await loadCatalogue<Upgrade>('/api/upgrades', 'upgrades.json')
+      const [raw, weaponsBySlug] = await Promise.all([
+        loadCatalogue<Upgrade>('/api/upgrades', 'upgrades.json'),
+        loadUpgradeWeapons(),
+      ])
+      // Overlay the owner-maintained weapon profiles (keyed by slug) onto each upgrade —
+      // they live in their own file (scrape-proof) rather than in upgrades.json.
+      upgrades.value = raw.map((u) => ({ ...u, weapons: weaponsBySlug[u.slug] ?? [] }))
       loaded.value = true
     } finally {
       loading.value = false
     }
+  }
+
+  /** Owner-maintained `{ slug: Weapon[] }` overlay; static asset, so it works whether the
+   *  upgrades themselves came from the API or the static fallback. Empty on any failure. */
+  async function loadUpgradeWeapons(): Promise<Record<string, Weapon[]>> {
+    try {
+      const res = await fetch('/data/upgrade-weapons.json')
+      if (res.ok) return (await res.json()) as Record<string, Weapon[]>
+    } catch {
+      // optional overlay — degrade to no upgrade weapons
+    }
+    return {}
   }
 
   const byId = computed<Map<string, Upgrade>>(

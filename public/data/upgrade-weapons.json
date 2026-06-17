@@ -1,0 +1,3097 @@
+{
+  "88i-twin-light-blaster": [
+    {
+      "name": "88i Twin Light Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Fixed Front",
+        "Impact 1"
+      ]
+    }
+  ],
+  "a280": [
+    {
+      "name": "A280 Pistol",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Long Shot",
+        "Pierce 1"
+      ]
+    },
+    {
+      "name": "A280 Rifle",
+      "range": [
+        1,
+        14
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Cumbersome",
+        "High Velocity",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "ag-2g-quad-laser": [
+    {
+      "name": "AG-2G Quad Laser Cannon",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 6,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 2"
+      ]
+    }
+  ],
+  "agent-kallus": [
+    {
+      "name": "J-19 Bo-Rifle",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 1
+      },
+      "keywords": [
+        "Long Shot"
+      ]
+    }
+  ],
+  "ahsoka-tano": [
+    {
+      "name": "Ahsoka's Lightsabers",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 2
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 2",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "armor-piercing-shells": [
+    {
+      "name": "Armor-Piercing Shells",
+      "range": [
+        2,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Fixed Front",
+        "Impact 3"
+      ]
+    }
+  ],
+  "asajj-ventress": [
+    {
+      "name": "Asajj's Lightsaber",
+      "range": [
+        0,
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 4,
+        "white": 0
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "at-rt-flamethrower": [
+    {
+      "name": "Flamethrower",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front",
+        "Blast",
+        "Spray"
+      ]
+    }
+  ],
+  "at-rt-laser-cannon": [
+    {
+      "name": "Laser Cannon",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front",
+        "Impact 3"
+      ]
+    }
+  ],
+  "at-rt-rotary-blaster": [
+    {
+      "name": "Rotary Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 5,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front"
+      ]
+    }
+  ],
+  "at-st-mortar-launcher": [
+    {
+      "name": "AT-ST Mortar Launcher",
+      "range": [
+        4,
+        12
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front",
+        "Suppressive"
+      ]
+    }
+  ],
+  "ax-108-ground-buzzer": [
+    {
+      "name": "Ax-108 \"Ground Buzzer\"",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 4,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Rear"
+      ]
+    }
+  ],
+  "axe-ewok": [
+    {
+      "name": "Stone Axe",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "b2-acm-battle-droid": [
+    {
+      "name": "Heavy Arm Cannon",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 3,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "b2-ha-battle-droid": [
+    {
+      "name": "B2-HA Cannon",
+      "range": [
+        2,
+        3
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Cycle",
+        "Impact 2"
+      ]
+    }
+  ],
+  "battle-shield-wookiee": [
+    {
+      "name": "Offense",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    },
+    {
+      "name": "Defense",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "beam-turret": [
+    {
+      "name": "Beam Cannon",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Beam 2"
+      ]
+    }
+  ],
+  "beskad-duelist": [
+    {
+      "name": "Vibroblade",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "beskad-duelist-2": [
+    {
+      "name": "Vibro Sword",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Pierce 1"
+      ]
+    }
+  ],
+  "beskar-spear": [
+    {
+      "name": "Beskar Spear",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "bowcaster-wookiee": [
+    {
+      "name": "Bowcaster",
+      "range": [
+        0,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "bunker-buster-shells": [
+    {
+      "name": "Bunker Buster Shells",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 1
+      },
+      "keywords": [
+        "Fixed Front",
+        "Blast",
+        "Scatter"
+      ]
+    }
+  ],
+  "bx-series-droid-sniper": [
+    {
+      "name": "BX Sniper Rifle",
+      "range": [
+        2,
+        5
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 2
+      },
+      "keywords": [
+        "High Velocity",
+        "Overwhelm",
+        "Sniper Team"
+      ]
+    }
+  ],
+  "bx-vibroswords": [
+    {
+      "name": "BX Vibroswords",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": []
+    }
+  ],
+  "cassian-andor": [
+    {
+      "name": "Black Ops",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    },
+    {
+      "name": "A280 Sniper Config",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Long Shot"
+      ]
+    }
+  ],
+  "chewbacca": [
+    {
+      "name": "Chewbacca's Bowcaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Impact 1"
+      ]
+    }
+  ],
+  "clone-captain-rex": [
+    {
+      "name": "Dual Hand Blasters",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "clone-commander-cody": [
+    {
+      "name": "Cody's DC-15 Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Impact"
+      ]
+    }
+  ],
+  "cm-0-93-trooper": [
+    {
+      "name": "CM-0/93",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 4
+      },
+      "keywords": [
+        "Critical 2"
+      ]
+    }
+  ],
+  "concussion-grenades": [
+    {
+      "name": "Concussion Grenade",
+      "range": [
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Blast"
+      ]
+    }
+  ],
+  "cr-24-flame-rifle": [
+    {
+      "name": "CR-24 Flame Rifle",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Spray"
+      ]
+    }
+  ],
+  "crosshair": [
+    {
+      "name": "Crosshair",
+      "range": [
+        1,
+        5
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "High Velocity",
+        "Pierce 1",
+        "Critical 1"
+      ]
+    }
+  ],
+  "dc-15-clone-trooper": [
+    {
+      "name": "DC-15 Clone Trooper",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "dc-15x-arc-trooper-gunner": [
+    {
+      "name": "DC-15 Blaster Rifles",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Overwhelm"
+      ]
+    }
+  ],
+  "dc-15x-arc-trooper-sniper": [
+    {
+      "name": "DC-15x ARC Trooper",
+      "range": [
+        2,
+        5
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 2
+      },
+      "keywords": [
+        "High Velocity",
+        "Overwhelm",
+        "Sniper Team"
+      ]
+    }
+  ],
+  "dc-17m-icws-config": [
+    {
+      "name": "DC-17m ICWS Launcher",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Scatter",
+        "Impact 1"
+      ]
+    },
+    {
+      "name": "DC-17m ICWS Sniper",
+      "range": [
+        3,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "High Velocity",
+        "Lethal 1"
+      ]
+    }
+  ],
+  "del-meeko": [
+    {
+      "name": "Del's DLT-19x",
+      "range": [
+        1,
+        5
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "High Velocity",
+        "Lethal 1"
+      ]
+    }
+  ],
+  "dh-447-sniper": [
+    {
+      "name": "DH-447 Sniper Rifle",
+      "range": [
+        2,
+        5
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 2
+      },
+      "keywords": [
+        "High Velocity",
+        "Overwhelm",
+        "Sniper Team"
+      ]
+    }
+  ],
+  "din-djarin": [
+    {
+      "name": "Din's Blaster Pistol",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Lethal 1"
+      ]
+    }
+  ],
+  "dins-amban-rifle": [
+    {
+      "name": "Din's Amban Rifle",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Immobilize 2",
+        "Suppressive"
+      ]
+    }
+  ],
+  "dioxis-mine-saboteur": [
+    {
+      "name": "Dioxis Mine Saboteur",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Poison 1",
+        "Assault 1"
+      ]
+    }
+  ],
+  "dlt-19-stormtrooper": [
+    {
+      "name": "DLT-19 Blaster Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1"
+      ]
+    }
+  ],
+  "dlt-19d-trooper": [
+    {
+      "name": "DLT-19D Trooper",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Impact 1"
+      ]
+    }
+  ],
+  "dlt-19x-sniper": [
+    {
+      "name": "DLT-19x Sniper Rifle",
+      "range": [
+        2,
+        5
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 2
+      },
+      "keywords": [
+        "High Velocity",
+        "Overwhelm",
+        "Sniper Team"
+      ]
+    }
+  ],
+  "dlt-20a-range-trooper": [
+    {
+      "name": "DLT-20A Range Trooper",
+      "range": [
+        1,
+        5
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 2"
+      ]
+    }
+  ],
+  "dlt-20a-trooper": [
+    {
+      "name": "DLT-20A Trooper",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "double-bladed-lightsaber": [
+    {
+      "name": "Double-Bladed Lightsaber",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 2
+      },
+      "keywords": [
+        "Ram 1",
+        "Impact 2",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "dp-23-clone-trooper": [
+    {
+      "name": "DP-23 Clone Trooper",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Pierce 1"
+      ]
+    }
+  ],
+  "dt-f16": [
+    {
+      "name": "E-11D Blaster Rifle",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": []
+    }
+  ],
+  "dual-armaments": [
+    {
+      "name": "Vibroknives",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 3
+      },
+      "keywords": [
+        "High Velocity",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "dw-3-grenade-launcher": [
+    {
+      "name": "DW-3 Grenade Launcher",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front",
+        "Blast"
+      ]
+    }
+  ],
+  "e-11d-focused-fire-configuration": [
+    {
+      "name": "E-11D Focused Fire Configuration",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    },
+    {
+      "name": "E-11D Grenade Launcher Configuration",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Blast"
+      ]
+    }
+  ],
+  "e-5c-b1-battle-droid": [
+    {
+      "name": "E-5C Blaster Rifle",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "e-5s-b1-battle-droid": [
+    {
+      "name": "E-5s Sniper Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "e-60r-b1-battle-droid": [
+    {
+      "name": "E-60R B1 Battle Droid",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Cumbersome",
+        "Impact 2"
+      ]
+    }
+  ],
+  "echo": [
+    {
+      "name": "Echo's DC-15x",
+      "range": [
+        1,
+        5
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Critical 1",
+        "Immune: Deflect",
+        "Lethal 1"
+      ]
+    }
+  ],
+  "ee-3-carbine-rifle": [
+    {
+      "name": "EE-3 Carbine Rifle",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Overwhelm"
+      ]
+    }
+  ],
+  "electro-gauntlets": [
+    {
+      "name": "Electro Gauntlets",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 4,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Immobilize 3",
+        "Suppressive"
+      ]
+    }
+  ],
+  "electro-whip-magnaguard": [
+    {
+      "name": "Electro-Whip",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Immobilize 1",
+        "Versatile"
+      ]
+    }
+  ],
+  "electro-whip-soldier": [
+    {
+      "name": "Electro-Whip Soldier",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Immobilize 1",
+        "Suppressive"
+      ]
+    }
+  ],
+  "electrostaff": [
+    {
+      "name": "Electrostaff",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 2,
+        "white": 2
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "electrostaff-pirate": [
+    {
+      "name": "Electrostaff",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": []
+    }
+  ],
+  "emp-droid-poppers": [
+    {
+      "name": "EMP Droid Poppers",
+      "range": [
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Ion 1"
+      ]
+    }
+  ],
+  "fifth-brother": [
+    {
+      "name": "Spinning Lightsaber",
+      "range": [
+        0,
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Ram 1",
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "fives": [
+    {
+      "name": "Fives",
+      "range": [
+        0,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "flame-projector": [
+    {
+      "name": "Flame Projector",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Spray",
+        "Suppressive"
+      ]
+    }
+  ],
+  "flametrooper": [
+    {
+      "name": "Flamethrower",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Spray"
+      ]
+    }
+  ],
+  "force-pike-warrior": [
+    {
+      "name": "Force Pike",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "fragmentation-grenades": [
+    {
+      "name": "Frag Grenade",
+      "range": [
+        1
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "galaar-15-carbine": [
+    {
+      "name": "GALAAR-15 Carbine",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 4,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "galaar-15-carbines": [
+    {
+      "name": "GALAAR-15 Carbine",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "galaar-90-sniper-rifle": [
+    {
+      "name": "GALAAR-15 Sniper Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Lethal 1"
+      ]
+    }
+  ],
+  "galaar-90-sniper-rifle-2": [
+    {
+      "name": "GALAAR-90 Sniper Rifle",
+      "range": [
+        1,
+        5
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "High Velocity",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "gar-saxon": [
+    {
+      "name": "GALAR-90 Sniper Rifle",
+      "range": [
+        1,
+        5
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "High Velocity",
+        "Lethal 1"
+      ]
+    }
+  ],
+  "general-grievous": [
+    {
+      "name": "Trophy Lightsabers",
+      "range": [
+        0,
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "gideon-hask": [
+    {
+      "name": "Gideon's E-11",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "heavy-aqua-droid": [
+    {
+      "name": "Heavy Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Impact 2"
+      ]
+    }
+  ],
+  "heavy-arm-cannon": [
+    {
+      "name": "Heavy Arm Cannon",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "heavy-blaster-pistol": [
+    {
+      "name": "Heavy Blaster Pistol",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Lethal 1",
+        "Long Shot"
+      ]
+    }
+  ],
+  "heavy-blaster-pistol-2": [
+    {
+      "name": "Heavy Blaster Pistol",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Lethal 1"
+      ]
+    }
+  ],
+  "heavy-laser-cannon": [
+    {
+      "name": "Heavy Laser Cannon",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 5,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 2",
+        "Fixed Front"
+      ]
+    }
+  ],
+  "heavy-laser-retrofit": [
+    {
+      "name": "Heavy Laser Cannon",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "hh-12-stormtrooper": [
+    {
+      "name": "HH-12 Rocket Launcher",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Cumbersome",
+        "Impact 3"
+      ]
+    }
+  ],
+  "high-energy-shells": [
+    {
+      "name": "High-Energy Shells",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Fixed Front",
+        "Critical 1",
+        "High Velocity"
+      ]
+    }
+  ],
+  "impact-grenades": [
+    {
+      "name": "Impact Grenade",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 4"
+      ]
+    }
+  ],
+  "jedi-consular": [
+    {
+      "name": "Force Blast",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Impact 2"
+      ]
+    }
+  ],
+  "jedi-guardian": [
+    {
+      "name": "Jedi Guardian",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Sidearm",
+        "Pierce 1",
+        "Impact 2"
+      ]
+    }
+  ],
+  "jedi-negotiator": [
+    {
+      "name": "Force Shove",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Spray",
+        "Suppressive"
+      ]
+    }
+  ],
+  "jetpack-rockets": [
+    {
+      "name": "Jetpack Rockets",
+      "range": [
+        3,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Impact 1"
+      ]
+    }
+  ],
+  "jetpack-rockets-2": [
+    {
+      "name": "Jetpack Rockets",
+      "range": [
+        3,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 4,
+        "white": 0
+      },
+      "keywords": [
+        "Anti-Material 4",
+        "Impact 4"
+      ]
+    }
+  ],
+  "jyn-erso": [
+    {
+      "name": "Rebellious",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "jyns-se-14-blaster": [
+    {
+      "name": "SE-14 Blaster",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 5
+      },
+      "keywords": [
+        "Pierce 1",
+        "Suppressive"
+      ]
+    }
+  ],
+  "kraken": [
+    {
+      "name": "Kraken's Blaster",
+      "range": [
+        0,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": []
+    }
+  ],
+  "kx-series-security-droids": [
+    {
+      "name": "Oppress",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1"
+      ]
+    }
+  ],
+  "lightsaber": [
+    {
+      "name": "Lightsaber",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 3,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 2",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "long-gun-wookiee": [
+    {
+      "name": "Long Gun",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "long-rifle-pirate": [
+    {
+      "name": "Long Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Lethal 1"
+      ]
+    }
+  ],
+  "luke-skywalker": [
+    {
+      "name": "Anakin's Lightsaber",
+      "range": [
+        0,
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "m-45-ion-blaster": [
+    {
+      "name": "M-45 Ion Blaster",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 2
+      },
+      "keywords": [
+        "Fixed Front",
+        "Critical 1",
+        "Impact 1",
+        "Ion 1"
+      ]
+    }
+  ],
+  "mag-det-enforcer": [
+    {
+      "name": "Mag-Detpack",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Impact 3"
+      ]
+    }
+  ],
+  "mark-ii-medium-blaster": [
+    {
+      "name": "Mark II Medium Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 4,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front"
+      ]
+    }
+  ],
+  "mertalizer": [
+    {
+      "name": "Mertalizer",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "micro-grenade-launcher": [
+    {
+      "name": "Micro-Grenade Launcher",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 2
+      },
+      "keywords": [
+        "Blast",
+        "Impact 1"
+      ]
+    }
+  ],
+  "mo-dk-power-harpoon": [
+    {
+      "name": "MO/DK Power Harpoon",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Rear",
+        "Impact 1",
+        "Tow Cable"
+      ]
+    }
+  ],
+  "mortar-clone-trooper": [
+    {
+      "name": "Mortar",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Critical 1",
+        "Cumbersome",
+        "Suppressive"
+      ]
+    }
+  ],
+  "mpl-57-barrage-trooper": [
+    {
+      "name": "MPL-57 Barrage",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 2
+      },
+      "keywords": [
+        "Blast",
+        "Impact 2"
+      ]
+    }
+  ],
+  "mpl-57-ion-trooper": [
+    {
+      "name": "MPL-57 Ion Blaster",
+      "range": [
+        0,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 1",
+        "Ion 1"
+      ]
+    }
+  ],
+  "nose-mounted-flamethrower": [
+    {
+      "name": "Flamethrower",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Fixed Front",
+        "Blast",
+        "Spray"
+      ]
+    }
+  ],
+  "nose-mounted-ion-blaster": [
+    {
+      "name": "Ion Blaster",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 3
+      },
+      "keywords": [
+        "Fixed Front",
+        "Critical 1",
+        "Impact 2",
+        "Ion 1"
+      ]
+    }
+  ],
+  "nose-mounted-laser-cannon": [
+    {
+      "name": "Laser Cannon",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 1
+      },
+      "keywords": [
+        "Fixed Front",
+        "Critical 1"
+      ]
+    }
+  ],
+  "obi-wan-kenobi": [
+    {
+      "name": "Kenobi's Lightsaber",
+      "range": [
+        0,
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "p13-m-disruptor-soldier": [
+    {
+      "name": "P13-M Disruptor",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1"
+      ]
+    }
+  ],
+  "paz-vizsla": [
+    {
+      "name": "Repeating Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 2
+      },
+      "keywords": [
+        "Overwhelm"
+      ]
+    }
+  ],
+  "pintle-mounted-dlt-19": [
+    {
+      "name": "DLT-19 Blaster Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1"
+      ]
+    }
+  ],
+  "pintle-mounted-rt-97c": [
+    {
+      "name": "RT-97C Blaster Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "proton-charge-saboteur": [
+    {
+      "name": "Proton Charge",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Impact 6",
+        "Assault 1"
+      ]
+    }
+  ],
+  "radiation-cannon-b1-battle-droid": [
+    {
+      "name": "Radiation Cannon",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Poison 1"
+      ]
+    }
+  ],
+  "repeating-blaster": [
+    {
+      "name": "Repeating Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 2
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 1",
+        "Long Shot"
+      ]
+    }
+  ],
+  "rook-kast": [
+    {
+      "name": "Rook's Blaster Pistols",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": []
+    }
+  ],
+  "rps-6-arf-trooper": [
+    {
+      "name": "RPS-6 ARF Trooper",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Cumbersome",
+        "Impact 2"
+      ]
+    }
+  ],
+  "rps-6-clone-trooper": [
+    {
+      "name": "RPS-6 Rocket Launcher",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Cumbersome",
+        "Impact 2"
+      ]
+    }
+  ],
+  "rps-6-magnaguard": [
+    {
+      "name": "RPS-6",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 2"
+      ]
+    }
+  ],
+  "rt-97c-blaster-rifle": [
+    {
+      "name": "RT-97C Blaster Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "rt-97c-stormtrooper": [
+    {
+      "name": "RT-97C Blaster Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "saxons-galar-90-rifle": [
+    {
+      "name": "Galar-90 Sniper Rifle",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "High Velocity",
+        "Lethal 1",
+        "Long Shot"
+      ]
+    }
+  ],
+  "saxons-jetpack-rockets": [
+    {
+      "name": "Jetpack Rockets",
+      "range": [
+        2,
+        3
+      ],
+      "dice": {
+        "red": 3,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Impact 2"
+      ]
+    }
+  ],
+  "saxons-zx-flame-projector": [
+    {
+      "name": "ZX Flame Projector",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Spray",
+        "Suppressive"
+      ]
+    }
+  ],
+  "scatter-gun-enforcer": [
+    {
+      "name": "Scatter Gun",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Pierce 1"
+      ]
+    }
+  ],
+  "scatter-gun-trooper": [
+    {
+      "name": "Scatter Gun",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Pierce 1"
+      ]
+    }
+  ],
+  "seventh-sister": [
+    {
+      "name": "Spinning Lightsaber",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "shaak-ti": [
+    {
+      "name": "Shaak Ti's Lightsaber",
+      "range": [
+        0,
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 2",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "shukur-05-repeater": [
+    {
+      "name": "SHUKUR-05 Repeater",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Overwhelm"
+      ]
+    }
+  ],
+  "sm-9-frag-launcher": [
+    {
+      "name": "SM-9 Frag Launcher",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Cycle",
+        "Impact 2"
+      ]
+    }
+  ],
+  "sonic-cannon-warrior": [
+    {
+      "name": "Sonic Cannon Warrior",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Impact 1",
+        "Scatter"
+      ]
+    }
+  ],
+  "sonic-charge-saboteur": [
+    {
+      "name": "Sonic Charge",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 1,
+        "black": 2,
+        "white": 1
+      },
+      "keywords": [
+        "Blast",
+        "Impact 4",
+        "Suppressive"
+      ]
+    }
+  ],
+  "sonic-imploders": [
+    {
+      "name": "Sonic Imploder",
+      "range": [
+        1
+      ],
+      "dice": {
+        "red": 0,
+        "black": 1,
+        "white": 0
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "stun-baton": [
+    {
+      "name": "Stun Baton",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 5
+      },
+      "keywords": [
+        "Immobilize 1"
+      ]
+    }
+  ],
+  "super-commando-gunslinger": [
+    {
+      "name": "Dual Blaster Pistols",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 2
+      },
+      "keywords": [
+        "Lethal 1"
+      ]
+    }
+  ],
+  "super-commando-gunslinger-2": [
+    {
+      "name": "Rapid Fire Pistols",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Overwhelm"
+      ]
+    }
+  ],
+  "super-commando-jetpack-rockets": [
+    {
+      "name": "Super Commando Jetpack Rockets",
+      "range": [
+        3,
+        4
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Critical 1",
+        "Impact 1"
+      ]
+    }
+  ],
+  "super-commando-marksman": [
+    {
+      "name": "Super Commando Marksman",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": []
+    }
+  ],
+  "super-commando-marksman-2": [
+    {
+      "name": "Designated Marksman",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 1
+      },
+      "keywords": [
+        "Lethal 1"
+      ]
+    }
+  ],
+  "sx-21-trooper": [
+    {
+      "name": "SX-21 Scatter Blaster",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Impact 1"
+      ]
+    }
+  ],
+  "t-21-blaster-rifle": [
+    {
+      "name": "T-21 Blaster Rifle",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 4
+      },
+      "keywords": [
+        "Critical 2"
+      ]
+    }
+  ],
+  "t-21-special-forces-trooper": [
+    {
+      "name": "T-21 Repeating Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 4
+      },
+      "keywords": [
+        "Critical 2"
+      ]
+    }
+  ],
+  "t-21-stormtrooper": [
+    {
+      "name": "T-21 Repeating Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 4
+      },
+      "keywords": [
+        "Critical 2"
+      ]
+    }
+  ],
+  "t-21a-range-trooper": [
+    {
+      "name": "T-21A Repeating Blaster",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 2
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "t-21b-shoretrooper": [
+    {
+      "name": "T-21B Repeating Blaster",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 2
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "t-7-ion-snowtrooper": [
+    {
+      "name": "T-7 Ion Rifle",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 1
+      },
+      "keywords": [
+        "Critical 1",
+        "Impact 1",
+        "Ion 1"
+      ]
+    }
+  ],
+  "t-series-tactical-droid": [
+    {
+      "name": "E-5 Blaster Rifle",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Sidearm"
+      ]
+    }
+  ],
+  "the-armorer": [
+    {
+      "name": "Hammer and Tongs",
+      "range": [
+        0,
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Pierce 1"
+      ]
+    }
+  ],
+  "the-darksaber": [
+    {
+      "name": "The Darksaber",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 5,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "the-darksaber-2": [
+    {
+      "name": "The Darksaber",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 5,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "the-darksaber-3": [
+    {
+      "name": "The Darksaber",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 5,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "the-darksaber-4": [
+    {
+      "name": "The Darksaber",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 5,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "the-darksaber-gideon": [
+    {
+      "name": "The Darksaber",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 5,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 1",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "the-darksaber-maul": [
+    {
+      "name": "The Darksaber (Maul)",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 6,
+        "white": 0
+      },
+      "keywords": [
+        "Impact 2",
+        "Pierce 2",
+        "Sidearm"
+      ]
+    }
+  ],
+  "thermal-detonator": [
+    {
+      "name": "Thermal Detonator",
+      "range": [
+        0,
+        1
+      ],
+      "dice": {
+        "red": 4,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Blast",
+        "Impact 4"
+      ]
+    }
+  ],
+  "tristan-wren": [
+    {
+      "name": "Tristan Wren",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 2,
+        "white": 0
+      },
+      "keywords": [
+        "Lethal 1",
+        "Suppressive"
+      ]
+    }
+  ],
+  "twin-beam-cannons": [
+    {
+      "name": "Twin Beam Cannons",
+      "range": [
+        1,
+        4
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Fixed Front",
+        "Beam 2"
+      ]
+    }
+  ],
+  "twin-blaster-cannons": [
+    {
+      "name": "Twin Blaster Cannons",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 6,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front",
+        "Critical 2"
+      ]
+    }
+  ],
+  "twin-blaster-cannons-2": [
+    {
+      "name": "Twin Blaster Cannons",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Fixed Front"
+      ]
+    }
+  ],
+  "twin-laser-turret": [
+    {
+      "name": "Twin Laser Cannon",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 3,
+        "white": 0
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "twin-lightsabers": [
+    {
+      "name": "Twin Lightsabers",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 0,
+        "black": 4,
+        "white": 4
+      },
+      "keywords": [
+        "High Velocity",
+        "Impact 2",
+        "Pierce 1"
+      ]
+    }
+  ],
+  "twin-missile-pods": [
+    {
+      "name": "Missile Pods",
+      "range": [
+        2,
+        4
+      ],
+      "dice": {
+        "red": 4,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": [
+        "Fixed Front",
+        "Impact 2"
+      ]
+    }
+  ],
+  "ursa-wren": [
+    {
+      "name": "Ursa Wren",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": [
+        "Long Shot"
+      ]
+    }
+  ],
+  "vibro-axe": [
+    {
+      "name": "Vibro Axe",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 3
+      },
+      "keywords": [
+        "Impact 1",
+        "Lethal 1"
+      ]
+    }
+  ],
+  "vibrosword": [
+    {
+      "name": "Vibrosword",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 1,
+        "black": 3,
+        "white": 2
+      },
+      "keywords": [
+        "Pierce 1"
+      ]
+    }
+  ],
+  "viper-recon-droid": [
+    {
+      "name": "Viper Recon Droid",
+      "range": [
+        1,
+        2
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Sidearm"
+      ]
+    }
+  ],
+  "weequay-captain": [
+    {
+      "name": "Bravado",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 0,
+        "white": 0
+      },
+      "keywords": []
+    }
+  ],
+  "wrecker": [
+    {
+      "name": "Wrecker",
+      "range": [
+        0,
+        2
+      ],
+      "dice": {
+        "red": 1,
+        "black": 1,
+        "white": 1
+      },
+      "keywords": []
+    }
+  ],
+  "xs-iv-assault-cannon": [
+    {
+      "name": "XS-IV Assault Cannon",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 4,
+        "white": 0
+      },
+      "keywords": [
+        "Critical 1"
+      ]
+    }
+  ],
+  "z-6-clone-trooper": [
+    {
+      "name": "Z-6 Rotary Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 6
+      },
+      "keywords": []
+    }
+  ],
+  "z-6-riot-baton": [
+    {
+      "name": "Z-6 Riot Baton",
+      "range": [
+        0
+      ],
+      "dice": {
+        "red": 2,
+        "black": 0,
+        "white": 2
+      },
+      "keywords": [
+        "Suppressive"
+      ]
+    }
+  ],
+  "z-6-trooper": [
+    {
+      "name": "Z-6 Rotary Blaster",
+      "range": [
+        1,
+        3
+      ],
+      "dice": {
+        "red": 0,
+        "black": 0,
+        "white": 6
+      },
+      "keywords": []
+    }
+  ]
+}

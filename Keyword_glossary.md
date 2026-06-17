@@ -316,7 +316,7 @@ Each time a unit with the Precise X keyword spends an Aim token during the Rerol
 During the Deploy in Prepared Positions step of Setup, a unit with the Prepared Position keyword may Deploy by placing the unit leader of that unit completely within allied Territory. Then the remaining miniatures in that unit are placed in Cohesion with their unit leader and within allied Territory. That unit then gains 1 Dodge token. Miniatures cannot overlap impassable terrain when they are placed using Prepared Position.
 
 ### Programmed
-A unit with the Programmed keyword must equip at least 1 [Command] Upgrade Card during Army Building.
+A unit with the Programmed keyword must equip at least 1 [Programming] Upgrade Card during Army Building.
 
 ### Pulling the Strings
 As a Card action, a unit with the Pulling the Strings keyword may choose another allied Trooper unit within [Range 2]. The chosen unit may make a free Attack action or a free Move action.

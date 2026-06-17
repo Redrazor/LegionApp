@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.9.1',
+    date: '2026-06-17',
+    changes: [
+      'Removed three retired keywords from the glossary (Contingencies, Flawed, Loadout) — the latest official rulebook dropped them and no card uses them anymore.',
+    ],
+  },
+  {
     version: '1.9.0',
     date: '2026-06-17',
     changes: [

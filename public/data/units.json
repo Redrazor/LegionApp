@@ -671,7 +671,7 @@
       }
     ],
     "cardImage": "/images/units/agent-kallus-hunter-of-spectres.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/agent-kallus-hunter-of-spectres.webp",
     "hasFullData": true,
     "history": [
       {
@@ -4374,7 +4374,7 @@
       }
     ],
     "cardImage": "/images/units/paz-vizsla-proud-warrior.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/paz-vizsla-proud-warrior.webp",
     "hasFullData": true,
     "history": []
   },
@@ -6363,7 +6363,7 @@
       }
     ],
     "cardImage": "/images/units/jyn-erso-stardust.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/jyn-erso-stardust.webp",
     "hasFullData": true,
     "history": [
       {
@@ -9694,7 +9694,7 @@
       }
     ],
     "cardImage": "/images/units/arc-troopers-strike-team.webp",
-    "portraitImage": null,
+    "portraitImage": "/images/portraits/arc-troopers-strike-team.webp",
     "hasFullData": true,
     "history": [
       {

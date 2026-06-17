@@ -30,9 +30,15 @@ const CACHE = join(ROOT, 'scraper', '.tta-units.json')
 // size are in the card image's native pixels (LHQ2 scans are 487×341). These win over a
 // TTA bust if both exist.
 const CARD_CROP_PORTRAITS: Record<string, { left: number; top: number; size: number }> = {
-  // Anakin Skywalker (Mounted Jedi General) — no TTA bust; crop centred on his face so the
-  // round badge frames head+shoulders (avoids the pale speeder fairing lower down).
+  // Centred on each figure's face/head so the round badge frames head+shoulders. Coords
+  // are in each card's own native pixels (sizes vary: some scans are 1039×726, some 486×340).
+  // Anakin Skywalker (Mounted Jedi General) — no TTA bust; crop off the speeder.
   'anakin-skywalker-mounted-jedi-general': { left: 338, top: 48, size: 86 },
+  // These four have a TTA id but no bust image on TTA's CDN (Paz has no TTA match at all).
+  'agent-kallus-hunter-of-spectres': { left: 751, top: 100, size: 200 },
+  'jyn-erso-stardust': { left: 726, top: 100, size: 180 },
+  'arc-troopers-strike-team': { left: 475, top: 65, size: 150 },
+  'paz-vizsla-proud-warrior': { left: 331, top: 46, size: 92 },
 }
 
 const TTA_API = 'https://tabletopadmiral.com/api/units/1'

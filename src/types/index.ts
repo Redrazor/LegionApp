@@ -81,6 +81,7 @@ export interface Upgrade {
   keywords: string[]
   grantedSlots: string[] // slot types this upgrade adds to its unit's bar when equipped
   cardImage: string | null
+  weapons: Weapon[] // weapon profile(s) the upgrade grants, from owner-maintained upgrade-weapons.json ([] if none)
 }
 
 export interface CommandCard {

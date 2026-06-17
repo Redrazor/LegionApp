@@ -27,7 +27,7 @@ function unit(id: string, over: Partial<Unit> = {}): Unit {
   }
 }
 function upgrade(id: string, over: Partial<Upgrade> = {}): Upgrade {
-  return { id, slug: id, name: id, slot: 'gear', cost: 10, isUnique: false, faction: null, keywords: [], cardImage: null, ...over }
+  return { id, slug: id, name: id, slot: 'gear', cost: 10, isUnique: false, faction: null, keywords: [], grantedSlots: [], cardImage: null, weapons: [], ...over }
 }
 
 function makeMaps(units: Unit[], upgrades: Upgrade[] = []) {

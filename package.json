@@ -23,7 +23,8 @@
     "seed": "tsx server/db/seed.ts",
     "server": "tsx server/index.ts",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
-    "keywords": "tsx scraper/keywords.ts"
+    "keywords": "tsx scraper/keywords.ts",
+    "upgrade-weapons": "tsx scraper/upgradeWeapons.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

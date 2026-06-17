@@ -30,6 +30,9 @@ this list (and their detailed write-ups are kept further down for reference).
    at least one of each Corps type) and `take2NonEwokRebs` (Bright Tree Village) are still surfaced as
    rule text, not auto-validated. The rest of the battle-force rule set is now enforced (see "Recently
    shipped" below). Low priority — both are single-battle-force niceties.
+5. **Upgrade-weapon dice verification pass** _(Feature 10 Phase B follow-up)_ — ~12 grey/low-res upgrade
+   cards whose black-vs-white dice couldn't be confirmed at scan resolution are left at source value.
+   Re-verify against higher-res scans / physical cards. Full list: `docs/upgrade-weapon-verification-gaps.md`.
 
 **Recently shipped (was on this list):**
 - ✅ **Browse command cards & upgrades** (v1.9.0, was B6) — Browse gained **Commands** and **Upgrades**
@@ -247,15 +250,21 @@ ranged (`R:`) over best melee (`M:`)** weapon as stacked dice pips, replacing th
   and `extraWeapons` (equipped-upgrade weapons fold into the best-of computation — wired in
   Phase B).
 
-**Phase B — upgrade weapons via card-image interpretation (planned).** Equipped upgrades that
-add a weapon (heavy weapon, armament, grenades, generator, ordnance, and vehicle crew/pilot/
-hardpoint) should feed the live best-R/best-M so e.g. a Z-6 becomes the displayed ranged
-profile. Upgrades carry no weapon data today. Per the new owner directive
-([[extract-from-card-images-not-scraping]]), extract the ~177 weapon-bearing upgrades'
-`{name,range,dice,keywords}` by **reading the self-hosted card scans** (NOT the scraper), with
-an independent verification re-read, store as owner-maintained `upgrade-weapons.json` merged at
-load/seed, add `weapons` to the `Upgrade` type, and pass them as `extraWeapons` from
-`ArmyUnitCard.vue`.
+**Phase B — upgrade weapons (done, v1.15.0).** Equipping a weapon upgrade now feeds the live
+best-R/best-M (e.g. a DLT-19 replaces the stock blaster as the shown ranged when stronger),
+keeping one R and one M where available.
+- Data: owner-maintained `public/data/upgrade-weapons.json` (`{ slug: Weapon[] }`), 177 upgrades /
+  182 weapon profiles. Materialised ONCE via `scraper/upgradeWeapons.ts` (`npm run upgrade-weapons`)
+  then owner-maintained — kept separate from `upgrades.json` so a re-scrape can't wipe it.
+- Sourcing decision: seeded from the structured data we already had in hand, then ran a **FULL
+  image-verification sweep of all 177 cards** against the scans. 25 dice errors in the source were
+  found and fixed (mostly black↔white swaps, incl. the owner-spotted E-5s). ~12 grey/low-res cards
+  could not be confirmed at scan resolution and are left at source value — logged in
+  **`docs/upgrade-weapon-verification-gaps.md`** as a PENDING QUALITY PASS to revisit with higher-res
+  scans. The image-reading discipline ([[extract-from-card-images-not-scraping]]) governs future fields.
+- Wiring: `Upgrade.weapons` added; the `upgrades` store overlays the file by slug at load (works for
+  API + static); `ArmyUnitCard.vue` passes equipped-upgrade weapons as `extraWeapons` to
+  `UnitIndicators`. `tests/catalogue-integrity.spec.ts` guards key dice + slug integrity.
 
 ---
 

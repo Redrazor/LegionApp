@@ -35,6 +35,29 @@ describe('catalogue data integrity', () => {
     expect(kw('Situational Awareness')).toContain('Outmaneuver')
   })
 
+  it('carries owner-maintained upgrade weapon profiles (upgrade-weapons.json), keyed by real slugs', () => {
+    const weapons = JSON.parse(readFileSync(join(__dirname, '../public/data/upgrade-weapons.json'), 'utf8')) as Record<string, { name: string; range: number[]; dice: { red: number; black: number; white: number }; keywords: string[] }[]>
+    const slugs = new Set(load('upgrades.json').map((u) => u.slug))
+    const keys = Object.keys(weapons)
+    expect(keys.length).toBeGreaterThan(150)
+    // Every keyed slug must exist in the catalogue (no orphans after a re-scrape rename).
+    for (const slug of keys) expect(slugs.has(slug), `upgrade-weapons.json slug "${slug}" not in upgrades.json`).toBe(true)
+    // Spot-checks verified against the card scans — guards against dice/colour regressions.
+    const dice = (slug: string) => weapons[slug]?.[0]?.dice
+    expect(dice('the-darksaber')).toEqual({ red: 0, black: 5, white: 0 }) // 5 black (NOT white — the pilot misread)
+    expect(dice('z-6-trooper')).toEqual({ red: 0, black: 0, white: 6 })
+    expect(dice('dlt-19-stormtrooper')).toEqual({ red: 2, black: 0, white: 0 })
+    // Corrected during the full image-verification sweep (source had black/white swapped):
+    expect(dice('lightsaber')).toEqual({ red: 2, black: 3, white: 1 })
+    expect(dice('the-armorer')).toEqual({ red: 2, black: 0, white: 2 })
+    expect(dice('e-5s-b1-battle-droid')).toEqual({ red: 1, black: 0, white: 1 })
+    // Every weapon profile has at least one die and a name.
+    for (const ws of Object.values(weapons)) for (const w of ws) {
+      expect(w.name).toBeTruthy()
+      expect(w.dice.red + w.dice.black + w.dice.white).toBeGreaterThan(0)
+    }
+  })
+
   it('applies the miniCount corrections (MINICOUNT_OVERRIDES survived the last scrape)', () => {
     const units = load('units.json')
     const mc = (slug: string) => units.find((u) => u.slug === slug)?.miniCount

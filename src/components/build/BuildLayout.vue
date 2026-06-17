@@ -6,7 +6,8 @@ import { useBreakpoint } from '../../composables/useBreakpoint.ts'
 // across breakpoints (not two layouts):
 //  • desktop/tablet — two panes side-by-side (catalogue | army) + pinned footer,
 //    with a [Roster] [Command Hand] view toggle when a `command` slot is provided.
-//  • mobile         — a segmented [Catalogue] [My Army] (+ [Command]) toggle.
+//  • mobile         — a segmented [Catalogue] [Army] (+ [Command]) toggle, also
+//    swipeable left/right between panes.
 // Regions are slots so each Epic cycle fills them in: `header`, `catalogue`, `army`,
 // `command`, `footer`.
 const { isMobile } = useBreakpoint()
@@ -17,8 +18,29 @@ type DesktopView = 'roster' | 'command' | 'battle'
 // pane); when null the segmented toggle drives `mobilePane`. `hasCommand`/`hasBattleDeck`
 // enable the command-hand and battle-deck tabs/views.
 const props = defineProps<{ forcePane?: Pane | null; hasCommand?: boolean; hasBattleDeck?: boolean }>()
-const mobilePane = ref<Pane>('army')
+// Catalogue is the default pane — a fresh list starts empty, so you want to add units.
+const mobilePane = ref<Pane>('catalogue')
 const activePane = computed(() => props.forcePane ?? mobilePane.value)
+
+// Swipe left/right to move between the mobile panes.
+let swipeX = 0
+let swipeY = 0
+function onSwipeStart(e: TouchEvent) {
+  swipeX = e.changedTouches[0].clientX
+  swipeY = e.changedTouches[0].clientY
+}
+function onSwipeEnd(e: TouchEvent) {
+  if (props.forcePane) return
+  const dx = e.changedTouches[0].clientX - swipeX
+  const dy = e.changedTouches[0].clientY - swipeY
+  // Require a deliberate, mostly-horizontal swipe so it never fights vertical scroll.
+  if (Math.abs(dx) < 60 || Math.abs(dx) <= Math.abs(dy)) return
+  const tabs = mobileTabs.value
+  const i = tabs.indexOf(mobilePane.value)
+  if (i === -1) return
+  if (dx < 0 && i < tabs.length - 1) mobilePane.value = tabs[i + 1]
+  else if (dx > 0 && i > 0) mobilePane.value = tabs[i - 1]
+}
 // Desktop primary view: roster (catalogue|army grid), or a full-width card view.
 const desktopView = ref<DesktopView>('roster')
 const mobileTabs = computed<Pane[]>(() => [
@@ -32,13 +54,13 @@ const desktopViews = computed<DesktopView[]>(() => [
   ...(props.hasBattleDeck ? ['battle' as DesktopView] : []),
 ])
 const paneLabel = (p: Pane) =>
-  p === 'catalogue' ? 'Catalogue' : p === 'army' ? 'My Army' : p === 'command' ? 'Command' : 'Deck'
+  p === 'catalogue' ? 'Catalogue' : p === 'army' ? 'Army' : p === 'command' ? 'Command' : 'Deck'
 const viewLabel = (v: DesktopView) =>
   v === 'roster' ? 'Roster' : v === 'command' ? 'Command Hand' : 'Battle Deck'
 </script>
 
 <template>
-  <div class="pb-24">
+  <div class="pb-40">
     <div v-if="$slots.header" class="no-print">
       <slot name="header" />
     </div>
@@ -47,12 +69,12 @@ const viewLabel = (v: DesktopView) =>
          the contextual upgrade picker — it has its own close control). -->
     <div
       v-if="isMobile && !forcePane"
-      class="sticky top-[57px] z-20 -mx-4 mb-4 grid gap-1 border-b border-lg-border bg-lg-bg/95 px-4 py-2 backdrop-blur-sm no-print"
+      class="sticky top-[52px] z-20 -mx-4 mb-4 grid gap-1 border-b border-lg-border bg-lg-bg/95 px-4 py-2 backdrop-blur-sm no-print"
       :style="{ gridTemplateColumns: `repeat(${mobileTabs.length}, minmax(0, 1fr))` }"
     >
       <button
         v-for="pane in mobileTabs" :key="pane"
-        class="rounded-lg px-2 py-2 text-sm font-semibold uppercase tracking-wide transition-colors"
+        class="truncate rounded-lg px-0.5 py-2.5 text-center text-[11px] font-semibold uppercase whitespace-nowrap transition-colors"
         :class="mobilePane === pane ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
         @click="mobilePane = pane"
       >{{ paneLabel(pane) }}</button>
@@ -68,33 +90,36 @@ const viewLabel = (v: DesktopView) =>
       >{{ viewLabel(v) }}</button>
     </div>
 
-    <!-- Command hand — full-width on desktop (when its view is active), or the active
-         mobile segment. -->
-    <div v-if="hasCommand" v-show="isMobile ? activePane === 'command' : desktopView === 'command'" class="min-w-0">
-      <slot name="command" />
-    </div>
+    <!-- Pane content. On mobile a horizontal swipe moves between the segments. -->
+    <div @touchstart.passive="onSwipeStart" @touchend.passive="onSwipeEnd">
+      <!-- Command hand — full-width on desktop (when its view is active), or the active
+           mobile segment. -->
+      <div v-if="hasCommand" v-show="isMobile ? activePane === 'command' : desktopView === 'command'" class="min-w-0">
+        <slot name="command" />
+      </div>
 
-    <!-- Battle deck — same morphing rule. -->
-    <div v-if="hasBattleDeck" v-show="isMobile ? activePane === 'battle' : desktopView === 'battle'" class="min-w-0">
-      <slot name="battle" />
-    </div>
+      <!-- Battle deck — same morphing rule. -->
+      <div v-if="hasBattleDeck" v-show="isMobile ? activePane === 'battle' : desktopView === 'battle'" class="min-w-0">
+        <slot name="battle" />
+      </div>
 
-    <!-- Roster panes. On tablet/desktop the catalogue pane is sticky with its own
-         internal scroll, so the upgrade picker stays in view while you scroll the army
-         list (no scrolling back to the top to equip a unit near the bottom). -->
-    <div
-      v-show="isMobile ? (activePane === 'catalogue' || activePane === 'army') : desktopView === 'roster'"
-      :class="isMobile ? '' : 'grid gap-5 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] md:grid-cols-2'"
-    >
-      <section
-        v-show="!isMobile || activePane === 'catalogue'"
-        class="min-w-0 md:sticky md:top-[68px] md:self-start md:h-[calc(100vh-150px)]"
+      <!-- Roster panes. On tablet/desktop the catalogue pane is sticky with its own
+           internal scroll, so the upgrade picker stays in view while you scroll the army
+           list (no scrolling back to the top to equip a unit near the bottom). -->
+      <div
+        v-show="isMobile ? (activePane === 'catalogue' || activePane === 'army') : desktopView === 'roster'"
+        :class="isMobile ? '' : 'grid gap-5 lg:grid-cols-[minmax(0,46fr)_minmax(0,54fr)] md:grid-cols-2'"
       >
-        <slot name="catalogue" />
-      </section>
-      <section v-show="!isMobile || activePane === 'army'" class="min-w-0">
-        <slot name="army" />
-      </section>
+        <section
+          v-show="!isMobile || activePane === 'catalogue'"
+          class="min-w-0 md:sticky md:top-[68px] md:self-start md:h-[calc(100vh-150px)]"
+        >
+          <slot name="catalogue" />
+        </section>
+        <section v-show="!isMobile || activePane === 'army'" class="min-w-0">
+          <slot name="army" />
+        </section>
+      </div>
     </div>
 
     <!-- Pinned footer region (real rank-tracker footer arrives in B2) -->

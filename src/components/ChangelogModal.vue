@@ -7,6 +7,19 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.10.0',
+    date: '2026-06-17',
+    changes: [
+      'Big mobile pass across the whole app. The Build footer no longer cuts off actions on a phone — Save, Share and Cards stay put, and Stats, Print, Export and Import move into a “•••” menu.',
+      'Buttons, dice steppers, quantity controls and close icons are now sized for thumbs (44px targets) throughout Build, Roll, Collection and the card drawers.',
+      'Tapping a search or filter field no longer makes the page zoom in on iPhone — every input is now 16px.',
+      'Unit and card pop-out panels lock the page behind them so it stops scrolling out from under you, and their close buttons are bigger.',
+      'The Commands and Upgrades browse filters now stick to the top as you scroll, matching Units.',
+      'Importing a list over an existing army now uses an in-app confirm dialog, so it works in PWA and in-app browsers where the old prompt was silently ignored.',
+      'The Reference rulebook now shows a clean link on mobile instead of an unusable embedded viewer, and assorted layout, wrapping and legibility fixes across the app.',
+    ],
+  },
+  {
     version: '1.9.1',
     date: '2026-06-17',
     changes: [
@@ -365,7 +378,7 @@ const entries = [
     <Transition name="modal">
       <div
         v-if="show"
-        class="fixed inset-0 z-[70] flex items-end justify-center p-4 sm:items-center"
+        class="fixed inset-0 z-[70] flex items-end justify-center p-4 pb-[max(1rem,env(safe-area-inset-bottom))] sm:items-center sm:pb-4"
         @click.self="$emit('close')"
       >
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="$emit('close')" />
@@ -375,7 +388,7 @@ const entries = [
           <div class="flex items-center justify-between border-b border-lg-border px-5 py-4">
             <h2 class="font-display text-base font-bold uppercase tracking-widest text-lg-accent">What's New</h2>
             <button
-              class="rounded-full bg-lg-dark/60 p-1.5 text-lg-muted transition-colors hover:text-lg-text"
+              class="grid h-11 w-11 place-items-center rounded-full bg-lg-dark/60 text-lg-muted transition-colors hover:text-lg-text"
               aria-label="Close"
               @click="$emit('close')"
             >✕</button>
@@ -391,7 +404,7 @@ const entries = [
               <ul class="space-y-1">
                 <li
                   v-for="change in entry.changes" :key="change"
-                  class="flex gap-2 text-xs text-lg-text/70"
+                  class="flex gap-2 text-sm text-lg-text/70"
                 >
                   <span class="flex-shrink-0 text-lg-accent/40">·</span>
                   {{ change }}

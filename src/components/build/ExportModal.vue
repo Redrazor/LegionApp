@@ -76,17 +76,17 @@ function setTab(t: Tab) {
           <!-- Tabs -->
           <div class="flex gap-2 border-b border-lg-border px-5 pt-3">
             <button
-              class="-mb-px border-b-2 px-2 pb-2 text-sm font-medium transition-colors"
+              class="-mb-px border-b-2 px-3 py-2.5 text-sm font-medium transition-colors"
               :class="tab === 'native' ? 'border-lg-accent text-lg-accent' : 'border-transparent text-lg-muted hover:text-lg-text'"
               @click="setTab('native')"
             >LegionApp file</button>
             <button
-              class="-mb-px border-b-2 px-2 pb-2 text-sm font-medium transition-colors"
+              class="-mb-px border-b-2 px-3 py-2.5 text-sm font-medium transition-colors"
               :class="tab === 'text' ? 'border-lg-accent text-lg-accent' : 'border-transparent text-lg-muted hover:text-lg-text'"
               @click="setTab('text')"
             >Plain text</button>
             <button
-              class="-mb-px border-b-2 px-2 pb-2 text-sm font-medium transition-colors"
+              class="-mb-px border-b-2 px-3 py-2.5 text-sm font-medium transition-colors"
               :class="tab === 'json' ? 'border-lg-accent text-lg-accent' : 'border-transparent text-lg-muted hover:text-lg-text'"
               @click="setTab('json')"
             >TTS / Longshanks</button>
@@ -116,11 +116,11 @@ function setTab(t: Tab) {
           <!-- Actions -->
           <div class="flex items-center justify-end gap-2 border-t border-lg-border px-5 py-3">
             <button
-              class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent"
+              class="rounded-lg border border-lg-border bg-lg-surface px-4 py-3 text-sm min-h-[44px] text-lg-muted hover:text-lg-accent"
               @click="download"
             >Download .{{ ext }}</button>
             <button
-              class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-1.5 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25"
+              class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-4 py-3 text-sm min-h-[44px] font-semibold text-lg-accent hover:bg-lg-accent/25"
               @click="copy"
             >{{ copied ? 'Copied!' : 'Copy' }}</button>
           </div>

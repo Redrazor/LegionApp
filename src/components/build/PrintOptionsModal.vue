@@ -65,7 +65,7 @@ const cards = [
                   type="checkbox"
                   v-model="options[r.key]"
                   :disabled="'needsDeck' in r && r.needsDeck && !hasBattleDeck"
-                  class="mt-0.5 h-4 w-4 flex-none accent-lg-accent"
+                  class="mt-0.5 h-5 w-5 flex-none accent-lg-accent"
                 />
                 <span>
                   <span class="block text-sm font-medium text-lg-text">{{ r.label }}</span>
@@ -87,7 +87,7 @@ const cards = [
                   type="checkbox"
                   v-model="options[c.key]"
                   :disabled="'needsDeck' in c && c.needsDeck && !hasBattleDeck"
-                  class="mt-0.5 h-4 w-4 flex-none accent-lg-accent"
+                  class="mt-0.5 h-5 w-5 flex-none accent-lg-accent"
                 />
                 <span>
                   <span class="block text-sm font-medium text-lg-text">{{ c.label }}</span>
@@ -104,7 +104,7 @@ const cards = [
                   type="checkbox"
                   v-model="options.perCopy"
                   :disabled="!options.unitCards && !options.upgradeCards"
-                  class="mt-0.5 h-4 w-4 flex-none accent-lg-accent"
+                  class="mt-0.5 h-5 w-5 flex-none accent-lg-accent"
                 />
                 <span>
                   <span class="block text-sm font-medium text-lg-text">One image per copy (×qty)</span>
@@ -117,11 +117,11 @@ const cards = [
           <!-- Actions -->
           <div class="flex items-center justify-end gap-2 border-t border-lg-border px-5 py-3">
             <button
-              class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-text"
+              class="rounded-lg border border-lg-border bg-lg-surface px-4 py-3 min-h-[44px] text-sm text-lg-muted hover:text-lg-text"
               @click="emit('close')"
             >Cancel</button>
             <button
-              class="rounded-lg border border-lg-accent/40 bg-lg-accent/15 px-3 py-1.5 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25"
+              class="rounded-lg border border-lg-accent/40 bg-lg-accent/15 px-4 py-3 min-h-[44px] text-sm font-semibold text-lg-accent hover:bg-lg-accent/25"
               @click="emit('print')"
             >Print</button>
           </div>

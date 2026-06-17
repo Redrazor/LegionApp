@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, onBeforeUnmount } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useRoute, useRouter } from 'vue-router'
 import { useCommandsStore } from '../../stores/commands.ts'
@@ -32,7 +32,9 @@ onMounted(() => {
   commandsStore.load()
   upgradesStore.load()
   keywordsStore.load()
+  document.body.style.overflow = 'hidden'
 })
+onBeforeUnmount(() => { document.body.style.overflow = '' })
 
 function close() {
   router.push({ path: section.value, query: route.query })
@@ -68,7 +70,7 @@ useHead(computed(() => {
       <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="close" />
 
       <Transition appear name="slide">
-        <aside class="relative flex h-full w-full max-w-md flex-col overflow-y-auto border-r border-lg-border bg-lg-surface shadow-2xl">
+        <aside class="relative flex h-full w-full max-w-md flex-col overflow-y-auto overscroll-contain border-r border-lg-border bg-lg-surface shadow-2xl">
           <div v-if="!card" class="p-8 text-center text-lg-muted">Card not found.</div>
 
           <template v-else>
@@ -97,7 +99,7 @@ useHead(computed(() => {
                   <div class="font-display text-2xl font-bold text-lg-accent">{{ upgrade.cost }}</div>
                   <div class="text-[10px] uppercase tracking-wide text-lg-muted">points</div>
                 </div>
-                <button class="grid h-8 w-8 place-items-center rounded-lg text-lg-muted hover:bg-lg-text/8 hover:text-lg-text" aria-label="Close" @click="close">✕</button>
+                <button class="grid h-11 w-11 place-items-center rounded-lg text-lg-muted hover:bg-lg-text/8 hover:text-lg-text" aria-label="Close" @click="close">✕</button>
               </div>
             </div>
 

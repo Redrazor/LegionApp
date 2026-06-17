@@ -22,7 +22,7 @@ function rangeLabel(range: number[]): string {
         <span class="text-sm font-semibold text-lg-text">{{ w.name }}</span>
         <span class="text-xs text-lg-muted">Range {{ rangeLabel(w.range) }}</span>
       </div>
-      <div class="mt-1.5 flex items-center gap-3">
+      <div class="mt-1.5 flex flex-wrap items-center gap-3">
         <!-- Dice -->
         <div class="flex items-center gap-1.5">
           <span v-if="w.dice.red" class="flex items-center gap-0.5 text-xs">

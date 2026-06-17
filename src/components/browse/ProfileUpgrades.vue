@@ -35,10 +35,10 @@ const groups = computed(() => {
         <h4 class="text-xs font-bold uppercase tracking-widest text-lg-muted">{{ slotLabel(group.slot) }}</h4>
         <span class="text-[11px] text-lg-muted/70">{{ group.upgrades.length }}</span>
       </div>
-      <div class="flex gap-2 overflow-x-auto pb-1">
+      <div class="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-1">
         <button
           v-for="u in group.upgrades" :key="u.id"
-          class="group flex w-28 flex-none flex-col overflow-hidden rounded-lg border border-lg-border bg-lg-dark text-left transition-colors hover:border-lg-accent/50"
+          class="group flex w-28 flex-none snap-start flex-col overflow-hidden rounded-lg border border-lg-border bg-lg-dark text-left transition-colors hover:border-lg-accent/50"
           @click="enlarged = u"
         >
           <div class="relative aspect-[1.4/1] w-full bg-lg-panel">
@@ -75,6 +75,10 @@ const groups = computed(() => {
             </span>
             <span class="font-display font-bold text-lg-accent">{{ enlarged.cost ?? 0 }} pts</span>
           </div>
+          <button
+            class="mt-2 w-full rounded-lg border border-lg-border py-2 text-sm text-lg-muted hover:text-lg-accent"
+            @click="enlarged = null"
+          >Close</button>
         </div>
       </div>
     </Transition>

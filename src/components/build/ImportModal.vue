@@ -77,7 +77,7 @@ function load() {
               v-model="text"
               spellcheck="false"
               placeholder="…or paste the exported list here"
-              class="h-40 w-full resize-none rounded-lg border border-lg-border bg-lg-dark p-3 font-mono text-xs text-lg-text/90 outline-none placeholder:text-lg-muted/40 focus:border-lg-accent/50"
+              class="h-40 w-full resize-none rounded-lg border border-lg-border bg-lg-dark p-3 font-mono text-base text-lg-text/90 outline-none placeholder:text-lg-muted/40 focus:border-lg-accent/50"
             />
 
             <!-- Outcome -->
@@ -97,11 +97,11 @@ function load() {
           <!-- Actions -->
           <div class="flex items-center justify-end gap-2 border-t border-lg-border px-5 py-3">
             <button
-              class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-text"
+              class="rounded-lg border border-lg-border bg-lg-surface px-4 py-3 min-h-[44px] text-sm text-lg-muted hover:text-lg-text"
               @click="emit('close')"
             >{{ result?.ok ? 'Done' : 'Cancel' }}</button>
             <button
-              class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-1.5 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25 disabled:opacity-40"
+              class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-4 py-3 min-h-[44px] text-sm font-semibold text-lg-accent hover:bg-lg-accent/25 disabled:opacity-40"
               :disabled="!text.trim()"
               @click="load"
             >Load list</button>

@@ -41,14 +41,57 @@ const emit = defineEmits<{
 
 const checklistOpen = ref(false)
 const cardsOpen = ref(false)
-// The two drawers are mutually exclusive so the footer never stacks both.
+// On mobile the secondary actions (Stats/Print/Export/Import) live in a "More"
+// bottom-sheet so the action row doesn't overflow a 360–390px viewport.
+const moreOpen = ref(false)
+// The game-format picker is a small dropdown that opens upward (the footer is
+// pinned to the bottom of the viewport, so a downward menu would be clipped).
+const formatOpen = ref(false)
+const currentFormat = computed(() => FORMATS.find((fm) => fm.cap === props.cap))
+// The drawers are mutually exclusive so the footer never stacks more than one.
 function toggleChecklist() {
   checklistOpen.value = !checklistOpen.value
-  if (checklistOpen.value) cardsOpen.value = false
+  if (checklistOpen.value) {
+    cardsOpen.value = false
+    moreOpen.value = false
+    formatOpen.value = false
+  }
 }
 function toggleCards() {
   cardsOpen.value = !cardsOpen.value
-  if (cardsOpen.value) checklistOpen.value = false
+  if (cardsOpen.value) {
+    checklistOpen.value = false
+    moreOpen.value = false
+    formatOpen.value = false
+  }
+}
+function toggleMore() {
+  moreOpen.value = !moreOpen.value
+  if (moreOpen.value) {
+    checklistOpen.value = false
+    cardsOpen.value = false
+    formatOpen.value = false
+  }
+}
+function toggleFormat() {
+  formatOpen.value = !formatOpen.value
+  if (formatOpen.value) {
+    checklistOpen.value = false
+    cardsOpen.value = false
+    moreOpen.value = false
+  }
+}
+function selectFormat(c: number) {
+  emit('setGameSize', c)
+  formatOpen.value = false
+}
+// Fire a secondary action from the More sheet, then close it.
+function fromMore(action: 'stats' | 'print' | 'export' | 'import') {
+  moreOpen.value = false
+  if (action === 'stats') emit('stats')
+  else if (action === 'print') emit('print')
+  else if (action === 'export') emit('export')
+  else emit('import')
 }
 
 // Command hand grouped by pip (1/2/3) for the summary; Standing Orders shown apart.
@@ -94,7 +137,7 @@ const chipClass: Record<ReturnType<typeof rankChipState>, string> = {
         <div class="mb-2.5 max-h-[50vh] overflow-y-auto border-b border-lg-border pb-2.5">
           <div class="mb-1.5 flex items-center justify-between">
             <h3 class="text-xs font-bold uppercase tracking-widest text-lg-muted">Army Status</h3>
-            <button class="text-lg-muted hover:text-lg-accent" aria-label="Close" @click="checklistOpen = false">✕</button>
+            <button class="grid h-10 w-10 place-items-center text-lg-muted hover:text-lg-accent" aria-label="Close" @click="checklistOpen = false">✕</button>
           </div>
           <ul class="space-y-1.5">
             <li v-for="(item, i) in items" :key="i" class="flex items-center justify-between gap-2 text-sm">
@@ -118,7 +161,7 @@ const chipClass: Record<ReturnType<typeof rankChipState>, string> = {
         <div class="mb-2.5 max-h-[55vh] overflow-y-auto border-b border-lg-border pb-2.5">
           <div class="mb-1.5 flex items-center justify-between">
             <h3 class="text-xs font-bold uppercase tracking-widest text-lg-muted">Cards</h3>
-            <button class="text-lg-muted hover:text-lg-accent" aria-label="Close" @click="cardsOpen = false">✕</button>
+            <button class="grid h-10 w-10 place-items-center text-lg-muted hover:text-lg-accent" aria-label="Close" @click="cardsOpen = false">✕</button>
           </div>
           <div class="grid gap-x-6 gap-y-3 sm:grid-cols-2">
             <!-- Command hand -->
@@ -162,6 +205,27 @@ const chipClass: Record<ReturnType<typeof rankChipState>, string> = {
       </div>
     </div>
 
+    <!-- "More" actions drawer (mobile only): secondary actions as full-width rows -->
+    <div
+      class="grid transition-[grid-template-rows] duration-300 ease-out sm:hidden"
+      :style="{ gridTemplateRows: moreOpen ? '1fr' : '0fr' }"
+    >
+      <div class="overflow-hidden">
+        <div class="mb-2.5 max-h-[50vh] overflow-y-auto border-b border-lg-border pb-2.5">
+          <div class="mb-1.5 flex items-center justify-between">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-lg-muted">More</h3>
+            <button class="grid h-10 w-10 place-items-center text-lg-muted hover:text-lg-accent" aria-label="Close" @click="moreOpen = false">✕</button>
+          </div>
+          <div class="space-y-1.5">
+            <button class="flex w-full items-center rounded-lg border border-lg-border bg-lg-surface px-3 py-3 text-sm font-semibold text-lg-text hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="fromMore('stats')">Stats</button>
+            <button class="flex w-full items-center rounded-lg border border-lg-border bg-lg-surface px-3 py-3 text-sm font-semibold text-lg-text hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="fromMore('print')">Print</button>
+            <button class="flex w-full items-center rounded-lg border border-lg-border bg-lg-surface px-3 py-3 text-sm font-semibold text-lg-text hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="fromMore('export')">Export</button>
+            <button class="flex w-full items-center rounded-lg border border-lg-border bg-lg-surface px-3 py-3 text-sm font-semibold text-lg-text hover:text-lg-accent" @click="fromMore('import')">Import</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Rank chips -->
     <div class="flex flex-wrap items-center gap-1.5">
       <span
@@ -176,62 +240,94 @@ const chipClass: Record<ReturnType<typeof rankChipState>, string> = {
       </span>
     </div>
 
-    <!-- Totals + controls -->
-    <div class="mt-1.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-      <div class="flex items-center gap-1.5">
-        <button
-          class="flex items-baseline gap-2 rounded-lg px-1 text-left hover:bg-lg-text/5"
-          :title="checklistOpen ? 'Hide validation checklist' : 'Show validation checklist'"
-          :aria-expanded="checklistOpen"
-          @click="toggleChecklist"
-        >
-          <span class="font-display text-xl font-bold" :class="points > cap ? 'text-faction-rebels' : 'text-lg-accent'">{{ points }}</span>
-          <span class="text-sm text-lg-muted">/ {{ cap }}</span>
-          <span class="text-xs" :class="remaining < 0 ? 'text-faction-rebels' : 'text-lg-muted'">({{ remaining }} left)</span>
-          <span class="hidden text-xs text-lg-muted sm:inline">· {{ activations }} act · {{ models }} models</span>
-          <span
-            class="ml-0.5 rounded-full px-2 py-0.5 text-xs font-semibold"
-            :class="valid ? 'bg-lg-valid/15 text-lg-valid' : 'bg-faction-rebels/15 text-faction-rebels'"
-          >{{ valid ? 'Legal' : 'Illegal' }}</span>
-          <span
-            class="text-lg-muted/70 transition-transform duration-300"
-            :class="checklistOpen ? 'rotate-180' : ''"
-            aria-hidden="true"
-          >⌃</span>
-        </button>
+    <!-- Totals + controls — all left-aligned. -->
+    <div class="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-2">
+      <!-- Points / cap / remaining / legality — kept on a single line. -->
+      <button
+        class="flex items-baseline gap-1.5 whitespace-nowrap rounded-lg px-1 py-1.5 text-left hover:bg-lg-text/5"
+        :title="checklistOpen ? 'Hide validation checklist' : 'Show validation checklist'"
+        :aria-expanded="checklistOpen"
+        @click="toggleChecklist"
+      >
+        <span class="font-display text-2xl font-bold leading-none" :class="points > cap ? 'text-faction-rebels' : 'text-lg-accent'">{{ points }}</span>
+        <span class="text-sm text-lg-muted">/ {{ cap }}</span>
+        <span class="text-xs" :class="remaining < 0 ? 'text-faction-rebels' : 'text-lg-muted'">({{ remaining }} left)</span>
+        <span class="hidden text-xs text-lg-muted sm:inline">· {{ activations }} act · {{ models }} models</span>
+        <span
+          class="ml-0.5 rounded-full px-2 py-0.5 text-xs font-semibold"
+          :class="valid ? 'bg-lg-valid/15 text-lg-valid' : 'bg-faction-rebels/15 text-faction-rebels'"
+        >{{ valid ? 'Legal' : 'Illegal' }}</span>
+        <span
+          class="text-lg-muted/70 transition-transform duration-300"
+          :class="checklistOpen ? 'rotate-180' : ''"
+          aria-hidden="true"
+        >⌃</span>
+      </button>
 
-        <!-- Cards drawer toggle: command hand + battle deck at a glance -->
+      <!-- Cards drawer toggle: command hand + battle deck at a glance -->
+      <button
+        class="flex items-center gap-1 rounded-lg border border-lg-border px-2 py-1.5 text-xs font-semibold hover:border-lg-accent/40"
+        :title="cardsOpen ? 'Hide cards' : 'Show command hand & battle deck'"
+        :aria-expanded="cardsOpen"
+        @click="toggleCards"
+      >
+        <span class="uppercase tracking-wider text-lg-muted">Cards</span>
+        <span :class="commandTotal === 7 ? 'text-lg-accent' : 'text-lg-muted'">{{ commandTotal }}/7</span>
+        <span v-if="showBattleDeck" class="text-lg-muted/50">·</span>
+        <span v-if="showBattleDeck" :class="battleDeckCards.length === 9 ? 'text-lg-accent' : 'text-lg-muted'">{{ battleDeckCards.length }}/9</span>
+        <span class="text-lg-muted/70 transition-transform duration-300" :class="cardsOpen ? 'rotate-180' : ''" aria-hidden="true">⌃</span>
+      </button>
+
+      <!-- Game-format picker: a dropdown that opens upward. -->
+      <div class="relative">
         <button
-          class="flex items-center gap-1 rounded-lg border border-lg-border px-2 py-1 text-xs font-semibold hover:border-lg-accent/40"
-          :title="cardsOpen ? 'Hide cards' : 'Show command hand & battle deck'"
-          :aria-expanded="cardsOpen"
-          @click="toggleCards"
+          class="flex items-center gap-1 whitespace-nowrap rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-xs font-semibold text-lg-muted hover:border-lg-accent/40 hover:text-lg-accent"
+          :title="`Game format — ${currentFormat?.name ?? ''} · ${cap} pts`"
+          :aria-expanded="formatOpen"
+          @click="toggleFormat"
         >
-          <span class="uppercase tracking-wider text-lg-muted">Cards</span>
-          <span :class="commandTotal === 7 ? 'text-lg-accent' : 'text-lg-muted'">{{ commandTotal }}/7</span>
-          <span v-if="showBattleDeck" class="text-lg-muted/50">·</span>
-          <span v-if="showBattleDeck" :class="battleDeckCards.length === 9 ? 'text-lg-accent' : 'text-lg-muted'">{{ battleDeckCards.length }}/9</span>
-          <span class="text-lg-muted/70 transition-transform duration-300" :class="cardsOpen ? 'rotate-180' : ''" aria-hidden="true">⌃</span>
+          <span class="text-lg-text">{{ currentFormat?.name ?? 'Format' }}</span>
+          <span class="text-lg-muted/70">{{ cap }}</span>
+          <span class="text-lg-muted/70 transition-transform duration-300" :class="formatOpen ? 'rotate-180' : ''" aria-hidden="true">⌃</span>
         </button>
+        <template v-if="formatOpen">
+          <!-- click-catcher backdrop -->
+          <div class="fixed inset-0 z-40" @click="formatOpen = false" />
+          <div class="absolute bottom-full left-0 z-50 mb-2 min-w-[12rem] overflow-hidden rounded-lg border border-lg-border bg-lg-surface shadow-xl">
+            <button
+              v-for="fm in FORMATS" :key="fm.id"
+              class="flex w-full items-center justify-between gap-3 px-3 py-2.5 text-sm transition-colors"
+              :class="cap === fm.cap ? 'bg-lg-accent/15 text-lg-accent' : 'text-lg-text hover:bg-lg-text/5'"
+              @click="selectFormat(fm.cap)"
+            >
+              <span class="font-medium">{{ fm.name }}</span>
+              <span class="text-xs text-lg-muted">{{ fm.cap }} pts</span>
+            </button>
+          </div>
+        </template>
       </div>
 
-      <div class="flex items-center gap-2">
-        <!-- Format switcher (relocated from the header) -->
-        <div class="flex overflow-hidden rounded-lg border border-lg-border">
-          <button
-            v-for="f in FORMATS" :key="f.id"
-            class="px-2 py-1.5 text-[11px] font-semibold transition-colors"
-            :class="cap === f.cap ? 'bg-lg-accent/20 text-lg-accent' : 'bg-lg-surface text-lg-muted'"
-            :title="`${f.name} · ${f.cap} pts`"
-            @click="emit('setGameSize', f.cap)"
-          >{{ f.name }}<span class="ml-1 hidden text-lg-muted/70 sm:inline">{{ f.cap }}</span></button>
-        </div>
+      <!-- Desktop/tablet: all actions inline. -->
+      <div class="hidden items-center gap-2 sm:flex">
         <button class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-1.5 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25" @click="emit('save')">{{ saveLabel }}</button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('share')">Share</button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('stats')">Stats</button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('print')">Print</button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('export')">Export</button>
         <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent" @click="emit('import')">Import</button>
+      </div>
+
+      <!-- Mobile: Save/Share + a ••• "More" sheet for the rest. -->
+      <div class="flex items-center gap-2 sm:hidden">
+        <button class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-1.5 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25" @click="emit('save')">{{ saveLabel }}</button>
+        <button class="rounded-lg border border-lg-border bg-lg-surface px-3 py-1.5 text-sm text-lg-muted hover:text-lg-accent disabled:opacity-40" :disabled="!canExport" @click="emit('share')">Share</button>
+        <button
+          class="grid h-9 w-10 place-items-center rounded-lg border border-lg-border bg-lg-surface text-sm font-bold text-lg-muted hover:text-lg-accent"
+          :title="moreOpen ? 'Hide more actions' : 'More actions'"
+          :aria-expanded="moreOpen"
+          aria-label="More actions"
+          @click="toggleMore"
+        >•••</button>
       </div>
     </div>
 

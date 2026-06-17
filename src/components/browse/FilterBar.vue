@@ -18,7 +18,7 @@ const f = computed(() => props.filters)
 </script>
 
 <template>
-  <div class="sticky top-[57px] z-30 -mx-4 mb-4 border-b border-lg-border bg-lg-bg/95 px-4 py-3 backdrop-blur-sm">
+  <div class="sticky top-[52px] z-30 -mx-4 mb-4 border-b border-lg-border bg-lg-bg/95 px-4 py-3 backdrop-blur-sm">
     <!-- Search -->
     <div class="flex items-center gap-2">
       <div class="relative flex-1">
@@ -26,7 +26,7 @@ const f = computed(() => props.filters)
           v-model="f.query"
           type="search"
           placeholder="Search units, titles, keywords…"
-          class="w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+          class="w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-base text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
         />
       </div>
       <button
@@ -36,11 +36,11 @@ const f = computed(() => props.filters)
       >Clear</button>
     </div>
 
-    <!-- Faction pills -->
-    <div class="mt-2 flex flex-wrap gap-1.5">
+    <!-- Faction pills (desktop) -->
+    <div class="mt-2 hidden flex-wrap gap-1.5 sm:flex">
       <button
         v-for="fac in factions" :key="fac.id"
-        class="rounded-full border px-2.5 py-1 text-xs font-medium transition-colors"
+        class="inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-colors"
         :class="f.faction === fac.id
           ? 'border-lg-accent bg-lg-accent/15 text-lg-accent'
           : 'border-lg-border bg-lg-surface text-lg-muted hover:text-lg-text'"
@@ -50,9 +50,18 @@ const f = computed(() => props.filters)
 
     <!-- Rank + keyword + toggles -->
     <div class="mt-2 flex flex-wrap items-center gap-2">
+      <!-- Faction dropdown (mobile only) -->
+      <select
+        v-model="f.faction"
+        class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-base text-lg-text focus:border-lg-accent/60 focus:outline-none sm:hidden"
+      >
+        <option value="">All factions</option>
+        <option v-for="fac in factions" :key="fac.id" :value="fac.id">{{ fac.name }}</option>
+      </select>
+
       <select
         v-model="f.rank"
-        class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-xs text-lg-text focus:border-lg-accent/60 focus:outline-none"
+        class="rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-base text-lg-text focus:border-lg-accent/60 focus:outline-none"
       >
         <option value="">All ranks</option>
         <option v-for="r in ranks" :key="r.id" :value="r.id">{{ r.name }}</option>
@@ -62,7 +71,7 @@ const f = computed(() => props.filters)
         v-model="f.keyword"
         list="keyword-list"
         placeholder="Keyword…"
-        class="w-32 rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-xs text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+        class="w-32 rounded-lg border border-lg-border bg-lg-surface px-2.5 py-1.5 text-base text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
       />
       <datalist id="keyword-list">
         <option v-for="k in keywords" :key="k" :value="k" />

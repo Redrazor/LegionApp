@@ -256,13 +256,13 @@ watch(
         <span class="flex-1 text-sm font-semibold capitalize text-lg-text/80">{{ color }}</span>
         <div class="flex items-center gap-2">
           <button
-            class="grid h-6 w-6 place-items-center rounded-md border border-lg-border text-base font-bold text-lg-text/70 hover:border-lg-accent disabled:opacity-30"
+            class="grid h-9 w-9 place-items-center rounded-md border border-lg-border text-base font-bold text-lg-text/70 hover:border-lg-accent disabled:opacity-30"
             :disabled="(counts[color] || 0) <= 0"
             @click.stop="setCount(color, (counts[color] || 0) - 1)"
           >−</button>
           <span class="w-5 text-center text-base font-bold tabular-nums text-lg-text">{{ counts[color] || 0 }}</span>
           <button
-            class="grid h-6 w-6 place-items-center rounded-md border border-lg-border text-base font-bold text-lg-text/70 hover:border-lg-accent"
+            class="grid h-9 w-9 place-items-center rounded-md border border-lg-border text-base font-bold text-lg-text/70 hover:border-lg-accent"
             @click.stop="setCount(color, (counts[color] || 0) + 1)"
           >+</button>
         </div>
@@ -293,14 +293,14 @@ watch(
           <button class="stepper-btn" :disabled="(mods as any).aims <= 0" @click="(mods as any).aims = Math.max(0, (mods as any).aims - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ (mods as any).aims }}</span>
           <button class="stepper-btn" @click="(mods as any).aims++">+</button>
-          <span class="text-[10px] text-lg-text/35">reroll up to {{ aimBudget }} dice</span>
+          <span class="hidden text-[10px] text-lg-text/35 sm:inline">reroll up to {{ aimBudget }} dice</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="w-14 text-[11px] font-semibold uppercase tracking-wider text-lg-text/45">Pierce</span>
           <button class="stepper-btn" :disabled="(mods as any).pierce <= 0" @click="(mods as any).pierce = Math.max(0, (mods as any).pierce - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ (mods as any).pierce }}</span>
           <button class="stepper-btn" @click="(mods as any).pierce++">+</button>
-          <span class="text-[10px] text-lg-text/35">cancels defender blocks</span>
+          <span class="hidden text-[10px] text-lg-text/35 sm:inline">cancels defender blocks</span>
         </div>
       </template>
 
@@ -311,14 +311,14 @@ watch(
           <button class="stepper-btn" :disabled="(mods as any).cover <= 0" @click="(mods as any).cover = Math.max(0, (mods as any).cover - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ (mods as any).cover }}</span>
           <button class="stepper-btn" @click="(mods as any).cover++">+</button>
-          <span class="text-[10px] text-lg-text/35">cancels hits pre-roll</span>
+          <span class="hidden text-[10px] text-lg-text/35 sm:inline">cancels hits pre-roll</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="w-14 text-[11px] font-semibold uppercase tracking-wider text-lg-text/45">Dodge</span>
           <button class="stepper-btn" :disabled="(mods as any).dodge <= 0" @click="(mods as any).dodge = Math.max(0, (mods as any).dodge - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ (mods as any).dodge }}</span>
           <button class="stepper-btn" @click="(mods as any).dodge++">+</button>
-          <span class="text-[10px] text-lg-text/35">cancels hits</span>
+          <span class="hidden text-[10px] text-lg-text/35 sm:inline">cancels hits</span>
         </div>
       </template>
     </div>
@@ -372,7 +372,7 @@ watch(
           @click="changeFace(selectedDie, face)"
         >
           <DieFace :type="type" :color="selectedDie.color" :face="face" :size="36" />
-          <span class="text-[8px] capitalize text-lg-text/50">{{ face }}</span>
+          <span class="text-xs capitalize text-lg-text/50">{{ face }}</span>
         </div>
       </div>
     </div>
@@ -404,7 +404,7 @@ watch(
         <button
           v-for="color in colors"
           :key="color"
-          class="grid h-5 w-5 place-items-center rounded-md border border-black/30 transition-transform hover:scale-110 hover:ring-1 hover:ring-lg-accent"
+          class="grid h-9 w-9 place-items-center rounded-md border border-black/30 transition-transform hover:scale-110 hover:ring-1 hover:ring-lg-accent"
           :style="{ background: SWATCH[color] }"
           :title="`Add ${color} die`"
           :aria-label="`Add ${color} die`"
@@ -433,8 +433,8 @@ watch(
 .stepper-btn {
   display: grid;
   place-items: center;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2.75rem;
+  width: 2.75rem;
   border-radius: 0.375rem;
   border: 1px solid var(--color-lg-border);
   font-size: 1rem;

@@ -63,6 +63,8 @@ const defSurge = [
           <button class="step" :disabled="atk.aims <= 0" @click="atk.aims = Math.max(0, atk.aims - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ atk.aims }}</span>
           <button class="step" @click="atk.aims++">+</button>
+        </div>
+        <div class="flex items-center gap-2">
           <span class="w-12 text-[10px] font-semibold uppercase tracking-wider text-lg-text/45">Pierce</span>
           <button class="step" :disabled="atk.pierce <= 0" @click="atk.pierce = Math.max(0, atk.pierce - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ atk.pierce }}</span>
@@ -91,6 +93,8 @@ const defSurge = [
           <button class="step" :disabled="def.cover <= 0" @click="def.cover = Math.max(0, def.cover - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ def.cover }}</span>
           <button class="step" @click="def.cover++">+</button>
+        </div>
+        <div class="flex items-center gap-2">
           <span class="w-12 text-[10px] font-semibold uppercase tracking-wider text-lg-text/45">Dodge</span>
           <button class="step" :disabled="def.dodge <= 0" @click="def.dodge = Math.max(0, def.dodge - 1)">−</button>
           <span class="w-5 text-center text-sm font-bold tabular-nums text-lg-text">{{ def.dodge }}</span>
@@ -133,8 +137,8 @@ const defSurge = [
 .step {
   display: grid;
   place-items: center;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 2.75rem;
+  width: 2.75rem;
   border-radius: 0.375rem;
   border: 1px solid var(--color-lg-border);
   font-size: 1rem;

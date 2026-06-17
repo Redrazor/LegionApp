@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.12.0',
+    date: '2026-06-17',
+    changes: [
+      'Build portraits are now cropped directly from each unit’s own card art, so every unit shows a consistent round portrait. Units without a usable scan show a neutral placeholder instead of a guessed crop.',
+    ],
+  },
+  {
     version: '1.11.3',
     date: '2026-06-17',
     changes: [

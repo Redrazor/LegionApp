@@ -16,7 +16,7 @@ stays usable even if Render is cold or down.
 - [ ] `npm run build` — succeeds; PWA precache is small (~24 entries, **not** 50 MB — that would
       mean images leaked into `dist/`).
 - [ ] **Re-scrape for launch-day data:** `npm run scrape` → `npm run portraits` →
-      `npm run upgrade-keywords` → `npm run seed`. (Skip if the catalogue is already current.)
+      `npm run seed`. (Skip if the catalogue is already current.)
 - [ ] `npm run icons` — regenerates `public/icons/` from `favicon.svg` (only if the favicon changed).
 
 ---
@@ -107,7 +107,7 @@ Config is committed: `vercel.json` (SPA rewrite, `npm run build` → `dist`). En
 ---
 
 ## Re-deploy cheatsheet (after launch)
-- **Card data/images changed:** `npm run scrape` → `portraits` → `upgrade-keywords` → `seed`, then
+- **Card data/images changed:** `npm run scrape` → `portraits` → `seed`, then
   `npm run images:compress` → `npm run images:deploy` (Firebase). Push to `main` → Vercel + Render
   auto-deploy.
 - **Frontend only:** push to `main` → Vercel auto-deploys.

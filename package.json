@@ -17,7 +17,7 @@
     "images:compress": "tsx scripts/compress-images.ts",
     "images:deploy": "firebase deploy --only hosting",
     "portraits": "tsx scraper/portraits.ts",
-    "upgrade-keywords": "tsx scraper/upgradeKeywords.ts",
+    "portraits:validate": "tsx scripts/generate-portrait-validation.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx server/db/migrate.ts",
     "seed": "tsx server/db/seed.ts",

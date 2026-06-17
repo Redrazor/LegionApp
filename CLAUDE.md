@@ -57,24 +57,27 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
   keyword stops resolving. **To change a keyword's text, edit the `.md` and re-run `npm run
   keywords`** — never hand-edit `keywords.json`. (The old `Electrynth/legion-hq-web` keyword
   dump was 1st-edition and ~41 entries were materially wrong; it is no longer used.)
-- **Tabletop Admiral is a secondary source for two owner-approved things only:**
-  - **Unit portrait icons** — TTA's purpose-made busts (`units-new/portraits/<id>.webp`). LHQ2
-    ships only full card scans, so the Build round icons come from TTA, self-hosted via
-    `npm run portraits` (maps our units→TTA ids by name, downloads to
-    `public/images/portraits/<slug>.webp`, stamps `portraitImage`; ~174/179, rest fall back to a
-    card-art crop).
-  - **Missing upgrade keywords** — LHQ2 leaves ~123/413 upgrades with empty `keywords` (e.g.
-    Situational Awareness → Outmaneuver). `npm run upgrade-keywords` fills ONLY the empty ones from
-    TTA's `keyword_ids` (+`/api/keywords` names; strips the literal "X" value placeholder), matched
-    by name (+24; the rest are genuinely effect-only upgrades). LHQ2 stays authoritative where it
-    has keywords.
-  - **Effect *text* exists nowhere as data** (LHQ2 + TTA `text` both null) — only on the card image,
-    which the Build inspect gallery shows. Do not try to source it.
-  - **Everything else stays LHQ2-only** (stats, weapons, costs, ranks, requirements, etc.). Run order
-    after a re-scrape: `scrape` → `portraits` → `upgrade-keywords` → `seed`.
-- Rejected as a *data* source for stats/scans: tabletopadmiral.com card scans (1st-edition art) and
-  legion-hq-web `cards.json` (older; name collisions cross-contaminated skills). TTA is used only for
-  the two narrow things above — never for unit/upgrade stats.
+- **No third-party data sources.** LHQ2 + the owner-maintained `Keyword_glossary.md` are the
+  whole supply. (Tabletop Admiral was previously used for portrait busts and a few upgrade
+  keyword fills; **both were expunged in Feature 8** — do NOT reintroduce TTA or any other
+  external source.)
+  - **Unit portrait icons** — LHQ2 ships only full card scans, so `npm run portraits`
+    (`scraper/portraits.ts`) crops the round Build badge straight out of each unit's OWN card
+    scan (`public/images/units/<slug>.webp` → `public/images/portraits/<slug>.webp`, 40×40) and
+    stamps `portraitImage` for all 180. Every crop is **hand-tuned per unit** in
+    `CARD_CROP_PORTRAITS` (a square region in native pixels, centred on the figure's face) — one
+    entry per catalogue unit. A unit only lacks a portrait if it has no entry there (e.g. a new
+    unit after a scrape) or its card scan is missing — the UI then shows a neutral "no portrait"
+    silhouette (`UnitBadge.vue`), never a guessed crop. `portrait-validation.html` (repo root,
+    `npm run portraits:validate`) renders every badge with its #id for eyeballing the crops.
+  - **Upgrade keywords** — the ~24 upgrades LHQ2 ships with empty `keywords` (e.g. DH-447 Sniper
+    → Sniper Team) carry **owner-maintained** keyword tags directly in `upgrades.json`, read off
+    the physical cards. Every tag resolves against `Keyword_glossary.md`. There is no fetch step;
+    edit `upgrades.json` directly to change them. LHQ2 stays authoritative where it has keywords.
+  - **Effect *text* exists nowhere as data** (LHQ2 `text` is null) — only on the card image, which
+    the Build inspect gallery shows. Do not try to source it.
+  - **Everything else stays LHQ2-only** (stats, weapons, costs, ranks, requirements, etc.). Run
+    order after a re-scrape: `scrape` → `portraits` → `seed`.
 - Card art & rules text are © AMG / Lucasfilm — keep the in-app + README disclaimers.
 
 ## Conventions
@@ -86,13 +89,13 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
 - New pure logic → a `utils/`/`scraper/` module with a spec in `tests/`. Coverage
   threshold 50% (`vitest.config.ts`); scraper/normalise, army utils, API routes carry it.
 - After changing `normalise.ts` (or any re-scrape), run the FULL pipeline, not just seed:
-  `npm run scrape -- --skip-images` → `npm run portraits` → `npm run upgrade-keywords` →
-  `npm run seed`. A scrape regenerates `units.json`/`upgrades.json` from LHQ2, which has **no
-  `portraitImage`** and leaves ~123 upgrades with empty keywords — skipping the portraits/
-  upgrade-keywords steps nulls every Build badge (they fall back to cropped card art) and drops
-  the TTA keyword fills. `tests/catalogue-integrity.spec.ts` guards this; run `npm test` before
-  committing scraped data. The scrape no longer touches `keywords.json` (owner-maintained from
-  `Keyword_glossary.md` — see above), but still drifts Philibert products, so
+  `npm run scrape -- --skip-images` → `npm run portraits` → `npm run seed`. A scrape regenerates
+  `units.json`/`upgrades.json` from LHQ2, which has **no `portraitImage`** — skipping the
+  portraits step nulls every Build badge (they fall back to the "no portrait" silhouette).
+  A scrape also re-empties the ~24 owner-maintained upgrade keyword tags (LHQ2 ships them blank),
+  so re-apply them by hand if they regress. `tests/catalogue-integrity.spec.ts` guards both; run
+  `npm test` before committing scraped data. The scrape no longer touches `keywords.json`
+  (owner-maintained from `Keyword_glossary.md` — see above), but still drifts Philibert products, so
   `git checkout HEAD -- public/data/products.json` after a scrape.
 - Follow the `/workflow` skill for features (branch → implement → AC → tests → merge → bump).
 

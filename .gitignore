@@ -27,3 +27,6 @@ portrait-validation.html
 
 # Local scratch (hand-export staging, not part of the app)
 Extra portraits/
+
+# Outward-facing marketing drafts are kept out of the public repo
+community/

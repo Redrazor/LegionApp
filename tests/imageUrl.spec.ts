@@ -50,6 +50,16 @@ describe('imageUrl', () => {
       expect(imageUrl('/images/b.jpeg')).toBe('https://legionapp-images.web.app/b.webp')
     })
 
+    it('appends a cache-busting version to portrait crops only', () => {
+      expect(imageUrl('/images/portraits/darth-vader-dark-lord-of-the-sith.webp')).toBe(
+        'https://legionapp-images.web.app/portraits/darth-vader-dark-lord-of-the-sith.webp?v=2',
+      )
+      // non-portrait images are left without a query
+      expect(imageUrl('/images/units/darth-vader.webp')).toBe(
+        'https://legionapp-images.web.app/units/darth-vader.webp',
+      )
+    })
+
     it('passes through absolute http(s) URLs untouched', () => {
       expect(imageUrl('https://cdn.example.com/x.webp')).toBe('https://cdn.example.com/x.webp')
     })

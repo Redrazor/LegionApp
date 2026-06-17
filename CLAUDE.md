@@ -40,6 +40,14 @@ Pinia, with an Express + SQLite (Drizzle) backend and a TypeScript data scraper.
 
 ## Data sourcing — SINGLE SOURCE OF TRUTH: Legion HQ 2
 
+- **NEW data fields come from the card IMAGES, not the scraper** (owner directive, 2026-06).
+  When the app needs a field the catalogue doesn't already have (e.g. upgrade weapon dice,
+  effect text), **interpret the self-hosted card scans** (`public/images/{units,upgrades,
+  commands,battle}/<slug>.webp`) and persist the result as **owner-maintained** data — same
+  ethos as `Keyword_glossary.md` and the portrait crops. Do NOT re-run the LHQ2 scraper to add
+  new fields. Add a verification re-read pass (dice/keyword misreads are real). The scraper
+  below is the LEGACY pipeline that produced the existing catalogue; it stays for reference but
+  is not the path for new data.
 - **Legion HQ 2** (`legionhq2.com`) is the **only** card-data source. It is the
   current-edition (2024 "v2" refresh) builder. `scrape.ts` fetches its SPA JS bundle and
   brace-matches/extracts every embedded card (`extractCards`): ~179 units, ~413 upgrades,

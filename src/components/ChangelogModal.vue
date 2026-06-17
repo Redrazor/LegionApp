@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.14.0',
+    date: '2026-06-17',
+    changes: [
+      'Build unit rows now lead with the unit’s miniature count, and show the best ranged (R:) and best melee (M:) weapon stacked — “best” is the weapon most likely to inflict wounds (expected hits + crits from the dice model), not simply the one with the most dice.',
+    ],
+  },
+  {
     version: '1.13.1',
     date: '2026-06-17',
     changes: [

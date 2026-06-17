@@ -93,6 +93,17 @@ function removeGroup() {
     </div>
 
     <div class="relative flex items-start gap-3">
+      <!-- Model count leads the row -->
+      <div
+        class="flex flex-none flex-col items-center justify-center rounded-lg border border-lg-border bg-lg-dark px-2 py-1 leading-none text-lg-text/80"
+        :title="`${modelCount} miniature${modelCount === 1 ? '' : 's'} in this unit`"
+      >
+        <svg viewBox="0 0 16 16" class="h-3 w-3" fill="currentColor" aria-hidden="true">
+          <circle cx="8" cy="3.5" r="2.5" />
+          <path d="M3 15v-2a5 5 0 0 1 10 0v2z" />
+        </svg>
+        <span class="font-display text-sm font-bold tabular-nums">{{ modelCount }}</span>
+      </div>
       <button class="flex min-w-0 flex-1 items-start gap-3 text-left" :title="`View ${unit.name}`" @click="emit('view', unit.id, armyUnit.uid)">
         <UnitBadge :unit="unit" />
         <span class="min-w-0 flex-1">
@@ -102,7 +113,7 @@ function removeGroup() {
             <span v-if="qty > 1" class="flex-none rounded bg-lg-accent/15 px-1.5 text-[11px] font-bold text-lg-accent">×{{ qty }}</span>
           </span>
           <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
-          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" :models="modelCount" />
+          <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" :models="modelCount" :hide-models="true" />
         </span>
       </button>
       <div class="flex flex-none flex-col items-end gap-1.5">

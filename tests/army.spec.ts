@@ -2,7 +2,8 @@ import { describe, it, expect } from 'vitest'
 import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
   cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
-  unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction, isMandalorianClanUnit,
+  unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction,
+  defaultBattleForceId, affiliationCohesionIssues, battleForceCohesion,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
   primaryWeaponDice, detachmentTarget, isDetachment, presentDetachmentParents, groupArmyUnits,
   heavyWeaponTeamUnmet, unitLegalityIssues,
@@ -649,26 +650,23 @@ describe('unitAllowedInFaction', () => {
     expect(unitAllowedInFaction(lone, null)).toBe(false)
   })
 
-  it('treats Mandalorian-clan units as native to a mandalorians army regardless of faction', () => {
-    // A mercenary clan unit (e.g. Din Djarin) is legal in a Mandalorian Clans army…
+  it('no longer special-cases mandalorians — clan units flow through the battle-force roster', () => {
+    // Clan units (faction:'mercenary') aren't legal via the faction check anymore; they
+    // are gated by the Mandalorian Clans battle-force roster instead.
     const din = unit('din', { faction: 'mercenary', affiliation: 'Children of the Watch', affiliations: [] })
-    expect(unitAllowedInFaction(din, 'mandalorians')).toBe(true)
-    // …but a non-clan mercenary is not.
-    const blackSun = unit('bs', { faction: 'mercenary', affiliation: 'black sun', affiliations: ['empire'] })
-    expect(unitAllowedInFaction(blackSun, 'mandalorians')).toBe(false)
-    // A native faction='mandalorians' unit stays legal too.
+    expect(unitAllowedInFaction(din, 'mandalorians')).toBe(false)
+    // A native faction='mandalorians' unit still belongs to a mandalorians army.
     const garSaxon = unit('gar', { faction: 'mandalorians', affiliation: 'Clan Saxon' })
     expect(unitAllowedInFaction(garSaxon, 'mandalorians')).toBe(true)
   })
 })
 
-describe('isMandalorianClanUnit', () => {
-  it('matches the five Mandalorian clan affiliations only', () => {
-    for (const aff of ['Mandalore', 'Clan Kryze', 'Clan Saxon', 'Clan Wren', 'Children of the Watch']) {
-      expect(isMandalorianClanUnit(unit('u', { affiliation: aff }))).toBe(true)
-    }
-    expect(isMandalorianClanUnit(unit('u', { affiliation: 'black sun' }))).toBe(false)
-    expect(isMandalorianClanUnit(unit('u', { affiliation: null }))).toBe(false)
+describe('defaultBattleForceId', () => {
+  it('defaults a mandalorians army to the Mandalorian Clans battle force (mc), null otherwise', () => {
+    expect(defaultBattleForceId('mandalorians')).toBe('mc')
+    expect(defaultBattleForceId('empire')).toBeNull()
+    expect(defaultBattleForceId('rebels')).toBeNull()
+    expect(defaultBattleForceId(null)).toBeNull()
   })
 })
 
@@ -705,38 +703,30 @@ describe('mercenaryIssues', () => {
     expect(issues.rankCounts.corps).toBe(3)
   })
 
-  it('treats Mandalorian-clan units as native (no caps, satisfy minimums) in a mandalorians army', () => {
-    // Three Mandalorian Warriors (mercenary clan corps) in a Mandalorian Clans army.
+  it('inside a battle force, skips the affiliation "illegal ally" check but still caps', () => {
+    // The BF roster already gates eligibility, so no faction-hiring check; per-rank caps
+    // still apply (this BF doesn't declare countMercs).
     const units = [
-      merc('w1', { rank: 'corps', affiliation: 'Mandalore', affiliations: [] }),
-      merc('w2', { rank: 'corps', affiliation: 'Mandalore', affiliations: [] }),
-      merc('w3', { rank: 'corps', affiliation: 'Mandalore', affiliations: [] }),
+      merc('c1', { rank: 'corps', affiliations: [] }),
+      merc('c2', { rank: 'corps', affiliations: [] }),
+      merc('c3', { rank: 'corps', affiliations: [] }),
     ]
     const { unitsById } = makeMaps(units)
-    const issues = mercenaryIssues(armyOf('mandalorians', units), unitsById)
-    expect(issues.capExceeded).toEqual([])     // not capped — they're native
-    expect(issues.rankCounts.corps).toBe(0)    // excluded from the no-min subtraction
-    expect(issues.illegalAllies).toEqual([])
-    // A non-clan mercenary in the same army is still an (illegal) ally.
-    const mixed = [...units, merc('bs', { affiliation: 'black sun', affiliations: ['empire'] })]
-    expect(mercenaryIssues(armyOf('mandalorians', mixed), makeMaps(mixed).unitsById).illegalAllies).toEqual(['bs'])
+    const issues = mercenaryIssues(armyOf('empire', units), unitsById, { insideBattleForce: true })
+    expect(issues.illegalAllies).toEqual([])                       // affiliation check skipped
+    expect(issues.capExceeded).toEqual([{ rank: 'corps', count: 3, cap: 2 }])
   })
 
-  it('treats an affiliation-less detachment as native when its parent is fielded', () => {
-    // The Support Mandalorian Warriors (a "Detachment Mandalorian Warriors" / Heavy
-    // Weapon Team unit) has no affiliation, so it relies on its parent being present.
-    const parent = merc('warriors', {
-      name: 'Mandalorian Warriors', rank: 'corps', affiliation: 'Mandalore', affiliations: [],
-    })
+  it('skips a detachment whose parent is fielded, regardless of insideBattleForce', () => {
+    const parent = merc('warriors', { name: 'Mandalorian Warriors', rank: 'corps', affiliations: [] })
     const detach = merc('warriors-hw', {
       name: 'Mandalorian Warriors', rank: 'support', affiliation: null, affiliations: [],
       keywords: ['Detachment Mandalorian Warriors', 'Heavy Weapon Team'],
     })
     const units = [parent, detach, detach] // two support detachments (would exceed merc cap of 1)
     const { unitsById } = makeMaps([parent, detach])
-    const issues = mercenaryIssues(armyOf('mandalorians', units), unitsById)
-    expect(issues.illegalAllies).toEqual([]) // not a foreign ally
-    expect(issues.capExceeded).toEqual([])   // not subject to the merc per-rank cap
+    const issues = mercenaryIssues(armyOf('empire', units), unitsById, { insideBattleForce: true })
+    expect(issues.capExceeded).toEqual([])   // detachments aren't subject to the merc per-rank cap
     expect(issues.rankCounts.support).toBe(0)
   })
 
@@ -748,6 +738,120 @@ describe('mercenaryIssues', () => {
     const { unitsById } = makeMaps([detach])
     // No parent in the list → falls through to the normal (illegal) ally check.
     expect(mercenaryIssues(armyOf('mandalorians', [detach]), unitsById).illegalAllies).toEqual(['Mandalorian Warriors'])
+  })
+})
+
+describe('validateArmy — battle-force countMercs (FU1)', () => {
+  const corpsMercs = ['m1', 'm2', 'm3'].map((id) =>
+    unit(id, { faction: 'mercenary', rank: 'corps', affiliations: [], cost: 50 }))
+  const { unitsById, upgradesById } = makeMaps(corpsMercs)
+  const army: Army = {
+    name: '', faction: 'empire', gameSize: 1000,
+    units: corpsMercs.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+  }
+  const mkBf = (rules: Record<string, unknown>) => makeBattleForce({
+    linkId: 'tbf',
+    rankUnits: { commander: [], operative: [], corps: ['m1', 'm2', 'm3'], special: [], support: [], heavy: [] },
+    rules,
+  })
+  const item = (v: ReturnType<typeof validateArmy>, label: string) => v.items.find((i) => i.label === label)
+
+  it('without countMercs: mercs are capped and do not satisfy the rank minimum', () => {
+    const v = validateArmy(army, unitsById, upgradesById, mkBf({}))
+    expect(item(v, 'Mercenaries')?.ok).toBe(false)            // 3 corps mercs > cap of 2
+    expect(item(v, 'Corps')?.ok).toBe(false)                  // no-min: 0 non-merc < 3
+    expect(item(v, 'Corps')?.detail).toContain('non-merc')
+  })
+
+  it('with countMercs: mercs are native — uncapped and satisfy the minimum', () => {
+    const v = validateArmy(army, unitsById, upgradesById, mkBf({ countMercs: true }))
+    expect(item(v, 'Mercenaries')).toBeUndefined()            // no merc cap applied
+    expect(item(v, 'Corps')?.ok).toBe(true)                   // 3 mercs satisfy the min of 3
+  })
+})
+
+describe('affiliation cohesion (FU3)', () => {
+  // gar=Clan Saxon cmd, bo=Clan Kryze cmd, sabine=Clan Wren operative,
+  // saxonGrunt=Clan Saxon special, wrenGrunt=Clan Wren special,
+  // generic=Mandalore corps (neutral pool), detach=affiliation-less.
+  const clanUnits = [
+    unit('gar', { affiliation: 'Clan Saxon', rank: 'commander' }),
+    unit('bo', { affiliation: 'Clan Kryze', rank: 'commander' }),
+    unit('sabine', { affiliation: 'Clan Wren', rank: 'operative' }),
+    unit('saxonGrunt', { affiliation: 'Clan Saxon', rank: 'special' }),
+    unit('wrenGrunt', { affiliation: 'Clan Wren', rank: 'special' }),
+    unit('generic', { affiliation: 'Mandalore', rank: 'corps' }),
+    unit('detach', { affiliation: null, rank: 'support' }),
+  ]
+  // Clan-slot upgrades let a generic Mandalore unit choose a clan affiliation.
+  const clanUpgrades = [
+    upgrade('clanWren', { slug: 'clan-wren', slot: 'clan' }),
+    upgrade('cotw', { slug: 'champion-of-the-watch', slot: 'clan' }),
+  ]
+  const { unitsById, upgradesById } = makeMaps(clanUnits, clanUpgrades)
+  const mcBf = makeBattleForce({ linkId: 'mc' })
+  // Each id is "unitId" or "unitId+clanUpgradeId" to equip a clan upgrade.
+  const armyOf = (specs: string[]): Army => ({
+    name: '', faction: 'mandalorians', battleForce: 'mc', gameSize: 1000,
+    units: specs.map((s, i) => {
+      const [unitId, upId] = s.split('+')
+      return { uid: String(i), unitId, upgrades: upId ? [{ slot: 'clan#0', upgradeId: upId }] : [] }
+    }),
+  })
+  const mismatched = (specs: string[]) => affiliationCohesionIssues(armyOf(specs), unitsById, upgradesById, mcBf)?.mismatched
+
+  it('identifies cohesion battle forces', () => {
+    expect(battleForceCohesion(mcBf)).toEqual({ neutral: ['Mandalore'] })
+    expect(battleForceCohesion(makeBattleForce({ linkId: 'tbf' }))).toBeNull()
+  })
+
+  it('allows units that share an affiliation with a fielded commander/operative', () => {
+    // Clan Saxon commander → Clan Saxon special is fine; generic (Mandalore) and the
+    // affiliation-less detachment are always allowed.
+    expect(mismatched(['gar', 'saxonGrunt', 'generic', 'detach'])).toEqual([])
+  })
+
+  it('flags a unit whose clan has no fielded commander/operative', () => {
+    // Clan Saxon commander only → a Clan Wren special has no matching commander/operative.
+    expect(mismatched(['gar', 'wrenGrunt'])).toEqual(['wrenGrunt'])
+  })
+
+  it('supports mixed-clan armies (each clan brings its own commander/operative)', () => {
+    // Saxon commander + Wren operative → both clans legal; the generic stays fine.
+    expect(mismatched(['gar', 'sabine', 'saxonGrunt', 'wrenGrunt', 'generic'])).toEqual([])
+  })
+
+  it('does not let a generic (neutral) commander unlock a named clan', () => {
+    const leader = unit('leader', { affiliation: 'Mandalore', rank: 'commander' })
+    const maps = makeMaps([leader, clanUnits[4]]) // leader + wrenGrunt
+    const army: Army = {
+      name: '', faction: 'mandalorians', battleForce: 'mc', gameSize: 1000,
+      units: [{ uid: '0', unitId: 'leader', upgrades: [] }, { uid: '1', unitId: 'wrenGrunt', upgrades: [] }],
+    }
+    expect(affiliationCohesionIssues(army, maps.unitsById, upgradesById, mcBf)?.mismatched).toEqual(['wrenGrunt'])
+  })
+
+  it('honours a clan chosen via a clan-slot upgrade on a generic unit', () => {
+    // A generic Mandalore unit equipping the Clan Wren upgrade becomes Clan Wren, so it
+    // needs a Clan Wren commander/operative — flagged when only a Saxon leader is present.
+    expect(mismatched(['gar', 'generic+clanWren'])).toEqual(['generic'])
+    // Add a Clan Wren operative → the clan-assigned generic is now legal.
+    expect(mismatched(['gar', 'sabine', 'generic+clanWren'])).toEqual([])
+    // A generic commander that itself takes the Children of the Watch clan unlocks CotW.
+    expect(mismatched(['gar+cotw', 'generic+cotw'])).toEqual([])
+  })
+
+  it('returns null for non-cohesion / no battle force', () => {
+    expect(affiliationCohesionIssues(armyOf(['gar', 'wrenGrunt']), unitsById, upgradesById, makeBattleForce({ linkId: 'tbf' }))).toBeNull()
+    expect(affiliationCohesionIssues(armyOf(['gar', 'wrenGrunt']), unitsById, upgradesById, null)).toBeNull()
+  })
+
+  it('surfaces the Affiliation checklist item only when a unit is off-affiliation', () => {
+    const { upgradesById } = makeMaps([])
+    const bad = validateArmy(armyOf(['gar', 'wrenGrunt']), unitsById, upgradesById, mcBf)
+    expect(bad.items.find((i) => i.label === 'Affiliation')).toMatchObject({ ok: false })
+    const good = validateArmy(armyOf(['gar', 'saxonGrunt', 'generic']), unitsById, upgradesById, mcBf)
+    expect(good.items.find((i) => i.label === 'Affiliation')).toBeUndefined()
   })
 })
 

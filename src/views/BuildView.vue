@@ -535,7 +535,8 @@ useHead({
     <BattleForcePicker
       v-if="pickingBattleForce"
       :options="availableBattleForces"
-      :selected="draft.battleForce"
+      :selected="battleForce?.linkId ?? null"
+      :allow-none="draft.faction !== 'mandalorians'"
       :game-size="draft.gameSize"
       @select="armyStore.setBattleForce($event); pickingBattleForce = false"
       @close="pickingBattleForce = false"

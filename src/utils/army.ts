@@ -2,7 +2,7 @@ import type {
   Army, ArmyUnit, ArmyUpgrade, BattleCard, BattleCardSubtype, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE, MANDO_CLANS } from './factions.ts'
+import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
 import { resolveKeywordEntry, type Glossary } from './keywords.ts'
 
 // ── Battle-force helpers ─────────────────────────────────────────────────────
@@ -28,6 +28,112 @@ export interface BattleForceRules {
 
 export function battleForceRules(bf: BattleForce | null | undefined): BattleForceRules {
   return (bf?.rules ?? {}) as BattleForceRules
+}
+
+/**
+ * The battle force a faction is *always* built as when none is explicitly chosen.
+ * Mandalorian armies are the data-driven **Mandalorian Clans** battle force (linkId
+ * `mc`): clan units carry `faction: 'mercenary'` and are only legal via that roster,
+ * so a bare `mandalorians` faction army has no sensible standard form. This replaces
+ * the old bespoke `MANDO_CLANS` / `isMandalorianClanUnit` special-casing — the clan
+ * roster, `countMercs`, and affiliation-cohesion now all flow from the BF data.
+ */
+export const DEFAULT_BATTLE_FORCE: Partial<Record<Faction, string>> = { mandalorians: 'mc' }
+
+/** The default battle-force linkId for a faction (see [[DEFAULT_BATTLE_FORCE]]), else null. */
+export function defaultBattleForceId(faction: Faction | null): string | null {
+  return (faction != null ? DEFAULT_BATTLE_FORCE[faction] : null) ?? null
+}
+
+/**
+ * Battle forces that enforce **affiliation cohesion**: every fielded unit must share an
+ * affiliation with at least one fielded **Commander or Operative** (the printed rule).
+ * Keyed by BF linkId. `neutral` lists generic affiliations that belong to a shared pool
+ * usable by any clan and so are always allowed (and don't themselves widen the set) —
+ * e.g. plain `Mandalore` troopers (Leaders, Hunters, Initiates, Warriors). Affiliation-
+ * less units (e.g. detachments) are exempt. Per AMG, mixed-clan armies are legal — the
+ * allowed set is whatever clans your commanders/operatives bring, so this is derived,
+ * not picked. Curated/verified against the cards; only Mandalorian Clans carries it.
+ */
+export const COHESION_BATTLE_FORCES: Record<string, { neutral: string[] }> = {
+  mc: { neutral: ['Mandalore'] },
+}
+
+/** The cohesion config for a battle force, or null if it has no cohesion rule. */
+export function battleForceCohesion(bf: BattleForce | null | undefined): { neutral: string[] } | null {
+  return bf ? COHESION_BATTLE_FORCES[bf.linkId] ?? null : null
+}
+
+/**
+ * Generic Mandalorian units (Warriors, Initiates — base affiliation `Mandalore`) choose
+ * a clan by equipping a **clan-slot upgrade**; this maps those upgrades (by slug) to the
+ * affiliation they confer. Curated — the five clan cards. 'Champion of the Watch' is the
+ * Children of the Watch commander/operative variant of the clan card.
+ */
+export const CLAN_UPGRADE_AFFILIATION: Record<string, string> = {
+  'clan-kryze': 'Clan Kryze',
+  'clan-wren': 'Clan Wren',
+  'clan-saxon': 'Clan Saxon',
+  'children-of-the-watch': 'Children of the Watch',
+  'champion-of-the-watch': 'Children of the Watch',
+}
+
+/**
+ * A fielded unit's effective affiliation for cohesion: the clan it has chosen via an
+ * equipped clan-slot upgrade (overriding the generic `Mandalore`), else its printed
+ * affiliation.
+ */
+export function effectiveAffiliation(
+  au: ArmyUnit,
+  unit: Unit,
+  upgradesById: Map<string, Upgrade>,
+): string | null {
+  for (const up of au.upgrades) {
+    const slug = upgradesById.get(up.upgradeId)?.slug
+    const clan = slug ? CLAN_UPGRADE_AFFILIATION[slug] : undefined
+    if (clan) return clan
+  }
+  return unit.affiliation
+}
+
+/**
+ * Affiliation-cohesion validation: every fielded unit must share an affiliation with a
+ * fielded Commander or Operative. A unit's affiliation is its chosen clan (via an
+ * equipped clan upgrade) or its printed one; the allowed set is the affiliations of the
+ * army's commanders/operatives. Neutral/generic affiliations (e.g. an unassigned
+ * `Mandalore` trooper) are always allowed, and affiliation-less units (detachments) are
+ * exempt. Returns null when the battle force has no cohesion rule.
+ */
+export function affiliationCohesionIssues(
+  army: Army,
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+  bf: BattleForce | null | undefined,
+): { mismatched: string[] } | null {
+  const co = battleForceCohesion(bf)
+  if (!co) return null
+  const neutral = new Set(co.neutral)
+  const affOf = (au: ArmyUnit, unit: Unit) => effectiveAffiliation(au, unit, upgradesById)
+  // Allowed affiliations = those of fielded commanders/operatives (named clans). Generic
+  // commanders/operatives (neutral) don't widen it — their units are already allowed.
+  const allowed = new Set<string>()
+  for (const au of army.units) {
+    const unit = unitsById.get(au.unitId)
+    if (!unit) continue
+    const aff = affOf(au, unit)
+    if (aff == null || neutral.has(aff)) continue
+    const rank = effectiveRank(unit, bf)
+    if (rank === 'commander' || rank === 'operative') allowed.add(aff)
+  }
+  const mismatched: string[] = []
+  for (const au of army.units) {
+    const unit = unitsById.get(au.unitId)
+    if (!unit) continue
+    const aff = affOf(au, unit)
+    if (aff == null || neutral.has(aff) || allowed.has(aff)) continue // exempt / generic / matched
+    mismatched.push(unit.name)
+  }
+  return { mismatched: [...new Set(mismatched)] }
 }
 
 /** Every unit id eligible in a battle force (across all six rank lists). */
@@ -533,24 +639,14 @@ export const MERC_RANK_CAP: Record<Rank, number> = {
 }
 
 /**
- * A unit that belongs to the **Mandalorian Clans** army by affiliation (most carry
- * `faction: 'mercenary'`, e.g. Din Djarin, Bo-Katan, Mandalorian Warriors). Such units
- * are *native* to a Mandalorian army — they're selectable there and not subject to the
- * mercenary ally caps. See [[MANDO_CLANS]].
- */
-export function isMandalorianClanUnit(unit: Unit): boolean {
-  return unit.affiliation != null && MANDO_CLANS.has(unit.affiliation)
-}
-
-/**
  * Whether a unit may be fielded in an army of `faction`. Non-mercenaries belong to
  * exactly their own faction; a mercenary may be hired only into a faction listed in
- * its `affiliations` (and natively into a mercenary-faction army). A Mandalorian-clan
- * unit is native to a `mandalorians` army regardless of its `faction`. Used to gate
- * both the unit picker (suggest only legal choices) and `validateArmy`'s Allies check.
+ * its `affiliations` (and natively into a mercenary-faction army). Used to gate both
+ * the unit picker (suggest only legal choices) and `validateArmy`'s Allies check.
+ * Mandalorian armies are always built as a battle force (see [[defaultBattleForceId]]),
+ * so their clan units flow through the battle-force roster, not this faction check.
  */
 export function unitAllowedInFaction(unit: Unit, faction: Faction | null): boolean {
-  if (faction === 'mandalorians' && isMandalorianClanUnit(unit)) return true
   if (unit.faction !== 'mercenary') return unit.faction === faction
   if (faction === 'mercenary') return true
   return faction != null && unit.affiliations.includes(faction)
@@ -653,7 +749,11 @@ export interface MercenaryIssues {
  * subtracts `rankCounts` to enforce no-min. A mercenary-faction army fields them
  * natively (affiliation check skipped).
  */
-export function mercenaryIssues(army: Army, unitsById: Map<string, Unit>): MercenaryIssues {
+export function mercenaryIssues(
+  army: Army,
+  unitsById: Map<string, Unit>,
+  opts?: { insideBattleForce?: boolean },
+): MercenaryIssues {
   const rankCounts: Record<Rank, number> = {
     commander: 0, operative: 0, corps: 0, special: 0, support: 0, heavy: 0,
   }
@@ -663,9 +763,6 @@ export function mercenaryIssues(army: Army, unitsById: Map<string, Unit>): Merce
   for (const au of army.units) {
     const unit = unitsById.get(au.unitId)
     if (!unit || unit.faction !== 'mercenary') continue
-    // In a Mandalorian Clans army, clan units are the army's own — native, not capped
-    // allies, and they satisfy rank minimums.
-    if (armyFaction === 'mandalorians' && isMandalorianClanUnit(unit)) continue
     // A detachment unit whose parent is fielded is part of that parent, not a hired
     // ally — so it isn't capped and doesn't need its own affiliation match. Mirrors
     // catalogueForRank's parent-gating, so a unit the catalogue offered (e.g. the
@@ -673,7 +770,9 @@ export function mercenaryIssues(army: Army, unitsById: Map<string, Unit>): Merce
     const parent = detachmentTarget(unit)
     if (parent && presentParents.has(parent.toLowerCase())) continue
     rankCounts[unit.rank]++
-    if (armyFaction && !unitAllowedInFaction(unit, armyFaction)) {
+    // Inside a battle force, the BF roster already gates eligibility — caps + no-min
+    // still apply (when !countMercs) but the faction-hiring "illegal ally" check does not.
+    if (!opts?.insideBattleForce && armyFaction && !unitAllowedInFaction(unit, armyFaction)) {
       illegal.push(unit.name)
     }
   }
@@ -1406,7 +1505,9 @@ export function validateArmy(
   // relaxes the commander minimum (unless the battle force forbids it via noFieldComm).
   // Outside a battle force, mercenaries count toward maximums but NOT minimums (no-min
   // rule), so minimums are measured against non-mercenary counts.
-  const merc = bf ? null : mercenaryIssues(army, unitsById)
+  // Mercenary checks apply outside a battle force, and inside one unless it declares
+  // `countMercs` (where mercs are native: they satisfy minimums and aren't capped).
+  const merc = (!bf || !rules.countMercs) ? mercenaryIssues(army, unitsById, { insideBattleForce: !!bf }) : null
   const limits = rankLimits(army.gameSize, bf)
   const entourage = entourageBonuses(army, unitsById)
   const fieldCommander = !rules.noFieldComm && hasFieldCommander(army, unitsById)
@@ -1517,6 +1618,18 @@ export function validateArmy(
       ok: false,
       label: 'Mercenaries',
       detail: merc.capExceeded.map((c) => `${rankName(c.rank)} ${c.count} (max ${c.cap})`).join(', '),
+    })
+  }
+
+  // Affiliation cohesion — some battle forces (e.g. Mandalorian Clans) require every
+  // unit to share an affiliation with a fielded Commander/Operative. Only surfaced when
+  // something is actually off (a clean army needs no extra row).
+  const cohesion = affiliationCohesionIssues(army, unitsById, upgradesById, bf)
+  if (cohesion && cohesion.mismatched.length) {
+    items.push({
+      ok: false,
+      label: 'Affiliation',
+      detail: `No matching Commander/Operative for: ${cohesion.mismatched.join(', ')}`,
     })
   }
 

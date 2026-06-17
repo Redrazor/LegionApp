@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { Army, ArmyUnit, BattleForce, CompactArmy, Faction, Unit, Upgrade } from '../types/index.ts'
-import { toCompact, fromCompact, pruneOrphanedUpgrades } from '../utils/army.ts'
+import { toCompact, fromCompact, pruneOrphanedUpgrades, defaultBattleForceId } from '../utils/army.ts'
 
 function emptyArmy(): Army {
   return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [], commandHand: [], battleDeck: [] }
@@ -23,10 +23,11 @@ export const useArmyStore = defineStore(
 
     function setFaction(faction: Faction) {
       if (draft.value.faction !== faction) {
-        // Switching faction clears incompatible units, the battle force, and the
-        // command hand (all are faction-bound).
+        // Switching faction clears incompatible units and the command hand (both are
+        // faction-bound). Mandalorian armies are always built as the Mandalorian Clans
+        // battle force; others default to no battle force.
         if (draft.value.units.length > 0) draft.value.units = []
-        draft.value.battleForce = null
+        draft.value.battleForce = defaultBattleForceId(faction)
         draft.value.commandHand = []
       }
       draft.value.faction = faction

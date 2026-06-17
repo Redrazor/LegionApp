@@ -1,5 +1,7 @@
 # Reddit — r/SWlegion
 
+_Release: v1.0.0 · Written: 2026-06-15_
+
 https://reddit.com/r/SWlegion
 
 ## Post Title

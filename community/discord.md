@@ -1,5 +1,7 @@
 # Discord — The Legion Discord
 
+_Release: v1.0.0 · Written: 2026-06-15_
+
 ## Server
 **The Legion Discord** — https://discord.com/invite/swlegion (~11.7k members)
 The main hub for Star Wars: Legion. Unofficial, community-run.

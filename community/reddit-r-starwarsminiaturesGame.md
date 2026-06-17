@@ -1,5 +1,7 @@
 # Reddit — r/starwarsminiaturesGame
 
+_Release: v1.0.0 · Written: 2026-06-15_
+
 https://reddit.com/r/starwarsminiaturesGame
 
 Cross-game AMG miniatures sub. You already post ShatterApp here — lean into the

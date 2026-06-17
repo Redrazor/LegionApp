@@ -21,9 +21,8 @@ this list (and their detailed write-ups are kept further down for reference).
    are scaffolded and the `/play` route ships a "Coming Soon" placeholder (`src/views/PlayView.vue`), but
    `socket.io-client` is not yet wired into the SPA — no tracker/multiplayer UI exists. The main reason
    the Render backend exists.
-2. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF) and posting the
-   `community/` launch copy. (The reverse ShatterApp→Legion footer link is already DONE — `src/App.vue`
-   footer.)
+2. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF). (The reverse
+   ShatterApp→Legion footer link is already DONE — `src/App.vue` footer.)
 3. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated
    `keywords.json` wholesale (and drifts `products.json`); add a tracked overrides file merged in at write
    time so curation survives automatically. Self-contained scraper tech-debt fix. Detail below under **B5**.
@@ -254,8 +253,7 @@ and both are now sourced in-house.
   (read off the physical cards; every tag resolves against `Keyword_glossary.md`). A re-scrape
   re-empties them, so re-apply by hand if they regress — `tests/catalogue-integrity.spec.ts` guards it.
 - Run order after a re-scrape is now `scrape` → `portraits` → `seed`. CLAUDE.md + release checklists +
-  [[data-source-single-truth]] updated. (TTA stays referenced only as a competitor *app* in the
-  `community/` positioning copy — that's not a data source.)
+  [[data-source-single-truth]] updated.
 
 ## Feature 7 — SEO, social share cards & launch comms
 
@@ -265,7 +263,7 @@ Card + canonical + JSON-LD (`WebApplication`) base tags in `index.html`, per-rou
 `og:image` is the unit's **own Firebase card scan** (rich per-unit previews, no serverless function).
 Added a generated 1200×630 `public/og-image.png` (`npm run og`), `public/robots.txt`, and a
 build-time `public/sitemap.xml` (`npm run generate:sitemap`, wired into `build`; 179 units + static
-routes). Also modernised the `community/` launch copy — corrected formats (Standard **1000** / Recon
+routes). Also modernised the launch copy — corrected formats (Standard **1000** / Recon
 **600**, not the old 800/500), the real `www.legion-app.com` domain, and the current feature set
 (command hand, battle deck, export/import).
 
@@ -286,7 +284,7 @@ routes). Also modernised the `community/` launch copy — corrected formats (Sta
 
 Also: generated the missing PWA install icons from `public/favicon.svg` (`npm run icons` →
 `public/icons/`), and made the service worker cross-origin aware (precache JSON only; runtime-cache
-images by request destination). Runbook: `community/RELEASE-1.0-CHECKLIST.md`.
+images by request destination).
 
 ## Feature 5 — Full battle-force support (all factions)
 

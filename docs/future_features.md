@@ -234,6 +234,29 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 8 — Expunge Tabletop Admiral (portraits from card crops; owner-maintained keywords)
+
+**Status:** done (v1.12.0). Removed the last third-party data dependency: Tabletop Admiral was
+previously used for two owner-approved things — unit portrait busts and ~24 upgrade keyword fills —
+and both are now sourced in-house.
+
+- **Portraits** — rewrote `scraper/portraits.ts` to drop all TTA fetch/match/CDN/cache logic and
+  instead crop the round Build badge straight out of each unit's OWN LHQ2 card scan with `sharp`.
+  All 180 units have a **hand-tuned** crop region in `CARD_CROP_PORTRAITS` (a face-centred square
+  in the card's native pixels), tuned via per-card visual review. Deleted `scraper/.tta-units.json`
+  (matching cache) and its `.gitignore` line. Added `npm run portraits:validate` →
+  `portrait-validation.html`, a single-page contact sheet of every badge with a #id for QA.
+- **No-portrait indicator** — `UnitBadge.vue` dropped the on-the-fly CSS card-crop fallback (and the
+  initials tier); a unit with no `portraitImage` (no `CARD_CROP_PORTRAITS` entry or missing card
+  scan) now shows a neutral silhouette instead of a guessed crop.
+- **Upgrade keywords** — deleted `scraper/upgradeKeywords.ts` + the `upgrade-keywords` npm script. The
+  ~24 affected upgrades keep their keyword tags **baked into `upgrades.json`** as owner-maintained data
+  (read off the physical cards; every tag resolves against `Keyword_glossary.md`). A re-scrape
+  re-empties them, so re-apply by hand if they regress — `tests/catalogue-integrity.spec.ts` guards it.
+- Run order after a re-scrape is now `scrape` → `portraits` → `seed`. CLAUDE.md + release checklists +
+  [[data-source-single-truth]] updated. (TTA stays referenced only as a competitor *app* in the
+  `community/` positioning copy — that's not a data source.)
+
 ## Feature 7 — SEO, social share cards & launch comms
 
 **Status:** done (v1.1.0). Made the app discoverable + shareable at every level: full Open Graph + Twitter

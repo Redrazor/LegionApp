@@ -11,6 +11,16 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://www.legion-app.com/browse/commands</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.legion-app.com/browse/upgrades</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://www.legion-app.com/build</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
@@ -782,6 +792,11 @@
   </url>
   <url>
     <loc>https://www.legion-app.com/browse/count-dooku-darth-tyranus</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.legion-app.com/browse/general-grievous-sinister-cyborg</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>

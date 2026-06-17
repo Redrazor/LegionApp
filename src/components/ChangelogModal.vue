@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.9.0',
+    date: '2026-06-17',
+    changes: [
+      'Browse now covers Command cards and Upgrades, not just units — switch sections with the new tabs at the top of Browse. Command cards are grouped by faction with their pip value; upgrades are grouped by slot. Tap any card to see the full scan (upgrades also list their keywords with tap-to-define tooltips).',
+      'Filter command cards or upgrades by a specific commander or operative to see just the cards tied to that character, alongside the free-text search.',
+    ],
+  },
+  {
     version: '1.8.0',
     date: '2026-06-17',
     changes: [

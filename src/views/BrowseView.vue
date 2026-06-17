@@ -13,6 +13,7 @@ import { FACTION_META } from '../utils/factions.ts'
 import type { Unit } from '../types/index.ts'
 import UnitCard from '../components/browse/UnitCard.vue'
 import FilterBar from '../components/browse/FilterBar.vue'
+import BrowseTabs from '../components/browse/BrowseTabs.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -76,6 +77,7 @@ useHead({
 
 <template>
   <div>
+    <BrowseTabs />
     <FilterBar
       :filters="filters"
       :keywords="unitsStore.allKeywords"

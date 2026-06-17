@@ -23,6 +23,9 @@ export const useUpgradesStore = defineStore('upgrades', () => {
   const byId = computed<Map<string, Upgrade>>(
     () => new Map(upgrades.value.map((u): [string, Upgrade] => [u.id, u])),
   )
+  const bySlug = computed<Map<string, Upgrade>>(
+    () => new Map(upgrades.value.map((u): [string, Upgrade] => [u.slug, u])),
+  )
 
   /**
    * Upgrades legal for a given slot + faction. When a `unit` is supplied, also
@@ -42,5 +45,5 @@ export const useUpgradesStore = defineStore('upgrades', () => {
     })
   }
 
-  return { upgrades, loaded, loading, load, byId, forSlot }
+  return { upgrades, loaded, loading, load, byId, bySlug, forSlot }
 })

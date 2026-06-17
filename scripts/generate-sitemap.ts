@@ -23,6 +23,8 @@ function loadJson<T>(file: string): T[] {
 
 const staticRoutes = [
   { path: '/browse', priority: '1.0', changefreq: 'weekly' },
+  { path: '/browse/commands', priority: '0.8', changefreq: 'weekly' },
+  { path: '/browse/upgrades', priority: '0.8', changefreq: 'weekly' },
   { path: '/build', priority: '0.8', changefreq: 'monthly' },
   { path: '/collection', priority: '0.7', changefreq: 'monthly' },
   { path: '/reference', priority: '0.7', changefreq: 'monthly' },

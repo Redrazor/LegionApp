@@ -1,5 +1,7 @@
 # BoardGameGeek — Star Wars: Legion Forum
 
+_Release: v1.0.0 · Written: 2026-06-15_
+
 https://boardgamegeek.com/boardgame/247208 → Forums → General / Tools & Resources
 
 Slow-burn but evergreen and good for SEO. Mirror your Shatterpoint BGG post.

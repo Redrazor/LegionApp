@@ -20,6 +20,7 @@ export const useCommandsStore = defineStore('commands', () => {
   }
 
   const byId = computed(() => new Map(commands.value.map((c) => [c.id, c])))
+  const bySlug = computed(() => new Map(commands.value.map((c) => [c.slug, c])))
 
   const byCommander = computed(() => {
     const map = new Map<string, CommandCard[]>()
@@ -32,5 +33,5 @@ export const useCommandsStore = defineStore('commands', () => {
     return map
   })
 
-  return { commands, loaded, loading, load, byId, byCommander }
+  return { commands, loaded, loading, load, byId, bySlug, byCommander }
 })

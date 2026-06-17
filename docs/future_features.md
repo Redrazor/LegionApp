@@ -21,21 +21,26 @@ this list (and their detailed write-ups are kept further down for reference).
    are scaffolded and the `/play` route ships a "Coming Soon" placeholder (`src/views/PlayView.vue`), but
    `socket.io-client` is not yet wired into the SPA — no tracker/multiplayer UI exists. The main reason
    the Render backend exists.
-2. **Browse command cards & upgrades** _(was B6)_ — Browse is Units-only today; add Command-card and
-   Upgrade sections, with a search that filters to a named commander/operative's associated cards. Detail
-   below under **B6**.
-3. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF) and posting the
+2. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF) and posting the
    `community/` launch copy. (The reverse ShatterApp→Legion footer link is already DONE — `src/App.vue`
    footer.)
-4. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated
+3. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated
    `keywords.json` wholesale (and drifts `products.json`); add a tracked overrides file merged in at write
    time so curation survives automatically. Self-contained scraper tech-debt fix. Detail below under **B5**.
-5. **Two remaining shown-as-text battle-force flags** — `minOneOfEachCorps` (Imperial Remnant; must field
+4. **Two remaining shown-as-text battle-force flags** — `minOneOfEachCorps` (Imperial Remnant; must field
    at least one of each Corps type) and `take2NonEwokRebs` (Bright Tree Village) are still surfaced as
    rule text, not auto-validated. The rest of the battle-force rule set is now enforced (see "Recently
    shipped" below). Low priority — both are single-battle-force niceties.
 
 **Recently shipped (was on this list):**
+- ✅ **Browse command cards & upgrades** (v1.9.0, was B6) — Browse gained **Commands** and **Upgrades**
+  sections beside Units, navigated by a segmented tab header as separate sub-routes (`/browse/commands`,
+  `/browse/upgrades`) with their own `:slug` card-scan lightbox drawers (`CardLightbox`). Commands group by
+  faction (pip-sorted), upgrades by slot (cost-sorted); each section has free-text name search, a
+  faction/slot filter, and an **explicit "filter by character"** dropdown (commander/operative) that narrows
+  to that character's cards — commands via `commandMatchesCharacter`, upgrades via a `cardName` requirement
+  match (`upgradeForCharacter`). All filter/group logic is pure + tested in `src/utils/browse.ts`. No data
+  or scraper changes — the existing `byCommander` / `requirements` plumbing already supported it.
 - ✅ **Battle-force follow-ups** (v1.8.0) — completed the three Feature 5 remnants. `validateArmy` now
   honours **`countMercs`** (battle forces with it let mercenaries count toward rank minimums uncapped;
   the rest apply the per-rank merc caps + no-min inside the battle force too); the bespoke `MANDO_CLANS` /
@@ -59,8 +64,8 @@ this list (and their detailed write-ups are kept further down for reference).
 The owner detailed B1–B6 post-launch. **DONE:** B1 keyword tooltips (v1.2.1, PRs #33/#34); B2 granted
 slots/keywords + B3 model counts (v1.4.0, PR #38 — the presumed "data blocker" didn't exist: LHQ2 carries
 `additionalUpgradeSlots` on upgrades and `stats.minicount` on units, so no curated layer was needed); B4
-configurable print (v1.6.0, PR #43). **Still open:** B5 → roadmap item 4, B6 → roadmap item 2. The
-B-numbered write-ups below are retained as reference detail.
+configurable print (v1.6.0, PR #43); **B6 Browse commands & upgrades (v1.9.0)**. **Still open:** B5 →
+roadmap item 3. The B-numbered write-ups below are retained as reference detail.
 
 ### B1 — Complete keyword tooltip coverage ✅ DONE (v1.2.1, PRs #33 + #34)
 

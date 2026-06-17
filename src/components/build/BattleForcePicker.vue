@@ -5,11 +5,12 @@ import { battleForceRankTable, formatName } from '../../utils/factions.ts'
 // Battle-force picker overlay: choose one of the faction's battle forces, or clear
 // back to a standard army. Battle forces are opt-in — "None" is always offered and is
 // the default. Teleported to <body> so it escapes the build layout's overflow.
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   options: BattleForce[]
   selected: string | null
   gameSize: number
-}>()
+  allowNone?: boolean // offer the "None (Standard)" option (false for faction-mandatory battle forces)
+}>(), { allowNone: true })
 const emit = defineEmits<{ select: [linkId: string | null]; close: [] }>()
 
 // A one-line rank summary for the current points cap (Corps range + combined cap).
@@ -39,7 +40,7 @@ function summary(bf: BattleForce): string {
         <div class="min-h-0 flex-1 overflow-y-auto p-3">
           <ul class="space-y-2">
             <!-- None / standard -->
-            <li>
+            <li v-if="allowNone">
               <button
                 class="flex w-full items-center justify-between gap-3 rounded-xl border p-3 text-left transition-colors"
                 :class="selected == null

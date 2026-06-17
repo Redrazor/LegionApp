@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.8.0',
+    date: '2026-06-17',
+    changes: [
+      'Mandalorian armies now build as the Mandalorian Clans battle force automatically, with full clan-affiliation rules: every unit must share an affiliation with one of your Commanders or Operatives — mixed-clan lists work as long as each clan brings a leader, an unassigned generic Mandalorian slots into any clan, and giving a generic unit a clan (via its Clan upgrade) holds it to that clan.',
+      'Battle-force mercenary handling now follows each battle force’s own rule: forces built around mercenaries (e.g. Shadow Collective, the Mandalorian clans) correctly let them count toward rank minimums, while others apply the normal allied-mercenary caps inside the battle force too.',
+    ],
+  },
+  {
     version: '1.7.2',
     date: '2026-06-16',
     changes: [

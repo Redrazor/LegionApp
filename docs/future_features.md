@@ -30,16 +30,29 @@ this list (and their detailed write-ups are kept further down for reference).
 4. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated
    `keywords.json` wholesale (and drifts `products.json`); add a tracked overrides file merged in at write
    time so curation survives automatically. Self-contained scraper tech-debt fix. Detail below under **B5**.
-5. **Battle-force follow-ups** — full battle-force support **shipped** (v0.21.0, PRs #20/#21; see Feature 5
-   below). Three non-blocking remnants of the original scope remain: `countMercs` is present in
-   `battleForces.json` data but never read by `validateArmy`; the bespoke `MANDO_CLANS` /
-   `isMandalorianClanUnit` path was never retired onto the data-driven system (the two coexist); and the
-   affiliation-cohesion army rule ("all units share an affiliation with a fielded Commander/Operative")
-   isn't implemented as an army-wide check.
+5. **Two remaining shown-as-text battle-force flags** — `minOneOfEachCorps` (Imperial Remnant; must field
+   at least one of each Corps type) and `take2NonEwokRebs` (Bright Tree Village) are still surfaced as
+   rule text, not auto-validated. The rest of the battle-force rule set is now enforced (see "Recently
+   shipped" below). Low priority — both are single-battle-force niceties.
 
-**Recently shipped (was on this list):** ✅ **Brand logo** (v1.7.1) — the placeholder "L" was replaced
-with an original battle-station-style orb mark across the nav, favicon, PWA install icons and the OG
-share card (`public/favicon.svg`, `src/App.vue` nav, `scripts/generate-og.ts`).
+**Recently shipped (was on this list):**
+- ✅ **Battle-force follow-ups** (v1.8.0) — completed the three Feature 5 remnants. `validateArmy` now
+  honours **`countMercs`** (battle forces with it let mercenaries count toward rank minimums uncapped;
+  the rest apply the per-rank merc caps + no-min inside the battle force too); the bespoke `MANDO_CLANS` /
+  `isMandalorianClanUnit` path was **retired** — a `mandalorians` army now defaults to the data-driven
+  **Mandalorian Clans** battle force (`defaultBattleForceId`), so clan-native units, `countMercs`, and
+  cohesion all flow from the BF data; and the **affiliation-cohesion** rule is implemented as an
+  auto-derived `validateArmy` check (`affiliationCohesionIssues`) faithful to the printed rule — every
+  unit must share an affiliation with a fielded **Commander/Operative**, so mixed-clan armies are legal
+  (each clan brings its own leader). A unit's affiliation is its chosen clan — generic `Mandalore` units
+  (Warriors/Initiates) pick a clan by equipping a **clan-slot upgrade** (`CLAN_UPGRADE_AFFILIATION` →
+  `effectiveAffiliation`), so a clan-assigned generic is held to that clan while an unassigned one (and
+  affiliation-less detachments) are always allowed. No picker/UI or army-state field — the allowed clans
+  are read from the commanders/operatives you field (per AMG's Mandalorian transmissions). The two flags
+  above were de-scoped to remain shown-as-text.
+- ✅ **Brand logo** (v1.7.1) — the placeholder "L" was replaced with an original battle-station-style orb
+  mark across the nav, favicon, PWA install icons and the OG share card (`public/favicon.svg`,
+  `src/App.vue` nav, `scripts/generate-og.ts`).
 
 ## Completed backlog — owner-specified (2026-06-15)
 

@@ -27,6 +27,14 @@ describe('army store', () => {
     expect(s.draft.units).toHaveLength(0)
   })
 
+  it('defaults a mandalorians army to the Mandalorian Clans battle force', () => {
+    const s = useArmyStore()
+    s.setFaction('mandalorians')
+    expect(s.draft.battleForce).toBe('mc')
+    s.setFaction('empire')
+    expect(s.draft.battleForce).toBeNull()
+  })
+
   it('duplicates a unit with its loadout via addCopy', () => {
     const s = useArmyStore()
     s.setFaction('empire')

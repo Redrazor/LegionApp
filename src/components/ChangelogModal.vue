@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.13.1',
+    date: '2026-06-17',
+    changes: [
+      'Fixed a “Failed to fetch dynamically imported module” error that could appear when opening a page (e.g. Build) in a tab left open across an app update. The app now detects the stale version and reloads itself automatically to recover.',
+    ],
+  },
+  {
     version: '1.13.0',
     date: '2026-06-17',
     changes: [

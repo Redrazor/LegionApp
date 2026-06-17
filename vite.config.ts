@@ -37,6 +37,9 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,svg,webp,woff2}'],
         globIgnores: ['images/**'],
+        // Drop precaches from superseded deploys so a stale app shell can't linger and
+        // serve old chunk references (pairs with the chunkReload recovery on the client).
+        cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
             // API on Render (cross-origin in prod) — match by pathname so it works

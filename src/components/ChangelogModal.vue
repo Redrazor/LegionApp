@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.11.2',
+    date: '2026-06-17',
+    changes: [
+      'Anakin Skywalker (Mounted Jedi General) now has a proper round portrait in Build instead of the cropped card-art fallback.',
+    ],
+  },
+  {
     version: '1.11.1',
     date: '2026-06-17',
     changes: [

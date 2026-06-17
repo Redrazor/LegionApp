@@ -16,11 +16,24 @@
 import { mkdir, writeFile, readFile, access } from 'node:fs/promises'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import sharp from 'sharp'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const UNITS_JSON = join(ROOT, 'public', 'data', 'units.json')
 const PORTRAIT_DIR = join(ROOT, 'public', 'images', 'portraits')
+const UNIT_IMG_DIR = join(ROOT, 'public', 'images', 'units')
 const CACHE = join(ROOT, 'scraper', '.tta-units.json')
+
+// Hand-authored portrait crops for units TTA has no bust for (or whose bust is poor).
+// Each is a square region of the unit's OWN card scan, so the portrait regenerates from
+// source on every run — nothing binary is committed and it survives a re-scrape. left/top/
+// size are in the card image's native pixels (LHQ2 scans are 487×341). These win over a
+// TTA bust if both exist.
+const CARD_CROP_PORTRAITS: Record<string, { left: number; top: number; size: number }> = {
+  // Anakin Skywalker (Mounted Jedi General) — no TTA bust; crop centred on his face so the
+  // round badge frames head+shoulders (avoids the pale speeder fairing lower down).
+  'anakin-skywalker-mounted-jedi-general': { left: 338, top: 48, size: 86 },
+}
 
 const TTA_API = 'https://tabletopadmiral.com/api/units/1'
 const PORTRAIT_CDN = 'https://d26oqf9i6fvic.cloudfront.net/units-new/portraits'
@@ -126,11 +139,29 @@ async function main() {
     }))
   }
 
+  // Hand-authored crops from the card scan (TTA has no bust for these). Generated from
+  // source each run; overwrites any TTA bust so the curated crop always wins.
+  let cropped = 0
+  for (const [slug, c] of Object.entries(CARD_CROP_PORTRAITS)) {
+    const src = join(UNIT_IMG_DIR, `${slug}.webp`)
+    if (!(await exists(src))) {
+      console.warn(`  ! card-crop portrait skipped, missing card scan: ${slug}.webp (run a scrape first)`)
+      continue
+    }
+    await sharp(src)
+      .extract({ left: c.left, top: c.top, width: c.size, height: c.size })
+      .resize(40, 40) // match the TTA busts' size
+      .webp({ quality: 82 })
+      .toFile(join(PORTRAIT_DIR, `${slug}.webp`))
+    withPortrait.add(slug)
+    cropped++
+  }
+
   // Stamp portraitImage onto units.json
   for (const u of ours) u.portraitImage = withPortrait.has(u.slug) ? `/images/portraits/${u.slug}.webp` : null
   await writeFile(UNITS_JSON, JSON.stringify(ours, null, 2) + '\n')
 
-  console.log(`Portraits: ${downloaded} downloaded, ${reused} reused, ${noPortrait} matched-but-no-portrait.`)
+  console.log(`Portraits: ${downloaded} downloaded, ${reused} reused, ${noPortrait} matched-but-no-portrait, ${cropped} hand-cropped from card art.`)
   console.log(`units.json: ${withPortrait.size}/${ours.length} now carry portraitImage.`)
   if (unmatched.length) console.log('\nUnmatched (no TTA id — keep card-art fallback):\n  ' + unmatched.join('\n  '))
 }

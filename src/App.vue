@@ -7,7 +7,7 @@ import ChangelogModal from './components/ChangelogModal.vue'
 
 const menuOpen = ref(false)
 const showChangelog = ref(false)
-const APP_VERSION = '1.9.1' // keep in sync with package.json + ChangelogModal's top entry
+const APP_VERSION = '1.10.0' // keep in sync with package.json + ChangelogModal's top entry
 const router = useRouter()
 const { theme, toggle, init } = useTheme()
 
@@ -50,7 +50,7 @@ onMounted(init)
             active-class="text-lg-accent bg-lg-accent/10"
           >{{ route.label }}</RouterLink>
           <button
-            class="ml-1 grid h-8 w-8 place-items-center rounded-lg text-lg-muted hover:text-lg-accent hover:bg-lg-text/8 transition-colors"
+            class="ml-1 grid h-10 w-10 place-items-center rounded-lg text-lg-muted hover:text-lg-accent hover:bg-lg-text/8 transition-colors"
             :aria-label="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'"
             :title="theme === 'dark' ? 'Light theme' : 'Dark theme'"
             @click="toggle"
@@ -62,7 +62,7 @@ onMounted(init)
 
         <!-- Hamburger (mobile) -->
         <button
-          class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-9 h-9 rounded-lg hover:bg-lg-text/8 transition-colors"
+          class="sm:hidden flex flex-col justify-center items-center gap-1.5 w-11 h-11 rounded-lg hover:bg-lg-text/8 transition-colors"
           aria-label="Toggle menu"
           @click="menuOpen = !menuOpen"
         >
@@ -78,12 +78,12 @@ onMounted(init)
           <RouterLink
             v-for="route in routes" :key="route.to"
             :to="route.to"
-            class="flex items-center rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors text-lg-text/70 hover:text-lg-accent hover:bg-lg-text/8"
+            class="flex items-center rounded-lg px-4 py-3 text-sm font-semibold transition-colors text-lg-text/70 hover:text-lg-accent hover:bg-lg-text/8"
             active-class="text-lg-accent bg-lg-accent/10"
             @click="closeMenu"
           >{{ route.label }}</RouterLink>
           <button
-            class="flex w-full items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold text-lg-text/70 hover:text-lg-accent hover:bg-lg-text/8"
+            class="flex w-full items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold text-lg-text/70 hover:text-lg-accent hover:bg-lg-text/8"
             @click="toggle"
           >{{ theme === 'dark' ? '☀ Light theme' : '☾ Dark theme' }}</button>
         </div>
@@ -97,20 +97,18 @@ onMounted(init)
 
     <!-- Footer -->
     <footer class="border-t border-lg-border bg-lg-surface/80 py-4 text-center text-sm text-lg-text/55 space-y-1 no-print">
-      <div>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-1 px-4">
         <span>LegionApp — fan-made companion for Star Wars: Legion</span>
-        <span class="mx-2">·</span>
         <a href="https://ko-fi.com/redrazor" target="_blank" rel="noopener" class="text-lg-accent hover:underline">Buy me a coffee on Ko-fi ☕</a>
-        <span class="mx-2">·</span>
         <a href="https://github.com/Redrazor" target="_blank" rel="noopener" class="hover:underline text-lg-accent">GitHub</a>
-        <span class="mx-2">·</span>
         <a href="https://shatterapp.com" target="_blank" rel="noopener" class="hover:underline text-lg-accent">Play Shatterpoint? Try ShatterApp ↗</a>
       </div>
-      <div class="text-xs text-lg-text/35 px-4">
-        Unofficial fan tool, not affiliated with Atomic Mass Games or Lucasfilm Ltd. Star Wars: Legion and all related
-        marks, card text, and artwork are © Atomic Mass Games, Lucasfilm Ltd. &amp; Disney. Card data via Legion HQ.
-        <span class="mx-2">·</span>
-        <button class="text-lg-text/30 transition-colors hover:text-lg-accent" @click="showChangelog = true">v{{ APP_VERSION }}</button>
+      <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-4 text-xs text-lg-text/35">
+        <span class="leading-relaxed">
+          Unofficial fan tool, not affiliated with Atomic Mass Games or Lucasfilm Ltd. Star Wars: Legion and all related
+          marks, card text, and artwork are © Atomic Mass Games, Lucasfilm Ltd. &amp; Disney. Card data via Legion HQ.
+        </span>
+        <button class="rounded px-2 py-1 text-lg-text/30 transition-colors hover:text-lg-accent" @click="showChangelog = true">v{{ APP_VERSION }}</button>
       </div>
     </footer>
   </div>

@@ -105,13 +105,13 @@ function summaryLine(summary: Record<string, number>): string {
 
     <!-- Roll history -->
     <div v-if="history.entries.length > 0" class="rounded-xl border border-lg-border bg-black/20">
-      <button class="flex w-full items-center justify-between px-3 py-2.5 text-left" @click="logOpen = !logOpen">
-        <span class="text-[10px] uppercase tracking-widest text-lg-text/40">Roll History ({{ history.entries.length }})</span>
-        <div class="flex items-center gap-2">
-          <button class="text-[10px] text-lg-text/30 transition-colors hover:text-lg-text" @click.stop="history.clear()">Clear</button>
+      <div class="flex items-center justify-between">
+        <button class="flex flex-1 items-center justify-between px-3 py-2.5 text-left" @click="logOpen = !logOpen">
+          <span class="text-[10px] uppercase tracking-widest text-lg-text/40">Roll History ({{ history.entries.length }})</span>
           <span class="text-[10px] text-lg-text/30">{{ logOpen ? '▲' : '▼' }}</span>
-        </div>
-      </button>
+        </button>
+        <button class="flex min-h-[44px] items-center px-2 text-[10px] text-lg-text/30 transition-colors hover:text-lg-text" @click.stop="history.clear()">Clear</button>
+      </div>
 
       <div v-if="logOpen" class="divide-y divide-lg-border/50 border-t border-lg-border">
         <div v-for="(entry, i) in history.entries" :key="entry.id" class="flex items-start justify-between gap-3 px-3 py-2">

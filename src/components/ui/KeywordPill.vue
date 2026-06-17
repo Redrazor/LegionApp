@@ -20,6 +20,21 @@ const POPOVER_W = 256
 
 const def = () => keywordsStore.define(props.keyword)
 
+// Inside the UnitProfile / lightbox drawer the scroll happens on the scrollable
+// `<aside>`, not `window`, so a window-only scroll listener would let the popover
+// orphan. Track the nearest scrollable ancestor and close on its scroll too.
+let scrollParent: HTMLElement | null = null
+
+function findScrollParent(el: HTMLElement | null): HTMLElement | null {
+  let node = el?.parentElement ?? null
+  while (node) {
+    const oy = getComputedStyle(node).overflowY
+    if (oy === 'auto' || oy === 'scroll') return node
+    node = node.parentElement
+  }
+  return null
+}
+
 function place() {
   const el = btn.value
   if (!el) return
@@ -44,6 +59,8 @@ function toggle() {
     window.addEventListener('scroll', close, true)
     window.addEventListener('resize', close)
     document.addEventListener('click', onDocClick, true)
+    scrollParent = findScrollParent(btn.value)
+    scrollParent?.addEventListener('scroll', close)
   } else {
     teardown()
   }
@@ -62,6 +79,8 @@ function teardown() {
   window.removeEventListener('scroll', close, true)
   window.removeEventListener('resize', close)
   document.removeEventListener('click', onDocClick, true)
+  scrollParent?.removeEventListener('scroll', close)
+  scrollParent = null
 }
 
 onBeforeUnmount(teardown)

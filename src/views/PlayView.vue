@@ -22,7 +22,7 @@ const roadmap = [
 </script>
 
 <template>
-  <div class="mx-auto max-w-2xl py-12 text-center">
+  <div class="mx-auto max-w-2xl py-8 text-center sm:py-12">
     <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-lg-accent/30 bg-lg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-lg-accent">
       Coming soon
     </div>

@@ -48,7 +48,9 @@ const donutOptions = computed(() => ({
   maintainAspectRatio: false,
   cutout: '62%',
   plugins: {
-    legend: { position: 'right' as const, labels: { color: cssVar('--color-lg-muted'), boxWidth: 12, font: { size: 11 } } },
+    // On mobile the panel is a ~375px bottom sheet, so a right-side legend cramps the
+    // donut — drop it below. Non-reactive read at render is fine (panel remounts on open).
+    legend: { position: (window.innerWidth < 640 ? 'bottom' : 'right') as 'bottom' | 'right', labels: { color: cssVar('--color-lg-muted'), boxWidth: 12, font: { size: 11 } } },
     tooltip: { callbacks: { label: (c: { label: string; parsed: number }) => `${c.label}: ${c.parsed} pts` } },
   },
 }))
@@ -93,7 +95,7 @@ const upgradePct = computed(() => (s.value.totalPoints ? Math.round((s.value.upg
           <!-- Header -->
           <div class="flex items-center justify-between border-b border-lg-border px-5 py-4">
             <h2 class="font-display text-base font-bold uppercase tracking-widest text-lg-accent">Army Stats</h2>
-            <button class="rounded-full bg-lg-dark/60 p-1.5 text-lg-muted transition-colors hover:text-lg-text" aria-label="Close" @click="emit('close')">✕</button>
+            <button class="grid h-10 w-10 place-items-center rounded-full bg-lg-dark/60 text-lg-muted transition-colors hover:text-lg-text" aria-label="Close" @click="emit('close')">✕</button>
           </div>
 
           <!-- Empty state -->

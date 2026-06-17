@@ -75,21 +75,21 @@ useHead({
     <BrowseTabs />
 
     <!-- Filters -->
-    <div class="mb-5 flex flex-wrap items-center gap-2">
+    <div class="sticky top-[52px] z-30 -mx-4 mb-5 flex flex-wrap items-center gap-2 border-b border-lg-border bg-lg-bg/95 px-4 py-3 backdrop-blur-sm">
       <input
         v-model="filters.query"
         placeholder="Search by card or commander…"
-        class="min-w-[160px] flex-1 rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+        class="min-w-[160px] flex-1 rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-base text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
       />
-      <select v-model="filters.faction" class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text focus:border-lg-accent/60 focus:outline-none">
+      <select v-model="filters.faction" class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-base text-lg-text focus:border-lg-accent/60 focus:outline-none">
         <option value="">All factions</option>
         <option v-for="f in FACTION_ORDER" :key="f" :value="f">{{ FACTION_META[f].name }}</option>
       </select>
-      <select v-model="filters.character" class="max-w-[200px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text focus:border-lg-accent/60 focus:outline-none">
+      <select v-model="filters.character" class="max-w-[200px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-base text-lg-text focus:border-lg-accent/60 focus:outline-none">
         <option value="">Any commander</option>
         <option v-for="c in characters" :key="c" :value="c">{{ c }}</option>
       </select>
-      <button v-if="filters.query || filters.faction || filters.character" class="rounded-lg border border-lg-border px-3 py-2 text-sm text-lg-muted hover:text-lg-accent" @click="reset">Reset</button>
+      <button v-if="filters.query || filters.faction || filters.character" class="rounded-lg border border-lg-border px-3 py-2 text-base text-lg-muted hover:text-lg-accent" @click="reset">Reset</button>
       <span class="ml-auto text-xs text-lg-muted">{{ filtered.length }} cards</span>
     </div>
 

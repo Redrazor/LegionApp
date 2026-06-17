@@ -68,8 +68,8 @@ useHead({
           <span class="text-lg-muted"> / {{ totals.total }} expansions owned</span>
         </div>
         <div class="flex gap-2 no-print">
-          <button class="rounded-lg border border-lg-border px-3 py-1.5 text-xs text-lg-muted hover:text-lg-accent" @click="exportData">Export</button>
-          <button class="rounded-lg border border-lg-border px-3 py-1.5 text-xs text-lg-muted hover:text-lg-accent" @click="fileInput?.click()">Import</button>
+          <button class="rounded-lg border border-lg-border px-3 py-2.5 text-xs min-h-[44px] text-lg-muted hover:text-lg-accent" @click="exportData">Export</button>
+          <button class="rounded-lg border border-lg-border px-3 py-2.5 text-xs min-h-[44px] text-lg-muted hover:text-lg-accent" @click="fileInput?.click()">Import</button>
           <input ref="fileInput" type="file" accept="application/json" class="hidden" @change="onFile" />
         </div>
       </div>
@@ -102,7 +102,7 @@ useHead({
         <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           <div
             v-for="p in group.products" :key="p.code"
-            class="flex items-center gap-3 rounded-lg border p-2.5 transition-colors"
+            class="flex min-w-0 items-center gap-3 rounded-lg border p-2.5 transition-colors"
             :class="collection.isOwned(p.code) ? 'border-lg-accent/40 bg-lg-accent/5' : 'border-lg-border bg-lg-surface'"
           >
             <div class="grid h-24 w-24 flex-none place-items-center overflow-hidden rounded-md bg-lg-dark">
@@ -120,9 +120,9 @@ useHead({
               <span v-if="p.ean" class="block truncate text-[11px] text-lg-muted/70">EAN {{ p.ean }}</span>
             </div>
             <div class="flex flex-none items-center gap-1.5">
-              <button class="grid h-7 w-7 place-items-center rounded-md border border-lg-border text-lg-muted hover:text-lg-accent disabled:opacity-30" :disabled="!collection.isOwned(p.code)" @click="collection.decrement(p.code)">−</button>
+              <button class="grid h-11 w-11 place-items-center rounded-md border border-lg-border text-lg-muted hover:text-lg-accent disabled:opacity-30" :disabled="!collection.isOwned(p.code)" @click="collection.decrement(p.code)">−</button>
               <span class="w-5 text-center font-display text-sm font-bold" :class="collection.isOwned(p.code) ? 'text-lg-accent' : 'text-lg-muted'">{{ collection.quantity(p.code) }}</span>
-              <button class="grid h-7 w-7 place-items-center rounded-md border border-lg-border text-lg-muted hover:text-lg-accent" @click="collection.increment(p.code)">+</button>
+              <button class="grid h-11 w-11 place-items-center rounded-md border border-lg-border text-lg-muted hover:text-lg-accent" @click="collection.increment(p.code)">+</button>
             </div>
           </div>
         </div>

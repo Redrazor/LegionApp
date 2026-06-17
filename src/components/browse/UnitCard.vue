@@ -36,7 +36,7 @@ const favorites = useFavoritesStore()
 
       <!-- Favorite -->
       <button
-        class="absolute left-2 top-2 grid h-7 w-7 place-items-center rounded-md bg-lg-dark/80 text-base transition-colors"
+        class="absolute left-2 top-2 grid h-7 w-7 place-items-center rounded-md bg-lg-dark/80 text-base transition-colors before:absolute before:inset-[-8px] before:content-['']"
         :class="favorites.isFavorite(unit.id) ? 'text-lg-accent' : 'text-lg-text/40 hover:text-lg-text/80'"
         :aria-label="favorites.isFavorite(unit.id) ? 'Remove favorite' : 'Add favorite'"
         @click.prevent.stop="favorites.toggle(unit.id)"

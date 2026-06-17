@@ -56,7 +56,7 @@ useHead({
         v-model="search"
         type="search"
         placeholder="Search keywords…"
-        class="mb-4 w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+        class="mb-4 w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-base text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none focus:ring-2 focus:ring-lg-accent/30"
       />
       <p v-if="!keywordsStore.loaded" class="py-10 text-center text-lg-muted">Loading…</p>
       <dl v-else class="space-y-2">
@@ -106,8 +106,12 @@ useHead({
         <a :href="RULEBOOK_PDF" target="_blank" rel="noopener" class="rounded-lg bg-lg-accent/15 border border-lg-accent/40 px-3 py-2 text-sm font-semibold text-lg-accent hover:bg-lg-accent/25">Open Core Rulebook PDF ↗</a>
         <a :href="RULES_HUB" target="_blank" rel="noopener" class="rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-muted hover:text-lg-accent">All AMG rules &amp; OP docs ↗</a>
       </div>
-      <div class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark" style="height: 75vh">
+      <div class="hidden overflow-hidden rounded-xl border border-lg-border bg-lg-dark sm:block" style="height: 75vh">
         <iframe :src="RULEBOOK_PDF" class="h-full w-full" title="Star Wars: Legion Core Rulebook"></iframe>
+      </div>
+      <div class="rounded-xl border border-lg-border bg-lg-dark p-5 text-sm text-lg-muted sm:hidden">
+        The rulebook viewer doesn't display reliably on mobile. Tap
+        <span class="font-semibold text-lg-accent">“Open Core Rulebook PDF ↗”</span> above to open it in your browser's PDF reader.
       </div>
       <p class="mt-2 text-xs text-lg-muted">If the rulebook doesn't load inline, use the buttons above. Rules © Atomic Mass Games.</p>
     </div>

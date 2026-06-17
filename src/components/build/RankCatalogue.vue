@@ -77,7 +77,7 @@ function toggleRank(rank: Rank) {
       v-model="query"
       type="search"
       placeholder="Search units…"
-      class="mb-3 w-full flex-none rounded-lg border border-lg-border bg-lg-dark px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+      class="mb-3 w-full flex-none rounded-lg border border-lg-border bg-lg-dark px-3 py-2 text-base text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
     />
 
     <!-- MOBILE: rank tab-strip + the active rank's units -->

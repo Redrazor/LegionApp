@@ -60,14 +60,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         <h2 class="font-display text-sm font-bold uppercase tracking-widest text-lg-accent">{{ slotLabel(slot) }} upgrade</h2>
         <p class="truncate text-[11px] text-lg-muted">for {{ unit.name }}</p>
       </div>
-      <button class="grid h-8 w-8 flex-none place-items-center rounded-lg text-lg-muted hover:bg-lg-text/8 hover:text-lg-accent" aria-label="Close" @click="emit('close')">✕</button>
+      <button class="grid h-11 w-11 flex-none place-items-center rounded-lg text-lg-muted hover:bg-lg-text/8 hover:text-lg-accent" aria-label="Close" @click="emit('close')">✕</button>
     </div>
 
     <input
       v-model="query"
       type="search"
       placeholder="Search upgrades…"
-      class="mb-3 w-full flex-none rounded-lg border border-lg-border bg-lg-dark px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+      class="mb-3 w-full flex-none rounded-lg border border-lg-border bg-lg-dark px-3 py-2 text-base text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
     />
 
     <div class="flex-1 space-y-1 overflow-y-auto">
@@ -107,7 +107,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           <span class="flex-none self-start font-display text-sm font-bold text-lg-accent">{{ u.cost ?? 0 }}</span>
         </button>
         <button
-          class="grid h-8 w-8 flex-none self-center place-items-center rounded-lg text-lg-muted transition-colors hover:bg-lg-text/8 hover:text-lg-accent"
+          class="grid h-11 w-11 flex-none self-center place-items-center rounded-lg text-lg-muted transition-colors hover:bg-lg-text/8 hover:text-lg-accent"
           :title="`Inspect ${u.name}`"
           :aria-label="`Inspect ${u.name}`"
           @click="inspectIndex = i"
@@ -129,7 +129,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         <!-- Card + chevrons -->
         <div class="relative z-10 flex items-center" @touchstart.passive="onTouchStart" @touchend.passive="onTouchEnd">
           <button
-            class="absolute -left-2 z-20 grid h-14 w-14 place-items-center rounded-full bg-lg-dark/80 text-3xl leading-none text-lg-accent ring-1 ring-lg-accent/40 transition-colors hover:bg-lg-accent/20 disabled:opacity-25 sm:-left-14"
+            class="absolute -left-2 z-20 hidden h-14 w-14 place-items-center rounded-full bg-lg-dark/80 text-3xl leading-none text-lg-accent ring-1 ring-lg-accent/40 transition-colors hover:bg-lg-accent/20 disabled:opacity-25 sm:-left-14 sm:grid"
             :disabled="inspectIndex === 0" aria-label="Previous" @click="inspectPrev"
           >‹</button>
           <img
@@ -138,7 +138,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
           />
           <div v-else class="grid h-[60vh] w-[42vh] place-items-center rounded-xl border border-lg-border bg-lg-surface text-center text-lg-muted">{{ inspected.name }}</div>
           <button
-            class="absolute -right-2 z-20 grid h-14 w-14 place-items-center rounded-full bg-lg-dark/80 text-3xl leading-none text-lg-accent ring-1 ring-lg-accent/40 transition-colors hover:bg-lg-accent/20 disabled:opacity-25 sm:-right-14"
+            class="absolute -right-2 z-20 hidden h-14 w-14 place-items-center rounded-full bg-lg-dark/80 text-3xl leading-none text-lg-accent ring-1 ring-lg-accent/40 transition-colors hover:bg-lg-accent/20 disabled:opacity-25 sm:-right-14 sm:grid"
             :disabled="inspectIndex === candidates.length - 1" aria-label="Next" @click="inspectNext"
           >›</button>
         </div>

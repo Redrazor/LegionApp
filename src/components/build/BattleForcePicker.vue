@@ -34,7 +34,7 @@ function summary(bf: BattleForce): string {
             <h2 class="font-display text-sm font-bold uppercase tracking-widest text-lg-text">Battle force</h2>
             <p class="text-[11px] text-lg-muted">Optional — {{ formatName(gameSize) }} rules</p>
           </div>
-          <button class="text-lg-muted hover:text-lg-text" aria-label="Close" @click="emit('close')">✕</button>
+          <button class="grid h-10 w-10 place-items-center text-lg-muted hover:text-lg-text" aria-label="Close" @click="emit('close')">✕</button>
         </header>
 
         <div class="min-h-0 flex-1 overflow-y-auto p-3">

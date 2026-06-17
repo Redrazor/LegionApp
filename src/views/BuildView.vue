@@ -219,6 +219,11 @@ function openImport() {
   importResult.value = null
   importOpen.value = true
 }
+// In-app "replace current army?" confirmation. We deliberately do NOT use
+// window.confirm — it is silently suppressed in iOS WKWebView / PWA standalone /
+// in-app browsers, which would make import silently fail there. Instead we stash the
+// validated import and surface a reactive confirm overlay (matches the app modal style).
+const pendingImport = ref<{ army: ReturnType<typeof importArmy> } | null>(null)
 function doImport(text: string) {
   const res = importArmy(text, {
     units: unitsStore.units,
@@ -230,10 +235,24 @@ function doImport(text: string) {
     importResult.value = { ok: false, warnings: [], error: 'Not a recognised LegionApp or TTS / Longshanks list file.' }
     return
   }
-  if (draft.value.units.length && !window.confirm('Replace your current army with the imported list?')) return
+  // If there's a non-empty army, ask before clobbering it via the in-app dialog.
+  if (draft.value.units.length) {
+    pendingImport.value = { army: res }
+    return
+  }
+  commitImport(res)
+}
+function commitImport(res: NonNullable<ReturnType<typeof importArmy>>) {
   armyStore.loadDraft(res.army)
   activeIndex.value = -1
   importResult.value = { ok: true, warnings: res.warnings }
+}
+function confirmImport() {
+  if (pendingImport.value?.army) commitImport(pendingImport.value.army)
+  pendingImport.value = null
+}
+function cancelImport() {
+  pendingImport.value = null
 }
 
 // Current army unit count per rank (catalogue tab counters + "+" max gating).
@@ -342,7 +361,7 @@ useHead({
         <input
           :value="draft.name"
           placeholder="Army name…"
-          class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
+          class="flex-1 min-w-[180px] rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-base font-semibold text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
           @input="armyStore.setName(($event.target as HTMLInputElement).value)"
         />
         <!-- Battle-force chip — opt-in; only shown when this faction has any. -->
@@ -530,6 +549,25 @@ useHead({
       @load="doImport"
       @close="importOpen = false"
     />
+
+    <!-- In-app "replace current army?" confirm (replaces window.confirm, which iOS
+         WKWebView / PWA / in-app browsers silently suppress). -->
+    <Teleport to="body">
+      <div
+        v-if="pendingImport"
+        class="fixed inset-0 z-[80] flex items-end justify-center bg-black/60 p-0 sm:items-center sm:p-4"
+        @click.self="cancelImport"
+      >
+        <div class="w-full max-w-sm rounded-t-2xl border border-lg-border bg-lg-surface p-5 shadow-2xl sm:rounded-2xl">
+          <h2 class="font-display text-base font-bold uppercase tracking-widest text-lg-text">Replace army?</h2>
+          <p class="mt-2 text-sm text-lg-muted">This will replace your current army with the imported list. This can’t be undone.</p>
+          <div class="mt-5 flex justify-end gap-2">
+            <button class="rounded-lg border border-lg-border bg-lg-surface px-4 py-2 text-sm font-semibold text-lg-muted hover:text-lg-text" @click="cancelImport">Cancel</button>
+            <button class="rounded-lg border border-faction-rebels/40 bg-faction-rebels/15 px-4 py-2 text-sm font-semibold text-faction-rebels hover:bg-faction-rebels/25" @click="confirmImport">Replace</button>
+          </div>
+        </div>
+      </div>
+    </Teleport>
 
     <!-- Battle-force picker overlay (faction's battle forces + "None"). -->
     <BattleForcePicker

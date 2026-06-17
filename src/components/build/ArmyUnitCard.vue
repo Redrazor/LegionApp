@@ -110,20 +110,20 @@ function removeGroup() {
         <!-- Quantity stepper (non-uniques only); uniques cap at 1. -->
         <div v-if="!unit.isUnique" class="flex items-center gap-1 no-print">
           <button
-            class="flex h-5 w-5 items-center justify-center rounded border border-lg-border text-lg-muted transition-colors hover:border-lg-accent/40 hover:text-lg-text"
+            class="flex h-9 w-9 items-center justify-center rounded border border-lg-border text-lg-muted transition-colors hover:border-lg-accent/40 hover:text-lg-text"
             aria-label="Remove one copy"
             @click="removeOne"
           >−</button>
           <span class="min-w-[1.25rem] text-center font-display text-xs font-bold text-lg-text">{{ qty }}</span>
           <button
-            class="flex h-5 w-5 items-center justify-center rounded border border-lg-border text-lg-muted transition-colors enabled:hover:border-lg-accent/40 enabled:hover:text-lg-text disabled:cursor-not-allowed disabled:opacity-40"
+            class="flex h-9 w-9 items-center justify-center rounded border border-lg-border text-lg-muted transition-colors enabled:hover:border-lg-accent/40 enabled:hover:text-lg-text disabled:cursor-not-allowed disabled:opacity-40"
             aria-label="Add one copy"
             :disabled="!canAdd"
             @click="addCopy"
           >+</button>
         </div>
         <button
-          class="text-xs text-lg-muted hover:text-faction-rebels no-print"
+          class="grid h-9 w-9 place-items-center rounded-lg text-xs text-lg-muted hover:text-faction-rebels no-print"
           :aria-label="qty > 1 ? `Remove all ${qty} copies` : 'Remove unit'"
           :title="qty > 1 ? `Remove all ${qty}` : 'Remove'"
           @click="removeGroup"
@@ -135,7 +135,7 @@ function removeGroup() {
     <div v-if="upgradeBar.length" class="relative mt-3 flex flex-wrap gap-1.5">
       <button
         v-for="(slot, i) in upgradeBar" :key="i"
-        class="inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-40"
+        class="inline-flex items-center gap-1.5 rounded-md border px-2.5 py-2 text-xs transition-colors disabled:cursor-not-allowed disabled:opacity-40"
         :class="equipped(slot, i)
           ? 'border-lg-accent/50 bg-lg-accent/10 text-lg-text'
           : 'border-dashed border-lg-border bg-lg-dark text-lg-muted enabled:hover:border-lg-accent/40'"

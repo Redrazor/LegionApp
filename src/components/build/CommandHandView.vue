@@ -67,7 +67,7 @@ const total = computed(() => props.selected.length + (props.standingOrders ? 1 :
               v-if="selectedSet.has(card.id)"
               class="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-lg-accent text-[11px] font-bold text-lg-bg"
             >✓</span>
-            <span class="block truncate px-1.5 py-1 text-[11px] font-medium text-lg-text">{{ card.name }}</span>
+            <span class="block truncate px-1.5 py-1 text-xs font-medium text-lg-text">{{ card.name }}</span>
           </button>
         </div>
         <p v-else class="rounded-lg border border-dashed border-lg-border py-3 text-center text-xs text-lg-muted">

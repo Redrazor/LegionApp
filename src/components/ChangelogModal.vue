@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.11.1',
+    date: '2026-06-17',
+    changes: [
+      'Fixed the Programmed keyword description — it requires a Programming upgrade (verified against the card art), not the slot the rulebook glossary icon was misread as.',
+    ],
+  },
+  {
     version: '1.11.0',
     date: '2026-06-17',
     changes: [

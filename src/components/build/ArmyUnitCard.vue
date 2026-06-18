@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ArmyUnitGroup } from '../../utils/army.ts'
-import { unitLegalityIssues, effectiveUpgradeBar, unitModelCount } from '../../utils/army.ts'
+import { unitLegalityIssues, effectiveUpgradeBar, unitModelCount, unitCost, doctrineUpgradeCost, doctrineEffects } from '../../utils/army.ts'
 import type { BattleForce, Faction } from '../../types/index.ts'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
@@ -27,13 +27,17 @@ const armyUnit = computed(() => props.group.representative)
 const qty = computed(() => props.group.qty)
 const unit = computed(() => unitsStore.byId.get(armyUnit.value.unitId))
 
-// Per-copy cost; the group total multiplies by qty.
-const lineCost = computed(() => {
-  let c = unit.value?.cost ?? 0
-  for (const u of armyUnit.value.upgrades) c += upgradesStore.byId.get(u.upgradeId)?.cost ?? 0
-  return c
-})
+// Per-copy cost (doctrine-aware: Veterans / Tools of the Trade discounts); group total ×qty.
+const lineCost = computed(() =>
+  unitCost(armyUnit.value, unitsStore.byId, upgradesStore.byId, { army: armyStore.draft, bf: props.battleForce }),
+)
 const groupCost = computed(() => lineCost.value * qty.value)
+
+// Active doctrine effects, for showing per-slot adjusted upgrade costs.
+const effects = computed(() => doctrineEffects(armyStore.draft, props.battleForce))
+function slotCost(slot: string, index: number): number {
+  return doctrineUpgradeCost(equipped(slot, index) ?? undefined, unit.value, effects.value)
+}
 
 // Per-unit legality (all members of a ×N group are identical, so one verdict). Live —
 // clears as soon as the missing condition (e.g. a mandatory heavy weapon) is met.
@@ -161,7 +165,7 @@ function removeGroup() {
       >
         <span class="text-[9px] font-bold uppercase tracking-wide text-lg-muted">{{ slotLabel(slot) }}</span>
         <template v-if="equipped(slot, i)">
-          <span class="font-display font-bold text-lg-accent">{{ equipped(slot, i)!.cost ?? 0 }}</span>
+          <span class="font-display font-bold text-lg-accent">{{ slotCost(slot, i) }}</span>
           <span class="font-medium">{{ equipped(slot, i)!.name }}</span>
         </template>
         <span v-else>+</span>

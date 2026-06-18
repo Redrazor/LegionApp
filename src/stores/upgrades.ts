@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { BattleForce, Unit, Upgrade, Weapon } from '../types/index.ts'
 import { loadCatalogue } from '../utils/api.ts'
-import { unitMeetsRequirements, upgradeFitsSlot } from '../utils/army.ts'
+import { unitMeetsRequirements, upgradeFitsSlot, isMandalorianTrooper } from '../utils/army.ts'
 
 export const useUpgradesStore = defineStore('upgrades', () => {
   const upgrades = ref<Upgrade[]>([])
@@ -60,6 +60,9 @@ export const useUpgradesStore = defineStore('upgrades', () => {
       if (disallowed?.has(u.id)) return false
       const factionOk = !u.faction || u.faction === faction || u.faction === 'mercenary' || !!allowed?.has(u.id)
       if (!factionOk) return false
+      // Tools of the Trade: its three upgrades ignore their printed restrictions for any
+      // Mandalorian Trooper unit (the marker is set on a per-army copy of the force).
+      if (bf?.doctrineUnrestrictedUpgradeSlugs?.includes(u.slug) && isMandalorianTrooper(unit)) return true
       return !unit || unitMeetsRequirements(unit, u.requirements)
     })
   }

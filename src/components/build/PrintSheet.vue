@@ -92,6 +92,17 @@ const showBattleDeckText = () => props.options.battleDeck && props.sheet.showBat
         </div>
       </section>
 
+      <!-- Doctrines ("Choose N of the following") -->
+      <section v-if="sheet.doctrines.length" style="margin-bottom: 14px; break-inside: avoid;">
+        <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 6px;">Doctrines</h2>
+        <dl style="margin: 0; font-size: 12px; line-height: 1.4;">
+          <div v-for="(d, i) in sheet.doctrines" :key="i" style="margin-bottom: 5px; break-inside: avoid;">
+            <dt style="display: inline; font-weight: 700;">{{ d.name }}.</dt>
+            <dd style="display: inline; margin: 0 0 0 4px; color: #333;">{{ d.text }}</dd>
+          </div>
+        </dl>
+      </section>
+
       <!-- Keyword reference -->
       <section v-if="options.keywordReference && sheet.keywords.length" style="margin-bottom: 14px;">
         <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 6px;">Keyword Reference</h2>

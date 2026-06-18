@@ -12,12 +12,12 @@ import { useBreakpoint } from '../../composables/useBreakpoint.ts'
 // `command`, `footer`.
 const { isMobile } = useBreakpoint()
 
-type Pane = 'catalogue' | 'army' | 'command' | 'battle'
-type DesktopView = 'roster' | 'command' | 'battle'
+type Pane = 'catalogue' | 'army' | 'command' | 'battle' | 'doctrines'
+type DesktopView = 'roster' | 'command' | 'battle' | 'doctrines'
 // `forcePane` overrides the user's toggle (e.g. upgrade-picking forces the catalogue
-// pane); when null the segmented toggle drives `mobilePane`. `hasCommand`/`hasBattleDeck`
-// enable the command-hand and battle-deck tabs/views.
-const props = defineProps<{ forcePane?: Pane | null; hasCommand?: boolean; hasBattleDeck?: boolean }>()
+// pane); when null the segmented toggle drives `mobilePane`. `hasCommand`/`hasBattleDeck`/
+// `hasDoctrines` enable the command-hand, battle-deck and doctrine tabs/views.
+const props = defineProps<{ forcePane?: Pane | null; hasCommand?: boolean; hasBattleDeck?: boolean; hasDoctrines?: boolean }>()
 // Catalogue is the default pane — a fresh list starts empty, so you want to add units.
 const mobilePane = ref<Pane>('catalogue')
 const activePane = computed(() => props.forcePane ?? mobilePane.value)
@@ -47,16 +47,18 @@ const mobileTabs = computed<Pane[]>(() => [
   'catalogue', 'army',
   ...(props.hasCommand ? ['command' as Pane] : []),
   ...(props.hasBattleDeck ? ['battle' as Pane] : []),
+  ...(props.hasDoctrines ? ['doctrines' as Pane] : []),
 ])
 const desktopViews = computed<DesktopView[]>(() => [
   'roster',
   ...(props.hasCommand ? ['command' as DesktopView] : []),
   ...(props.hasBattleDeck ? ['battle' as DesktopView] : []),
+  ...(props.hasDoctrines ? ['doctrines' as DesktopView] : []),
 ])
 const paneLabel = (p: Pane) =>
-  p === 'catalogue' ? 'Catalogue' : p === 'army' ? 'Army' : p === 'command' ? 'Command' : 'Deck'
+  p === 'catalogue' ? 'Catalogue' : p === 'army' ? 'Army' : p === 'command' ? 'Command' : p === 'battle' ? 'Deck' : 'Doctrines'
 const viewLabel = (v: DesktopView) =>
-  v === 'roster' ? 'Roster' : v === 'command' ? 'Command Hand' : 'Battle Deck'
+  v === 'roster' ? 'Roster' : v === 'command' ? 'Command Hand' : v === 'battle' ? 'Battle Deck' : 'Doctrines'
 </script>
 
 <template>
@@ -101,6 +103,11 @@ const viewLabel = (v: DesktopView) =>
       <!-- Battle deck — same morphing rule. -->
       <div v-if="hasBattleDeck" v-show="isMobile ? activePane === 'battle' : desktopView === 'battle'" class="min-w-0">
         <slot name="battle" />
+      </div>
+
+      <!-- Doctrines — same morphing rule. -->
+      <div v-if="hasDoctrines" v-show="isMobile ? activePane === 'doctrines' : desktopView === 'doctrines'" class="min-w-0">
+        <slot name="doctrines" />
       </div>
 
       <!-- Roster panes. On tablet/desktop the catalogue pane is sticky with its own

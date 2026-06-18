@@ -116,6 +116,29 @@ export interface BattleForceRankTable {
 }
 
 /**
+ * A single "Choose N of the following" doctrine option for a battle force. Each
+ * option carries verbatim rules `text` (owner-maintained, off the card) and an
+ * `id` stored on `Army.doctrines`. `effect` (optional) keys the computable Phase-2
+ * effects in `utils/army.ts`; pure in-game-only options omit it (shown as text).
+ */
+export interface BattleForceDoctrineOption {
+  id: string // stable id, e.g. 'veterans' (stored on Army.doctrines)
+  name: string
+  text: string // verbatim rules text
+  effect?: string // optional key for a computable engine effect
+}
+
+/**
+ * A battle force's "Choose N of the following" army-build doctrines. Owner-maintained
+ * (transcribed from the battle-force card), overlaid onto the `battleForces` store at
+ * load from `public/data/battle-force-doctrines.json` so a re-scrape can't wipe it.
+ */
+export interface BattleForceDoctrines {
+  pick: number // exactly this many options must be chosen
+  options: BattleForceDoctrineOption[]
+}
+
+/**
  * An alternative army-building ruleset (replaces the standard rank table). A unit
  * is legal in a battle force iff its id appears in one of the six `rankUnits`
  * lists — which also sets the rank it fills. `rules` is a passthrough of the
@@ -135,6 +158,13 @@ export interface BattleForce {
     standard: BattleForceRankTable // 1000-point / standard mode
     '500': BattleForceRankTable // 500-point mode
   }
+  doctrines?: BattleForceDoctrines // optional "Choose N of the following"; overlaid at load
+  /**
+   * Transient (NOT in source data): upgrade slugs an active doctrine makes equippable by
+   * any Mandalorian Trooper unit, ignoring their printed restrictions. Set by
+   * `applyDoctrineEffects` on a per-army copy of the force; never persisted.
+   */
+  doctrineUnrestrictedUpgradeSlugs?: string[]
 }
 
 // ── Battle deck ──────────────────────────────────────────────────────────────
@@ -192,11 +222,12 @@ export interface Army {
   units: ArmyUnit[]
   commandHand: string[] // chosen command-card ids (the 6 picks; Standing Orders is auto)
   battleDeck: string[] // chosen battle-card ids (3 primary + 3 secondary + 3 advantage; Standard only)
+  doctrines: string[] // chosen doctrine option ids (only when the battle force has doctrines)
 }
 
 /** Compact, ID-only serialised army for save/share. */
 export interface CompactArmy {
-  v?: number // schema version (2 = battle force/command hand/battle deck era; absent = legacy v1)
+  v?: number // schema version (3 = + doctrines; 2 = battle force/command hand/battle deck era; absent = legacy v1)
   n: string // name
   f: Faction | null // faction
   b?: string | null // battle-force linkId (optional; absent/null = standard)
@@ -204,6 +235,7 @@ export interface CompactArmy {
   u: [string, [string, string][]][] // [unitId, [[slot, upgradeId], ...]]
   c?: string[] // command-hand card ids (optional; absent = none)
   d?: string[] // battle-deck card ids (optional; absent = none)
+  o?: string[] // chosen doctrine option ids (optional; absent = none)
 }
 
 // ── Display metadata ─────────────────────────────────────────────────────────

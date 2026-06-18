@@ -1,0 +1,35 @@
+{
+  "mc": {
+    "pick": 2,
+    "options": [
+      {
+        "id": "veterans",
+        "name": "Veterans",
+        "effect": "veterans",
+        "text": "Each time a Mandalorian Warrior unit equips the GALAAR-15 Carbines upgrade, reduce the cost of that upgrade by 5 points. Additionally, during Setup you may choose 2 allied Mandalorian units. Each chosen gains Dauntless."
+      },
+      {
+        "id": "tools-of-the-trade",
+        "name": "Tools of the Trade",
+        "effect": "tools-of-the-trade",
+        "text": "You may include 1 additional copy each of the Flame Projector, Jetpack Rockets, and Whipcord Launcher Upgrade Cards in your army. These additional copies do not cost points, and may be equipped by any allied Mandalorian Trooper unit, ignoring restrictions. Each unit may still only ever be equipped with 1 copy of an upgrade card."
+      },
+      {
+        "id": "rapid-deployment",
+        "name": "Rapid Deployment",
+        "text": "During Setup, you may set aside up to 2 allied Mandalorian units that are not holding an Asset Objective token, marking the set aside units with Advantage tokens. The first time each set-aside unit would be chosen to activate this Game, you may Deploy it by putting that unit's unit leader onto the battlefield not within 2 of all enemy units, if able, then put the rest of the unit in cohesion. If you do, that unit is treated as activated and its Order token is placed facedown. Then the unit loses its Advantage token."
+      },
+      {
+        "id": "guns-for-hire",
+        "name": "Guns for Hire",
+        "effect": "guns-for-hire",
+        "text": "You may include a AA-5 Speeder Truck, a TX-225 GAVw Occupier Tank, or a WLO-5 Speeder Tank in your army. These units change their Affiliation to Mandalorian, and gain Coordinate: Mandalorian Warriors, and Independent: Surge 1."
+      },
+      {
+        "id": "feats-of-valor",
+        "name": "Feats of Valor",
+        "text": "When an allied unit in this army defeats an enemy unit, after the effect is resolved, the allied unit gains 1 Valor token. While a unit has 1 or more Valor tokens, it has Dauntless. While a unit has 2 or more Valor tokens, at the start of each of its Activations it gains 1 Aim token, Dodge token, or Surge token. While a unit has 3 or more Valor tokens, it has Exemplar. These bonuses are cumulative."
+      }
+    ]
+  }
+}

@@ -14,7 +14,7 @@ import {
   buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
   armyKeywordReference,
   usesDoctrines, chosenDoctrines, validateDoctrines, doctrineEffects,
-  doctrineFreeUpgradeCredit, armyPoints, applyDoctrineEffects, isMandalorianTrooper,
+  doctrineUpgradeCost, armyPoints, applyDoctrineEffects, isMandalorianTrooper,
 } from '../src/utils/army.ts'
 import type { BattleForceDoctrines } from '../src/types/index.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
@@ -1939,24 +1939,23 @@ describe('battle-force doctrines', () => {
     })
   })
 
-  describe('Phase 2 — Tools of the Trade (free copies + bypass)', () => {
+  describe('Phase 2 — Tools of the Trade (free upgrades + bypass)', () => {
     const flame = upgrade('Kj', { slug: 'flame-projector', cost: 5 })
-    const jet = upgrade('mm', { slug: 'jetpack-rockets', cost: 5 })
-    const { unitsById, upgradesById } = makeMaps([unit('w')], [flame, jet])
+    const trooper = unit('w', { unitType: 'mandalorian trooper', cost: 20 })
+    const { unitsById, upgradesById } = makeMaps([trooper, unit('grunt', { unitType: 'trooper', cost: 20 })], [flame])
+    const au = (id: string) => ({ uid: 'x', unitId: id, upgrades: [{ slot: 'gear#0', upgradeId: 'Kj' }] })
 
-    it('credits one free copy of each named upgrade present', () => {
-      const army = mcArmy({
-        units: [
-          { uid: 'a', unitId: 'w', upgrades: [{ slot: 'gear#0', upgradeId: 'Kj' }, { slot: 'armament#0', upgradeId: 'mm' }] },
-          { uid: 'b', unitId: 'w', upgrades: [{ slot: 'gear#0', upgradeId: 'Kj' }] }, // 2nd flame — NOT credited
-        ],
-        doctrines: ['tools-of-the-trade', 'feats-of-valor'],
-      })
-      expect(doctrineFreeUpgradeCredit(army, mc(), upgradesById)).toBe(10) // 1×flame + 1×jet, once each
+    it('makes the named upgrades free on a Mandalorian Trooper bearer', () => {
+      const army = mcArmy({ units: [au('w')], doctrines: ['tools-of-the-trade', 'feats-of-valor'] })
+      expect(unitCost(au('w'), unitsById, upgradesById, { army, bf: mc() })).toBe(20) // 20 + flame(0)
     })
-    it('credits nothing when the doctrine is not chosen', () => {
-      const army = mcArmy({ units: [{ uid: 'a', unitId: 'w', upgrades: [{ slot: 'gear#0', upgradeId: 'Kj' }] }], doctrines: ['veterans', 'guns-for-hire'] })
-      expect(doctrineFreeUpgradeCredit(army, mc(), upgradesById)).toBe(0)
+    it('does not free them on a non-Mandalorian-Trooper bearer', () => {
+      const army = mcArmy({ units: [au('grunt')], doctrines: ['tools-of-the-trade', 'feats-of-valor'] })
+      expect(unitCost(au('grunt'), unitsById, upgradesById, { army, bf: mc() })).toBe(25) // 20 + flame(5)
+    })
+    it('charges full price when the doctrine is not chosen', () => {
+      const army = mcArmy({ units: [au('w')], doctrines: ['veterans', 'guns-for-hire'] })
+      expect(unitCost(au('w'), unitsById, upgradesById, { army, bf: mc() })).toBe(25)
     })
     it('marks the three upgrades restriction-free via applyDoctrineEffects', () => {
       const army = mcArmy({ doctrines: ['tools-of-the-trade', 'feats-of-valor'] })
@@ -1991,15 +1990,25 @@ describe('battle-force doctrines', () => {
       const army = mcArmy({ doctrines: ['veterans', 'guns-for-hire'] })
       expect(doctrineEffects(army, mc())).toEqual({ veterans: true, toolsOfTheTrade: false, gunsForHire: true })
     })
-    it('applies both discount and credit in armyPoints', () => {
+    it('doctrineUpgradeCost applies Veterans and Tools of the Trade per upgrade', () => {
       const galaar = upgrade('Ix', { slug: 'galaar-15-carbines', cost: 5 })
       const flame = upgrade('Kj', { slug: 'flame-projector', cost: 5 })
-      const { unitsById, upgradesById } = makeMaps([unit('w', { cost: 18 })], [galaar, flame])
+      const trooper = unit('w', { unitType: 'mandalorian trooper' })
+      const both = doctrineEffects(mcArmy({ doctrines: ['veterans', 'tools-of-the-trade'] }), mc())
+      expect(doctrineUpgradeCost(galaar, trooper, both)).toBe(0) // 5 − 5
+      expect(doctrineUpgradeCost(flame, trooper, both)).toBe(0) // free on a Mandalorian Trooper
+      expect(doctrineUpgradeCost(flame, unit('g', { unitType: 'trooper' }), both)).toBe(5) // not a trooper
+      expect(doctrineUpgradeCost(galaar, trooper, null)).toBe(5) // no doctrines
+    })
+    it('sums doctrine-adjusted costs in armyPoints (rows tie out to total)', () => {
+      const galaar = upgrade('Ix', { slug: 'galaar-15-carbines', cost: 5 })
+      const flame = upgrade('Kj', { slug: 'flame-projector', cost: 5 })
+      const { unitsById, upgradesById } = makeMaps([unit('w', { cost: 18, unitType: 'mandalorian trooper' })], [galaar, flame])
       const army = mcArmy({
         units: [{ uid: 'a', unitId: 'w', upgrades: [{ slot: 'armament#0', upgradeId: 'Ix' }, { slot: 'gear#0', upgradeId: 'Kj' }] }],
         doctrines: ['veterans', 'tools-of-the-trade'],
       })
-      // 18 base + GALAAR (5−5=0) + flame 5, then −5 free flame credit = 18
+      // 18 base + GALAAR (5−5=0) + flame (free on a Mandalorian Trooper) = 18
       expect(armyPoints(army, unitsById, upgradesById, mc())).toBe(18)
     })
     it('applyDoctrineEffects returns the force unchanged when no pool doctrine is active', () => {

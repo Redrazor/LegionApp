@@ -245,9 +245,12 @@ populated force**: it is the only battle force whose rules (DOC56_BattleForces, 
 image) carry a list-building "Choose N of the following" doctrine — the AMG docs site publishes no such
 doctrine for the other 19 forces (their rules live on physical cards). Add others to the JSON when their
 verbatim text is in hand; no code change needed. Phase 2 computable effects implemented for Mandalorian
-Clans: Veterans (GALAAR-15 Carbines −5 via `unitCost`), Tools of the Trade (per-army free-copy credit +
+Clans: Veterans (GALAAR-15 Carbines −5 via `unitCost`/`doctrineUpgradeCost`), Tools of the Trade (its three
+upgrades free on a Mandalorian Trooper bearer — per-unit so unit rows, slot chips and the total agree — plus
 restriction bypass for Mandalorian Troopers via `applyDoctrineEffects`/`forSlot`), Guns for Hire (vehicles
-unlocked into the Heavy pool). Rapid Deployment & Feats of Valor stay text-only (pure in-game effects).
+unlocked into the Heavy pool). Cost effects are per-upgrade/deterministic so every cost display is consistent
+(`doctrineUpgradeCost`); the literal card wording is "1 additional copy each, free" — identical in the common
+single-copy case, a minor undercount only if multiple copies of the same upgrade are fielded. Rapid Deployment & Feats of Valor stay text-only (pure in-game effects).
 Share code bumped to v3 (`o?` key); `applyDoctrineEffects` bakes pool/eligibility effects onto a per-army
 copy of the force in `useArmyValidation` so downstream code needs no doctrine awareness.
 

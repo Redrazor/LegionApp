@@ -364,12 +364,7 @@ export function unitCost(
   let total = unit?.cost ?? 0
   const eff = ctx ? doctrineEffects(ctx.army, ctx.bf) : null
   for (const up of au.upgrades) {
-    const u = upgradesById.get(up.upgradeId)
-    let cost = u?.cost ?? 0
-    if (eff?.veterans && u?.slug === VETERANS_DISCOUNT.upgradeSlug) {
-      cost = Math.max(0, cost - VETERANS_DISCOUNT.amount)
-    }
-    total += cost
+    total += doctrineUpgradeCost(upgradesById.get(up.upgradeId), unit, eff)
   }
   return total
 }
@@ -1045,35 +1040,28 @@ export function isMandalorianTrooper(unit: Unit | undefined): boolean {
 }
 
 /**
- * Tools of the Trade: total points to credit back — 1 free copy of EACH of the three named
- * upgrades that appears anywhere in the army (the doctrine grants "1 additional copy each,
- * free"). Army-level (not per-unit) so only the first copy of each slug is credited.
+ * The cost of a single equipped upgrade with the active doctrines applied — Veterans
+ * (GALAAR-15 Carbines −5) and Tools of the Trade (its three upgrades are free on a
+ * Mandalorian Trooper bearer). Per-upgrade + deterministic so the unit row, the slot chip
+ * and the army total all agree. (Tools of the Trade thus frees every copy on a Mandalorian
+ * Trooper rather than the card's literal "1 additional copy each"; identical in the common
+ * single-copy case, a small undercount only if you field multiple copies of the same one.)
  */
-export function doctrineFreeUpgradeCredit(
-  army: Army,
-  bf: BattleForce | null | undefined,
-  upgradesById: Map<string, Upgrade>,
+export function doctrineUpgradeCost(
+  up: Upgrade | undefined,
+  bearer: Unit | undefined,
+  eff: DoctrineEffects | null,
 ): number {
-  if (!doctrineEffects(army, bf).toolsOfTheTrade) return 0
-  const free = new Set(TOOLS_OF_THE_TRADE_SLUGS)
-  const credited = new Set<string>()
-  let credit = 0
-  for (const au of army.units) {
-    for (const x of au.upgrades) {
-      const u = upgradesById.get(x.upgradeId)
-      if (u && free.has(u.slug) && !credited.has(u.slug)) {
-        credited.add(u.slug)
-        credit += u.cost ?? 0
-      }
-    }
-  }
-  return credit
+  let cost = up?.cost ?? 0
+  if (!up || !eff) return cost
+  if (eff.veterans && up.slug === VETERANS_DISCOUNT.upgradeSlug) cost = Math.max(0, cost - VETERANS_DISCOUNT.amount)
+  if (eff.toolsOfTheTrade && TOOLS_OF_THE_TRADE_SLUGS.includes(up.slug) && isMandalorianTrooper(bearer)) cost = 0
+  return cost
 }
 
 /**
- * Total army points WITH doctrine effects applied: per-upgrade discounts (Veterans) via
- * `unitCost`, minus the army-level free-upgrade credit (Tools of the Trade). Use this
- * everywhere a points total is shown so the number stays consistent.
+ * Total army points with all doctrine effects applied (the doctrine-aware sum of `unitCost`).
+ * Use this everywhere a points total is shown so the number stays consistent with the rows.
  */
 export function armyPoints(
   army: Army,
@@ -1083,7 +1071,7 @@ export function armyPoints(
 ): number {
   let total = 0
   for (const au of army.units) total += unitCost(au, unitsById, upgradesById, { army, bf })
-  return Math.max(0, total - doctrineFreeUpgradeCredit(army, bf, upgradesById))
+  return total
 }
 
 /**
@@ -1189,16 +1177,13 @@ export function buildArmySheet(
   const ranks: ArmySheetRank[] = []
   for (const r of RANK_ORDER) {
     if (!byRank[r].length) continue
-    const veterans = doctrineEffects(army, bf).veterans
+    const eff = doctrineEffects(army, bf)
     const units = groupArmyUnits(byRank[r]).map((g) => {
       const u = unitsById.get(g.unitId)
       const upgrades = g.representative.upgrades.map((x) => {
         const up = upgradesById.get(x.upgradeId)
-        // Veterans: show the discounted GALAAR-15 Carbines cost on the line too.
-        const cost = veterans && up?.slug === VETERANS_DISCOUNT.upgradeSlug
-          ? Math.max(0, (up.cost ?? 0) - VETERANS_DISCOUNT.amount)
-          : up?.cost ?? 0
-        return { name: up?.name ?? x.upgradeId, cost, slot: slotLabel(up?.slot ?? x.slot.split('#')[0]) }
+        // Show each upgrade's doctrine-adjusted cost (Veterans / Tools of the Trade).
+        return { name: up?.name ?? x.upgradeId, cost: doctrineUpgradeCost(up, u, eff), slot: slotLabel(up?.slot ?? x.slot.split('#')[0]) }
       })
       const lineCost = (u?.cost ?? 0) + upgrades.reduce((a, x) => a + x.cost, 0)
       return { name: u?.name ?? g.unitId, title: u?.title ?? '', qty: g.qty, cost: lineCost * g.qty, portrait: u?.portraitImage ?? null, upgrades }
@@ -1206,8 +1191,7 @@ export function buildArmySheet(
     ranks.push({ rank: r, label: rankName(r), units })
   }
 
-  // Doctrine-aware total (Veterans discount + Tools-of-the-Trade free credit). Note the
-  // free credit is army-level, so it may not tie out to the sum of the per-line costs above.
+  // Doctrine-aware total; ties out to the sum of the per-line costs above.
   const points = armyPoints(army, unitsById, upgradesById, bf)
 
   const standingOrders = [...commandsById.values()].find((c) => c.pips >= 4)
@@ -1636,8 +1620,6 @@ export function validateArmy(
     points += unitCost(au, unitsById, upgradesById, { army, bf })
     factions.add(unit.faction)
   }
-  // Tools of the Trade credits back 1 free copy each of its three upgrades (army-level).
-  points = Math.max(0, points - doctrineFreeUpgradeCredit(army, bf, upgradesById))
 
   const items: ValidationItem[] = []
   const rules = battleForceRules(bf)

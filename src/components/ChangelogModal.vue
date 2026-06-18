@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.16.1',
+    date: '2026-06-18',
+    changes: [
+      'Card and portrait images now refresh reliably after each update — image URLs are tagged with the release version so a new card scan is never masked by a stale browser/CDN cache.',
+    ],
+  },
+  {
     version: '1.16.0',
     date: '2026-06-18',
     changes: [

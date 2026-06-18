@@ -1,9 +1,11 @@
 const IMAGE_BASE = (import.meta.env.VITE_IMAGE_BASE as string | undefined) ?? ''
 
-// Portrait crops are regenerated in place (same `/portraits/<slug>.webp` filename), but the
-// CDN serves images `immutable` for a year — so a client that cached an older crop would keep
-// it. Bump this whenever the portrait crops change to force a refetch of the new files.
-const PORTRAIT_CACHE_VERSION = '3' // bumped: Din Djarin / Clan Wren / Axe Woves crops re-tuned (Mandalorian update)
+// Self-hosted CDN images (cards, portraits, products) are served `immutable` for a year, and
+// card scans / portrait crops get re-pulled in place under the same filename. Tagging every CDN
+// URL with the app version busts that cache on each release, so a returning client always
+// refetches images that changed in the deploy. `__APP_VERSION__` is injected from package.json
+// at build time (see vite.config.ts / vitest.config.ts); falls back to 'dev' if undefined.
+const IMG_CACHE_VERSION = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : 'dev'
 
 /**
  * Resolves a card/portrait/product image path against VITE_IMAGE_BASE.
@@ -27,9 +29,8 @@ export function imageUrl(path: string | null | undefined): string {
   const stripped = path.replace(/^\/images\//, '/')
   // Compressed files are all .webp regardless of the source extension.
   const webp = stripped.replace(/\.(png|jpe?g|gif)$/i, '.webp')
-  const url = `${IMAGE_BASE}${webp}`
-  // Bust the immutable CDN cache for re-tuned portrait crops (see PORTRAIT_CACHE_VERSION).
-  return webp.startsWith('/portraits/') ? `${url}?v=${PORTRAIT_CACHE_VERSION}` : url
+  // Tag with the app version so each release busts the immutable CDN + service-worker cache.
+  return `${IMAGE_BASE}${webp}?v=${IMG_CACHE_VERSION}`
 }
 
 export { IMAGE_BASE }

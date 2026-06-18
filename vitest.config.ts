@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
+  // Stable token for imageUrl's CDN cache-buster (real value is the package version at build).
+  define: { __APP_VERSION__: JSON.stringify('test') },
   test: {
     environment: 'happy-dom',
     setupFiles: ['./tests/setup.ts'],

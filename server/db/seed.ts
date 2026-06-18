@@ -69,7 +69,8 @@ export function createTables(sqlite: Sqlite): void {
       faction TEXT,
       keywords TEXT NOT NULL DEFAULT '[]',
       granted_slots TEXT NOT NULL DEFAULT '[]',
-      card_image TEXT
+      card_image TEXT,
+      removed INTEGER NOT NULL DEFAULT 0
     );
 
     CREATE TABLE IF NOT EXISTS commands (
@@ -154,8 +155,8 @@ export function seedUnits(sqlite: Sqlite, list: Unit[]): void {
 
 export function seedUpgrades(sqlite: Sqlite, list: Upgrade[]): void {
   const insert = sqlite.prepare(`
-    INSERT INTO upgrades (id, slug, name, slot, cost, is_unique, limit_count, requirements, faction, keywords, granted_slots, card_image)
-    VALUES (@id, @slug, @name, @slot, @cost, @isUnique, @limit, @requirements, @faction, @keywords, @grantedSlots, @cardImage)
+    INSERT INTO upgrades (id, slug, name, slot, cost, is_unique, limit_count, requirements, faction, keywords, granted_slots, card_image, removed)
+    VALUES (@id, @slug, @name, @slot, @cost, @isUnique, @limit, @requirements, @faction, @keywords, @grantedSlots, @cardImage, @removed)
   `)
   const run = sqlite.transaction((rows: Upgrade[]) => {
     for (const u of rows) {
@@ -167,6 +168,7 @@ export function seedUpgrades(sqlite: Sqlite, list: Upgrade[]): void {
         keywords: JSON.stringify(u.keywords ?? []),
         grantedSlots: JSON.stringify(u.grantedSlots ?? []),
         cardImage: u.cardImage,
+        removed: u.removed ? 1 : 0,
       })
     }
   })

@@ -55,6 +55,7 @@ export const useUpgradesStore = defineStore('upgrades', () => {
     const allowed = bf ? new Set(bf.allowedUpgrades) : null
     const disallowed = bf ? new Set(bf.disallowedUpgrades) : null
     return upgrades.value.filter((u) => {
+      if (u.removed) return false // errata-removed from play — never selectable in Build
       if (!upgradeFitsSlot(u, slot)) return false
       if (disallowed?.has(u.id)) return false
       const factionOk = !u.faction || u.faction === faction || u.faction === 'mercenary' || !!allowed?.has(u.id)

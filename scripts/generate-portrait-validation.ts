@@ -28,7 +28,11 @@ const esc = (s = '') => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/
 const SILH =
   '<svg viewBox="0 0 24 24" fill="currentColor" style="width:55%;height:55%;color:#5b6470"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.69-8 6v2h16v-2c0-3.31-3.58-6-8-6Z"/></svg>'
 
-const units: Unit[] = JSON.parse(readFileSync(join(ROOT, 'public/data/units.json'), 'utf8'))
+// Optional focus filter: `npm run portraits:validate -- <slug> [<slug>...]` renders only those
+// units (e.g. to eyeball just a few re-tuned crops). No args → the full 180-unit contact sheet.
+const focus = new Set(process.argv.slice(2))
+const allUnits: Unit[] = JSON.parse(readFileSync(join(ROOT, 'public/data/units.json'), 'utf8'))
+const units: Unit[] = focus.size ? allUnits.filter((u) => focus.has(u.slug)) : allUnits
 
 const groups = ORDER
   .map((f) => ({

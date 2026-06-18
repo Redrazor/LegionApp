@@ -71,7 +71,9 @@ describe('buildGlossary (against the real Keyword_glossary.md)', () => {
   it('carries the corrected rulebook text for previously-wrong keywords', () => {
     expect(g['Aid']).toMatch(/Range 2/)
     expect(g['Fire Support']).toMatch(/Standby token/)
-    expect(g['Impervious']).toMatch(/cancel one fewer/)
+    // Mandalorian update (DOC56) errata reworded Impervious: now reduces the
+    // attacker's Pierce X by 1 at Modify Defense Dice (was "cancel one fewer Block").
+    expect(g['Impervious']).toMatch(/reduce that Attack Pool's Pierce X keyword value by 1/)
     expect(g['Infiltrate']).toMatch(/allied Territory/)
     expect(g['Long Shot']).toMatch(/Only 1 Aim token/)
     expect(g['Hunted']).toMatch(/Bounty token/)

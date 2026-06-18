@@ -82,6 +82,7 @@ export interface Upgrade {
   grantedSlots: string[] // slot types this upgrade adds to its unit's bar when equipped
   cardImage: string | null
   weapons: Weapon[] // weapon profile(s) the upgrade grants, from owner-maintained upgrade-weapons.json ([] if none)
+  removed?: boolean // errata-removed from play: still shown in Browse/Reference, never selectable in Build
 }
 
 export interface CommandCard {

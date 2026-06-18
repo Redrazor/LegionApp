@@ -69,4 +69,64 @@ describe('catalogue data integrity', () => {
     expect(mc('the-bad-batch-clone-force-99')).toBe(5) // republic, 5 members (badge 0)
     expect(mc('the-bad-batch-clone-force-99-2')).toBe(4) // mercenary, 4 members (badge 0)
   })
+
+  // Mandalorian update (AMG DOC56, June 2026 — Feature 11). The errata-removed cards stay
+  // in the catalogue (flagged, shown in Browse) but must never be selectable in Build.
+  it('flags exactly the 9 errata-removed upgrades and nothing else', () => {
+    const upgrades = load('upgrades.json')
+    const removed = upgrades.filter((u) => u.removed).map((u) => u.slug).sort()
+    expect(removed).toEqual(
+      [
+        'bobas-flame-projector',
+        'dins-flame-projector',
+        'electro-grappling-line',
+        'jetpack-rockets',
+        'sabines-combat-shield',
+        'saxons-combat-shield',
+        'saxons-zx-flame-projector',
+        'super-commando-combat-shields',
+        'super-commando-jetpack-rockets',
+      ].sort(),
+    )
+    // The current Mandalorian-trooper Jetpack Rockets (jetpack-rockets-2) is NOT removed.
+    expect(upgrades.find((u) => u.slug === 'jetpack-rockets-2')?.removed).toBeFalsy()
+  })
+
+  it('restricts the current Jetpack Rockets away from Mandalorian Initiates', () => {
+    const jr = load('upgrades.json').find((u) => u.slug === 'jetpack-rockets-2')
+    expect(jr.requirements).toEqual([
+      { cardSubtype: 'mandalorian trooper' },
+      ['NOT', { cardName: 'Mandalorian Initiates' }],
+    ])
+  })
+
+  it('keeps the Mandalorian-trooper unit-type errata + Beskad 2-red dice', () => {
+    const units = load('units.json')
+    const ut = (slug: string) => units.find((u) => u.slug === slug)?.unitType
+    expect(ut('boba-fett-daimyo-of-mos-espa')).toBe('mandalorian trooper')
+    expect(ut('gar-saxon-militant-commando')).toBe('mandalorian trooper')
+    expect(ut('sabine-wren-explosive-artist')).toBe('mandalorian trooper')
+    const weapons = JSON.parse(
+      readFileSync(join(__dirname, '../public/data/upgrade-weapons.json'), 'utf8'),
+    ) as Record<string, { dice: { red: number; black: number; white: number } }[]>
+    expect(weapons['beskad-duelist-2'][0].dice.red).toBe(2)
+  })
+
+  it("carries Axe Woves' errata weapon keyword (Lethal 1)", () => {
+    const axe = load('units.json').find((u) => u.slug === 'axe-woves-cunning-warrior')
+    expect(axe.weapons[0].name).toBe('Vibroknife and Pistol')
+    expect(axe.weapons[0].keywords).toContain('Lethal 1')
+  })
+
+  // Card-accuracy fixes surfaced by the errata QA pass (matched against the printed cards).
+  it('matches the printed Mandalorian cards (QA pass)', () => {
+    const upgrades = load('upgrades.json')
+    // Ursa Wren upgrade grants Defend 1 (card), not Defend 2.
+    const ursa = upgrades.find((u) => u.slug === 'ursa-wren-2')
+    expect(ursa.keywords).toContain('Defend 1')
+    expect(ursa.keywords).not.toContain('Defend 2')
+    // Saxon's Jetpack Rockets is restricted to Gar Saxon, Militant Commando (not Head of Clan Saxon).
+    const sjr = upgrades.find((u) => u.slug === 'saxons-jetpack-rockets')
+    expect(sjr.requirements).toEqual([{ cardName: 'Gar Saxon', title: 'Militant Commando' }])
+  })
 })

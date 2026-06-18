@@ -27,6 +27,10 @@ defineProps<{ upgrade: Upgrade }>()
       <span v-if="upgrade.cost != null" class="absolute right-2 top-2 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-lg-bg/85 px-1.5 text-xs font-bold tabular-nums text-lg-accent ring-1 ring-lg-accent/40">
         {{ upgrade.cost }}
       </span>
+      <!-- Removed-from-play badge -->
+      <span v-if="upgrade.removed" class="absolute left-2 top-2 inline-flex items-center rounded bg-red-900/80 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-red-100 ring-1 ring-red-400/40">
+        Removed
+      </span>
     </div>
     <div class="flex items-center justify-between gap-2 px-3 py-2">
       <span class="truncate text-sm font-semibold text-lg-text">{{ upgrade.name }}</span>

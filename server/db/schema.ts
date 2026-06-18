@@ -57,6 +57,7 @@ export const upgrades = sqliteTable('upgrades', {
   keywords: text('keywords').notNull().default('[]'),
   grantedSlots: text('granted_slots').notNull().default('[]'),
   cardImage: text('card_image'),
+  removed: integer('removed').notNull().default(0), // errata-removed from play
 })
 
 export const commands = sqliteTable('commands', {

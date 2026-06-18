@@ -7,10 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
-    version: '1.15.0',
-    date: '2026-06-17',
+    version: '1.16.0',
+    date: '2026-06-18',
     changes: [
-      'Equipping a weapon upgrade (heavy weapon, armament, grenade, vehicle hardpoint, …) now updates a unit’s best ranged (R:) and melee (M:) weapon shown on its Build row — e.g. adding a DLT-19 swaps the displayed ranged dice from the stock blaster to the heavy weapon when it’s the stronger profile.',
+      'Applied AMG’s June 2026 Mandalorian update: refreshed the Impervious and “Mandalorians Are Stronger Together” keyword rules to the new errata wording, and updated the card scans for Beskad Duelist, Whipcord Launcher, Jetpack Rockets, Super Commando Marksman & Gunslinger, Children of the Watch, Ursa & Tristan Wren, the Bo-Katan Darksaber, Saxon’s Jetpack Rockets, the Out of the Shadows command card, and the Din Djarin, Clan Wren Veterans & Axe Woves unit cards.',
+      'Axe Woves’ weapon now correctly carries Lethal 1.',
+      'Cards removed from play by the update (Flame Projectors, Combat Shields, the old Jetpack Rockets, Electro Grappling Line) now carry a “Removed” badge in Browse and can no longer be equipped in Build.',
+      'Jetpack Rockets can no longer be equipped by Mandalorian Initiates, matching the updated card.',
     ],
   },
   {

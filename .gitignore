@@ -28,5 +28,10 @@ portrait-validation.html
 # Local scratch (hand-export staging, not part of the app)
 Extra portraits/
 
+# AMG print-and-play PnP sources + extracted card staging (2.0 image re-source).
+# Provenance is tracked in card_list_origin.md; the binaries are not committed.
+scraper/amg-pdfs/
+scraper/amg-cards/
+
 # Outward-facing marketing drafts are kept out of the public repo
 community/

@@ -236,6 +236,51 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 13 — 2.0: re-source every card image from official AMG PnP PDFs
+
+**Status:** in progress (`feature/amg-image-resource-tooling`, Phase 1 of an 8-phase rollout landing in 2.0).
+
+Every card scan in the app was originally downloaded from the Legion HQ 2 CDN
+(`d2maxvwz12z6fm.cloudfront.net`). The only exception is the Mandalorian errata batch we self-sourced
+from AMG DOC56 ([[Feature 11]], commit `c61ac31`). For **2.0** we replace all remaining LHQ-sourced art
+with AMG's **own print-and-play (PnP) PDFs** (`atomicmassgames.com/swlegiondocs`), so every image is
+first-party and self-sourced — the stated goal: *every card sourced by us; all foreign image content
+expunged*. Each PnP PDF embeds every card as its own full-res raster (verified: units ~1039×726 CMYK
+300-DPI JPEG, the exact aspect our scans use), so extraction is mechanical; only name→slug matching is
+hard, and it is faction+category-scoped by which PDF a card lives in.
+
+Owner decisions: re-source **all 4 card types** (~876 images; portraits auto-regenerate, product box art
+out of scope); **report & pause** on any card with no AMG PnP source; deliver as **phased PRs → 2.0 major**.
+
+**Source PDFs (downloaded, not scraped):** units `DOC51_{GalacticEmpire,GalacticRepublic,RebelAlliance}_Units`,
+`DOC51_SeparatistAlliance_Units_05-01_Update`, `DOC13_Mercenary_Units`, `DOC13_Mercenary_Ewoks`; upgrades
+`DOC51_{GalacticEmpire,GalacticRepublic,RebelAlliance,SeparatistAlliance}_Upgrades`, `DOC51_Generic_Upgrades`,
+`DOC13_Mercenary_Upgrades`, `DOC51_UpgradeCards`; commands `DOC13_{GalacticEmpire,RebelAlliance,SeparatistAlliance}_Commands`,
+`SWQ_GalacticRepublic_Commands`, `DOC51_Mercenary_Commands_05-01_Update`; battle `DOC41_BattleCards_11.26.2025`.
+The full per-card source list is recorded in `card_list_origin.md` (the durable provenance record, since
+scans are git-ignored).
+
+**Phase 1 (this PR) — tooling + provenance:**
+- **Pipeline (`scraper/`):** `amgNormalise.ts` (pure: `AMG_SOURCES` catalogue, category-scoped
+  `PRESERVE_SLUGS`/`isPreserved`, `selectFronts` front-vs-shared-back dedup, `matchCard` name→slug matcher);
+  `amgDocs.ts` (`npm run amg:fetch` → git-ignored `scraper/amg-pdfs/`); `amgExtract.ts` (`npm run amg:extract`
+  → `pdfimages` + sharp CMYK→sRGB WebP into `scraper/amg-cards/` + `index.json`); `amgApply.ts`
+  (`npm run amg:apply` → places `amg-card-map.json` matches into `public/images/`, skipping preserve-list).
+- **Provenance:** `scripts/generate-card-origins.ts` (`npm run amg:origins`) emits `card_list_origin.md`
+  (per-card source; 2.0 goal = 0 LHQ2 rows). Baseline: 14 self-sourced (DOC56), 862 LHQ2.
+- **Tests:** `tests/amgNormalise.spec.ts` (sources/dedup/matcher/preserve, incl. the cross-category
+  `whipcord-launcher` collision); `tests/image-coverage.spec.ts` (every catalogue slug has a scan on disk —
+  skips when images absent in CI; allowlists the 2 known-missing upgrades `dc-15-clone-trooper` /
+  `youre-not-all-the-same-to-me` until P7).
+- **`.gitignore`:** `scraper/amg-pdfs/`, `scraper/amg-cards/`.
+
+**Remaining phases:** P2–P6 one faction each (extract → match → verify → apply units+upgrades+commands;
+re-tune affected portraits); P7 battle deck + fix the 2 missing upgrade scans + clear the gap list; P8 2.0
+cutover (flip `image-coverage` to a hard assert, reword `CLAUDE.md`/`README` data-sourcing to first-party
+AMG PnP keeping the AMG/Lucasfilm disclaimer, `npm version major` → 2.0.0, deploy full compressed set).
+
+---
+
 ## Feature 12 — Battle-force doctrines ("choose N of the following")
 
 **Status:** SHIPPED v1.17.0 (Phase 1 + Phase 2). The general mechanism is in place — any force gets

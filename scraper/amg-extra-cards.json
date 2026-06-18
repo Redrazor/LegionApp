@@ -1,0 +1,52 @@
+{
+  "_comment": "Owner-maintained list of individual first-party AMG card images for cards NOT in the fold-sheet PnP PDFs (scraper/amgNormalise.ts AMG_SOURCES). AMG publishes the NEWEST units as per-card PNG/webp images on their transmission pages before folding them into the next DOC51 faction PDF. `npm run amg:extras` downloads each, converts to webp, stages it under scraper/amg-cards/<category>/extra/, and merges it into scraper/amg-card-map.json (sourcePdf = `source`). For unit cards, AMG's _Front = the stats/play side (-> <slug>.webp) and _Back = the art side (-> <slug>-front.webp), which is the reverse of our internal `side` naming (front = art). Add new releases here; re-runnable.",
+  "sources": [
+    {
+      "source": "SWQ42_ImperialHighCommand",
+      "faction": "empire",
+      "note": "Imperial High Command squad pack (released 2026-04). https://www.atomicmassgames.com/transmission/imperial-high-command/ — Tarkin, Thrawn, Tagge (Krennic already in DOC51_GalacticEmpire_Units; his duplicate is intentionally omitted).",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {"category": "units", "slug": "general-tagge-imperial-high-command", "side": "play", "file": "SWQ42_UnitCard_1_Front.png"},
+        {"category": "units", "slug": "general-tagge-imperial-high-command", "side": "front", "file": "SWQ42_UnitCard_1_Back.png"},
+        {"category": "units", "slug": "grand-admiral-thrawn-imperial-high-command", "side": "play", "file": "SWQ42_UnitCard_3_Front.png"},
+        {"category": "units", "slug": "grand-admiral-thrawn-imperial-high-command", "side": "front", "file": "SWQ42_UnitCard_3_Back.png"},
+        {"category": "units", "slug": "grand-moff-tarkin-imperial-high-command", "side": "play", "file": "SWQ42_UnitCard_4_Front.png"},
+        {"category": "units", "slug": "grand-moff-tarkin-imperial-high-command", "side": "front", "file": "SWQ42_UnitCard_4_Back.png"},
+        {"category": "commands", "slug": "the-empire-does-not-tolerate-failure", "file": "SWQ42_CommandCard_1.png"},
+        {"category": "commands", "slug": "canny-adversary", "file": "SWQ42_CommandCard_2.png"},
+        {"category": "commands", "slug": "i-have-graphs-and-the-command", "file": "SWQ42_CommandCard_3.png"},
+        {"category": "commands", "slug": "fear-will-keep-them-in-line", "file": "SWQ42_CommandCard_4.png"},
+        {"category": "commands", "slug": "moment-of-triumph", "file": "SWQ42_CommandCard_5.png"},
+        {"category": "commands", "slug": "i-want-you-to-know-failure", "file": "SWQ42_CommandCard_6.png"},
+        {"category": "commands", "slug": "we-must-wait-and-watch", "file": "SWQ42_CommandCard_7.png"},
+        {"category": "commands", "slug": "architects-of-their-own-destruction", "file": "SWQ42_CommandCard_8.png"},
+        {"category": "upgrades", "slug": "security-detail", "file": "SWQ42_UpgradeCard_1.png"}
+      ]
+    },
+    {
+      "source": "SWQ98_ImperialProbeDroid",
+      "faction": "empire",
+      "note": "Imperial Probe Droid (Scene to Stats, product SWQ98). https://www.atomicmassgames.com/transmission/scene-to-stats-imperial-probe-droid/",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {"category": "units", "slug": "imperial-probe-droid", "side": "play", "file": "SWQ98_UnitCard_1_Front.png"},
+        {"category": "units", "slug": "imperial-probe-droid", "side": "front", "file": "SWQ98_UnitCard_1_Back.png"}
+      ]
+    },
+    {
+      "source": "SWQ09_ImperialOfficerAgent",
+      "faction": "empire",
+      "note": "Customizable Imperial Officer & Agent (product SWQ09). https://www.atomicmassgames.com/transmission/customizable-imperial-officer-agent/ — Commands are clean per-card images (CommandCard_1 = Inexorable Advance / Officer, CommandCard_2 = Fearsome Oration / Agent). The UNIT cards are published only as a `*_Fan.png` at FULL res = the play side + art side laid SIDE BY SIDE (2088x760 = two 1040x760 cards), so each is cropped out via `crop` (left 0-1040 = play, right 1048-2088 = art). The default card title (Ruthless Efficiency / Bringing Order to the Galaxy) matches the catalogue slug.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/08",
+      "cards": [
+        {"category": "commands", "slug": "inexorable-advance", "file": "SWQ09_CommandCard_1.png"},
+        {"category": "commands", "slug": "fearsome-oration", "file": "SWQ09_CommandCard_2.png"},
+        {"category": "units", "slug": "imperial-officer-ruthless-efficiency", "side": "play", "file": "SWQ09_UnitCard_OFFICER_Fan.png", "crop": {"left": 0, "top": 0, "width": 1040, "height": 760}},
+        {"category": "units", "slug": "imperial-officer-ruthless-efficiency", "side": "front", "file": "SWQ09_UnitCard_OFFICER_Fan.png", "crop": {"left": 1048, "top": 0, "width": 1040, "height": 760}},
+        {"category": "units", "slug": "imperial-agent-bringing-order-to-the-galaxy", "side": "play", "file": "SWQ09_UnitCard_AGENT_FAN.png", "crop": {"left": 0, "top": 0, "width": 1040, "height": 760}},
+        {"category": "units", "slug": "imperial-agent-bringing-order-to-the-galaxy", "side": "front", "file": "SWQ09_UnitCard_AGENT_FAN.png", "crop": {"left": 1048, "top": 0, "width": 1040, "height": 760}}
+      ]
+    }
+  ]
+}

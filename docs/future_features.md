@@ -33,6 +33,16 @@ this list (and their detailed write-ups are kept further down for reference).
 5. **Upgrade-weapon dice verification pass** _(Feature 10 Phase B follow-up)_ — ~12 grey/low-res upgrade
    cards whose black-vs-white dice couldn't be confirmed at scan resolution are left at source value.
    Re-verify against higher-res scans / physical cards. Full list: `docs/upgrade-weapon-verification-gaps.md`.
+6. **Flip double-sided cards** _(owner-requested during Feature 13 P2)_ — a **Flip** button beside Select
+   in the card inspect view that shows the card's other side (persisted per card): unit stats↔art (the
+   Feature 13 P2 `-front` art files), and Reconfigure upgrades like the E-11D config (Focused Fire ↔
+   Grenade Launcher). See **Feature 15** below.
+7. **Counterpart unit cards** _(surfaced during Feature 13 P2)_ — model the **Counterpart** mechanic: some
+   units deploy with a second mini that has its OWN card (e.g. Iden Versio's **ID10 Seeker Droid**,
+   Bossk's, etc.). The catalogue has no slug for these, so their card scans currently can't be attached.
+   Collect the counterpart cards (the Iden ID10 faces are already staged at
+   `scraper/amg-cards/units/empire/DOC51_GalacticEmpire_Units-p10-10.webp` / `-p10-11.webp`) and attach
+   them to their parent unit's profile via a `counterpart` field. See **Feature 14** below.
 
 **Recently shipped (was on this list):**
 - ✅ **Browse command cards & upgrades** (v1.9.0, was B6) — Browse gained **Commands** and **Upgrades**
@@ -236,6 +246,52 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 15 — Flip double-sided cards
+
+**Status:** queued (owner-requested during Feature 13 P2, 2026-06-18). Not started. This is the
+"future feature" the Feature 13 P2 **unit front-art** capture was for.
+
+Several Legion cards are double-sided with BOTH sides meaningful, and the app currently only ever
+shows one image per card:
+- **Unit cards** — a stats/play side and an art side. Feature 13 P2 now stores both
+  (`units/<slug>.webp` + `units/<slug>-front.webp`, files-only, no data field yet).
+- **Reconfigure upgrades** — one physical card, two configs you flip between in-game. E.g. the E-11D
+  config (Imperial Death Troopers): **Focused Fire** (⚁1-4 Suppressive) ↔ **Grenade Launcher**
+  (⚁1-2 Blast). The catalogue models only the Focused Fire slug; the Grenade Launcher side is already
+  staged at `scraper/amg-cards/upgrades/empire/DOC51_GalacticEmpire_Upgrades-p11-22.webp`.
+
+**Scope:**
+- **UI:** in the card inspect view (Browse profile drawer / Build card lightbox), add a **Flip** button
+  beside the existing **Select** button that toggles to the card's other side. The shown side
+  **persists** per card (e.g. localStorage keyed by slug; survives reload).
+- **Data:** a scrape-proof second-image overlay keyed by slug (like `upgrade-weapons.json`) — unit
+  art fronts already exist on disk; reconfigure-upgrade alternate configs need their second image
+  collected (E-11D grenade side already staged). No points/validation impact; purely a display flip.
+- Collect any other reconfigure/double-config cards during the Feature 13 re-source (per faction).
+
+## Feature 14 — Counterpart unit cards
+
+**Status:** queued (owner-requested during Feature 13 P2, 2026-06-18). Not started.
+
+Some Legion units field a second miniature that carries its **own** card — the **Counterpart** keyword
+(e.g. **Iden Versio** deploys with the **ID10 Seeker Droid**; other examples exist across factions). The
+catalogue models each such unit as a single profile with no separate entry for the counterpart, so the
+counterpart's card scan has nowhere to attach (in Feature 13 P2 the Iden ID10 Seeker Droid card surfaced
+as an "unmatched staged front" — a real AMG card with no catalogue slug).
+
+**Scope:**
+- **Collect the counterpart cards.** Sweep every faction's unit cards (during/after the Feature 13
+  re-source) for counterpart minis and stage their card images. The empire ones are already extracted:
+  `scraper/amg-cards/units/empire/DOC51_GalacticEmpire_Units-p10-10.webp` (ID10 play) and `-p10-11.webp`
+  (ID10 art). Others surface per faction in P3–P6.
+- **Data:** add an owner-maintained `counterpart` to the parent unit (e.g. `counterpart?: { name, cardImage,
+  frontImage? }`, or a small `public/data/counterparts.json` overlaid like `upgrade-weapons.json` so a
+  re-scrape can't wipe it). Keyed off the parent unit's slug.
+- **UI:** surface the counterpart card in the unit's Build/Browse inspect gallery (the profile drawer /
+  card lightbox already shows multiple scans), labelled as the counterpart. No army-list/points impact —
+  the counterpart deploys with its parent and shares its activation; it is shown, not separately built.
+- Pure additive; no points/validation logic. Follow [[extract-from-card-images-not-scraping]] for the data.
+
 ## Feature 13 — 2.0: re-source every card image from official AMG PnP PDFs
 
 **Status:** in progress — **P1 (tooling + provenance + validation tool) SHIPPED** (PR #65, merged as a chore,
@@ -252,6 +308,17 @@ hard, and it is faction+category-scoped by which PDF a card lives in.
 
 Owner decisions: re-source **all 4 card types** (~876 images; portraits auto-regenerate, product box art
 out of scope); **report & pause** on any card with no AMG PnP source; deliver as **phased PRs → 2.0 major**.
+
+**Both unit sides captured (owner directive, P2).** A Legion unit card is double-sided: the **stats/play
+side** (name, weapons, defense/surge, upgrade bar — what every builder shows, stored as `units/<slug>.webp`)
+and the **art "front" side** (full-bleed character art + points value + icon strip). The PnP unit PDFs embed
+*both* rasters per unit. We now extract and store **both**: the art front is staged to
+`public/images/units/<slug>-front.webp` (same dir, `-front` suffix — distinct from the `-2`/`-3` dedup
+slugs; excluded from the catalogue-slug coverage glob). **Files-only for now — no `Unit` data field and no
+UI**; the front art is captured so a future feature can use it (owner: "we don't show it now but it might be
+useful"). Applies to **units only** — upgrade/command backs are generic shared templates with no per-card
+info. This changes `selectFronts`/matching (keep both unit sides; the vision matcher tags each as
+`stats` vs `front`); a unit whose PDF yields only one side lands in the gap report.
 
 **Source PDFs (downloaded, not scraped):** units `DOC51_{GalacticEmpire,GalacticRepublic,RebelAlliance}_Units`,
 `DOC51_SeparatistAlliance_Units_05-01_Update`, `DOC13_Mercenary_Units`, `DOC13_Mercenary_Ewoks`; upgrades
@@ -291,7 +358,49 @@ extracted cards are git-ignored; `card_list_origin.md` is the durable provenance
 - **Intermediate artifacts (git-ignored):** `scraper/amg-pdfs/`, `scraper/amg-cards/`,
   `scraper/amg-card-map.json`, `scraper/amg-approvals.json`, `image-validation.html`.
 
-### The matching step (between extract and validate) — not yet scripted
+### P2 (empire) findings — pipeline corrections (IMPORTANT, apply to all factions)
+
+Two things discovered re-sourcing empire that changed the tooling (both now fixed):
+
+1. **`pdfimages` was the wrong extractor for the DOC51/DOC13 PnP sheets.** Those PDFs render card
+   TEXT (names, weapons, keywords, costs) as **vector overlays**, so the embedded rasters are
+   text-less backgrounds. `amgExtract.ts` was rewritten to **render pages (`pdftoppm` @300dpi) and
+   crop the 3×3 card grid** (cells 726×1040 at origin 185,90 on letter; unit cards are landscape
+   rotated 90° on the sheet — rotation auto-detected from the embedded raster orientation), then
+   perceptual-hash (16×16 aHash) dedup of print duplicates. (The DOC56 errata cards extracted fine
+   with `pdfimages` only because that PDF embedded one *pre-flattened* full card per image.) Adds
+   `--faction`/`--category` filters so a phase only processes its faction.
+
+2. **Both unit sides are captured** (owner directive): the stats/play side → `units/<slug>.webp`,
+   the art side → `units/<slug>-front.webp` (files-only, no data field). On the sheet these are two
+   adjacent cells; the matching step tags each `play`/`front`.
+
+3. **AMG's newest units ship as individual transmission-page card images, not in the DOC51 PDF.**
+   6 empire units were absent from `DOC51_GalacticEmpire_Units` (Tarkin, Thrawn, Tagge, Imperial
+   Officer, Imperial Agent, Imperial Probe Droid). Tarkin/Thrawn/Tagge are published as per-card
+   PNGs on the **Imperial High Command** transmission page (product `SWQ42`, on the asmodee CDN).
+   New owner-maintained `scraper/amg-extra-cards.json` + `npm run amg:extras` (`scraper/amgExtras.ts`)
+   download such cards, webp them into `amg-cards/<cat>/extra/`, and merge into `amg-card-map.json`.
+   For AMG unit cards, `_Front` = the stats/play side, `_Back` = the art side. Run order:
+   `amg:extract` → `build-card-map` → `amg:extras` → `images:validate`. Matching is scripted in
+   `scripts/build-card-map.ts` (consumes the vision reads in `scraper/_match/reads.json`).
+
+   Extra sources used for P2 empire (all in `amg-extra-cards.json`): `SWQ42_ImperialHighCommand`
+   (Tarkin/Thrawn/Tagge units + 8 commands + Security Detail), `SWQ98_ImperialProbeDroid` (Imperial
+   Probe Droid unit), `SWQ09_ImperialOfficerAgent` (Officer & Agent units + their 2 commands).
+   Notes on AMG's CDN: individual card URLs are not always linked on the transmission page but exist
+   under predictable `SWQ##_UnitCard_N_Front/Back.png` / `SWQ##_CommandCard_N.png` names (probe them;
+   a 200 with a ~79-byte body is a stub = does NOT exist). And the **`*_Fan.png`** unit images, at
+   FULL res (drop the `-1024x373` WP thumbnail suffix), are the play side + art side laid SIDE BY
+   SIDE (2088×760 = two 1040×760 cards) — `amgExtras` supports a per-card `crop` box to split them.
+
+   **P2 = FULL coverage: 35/35 units, 49/49 commands, all DOC51 upgrades + Security Detail re-sourced
+   first-party.** The only two residual items are NOT sourcing gaps but catalogue-modelling gaps,
+   logged for a later data feature: (1) the upgrade **E-11D Grenade Launcher Configuration** is in
+   the PnP but MISSING from the catalogue (belongs to **Imperial Death Troopers**, same as the
+   Focused Fire config); (2) the **Iden's ID10 Seeker Droid** counterpart card has no catalogue slug.
+
+### The matching step (between extract and validate)
 
 `scraper/amg-card-map.json` (`[{ category, slug, sourcePdf, extractedFile }]`) maps each staged front to a
 catalogue slug. It is produced **per faction batch** by reading each extracted card's name+title (vision)

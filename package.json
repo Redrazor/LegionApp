@@ -29,7 +29,8 @@
     "amg:extract": "tsx scraper/amgExtract.ts",
     "amg:apply": "tsx scraper/amgApply.ts",
     "amg:origins": "tsx scripts/generate-card-origins.ts",
-    "images:validate": "tsx scripts/generate-image-validation.ts"
+    "images:validate": "tsx scripts/generate-image-validation.ts",
+    "amg:extras": "tsx scraper/amgExtras.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

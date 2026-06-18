@@ -45,8 +45,11 @@ describe('image coverage (every catalogue card has a scan on disk)', () => {
 
     it.skipIf(!have)(`${cat}: no orphan image files without a catalogue entry`, () => {
       const known = new Set(slugs(file))
+      // `<slug>-front.webp` is the owner-captured art side of a unit card (Feature 13);
+      // it has no catalogue entry of its own and is NOT an orphan.
+      const isFrontArt = (s: string) => s.endsWith('-front') && known.has(s.slice(0, -'-front'.length))
       const orphans = readdirSync(dir).filter((f) => f.endsWith('.webp')).map((f) => f.replace(/\.webp$/, ''))
-        .filter((s) => !known.has(s))
+        .filter((s) => !known.has(s) && !isFrontArt(s))
       expect(orphans, `orphan ${cat} files: ${orphans.join(', ')}`).toEqual([])
     })
   }

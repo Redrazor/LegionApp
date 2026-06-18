@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import type { BattleForce, Faction, Unit } from '../../types/index.ts'
+import type { BattleForce, Faction, Unit, Upgrade } from '../../types/index.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
+import { useArmyStore } from '../../stores/army.ts'
+import { doctrineEffects, doctrineUpgradeCost } from '../../utils/army.ts'
 import { slotLabel } from '../../utils/factions.ts'
 import { imageUrl } from '../../utils/imageUrl.ts'
 import UpgradeThumb from './UpgradeThumb.vue'
@@ -15,7 +17,13 @@ const props = defineProps<{ slot: string; faction: Faction; unit: Unit; battleFo
 const emit = defineEmits<{ pick: [upgradeId: string]; clear: []; close: [] }>()
 
 const upgradesStore = useUpgradesStore()
+const armyStore = useArmyStore()
 const query = ref('')
+
+// Cost to show for a candidate on THIS unit, with active doctrines applied (Veterans /
+// Tools of the Trade), so the picker matches the unit row and total.
+const effects = computed(() => doctrineEffects(armyStore.draft, props.battleForce))
+const displayCost = (u: Upgrade) => doctrineUpgradeCost(u, props.unit, effects.value)
 
 const candidates = computed(() => {
   const q = query.value.trim().toLowerCase()
@@ -104,7 +112,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
             </span>
             <span v-if="u.keywords.length" class="mt-0.5 block text-[11px] leading-snug text-lg-muted">{{ u.keywords.join(' · ') }}</span>
           </span>
-          <span class="flex-none self-start font-display text-sm font-bold text-lg-accent">{{ u.cost ?? 0 }}</span>
+          <span class="flex-none self-start font-display text-sm font-bold text-lg-accent">{{ displayCost(u) }}</span>
         </button>
         <button
           class="grid h-11 w-11 flex-none self-center place-items-center rounded-lg text-lg-muted transition-colors hover:bg-lg-text/8 hover:text-lg-accent"
@@ -146,7 +154,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
         <!-- Footer: position · name/cost · Select -->
         <div class="relative z-10 flex w-full max-w-md items-center justify-between gap-3 rounded-xl border border-lg-border bg-lg-surface/95 px-4 py-2.5">
           <div class="min-w-0">
-            <p class="truncate text-sm font-semibold text-lg-text">{{ inspected.name }} <span class="font-display text-lg-accent">{{ inspected.cost ?? 0 }}</span></p>
+            <p class="truncate text-sm font-semibold text-lg-text">{{ inspected.name }} <span class="font-display text-lg-accent">{{ displayCost(inspected) }}</span></p>
             <p class="text-[11px] text-lg-muted">{{ (inspectIndex ?? 0) + 1 }} / {{ candidates.length }}</p>
           </div>
           <button

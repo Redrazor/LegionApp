@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.17.0',
+    date: '2026-06-18',
+    changes: [
+      'Battle forces with a “Choose N of the following” doctrine now have their own Doctrines tab in Build. Mandalorian Clans is the first supported — pick 2 of Veterans, Tools of the Trade, Rapid Deployment, Guns for Hire, or Feats of Valor; your army stays incomplete until exactly 2 are chosen, and the choices are saved, shared, and printed with your list.',
+      'The doctrines’ army-building effects are applied live: Veterans drops each GALAAR-15 Carbines by 5 points, Tools of the Trade makes its Flame Projector / Jetpack Rockets / Whipcord Launcher copies free and equippable by any Mandalorian Trooper, and Guns for Hire unlocks the AA-5 Speeder Truck, TX-225 Occupier Tank, and WLO-5 Speeder Tank as Heavy options.',
+    ],
+  },
+  {
     version: '1.16.1',
     date: '2026-06-18',
     changes: [

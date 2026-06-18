@@ -4,7 +4,7 @@ import type { Army, ArmyUnit, BattleForce, CompactArmy, Faction, Unit, Upgrade }
 import { toCompact, fromCompact, pruneOrphanedUpgrades, defaultBattleForceId } from '../utils/army.ts'
 
 function emptyArmy(): Army {
-  return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [], commandHand: [], battleDeck: [] }
+  return { name: '', faction: null, battleForce: null, gameSize: 1000, units: [], commandHand: [], battleDeck: [], doctrines: [] }
 }
 
 let uidCounter = 0
@@ -29,6 +29,7 @@ export const useArmyStore = defineStore(
         if (draft.value.units.length > 0) draft.value.units = []
         draft.value.battleForce = defaultBattleForceId(faction)
         draft.value.commandHand = []
+        draft.value.doctrines = []
       }
       draft.value.faction = faction
     }
@@ -37,9 +38,24 @@ export const useArmyStore = defineStore(
      * Select (or clear, with null) the army's battle force. Deliberately does NOT
      * clear units — switching battle force keeps the list and lets validation flag
      * any now-ineligible units, so the user can fix rather than lose their work.
+     * Doctrines ARE cleared on a change, since they belong to the specific force.
      */
     function setBattleForce(linkId: string | null) {
+      if (draft.value.battleForce !== linkId) draft.value.doctrines = []
       draft.value.battleForce = linkId
+    }
+
+    /** Add a doctrine option to the chosen set if absent, else remove it (capped picker). */
+    function toggleDoctrine(optionId: string) {
+      if (!draft.value.doctrines) draft.value.doctrines = []
+      const chosen = draft.value.doctrines
+      const i = chosen.indexOf(optionId)
+      if (i >= 0) chosen.splice(i, 1)
+      else chosen.push(optionId)
+    }
+
+    function clearDoctrines() {
+      draft.value.doctrines = []
     }
 
     /** Add a command card to the hand if absent, else remove it (deck-builder toggle). */
@@ -174,7 +190,7 @@ export const useArmyStore = defineStore(
     return {
       draft, saved, activeIndex, isDirty,
       setFaction, setBattleForce, toggleCommandCard, clearCommandHand,
-      toggleBattleCard, clearBattleDeck, setGameSize, setName,
+      toggleBattleCard, clearBattleDeck, toggleDoctrine, clearDoctrines, setGameSize, setName,
       addUnit, removeUnit, addCopy, findUnit, setUpgrade, upgradeInSlot,
       newArmy, loadDraft, saveCurrent, loadSaved, deleteSaved, renameSaved,
     }

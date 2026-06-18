@@ -129,4 +129,28 @@ describe('catalogue data integrity', () => {
     const sjr = upgrades.find((u) => u.slug === 'saxons-jetpack-rockets')
     expect(sjr.requirements).toEqual([{ cardName: 'Gar Saxon', title: 'Militant Commando' }])
   })
+
+  // Feature 12: owner-maintained battle-force doctrines (scrape-proof, overlaid at load).
+  it('battle-force doctrines reference real forces, and their effects map to real catalogue slugs', () => {
+    const doctrines = JSON.parse(
+      readFileSync(join(__dirname, '../public/data/battle-force-doctrines.json'), 'utf8'),
+    ) as Record<string, { pick: number; options: { id: string; name: string; text: string; effect?: string }[] }>
+    const forceIds = new Set(load('battleForces.json').map((b) => b.linkId))
+    const upgradeSlugs = new Set(load('upgrades.json').map((u) => u.slug))
+    const unitSlugs = new Set(load('units.json').map((u) => u.slug))
+
+    // Mandalorian Clans is currently the only force with a "Choose N" doctrine.
+    expect(Object.keys(doctrines)).toEqual(['mc'])
+    const mc = doctrines.mc
+    expect(forceIds.has('mc')).toBe(true)
+    expect(mc.pick).toBe(2)
+    expect(mc.options).toHaveLength(5)
+    for (const o of mc.options) {
+      expect(o.id && o.name && o.text).toBeTruthy()
+    }
+    // The computable effects' target slugs must exist (Phase 2 wiring guard).
+    expect(upgradeSlugs.has('galaar-15-carbines')).toBe(true) // Veterans
+    for (const s of ['flame-projector', 'jetpack-rockets', 'whipcord-launcher']) expect(upgradeSlugs.has(s)).toBe(true) // Tools of the Trade
+    for (const s of ['a-a5-speeder-truck-2', 'tx-225-gavw-occupier-tank', 'wlo-5-speeder-tank']) expect(unitSlugs.has(s)).toBe(true) // Guns for Hire
+  })
 })

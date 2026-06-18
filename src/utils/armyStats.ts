@@ -137,7 +137,7 @@ export function computeArmyStats(
     // ── Composition ──
     unitPoints += unit.cost ?? 0
     for (const up of au.upgrades) upgradePoints += upgradesById.get(up.upgradeId)?.cost ?? 0
-    rankPointsMap[effectiveRank(unit, bf)] += unitCost(au, unitsById, upgradesById)
+    rankPointsMap[effectiveRank(unit, bf)] += unitCost(au, unitsById, upgradesById, { army, bf })
 
     // ── Offense (unit weapons; upgrades carry no dice in our model) ──
     const surge = unit.surgeAttack ?? 'blank'

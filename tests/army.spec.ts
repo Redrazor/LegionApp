@@ -13,7 +13,10 @@ import {
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
   buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
   armyKeywordReference,
+  usesDoctrines, chosenDoctrines, validateDoctrines, doctrineEffects,
+  doctrineFreeUpgradeCredit, armyPoints, applyDoctrineEffects, isMandalorianTrooper,
 } from '../src/utils/army.ts'
+import type { BattleForceDoctrines } from '../src/types/index.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
 
@@ -1833,25 +1836,190 @@ describe('buildArmySheet', () => {
   })
 })
 
-describe('compact version (v2)', () => {
-  const army: Army = { name: 'X', faction: 'empire', battleForce: 'mc', gameSize: 1000, units: [], commandHand: ['c1'], battleDeck: ['b1'] }
+describe('compact version (v3)', () => {
+  const army: Army = { name: 'X', faction: 'empire', battleForce: 'mc', gameSize: 1000, units: [], commandHand: ['c1'], battleDeck: ['b1'], doctrines: ['veterans', 'guns-for-hire'] }
   it('stamps the schema version on encode', () => {
     expect(toCompact(army).v).toBe(COMPACT_VERSION)
-    expect(COMPACT_VERSION).toBe(2)
+    expect(COMPACT_VERSION).toBe(3)
   })
-  it('decodes a legacy v1 compact (no version, no b/c/d) with safe defaults', () => {
+  it('only serialises doctrines when present', () => {
+    expect(toCompact(army).o).toEqual(['veterans', 'guns-for-hire'])
+    expect(toCompact({ ...army, doctrines: [] }).o).toBeUndefined()
+  })
+  it('decodes a legacy v1 compact (no version, no b/c/d/o) with safe defaults', () => {
     const legacy = { n: 'Old', f: 'rebels' as const, g: 800, u: [['luke', []]] as [string, [string, string][]][] }
     const decoded = fromCompact(legacy)
     expect(decoded.battleForce).toBeNull()
     expect(decoded.commandHand).toEqual([])
     expect(decoded.battleDeck).toEqual([])
+    expect(decoded.doctrines).toEqual([])
     expect(decoded.units).toHaveLength(1)
   })
-  it('round-trips a v2 army through encode/decode', () => {
+  it('decodes a v2 compact (no o) with empty doctrines', () => {
+    const v2 = { v: 2, n: 'Two', f: 'empire' as const, b: 'mc', g: 1000, u: [], c: ['c1'], d: ['b1'] }
+    expect(fromCompact(v2).doctrines).toEqual([])
+  })
+  it('round-trips a v3 army through encode/decode', () => {
     const back = decodeArmy(encodeArmy(army))!
     expect(back.battleForce).toBe('mc')
     expect(back.commandHand).toEqual(['c1'])
     expect(back.battleDeck).toEqual(['b1'])
+    expect(back.doctrines).toEqual(['veterans', 'guns-for-hire'])
+  })
+})
+
+describe('battle-force doctrines', () => {
+  const MC_DOCTRINES: BattleForceDoctrines = {
+    pick: 2,
+    options: [
+      { id: 'veterans', name: 'Veterans', effect: 'veterans', text: 'v' },
+      { id: 'tools-of-the-trade', name: 'Tools of the Trade', effect: 'tools-of-the-trade', text: 't' },
+      { id: 'rapid-deployment', name: 'Rapid Deployment', text: 'r' },
+      { id: 'guns-for-hire', name: 'Guns for Hire', effect: 'guns-for-hire', text: 'g' },
+      { id: 'feats-of-valor', name: 'Feats of Valor', text: 'f' },
+    ],
+  }
+  const mc = (over: Partial<BattleForce> = {}) => makeBattleForce({ linkId: 'mc', name: 'Mandalorian Clans', faction: 'mandalorians', doctrines: MC_DOCTRINES, ...over })
+  const mcArmy = (over: Partial<Army> = {}): Army => ({
+    name: '', faction: 'mandalorians', battleForce: 'mc', gameSize: 1000, units: [], commandHand: [], battleDeck: [], doctrines: [], ...over,
+  })
+
+  describe('selection + validation', () => {
+    it('usesDoctrines reflects whether the force offers any', () => {
+      expect(usesDoctrines(mc())).toBe(true)
+      expect(usesDoctrines(makeBattleForce())).toBe(false)
+      expect(usesDoctrines(null)).toBe(false)
+    })
+    it('chosenDoctrines returns the picks in the force option order', () => {
+      const army = mcArmy({ doctrines: ['guns-for-hire', 'veterans'] })
+      expect(chosenDoctrines(army, mc()).map((o) => o.id)).toEqual(['veterans', 'guns-for-hire'])
+    })
+    it('validateDoctrines is incomplete until exactly pick are chosen', () => {
+      expect(validateDoctrines(mcArmy({ doctrines: [] }), mc())).toMatchObject({ chosen: 0, pick: 2, complete: false, valid: false })
+      expect(validateDoctrines(mcArmy({ doctrines: ['veterans'] }), mc())).toMatchObject({ chosen: 1, complete: false, valid: false })
+      expect(validateDoctrines(mcArmy({ doctrines: ['veterans', 'guns-for-hire'] }), mc())).toMatchObject({ chosen: 2, complete: true, valid: true })
+    })
+    it('flags doctrine ids not offered by the force', () => {
+      const v = validateDoctrines(mcArmy({ doctrines: ['veterans', 'bogus'] }), mc())
+      expect(v.ineligible).toEqual(['bogus'])
+      expect(v.valid).toBe(false)
+    })
+    it('adds a Doctrines row to validateArmy, ok only once the count is met', () => {
+      const { unitsById, upgradesById } = makeMaps([unit('w', { faction: 'mercenary' })])
+      const army = mcArmy({ units: [{ uid: 'x', unitId: 'w', upgrades: [] }], doctrines: ['veterans'] })
+      const row = validateArmy(army, unitsById, upgradesById, mc()).items.find((i) => i.label === 'Doctrines')
+      expect(row).toMatchObject({ ok: false, detail: '1 / 2' })
+      const army2 = { ...army, doctrines: ['veterans', 'guns-for-hire'] }
+      const row2 = validateArmy(army2, unitsById, upgradesById, mc()).items.find((i) => i.label === 'Doctrines')
+      expect(row2).toMatchObject({ ok: true, detail: '2 / 2' })
+    })
+    it('shows no Doctrines row when the force has none', () => {
+      const { unitsById, upgradesById } = makeMaps([unit('w')])
+      const army = mcArmy({ units: [{ uid: 'x', unitId: 'w', upgrades: [] }] })
+      const row = validateArmy(army, unitsById, upgradesById, makeBattleForce()).items.find((i) => i.label === 'Doctrines')
+      expect(row).toBeUndefined()
+    })
+  })
+
+  describe('Phase 2 — Veterans (GALAAR-15 Carbines −5)', () => {
+    const galaar = upgrade('Ix', { slug: 'galaar-15-carbines', cost: 5 })
+    const { unitsById, upgradesById } = makeMaps([unit('w', { cost: 18 })], [galaar])
+    const au = { uid: 'x', unitId: 'w', upgrades: [{ slot: 'armament#0', upgradeId: 'Ix' }] }
+
+    it('discounts the carbine by 5 when Veterans is active', () => {
+      const army = mcArmy({ units: [au], doctrines: ['veterans', 'feats-of-valor'] })
+      expect(unitCost(au, unitsById, upgradesById, { army, bf: mc() })).toBe(18) // 18 + (5−5)
+    })
+    it('charges full price when Veterans is not chosen', () => {
+      const army = mcArmy({ units: [au], doctrines: ['guns-for-hire', 'feats-of-valor'] })
+      expect(unitCost(au, unitsById, upgradesById, { army, bf: mc() })).toBe(23) // 18 + 5
+    })
+    it('charges full price with no doctrine ctx (backward compatible)', () => {
+      expect(unitCost(au, unitsById, upgradesById)).toBe(23)
+    })
+  })
+
+  describe('Phase 2 — Tools of the Trade (free copies + bypass)', () => {
+    const flame = upgrade('Kj', { slug: 'flame-projector', cost: 5 })
+    const jet = upgrade('mm', { slug: 'jetpack-rockets', cost: 5 })
+    const { unitsById, upgradesById } = makeMaps([unit('w')], [flame, jet])
+
+    it('credits one free copy of each named upgrade present', () => {
+      const army = mcArmy({
+        units: [
+          { uid: 'a', unitId: 'w', upgrades: [{ slot: 'gear#0', upgradeId: 'Kj' }, { slot: 'armament#0', upgradeId: 'mm' }] },
+          { uid: 'b', unitId: 'w', upgrades: [{ slot: 'gear#0', upgradeId: 'Kj' }] }, // 2nd flame — NOT credited
+        ],
+        doctrines: ['tools-of-the-trade', 'feats-of-valor'],
+      })
+      expect(doctrineFreeUpgradeCredit(army, mc(), upgradesById)).toBe(10) // 1×flame + 1×jet, once each
+    })
+    it('credits nothing when the doctrine is not chosen', () => {
+      const army = mcArmy({ units: [{ uid: 'a', unitId: 'w', upgrades: [{ slot: 'gear#0', upgradeId: 'Kj' }] }], doctrines: ['veterans', 'guns-for-hire'] })
+      expect(doctrineFreeUpgradeCredit(army, mc(), upgradesById)).toBe(0)
+    })
+    it('marks the three upgrades restriction-free via applyDoctrineEffects', () => {
+      const army = mcArmy({ doctrines: ['tools-of-the-trade', 'feats-of-valor'] })
+      const eff = applyDoctrineEffects(mc(), army, unitsById)!
+      expect(eff.doctrineUnrestrictedUpgradeSlugs).toEqual(['flame-projector', 'jetpack-rockets', 'whipcord-launcher'])
+    })
+  })
+
+  describe('Phase 2 — Guns for Hire (vehicle unlock)', () => {
+    const vehicles = [
+      unit('sm', { slug: 'a-a5-speeder-truck-2', rank: 'heavy' }),
+      unit('bh', { slug: 'tx-225-gavw-occupier-tank', rank: 'heavy' }),
+      unit('fe', { slug: 'wlo-5-speeder-tank', rank: 'heavy' }),
+    ]
+    const { unitsById } = makeMaps([unit('w'), ...vehicles])
+
+    it('appends the three vehicles to the Heavy pool when active', () => {
+      const army = mcArmy({ doctrines: ['guns-for-hire', 'feats-of-valor'] })
+      const eff = applyDoctrineEffects(mc(), army, unitsById)!
+      expect(eff.rankUnits.heavy).toEqual(['sm', 'bh', 'fe'])
+      expect(battleForcePool(eff).has('sm')).toBe(true)
+    })
+    it('leaves the pool untouched when not chosen', () => {
+      const army = mcArmy({ doctrines: ['veterans', 'feats-of-valor'] })
+      const eff = applyDoctrineEffects(mc(), army, unitsById)!
+      expect(eff.rankUnits.heavy).toEqual([])
+    })
+  })
+
+  describe('armyPoints + effect helpers', () => {
+    it('doctrineEffects maps active option effect keys', () => {
+      const army = mcArmy({ doctrines: ['veterans', 'guns-for-hire'] })
+      expect(doctrineEffects(army, mc())).toEqual({ veterans: true, toolsOfTheTrade: false, gunsForHire: true })
+    })
+    it('applies both discount and credit in armyPoints', () => {
+      const galaar = upgrade('Ix', { slug: 'galaar-15-carbines', cost: 5 })
+      const flame = upgrade('Kj', { slug: 'flame-projector', cost: 5 })
+      const { unitsById, upgradesById } = makeMaps([unit('w', { cost: 18 })], [galaar, flame])
+      const army = mcArmy({
+        units: [{ uid: 'a', unitId: 'w', upgrades: [{ slot: 'armament#0', upgradeId: 'Ix' }, { slot: 'gear#0', upgradeId: 'Kj' }] }],
+        doctrines: ['veterans', 'tools-of-the-trade'],
+      })
+      // 18 base + GALAAR (5−5=0) + flame 5, then −5 free flame credit = 18
+      expect(armyPoints(army, unitsById, upgradesById, mc())).toBe(18)
+    })
+    it('applyDoctrineEffects returns the force unchanged when no pool doctrine is active', () => {
+      const army = mcArmy({ doctrines: ['veterans', 'feats-of-valor'] })
+      const force = mc()
+      expect(applyDoctrineEffects(force, army)).toBe(force)
+    })
+    it('isMandalorianTrooper checks the unit type', () => {
+      expect(isMandalorianTrooper(unit('a', { unitType: 'mandalorian trooper' }))).toBe(true)
+      expect(isMandalorianTrooper(unit('b', { unitType: 'trooper' }))).toBe(false)
+      expect(isMandalorianTrooper(undefined)).toBe(false)
+    })
+  })
+
+  it('buildArmySheet surfaces chosen doctrines in option order', () => {
+    const { unitsById, upgradesById } = makeMaps([unit('w')])
+    const army = mcArmy({ units: [{ uid: 'x', unitId: 'w', upgrades: [] }], doctrines: ['guns-for-hire', 'veterans'] })
+    const sheet = buildArmySheet(army, unitsById, upgradesById, new Map(), new Map(), mc())
+    expect(sheet.doctrines.map((d) => d.name)).toEqual(['Veterans', 'Guns for Hire'])
+    expect(armyToText(sheet)).toContain('DOCTRINES')
   })
 })
 

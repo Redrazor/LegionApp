@@ -238,7 +238,22 @@ unrestricted upgrades when no character filter is active.
 
 ## Feature 12 — Battle-force doctrines ("choose N of the following")
 
-**Status:** queued (design agreed; not started). Follow-up surfaced during Feature 11 QA.
+**Status:** SHIPPED v1.17.0 (Phase 1 + Phase 2). The general mechanism is in place — any force gets
+doctrines by adding an entry to the owner-maintained `public/data/battle-force-doctrines.json` (overlaid
+onto the `battleForces` store like `upgrade-weapons.json`). **Mandalorian Clans is currently the only
+populated force**: it is the only battle force whose rules (DOC56_BattleForces, verified against the card
+image) carry a list-building "Choose N of the following" doctrine — the AMG docs site publishes no such
+doctrine for the other 19 forces (their rules live on physical cards). Add others to the JSON when their
+verbatim text is in hand; no code change needed. Phase 2 computable effects implemented for Mandalorian
+Clans: Veterans (GALAAR-15 Carbines −5 via `unitCost`), Tools of the Trade (per-army free-copy credit +
+restriction bypass for Mandalorian Troopers via `applyDoctrineEffects`/`forSlot`), Guns for Hire (vehicles
+unlocked into the Heavy pool). Rapid Deployment & Feats of Valor stay text-only (pure in-game effects).
+Share code bumped to v3 (`o?` key); `applyDoctrineEffects` bakes pool/eligibility effects onto a per-army
+copy of the force in `useArmyValidation` so downstream code needs no doctrine awareness.
+
+**Original design (for reference):**
+
+**Status (original):** queued (design agreed; not started). Follow-up surfaced during Feature 11 QA.
 
 Several battle forces let you pick a fixed number of army-build benefits at list-building time —
 e.g. **Mandalorian Clans** "**Choose 2 of the following**": Veterans, Tools of the Trade, Rapid

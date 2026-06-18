@@ -6,7 +6,7 @@ import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useBattleForcesStore } from '../stores/battleForces.ts'
 import { useCommandsStore } from '../stores/commands.ts'
 import { useBattleCardsStore } from '../stores/battleCards.ts'
-import { validateArmy, defaultBattleForceId } from '../utils/army.ts'
+import { validateArmy, defaultBattleForceId, applyDoctrineEffects } from '../utils/army.ts'
 
 /** Reactive army validation bound to the current draft + loaded catalogues. */
 export function useArmyValidation() {
@@ -19,10 +19,13 @@ export function useArmyValidation() {
   const battleCardsStore = useBattleCardsStore()
 
   // Resolve the active battle force, falling back to the faction's default (Mandalorian
-  // armies are always the Mandalorian Clans battle force even when none is set explicitly).
+  // armies are always the Mandalorian Clans battle force even when none is set explicitly),
+  // then bake in the chosen doctrines' pool/eligibility effects so all downstream consumers
+  // (catalogue, rank limits, upgrade picker, validation) see them with no extra plumbing.
   const battleForce = computed(() => {
     const id = draft.value.battleForce ?? defaultBattleForceId(draft.value.faction)
-    return id ? bfStore.byId.get(id) ?? null : null
+    const raw = id ? bfStore.byId.get(id) ?? null : null
+    return applyDoctrineEffects(raw, draft.value, unitsStore.byId)
   })
 
   const validation = computed(() =>

@@ -1,5 +1,6 @@
 import type {
-  Army, ArmyUnit, ArmyUpgrade, BattleCard, BattleCardSubtype, BattleForce, CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
+  Army, ArmyUnit, ArmyUpgrade, BattleCard, BattleCardSubtype, BattleForce, BattleForceDoctrineOption,
+  CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
 import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
@@ -355,11 +356,20 @@ export function unitCost(
   au: ArmyUnit,
   unitsById: Map<string, Unit>,
   upgradesById: Map<string, Upgrade>,
+  // When supplied, applies per-upgrade doctrine discounts (e.g. Veterans → GALAAR-15
+  // Carbines −5). Army-level effects (Tools of the Trade credit) live in `armyPoints`.
+  ctx?: { army: Army; bf: BattleForce | null | undefined },
 ): number {
   const unit = unitsById.get(au.unitId)
   let total = unit?.cost ?? 0
+  const eff = ctx ? doctrineEffects(ctx.army, ctx.bf) : null
   for (const up of au.upgrades) {
-    total += upgradesById.get(up.upgradeId)?.cost ?? 0
+    const u = upgradesById.get(up.upgradeId)
+    let cost = u?.cost ?? 0
+    if (eff?.veterans && u?.slug === VETERANS_DISCOUNT.upgradeSlug) {
+      cost = Math.max(0, cost - VETERANS_DISCOUNT.amount)
+    }
+    total += cost
   }
   return total
 }
@@ -967,6 +977,145 @@ export function validateBattleDeck(army: Army, battleCardsById: Map<string, Batt
   return { bySubtype, ineligible, hasDuplicates, complete, valid: complete && !hasDuplicates && ineligible.length === 0 }
 }
 
+// ── Battle-force doctrines ("Choose N of the following") ──────────────────────
+
+/** Whether this army's battle force offers "Choose N" doctrines. */
+export function usesDoctrines(bf: BattleForce | null | undefined): boolean {
+  return !!bf?.doctrines && bf.doctrines.options.length > 0
+}
+
+/** The chosen doctrine options, in the force's own option order (ignores ids not in the force). */
+export function chosenDoctrines(army: Army, bf: BattleForce | null | undefined): BattleForceDoctrineOption[] {
+  if (!usesDoctrines(bf)) return []
+  const chosen = new Set(army.doctrines ?? [])
+  return bf!.doctrines!.options.filter((o) => chosen.has(o.id))
+}
+
+export interface DoctrineValidation {
+  pick: number // how many must be chosen
+  chosen: number // how many valid options are chosen
+  ineligible: string[] // chosen ids not offered by this force
+  complete: boolean // exactly `pick` valid options chosen
+  valid: boolean
+}
+
+/** Validate the chosen doctrines: exactly `pick` of the force's options, none stray. */
+export function validateDoctrines(army: Army, bf: BattleForce | null | undefined): DoctrineValidation {
+  const pick = bf?.doctrines?.pick ?? 0
+  const offered = new Set((bf?.doctrines?.options ?? []).map((o) => o.id))
+  const ids = army.doctrines ?? []
+  const ineligible = ids.filter((id) => !offered.has(id))
+  const chosen = ids.filter((id) => offered.has(id)).length
+  const complete = chosen === pick
+  return { pick, chosen, ineligible, complete, valid: complete && ineligible.length === 0 }
+}
+
+// ── Computable doctrine effects (Phase 2) ─────────────────────────────────────
+//
+// The verbatim doctrine text lives in battle-force-doctrines.json; these constants are
+// the catalogue-specific consequences of the Mandalorian Clans options' `effect` keys.
+// Keyed by catalogue SLUG (stable across re-scrapes), not the volatile 2-char ids.
+
+/** Veterans: GALAAR-15 Carbines costs this much less on its (Mandalorian Warrior) bearer. */
+const VETERANS_DISCOUNT = { upgradeSlug: 'galaar-15-carbines', amount: 5 }
+/** Tools of the Trade: 1 free copy each, restriction-bypassed for Mandalorian Troopers. */
+const TOOLS_OF_THE_TRADE_SLUGS = ['flame-projector', 'jetpack-rockets', 'whipcord-launcher']
+/** Guns for Hire: vehicles unlocked into the force's Heavy pool. */
+const GUNS_FOR_HIRE_VEHICLE_SLUGS = ['a-a5-speeder-truck-2', 'tx-225-gavw-occupier-tank', 'wlo-5-speeder-tank']
+
+export interface DoctrineEffects {
+  veterans: boolean
+  toolsOfTheTrade: boolean
+  gunsForHire: boolean
+}
+
+/** Which computable doctrine effects are active for this army (by chosen option `effect`). */
+export function doctrineEffects(army: Army, bf: BattleForce | null | undefined): DoctrineEffects {
+  const active = new Set(chosenDoctrines(army, bf).map((o) => o.effect))
+  return {
+    veterans: active.has('veterans'),
+    toolsOfTheTrade: active.has('tools-of-the-trade'),
+    gunsForHire: active.has('guns-for-hire'),
+  }
+}
+
+/** Whether a unit is a Mandalorian Trooper (the unit type the doctrines key off). */
+export function isMandalorianTrooper(unit: Unit | undefined): boolean {
+  return unit?.unitType?.toLowerCase() === 'mandalorian trooper'
+}
+
+/**
+ * Tools of the Trade: total points to credit back — 1 free copy of EACH of the three named
+ * upgrades that appears anywhere in the army (the doctrine grants "1 additional copy each,
+ * free"). Army-level (not per-unit) so only the first copy of each slug is credited.
+ */
+export function doctrineFreeUpgradeCredit(
+  army: Army,
+  bf: BattleForce | null | undefined,
+  upgradesById: Map<string, Upgrade>,
+): number {
+  if (!doctrineEffects(army, bf).toolsOfTheTrade) return 0
+  const free = new Set(TOOLS_OF_THE_TRADE_SLUGS)
+  const credited = new Set<string>()
+  let credit = 0
+  for (const au of army.units) {
+    for (const x of au.upgrades) {
+      const u = upgradesById.get(x.upgradeId)
+      if (u && free.has(u.slug) && !credited.has(u.slug)) {
+        credited.add(u.slug)
+        credit += u.cost ?? 0
+      }
+    }
+  }
+  return credit
+}
+
+/**
+ * Total army points WITH doctrine effects applied: per-upgrade discounts (Veterans) via
+ * `unitCost`, minus the army-level free-upgrade credit (Tools of the Trade). Use this
+ * everywhere a points total is shown so the number stays consistent.
+ */
+export function armyPoints(
+  army: Army,
+  unitsById: Map<string, Unit>,
+  upgradesById: Map<string, Upgrade>,
+  bf?: BattleForce | null,
+): number {
+  let total = 0
+  for (const au of army.units) total += unitCost(au, unitsById, upgradesById, { army, bf })
+  return Math.max(0, total - doctrineFreeUpgradeCredit(army, bf, upgradesById))
+}
+
+/**
+ * Return a per-army COPY of the battle force with the chosen doctrines' pool/eligibility
+ * effects baked in, so the existing pool / rank / upgrade-eligibility code needs no doctrine
+ * awareness. Guns for Hire appends its vehicles to the Heavy pool; Tools of the Trade marks
+ * its three upgrades restriction-free for Mandalorian Troopers. Returns `bf` unchanged when
+ * no pool-affecting doctrine is active. (Cost effects are handled in `armyPoints`/`unitCost`.)
+ */
+export function applyDoctrineEffects(
+  bf: BattleForce | null | undefined,
+  army: Army,
+  unitsById?: Map<string, Unit>,
+): BattleForce | null {
+  if (!bf) return null
+  const eff = doctrineEffects(army, bf)
+  if (!eff.gunsForHire && !eff.toolsOfTheTrade) return bf
+  let next: BattleForce = bf
+  if (eff.gunsForHire && unitsById) {
+    const ids = GUNS_FOR_HIRE_VEHICLE_SLUGS
+      .map((slug) => [...unitsById.values()].find((u) => u.slug === slug)?.id)
+      .filter((id): id is string => !!id)
+    const heavy = [...(next.rankUnits.heavy ?? [])]
+    for (const id of ids) if (!heavy.includes(id)) heavy.push(id)
+    next = { ...next, rankUnits: { ...next.rankUnits, heavy } }
+  }
+  if (eff.toolsOfTheTrade) {
+    next = { ...next, doctrineUnrestrictedUpgradeSlugs: TOOLS_OF_THE_TRADE_SLUGS }
+  }
+  return next
+}
+
 // ── Printable / exportable army sheet ────────────────────────────────────────
 
 export interface ArmySheetUpgrade { name: string; cost: number; slot: string } // slot = display label, e.g. "Heavy Weapon"
@@ -987,6 +1136,7 @@ export interface ArmySheet {
   ranks: ArmySheetRank[]
   commandHand: { pip: number; name: string; cardImage: string | null }[] // chosen cards (pip-sorted) + Standing Orders
   battleDeck: { subtype: BattleCardSubtype; name: string; cardImage: string | null }[] // ordered primary → secondary → advantage
+  doctrines: { name: string; text: string }[] // chosen battle-force doctrines, in the force's option order
   showBattleDeck: boolean
   unitCards: ArmySheetCard[] // distinct unit cards (proxy/print-and-play), roster order
   upgradeCards: ArmySheetCard[] // distinct equipped upgrade cards
@@ -1039,11 +1189,16 @@ export function buildArmySheet(
   const ranks: ArmySheetRank[] = []
   for (const r of RANK_ORDER) {
     if (!byRank[r].length) continue
+    const veterans = doctrineEffects(army, bf).veterans
     const units = groupArmyUnits(byRank[r]).map((g) => {
       const u = unitsById.get(g.unitId)
       const upgrades = g.representative.upgrades.map((x) => {
         const up = upgradesById.get(x.upgradeId)
-        return { name: up?.name ?? x.upgradeId, cost: up?.cost ?? 0, slot: slotLabel(up?.slot ?? x.slot.split('#')[0]) }
+        // Veterans: show the discounted GALAAR-15 Carbines cost on the line too.
+        const cost = veterans && up?.slug === VETERANS_DISCOUNT.upgradeSlug
+          ? Math.max(0, (up.cost ?? 0) - VETERANS_DISCOUNT.amount)
+          : up?.cost ?? 0
+        return { name: up?.name ?? x.upgradeId, cost, slot: slotLabel(up?.slot ?? x.slot.split('#')[0]) }
       })
       const lineCost = (u?.cost ?? 0) + upgrades.reduce((a, x) => a + x.cost, 0)
       return { name: u?.name ?? g.unitId, title: u?.title ?? '', qty: g.qty, cost: lineCost * g.qty, portrait: u?.portraitImage ?? null, upgrades }
@@ -1051,8 +1206,9 @@ export function buildArmySheet(
     ranks.push({ rank: r, label: rankName(r), units })
   }
 
-  let points = 0
-  for (const au of army.units) points += unitCost(au, unitsById, upgradesById)
+  // Doctrine-aware total (Veterans discount + Tools-of-the-Trade free credit). Note the
+  // free credit is army-level, so it may not tie out to the sum of the per-line costs above.
+  const points = armyPoints(army, unitsById, upgradesById, bf)
 
   const standingOrders = [...commandsById.values()].find((c) => c.pips >= 4)
   const commandHand = (army.commandHand ?? [])
@@ -1068,6 +1224,8 @@ export function buildArmySheet(
     .filter((c): c is BattleCard => !!c)
     .sort((a, b) => order[a.subtype] - order[b.subtype] || a.name.localeCompare(b.name))
     .map((c) => ({ subtype: c.subtype, name: c.name, cardImage: c.cardImage }))
+
+  const doctrines = chosenDoctrines(army, bf).map((o) => ({ name: o.name, text: o.text }))
 
   // Distinct full-card images for the proxy/print-and-play sections, deduped by id
   // (same card isn't repeated per loadout) but carrying the army-wide copy count.
@@ -1088,6 +1246,7 @@ export function buildArmySheet(
     ranks,
     commandHand,
     battleDeck,
+    doctrines,
     showBattleDeck: usesBattleDeck(army.gameSize),
     unitCards,
     upgradeCards,
@@ -1186,6 +1345,11 @@ export function armyToText(sheet: ArmySheet): string {
     for (const c of sheet.battleDeck) lines.push(`• [${c.subtype}] ${c.name}`)
   }
 
+  if (sheet.doctrines.length) {
+    lines.push('', 'DOCTRINES')
+    for (const d of sheet.doctrines) lines.push(`• ${d.name}: ${d.text}`)
+  }
+
   return lines.join('\n')
 }
 
@@ -1238,9 +1402,9 @@ export function armyToListJSON(
   upgradesById: Map<string, Upgrade>,
   commandsById: Map<string, CommandCard>,
   battleCardsById: Map<string, BattleCard>,
+  bf?: BattleForce | null,
 ): ListExportJSON {
-  let points = 0
-  for (const au of army.units) points += unitCost(au, unitsById, upgradesById)
+  const points = armyPoints(army, unitsById, upgradesById, bf)
 
   const units: ListExportUnit[] = army.units.map((au) => ({
     name: unitsById.get(au.unitId)?.name ?? au.unitId,
@@ -1435,6 +1599,7 @@ function importTTS(obj: Record<string, unknown>, catalog: ListCatalog): ImportRe
       units: armyUnits,
       commandHand,
       battleDeck,
+      doctrines: [],
     },
     warnings,
     source: 'tts',
@@ -1468,9 +1633,11 @@ export function validateArmy(
     rankCounts[r]++
     if (isDetachment(unit)) detachmentCounts[r]++
     if (unit.cost == null) unpriced++
-    points += unitCost(au, unitsById, upgradesById)
+    points += unitCost(au, unitsById, upgradesById, { army, bf })
     factions.add(unit.faction)
   }
+  // Tools of the Trade credits back 1 free copy each of its three upgrades (army-level).
+  points = Math.max(0, points - doctrineFreeUpgradeCredit(army, bf, upgradesById))
 
   const items: ValidationItem[] = []
   const rules = battleForceRules(bf)
@@ -1672,14 +1839,24 @@ export function validateArmy(
     items.push({ ok: bd.valid, label: 'Battle deck', detail })
   }
 
+  // Doctrines — exactly `pick` of the battle force's "Choose N" options, none stray.
+  // Only when the force offers them and the army has units to build around.
+  if (usesDoctrines(bf) && army.units.length > 0) {
+    const dv = validateDoctrines(army, bf)
+    const detail = dv.ineligible.length
+      ? `Not in ${bf!.name}: ${dv.ineligible.join(', ')}`
+      : `${dv.chosen} / ${dv.pick}`
+    items.push({ ok: dv.valid, label: 'Doctrines', detail })
+  }
+
   const valid = items.every((i) => i.ok) && army.units.length > 0
   return { valid, points, activations: army.units.length, rankCounts, items }
 }
 
 // ── Compact serialisation for save / share ───────────────────────────────────
 
-/** Compact-format schema version. v2 added battle force / command hand / battle deck. */
-export const COMPACT_VERSION = 2
+/** Compact-format schema version. v3 added doctrines; v2 added battle force / command hand / battle deck. */
+export const COMPACT_VERSION = 3
 
 export function toCompact(army: Army): CompactArmy {
   return {
@@ -1692,6 +1869,7 @@ export function toCompact(army: Army): CompactArmy {
     u: army.units.map((au) => [au.unitId, au.upgrades.map((x) => [x.slot, x.upgradeId] as [string, string])]),
     ...(army.commandHand?.length ? { c: army.commandHand } : {}),
     ...(army.battleDeck?.length ? { d: army.battleDeck } : {}),
+    ...(army.doctrines?.length ? { o: army.doctrines } : {}),
   }
 }
 
@@ -1709,6 +1887,7 @@ export function fromCompact(c: CompactArmy): Army {
     })),
     commandHand: c.c ?? [],
     battleDeck: c.d ?? [],
+    doctrines: c.o ?? [],
   }
 }
 

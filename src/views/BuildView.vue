@@ -21,6 +21,7 @@ import UpgradeCatalogue from '../components/build/UpgradeCatalogue.vue'
 import BattleForcePicker from '../components/build/BattleForcePicker.vue'
 import CommandHandView from '../components/build/CommandHandView.vue'
 import BattleDeckView from '../components/build/BattleDeckView.vue'
+import DoctrineView from '../components/build/DoctrineView.vue'
 import PrintSheet from '../components/build/PrintSheet.vue'
 import PrintOptionsModal from '../components/build/PrintOptionsModal.vue'
 import ExportModal from '../components/build/ExportModal.vue'
@@ -176,6 +177,11 @@ const standingOrders = computed(() => commandsStore.commands.find((c) => c.pips 
 const showBattleDeck = computed(() => usesBattleDeck(draft.value.gameSize))
 const eligibleBattle = computed(() => eligibleBattleCards(battleCardsStore.battleCards, draft.value))
 
+// Battle-force doctrines ("Choose N of the following") — only when the active force has them.
+const doctrineOptions = computed(() => battleForce.value?.doctrines?.options ?? [])
+const doctrinePick = computed(() => battleForce.value?.doctrines?.pick ?? 0)
+const hasDoctrines = computed(() => doctrineOptions.value.length > 0)
+
 // Picked cards resolved to records, for the footer's at-a-glance summary.
 const pickedCommandCards = computed(() =>
   (draft.value.commandHand ?? []).map((id) => commandsStore.byId.get(id)).filter((c): c is NonNullable<typeof c> => !!c),
@@ -204,7 +210,7 @@ const exportOpen = ref(false)
 const exportNative = computed(() => JSON.stringify(toCompact(draft.value), null, 2))
 const exportText = computed(() => armyToText(armySheet.value))
 const exportJson = computed(() =>
-  JSON.stringify(armyToListJSON(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId), null, 2),
+  JSON.stringify(armyToListJSON(draft.value, unitsStore.byId, upgradesStore.byId, commandsStore.byId, battleCardsStore.byId, battleForce.value), null, 2),
 )
 // Download base name = the list's own name, readable (kept as typed); only strip
 // characters illegal in filenames and collapse whitespace. Falls back to "army".
@@ -354,7 +360,7 @@ useHead({
     </div>
   </div>
 
-  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null" :has-command="true" :has-battle-deck="showBattleDeck">
+  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null" :has-command="true" :has-battle-deck="showBattleDeck" :has-doctrines="hasDoctrines">
     <!-- Header controls -->
     <template #header>
       <div class="mb-4 flex flex-wrap items-center gap-3">
@@ -481,6 +487,18 @@ useHead({
         :selected="draft.battleDeck ?? []"
         :has-units="draft.units.length > 0"
         @toggle="armyStore.toggleBattleCard"
+      />
+    </template>
+
+    <!-- Doctrine picker (its own tab/segment; only when the battle force has doctrines) -->
+    <template #doctrines>
+      <DoctrineView
+        :pick="doctrinePick"
+        :options="doctrineOptions"
+        :selected="draft.doctrines ?? []"
+        :force-name="battleForce?.name ?? ''"
+        :has-units="draft.units.length > 0"
+        @toggle="armyStore.toggleDoctrine"
       />
     </template>
 

@@ -213,6 +213,39 @@ describe('army store — battle deck', () => {
   })
 })
 
+describe('army store — doctrines', () => {
+  it('toggles doctrine options on/off', () => {
+    const s = useArmyStore()
+    s.setFaction('mandalorians')
+    s.toggleDoctrine('veterans')
+    s.toggleDoctrine('guns-for-hire')
+    expect(s.draft.doctrines).toEqual(['veterans', 'guns-for-hire'])
+    s.toggleDoctrine('veterans') // toggle off
+    expect(s.draft.doctrines).toEqual(['guns-for-hire'])
+  })
+
+  it('clears doctrines when the battle force changes', () => {
+    const s = useArmyStore()
+    s.setFaction('mandalorians')
+    s.toggleDoctrine('veterans')
+    expect(s.draft.doctrines).toEqual(['veterans'])
+    s.setBattleForce('cs') // switch force → doctrines are force-specific
+    expect(s.draft.doctrines).toEqual([])
+  })
+
+  it('clears doctrines on faction change and via clearDoctrines', () => {
+    const s = useArmyStore()
+    s.setFaction('mandalorians')
+    s.toggleDoctrine('veterans')
+    s.setFaction('empire')
+    expect(s.draft.doctrines).toEqual([])
+    s.setFaction('mandalorians')
+    s.toggleDoctrine('feats-of-valor')
+    s.clearDoctrines()
+    expect(s.draft.doctrines).toEqual([])
+  })
+})
+
 describe('upgrades store — removed cards', () => {
   it('never offers errata-removed upgrades for a slot', async () => {
     const { useUpgradesStore } = await import('../src/stores/upgrades.ts')

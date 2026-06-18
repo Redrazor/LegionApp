@@ -1197,7 +1197,8 @@
       "Recharge"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/sabines-combat-shield.webp"
+    "cardImage": "/images/upgrades/sabines-combat-shield.webp",
+    "removed": true
   },
   {
     "id": "gl",
@@ -1695,7 +1696,8 @@
     "faction": null,
     "keywords": [],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/electro-grappling-line.webp"
+    "cardImage": "/images/upgrades/electro-grappling-line.webp",
+    "removed": true
   },
   {
     "id": "ii",
@@ -2715,7 +2717,8 @@
       "Blast"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/jetpack-rockets.webp"
+    "cardImage": "/images/upgrades/jetpack-rockets.webp",
+    "removed": true
   },
   {
     "id": "mn",
@@ -3988,7 +3991,8 @@
       "Shielded"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/super-commando-combat-shields.webp"
+    "cardImage": "/images/upgrades/super-commando-combat-shields.webp",
+    "removed": true
   },
   {
     "id": "sa",
@@ -4009,7 +4013,8 @@
       "Impact"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/super-commando-jetpack-rockets.webp"
+    "cardImage": "/images/upgrades/super-commando-jetpack-rockets.webp",
+    "removed": true
   },
   {
     "id": "sb",
@@ -4131,7 +4136,8 @@
     "isUnique": true,
     "requirements": [
       {
-        "cardName": "Gar Saxon"
+        "cardName": "Gar Saxon",
+        "title": "Militant Commando"
       }
     ],
     "faction": null,
@@ -4162,7 +4168,8 @@
       "Suppressive"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/saxons-zx-flame-projector.webp"
+    "cardImage": "/images/upgrades/saxons-zx-flame-projector.webp",
+    "removed": true
   },
   {
     "id": "sn",
@@ -4222,7 +4229,8 @@
       "Recharge"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/saxons-combat-shield.webp"
+    "cardImage": "/images/upgrades/saxons-combat-shield.webp",
+    "removed": true
   },
   {
     "id": "to",
@@ -4283,7 +4291,8 @@
       "Suppressive"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/dins-flame-projector.webp"
+    "cardImage": "/images/upgrades/dins-flame-projector.webp",
+    "removed": true
   },
   {
     "id": "tr",
@@ -4409,7 +4418,8 @@
       "Suppressive"
     ],
     "grantedSlots": [],
-    "cardImage": "/images/upgrades/bobas-flame-projector.webp"
+    "cardImage": "/images/upgrades/bobas-flame-projector.webp",
+    "removed": true
   },
   {
     "id": "uj",
@@ -7881,7 +7891,13 @@
     "requirements": [
       {
         "cardSubtype": "mandalorian trooper"
-      }
+      },
+      [
+        "NOT",
+        {
+          "cardName": "Mandalorian Initiates"
+        }
+      ]
     ],
     "faction": null,
     "keywords": [
@@ -8104,7 +8120,7 @@
     "faction": null,
     "keywords": [
       "Leader",
-      "Defend 2"
+      "Defend 1"
     ],
     "grantedSlots": [],
     "cardImage": "/images/upgrades/ursa-wren-2.webp"

@@ -3460,7 +3460,9 @@
           "black": 0,
           "white": 2
         },
-        "keywords": []
+        "keywords": [
+          "Lethal 1"
+        ]
       }
     ],
     "cardImage": "/images/units/axe-woves-cunning-warrior.webp",
@@ -3851,7 +3853,7 @@
     ],
     "weapons": [
       {
-        "name": "Vibro Knife",
+        "name": "Vibroknife",
         "range": [
           0
         ],
@@ -3865,7 +3867,7 @@
         ]
       },
       {
-        "name": "Din's IB-94 Pistol",
+        "name": "IB-94 Blaster Pistol",
         "range": [
           1,
           2

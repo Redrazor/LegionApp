@@ -223,7 +223,7 @@ While a unit with the Immune: Pierce keyword is defending, the attacker cannot u
 An Attack Pool that is assigned to a unit with the Immune: [Range 1] Weapons keyword cannot contain weapons with a maximum Range of [Range 1].
 
 ### Impervious
-When a unit with the Impervious keyword would have one or more [Block] results canceled by the Pierce X keyword, cancel one fewer result.
+When an Attack Pool is being resolved against a unit with the Impervious keyword, at the start of the Modify Defense Dice step, reduce that Attack Pool's Pierce X keyword value by 1, to a minimum of 0.
 
 ### Incognito
 A unit with the Incognito keyword cannot be attacked by enemy units that are not within [Range 1] of it, cannot Contest Objectives, and cannot provide Backup. If a unit with the Incognito keyword ever makes an attack or defends against an attack, it loses the Incognito keyword for the remainder of the game. Additionally, at the beginning of a unit with the Incognito keyword's Activation, it may choose to lose the Incognito keyword for the remainder of the game.
@@ -268,7 +268,7 @@ When a unit with the Low Profile keyword would roll 1 or more defense dice durin
 When a unit with the Makashi Mastery keyword makes a Melee attack, it can reduce the Pierce X value of a weapon in the Attack Pool by 1 during the Choose Weapons and Gather Dice step. If it does, the defender cannot use the Immune: Melee Pierce, Immune: Pierce, and/or Impervious keywords during this attack.
 
 ### Mandalorians are Stronger Together
-When an allied unit with the Mandalorians are Stronger Together keyword spends 1 or more Aim tokens, after the effect is resolved, it gains 1 Dodge token if it is within [Range 2] of another allied unit with the Mandalorians are Stronger Together keyword. When an allied unit with the Mandalorians are Stronger Together keyword spends 1 or more Dodge tokens, after the effect is resolved, it gains 1 Aim token if it is within [Range 2] of another allied unit with the Mandalorians are Stronger Together keyword.
+When an allied unit with the Mandalorians are Stronger Together keyword spends 1 or more Aim tokens during an attack, after the attack is resolved, it gains 1 Dodge token if it is within [Range 2] of another allied unit with the Mandalorians are Stronger Together keyword. When an allied unit with the Mandalorians are Stronger Together keyword spends 1 or more Dodge tokens during an attack, after the attack is resolved, it gains 1 Aim token if it is within [Range 2] of another allied unit with the Mandalorians are Stronger Together keyword.
 
 ### Marksman
 A unit with the Marksman keyword may spend any number of Aim tokens after converting attack surges during the Convert Attack Surges step. For each Aim token spent in this way, instead of rerolling dice, change 1 Blank result to a [Hit] result, 1 [Hit] result to a [Crit] result, or spend 2 Aim tokens to change 1 Blank result to a [Crit] result.

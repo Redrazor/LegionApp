@@ -236,6 +236,74 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 12 — Battle-force doctrines ("choose N of the following")
+
+**Status:** queued (design agreed; not started). Follow-up surfaced during Feature 11 QA.
+
+Several battle forces let you pick a fixed number of army-build benefits at list-building time —
+e.g. **Mandalorian Clans** "**Choose 2 of the following**": Veterans, Tools of the Trade, Rapid
+Deployment, Guns for Hire, Feats of Valor. The app currently doesn't model these at all (the
+Mandalorian update's "Veterans clerical fix" had no surface to land on — see [[feature-tracking-doc]]).
+This shares the exact shape of the existing `commandHand` / `battleDeck` pickers (pick N from a list →
+store chosen ids on `Army` → render a picker → enforce the count → surface the text).
+
+**Where each piece goes:**
+- **Data (scrape-proof):** a new owner-maintained `public/data/battle-force-doctrines.json`
+  (`{ [linkId]: { pick: number, options: { id, name, text }[] } }`), transcribed verbatim from the
+  AMG BattleForces PDF (same ethos as `Keyword_glossary.md` / `upgrade-weapons.json`). NOT in
+  `battleForces.json` — that file is scraper-generated (`scrape.ts`) and would wipe it. Overlay it
+  onto the `battleForces` store at load, mirroring the `upgrade-weapons.json` overlay.
+- **Type:** optional `doctrines?: { pick: number; options: {id,name,text}[] }` on `BattleForce`.
+- **Army:** `doctrines: string[]` (chosen option ids), mirroring `commandHand`/`battleDeck`; add to
+  the versioned share-code serializer.
+- **UI:** a "Doctrines — Choose N" panel in the Build battle-force section, shown only when the
+  selected force has `doctrines`; reuse the command-hand multi-select (chips capped at `pick`, each
+  showing its rules text).
+- **Validation (`army.ts`):** army is *incomplete* until exactly `pick` are chosen (like the 6-card
+  command hand); surface the chosen text in the summary/export.
+- **Enforcement — phased:** Phase 1 = selection + count + shown-as-text (most of the value, low risk).
+  Phase 2 (optional) = wire the *computable* effects into the engine (Veterans −5pts GALAAR-15
+  Carbines; Tools of the Trade free upgrade copies + restriction bypass; Guns for Hire unlocking the
+  three vehicles into `rankUnits`). Pure in-game effects (Rapid Deployment, Feats of Valor) stay
+  text-only.
+
+Generalises beyond Mandalorian Clans — transcribe every battle force's "choose N" list when built.
+
+---
+
+## Feature 11 — Mandalorian Update (AMG DOC56, June 2026)
+
+**Status:** in progress (`feature/mandalorian-update-2026`).
+
+Bring the catalogue in line with AMG's 2026-06-17 Mandalorian errata + Print-and-Play card
+refresh (the **DOC56** document batch). Source documents (downloaded, not re-scraped — per
+[[extract-from-card-images-not-scraping]]): `DOC56_Mandalorian_BattleForceCards-2.pdf` (card art,
+one 727×1040 / 300 DPI image per card), `DOC56_ErrataReference-2.pdf`, `DOC56_SWQ_Rulebook-2.pdf`,
+`DOC56_BattleForces-3.pdf`. Changelog source: forums.atomicmassgames.com topic 20841.
+
+Owner decisions: **removed cards are kept but flagged** (still shown in Browse/Reference, excluded
+from Build selection), not deleted; shipped as **one PR**.
+
+- **Removed-upgrade flag.** New `Upgrade.removed?: boolean`; Build's selectable-upgrade filter
+  excludes flagged cards. 9 cards flagged (Boba's/Din's/Saxon's-ZX Flame Projector, Electro Grappling
+  Line, Jetpack Rockets (Mandalorian Resistance), Sabine's/Saxon's/Super Commando Combat Shields,
+  Super Commando Jetpack Rockets) — correct variant matched against each card's restriction text.
+- **Keywords** (`Keyword_glossary.md` → `npm run keywords`): **Impervious** reworded to "reduce the
+  Attack Pool's Pierce X by 1, min 0, at the start of Modify Defense Dice" (was "cancel one fewer
+  Block"); **Mandalorians Are Stronger Together** reworded (Aim↔Dodge token gain, after the attack).
+- **Unit data** (`units.json`): Clan Wren → 4 minis / 92 pts (both slugs); `unitType` → "Mandalorian
+  Trooper" on Boba Daimyo, Gar Saxon Militant Commando, Sabine Explosive Artist.
+- **Upgrade data**: Beskad Duelist → 2 red attack dice + Axe Woves weapon (`upgrade-weapons.json`);
+  Whipcord Launcher Trooper-only; Mandalorian Initiates lose Jetpack Rockets; The Darksaber
+  (Bo-Katan's) restricted to Mandalorian Clans BF; Children of the Watch clerical.
+- **Battle forces** (`battleCards.json`/`battleForces`): Shadow Collective Gar Saxon restriction,
+  Veterans clerical fix, Customizable Mandalorian Doctrines added to the allowed unique-upgrade list
+  (Battle Master, Deadeye, Guildmember, War Party Leader, Full Beskar Armor).
+- **Card art**: extract + replace the changed cards from the PnP PDF (unit cards rotated to landscape),
+  re-run `npm run portraits` for Din Djarin + Clan Wren, new `ursa-wren` upgrade card.
+
+---
+
 ## Feature 10 — Build unit-row weapons (best ranged + best melee) & count-first layout
 
 **Phase A — display + reorder (done, v1.14.0).** Each Build unit row (`ArmyUnitCard.vue` roster

@@ -212,3 +212,21 @@ describe('army store — battle deck', () => {
     expect(s.draft.battleDeck).toEqual([])
   })
 })
+
+describe('upgrades store — removed cards', () => {
+  it('never offers errata-removed upgrades for a slot', async () => {
+    const { useUpgradesStore } = await import('../src/stores/upgrades.ts')
+    const store = useUpgradesStore()
+    const base = {
+      id: '', name: '', slot: 'gear', cost: 5, isUnique: false,
+      faction: null, keywords: [], grantedSlots: [], cardImage: null, weapons: [],
+    }
+    store.upgrades = [
+      { ...base, id: 'a', slug: 'live-gear', name: 'Live Gear' },
+      { ...base, id: 'b', slug: 'dead-gear', name: 'Dead Gear', removed: true },
+    ] as never
+    const offered = store.forSlot('gear', 'rebels').map((u) => u.slug)
+    expect(offered).toContain('live-gear')
+    expect(offered).not.toContain('dead-gear')
+  })
+})

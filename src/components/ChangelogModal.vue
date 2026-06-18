@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.18.0',
+    date: '2026-06-18',
+    changes: [
+      'Every Galactic Empire card image is now sourced directly from Atomic Mass Games’ official print-and-play files — refreshed, first-party scans for all 35 Empire units (including Tarkin, Thrawn, Tagge, the Imperial Probe Droid, and the customizable Imperial Officer & Agent), all 49 Empire command cards, and every Empire upgrade.',
+    ],
+  },
+  {
     version: '1.17.0',
     date: '2026-06-18',
     changes: [

@@ -61,8 +61,12 @@ for (const [pdf, entries] of [...byPdf.entries()].sort()) {
     <button class="bulk" data-act="reject">Reject all visible</button></h2><div class="grid">`
   for (const e of entries) {
     total++
-    const card = names[e.category].get(e.slug)
-    const label = card ? `${card.name}${card.title ? ` — ${card.title}` : ''}` : e.slug
+    // Unit art "front" cards are keyed `<slug>-front` and have no catalogue entry of
+    // their own — resolve the label from the base unit and tag it as the front art.
+    const isFront = e.category === 'units' && e.slug.endsWith('-front')
+    const baseSlug = isFront ? e.slug.slice(0, -'-front'.length) : e.slug
+    const card = names[e.category].get(baseSlug)
+    const label = (card ? `${card.name}${card.title ? ` — ${card.title}` : ''}` : baseSlug) + (isFront ? ' · FRONT ART' : '')
     const oldRel = `public/images/${e.category}/${e.slug}.webp`
     const oldImg = existsSync(join(ROOT, oldRel))
       ? `<img class="shot" src="${oldRel}?v=${V}" loading="lazy" alt="old">`

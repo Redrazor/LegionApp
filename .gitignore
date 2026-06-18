@@ -36,6 +36,11 @@ scraper/amg-cards/
 scraper/amg-card-map.json
 scraper/amg-approvals.json
 image-validation.html
+# Derived match artifacts (regenerated from the catalogue + reads.json by build-card-map).
+# The hand-curated vision reads (scraper/_match/reads.json) ARE tracked as provenance.
+scraper/_match/cand-*.json
+scraper/_match/gap-report.txt
+validation-preview.jpeg
 
 # Outward-facing marketing drafts are kept out of the public repo
 community/

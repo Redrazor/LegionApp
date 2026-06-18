@@ -32,6 +32,10 @@ Extra portraits/
 # Provenance is tracked in card_list_origin.md; the binaries are not committed.
 scraper/amg-pdfs/
 scraper/amg-cards/
+# Intermediate matching/validation artifacts (regenerated per faction batch).
+scraper/amg-card-map.json
+scraper/amg-approvals.json
+image-validation.html
 
 # Outward-facing marketing drafts are kept out of the public repo
 community/

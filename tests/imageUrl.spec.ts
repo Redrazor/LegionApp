@@ -33,30 +33,30 @@ describe('imageUrl', () => {
       imageUrl = await loadWithBase('https://legionapp-images.web.app')
     })
 
-    it('strips /images/ and prepends the base', () => {
+    it('strips /images/ and prepends the base (with the app-version cache-buster)', () => {
       expect(imageUrl('/images/units/darth-vader.webp')).toBe(
-        'https://legionapp-images.web.app/units/darth-vader.webp',
+        'https://legionapp-images.web.app/units/darth-vader.webp?v=test',
       )
     })
 
     it('forces .webp for .jpg product originals', () => {
       expect(imageUrl('/images/products/8435407620759.jpg')).toBe(
-        'https://legionapp-images.web.app/products/8435407620759.webp',
+        'https://legionapp-images.web.app/products/8435407620759.webp?v=test',
       )
     })
 
     it('forces .webp for .png and .jpeg too', () => {
-      expect(imageUrl('/images/a.png')).toBe('https://legionapp-images.web.app/a.webp')
-      expect(imageUrl('/images/b.jpeg')).toBe('https://legionapp-images.web.app/b.webp')
+      expect(imageUrl('/images/a.png')).toBe('https://legionapp-images.web.app/a.webp?v=test')
+      expect(imageUrl('/images/b.jpeg')).toBe('https://legionapp-images.web.app/b.webp?v=test')
     })
 
-    it('appends a cache-busting version to portrait crops only', () => {
+    it('appends the app-version cache-buster to every CDN image (cards + portraits)', () => {
+      // Tied to the release version so each deploy busts the immutable CDN + SW image cache.
       expect(imageUrl('/images/portraits/darth-vader-dark-lord-of-the-sith.webp')).toBe(
-        'https://legionapp-images.web.app/portraits/darth-vader-dark-lord-of-the-sith.webp?v=2',
+        'https://legionapp-images.web.app/portraits/darth-vader-dark-lord-of-the-sith.webp?v=test',
       )
-      // non-portrait images are left without a query
-      expect(imageUrl('/images/units/darth-vader.webp')).toBe(
-        'https://legionapp-images.web.app/units/darth-vader.webp',
+      expect(imageUrl('/images/upgrades/children-of-the-watch.webp')).toBe(
+        'https://legionapp-images.web.app/upgrades/children-of-the-watch.webp?v=test',
       )
     })
 

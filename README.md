@@ -1,12 +1,5 @@
 # LegionApp
 
-> [!IMPORTANT]
-> **On data sources.** LegionApp has historically drawn card data from several community resources. Because of conflicting positions on how that data may be used, all content originating from Tabletop Admiral has been expunged from this project.
->
-> This app is built in the spirit of community and sharing. Not every party sees it that way. Earlier commits in this repo's history still reference that provider, but every such reference and association has been removed from the current code.
->
-> LegionApp stays free, fully accessible, and open. Take whatever you need from here for any project. Communities thrive on sharing, not gatekeeping.
-
 A companion web app for **Star Wars: Legion**, the miniatures battle game by Atomic Mass Games.
 
 LegionApp lets you browse units, build and validate armies, and track your collection — from a clean, mobile-first interface built for the game table. Free, no login, installable as a PWA. It's the sister app to [ShatterApp](https://shatterapp.com) (for Star Wars: Shatterpoint).

@@ -238,7 +238,8 @@ unrestricted upgrades when no character filter is active.
 
 ## Feature 13 — 2.0: re-source every card image from official AMG PnP PDFs
 
-**Status:** in progress (`feature/amg-image-resource-tooling`, Phase 1 of an 8-phase rollout landing in 2.0).
+**Status:** in progress — **P1 (tooling + provenance + validation tool) SHIPPED** (PR #65, merged as a chore,
+no bump). P2–P8 pending: per-faction image swaps → 2.0 major. 8-phase rollout below.
 
 Every card scan in the app was originally downloaded from the Legion HQ 2 CDN
 (`d2maxvwz12z6fm.cloudfront.net`). The only exception is the Mandalorian errata batch we self-sourced
@@ -260,24 +261,85 @@ out of scope); **report & pause** on any card with no AMG PnP source; deliver as
 The full per-card source list is recorded in `card_list_origin.md` (the durable provenance record, since
 scans are git-ignored).
 
-**Phase 1 (this PR) — tooling + provenance:**
-- **Pipeline (`scraper/`):** `amgNormalise.ts` (pure: `AMG_SOURCES` catalogue, category-scoped
-  `PRESERVE_SLUGS`/`isPreserved`, `selectFronts` front-vs-shared-back dedup, `matchCard` name→slug matcher);
-  `amgDocs.ts` (`npm run amg:fetch` → git-ignored `scraper/amg-pdfs/`); `amgExtract.ts` (`npm run amg:extract`
-  → `pdfimages` + sharp CMYK→sRGB WebP into `scraper/amg-cards/` + `index.json`); `amgApply.ts`
-  (`npm run amg:apply` → places `amg-card-map.json` matches into `public/images/`, skipping preserve-list).
-- **Provenance:** `scripts/generate-card-origins.ts` (`npm run amg:origins`) emits `card_list_origin.md`
-  (per-card source; 2.0 goal = 0 LHQ2 rows). Baseline: 14 self-sourced (DOC56), 862 LHQ2.
-- **Tests:** `tests/amgNormalise.spec.ts` (sources/dedup/matcher/preserve, incl. the cross-category
-  `whipcord-launcher` collision); `tests/image-coverage.spec.ts` (every catalogue slug has a scan on disk —
-  skips when images absent in CI; allowlists the 2 known-missing upgrades `dc-15-clone-trooper` /
-  `youre-not-all-the-same-to-me` until P7).
-- **`.gitignore`:** `scraper/amg-pdfs/`, `scraper/amg-cards/`.
+### Pipeline (P1 — SHIPPED, PR #65, `feature/amg-image-resource-tooling`, merged as a chore, no bump)
 
-**Remaining phases:** P2–P6 one faction each (extract → match → verify → apply units+upgrades+commands;
-re-tune affected portraits); P7 battle deck + fix the 2 missing upgrade scans + clear the gap list; P8 2.0
-cutover (flip `image-coverage` to a hard assert, reword `CLAUDE.md`/`README` data-sourcing to first-party
-AMG PnP keeping the AMG/Lucasfilm disclaimer, `npm version major` → 2.0.0, deploy full compressed set).
+All in `scraper/` + `scripts/`, mirroring the existing scraper/portraits conventions. The PnP PDFs and
+extracted cards are git-ignored; `card_list_origin.md` is the durable provenance record.
+
+- **`scraper/amgNormalise.ts`** (pure, 100% covered, in vitest `include`): `AMG_SOURCES` (the 19 PnP PDF
+  URLs tagged by category+faction), category-scoped `PRESERVE_SLUGS`/`isPreserved` (the 14 self-sourced
+  DOC56 cards — **keyed by category** because slugs collide across categories, e.g. upgrade vs command
+  `whipcord-launcher`), `selectFronts` (md5 dedup; drops the byte-identical shared card backs), `matchCard`
+  (read-name+title → catalogue slug, returns `{slug}` / `{ambiguous}` / null, reuses `slugify`).
+- **`scraper/amgDocs.ts`** → `npm run amg:fetch` — downloads PnP PDFs to `scraper/amg-pdfs/`.
+- **`scraper/amgExtract.ts`** → `npm run amg:extract` — `pdfimages -all` per PDF, `selectFronts`, sharp
+  CMYK→sRGB WebP into `scraper/amg-cards/<cat>/<faction>/` + `index.json`. (Verified on rebel units:
+  94 raw → 52 fronts → WEBP 1039×726 sRGB.)
+- **`scripts/generate-image-validation.ts`** → `npm run images:validate` — **the validation gate**: builds
+  `image-validation.html` (repo root, git-ignored), a side-by-side **OLD (current on-disk scan) vs NEW (AMG
+  candidate)** contact sheet grouped by source PDF, with per-card Approve/Reject (persisted to
+  localStorage), per-section bulk approve/reject, name filter, "only pending", and **Export approvals** →
+  `scraper/amg-approvals.json`. Mirrors the `portraits:validate` pattern. Reviewed in batches.
+- **`scraper/amgApply.ts`** → `npm run amg:apply` — copies staged fronts to `public/images/<cat>/<slug>.webp`.
+  Honors `amg-approvals.json` if present (applies **only approved**); always skips `isPreserved`; warns +
+  applies all if no approvals file.
+- **`scripts/generate-card-origins.ts`** → `npm run amg:origins` — regenerates `card_list_origin.md` from
+  the data files + `PRESERVE_SLUGS` + `amg-card-map.json`. Baseline: **14 self-sourced (DOC56), 862 LHQ2**.
+- **Tests:** `amgNormalise.spec.ts` (sources/dedup/matcher/preserve + the `whipcord-launcher` collision);
+  `image-coverage.spec.ts` (every catalogue slug has a scan on disk — skips when images absent in CI;
+  allowlists the 2 known-missing upgrades `dc-15-clone-trooper` / `youre-not-all-the-same-to-me` until P7).
+- **Intermediate artifacts (git-ignored):** `scraper/amg-pdfs/`, `scraper/amg-cards/`,
+  `scraper/amg-card-map.json`, `scraper/amg-approvals.json`, `image-validation.html`.
+
+### The matching step (between extract and validate) — not yet scripted
+
+`scraper/amg-card-map.json` (`[{ category, slug, sourcePdf, extractedFile }]`) maps each staged front to a
+catalogue slug. It is produced **per faction batch** by reading each extracted card's name+title (vision)
+and matching against that PDF's faction+category candidate set via `matchCard`, **with a verification
+re-read pass** (CLAUDE.md mandates this — dice/name misreads are real). Unmatched catalogue slugs (no
+candidate) and unmatched extracted fronts (no slug) → **gap report → pause for owner**.
+
+### Per-faction batch workflow (P2–P7), exact order
+
+```
+npm run amg:fetch                       # once — download all PnP PDFs
+npm run amg:extract                     # once (or per-PDF) — stage fronts + index.json
+# → matching: build/append scraper/amg-card-map.json for this faction (vision + matchCard + re-read pass)
+npm run images:validate                 # open image-validation.html, review OLD vs NEW in batches,
+                                        #   Export approvals → scraper/amg-approvals.json
+npm run amg:apply                       # applies only approved; skips preserve-list
+npm run portraits                       # re-crop unit portraits from the new scans (re-tune CARD_CROP_PORTRAITS
+npm run portraits:validate              #   where AMG framing differs; eyeball portrait-validation.html)
+npm run seed                            # reseed the API DB
+npm run amg:origins                     # refresh card_list_origin.md (this faction → AMG <pdf>)
+npm run images:compress                 # → images-compressed/ (800px Q80)
+npx -y firebase-tools deploy --only hosting   # deploy so prod doesn't 404 (version bump busts the ?v= cache)
+```
+
+### Phases
+
+- **P1 — SHIPPED.** Tooling + provenance + validation tool (above). No image/app change; merged as a chore.
+- **P2–P6 — one faction per PR** (empire, republic, rebels, separatists, mercenary+ewoks): units + upgrades
+  + commands for that faction; re-tune affected portraits. AC = OLD-vs-NEW batch validation + faction
+  spot-check in Browse. **Minor bump each** (the version bump busts the immutable image CDN).
+- **P7 — battle deck + cleanup:** `DOC41` battle cards; fix the 2 missing upgrade scans
+  (`dc-15-clone-trooper`, `youre-not-all-the-same-to-me`); resolve generic/faction-null upgrades & commands;
+  clear the gap list. Minor bump.
+- **P8 — 2.0 cutover:** flip `image-coverage.spec.ts` to a hard assert (every slug has a scan, empty the
+  allowlist) + assert `card_list_origin.md` has 0 LHQ2 rows; reword the `CLAUDE.md` Data-sourcing section &
+  `README.md:100` credit to first-party AMG PnP (keep the AMG/Lucasfilm disclaimer, `README.md:105-107` /
+  `CLAUDE.md:96`); changelog + `npm version major` → **2.0.0**; deploy the full compressed image set.
+
+### Key facts to resume cold
+
+- Slug = filename: `public/images/<cat>/<slug>.webp`; `cardImage` derived. Slugs unique only **within** a
+  category. Counts: units 180, upgrades 418 (**416 on disk** — 2 missing above), commands 235, battle 43.
+- `src/utils/imageUrl.ts` appends `?v=<appVersion>`; each version bump busts the Firebase immutable cache,
+  so prod picks up new art on release. Components read `cardImage`/`portraitImage` — none build paths from slugs.
+- Portraits (`scraper/portraits.ts`) crop hand-tuned `CARD_CROP_PORTRAITS` pixel regions from the unit
+  scans → re-tuning needed wherever AMG framing differs from LHQ.
+- `selectFronts` over-includes non-unit/back art (52 fronts for ~34 rebel units) → the matching step's gap
+  report is where those land; tune `maxRepeat` per PDF if needed.
 
 ---
 

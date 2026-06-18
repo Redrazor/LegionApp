@@ -3,7 +3,7 @@ const IMAGE_BASE = (import.meta.env.VITE_IMAGE_BASE as string | undefined) ?? ''
 // Portrait crops are regenerated in place (same `/portraits/<slug>.webp` filename), but the
 // CDN serves images `immutable` for a year — so a client that cached an older crop would keep
 // it. Bump this whenever the portrait crops change to force a refetch of the new files.
-const PORTRAIT_CACHE_VERSION = '2'
+const PORTRAIT_CACHE_VERSION = '3' // bumped: Din Djarin / Clan Wren / Axe Woves crops re-tuned (Mandalorian update)
 
 /**
  * Resolves a card/portrait/product image path against VITE_IMAGE_BASE.

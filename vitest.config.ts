@@ -17,6 +17,7 @@ export default defineConfig({
         'src/composables/**/*.ts',
         'src/utils/**/*.ts',
         'scraper/normalise.ts',
+        'scraper/amgNormalise.ts',
         'server/routes/**/*.ts',
         'server/db/seed.ts',
       ],

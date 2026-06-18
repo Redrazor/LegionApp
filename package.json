@@ -24,7 +24,11 @@
     "server": "tsx server/index.ts",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
     "keywords": "tsx scraper/keywords.ts",
-    "upgrade-weapons": "tsx scraper/upgradeWeapons.ts"
+    "upgrade-weapons": "tsx scraper/upgradeWeapons.ts",
+    "amg:fetch": "tsx scraper/amgDocs.ts",
+    "amg:extract": "tsx scraper/amgExtract.ts",
+    "amg:apply": "tsx scraper/amgApply.ts",
+    "amg:origins": "tsx scripts/generate-card-origins.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

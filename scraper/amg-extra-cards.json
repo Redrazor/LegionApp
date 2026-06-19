@@ -7,21 +7,87 @@
       "note": "Imperial High Command squad pack (released 2026-04). https://www.atomicmassgames.com/transmission/imperial-high-command/ — Tarkin, Thrawn, Tagge (Krennic already in DOC51_GalacticEmpire_Units; his duplicate is intentionally omitted).",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
       "cards": [
-        {"category": "units", "slug": "general-tagge-imperial-high-command", "side": "play", "file": "SWQ42_UnitCard_1_Front.png"},
-        {"category": "units", "slug": "general-tagge-imperial-high-command", "side": "front", "file": "SWQ42_UnitCard_1_Back.png"},
-        {"category": "units", "slug": "grand-admiral-thrawn-imperial-high-command", "side": "play", "file": "SWQ42_UnitCard_3_Front.png"},
-        {"category": "units", "slug": "grand-admiral-thrawn-imperial-high-command", "side": "front", "file": "SWQ42_UnitCard_3_Back.png"},
-        {"category": "units", "slug": "grand-moff-tarkin-imperial-high-command", "side": "play", "file": "SWQ42_UnitCard_4_Front.png"},
-        {"category": "units", "slug": "grand-moff-tarkin-imperial-high-command", "side": "front", "file": "SWQ42_UnitCard_4_Back.png"},
-        {"category": "commands", "slug": "the-empire-does-not-tolerate-failure", "file": "SWQ42_CommandCard_1.png"},
-        {"category": "commands", "slug": "canny-adversary", "file": "SWQ42_CommandCard_2.png"},
-        {"category": "commands", "slug": "i-have-graphs-and-the-command", "file": "SWQ42_CommandCard_3.png"},
-        {"category": "commands", "slug": "fear-will-keep-them-in-line", "file": "SWQ42_CommandCard_4.png"},
-        {"category": "commands", "slug": "moment-of-triumph", "file": "SWQ42_CommandCard_5.png"},
-        {"category": "commands", "slug": "i-want-you-to-know-failure", "file": "SWQ42_CommandCard_6.png"},
-        {"category": "commands", "slug": "we-must-wait-and-watch", "file": "SWQ42_CommandCard_7.png"},
-        {"category": "commands", "slug": "architects-of-their-own-destruction", "file": "SWQ42_CommandCard_8.png"},
-        {"category": "upgrades", "slug": "security-detail", "file": "SWQ42_UpgradeCard_1.png"}
+        {
+          "category": "units",
+          "slug": "general-tagge-imperial-high-command",
+          "side": "play",
+          "file": "SWQ42_UnitCard_1_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "general-tagge-imperial-high-command",
+          "side": "front",
+          "file": "SWQ42_UnitCard_1_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "grand-admiral-thrawn-imperial-high-command",
+          "side": "play",
+          "file": "SWQ42_UnitCard_3_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "grand-admiral-thrawn-imperial-high-command",
+          "side": "front",
+          "file": "SWQ42_UnitCard_3_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "grand-moff-tarkin-imperial-high-command",
+          "side": "play",
+          "file": "SWQ42_UnitCard_4_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "grand-moff-tarkin-imperial-high-command",
+          "side": "front",
+          "file": "SWQ42_UnitCard_4_Back.png"
+        },
+        {
+          "category": "commands",
+          "slug": "the-empire-does-not-tolerate-failure",
+          "file": "SWQ42_CommandCard_1.png"
+        },
+        {
+          "category": "commands",
+          "slug": "canny-adversary",
+          "file": "SWQ42_CommandCard_2.png"
+        },
+        {
+          "category": "commands",
+          "slug": "i-have-graphs-and-the-command",
+          "file": "SWQ42_CommandCard_3.png"
+        },
+        {
+          "category": "commands",
+          "slug": "fear-will-keep-them-in-line",
+          "file": "SWQ42_CommandCard_4.png"
+        },
+        {
+          "category": "commands",
+          "slug": "moment-of-triumph",
+          "file": "SWQ42_CommandCard_5.png"
+        },
+        {
+          "category": "commands",
+          "slug": "i-want-you-to-know-failure",
+          "file": "SWQ42_CommandCard_6.png"
+        },
+        {
+          "category": "commands",
+          "slug": "we-must-wait-and-watch",
+          "file": "SWQ42_CommandCard_7.png"
+        },
+        {
+          "category": "commands",
+          "slug": "architects-of-their-own-destruction",
+          "file": "SWQ42_CommandCard_8.png"
+        },
+        {
+          "category": "upgrades",
+          "slug": "security-detail",
+          "file": "SWQ42_UpgradeCard_1.png"
+        }
       ]
     },
     {
@@ -30,8 +96,18 @@
       "note": "Imperial Probe Droid (Scene to Stats, product SWQ98). https://www.atomicmassgames.com/transmission/scene-to-stats-imperial-probe-droid/",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
       "cards": [
-        {"category": "units", "slug": "imperial-probe-droid", "side": "play", "file": "SWQ98_UnitCard_1_Front.png"},
-        {"category": "units", "slug": "imperial-probe-droid", "side": "front", "file": "SWQ98_UnitCard_1_Back.png"}
+        {
+          "category": "units",
+          "slug": "imperial-probe-droid",
+          "side": "play",
+          "file": "SWQ98_UnitCard_1_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "imperial-probe-droid",
+          "side": "front",
+          "file": "SWQ98_UnitCard_1_Back.png"
+        }
       ]
     },
     {
@@ -40,12 +116,64 @@
       "note": "Customizable Imperial Officer & Agent (product SWQ09). https://www.atomicmassgames.com/transmission/customizable-imperial-officer-agent/ — Commands are clean per-card images (CommandCard_1 = Inexorable Advance / Officer, CommandCard_2 = Fearsome Oration / Agent). The UNIT cards are published only as a `*_Fan.png` at FULL res = the play side + art side laid SIDE BY SIDE (2088x760 = two 1040x760 cards), so each is cropped out via `crop` (left 0-1040 = play, right 1048-2088 = art). The default card title (Ruthless Efficiency / Bringing Order to the Galaxy) matches the catalogue slug.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/08",
       "cards": [
-        {"category": "commands", "slug": "inexorable-advance", "file": "SWQ09_CommandCard_1.png"},
-        {"category": "commands", "slug": "fearsome-oration", "file": "SWQ09_CommandCard_2.png"},
-        {"category": "units", "slug": "imperial-officer-ruthless-efficiency", "side": "play", "file": "SWQ09_UnitCard_OFFICER_Fan.png", "crop": {"left": 0, "top": 0, "width": 1040, "height": 760}},
-        {"category": "units", "slug": "imperial-officer-ruthless-efficiency", "side": "front", "file": "SWQ09_UnitCard_OFFICER_Fan.png", "crop": {"left": 1048, "top": 0, "width": 1040, "height": 760}},
-        {"category": "units", "slug": "imperial-agent-bringing-order-to-the-galaxy", "side": "play", "file": "SWQ09_UnitCard_AGENT_FAN.png", "crop": {"left": 0, "top": 0, "width": 1040, "height": 760}},
-        {"category": "units", "slug": "imperial-agent-bringing-order-to-the-galaxy", "side": "front", "file": "SWQ09_UnitCard_AGENT_FAN.png", "crop": {"left": 1048, "top": 0, "width": 1040, "height": 760}}
+        {
+          "category": "commands",
+          "slug": "inexorable-advance",
+          "file": "SWQ09_CommandCard_1.png"
+        },
+        {
+          "category": "commands",
+          "slug": "fearsome-oration",
+          "file": "SWQ09_CommandCard_2.png"
+        },
+        {
+          "category": "units",
+          "slug": "imperial-officer-ruthless-efficiency",
+          "side": "play",
+          "file": "SWQ09_UnitCard_OFFICER_Fan.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1040,
+            "height": 760
+          }
+        },
+        {
+          "category": "units",
+          "slug": "imperial-officer-ruthless-efficiency",
+          "side": "front",
+          "file": "SWQ09_UnitCard_OFFICER_Fan.png",
+          "crop": {
+            "left": 1048,
+            "top": 0,
+            "width": 1040,
+            "height": 760
+          }
+        },
+        {
+          "category": "units",
+          "slug": "imperial-agent-bringing-order-to-the-galaxy",
+          "side": "play",
+          "file": "SWQ09_UnitCard_AGENT_FAN.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1040,
+            "height": 760
+          }
+        },
+        {
+          "category": "units",
+          "slug": "imperial-agent-bringing-order-to-the-galaxy",
+          "side": "front",
+          "file": "SWQ09_UnitCard_AGENT_FAN.png",
+          "crop": {
+            "left": 1048,
+            "top": 0,
+            "width": 1040,
+            "height": 760
+          }
+        }
       ]
     },
     {
@@ -54,12 +182,52 @@
       "note": "Customizable Jedi General & Knight (product SWQ20). https://www.atomicmassgames.com/transmission/scene-to-stats-customizable-jedi/ — UnitCard_1 = Jedi Knight General (Strong in the Force), UnitCard_2 = Jedi Knight (Keeper of the Peace). NOTE: for SWQ20 AMG's `_Front` is the ART side and `_Back` is the STATS/play side (REVERSED vs SWQ42/SWQ98). Commands are a side-by-side `CommandCard_Fan.png` (1480x1061 = two 740-wide cards): left = Affirmative, General!, right = Flow of the Force.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09",
       "cards": [
-        {"category": "units", "slug": "jedi-knight-general-strong-in-the-force", "side": "play", "file": "SWQ20_UnitCard_1_Back.png"},
-        {"category": "units", "slug": "jedi-knight-general-strong-in-the-force", "side": "front", "file": "SWQ20_UnitCard_1_Front.png"},
-        {"category": "units", "slug": "jedi-knight-keeper-of-the-peace", "side": "play", "file": "SWQ20_UnitCard_2_Back.png"},
-        {"category": "units", "slug": "jedi-knight-keeper-of-the-peace", "side": "front", "file": "SWQ20_UnitCard_2_Front.png"},
-        {"category": "commands", "slug": "affirmative-general", "file": "SWQ20_CommandCard_Fan.png", "crop": {"left": 0, "top": 0, "width": 740, "height": 1061}},
-        {"category": "commands", "slug": "flow-of-the-force", "file": "SWQ20_CommandCard_Fan.png", "crop": {"left": 740, "top": 0, "width": 740, "height": 1061}}
+        {
+          "category": "units",
+          "slug": "jedi-knight-general-strong-in-the-force",
+          "side": "play",
+          "file": "SWQ20_UnitCard_1_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "jedi-knight-general-strong-in-the-force",
+          "side": "front",
+          "file": "SWQ20_UnitCard_1_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "jedi-knight-keeper-of-the-peace",
+          "side": "play",
+          "file": "SWQ20_UnitCard_2_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "jedi-knight-keeper-of-the-peace",
+          "side": "front",
+          "file": "SWQ20_UnitCard_2_Front.png"
+        },
+        {
+          "category": "commands",
+          "slug": "affirmative-general",
+          "file": "SWQ20_CommandCard_Fan.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 740,
+            "height": 1061
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "flow-of-the-force",
+          "file": "SWQ20_CommandCard_Fan.png",
+          "crop": {
+            "left": 740,
+            "top": 0,
+            "width": 740,
+            "height": 1061
+          }
+        }
       ]
     },
     {
@@ -68,8 +236,18 @@
       "note": "ARF Troopers (product SWQ135). https://www.atomicmassgames.com/transmission/scene-to-stats-arf-troopers/ — cards are published as the scene-to-stats transmission images (1048x760): Image_2 = the stats/play side, Image_4 = the art side. (Ahsoka Tano's transmission page exposes only 512px promo thumbnails — left on LHQ2.)",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/01",
       "cards": [
-        {"category": "units", "slug": "arf-troopers", "side": "play", "file": "01242025-SWQ135-Transmission-Image_2.png"},
-        {"category": "units", "slug": "arf-troopers", "side": "front", "file": "01242025-SWQ135-Transmission-Image_4.png"}
+        {
+          "category": "units",
+          "slug": "arf-troopers",
+          "side": "play",
+          "file": "01242025-SWQ135-Transmission-Image_2.png"
+        },
+        {
+          "category": "units",
+          "slug": "arf-troopers",
+          "side": "front",
+          "file": "01242025-SWQ135-Transmission-Image_4.png"
+        }
       ]
     },
     {
@@ -78,10 +256,45 @@
       "note": "Ahsoka Tano - Padawan Commander (product SWQ22). https://www.atomicmassgames.com/transmission/scene-to-stats-ahsoka-tano-padawan-commander/ — AMG's full-res official card lives under the `image-converter/.../SWQ##en_UnitCard_Legal.webp` path (NOT the plain `uploads/<date>` path; easy to miss). Play side is clean 1039x756. The art side + commands are only low-res (512px / a 1168px 3-card fan), so they are left for a later hi-res pass.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/image-converter/2025/04",
       "cards": [
-        {"category": "units", "slug": "ahsoka-tano-padawan-commander", "side": "play", "file": "SWQ22en_UnitCard_Legal.webp"},
-        {"category": "commands", "slug": "you-are-beaten", "file": "SWQ22_CardFans.webp", "crop": {"left": 5, "top": 5, "width": 378, "height": 590}},
-        {"category": "commands", "slug": "i-go-where-im-needed", "file": "SWQ22_CardFans.webp", "crop": {"left": 393, "top": 5, "width": 378, "height": 590}},
-        {"category": "commands", "slug": "revenge-is-not-the-jedi-way", "file": "SWQ22_CardFans.webp", "crop": {"left": 786, "top": 5, "width": 378, "height": 590}}
+        {
+          "category": "units",
+          "slug": "ahsoka-tano-padawan-commander",
+          "side": "play",
+          "file": "SWQ22en_UnitCard_Legal.webp"
+        },
+        {
+          "category": "commands",
+          "slug": "you-are-beaten",
+          "file": "SWQ22_CardFans.webp",
+          "crop": {
+            "left": 5,
+            "top": 5,
+            "width": 378,
+            "height": 590
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "i-go-where-im-needed",
+          "file": "SWQ22_CardFans.webp",
+          "crop": {
+            "left": 393,
+            "top": 5,
+            "width": 378,
+            "height": 590
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "revenge-is-not-the-jedi-way",
+          "file": "SWQ22_CardFans.webp",
+          "crop": {
+            "left": 786,
+            "top": 5,
+            "width": 378,
+            "height": 590
+          }
+        }
       ]
     },
     {
@@ -90,19 +303,300 @@
       "note": "UNRELEASED preview cards cropped from the AdeptiCon 2026 roadmap announcement SLIDES (https://www.atomicmassgames.com/transmission/adepticon-2026-roadmap-star-wars-legion/). These units release Q3/Q4 2026; the cards sit embedded in 2400x1350 slides so the crops are ~700px PREVIEW quality (lower than a real scan). Every slug here is also listed in public/data/unreleased.json so the app shows a preview/unreleased badge. Re-source from clean PnP when AMG publishes them. Jedi Council = SWQ143 (slides 2-5, play card center-left + command card right); Jedi BARC Speeder = SWQ141 (slides _10/_11, card on the RIGHT).",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
       "cards": [
-        {"category": "units", "slug": "mace-windu-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides2.png", "crop": {"left": 428, "top": 332, "width": 788, "height": 587}},
-        {"category": "units", "slug": "ki-adi-mundi-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides3.png", "crop": {"left": 484, "top": 335, "width": 870, "height": 582}},
-        {"category": "units", "slug": "shaak-ti-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides4.png", "crop": {"left": 484, "top": 335, "width": 854, "height": 582}},
-        {"category": "units", "slug": "plo-koon-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides5.png", "crop": {"left": 440, "top": 372, "width": 788, "height": 593}},
-        {"category": "units", "slug": "anakin-skywalker-mounted-jedi-general", "side": "play", "file": "SWQ_2026_AdepticonSlides_10.png", "crop": {"left": 1405, "top": 356, "width": 855, "height": 565}},
-        {"category": "units", "slug": "jedi-knight-mounted-jedi-general", "side": "play", "file": "SWQ_2026_AdepticonSlides_11.png", "crop": {"left": 965, "top": 333, "width": 783, "height": 535}},
-        {"category": "commands", "slug": "evasive-action", "file": "SWQ_2026_AdepticonSlides_11.png", "crop": {"left": 1786, "top": 230, "width": 576, "height": 795}},
-        {"category": "commands", "slug": "this-partys-over", "file": "SWQ_2026_AdepticonSlides2.png", "crop": {"left": 1606, "top": 233, "width": 616, "height": 784}},
-        {"category": "commands", "slug": "force-of-will", "file": "SWQ_2026_AdepticonSlides3.png", "crop": {"left": 1546, "top": 230, "width": 578, "height": 826}},
-        {"category": "commands", "slug": "unity-wins-wars", "file": "SWQ_2026_AdepticonSlides4.png", "crop": {"left": 1546, "top": 230, "width": 578, "height": 826}},
-        {"category": "commands", "slug": "i-dont-believe-in-chance", "file": "SWQ_2026_AdepticonSlides5.png", "crop": {"left": 1297, "top": 233, "width": 549, "height": 822}},
-        {"category": "commands", "slug": "a-disturbance-in-the-force", "file": "SWQ_2026_AdepticonSlides_05.png", "crop": {"left": 1648, "top": 233, "width": 444, "height": 717}},
-        {"category": "upgrades", "slug": "youre-not-all-the-same-to-me", "file": "SWQ_2026_AdepticonSlides5.png", "crop": {"left": 1870, "top": 230, "width": 488, "height": 838}}
+        {
+          "category": "units",
+          "slug": "mace-windu-jedi-council",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides2.png",
+          "crop": {
+            "left": 428,
+            "top": 332,
+            "width": 788,
+            "height": 587
+          }
+        },
+        {
+          "category": "units",
+          "slug": "ki-adi-mundi-jedi-council",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides3.png",
+          "crop": {
+            "left": 484,
+            "top": 335,
+            "width": 870,
+            "height": 582
+          }
+        },
+        {
+          "category": "units",
+          "slug": "shaak-ti-jedi-council",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides4.png",
+          "crop": {
+            "left": 484,
+            "top": 335,
+            "width": 854,
+            "height": 582
+          }
+        },
+        {
+          "category": "units",
+          "slug": "plo-koon-jedi-council",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides5.png",
+          "crop": {
+            "left": 440,
+            "top": 372,
+            "width": 788,
+            "height": 593
+          }
+        },
+        {
+          "category": "units",
+          "slug": "anakin-skywalker-mounted-jedi-general",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_10.png",
+          "crop": {
+            "left": 1405,
+            "top": 356,
+            "width": 855,
+            "height": 565
+          }
+        },
+        {
+          "category": "units",
+          "slug": "jedi-knight-mounted-jedi-general",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_11.png",
+          "crop": {
+            "left": 965,
+            "top": 333,
+            "width": 783,
+            "height": 535
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "evasive-action",
+          "file": "SWQ_2026_AdepticonSlides_11.png",
+          "crop": {
+            "left": 1786,
+            "top": 230,
+            "width": 576,
+            "height": 795
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "this-partys-over",
+          "file": "SWQ_2026_AdepticonSlides2.png",
+          "crop": {
+            "left": 1606,
+            "top": 233,
+            "width": 616,
+            "height": 784
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "force-of-will",
+          "file": "SWQ_2026_AdepticonSlides3.png",
+          "crop": {
+            "left": 1546,
+            "top": 230,
+            "width": 578,
+            "height": 826
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "unity-wins-wars",
+          "file": "SWQ_2026_AdepticonSlides4.png",
+          "crop": {
+            "left": 1546,
+            "top": 230,
+            "width": 578,
+            "height": 826
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "i-dont-believe-in-chance",
+          "file": "SWQ_2026_AdepticonSlides5.png",
+          "crop": {
+            "left": 1297,
+            "top": 233,
+            "width": 549,
+            "height": 822
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "a-disturbance-in-the-force",
+          "file": "SWQ_2026_AdepticonSlides_05.png",
+          "crop": {
+            "left": 1648,
+            "top": 233,
+            "width": 444,
+            "height": 717
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "youre-not-all-the-same-to-me",
+          "file": "SWQ_2026_AdepticonSlides5.png",
+          "crop": {
+            "left": 1870,
+            "top": 230,
+            "width": 488,
+            "height": 838
+          }
+        }
+      ]
+    },
+    {
+      "source": "SWQ13_RebelOfficerAgent",
+      "faction": "rebels",
+      "note": "Customizable Rebel Officer & Agent (product SWQ13). https://www.atomicmassgames.com/transmission/customizable-rebel-officer-agent/ — UNIT cards are a single SWQ13_UnitCard_Fan.png (2080x1520 = a 2x2 grid of 1040x760 cells): top row = Rebel Officer (left=stats/play, right=art); bottom row = Rebel Agent (left=stats/play, right=art). Commands are SWQ13_CommandCard_FAN.png (1463x1061 = two ~731-wide cards): left = Diversionary Tactics (Rebel Officer), right = Battlefield Reconnaissance (Rebel Agent).",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/08",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "rebel-officer-fighting-for-freedom",
+          "side": "play",
+          "file": "SWQ13_UnitCard_Fan.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 1040,
+            "height": 718
+          }
+        },
+        {
+          "category": "units",
+          "slug": "rebel-officer-fighting-for-freedom",
+          "side": "front",
+          "file": "SWQ13_UnitCard_Fan.png",
+          "crop": {
+            "left": 1040,
+            "top": 0,
+            "width": 1040,
+            "height": 718
+          }
+        },
+        {
+          "category": "units",
+          "slug": "rebel-agent-defender-of-democracy",
+          "side": "play",
+          "file": "SWQ13_UnitCard_Fan.png",
+          "crop": {
+            "left": 0,
+            "top": 719,
+            "width": 1040,
+            "height": 743
+          }
+        },
+        {
+          "category": "units",
+          "slug": "rebel-agent-defender-of-democracy",
+          "side": "front",
+          "file": "SWQ13_UnitCard_Fan.png",
+          "crop": {
+            "left": 1040,
+            "top": 719,
+            "width": 1040,
+            "height": 743
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "diversionary-tactics",
+          "file": "SWQ13_CommandCard_FAN.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 731,
+            "height": 1061
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "battlefield-reconnaissance",
+          "file": "SWQ13_CommandCard_FAN.png",
+          "crop": {
+            "left": 731,
+            "top": 0,
+            "width": 732,
+            "height": 1061
+          }
+        }
+      ]
+    },
+    {
+      "source": "SWQ41_TauntaunHeroes",
+      "faction": "rebels",
+      "note": "Captain Solo & Commander Skywalker on Tauntauns (product SWQ41). https://www.atomicmassgames.com/transmission/captain-solo-commander-skywalker-on-tauntauns/ — per-card 1040x760 unit faces + 740x1061 command cards. NOTE: AMG's _Front = the ART side, _Back = the STATS/play side (REVERSED, like SWQ20). UnitCard_1 = Han Solo (Reluctant Hero, the mounted operative), UnitCard_2 = Luke Skywalker (Commander Skywalker, mounted). Commands: 1 = See You In Hell (Han), 2 = Not Out of it Yet (Han & Luke), 3 = On Patrol (Luke).",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "han-solo-reluctant-hero",
+          "side": "play",
+          "file": "SWQ41_UnitCard_1_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "han-solo-reluctant-hero",
+          "side": "front",
+          "file": "SWQ41_UnitCard_1_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "luke-skywalker-commander-skywalker",
+          "side": "play",
+          "file": "SWQ41_UnitCard_2_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "luke-skywalker-commander-skywalker",
+          "side": "front",
+          "file": "SWQ41_UnitCard_2_Front.png"
+        },
+        {
+          "category": "commands",
+          "slug": "see-you-in-hell",
+          "file": "SWQ41_CommandCard_1.png"
+        },
+        {
+          "category": "commands",
+          "slug": "not-out-of-it-yet",
+          "file": "SWQ41_CommandCard_2.png"
+        },
+        {
+          "category": "commands",
+          "slug": "on-patrol",
+          "file": "SWQ41_CommandCard_3.png"
+        }
+      ]
+    },
+    {
+      "source": "AdeptiCon2026_RebelRoadmap",
+      "faction": "rebels",
+      "note": "UNRELEASED preview card cropped from the AdeptiCon 2026 roadmap announcement SLIDE (https://www.atomicmassgames.com/transmission/adepticon-2026-roadmap-star-wars-legion/). Guerilla Troopers = SWQ140, Q4 2026 — the unit's stats/play card is embedded on the RIGHT of slide SWQ_2026_AdepticonSlides12.png (2400x1350), so the crop is ~700px PREVIEW quality (lower than a real scan). Only the play side is shown (no art side). guerilla-troopers is also listed in public/data/unreleased.json so the app shows a preview/unreleased badge. Re-source from clean PnP when AMG publishes it.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "guerilla-troopers",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides12.png",
+          "crop": {
+            "left": 1554,
+            "top": 313,
+            "width": 828,
+            "height": 574
+          }
+        }
       ]
     }
   ]

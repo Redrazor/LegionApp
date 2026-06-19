@@ -7,6 +7,15 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.20.0',
+    date: '2026-06-19',
+    changes: [
+      'Every Rebel Alliance card image is now sourced directly from Atomic Mass Games’ official print-and-play files — first-party scans for all 34 Rebel units, all 48 command cards, and every Rebel upgrade, matching the Empire and Republic refreshes.',
+      'Newly released Rebel cards that aren’t in the main print-and-play packs yet were sourced from their own AMG transmissions: the Customizable Rebel Officer & Agent, Captain Solo & Commander Skywalker on Tauntauns, and the Ewok command cards.',
+      'Guerilla Troopers — previewed only on AMG’s AdeptiCon 2026 roadmap — now carries an “⚠ Preview” badge wherever it appears, until AMG publishes its final card.',
+    ],
+  },
+  {
     version: '1.19.0',
     date: '2026-06-19',
     changes: [

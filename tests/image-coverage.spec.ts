@@ -14,12 +14,28 @@ import { join } from 'path'
 // battle/cleanup phase (P7). Empty this set at the 2.0 cutover (P8).
 const KNOWN_MISSING = new Set([
   'dc-15-clone-trooper', // upgrades
-  'youre-not-all-the-same-to-me', // upgrades
+  'youre-not-all-the-same-to-me', // upgrades — staged (republic roadmap preview), applied at P3 ship
 ])
 
 const ROOT = join(__dirname, '..')
 const DATA = join(ROOT, 'public', 'data')
 const IMG = join(ROOT, 'public', 'images')
+
+// Cards intentionally WITHOUT a scan: their legacy (other-app) image was expunged and the
+// app shows a branded "image pending" placeholder until a first-party card exists. Read
+// from public/data/unreleased.json (entries with `noImage: true`). See Feature 13.
+const NO_IMAGE: Set<string> = (() => {
+  try {
+    const u = JSON.parse(readFileSync(join(DATA, 'unreleased.json'), 'utf8'))
+    const out = new Set<string>()
+    for (const cat of ['units', 'commands', 'upgrades']) {
+      for (const [slug, e] of Object.entries(u[cat] ?? {})) {
+        if (e && typeof e === 'object' && (e as { noImage?: boolean }).noImage) out.add(slug)
+      }
+    }
+    return out
+  } catch { return new Set<string>() }
+})()
 
 const CATEGORIES: Record<string, string> = {
   units: 'units.json', upgrades: 'upgrades.json', commands: 'commands.json', battle: 'battleCards.json',
@@ -39,7 +55,7 @@ describe('image coverage (every catalogue card has a scan on disk)', () => {
     const have = present(dir)
 
     it.skipIf(!have)(`${cat}: every slug has an image file`, () => {
-      const missing = slugs(file).filter((s) => !KNOWN_MISSING.has(s) && !existsSync(join(dir, `${s}.webp`)))
+      const missing = slugs(file).filter((s) => !KNOWN_MISSING.has(s) && !NO_IMAGE.has(s) && !existsSync(join(dir, `${s}.webp`)))
       expect(missing, `missing ${cat} scans: ${missing.join(', ')}`).toEqual([])
     })
 

@@ -8,6 +8,8 @@ import { useKeywordsStore } from '../../stores/keywords.ts'
 import { factionColor, factionName, slotLabel } from '../../utils/factions.ts'
 import { imageUrl } from '../../utils/imageUrl.ts'
 import KeywordPill from '../ui/KeywordPill.vue'
+import UnreleasedBadge from '../ui/UnreleasedBadge.vue'
+import MissingCardImage from '../ui/MissingCardImage.vue'
 
 // Card-scan lightbox drawer for the Browse Commands / Upgrades sections. Commands and
 // upgrades have no stat block — just the full card image (plus pips/commander or
@@ -104,13 +106,12 @@ useHead(computed(() => {
             </div>
 
             <div class="space-y-5 p-5">
+              <UnreleasedBadge v-if="card.unreleased" :note="card.unreleased" />
               <!-- Card image -->
               <div v-if="card.cardImage" class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark">
                 <img :src="imageUrl(card.cardImage)" :alt="`${card.name} card`" class="w-full" />
               </div>
-              <div v-else class="rounded-xl border border-lg-border bg-lg-dark p-8 text-center text-sm text-lg-muted">
-                No card scan available.
-              </div>
+              <MissingCardImage v-else :faction="faction" portrait />
 
               <!-- Upgrade keywords (with glossary tooltips) -->
               <div v-if="upgrade && upgrade.keywords.length">

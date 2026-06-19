@@ -41,19 +41,22 @@ const PDF_DIR = join(__dirname, 'amg-pdfs')
 const OUT_DIR = join(__dirname, 'amg-cards')
 const RENDER_DIR = join(OUT_DIR, '_pages')
 
-// Render geometry. AMG PnP sheets are US-letter; at 300 DPI that is 2550×3300 px,
-// with a 3×3 grid of 726×1040 card cells (the cell size equals the embedded raster
-// size, verified across the DOC51/DOC13 faction PDFs). The art bleeds edge-to-edge
-// so there are no inter-card gutters — the grid origin and pitch are fixed.
-const DPI = 300
-const PAGE_W = 2550
-const PAGE_H = 3300
+// Render geometry. AMG PnP sheets are US-letter; we render at 600 DPI (5100×6600 px)
+// for crisp vector text, with a 3×3 grid of 1452×2080 card cells, then SUPERSAMPLE each
+// card down to the 726×1040 output size — sharper than rendering directly at the output
+// resolution. The art bleeds edge-to-edge so there are no inter-card gutters; the grid
+// origin and pitch are fixed (exactly 2× the 300-DPI values verified against the cards).
+const DPI = 600
+const PAGE_W = 5100
+const PAGE_H = 6600
 const COLS = 3
 const ROWS = 3
-const CELL_W = 726
-const CELL_H = 1040
-const X0 = 185 // left margin (px @300dpi)
-const Y0 = 90 // top margin
+const CELL_W = 1452 // render-resolution cell (px @600dpi)
+const CELL_H = 2080
+const X0 = 370 // left margin (px @600dpi)
+const Y0 = 180 // top margin
+const OUT_W = 726 // supersampled output cell (portrait); landscape units become 1040×726 after rotate
+const OUT_H = 1040
 
 interface StagedCard {
   category: AmgSource['category']
@@ -120,7 +123,10 @@ async function cropPage(pagePng: string, rotate: boolean): Promise<Buffer[]> {
     for (let c = 0; c < COLS; c++) {
       const left = X0 + c * CELL_W
       const top = Y0 + r * CELL_H
+      // Extract the render-resolution cell, supersample DOWN to the output size (crisp),
+      // then rotate landscape unit cards back to landscape.
       let img = sharp(pagePng).extract({ left, top, width: CELL_W, height: CELL_H })
+        .resize(OUT_W, OUT_H, { fit: 'fill', kernel: 'lanczos3' })
       if (rotate) img = img.rotate(90)
       out.push(await img.webp({ quality: 92 }).toBuffer())
     }
@@ -180,16 +186,22 @@ async function main() {
       for (let i = 0; i < cells.length; i++) {
         total++
         const buf = cells[i]
+        // Dedup on EXACT bytes only (deterministic): every distinct card cell is staged
+        // under its fixed page-cell filename, so the matching step's filename references
+        // stay valid across re-extractions (a perceptual hash collapses near-dup prints
+        // differently at different DPIs, which would orphan those references). Print
+        // duplicates of the same card simply map to the same slug downstream.
+        const md5 = createHash('md5').update(buf).digest('hex')
+        if (seen.has(md5)) continue
+        seen.add(md5)
         const ah = await ahash(buf)
-        if (seen.has(ah)) continue // print duplicate
-        seen.add(ah)
         const row = Math.floor(i / COLS), col = i % COLS
         const rel = join(src.category, faction, `${base}-p${String(p + 1).padStart(2, '0')}-${row}${col}.webp`)
         await writeFile(join(OUT_DIR, rel), buf)
         const m = await sharp(buf).metadata()
         index.push({
           category: src.category, faction, pdf: pdfName, file: rel,
-          md5: createHash('md5').update(buf).digest('hex'), ahash: ah,
+          md5, ahash: ah,
           width: m.width ?? 0, height: m.height ?? 0, page: p + 1, row, col,
         })
         kept++

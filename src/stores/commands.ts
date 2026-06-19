@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { CommandCard } from '../types/index.ts'
 import { loadCatalogue } from '../utils/api.ts'
+import { applyUnreleased } from '../utils/unreleased.ts'
 
 export const useCommandsStore = defineStore('commands', () => {
   const commands = ref<CommandCard[]>([])
@@ -12,7 +13,7 @@ export const useCommandsStore = defineStore('commands', () => {
     if (loaded.value || loading.value) return
     loading.value = true
     try {
-      commands.value = await loadCatalogue<CommandCard>('/api/commands', 'commands.json')
+      commands.value = await applyUnreleased(await loadCatalogue<CommandCard>('/api/commands', 'commands.json'), 'commands')
       loaded.value = true
     } finally {
       loading.value = false

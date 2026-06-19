@@ -371,6 +371,15 @@ Two things discovered re-sourcing empire that changed the tooling (both now fixe
    with `pdfimages` only because that PDF embedded one *pre-flattened* full card per image.) Adds
    `--faction`/`--category` filters so a phase only processes its faction.
 
+1b. **Render at 600 DPI + supersample down** (quality fix, P3). Rendering the page at the output
+   resolution (300dpi) left the vector text noticeably softer than the LHQ2 scans. `amgExtract` now
+   renders at **600 DPI** and downsamples each card to the 726×1040 output (lanczos3) — supersampling
+   that makes the text crisp (matches LHQ2). Dedup also changed from a perceptual aHash to **exact
+   md5** so every page-cell is staged under a deterministic filename: the perceptual hash collapsed
+   near-dup prints differently at different DPIs, which orphaned the filename-keyed matching reads on
+   re-extraction. **The Empire cards shipped in P2 were rendered at 300dpi — re-render + re-deploy
+   them at 600dpi** (`amg:extract --faction empire` with the current code, then re-apply/compress/deploy).
+
 2. **Both unit sides are captured** (owner directive): the stats/play side → `units/<slug>.webp`,
    the art side → `units/<slug>-front.webp` (files-only, no data field). On the sheet these are two
    adjacent cells; the matching step tags each `play`/`front`.

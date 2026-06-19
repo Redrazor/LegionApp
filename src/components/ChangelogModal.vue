@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.19.0',
+    date: '2026-06-19',
+    changes: [
+      'Every Galactic Republic card image is now sourced directly from Atomic Mass Games’ official print-and-play files — first-party scans for all Republic units, command cards, and upgrades (including the customizable Jedi, ARF Troopers, and Ahsoka), matching the Empire refresh.',
+      'Pre-release cards that AMG has only previewed — the AdeptiCon 2026 roadmap’s Jedi Council units (Mace Windu, Ki-Adi-Mundi, Shaak Ti, Plo Koon), the mounted Jedi generals, and their command cards — now carry an “⚠ Preview” badge wherever they appear, so a preview image is never mistaken for a final card.',
+    ],
+  },
+  {
     version: '1.18.0',
     date: '2026-06-18',
     changes: [

@@ -10,6 +10,8 @@ import { imageUrl } from '../../utils/imageUrl.ts'
 import UnitStatBlock from '../ui/UnitStatBlock.vue'
 import KeywordPill from '../ui/KeywordPill.vue'
 import WeaponsTable from '../ui/WeaponsTable.vue'
+import UnreleasedBadge from '../ui/UnreleasedBadge.vue'
+import MissingCardImage from '../ui/MissingCardImage.vue'
 import ProfileUpgrades from './ProfileUpgrades.vue'
 
 // Dual-mode: as Browse's `/browse/:slug` child route it reads the route param and
@@ -121,10 +123,12 @@ useHead(computed(() => {
             </div>
 
             <div class="space-y-5 p-5">
+              <UnreleasedBadge v-if="unit.unreleased" :note="unit.unreleased" />
               <!-- Card image -->
               <div v-if="unit.cardImage && !imgError" class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark">
                 <img :src="imageUrl(unit.cardImage)" :alt="`${unit.name} unit card`" class="w-full" @error="imgError = true" />
               </div>
+              <MissingCardImage v-else :faction="unit.faction" />
 
               <!-- Native stat block -->
               <UnitStatBlock :unit="unit" />

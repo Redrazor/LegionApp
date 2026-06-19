@@ -47,6 +47,63 @@
         {"category": "units", "slug": "imperial-agent-bringing-order-to-the-galaxy", "side": "play", "file": "SWQ09_UnitCard_AGENT_FAN.png", "crop": {"left": 0, "top": 0, "width": 1040, "height": 760}},
         {"category": "units", "slug": "imperial-agent-bringing-order-to-the-galaxy", "side": "front", "file": "SWQ09_UnitCard_AGENT_FAN.png", "crop": {"left": 1048, "top": 0, "width": 1040, "height": 760}}
       ]
+    },
+    {
+      "source": "SWQ20_CustomizableJedi",
+      "faction": "republic",
+      "note": "Customizable Jedi General & Knight (product SWQ20). https://www.atomicmassgames.com/transmission/scene-to-stats-customizable-jedi/ — UnitCard_1 = Jedi Knight General (Strong in the Force), UnitCard_2 = Jedi Knight (Keeper of the Peace). NOTE: for SWQ20 AMG's `_Front` is the ART side and `_Back` is the STATS/play side (REVERSED vs SWQ42/SWQ98). Commands are a side-by-side `CommandCard_Fan.png` (1480x1061 = two 740-wide cards): left = Affirmative, General!, right = Flow of the Force.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09",
+      "cards": [
+        {"category": "units", "slug": "jedi-knight-general-strong-in-the-force", "side": "play", "file": "SWQ20_UnitCard_1_Back.png"},
+        {"category": "units", "slug": "jedi-knight-general-strong-in-the-force", "side": "front", "file": "SWQ20_UnitCard_1_Front.png"},
+        {"category": "units", "slug": "jedi-knight-keeper-of-the-peace", "side": "play", "file": "SWQ20_UnitCard_2_Back.png"},
+        {"category": "units", "slug": "jedi-knight-keeper-of-the-peace", "side": "front", "file": "SWQ20_UnitCard_2_Front.png"},
+        {"category": "commands", "slug": "affirmative-general", "file": "SWQ20_CommandCard_Fan.png", "crop": {"left": 0, "top": 0, "width": 740, "height": 1061}},
+        {"category": "commands", "slug": "flow-of-the-force", "file": "SWQ20_CommandCard_Fan.png", "crop": {"left": 740, "top": 0, "width": 740, "height": 1061}}
+      ]
+    },
+    {
+      "source": "SWQ135_ARFTroopers",
+      "faction": "republic",
+      "note": "ARF Troopers (product SWQ135). https://www.atomicmassgames.com/transmission/scene-to-stats-arf-troopers/ — cards are published as the scene-to-stats transmission images (1048x760): Image_2 = the stats/play side, Image_4 = the art side. (Ahsoka Tano's transmission page exposes only 512px promo thumbnails — left on LHQ2.)",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/01",
+      "cards": [
+        {"category": "units", "slug": "arf-troopers", "side": "play", "file": "01242025-SWQ135-Transmission-Image_2.png"},
+        {"category": "units", "slug": "arf-troopers", "side": "front", "file": "01242025-SWQ135-Transmission-Image_4.png"}
+      ]
+    },
+    {
+      "source": "SWQ22_AhsokaTano",
+      "faction": "republic",
+      "note": "Ahsoka Tano - Padawan Commander (product SWQ22). https://www.atomicmassgames.com/transmission/scene-to-stats-ahsoka-tano-padawan-commander/ — AMG's full-res official card lives under the `image-converter/.../SWQ##en_UnitCard_Legal.webp` path (NOT the plain `uploads/<date>` path; easy to miss). Play side is clean 1039x756. The art side + commands are only low-res (512px / a 1168px 3-card fan), so they are left for a later hi-res pass.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/image-converter/2025/04",
+      "cards": [
+        {"category": "units", "slug": "ahsoka-tano-padawan-commander", "side": "play", "file": "SWQ22en_UnitCard_Legal.webp"},
+        {"category": "commands", "slug": "you-are-beaten", "file": "SWQ22_CardFans.webp", "crop": {"left": 5, "top": 5, "width": 378, "height": 590}},
+        {"category": "commands", "slug": "i-go-where-im-needed", "file": "SWQ22_CardFans.webp", "crop": {"left": 393, "top": 5, "width": 378, "height": 590}},
+        {"category": "commands", "slug": "revenge-is-not-the-jedi-way", "file": "SWQ22_CardFans.webp", "crop": {"left": 786, "top": 5, "width": 378, "height": 590}}
+      ]
+    },
+    {
+      "source": "AdeptiCon2026_RepublicRoadmap",
+      "faction": "republic",
+      "note": "UNRELEASED preview cards cropped from the AdeptiCon 2026 roadmap announcement SLIDES (https://www.atomicmassgames.com/transmission/adepticon-2026-roadmap-star-wars-legion/). These units release Q3/Q4 2026; the cards sit embedded in 2400x1350 slides so the crops are ~700px PREVIEW quality (lower than a real scan). Every slug here is also listed in public/data/unreleased.json so the app shows a preview/unreleased badge. Re-source from clean PnP when AMG publishes them. Jedi Council = SWQ143 (slides 2-5, play card center-left + command card right); Jedi BARC Speeder = SWQ141 (slides _10/_11, card on the RIGHT).",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {"category": "units", "slug": "mace-windu-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides2.png", "crop": {"left": 428, "top": 332, "width": 788, "height": 587}},
+        {"category": "units", "slug": "ki-adi-mundi-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides3.png", "crop": {"left": 484, "top": 335, "width": 870, "height": 582}},
+        {"category": "units", "slug": "shaak-ti-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides4.png", "crop": {"left": 484, "top": 335, "width": 854, "height": 582}},
+        {"category": "units", "slug": "plo-koon-jedi-council", "side": "play", "file": "SWQ_2026_AdepticonSlides5.png", "crop": {"left": 440, "top": 372, "width": 788, "height": 593}},
+        {"category": "units", "slug": "anakin-skywalker-mounted-jedi-general", "side": "play", "file": "SWQ_2026_AdepticonSlides_10.png", "crop": {"left": 1405, "top": 356, "width": 855, "height": 565}},
+        {"category": "units", "slug": "jedi-knight-mounted-jedi-general", "side": "play", "file": "SWQ_2026_AdepticonSlides_11.png", "crop": {"left": 965, "top": 333, "width": 783, "height": 535}},
+        {"category": "commands", "slug": "evasive-action", "file": "SWQ_2026_AdepticonSlides_11.png", "crop": {"left": 1786, "top": 230, "width": 576, "height": 795}},
+        {"category": "commands", "slug": "this-partys-over", "file": "SWQ_2026_AdepticonSlides2.png", "crop": {"left": 1606, "top": 233, "width": 616, "height": 784}},
+        {"category": "commands", "slug": "force-of-will", "file": "SWQ_2026_AdepticonSlides3.png", "crop": {"left": 1546, "top": 230, "width": 578, "height": 826}},
+        {"category": "commands", "slug": "unity-wins-wars", "file": "SWQ_2026_AdepticonSlides4.png", "crop": {"left": 1546, "top": 230, "width": 578, "height": 826}},
+        {"category": "commands", "slug": "i-dont-believe-in-chance", "file": "SWQ_2026_AdepticonSlides5.png", "crop": {"left": 1297, "top": 233, "width": 549, "height": 822}},
+        {"category": "commands", "slug": "a-disturbance-in-the-force", "file": "SWQ_2026_AdepticonSlides_05.png", "crop": {"left": 1648, "top": 233, "width": 444, "height": 717}},
+        {"category": "upgrades", "slug": "youre-not-all-the-same-to-me", "file": "SWQ_2026_AdepticonSlides5.png", "crop": {"left": 1870, "top": 230, "width": 488, "height": 838}}
+      ]
     }
   ]
 }

@@ -66,6 +66,8 @@ export interface Unit {
   hasFullData: boolean
   history: HistoryEntry[]
   specialIssue?: string // battle force this unit may ONLY be fielded in (e.g. "Blizzard Force")
+  unreleased?: string // set from public/data/unreleased.json: this card's image is a pre-release
+  // preview / low-res placeholder pending an official card. The string is the shown note.
 }
 
 export interface Upgrade {
@@ -83,6 +85,7 @@ export interface Upgrade {
   cardImage: string | null
   weapons: Weapon[] // weapon profile(s) the upgrade grants, from owner-maintained upgrade-weapons.json ([] if none)
   removed?: boolean // errata-removed from play: still shown in Browse/Reference, never selectable in Build
+  unreleased?: string // pre-release preview / low-res placeholder image (see Unit.unreleased)
 }
 
 export interface CommandCard {
@@ -93,6 +96,7 @@ export interface CommandCard {
   commander: string | null
   faction: Faction | null
   cardImage: string | null
+  unreleased?: string // pre-release preview / low-res placeholder image (see Unit.unreleased)
 }
 
 // ── Battle forces ────────────────────────────────────────────────────────────

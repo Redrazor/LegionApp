@@ -294,8 +294,13 @@ as an "unmatched staged front" — a real AMG card with no catalogue slug).
 
 ## Feature 13 — 2.0: re-source every card image from official AMG PnP PDFs
 
-**Status:** in progress — **P1 (tooling + provenance + validation tool) SHIPPED** (PR #65, merged as a chore,
-no bump). P2–P8 pending: per-faction image swaps → 2.0 major. 8-phase rollout below.
+**Status:** in progress — **P1** tooling SHIPPED (PR #65, chore); **P2 empire** SHIPPED v1.18.0 (PR #67);
+**P3 republic** SHIPPED v1.19.0 (PR #68); **P4 rebels** SHIPPED v1.20.0. P5–P6 + P7–P8 pending. 8-phase
+rollout below.
+
+**Portraits are NOT a step (owner directive, 2026-06-19).** All unit portraits are finished/owner-maintained;
+do NOT run `npm run portraits` / `portraits:validate` or re-tune `CARD_CROP_PORTRAITS` during a re-source. The
+per-faction run order is `amg:apply → seed → amg:origins → images:compress → deploy`.
 
 Every card scan in the app was originally downloaded from the Legion HQ 2 CDN
 (`d2maxvwz12z6fm.cloudfront.net`). The only exception is the Mandalorian errata batch we self-sourced
@@ -426,8 +431,7 @@ npm run amg:extract                     # once (or per-PDF) — stage fronts + i
 npm run images:validate                 # open image-validation.html, review OLD vs NEW in batches,
                                         #   Export approvals → scraper/amg-approvals.json
 npm run amg:apply                       # applies only approved; skips preserve-list
-npm run portraits                       # re-crop unit portraits from the new scans (re-tune CARD_CROP_PORTRAITS
-npm run portraits:validate              #   where AMG framing differs; eyeball portrait-validation.html)
+# NO portraits step — portraits are finished/owner-maintained (directive 2026-06-19)
 npm run seed                            # reseed the API DB
 npm run amg:origins                     # refresh card_list_origin.md (this faction → AMG <pdf>)
 npm run images:compress                 # → images-compressed/ (800px Q80)
@@ -438,8 +442,14 @@ npx -y firebase-tools deploy --only hosting   # deploy so prod doesn't 404 (vers
 
 - **P1 — SHIPPED.** Tooling + provenance + validation tool (above). No image/app change; merged as a chore.
 - **P2–P6 — one faction per PR** (empire, republic, rebels, separatists, mercenary+ewoks): units + upgrades
-  + commands for that faction; re-tune affected portraits. AC = OLD-vs-NEW batch validation + faction
-  spot-check in Browse. **Minor bump each** (the version bump busts the immutable image CDN).
+  + commands for that faction. AC = OLD-vs-NEW batch validation + faction spot-check in Browse. **Minor bump
+  each** (the version bump busts the immutable image CDN). No portraits step (finished/owner-maintained).
+  - **P4 rebels SHIPPED v1.20.0:** 34/34 units (29 from `DOC51_RebelAlliance_Units` + extras: SWQ13 Rebel
+    Officer/Agent, SWQ41 Captain Solo & Commander Skywalker on Tauntauns, AdeptiCon-slide Guerilla Troopers
+    preview w/ unreleased badge), 48/48 commands (36 DOC13 + SWQ13 ×2 + SWQ41 ×3 + 7 Ewok commands from
+    `DOC13_Mercenary_Ewoks`), 55/56 upgrades. Residuals deferred: C-3PO counterpart (→ Feature 14), 6 new
+    R2-D2/Sabine command cards + `astromech-droid` generic upgrade (→ catalogue-data / P7). `images:validate`
+    gained a `--faction` filter. Guerilla Troopers stays preview-quality until AMG ships a clean PnP.
 - **P7 — battle deck + cleanup:** `DOC41` battle cards; fix the 2 missing upgrade scans
   (`dc-15-clone-trooper`, `youre-not-all-the-same-to-me`); resolve generic/faction-null upgrades & commands;
   clear the gap list. Minor bump.

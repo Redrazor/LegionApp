@@ -1,0 +1,766 @@
+{
+  "units": [
+    {
+      "file": "DOC51_RebelAlliance_Units-p01-00.webp",
+      "side": "play",
+      "slug": "mark-ii-medium-blaster-trooper"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p01-01.webp",
+      "side": "front",
+      "slug": "mark-ii-medium-blaster-trooper"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p01-20.webp",
+      "side": "play",
+      "slug": "rebel-troopers"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p01-21.webp",
+      "side": "front",
+      "slug": "rebel-troopers"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p02-10.webp",
+      "side": "play",
+      "slug": "fleet-troopers"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p02-11.webp",
+      "side": "front",
+      "slug": "fleet-troopers"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p03-00.webp",
+      "side": "play",
+      "slug": "rebel-veterans"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p03-01.webp",
+      "side": "front",
+      "slug": "rebel-veterans"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p03-20.webp",
+      "side": "play",
+      "slug": "rebel-commandos"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p03-21.webp",
+      "side": "front",
+      "slug": "rebel-commandos"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p04-01.webp",
+      "side": "play",
+      "slug": "rebel-commandos-strike-team"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p04-02.webp",
+      "side": "front",
+      "slug": "rebel-commandos-strike-team"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p04-12.webp",
+      "side": "play",
+      "slug": "wookiee-warriors-freedom-fighters"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p04-20.webp",
+      "side": "front",
+      "slug": "wookiee-warriors-freedom-fighters"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p05-00.webp",
+      "side": "play",
+      "slug": "wookiee-warriors-kashyyyk-resistance"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p05-01.webp",
+      "side": "front",
+      "slug": "wookiee-warriors-kashyyyk-resistance"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p05-11.webp",
+      "side": "play",
+      "slug": "mandalorian-resistance"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p05-12.webp",
+      "side": "front",
+      "slug": "mandalorian-resistance"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p05-22.webp",
+      "side": "play",
+      "slug": "mandalorian-resistance-clan-wren"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p06-00.webp",
+      "side": "front",
+      "slug": "mandalorian-resistance-clan-wren"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p06-01.webp",
+      "side": "play",
+      "slug": "rebel-sleeper-cell-ready-to-strike"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p06-02.webp",
+      "side": "front",
+      "slug": "rebel-sleeper-cell-ready-to-strike"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p06-12.webp",
+      "side": "play",
+      "slug": "at-rt"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p06-20.webp",
+      "side": "front",
+      "slug": "at-rt"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p07-00.webp",
+      "side": "play",
+      "slug": "14-fd-laser-cannon-team"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p07-01.webp",
+      "side": "front",
+      "slug": "14-fd-laser-cannon-team"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p07-11.webp",
+      "side": "play",
+      "slug": "tauntaun-riders"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p07-12.webp",
+      "side": "front",
+      "slug": "tauntaun-riders"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p07-22.webp",
+      "side": "play",
+      "slug": "t-47-airspeeder"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-00.webp",
+      "side": "front",
+      "slug": "t-47-airspeeder"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-01.webp",
+      "side": "play",
+      "slug": "x-34-landspeeder"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-02.webp",
+      "side": "front",
+      "slug": "x-34-landspeeder"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-10.webp",
+      "side": "play",
+      "slug": "a-a5-speeder-truck"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-11.webp",
+      "side": "front",
+      "slug": "a-a5-speeder-truck"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-21.webp",
+      "side": "play",
+      "slug": "leia-organa-fearless-and-inventive"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-22.webp",
+      "side": "front",
+      "slug": "leia-organa-fearless-and-inventive"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-00.webp",
+      "side": "play",
+      "slug": "luke-skywalker-hero-of-the-rebellion"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-01.webp",
+      "side": "front",
+      "slug": "luke-skywalker-hero-of-the-rebellion"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-02.webp",
+      "side": "play",
+      "slug": "han-solo-unorthodox-general"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-10.webp",
+      "side": "front",
+      "slug": "han-solo-unorthodox-general"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-11.webp",
+      "side": "play",
+      "slug": "jyn-erso-stardust"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-12.webp",
+      "side": "front",
+      "slug": "jyn-erso-stardust"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-20.webp",
+      "side": "play",
+      "slug": "cassian-andor-capable-intelligence-agent"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-21.webp",
+      "side": "front",
+      "slug": "cassian-andor-capable-intelligence-agent"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p09-22.webp",
+      "side": "play",
+      "slug": "lando-calrissian-canny-general"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-00.webp",
+      "side": "front",
+      "slug": "lando-calrissian-canny-general"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-01.webp",
+      "side": "play",
+      "slug": "chewbacca-walking-carpet"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-02.webp",
+      "side": "front",
+      "slug": "chewbacca-walking-carpet"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-10.webp",
+      "side": "play",
+      "slug": "sabine-wren-explosive-artist"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-11.webp",
+      "side": "front",
+      "slug": "sabine-wren-explosive-artist"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-12.webp",
+      "side": "play",
+      "slug": "luke-skywalker-jedi-knight"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-20.webp",
+      "side": "front",
+      "slug": "luke-skywalker-jedi-knight"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-21.webp",
+      "side": "play",
+      "slug": "r2-d2-hero-of-a-thousand-devices"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p10-22.webp",
+      "side": "front",
+      "slug": "r2-d2-hero-of-a-thousand-devices"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p11-00.webp",
+      "side": "play",
+      "slug": "ahsoka-tano-fulcrum"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p11-01.webp",
+      "side": "front",
+      "slug": "ahsoka-tano-fulcrum"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p11-02.webp",
+      "side": "play",
+      "slug": "k-2so-sardonic-security-droid"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p11-10.webp",
+      "side": "front",
+      "slug": "k-2so-sardonic-security-droid"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-12.webp",
+      "side": "play",
+      "slug": null,
+      "note": "C-3PO (Counterpart: R2-D2) — counterpart card, no catalogue slug"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Units-p08-20.webp",
+      "side": "front",
+      "slug": null,
+      "note": "C-3PO (Counterpart: R2-D2) — counterpart card art, no catalogue slug"
+    }
+  ],
+  "commands": [
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-00.webp",
+      "name": "Sabotaged Communications"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-01.webp",
+      "name": "Covering Fire"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-02.webp",
+      "name": "Turning the Tide"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-10.webp",
+      "name": "I Am No Jedi"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-11.webp",
+      "name": "Swift Protector"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-12.webp",
+      "name": "A New Beginning"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-20.webp",
+      "name": "Hold at Any Cost"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-21.webp",
+      "name": "Delaying Tactics"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p01-22.webp",
+      "name": "Courage of the Rebellion"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-00.webp",
+      "name": "Family Reunion"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-01.webp",
+      "name": "Sacrifice"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-02.webp",
+      "name": "Blast Off!"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-10.webp",
+      "name": "Impromptu Immolation"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-11.webp",
+      "name": "Smoke Screen"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-12.webp",
+      "name": "Explosions!"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-20.webp",
+      "name": "Symbol of Rebellion"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-21.webp",
+      "name": "Legacy of Mandalore"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p02-22.webp",
+      "name": "Common Cause"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-00.webp",
+      "name": "Brains and Brawn"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-01.webp",
+      "name": "Notorious Scoundrels"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-02.webp",
+      "name": "Sorry About the Mess"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-10.webp",
+      "name": "Reckless Diversion"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-11.webp",
+      "name": "Change of Plans"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-12.webp",
+      "name": "Coordinated Bombardment"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-20.webp",
+      "name": "A Beautiful Friendship"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-21.webp",
+      "name": "No Time for Sorrows"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p03-22.webp",
+      "name": "Somebody Has to Save Our Skins"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-00.webp",
+      "name": "Son of Skywalker"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-01.webp",
+      "name": "My Ally is the Force"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-02.webp",
+      "name": "Return of the Jedi"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-10.webp",
+      "name": "Full of Surprises"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-11.webp",
+      "name": "You Serve Your Master Well"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-12.webp",
+      "name": "I Am a Jedi"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-20.webp",
+      "name": "Crack Shot"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-21.webp",
+      "name": "Last Stand"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p04-22.webp",
+      "name": "Volunteer Mission"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p05-00.webp",
+      "name": "I Rebel"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p05-01.webp",
+      "name": "Trust Goes Both Ways"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p05-02.webp",
+      "name": "Rebellions Are Built on Hope"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p05-10.webp",
+      "name": "Corellian Spike"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p05-11.webp",
+      "name": "Ace Up His Sleeve"
+    },
+    {
+      "file": "DOC13_RebelAlliance_Commands-p05-12.webp",
+      "name": "Idiot's Array"
+    }
+  ],
+  "upgrades": [
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p01-00.webp",
+      "name": "MPL-57 Ion Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p01-01.webp",
+      "name": "Rebel Marksman",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p01-02.webp",
+      "name": "DLT-20A Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p01-12.webp",
+      "name": "SX-21 Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p02-00.webp",
+      "name": "MPL-57 Barrage Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p02-10.webp",
+      "name": "Z-6 Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p02-20.webp",
+      "name": "CM-O/93 Trooper",
+      "title": null,
+      "slug": "cm-0-93-trooper"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p03-00.webp",
+      "name": "Proton Charge Saboteur",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p03-10.webp",
+      "name": "Scatter Gun Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p04-00.webp",
+      "name": "Long Gun Wookiee",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p04-01.webp",
+      "name": "DH-447 Sniper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p04-12.webp",
+      "name": "Battle Shield Wookiee",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p05-00.webp",
+      "name": "Rebel Trooper Squad",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p05-02.webp",
+      "name": "Bowcaster Wookiee",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p05-11.webp",
+      "name": "Beskad Duelist",
+      "title": null,
+      "slug": "beskad-duelist"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p05-20.webp",
+      "name": "Tristan Wren",
+      "title": null,
+      "slug": "tristan-wren"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p05-21.webp",
+      "name": "Ursa Wren",
+      "title": null,
+      "slug": "ursa-wren"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p06-00.webp",
+      "name": "Rebel Officer",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p06-02.webp",
+      "name": "Rebel Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p06-12.webp",
+      "name": "Astromech",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p07-00.webp",
+      "name": "Rebel Trooper Captain",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p07-02.webp",
+      "name": "Rebel Trooper Specialist",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p07-12.webp",
+      "name": "Rebel Comms Technician",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p08-00.webp",
+      "name": "2-1B Medical Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p08-02.webp",
+      "name": "Astromech Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p08-11.webp",
+      "name": "Fleet Trooper Squad",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p08-21.webp",
+      "name": "Fleet Trooper",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p09-01.webp",
+      "name": "Rebel Veteran Squad",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p09-11.webp",
+      "name": "Rebel Veteran",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p09-21.webp",
+      "name": "Shriv Suurgav",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-00.webp",
+      "name": "Hotshot Pilot",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-01.webp",
+      "name": "Ryder Azadi",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-02.webp",
+      "name": "Unstable Astromech",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-10.webp",
+      "name": "Backworld Medic",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-11.webp",
+      "name": "RPS-6 Rocket Gunner",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-12.webp",
+      "name": "Wedge Antilles",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-20.webp",
+      "name": "Unorthodox Tactician",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-21.webp",
+      "name": "A300 Rifle Gunner",
+      "title": null,
+      "slug": "a-300-rifle-gunner"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p10-22.webp",
+      "name": "Outer Rim Speeder Jockey",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p11-00.webp",
+      "name": "Mo/Dk Power Harpoon",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p11-01.webp",
+      "name": "AT-RT Laser Cannon",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p11-02.webp",
+      "name": "AT-RT Flamethrower",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p11-10.webp",
+      "name": "AT-RT Rotary Blaster",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p11-11.webp",
+      "name": "Ax-108 \"Ground Buzzer\"",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p11-22.webp",
+      "name": "M-45 Ion Blaster",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p12-00.webp",
+      "name": "Mandalorian Combat Shields",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p12-01.webp",
+      "name": "Mark II Medium Blaster",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p12-02.webp",
+      "name": "Jetpack Rockets",
+      "title": null,
+      "slug": "jetpack-rockets"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p12-12.webp",
+      "name": "AG-2G Quad Laser Cannon",
+      "title": null,
+      "slug": "ag-2g-quad-laser"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p12-20.webp",
+      "name": "Heavy Laser Retrofit",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p13-00.webp",
+      "name": "A280",
+      "title": "Rifle Config"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p13-01.webp",
+      "name": "A280",
+      "title": "Pistol Config"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p13-02.webp",
+      "name": "Jyn's SE-14 Blaster",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p13-10.webp",
+      "name": "The Darksaber",
+      "title": null,
+      "slug": "the-darksaber"
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p13-11.webp",
+      "name": "Sabine's Combat Shield",
+      "title": null
+    },
+    {
+      "file": "DOC51_RebelAlliance_Upgrades-p13-12.webp",
+      "name": "Electro Grappling Line",
+      "title": null
+    }
+  ]
+}

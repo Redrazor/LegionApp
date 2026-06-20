@@ -1,0 +1,553 @@
+{
+  "units": [
+    {
+      "file": "DOC13_Mercenary_Units-p01-00.webp",
+      "side": "play",
+      "slug": "pyke-syndicate-foot-soldiers"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p01-01.webp",
+      "side": "front",
+      "slug": "pyke-syndicate-foot-soldiers"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p01-20.webp",
+      "side": "play",
+      "slug": "swoop-bike-riders"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p01-21.webp",
+      "side": "front",
+      "slug": "swoop-bike-riders"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p02-01.webp",
+      "side": "play",
+      "slug": "pyke-syndicate-capo"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p02-02.webp",
+      "side": "front",
+      "slug": "pyke-syndicate-capo"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p02-12.webp",
+      "side": "play",
+      "slug": "black-sun-vigo"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p02-20.webp",
+      "side": "front",
+      "slug": "black-sun-vigo"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p03-00.webp",
+      "side": "play",
+      "slug": "black-sun-enforcers"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p03-01.webp",
+      "side": "front",
+      "slug": "black-sun-enforcers"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p03-22.webp",
+      "side": "play",
+      "slug": "maul-a-rival"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-00.webp",
+      "side": "front",
+      "slug": "maul-a-rival"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-01.webp",
+      "side": "play",
+      "slug": "bossk-trandoshan-terror"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-02.webp",
+      "side": "front",
+      "slug": "bossk-trandoshan-terror"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-10.webp",
+      "side": "play",
+      "slug": "boba-fett-infamous-bounty-hunter"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-11.webp",
+      "side": "front",
+      "slug": "boba-fett-infamous-bounty-hunter"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-12.webp",
+      "side": "play",
+      "slug": "boba-fett-daimyo-of-mos-espa"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-20.webp",
+      "side": "front",
+      "slug": "boba-fett-daimyo-of-mos-espa"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-21.webp",
+      "side": "play",
+      "slug": "cad-bane-needs-no-introduction"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p04-22.webp",
+      "side": "front",
+      "slug": "cad-bane-needs-no-introduction"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p05-00.webp",
+      "side": "play",
+      "slug": "ig-88-notorious-assassin-droid"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p05-01.webp",
+      "side": "front",
+      "slug": "ig-88-notorious-assassin-droid"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p05-02.webp",
+      "side": "play",
+      "slug": "ig-11-nurse-and-protect"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p05-10.webp",
+      "side": "front",
+      "slug": "ig-11-nurse-and-protect"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p06-01.webp",
+      "side": "play",
+      "slug": "a-a5-speeder-truck-2"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p06-02.webp",
+      "side": "front",
+      "slug": "a-a5-speeder-truck-2"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p06-12.webp",
+      "side": "play",
+      "slug": "the-bad-batch-clone-force-99-2"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p06-20.webp",
+      "side": "front",
+      "slug": "the-bad-batch-clone-force-99-2"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p01-00.webp",
+      "side": "play",
+      "slug": "ewok-slingers"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p01-01.webp",
+      "side": "front",
+      "slug": "ewok-slingers"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p01-11.webp",
+      "side": "play",
+      "slug": "ewok-skirmishers"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p01-10.webp",
+      "side": "front",
+      "slug": "ewok-skirmishers"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-01.webp",
+      "side": "play",
+      "slug": "chewbacca-let-the-wookiee-win"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-02.webp",
+      "side": "front",
+      "slug": "chewbacca-let-the-wookiee-win"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-10.webp",
+      "side": "play",
+      "slug": "c-3p0-golden-god"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-11.webp",
+      "side": "front",
+      "slug": "c-3p0-golden-god"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-12.webp",
+      "side": "play",
+      "slug": "logray-superstitious-shaman"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-20.webp",
+      "side": "front",
+      "slug": "logray-superstitious-shaman"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-21.webp",
+      "side": "play",
+      "slug": "wicket-hero-of-bright-tree"
+    },
+    {
+      "file": "DOC13_Mercenary_Ewoks-p02-22.webp",
+      "side": "front",
+      "slug": "wicket-hero-of-bright-tree"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p03-20.webp",
+      "side": "play",
+      "slug": "gar-saxon-militant-commando"
+    },
+    {
+      "file": "DOC13_Mercenary_Units-p03-21.webp",
+      "side": "front",
+      "slug": "gar-saxon-militant-commando"
+    }
+  ],
+  "commands": [
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-00.webp",
+      "slug": "duel-of-the-fates"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-01.webp",
+      "slug": "the-phantom-menace"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-02.webp",
+      "slug": "at-last"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-10.webp",
+      "slug": "ploy"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-11.webp",
+      "slug": "aggression"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-12.webp",
+      "slug": "discretion"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-20.webp",
+      "slug": "marked-for-elimination"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-21.webp",
+      "slug": "fight-another-day"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p01-22.webp",
+      "slug": "victory-or-death"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-00.webp",
+      "slug": "his-eminence"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-01.webp",
+      "slug": "witch-magick"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-02.webp",
+      "slug": "seize-what-power-we-can"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-10.webp",
+      "slug": "im-your-worst-nightmare"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-11.webp",
+      "slug": "i-make-the-rules-now"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-12.webp",
+      "slug": "im-in-control"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-20.webp",
+      "slug": "merciless-munitions"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-21.webp",
+      "slug": "reptilian-rampage"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p02-22.webp",
+      "slug": "lying-in-wait"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-00.webp",
+      "slug": "the-hand-thing"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-01.webp",
+      "slug": "rule-with-respect"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-02.webp",
+      "slug": "making-his-way-in-the-galaxy"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-10.webp",
+      "slug": "a-simple-man"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-11.webp",
+      "slug": "z-6-jetpack-rocket"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-12.webp",
+      "slug": "whipcord-launcher"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-20.webp",
+      "slug": "independent-programming"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-21.webp",
+      "slug": "focused-on-the-kill"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p03-22.webp",
+      "slug": "a-machine-made-for-killing"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p04-00.webp",
+      "slug": "mechanical-carnage"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p04-01.webp",
+      "slug": "anti-capture-protocols"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p04-02.webp",
+      "slug": "this-is-the-way"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p04-10.webp",
+      "slug": "whistling-birds"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p04-12.webp",
+      "slug": "we-do-what-we-do"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p05-00.webp",
+      "slug": "speak-softly-and-drive-a-big-tank"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p05-01.webp",
+      "slug": "i-smell-profit"
+    },
+    {
+      "file": "DOC51_Mercenary_Commands_05-01_Update-p05-02.webp",
+      "slug": "insolence-we-are-pirates"
+    }
+  ],
+  "upgrades": [
+    {
+      "file": "DOC13_Mercenary_Upgrades-p01-00.webp",
+      "name": "Electro-Whip Soldier",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p01-01.webp",
+      "name": "Pyke Syndicate Capo",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p01-12.webp",
+      "name": "Pyke Syndicate Foot Soldier",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p02-00.webp",
+      "name": "Mag-Det Enforcer",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p02-01.webp",
+      "name": "Scatter Gun Enforcer",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p02-12.webp",
+      "name": "P13-M Disruptor Soldier",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p03-00.webp",
+      "name": "Super Commando Gunslinger",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p03-01.webp",
+      "name": "Super Commando Marksman",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p03-10.webp",
+      "name": "Mandalorian Super Commando",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p03-12.webp",
+      "name": "Black Sun Vigo",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p03-22.webp",
+      "name": "Rook Kast",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-00.webp",
+      "name": "\"Bounty\" Programming",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-01.webp",
+      "name": "Heavy Laser Retrofit",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-02.webp",
+      "name": "Unorthodox Tactician",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-10.webp",
+      "name": "Unstable R5 Astromech",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-11.webp",
+      "name": "Backworld Medic",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-20.webp",
+      "name": "Raiding Party Leader",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-21.webp",
+      "name": "Frenzied Gunner",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p04-22.webp",
+      "name": "AG-2G Quad Laser",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-00.webp",
+      "name": "Beskar Spear",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-01.webp",
+      "name": "Saxon's Combat Shield",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-02.webp",
+      "name": "The Darksaber",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-10.webp",
+      "name": "Boba's Flame Projector",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-11.webp",
+      "name": "Din's Flame Projector",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-12.webp",
+      "name": "\"Nanny\" Programming",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-20.webp",
+      "name": "Saxon's Galar-90 Rifle",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-21.webp",
+      "name": "Saxon's Jetpack Rockets",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p05-22.webp",
+      "name": "Saxon's ZX Flame Projector",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p06-00.webp",
+      "name": "Din's Amban Rifle",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p06-01.webp",
+      "name": "Din's Jetpack",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p06-02.webp",
+      "name": "Electro Gauntlets",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p06-10.webp",
+      "name": "Super Commando Combat Shields",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p06-12.webp",
+      "name": "Super Commando Jetpack Rockets",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p06-21.webp",
+      "name": "Black Sun Enforcer",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p07-01.webp",
+      "name": "Crosshair",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p07-02.webp",
+      "name": "Hunter",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p07-10.webp",
+      "name": "Tech",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p07-11.webp",
+      "name": "Echo, Clone Force 99",
+      "title": null
+    },
+    {
+      "file": "DOC13_Mercenary_Upgrades-p07-12.webp",
+      "name": "Wrecker",
+      "title": null
+    }
+  ]
+}

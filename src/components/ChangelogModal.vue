@@ -7,6 +7,15 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.22.0',
+    date: '2026-06-20',
+    changes: [
+      'Every Mercenary and Mandalorian card image is now sourced directly from Atomic Mass Games’ official print-and-play files and transmissions — first-party scans for all 44 Mercenary/Mandalorian units, their command cards, and upgrades, completing the per-faction refresh across every faction.',
+      'Newer releases sourced from their own AMG transmissions: the Mandalorian Warriors, Initiates and Clan Kryze Veterans, the Mandalorian Leaders (Bo-Katan, The Armorer), the customizable Super Commandos, Clan Saxon and Clan Wren (Gar Saxon, Rook Kast, Ursa Wren, Sabine), Hondo Ohnaka & the Weequay Pirates, and the WLO-5 Speeder Tank.',
+      'Pre-release cards AMG has only previewed — Han & Chewie, the customizable Mandalorian Leader & Hunter, Paz Vizsla, and the Shadow Collective Savage Opress — now carry an “⚠ Preview” badge wherever they appear, until AMG publishes their final cards.',
+    ],
+  },
+  {
     version: '1.21.0',
     date: '2026-06-20',
     changes: [

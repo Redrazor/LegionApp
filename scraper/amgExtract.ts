@@ -154,6 +154,14 @@ async function main() {
   const rewriting = new Set(sources.map((s) => `${s.category}/${s.faction ?? 'generic'}`))
   index = index.filter((e) => !rewriting.has(`${e.category}/${e.faction}`))
 
+  // Clear each (category/faction) output dir ONCE up front. Multiple PDFs can target the
+  // same dir (e.g. mercenary units come from BOTH DOC13_Mercenary_Units and _Ewoks), so
+  // clearing inside the per-PDF loop would wipe the earlier PDF's already-staged cells.
+  for (const key of rewriting) {
+    await rm(join(OUT_DIR, key), { recursive: true, force: true })
+    await mkdir(join(OUT_DIR, key), { recursive: true })
+  }
+
   for (const src of sources) {
     const pdfName = pdfBasename(src.url)
     const pdfPath = join(PDF_DIR, pdfName)
@@ -162,7 +170,6 @@ async function main() {
 
     const faction = src.faction ?? 'generic'
     const destDir = join(OUT_DIR, src.category, faction)
-    await rm(destDir, { recursive: true, force: true })
     await mkdir(destDir, { recursive: true })
 
     const rotate = await isLandscape(pdfPath)

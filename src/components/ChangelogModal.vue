@@ -7,6 +7,15 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.21.0',
+    date: '2026-06-20',
+    changes: [
+      'Every Separatist Alliance card image is now sourced directly from Atomic Mass Games’ official print-and-play files — first-party scans for the Separatist units, all command cards, and every Separatist upgrade, completing the per-faction refresh alongside the Empire, Republic, and Rebels.',
+      'Newer Separatist releases that aren’t in the main print-and-play packs yet were sourced from their own AMG transmissions: General Grievous on his Wheel Bike, the customizable Super Tactical Command Droid, the Aqua Droids, and the LM-432 Crab Droid.',
+      'Pre-release Separatist cards AMG has only previewed — Savage Opress and the “For the Cause” command from the AdeptiCon 2026 roadmap — now carry an “⚠ Preview” badge wherever they appear, until AMG publishes their final cards.',
+    ],
+  },
+  {
     version: '1.20.1',
     date: '2026-06-20',
     changes: [

@@ -8,12 +8,12 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 
 | source | count |
 |---|---|
-| AMG PnP (re-sourced) | 360 |
+| AMG PnP (re-sourced) | 452 |
 | AMG DOC56 (self-sourced) | 14 |
-| **Legion HQ 2 (to expunge)** | **502** |
+| **Legion HQ 2 (to expunge)** | **410** |
 | total | 876 |
 
-## units (180) — AMG 107 / LHQ2 73
+## units (180) — AMG 137 / LHQ2 43
 
 | slug | card | source |
 |---|---|---|
@@ -21,23 +21,23 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `74-z-speeder-bikes` | 74-Z Speeder Bikes | AMG DOC51_GalacticEmpire_Units.pdf |
 | `a-a5-speeder-truck` | A-A5 Speeder Truck | AMG DOC51_RebelAlliance_Units.pdf |
 | `a-a5-speeder-truck-2` | A-A5 Speeder Truck | LHQ2 |
-| `aat-battle-tank` | AAT Battle Tank | LHQ2 |
+| `aat-battle-tank` | AAT Battle Tank | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `agent-kallus-hunter-of-spectres` | Agent Kallus — Hunter of Spectres | AMG DOC51_GalacticEmpire_Units.pdf |
 | `ahsoka-tano-fulcrum` | Ahsoka Tano — Fulcrum | AMG DOC51_RebelAlliance_Units.pdf |
 | `ahsoka-tano-padawan-commander` | Ahsoka Tano — Padawan Commander | AMG SWQ22_AhsokaTano |
 | `anakin-skywalker-mounted-jedi-general` | Anakin Skywalker — Mounted Jedi General | AMG AdeptiCon2026_RepublicRoadmap |
 | `anakin-skywalker-the-chosen-one` | Anakin Skywalker — The Chosen One | AMG DOC51_GalacticRepublic_Units.pdf |
-| `aqua-droids` | Aqua Droids | LHQ2 |
+| `aqua-droids` | Aqua Droids | AMG SWQ136_AquaDroids |
 | `arc-troopers` | ARC Troopers | AMG DOC51_GalacticRepublic_Units.pdf |
 | `arc-troopers-strike-team` | ARC Troopers — Strike Team | AMG DOC51_GalacticRepublic_Units.pdf |
 | `arf-troopers` | ARF Troopers | AMG SWQ135_ARFTroopers |
-| `asajj-ventress-separatist-assassin` | Asajj Ventress — Separatist Assassin | LHQ2 |
+| `asajj-ventress-separatist-assassin` | Asajj Ventress — Separatist Assassin | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `at-rt` | AT-RT | AMG DOC51_RebelAlliance_Units.pdf |
 | `at-rt-2` | AT-RT | AMG DOC51_GalacticRepublic_Units.pdf |
 | `at-st` | AT-ST | AMG DOC51_GalacticEmpire_Units.pdf |
 | `axe-woves-cunning-warrior` | Axe Woves — Cunning Warrior | AMG DOC56 (self) |
-| `b1-battle-droids` | B1 Battle Droids | LHQ2 |
-| `b2-super-battle-droids` | B2 Super Battle Droids | LHQ2 |
+| `b1-battle-droids` | B1 Battle Droids | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `b2-super-battle-droids` | B2 Super Battle Droids | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `barc-speeder` | BARC Speeder | AMG DOC51_GalacticRepublic_Units.pdf |
 | `black-sun-enforcers` | Black Sun Enforcers | LHQ2 |
 | `black-sun-vigo` | Black Sun Vigo | LHQ2 |
@@ -45,8 +45,8 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `boba-fett-daimyo-of-mos-espa` | Boba Fett — Daimyo of Mos Espa | LHQ2 |
 | `boba-fett-infamous-bounty-hunter` | Boba Fett — Infamous Bounty Hunter | LHQ2 |
 | `bossk-trandoshan-terror` | Bossk — Trandoshan Terror | LHQ2 |
-| `bx-series-droid-commandos` | BX-Series Droid Commandos | LHQ2 |
-| `bx-series-droid-commandos-strike-team` | BX-Series Droid Commandos — Strike Team | LHQ2 |
+| `bx-series-droid-commandos` | BX-Series Droid Commandos | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `bx-series-droid-commandos-strike-team` | BX-Series Droid Commandos — Strike Team | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `c-3p0-golden-god` | C-3P0 — Golden God | LHQ2 |
 | `cad-bane-needs-no-introduction` | Cad Bane — Needs No Introduction | LHQ2 |
 | `cassian-andor-capable-intelligence-agent` | Cassian Andor — Capable Intelligence Agent | AMG DOC51_RebelAlliance_Units.pdf |
@@ -62,16 +62,16 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `clone-commandos-delta-squad` | Clone Commandos — Delta Squad | AMG DOC51_GalacticRepublic_Units.pdf |
 | `clone-trooper-infantry` | Clone Trooper Infantry | AMG DOC51_GalacticRepublic_Units.pdf |
 | `clone-trooper-marksmen` | Clone Trooper Marksmen | LHQ2 |
-| `count-dooku-darth-tyranus` | Count Dooku — Darth Tyranus | LHQ2 |
+| `count-dooku-darth-tyranus` | Count Dooku — Darth Tyranus | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `darth-vader-dark-lord-of-the-sith` | Darth Vader — Dark Lord of the Sith | AMG DOC51_GalacticEmpire_Units.pdf |
 | `darth-vader-the-emperors-apprentice` | Darth Vader — The Emperor's Apprentice | AMG DOC51_GalacticEmpire_Units.pdf |
 | `dewback-rider` | Dewback Rider | AMG DOC51_GalacticEmpire_Units.pdf |
 | `df-90-mortar-trooper` | DF-90 Mortar Trooper | AMG DOC51_GalacticEmpire_Units.pdf |
 | `din-djarin-the-mandalorian` | Din Djarin — The Mandalorian | AMG DOC56 (self) |
 | `director-orson-krennic-architect-of-terror` | Director Orson Krennic — Architect of Terror | AMG DOC51_GalacticEmpire_Units.pdf |
-| `drk-1-sith-probe-droids` | DRK-1 Sith Probe Droids | LHQ2 |
-| `droidekas` | Droidekas | LHQ2 |
-| `dsd1-dwarf-spider-droid` | DSD1 Dwarf Spider Droid | LHQ2 |
+| `drk-1-sith-probe-droids` | DRK-1 Sith Probe Droids | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `droidekas` | Droidekas | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `dsd1-dwarf-spider-droid` | DSD1 Dwarf Spider Droid | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `e-web-heavy-blaster-team` | E-Web Heavy Blaster Team | AMG DOC51_GalacticEmpire_Units.pdf |
 | `ewok-skirmishers` | Ewok Skirmishers | LHQ2 |
 | `ewok-slingers` | Ewok Slingers | LHQ2 |
@@ -79,12 +79,12 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `fleet-troopers` | Fleet Troopers | AMG DOC51_RebelAlliance_Units.pdf |
 | `gar-saxon-head-of-clan-saxon` | Gar Saxon — Head of Clan Saxon | LHQ2 |
 | `gar-saxon-militant-commando` | Gar Saxon — Militant Commando | LHQ2 |
-| `general-grievous-sinister-cyborg` | General Grievous — Sinister Cyborg | LHQ2 |
-| `general-grievous-wheel-bike-warlord` | General Grievous — Wheel Bike Warlord | LHQ2 |
+| `general-grievous-sinister-cyborg` | General Grievous — Sinister Cyborg | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `general-grievous-wheel-bike-warlord` | General Grievous — Wheel Bike Warlord | AMG SWQ31_GrievousWheelBike |
 | `general-tagge-imperial-high-command` | General Tagge — Imperial High Command | AMG SWQ42_ImperialHighCommand |
 | `general-veers-master-tactician` | General Veers — Master Tactician | AMG DOC51_GalacticEmpire_Units.pdf |
-| `geonosian-warriors-geonosian-engineers` | Geonosian Warriors — Geonosian Engineers | LHQ2 |
-| `geonosian-warriors-soldiers-of-the-hive` | Geonosian Warriors — Soldiers of the Hive | LHQ2 |
+| `geonosian-warriors-geonosian-engineers` | Geonosian Warriors — Geonosian Engineers | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `geonosian-warriors-soldiers-of-the-hive` | Geonosian Warriors — Soldiers of the Hive | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `grand-admiral-thrawn-imperial-high-command` | Grand Admiral Thrawn — Imperial High Command | AMG SWQ42_ImperialHighCommand |
 | `grand-moff-tarkin-imperial-high-command` | Grand Moff Tarkin — Imperial High Command | AMG SWQ42_ImperialHighCommand |
 | `guerilla-troopers` | Guerilla Troopers | AMG AdeptiCon2026_RebelRoadmap |
@@ -93,8 +93,8 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `han-solo-unorthodox-general` | Han Solo — Unorthodox General | AMG DOC51_RebelAlliance_Units.pdf |
 | `hondo-ohnaka-trustworthy-compatriot` | Hondo Ohnaka — Trustworthy Compatriot | LHQ2 |
 | `iden-versio-inferno-squad-leader` | Iden Versio — Inferno Squad Leader | AMG DOC51_GalacticEmpire_Units.pdf |
-| `ig-100-magnaguard` | IG-100 MagnaGuard | LHQ2 |
-| `ig-100-magnaguard-prototype-assassin-droids` | IG-100 MagnaGuard — Prototype Assassin Droids | LHQ2 |
+| `ig-100-magnaguard` | IG-100 MagnaGuard | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `ig-100-magnaguard-prototype-assassin-droids` | IG-100 MagnaGuard — Prototype Assassin Droids | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `ig-11-nurse-and-protect` | IG-11 — Nurse and Protect | LHQ2 |
 | `ig-88-notorious-assassin-droid` | IG-88 — Notorious Assassin Droid | LHQ2 |
 | `imperial-agent-bringing-order-to-the-galaxy` | Imperial Agent — Bringing Order to the Galaxy | AMG SWQ09_ImperialOfficerAgent |
@@ -110,14 +110,14 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `jedi-knight-mounted-jedi-general` | Jedi Knight — Mounted Jedi General | AMG AdeptiCon2026_RepublicRoadmap |
 | `jyn-erso-stardust` | Jyn Erso — Stardust | AMG DOC51_RebelAlliance_Units.pdf |
 | `k-2so-sardonic-security-droid` | K-2SO — Sardonic Security Droid | AMG DOC51_RebelAlliance_Units.pdf |
-| `kalani-super-tactical-droid` | Kalani — Super Tactical Droid | LHQ2 |
+| `kalani-super-tactical-droid` | Kalani — Super Tactical Droid | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `ki-adi-mundi-jedi-council` | Ki-Adi-Mundi — Jedi Council | AMG AdeptiCon2026_RepublicRoadmap |
-| `kraken-super-tactical-droid` | Kraken — Super Tactical Droid | LHQ2 |
+| `kraken-super-tactical-droid` | Kraken — Super Tactical Droid | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `laat-le-patrol-transport` | LAAT/le Patrol Transport | AMG DOC51_GalacticEmpire_Units.pdf |
 | `laat-le-patrol-transport-2` | LAAT/le Patrol Transport | AMG DOC51_GalacticRepublic_Units.pdf |
 | `lando-calrissian-canny-general` | Lando Calrissian — Canny General | AMG DOC51_RebelAlliance_Units.pdf |
 | `leia-organa-fearless-and-inventive` | Leia Organa — Fearless and Inventive | AMG DOC51_RebelAlliance_Units.pdf |
-| `lm-432-crab-droid` | LM-432 Crab Droid | LHQ2 |
+| `lm-432-crab-droid` | LM-432 Crab Droid | AMG SWQ134_LM432CrabDroid |
 | `logray-superstitious-shaman` | Logray — Superstitious Shaman | LHQ2 |
 | `luke-skywalker-commander-skywalker` | Luke Skywalker — Commander Skywalker | AMG SWQ41_TauntaunHeroes |
 | `luke-skywalker-hero-of-the-rebellion` | Luke Skywalker — Hero of the Rebellion | AMG DOC51_RebelAlliance_Units.pdf |
@@ -134,15 +134,15 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `mandalorian-warriors-fire-support` | Mandalorian Warriors — Fire Support | LHQ2 |
 | `mark-ii-medium-blaster-trooper` | Mark II Medium Blaster Trooper | AMG DOC51_RebelAlliance_Units.pdf |
 | `maul-a-rival` | Maul — A Rival | LHQ2 |
-| `maul-impatient-apprentice` | Maul — Impatient Apprentice | LHQ2 |
+| `maul-impatient-apprentice` | Maul — Impatient Apprentice | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `moff-gideon-long-live-the-empire` | Moff Gideon — Long Live the Empire | AMG DOC51_GalacticEmpire_Units.pdf |
 | `obi-wan-kenobi-civilized-warrior` | Obi-Wan Kenobi — Civilized Warrior | AMG DOC51_GalacticRepublic_Units.pdf |
 | `padme-amidala-spirited-senator` | Padme Amidala — Spirited Senator | AMG DOC51_GalacticRepublic_Units.pdf |
 | `paz-vizsla-proud-warrior` | Paz Vizsla — Proud Warrior | LHQ2 |
-| `persuader-class-tank-droid` | Persuader-Class Tank Droid | LHQ2 |
-| `persuader-class-tank-droid-prototype-tank-droid` | Persuader-Class Tank Droid — Prototype Tank Droid | LHQ2 |
+| `persuader-class-tank-droid` | Persuader-Class Tank Droid | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
+| `persuader-class-tank-droid-prototype-tank-droid` | Persuader-Class Tank Droid — Prototype Tank Droid | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `plo-koon-jedi-council` | Plo Koon — Jedi Council | AMG AdeptiCon2026_RepublicRoadmap |
-| `poggle-the-lesser-public-leader-of-the-geonosians` | Poggle the Lesser — Public Leader of the Geonosians | LHQ2 |
+| `poggle-the-lesser-public-leader-of-the-geonosians` | Poggle the Lesser — Public Leader of the Geonosians | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `pyke-syndicate-capo` | Pyke Syndicate Capo | LHQ2 |
 | `pyke-syndicate-foot-soldiers` | Pyke Syndicate Foot Soldiers | LHQ2 |
 | `r2-d2-hero-of-a-thousand-devices` | R2-D2 — Hero of a Thousand Devices | AMG DOC51_RebelAlliance_Units.pdf |
@@ -161,7 +161,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `saber-class-tank` | Saber-Class Tank | AMG DOC51_GalacticRepublic_Units.pdf |
 | `sabine-wren-back-in-the-fold` | Sabine Wren — Back in the Fold | LHQ2 |
 | `sabine-wren-explosive-artist` | Sabine Wren — Explosive Artist | AMG DOC51_RebelAlliance_Units.pdf |
-| `savage-opress-dookus-apprentice` | Savage Opress — Dooku's Apprentice | LHQ2 |
+| `savage-opress-dookus-apprentice` | Savage Opress — Dooku's Apprentice | AMG AdeptiCon2026_SeparatistRoadmap |
 | `savage-opress-mauls-enforcer` | Savage Opress — Maul's Enforcer | LHQ2 |
 | `scout-troopers` | Scout Troopers | AMG DOC51_GalacticEmpire_Units.pdf |
 | `scout-troopers-strike-team` | Scout Troopers — Strike Team | AMG DOC51_GalacticEmpire_Units.pdf |
@@ -169,17 +169,17 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `shaak-ti-jedi-council` | Shaak Ti — Jedi Council | AMG AdeptiCon2026_RepublicRoadmap |
 | `shoretroopers` | Shoretroopers | AMG DOC51_GalacticEmpire_Units.pdf |
 | `snowtroopers` | Snowtroopers | AMG DOC51_GalacticEmpire_Units.pdf |
-| `stap-riders` | STAP Riders | LHQ2 |
+| `stap-riders` | STAP Riders | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `stormtrooper-riot-squad` | Stormtrooper Riot Squad | AMG DOC51_GalacticEmpire_Units.pdf |
 | `stormtroopers` | Stormtroopers | AMG DOC51_GalacticEmpire_Units.pdf |
 | `stormtroopers-heavy-response-unit` | Stormtroopers — Heavy Response Unit | AMG DOC51_GalacticEmpire_Units.pdf |
-| `sun-fac-ruthless-lieutenant` | Sun Fac — Ruthless Lieutenant | LHQ2 |
+| `sun-fac-ruthless-lieutenant` | Sun Fac — Ruthless Lieutenant | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `super-commandos` | Super Commandos | LHQ2 |
-| `super-tactical-command-droid-auxiliary-command-droid` | Super Tactical Command Droid — Auxiliary Command Droid | LHQ2 |
-| `super-tactical-command-droid-command-and-control-droid` | Super Tactical Command Droid — Command and Control Droid | LHQ2 |
+| `super-tactical-command-droid-auxiliary-command-droid` | Super Tactical Command Droid — Auxiliary Command Droid | AMG SWQ29_SuperTacticalCommandDroid |
+| `super-tactical-command-droid-command-and-control-droid` | Super Tactical Command Droid — Command and Control Droid | AMG SWQ29_SuperTacticalCommandDroid |
 | `swoop-bike-riders` | Swoop Bike Riders | LHQ2 |
 | `t-47-airspeeder` | T-47 Airspeeder | AMG DOC51_RebelAlliance_Units.pdf |
-| `t-series-tactical-droid-programmed-for-strategy` | T-Series Tactical Droid — Programmed for Strategy | LHQ2 |
+| `t-series-tactical-droid-programmed-for-strategy` | T-Series Tactical Droid — Programmed for Strategy | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `tauntaun-riders` | Tauntaun Riders | AMG DOC51_RebelAlliance_Units.pdf |
 | `the-armorer-forging-the-future` | The Armorer — Forging the Future | LHQ2 |
 | `the-bad-batch-clone-force-99` | The Bad Batch — Clone Force 99 | AMG DOC51_GalacticRepublic_Units.pdf |
@@ -198,7 +198,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `x-34-landspeeder` | X-34 Landspeeder | AMG DOC51_RebelAlliance_Units.pdf |
 | `yoda-grand-master-of-the-jedi-order` | Yoda — Grand Master of the Jedi Order | AMG DOC51_GalacticRepublic_Units.pdf |
 
-## upgrades (418) — AMG 127 / LHQ2 291
+## upgrades (418) — AMG 160 / LHQ2 258
 
 | slug | card | source |
 |---|---|---|
@@ -226,13 +226,13 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `ax-108-ground-buzzer` | Ax-108 "Ground Buzzer" | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `axe-ewok` | Axe Ewok | LHQ2 |
 | `axe-woves` | Axe Woves | LHQ2 |
-| `b1-battle-droid` | B1 Battle Droid | LHQ2 |
-| `b1-battle-droid-squad` | B1 Battle Droid Squad | LHQ2 |
-| `b1-security-droid` | B1 Security Droid | LHQ2 |
-| `b2-acm-battle-droid` | B2-ACM Battle Droid | LHQ2 |
-| `b2-ha-battle-droid` | B2-HA Battle Droid | LHQ2 |
-| `b2-super-battle-droid` | B2 Super Battle Droid | LHQ2 |
-| `b2-super-battle-droid-squad` | B2 Super Battle Droid Squad | LHQ2 |
+| `b1-battle-droid` | B1 Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `b1-battle-droid-squad` | B1 Battle Droid Squad | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `b1-security-droid` | B1 Security Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `b2-acm-battle-droid` | B2-ACM Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `b2-ha-battle-droid` | B2-HA Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `b2-super-battle-droid` | B2 Super Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `b2-super-battle-droid-squad` | B2 Super Battle Droid Squad | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `backworld-medic` | Backworld Medic | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `barc-ion-gunner` | BARC Ion Gunner | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `barc-rps-6-gunner` | BARC RPS-6 Gunner | AMG DOC51_GalacticRepublic_Upgrades.pdf |
@@ -255,9 +255,9 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `bowcaster-wookiee` | Bowcaster Wookiee | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `bunker-buster-shells` | "Bunker Buster" Shells | LHQ2 |
 | `burst-of-speed` | Burst of Speed | LHQ2 |
-| `bx-deflector-shields` | BX Deflector Shields | LHQ2 |
-| `bx-series-droid-sniper` | BX-Series Droid Sniper | LHQ2 |
-| `bx-vibroswords` | BX Vibroswords | LHQ2 |
+| `bx-deflector-shields` | BX Deflector Shields | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `bx-series-droid-sniper` | BX-Series Droid Sniper | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `bx-vibroswords` | BX Vibroswords | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `call-to-arms` | Call To Arms | LHQ2 |
 | `cassian-andor` | Cassian Andor | LHQ2 |
 | `caught-in-a-web` | Caught in a Web | LHQ2 |
@@ -305,7 +305,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `dins-amban-rifle` | Din's Amban Rifle | LHQ2 |
 | `dins-flame-projector` | Din's Flame Projector | LHQ2 |
 | `dins-jetpack` | Din's Jetpack | LHQ2 |
-| `dioxis-mine-saboteur` | Dioxis Mine Saboteur | LHQ2 |
+| `dioxis-mine-saboteur` | Dioxis Mine Saboteur | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `dlt-19-stormtrooper` | DLT-19 Stormtrooper | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `dlt-19d-trooper` | DLT-19D Trooper | LHQ2 |
 | `dlt-19x-sniper` | DLT-19x Sniper | LHQ2 |
@@ -320,15 +320,15 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `dug-in` | Dug In | LHQ2 |
 | `dw-3-grenade-launcher` | DW-3 Grenade Launcher | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `e-11d-focused-fire-configuration` | E-11D Focused Fire Configuration | AMG DOC51_GalacticEmpire_Upgrades.pdf |
-| `e-5c-b1-battle-droid` | E-5C B1 Battle Droid | LHQ2 |
-| `e-5s-b1-battle-droid` | E-5s B1 Battle Droid | LHQ2 |
-| `e-60r-b1-battle-droid` | E-60R B1 Battle Droid | LHQ2 |
+| `e-5c-b1-battle-droid` | E-5C B1 Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `e-5s-b1-battle-droid` | E-5s B1 Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `e-60r-b1-battle-droid` | E-60R B1 Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `echo` | Echo | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `echo-2` | Echo | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `ee-3-carbine-rifle` | EE-3 Carbine Rifle | LHQ2 |
 | `electro-gauntlets` | Electro Gauntlets | LHQ2 |
 | `electro-grappling-line` | Electro Grappling Line | AMG DOC51_RebelAlliance_Upgrades.pdf |
-| `electro-whip-magnaguard` | Electro-whip MagnaGuard | LHQ2 |
+| `electro-whip-magnaguard` | Electro-whip MagnaGuard | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `electro-whip-soldier` | Electro-Whip Soldier | LHQ2 |
 | `electrobinoculars` | Electrobinoculars | LHQ2 |
 | `electrostaff` | Electrostaff | LHQ2 |
@@ -340,7 +340,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `engagement-protocols` | Engagement Protocols | LHQ2 |
 | `enhanced-combat-subroutines` | Enhanced Combat Subroutines | LHQ2 |
 | `environmental-gear` | Environmental Gear | LHQ2 |
-| `ev-series-medical-droid` | EV-Series Medical Droid | LHQ2 |
+| `ev-series-medical-droid` | EV-Series Medical Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `ewok-skirmisher-squad` | Ewok Skirmisher Squad | LHQ2 |
 | `ewok-slinger-squad` | Ewok Slinger Squad | LHQ2 |
 | `ewok-trapper` | Ewok Trapper | LHQ2 |
@@ -357,7 +357,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `force-barrier` | Force Barrier | LHQ2 |
 | `force-choke` | Force Choke | LHQ2 |
 | `force-guidance` | Force Guidance | LHQ2 |
-| `force-pike-warrior` | Force Pike Warrior | LHQ2 |
+| `force-pike-warrior` | Force Pike Warrior | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `force-push` | Force Push | LHQ2 |
 | `force-reflexes` | Force Reflexes | LHQ2 |
 | `forest-dwellers` | Forest Dwellers | LHQ2 |
@@ -375,8 +375,8 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `general-grievous` | General Grievous | LHQ2 |
 | `general-of-the-republic` | General of the Republic | LHQ2 |
 | `general-weiss` | General Weiss | AMG DOC51_GalacticEmpire_Upgrades.pdf |
-| `geonosian-warrior` | Geonosian Warrior | LHQ2 |
-| `geonosian-warrior-squad` | Geonosian Warrior Squad | LHQ2 |
+| `geonosian-warrior` | Geonosian Warrior | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `geonosian-warrior-squad` | Geonosian Warrior Squad | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `gideon-hask` | Gideon Hask | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `gnasp-bombardier` | Gnasp Bombardier | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `gnasp-gunner` | Gnasp Gunner | LHQ2 |
@@ -398,7 +398,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `hound-grizzer` | Hound & Grizzer | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `hq-uplink` | HQ Uplink | LHQ2 |
 | `hunter` | Hunter | AMG DOC51_GalacticRepublic_Upgrades.pdf |
-| `ig-100-magnaguard` | IG-100 MagnaGuard | LHQ2 |
+| `ig-100-magnaguard` | IG-100 MagnaGuard | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `ig-100-magnaguard-pilot` | IG-100 MagnaGuard Pilot | LHQ2 |
 | `impact-grenades` | Impact Grenades | LHQ2 |
 | `imperial-comms-technician` | Imperial Comms Technician | LHQ2 |
@@ -434,7 +434,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `limiter-override` | Limiter Override | LHQ2 |
 | `linked-targeting-array` | Linked Targeting Array | LHQ2 |
 | `logistical-prowess` | Logistical Prowess | LHQ2 |
-| `lok-durd` | Lok Durd | LHQ2 |
+| `lok-durd` | Lok Durd | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `long-gun-wookiee` | Long Gun Wookiee | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `long-rifle-pirate` | Long Rifle Pirate | LHQ2 |
 | `luke-skywalker` | Luke Skywalker | LHQ2 |
@@ -453,17 +453,17 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `mpl-57-barrage-trooper` | MPL-57 Barrage Trooper | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `mpl-57-ion-trooper` | MPL-57 Ion Trooper | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `nanny-programming` | "Nanny" Programming | LHQ2 |
-| `nose-mounted-flamethrower` | Nose-Mounted Flamethrower | LHQ2 |
-| `nose-mounted-ion-blaster` | Nose-Mounted Ion Blaster | LHQ2 |
-| `nose-mounted-laser-cannon` | Nose-Mounted Laser Cannon | LHQ2 |
+| `nose-mounted-flamethrower` | Nose-Mounted Flamethrower | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `nose-mounted-ion-blaster` | Nose-Mounted Ion Blaster | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `nose-mounted-laser-cannon` | Nose-Mounted Laser Cannon | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `obi-wan-kenobi` | Obi-Wan Kenobi | LHQ2 |
 | `offensive-push` | Offensive Push | LHQ2 |
 | `offensive-stance` | Offensive Stance | LHQ2 |
 | `on-the-hunt` | On The Hunt | LHQ2 |
 | `onboard-comms-channel` | Onboard Comms Channel | LHQ2 |
 | `onward-to-victory` | Onward to Victory | LHQ2 |
-| `oom-series-battle-droid` | OOM-Series Battle Droid | LHQ2 |
-| `oom-series-droid-pilot` | OOM-Series Droid Pilot | LHQ2 |
+| `oom-series-battle-droid` | OOM-Series Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `oom-series-droid-pilot` | OOM-Series Droid Pilot | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `optimized-task-flow` | Optimized Task Flow | LHQ2 |
 | `outer-rim-speeder-jockey` | Outer Rim Speeder Jockey | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `overcharged-generator` | Overcharged Generator | LHQ2 |
@@ -475,7 +475,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `pintle-mounted-dlt-19` | Pintle-Mounted DLT-19 | LHQ2 |
 | `pintle-mounted-rt-97c` | Pintle-Mounted RT-97C | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `pirate-captain` | Pirate Captain | LHQ2 |
-| `pk-series-worker-droid` | PK-Series Worker Droid | LHQ2 |
+| `pk-series-worker-droid` | PK-Series Worker Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `platoon-commander` | Platoon Commander | LHQ2 |
 | `plo-koon` | Plo Koon | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `portable-scanner` | Portable Scanner | LHQ2 |
@@ -490,7 +490,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `pyke-syndicate-foot-soldier-squad` | Pyke Syndicate Foot Soldier Squad | LHQ2 |
 | `r4-astromech` | R4 Astromech | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `r5-astromech-droid` | R5 Astromech Droid | LHQ2 |
-| `radiation-cannon-b1-battle-droid` | Radiation Cannon B1 Battle Droid | LHQ2 |
+| `radiation-cannon-b1-battle-droid` | Radiation Cannon B1 Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `raiding-party-leader` | Raiding Party Leader | LHQ2 |
 | `range-trooper` | Range Trooper | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `rebel-comms-technician` | Rebel Comms Technician | AMG DOC51_RebelAlliance_Upgrades.pdf |
@@ -509,7 +509,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `rook-kast-2` | Rook Kast | LHQ2 |
 | `rps-6-arf-trooper` | RPS-6 ARF Trooper | LHQ2 |
 | `rps-6-clone-trooper` | RPS-6 Clone Trooper | LHQ2 |
-| `rps-6-magnaguard` | RPS-6 MagnaGuard | LHQ2 |
+| `rps-6-magnaguard` | RPS-6 MagnaGuard | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `rps-6-rocket-gunner` | RPS-6 Rocket Gunner | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `rt-97c-blaster-rifle` | RT-97C Blaster Rifle | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `rt-97c-stormtrooper` | RT-97C Stormtrooper | LHQ2 |
@@ -540,7 +540,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `smoke-grenades` | Smoke Grenades | LHQ2 |
 | `snowtrooper` | Snowtrooper | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `snowtrooper-squad` | Snowtrooper Squad | AMG DOC51_GalacticEmpire_Upgrades.pdf |
-| `sonic-cannon-warrior` | Sonic Cannon Warrior | LHQ2 |
+| `sonic-cannon-warrior` | Sonic Cannon Warrior | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `sonic-charge-saboteur` | Sonic Charge Saboteur | LHQ2 |
 | `sonic-imploders` | Sonic Imploders | LHQ2 |
 | `spotter-uplink` | Spotter Uplink | LHQ2 |
@@ -567,8 +567,8 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `t-21a-range-trooper` | T-21A Range Trooper | LHQ2 |
 | `t-21b-shoretrooper` | T-21B Shoretrooper | LHQ2 |
 | `t-7-ion-snowtrooper` | T-7 Ion Snowtrooper | LHQ2 |
-| `t-series-tactical-droid` | T-Series Tactical Droid | LHQ2 |
-| `t-series-tactical-droid-pilot` | T-Series Tactical Droid Pilot | LHQ2 |
+| `t-series-tactical-droid` | T-Series Tactical Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
+| `t-series-tactical-droid-pilot` | T-Series Tactical Droid Pilot | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `targeting-relay` | Targeting Relay | LHQ2 |
 | `targeting-scopes` | Targeting Scopes | LHQ2 |
 | `tech` | Tech | LHQ2 |
@@ -606,7 +606,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `vibro-axe` | Vibro Axe | LHQ2 |
 | `vibrosword` | Vibrosword | LHQ2 |
 | `vigilance` | Vigilance | LHQ2 |
-| `viper-recon-droid` | Viper Recon Droid | LHQ2 |
+| `viper-recon-droid` | Viper Recon Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `war-party-leader` | War Party Leader | LHQ2 |
 | `waxer` | Waxer | LHQ2 |
 | `wedge-antilles` | Wedge Antilles | AMG DOC51_RebelAlliance_Upgrades.pdf |
@@ -621,7 +621,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `z-6-riot-baton` | Z-6 Riot Baton | LHQ2 |
 | `z-6-trooper` | Z-6 Trooper | AMG DOC51_RebelAlliance_Upgrades.pdf |
 
-## commands (235) — AMG 140 / LHQ2 95
+## commands (235) — AMG 169 / LHQ2 66
 
 | slug | card | source |
 |---|---|---|
@@ -636,7 +636,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `affirmative-general` | Affirmative, General! | AMG SWQ20_CustomizableJedi |
 | `aggression` | Aggression | LHQ2 |
 | `aggressive-negotiations` | Aggressive Negotiations | AMG SWQ_GalacticRepublic_Commands.pdf |
-| `ai-coordination` | AI Coordination | LHQ2 |
+| `ai-coordination` | AI Coordination | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `air-support` | Air Support | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `ambush` | Ambush | LHQ2 |
 | `annihilation-looms` | Annihilation Looms | AMG DOC13_GalacticEmpire_Commands.pdf |
@@ -652,7 +652,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `both-hunter-and-prey` | Both Hunter and Prey | LHQ2 |
 | `brains-and-brawn` | Brains and Brawn | AMG DOC13_RebelAlliance_Commands.pdf |
 | `bring-it-down` | Bring It Down! | AMG SWQ_GalacticRepublic_Commands.pdf |
-| `brutal-enforcer` | Brutal Enforcer | LHQ2 |
+| `brutal-enforcer` | Brutal Enforcer | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `call-me-captain` | Call Me Captain | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `canny-adversary` | Canny Adversary | AMG SWQ42_ImperialHighCommand |
 | `change-of-plans` | Change of Plans | AMG DOC13_RebelAlliance_Commands.pdf |
@@ -671,7 +671,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `covering-fire` | Covering Fire | AMG DOC13_RebelAlliance_Commands.pdf |
 | `covert-observation` | Covert Observation | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `crack-shot` | Crack Shot | AMG DOC13_RebelAlliance_Commands.pdf |
-| `crush-them` | Crush Them! | LHQ2 |
+| `crush-them` | Crush Them! | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `daring-defense` | Daring Defense | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `darkness-descends` | Darkness Descends | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `death-before-defeat` | Death Before Defeat | LHQ2 |
@@ -683,29 +683,29 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `diplomatic-cover` | Diplomatic Cover | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `discretion` | Discretion | LHQ2 |
 | `diversionary-tactics` | Diversionary Tactics | AMG SWQ13_RebelOfficerAgent |
-| `do-not-underestimate-our-means` | Do Not Underestimate Our Means | LHQ2 |
-| `double-the-fall` | Double the Fall | LHQ2 |
+| `do-not-underestimate-our-means` | Do Not Underestimate Our Means | AMG DOC13_SeparatistAlliance_Commands.pdf |
+| `double-the-fall` | Double the Fall | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `drive-them-out` | Drive Them Out | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `duel-of-the-fates` | Duel of the Fates | LHQ2 |
 | `evasive-action` | Evasive Action | AMG AdeptiCon2026_RepublicRoadmap |
 | `evasive-maneuvers` | Evasive Maneuvers | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `explosions` | Explosions! | LHQ2 |
-| `exterminate` | Exterminate | LHQ2 |
+| `exterminate` | Exterminate | AMG SWQ29_SuperTacticalCommandDroid |
 | `face-me` | Face Me! | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `family-reunion` | Family Reunion | AMG DOC13_RebelAlliance_Commands.pdf |
 | `fear-and-dead-men` | Fear and Dead Men | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `fear-surprise-intimidation` | Fear, Surprise, Intimidation | LHQ2 |
+| `fear-surprise-intimidation` | Fear, Surprise, Intimidation | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `fear-will-keep-them-in-line` | Fear Will Keep Them in Line | AMG SWQ42_ImperialHighCommand |
 | `fearsome-oration` | Fearsome Oration | AMG SWQ09_ImperialOfficerAgent |
 | `fight-another-day` | Fight Another Day | LHQ2 |
 | `flexible-strategy` | Flexible Strategy | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `flow-of-the-force` | Flow of the Force | AMG SWQ20_CustomizableJedi |
 | `focused-on-the-kill` | Focused on the Kill | LHQ2 |
-| `for-the-cause` | For the Cause | LHQ2 |
+| `for-the-cause` | For the Cause | AMG AdeptiCon2026_SeparatistRoadmap |
 | `for-the-tribe` | For the Tribe | AMG DOC13_Mercenary_Ewoks.pdf |
 | `force-of-will` | Force of Will | AMG AdeptiCon2026_RepublicRoadmap |
 | `full-of-surprises` | Full of Surprises | AMG DOC13_RebelAlliance_Commands.pdf |
-| `full-throttle` | Full Throttle | LHQ2 |
+| `full-throttle` | Full Throttle | AMG SWQ31_GrievousWheelBike |
 | `general-kenobi` | General Kenobi | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `general-skywalker` | General Skywalker | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `get-in-position` | Get In Position | AMG SWQ_GalacticRepublic_Commands.pdf |
@@ -718,7 +718,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `hold-at-any-cost` | Hold at Any Cost | AMG DOC13_RebelAlliance_Commands.pdf |
 | `honor-and-strength` | Honor and Strength | LHQ2 |
 | `i-am-a-jedi` | I am a Jedi | AMG DOC13_RebelAlliance_Commands.pdf |
-| `i-am-fear` | I Am Fear | LHQ2 |
+| `i-am-fear` | I Am Fear | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `i-am-no-jedi` | I Am No Jedi | AMG DOC13_RebelAlliance_Commands.pdf |
 | `i-care-not-for-your-struggles` | I Care Not For Your Struggles | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `i-dont-believe-in-chance` | I Don't Believe in Chance | AMG AdeptiCon2026_RepublicRoadmap |
@@ -731,7 +731,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `i-smell-profit` | I Smell Profit | LHQ2 |
 | `i-want-you-to-know-failure` | I Want You to Know Failure | AMG SWQ42_ImperialHighCommand |
 | `idiots-array` | Idiot's Array | AMG DOC13_RebelAlliance_Commands.pdf |
-| `ill-do-it-myself` | I'll Do it Myself! | LHQ2 |
+| `ill-do-it-myself` | I'll Do it Myself! | AMG SWQ31_GrievousWheelBike |
 | `im-in-control` | I'm in Control | LHQ2 |
 | `im-your-worst-nightmare` | I'm Your Worst Nightmare | LHQ2 |
 | `imperial-discipline` | Imperial Discipline | AMG DOC13_GalacticEmpire_Commands.pdf |
@@ -747,7 +747,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `lead-from-the-front` | Lead From the Front | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `leaders-of-the-501st` | Leaders of the 501st | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `legacy-of-mandalore` | Legacy of Mandalore | LHQ2 |
-| `let-the-executions-begin` | Let the Executions Begin! | LHQ2 |
+| `let-the-executions-begin` | Let the Executions Begin! | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `log-traps` | Log Traps | AMG DOC13_Mercenary_Ewoks.pdf |
 | `luminous-beings-are-we` | Luminous Beings Are We | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `lying-in-wait` | Lying In Wait | LHQ2 |
@@ -758,7 +758,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `master-of-evil` | Master of Evil | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `maximum-firepower` | Maximum Firepower | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `mechanical-carnage` | Mechanical Carnage | LHQ2 |
-| `mechanized-incursion` | Mechanized Incursion | LHQ2 |
+| `mechanized-incursion` | Mechanized Incursion | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `merciless-munitions` | Merciless Munitions | LHQ2 |
 | `moment-of-consideration` | Moment of Consideration | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `moment-of-triumph` | Moment of Triumph | AMG SWQ42_ImperialHighCommand |
@@ -770,14 +770,14 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `not-out-of-it-yet` | Not Out of it Yet | AMG SWQ41_TauntaunHeroes |
 | `notorious-scoundrels` | Notorious Scoundrels | AMG DOC13_RebelAlliance_Commands.pdf |
 | `on-patrol` | On Patrol | AMG SWQ41_TauntaunHeroes |
-| `orbital-strike` | Orbital Strike | LHQ2 |
+| `orbital-strike` | Orbital Strike | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `our-fate-is-in-your-hands` | Our Fate is in Your Hands | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `out-of-the-shadows` | Out of the Shadows | AMG DOC56 (self) |
 | `overwhelming-barrage` | Overwhelming Barrage | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `pincer-attack` | Pincer Attack | LHQ2 |
+| `pincer-attack` | Pincer Attack | AMG SWQ31_GrievousWheelBike |
 | `pinned-down` | Pinned Down | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `ploy` | Ploy | LHQ2 |
-| `preservation-protocols` | Preservation Protocols | LHQ2 |
+| `preservation-protocols` | Preservation Protocols | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `pulse-scan` | Pulse Scan | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `push` | Push | LHQ2 |
 | `rebellions-are-built-on-hope` | Rebellions Are Built on Hope | AMG DOC13_RebelAlliance_Commands.pdf |
@@ -786,7 +786,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `reptilian-rampage` | Reptilian Rampage | LHQ2 |
 | `return-of-the-jedi` | Return of the Jedi | AMG DOC13_RebelAlliance_Commands.pdf |
 | `revenge-is-not-the-jedi-way` | Revenge Is Not the Jedi Way | AMG SWQ22_AhsokaTano |
-| `roger-roger` | Roger, Roger! | LHQ2 |
+| `roger-roger` | Roger, Roger! | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `rule-with-respect` | Rule With Respect | LHQ2 |
 | `ruthless-tactics` | Ruthless Tactics | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `sabotaged-communications` | Sabotaged Communications | AMG DOC13_RebelAlliance_Commands.pdf |
@@ -805,33 +805,33 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `squadron-on-me` | Squadron, On Me | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `standing-orders` | Standing Orders | LHQ2 |
 | `stories-so-many-of-them-true` | Stories, So Many of Them True | LHQ2 |
-| `supreme-commander` | Supreme Commander | LHQ2 |
+| `supreme-commander` | Supreme Commander | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `swift-protector` | Swift Protector | AMG DOC13_RebelAlliance_Commands.pdf |
 | `symbol-of-rebellion` | Symbol of Rebellion | LHQ2 |
 | `synchronized-offensive` | Synchronized Offensive | AMG SWQ_GalacticRepublic_Commands.pdf |
-| `tactical-download` | Tactical Download | LHQ2 |
+| `tactical-download` | Tactical Download | AMG SWQ29_SuperTacticalCommandDroid |
 | `tactical-planning` | Tactical Planning | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `tactical-strike` | Tactical Strike | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `take-that-clankers` | Take That, Clankers! | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `thats-just-good-business` | That's Just Good Business | LHQ2 |
 | `the-empire-does-not-tolerate-failure` | The Empire Does Not Tolerate Failure | AMG SWQ42_ImperialHighCommand |
 | `the-hand-thing` | The Hand Thing | LHQ2 |
-| `the-jedi-shall-fall` | The Jedi Shall Fall | LHQ2 |
+| `the-jedi-shall-fall` | The Jedi Shall Fall | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `the-phantom-menace` | The Phantom Menace | LHQ2 |
-| `the-sith-will-rule` | The Sith Will Rule | LHQ2 |
+| `the-sith-will-rule` | The Sith Will Rule | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `there-is-no-try` | There Is No Try | AMG SWQ_GalacticRepublic_Commands.pdf |
-| `they-too-will-suffer` | They Too Will Suffer | LHQ2 |
+| `they-too-will-suffer` | They Too Will Suffer | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `this-is-the-way` | This is the Way | LHQ2 |
 | `this-is-where-the-fun-begins` | This is Where the Fun Begins | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `this-partys-over` | This Party's Over | AMG AdeptiCon2026_RepublicRoadmap |
-| `trained-in-your-jedi-arts` | Trained In Your Jedi Arts | LHQ2 |
+| `trained-in-your-jedi-arts` | Trained In Your Jedi Arts | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `trust-goes-both-ways` | Trust Goes Both Ways | AMG DOC13_RebelAlliance_Commands.pdf |
 | `turning-the-tide` | Turning the Tide | AMG DOC13_RebelAlliance_Commands.pdf |
 | `unexpected-but-not-unwelcome` | Unexpected, But Not Unwelcome | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `unity-wins-wars` | Unity Wins Wars | AMG AdeptiCon2026_RepublicRoadmap |
-| `unrelenting-assault` | Unrelenting Assault | LHQ2 |
+| `unrelenting-assault` | Unrelenting Assault | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `unrelenting-fire` | Unrelenting Fire | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `unstoppable-advance` | Unstoppable Advance | LHQ2 |
+| `unstoppable-advance` | Unstoppable Advance | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `vaders-might` | Vader's Might | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `vengeful-strike` | Vengeful Strike | LHQ2 |
 | `victory-or-death` | Victory or Death! | LHQ2 |
@@ -839,11 +839,11 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `voracious-ambition` | Voracious Ambition | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `we-are-mandalorians` | We Are Mandalorians | LHQ2 |
 | `we-do-what-we-do` | We Do What We Do | LHQ2 |
-| `we-make-weapons` | We Make Weapons | LHQ2 |
+| `we-make-weapons` | We Make Weapons | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `we-must-wait-and-watch` | We Must Wait and Watch | AMG SWQ42_ImperialHighCommand |
 | `we-need-reinforcements` | We Need Reinforcements | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `we-protect-our-own` | We Protect Our Own | LHQ2 |
-| `we-serve-the-queen` | We Serve the Queen | LHQ2 |
+| `we-serve-the-queen` | We Serve the Queen | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `we-shall-start-with-revenge` | We Shall Start with Revenge | LHQ2 |
 | `we-shape-ourselves` | We Shape Ourselves | LHQ2 |
 | `weapons-are-our-religion` | Weapons Are Our Religion | LHQ2 |
@@ -851,9 +851,9 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `whipcord-launcher` | Whipcord Launcher | LHQ2 |
 | `whistling-birds` | Whistling Birds | LHQ2 |
 | `witch-magick` | Witch Magick | LHQ2 |
-| `yes-my-master` | Yes, My Master | LHQ2 |
+| `yes-my-master` | Yes, My Master | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `you-are-beaten` | You Are Beaten | AMG SWQ22_AhsokaTano |
-| `you-disappoint-me` | You Disappoint Me | LHQ2 |
+| `you-disappoint-me` | You Disappoint Me | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `you-have-something-i-want` | You Have Something I Want | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `you-hide-your-fear-well` | You Hide Your Fear Well | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `you-serve-your-master-well` | You Serve Your Master Well | AMG DOC13_RebelAlliance_Commands.pdf |

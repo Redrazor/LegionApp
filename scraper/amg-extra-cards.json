@@ -605,11 +605,33 @@
       "note": "Scene to Stats: General Grievous' TSMEU-6 Wheel Bike (SWQ31). https://www.atomicmassgames.com/transmission/scene-to-stats-grievous-tsmeu6/ — UNIT files use the CODE_ prefix (AMG placeholder shipped to the live CDN), NOT SWQ31_; command cards use SWQ31_. Front/Back are INVERTED vs the usual convention: _Back = stats/play side, _Front = art side (verified by reading the PNGs). The generic TSMEU-6 Wheel Bikes (the separate corps unit) has NO first-party card image — it only appears as Grievous's Entourage; that slug stays unsourced.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/10",
       "cards": [
-        { "category": "units", "slug": "general-grievous-wheel-bike-warlord", "side": "play", "file": "CODE_UnitCard_1_Back.png" },
-        { "category": "units", "slug": "general-grievous-wheel-bike-warlord", "side": "front", "file": "CODE_UnitCard_1_Front.png" },
-        { "category": "commands", "slug": "full-throttle", "file": "SWQ31_CommandCard_1.png" },
-        { "category": "commands", "slug": "pincer-attack", "file": "SWQ31_CommandCard_2.png" },
-        { "category": "commands", "slug": "ill-do-it-myself", "file": "SWQ31_CommandCard_3.png" }
+        {
+          "category": "units",
+          "slug": "general-grievous-wheel-bike-warlord",
+          "side": "play",
+          "file": "CODE_UnitCard_1_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "general-grievous-wheel-bike-warlord",
+          "side": "front",
+          "file": "CODE_UnitCard_1_Front.png"
+        },
+        {
+          "category": "commands",
+          "slug": "full-throttle",
+          "file": "SWQ31_CommandCard_1.png"
+        },
+        {
+          "category": "commands",
+          "slug": "pincer-attack",
+          "file": "SWQ31_CommandCard_2.png"
+        },
+        {
+          "category": "commands",
+          "slug": "ill-do-it-myself",
+          "file": "SWQ31_CommandCard_3.png"
+        }
       ]
     },
     {
@@ -618,10 +640,40 @@
       "note": "Scene to Stats: Customizable Tactical Droids (SWQ29, pub 2025-09-24). https://www.atomicmassgames.com/transmission/scene-to-stats-customizable-tactical-droids/ — Two configs = two distinct unit cards. Despite the _Back suffix, UnitCard_1/2_Back ARE the stats/play side (verified); NO separate art side is published. Both command cards exist only as one side-by-side composite SWQ29_CommandCard_Fan.png (1463x1061): Tactical Download = LEFT card, Exterminate = RIGHT card, each cropped out.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09",
       "cards": [
-        { "category": "units", "slug": "super-tactical-command-droid-command-and-control-droid", "side": "play", "file": "SWQ29_UnitCard_1_Back.png" },
-        { "category": "units", "slug": "super-tactical-command-droid-auxiliary-command-droid", "side": "play", "file": "SWQ29_UnitCard_2_Back.png" },
-        { "category": "commands", "slug": "tactical-download", "file": "SWQ29_CommandCard_Fan.png", "crop": { "left": 6, "top": 6, "width": 720, "height": 1049 } },
-        { "category": "commands", "slug": "exterminate", "file": "SWQ29_CommandCard_Fan.png", "crop": { "left": 737, "top": 6, "width": 720, "height": 1049 } }
+        {
+          "category": "units",
+          "slug": "super-tactical-command-droid-command-and-control-droid",
+          "side": "play",
+          "file": "SWQ29_UnitCard_1_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "super-tactical-command-droid-auxiliary-command-droid",
+          "side": "play",
+          "file": "SWQ29_UnitCard_2_Back.png"
+        },
+        {
+          "category": "commands",
+          "slug": "tactical-download",
+          "file": "SWQ29_CommandCard_Fan.png",
+          "crop": {
+            "left": 6,
+            "top": 6,
+            "width": 720,
+            "height": 1049
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "exterminate",
+          "file": "SWQ29_CommandCard_Fan.png",
+          "crop": {
+            "left": 737,
+            "top": 6,
+            "width": 720,
+            "height": 1049
+          }
+        }
       ]
     },
     {
@@ -630,8 +682,18 @@
       "note": "Scene to Stats: Aqua Droids (SWQ136). https://www.atomicmassgames.com/transmission/scene-to-stats-aqua-droids/ — un-suffixed file = stats/play side, _Back = art side (verified). Only the raw .png originals work; the .webp CDN variants return a 79-byte stub.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2024/11",
       "cards": [
-        { "category": "units", "slug": "aqua-droids", "side": "play", "file": "12042024_SWQ136_AquaDroids.png" },
-        { "category": "units", "slug": "aqua-droids", "side": "front", "file": "12042024_SWQ136_AquaDroids_Back.png" }
+        {
+          "category": "units",
+          "slug": "aqua-droids",
+          "side": "play",
+          "file": "12042024_SWQ136_AquaDroids.png"
+        },
+        {
+          "category": "units",
+          "slug": "aqua-droids",
+          "side": "front",
+          "file": "12042024_SWQ136_AquaDroids_Back.png"
+        }
       ]
     },
     {
@@ -640,8 +702,18 @@
       "note": "LM-432 Crab Droid (SWQ134). https://www.atomicmassgames.com/character/lm-432-crab-droids/ — UnitCardFront = stats/play side, UnitCardBack = art side (verified). Only the raw .png originals work.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2024/11",
       "cards": [
-        { "category": "units", "slug": "lm-432-crab-droid", "side": "play", "file": "SWQ134_CrabDroid_UnitCardFront.png" },
-        { "category": "units", "slug": "lm-432-crab-droid", "side": "front", "file": "SWQ134_CrabDroid_UnitCardBack.png" }
+        {
+          "category": "units",
+          "slug": "lm-432-crab-droid",
+          "side": "play",
+          "file": "SWQ134_CrabDroid_UnitCardFront.png"
+        },
+        {
+          "category": "units",
+          "slug": "lm-432-crab-droid",
+          "side": "front",
+          "file": "SWQ134_CrabDroid_UnitCardBack.png"
+        }
       ]
     },
     {
@@ -650,8 +722,321 @@
       "note": "UNRELEASED preview cards cropped from the AdeptiCon 2026 roadmap SLIDES (https://www.atomicmassgames.com/transmission/adepticon-2026-roadmap-star-wars-legion/), 'Leaders of the Separatist Alliance' (SWQ49, Q3 2026), slides 2400x1350. savage-opress-dookus-apprentice = the LOWER of the two Savage cards on slide _07 (Retinue: Count Dooku; the upper card is the Maul-retinue config, not in catalogue). for-the-cause = the lone command card on slide _08. Only the play/stats side is shown (no art side); ~700-900px PREVIEW quality. Both flagged in public/data/unreleased.json. Re-source from clean PnP when AMG publishes SWQ49.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
       "cards": [
-        { "category": "units", "slug": "savage-opress-dookus-apprentice", "side": "play", "file": "SWQ_2026_AdepticonSlides_07.png", "crop": { "left": 575, "top": 600, "width": 915, "height": 545 } },
-        { "category": "commands", "slug": "for-the-cause", "file": "SWQ_2026_AdepticonSlides_08.png", "crop": { "left": 1722, "top": 232, "width": 575, "height": 800 } }
+        {
+          "category": "units",
+          "slug": "savage-opress-dookus-apprentice",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_07.png",
+          "crop": {
+            "left": 575,
+            "top": 600,
+            "width": 915,
+            "height": 545
+          }
+        },
+        {
+          "category": "commands",
+          "slug": "for-the-cause",
+          "file": "SWQ_2026_AdepticonSlides_08.png",
+          "crop": {
+            "left": 1722,
+            "top": 232,
+            "width": 575,
+            "height": 800
+          }
+        }
+      ]
+    },
+    {
+      "source": "SWQ45_HondoWeequay",
+      "faction": "mercenary",
+      "note": "Scene to Stats: Hondo Ohnaka & Weequay Pirates (SWQ45). _Front=stats/play, _Back=art.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "weequay-pirates",
+          "side": "play",
+          "file": "SWQ45_UnitCard_1_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "weequay-pirates",
+          "side": "front",
+          "file": "SWQ45_UnitCard_1_Back.png"
+        },
+        {
+          "category": "units",
+          "slug": "hondo-ohnaka-trustworthy-compatriot",
+          "side": "play",
+          "file": "SWQ45_UnitCard_2_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "hondo-ohnaka-trustworthy-compatriot",
+          "side": "front",
+          "file": "SWQ45_UnitCard_2_Back.png"
+        }
+      ]
+    },
+    {
+      "source": "SWQ59_WLO5",
+      "faction": "mercenary",
+      "note": "Scene to Stats: WLO-5 Speeder Tank (SWQ59). _Front=stats/play, _Back=art.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "wlo-5-speeder-tank",
+          "side": "play",
+          "file": "SWQ59_UnitCard_1_Front.png"
+        },
+        {
+          "category": "units",
+          "slug": "wlo-5-speeder-tank",
+          "side": "front",
+          "file": "SWQ59_UnitCard_1_Back.png"
+        }
+      ]
+    },
+    {
+      "source": "SWQ69_MandoSuperCommandos",
+      "faction": "mercenary",
+      "note": "Scene to Stats: Mandalorian Super Commandos (SWQ69). UnitCard-1=play, -2=art.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/06",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "mandalorian-super-commandos",
+          "side": "play",
+          "file": "SWQ69en_UnitCard-1.png"
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-super-commandos",
+          "side": "front",
+          "file": "SWQ69en_UnitCard-2.jpg"
+        }
+      ]
+    },
+    {
+      "source": "SWQ81_MandoWarriors",
+      "faction": "mercenary",
+      "note": "Scene to Stats: Mandalorian Warriors (SWQ81). Individual cards, odd=play even=art.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/05",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "mandalorian-warriors",
+          "side": "play",
+          "file": "SWQ81en_UnitCards-1.png"
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-warriors",
+          "side": "front",
+          "file": "SWQ81en_UnitCards-2.png"
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-warriors-fire-support",
+          "side": "play",
+          "file": "SWQ81en_UnitCards-3.png"
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-warriors-fire-support",
+          "side": "front",
+          "file": "SWQ81en_UnitCards-4.png"
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-initiates",
+          "side": "play",
+          "file": "SWQ81en_UnitCards-5.png"
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-initiates",
+          "side": "front",
+          "file": "SWQ81en_UnitCards-6.png"
+        },
+        {
+          "category": "units",
+          "slug": "clan-kryze-veterans",
+          "side": "play",
+          "file": "SWQ81en_UnitCards-7.png"
+        },
+        {
+          "category": "units",
+          "slug": "clan-kryze-veterans",
+          "side": "front",
+          "file": "SWQ81en_UnitCards-8.png"
+        }
+      ]
+    },
+    {
+      "source": "SWQ82_MandoLeaders",
+      "faction": "mercenary",
+      "note": "Scene to Stats: Mandalorian Leaders (SWQ82). Axe Woves (u7/u8) intentionally omitted (DOC56-locked).",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/05",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "the-armorer-forging-the-future",
+          "side": "play",
+          "file": "03_SWQ82en_UnitCards-1.png"
+        },
+        {
+          "category": "units",
+          "slug": "the-armorer-forging-the-future",
+          "side": "front",
+          "file": "03_SWQ82en_UnitCards-2.png"
+        },
+        {
+          "category": "units",
+          "slug": "bo-katan-kryze-savior-of-mandalore",
+          "side": "play",
+          "file": "03_SWQ82en_UnitCards-5.png"
+        },
+        {
+          "category": "units",
+          "slug": "bo-katan-kryze-savior-of-mandalore",
+          "side": "front",
+          "file": "03_SWQ82en_UnitCards-6.png"
+        }
+      ]
+    },
+    {
+      "source": "DOC56_ClanSaxonErrata",
+      "faction": "mercenary",
+      "note": "DOC56 errata unit cards (individual page sheets). Page_15/16=Gar Saxon, 17/18=Rook Kast, 19/20=Super Commandos. png=play, jpg=art.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/06",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "gar-saxon-head-of-clan-saxon",
+          "side": "play",
+          "file": "DOC56_UnitCards_Page_15.png"
+        },
+        {
+          "category": "units",
+          "slug": "gar-saxon-head-of-clan-saxon",
+          "side": "front",
+          "file": "DOC56_UnitCards_Page_16.jpg"
+        },
+        {
+          "category": "units",
+          "slug": "rook-kast-devoted-to-the-cause",
+          "side": "play",
+          "file": "DOC56_UnitCards_Page_17.png"
+        },
+        {
+          "category": "units",
+          "slug": "rook-kast-devoted-to-the-cause",
+          "side": "front",
+          "file": "DOC56_UnitCards_Page_18.jpg"
+        },
+        {
+          "category": "units",
+          "slug": "super-commandos",
+          "side": "play",
+          "file": "DOC56_UnitCards_Page_19.png"
+        },
+        {
+          "category": "units",
+          "slug": "super-commandos",
+          "side": "front",
+          "file": "DOC56_UnitCards_Page_20.png"
+        }
+      ]
+    },
+    {
+      "source": "SWQ56_UrsaWren",
+      "faction": "mercenary",
+      "note": "Scene to Stats: Clan Wren Mandalorians (SWQ56). Ursa Wren play side (front-art side TBD; clan-wren-veterans is DOC56-locked).",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/06",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "ursa-wren-leader-of-clan-wren",
+          "side": "play",
+          "file": "SWQ56en_UnitCards-3.png"
+        },
+        {
+          "category": "units",
+          "slug": "ursa-wren-leader-of-clan-wren",
+          "side": "front",
+          "file": "SWQ56en_UnitCards-4.jpg"
+        }
+      ]
+    },
+    {
+      "source": "AdeptiCon2026_MercRoadmap",
+      "faction": "mercenary",
+      "note": "UNRELEASED preview cards cropped from AdeptiCon 2026 roadmap slides (2400x1350). han-chewie=SWQ57 Q4 2026 (s_09); mandalorian-leader/hunter=Customizable Mandalorian Leader & Hunter SWQ152 (s_24); paz-vizsla=Mandalorian Leaders (s_27); savage-opress-mauls-enforcer=UPPER Savage card on s_07 (Retinue: Maul, the mercenary version; the lower Retinue:Count Dooku one is the separatist savage sourced in P5). Play side only; preview quality. Flagged in unreleased.json.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "han-chewie-notorious-scoundrels",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_09.png",
+          "crop": {
+            "left": 502,
+            "top": 348,
+            "width": 802,
+            "height": 524
+          }
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-leader",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_24.png",
+          "crop": {
+            "left": 432,
+            "top": 156,
+            "width": 778,
+            "height": 524
+          }
+        },
+        {
+          "category": "units",
+          "slug": "mandalorian-hunter",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_24.png",
+          "crop": {
+            "left": 1253,
+            "top": 552,
+            "width": 818,
+            "height": 532
+          }
+        },
+        {
+          "category": "units",
+          "slug": "paz-vizsla-proud-warrior",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_27.png",
+          "crop": {
+            "left": 1349,
+            "top": 339,
+            "width": 851,
+            "height": 570
+          }
+        },
+        {
+          "category": "units",
+          "slug": "savage-opress-mauls-enforcer",
+          "side": "play",
+          "file": "SWQ_2026_AdepticonSlides_07.png",
+          "crop": {
+            "left": 678,
+            "top": 82,
+            "width": 772,
+            "height": 478
+          }
+        }
       ]
     }
   ]

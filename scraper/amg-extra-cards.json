@@ -598,6 +598,61 @@
           }
         }
       ]
+    },
+    {
+      "source": "SWQ31_GrievousWheelBike",
+      "faction": "separatists",
+      "note": "Scene to Stats: General Grievous' TSMEU-6 Wheel Bike (SWQ31). https://www.atomicmassgames.com/transmission/scene-to-stats-grievous-tsmeu6/ — UNIT files use the CODE_ prefix (AMG placeholder shipped to the live CDN), NOT SWQ31_; command cards use SWQ31_. Front/Back are INVERTED vs the usual convention: _Back = stats/play side, _Front = art side (verified by reading the PNGs). The generic TSMEU-6 Wheel Bikes (the separate corps unit) has NO first-party card image — it only appears as Grievous's Entourage; that slug stays unsourced.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/10",
+      "cards": [
+        { "category": "units", "slug": "general-grievous-wheel-bike-warlord", "side": "play", "file": "CODE_UnitCard_1_Back.png" },
+        { "category": "units", "slug": "general-grievous-wheel-bike-warlord", "side": "front", "file": "CODE_UnitCard_1_Front.png" },
+        { "category": "commands", "slug": "full-throttle", "file": "SWQ31_CommandCard_1.png" },
+        { "category": "commands", "slug": "pincer-attack", "file": "SWQ31_CommandCard_2.png" },
+        { "category": "commands", "slug": "ill-do-it-myself", "file": "SWQ31_CommandCard_3.png" }
+      ]
+    },
+    {
+      "source": "SWQ29_SuperTacticalCommandDroid",
+      "faction": "separatists",
+      "note": "Scene to Stats: Customizable Tactical Droids (SWQ29, pub 2025-09-24). https://www.atomicmassgames.com/transmission/scene-to-stats-customizable-tactical-droids/ — Two configs = two distinct unit cards. Despite the _Back suffix, UnitCard_1/2_Back ARE the stats/play side (verified); NO separate art side is published. Both command cards exist only as one side-by-side composite SWQ29_CommandCard_Fan.png (1463x1061): Tactical Download = LEFT card, Exterminate = RIGHT card, each cropped out.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09",
+      "cards": [
+        { "category": "units", "slug": "super-tactical-command-droid-command-and-control-droid", "side": "play", "file": "SWQ29_UnitCard_1_Back.png" },
+        { "category": "units", "slug": "super-tactical-command-droid-auxiliary-command-droid", "side": "play", "file": "SWQ29_UnitCard_2_Back.png" },
+        { "category": "commands", "slug": "tactical-download", "file": "SWQ29_CommandCard_Fan.png", "crop": { "left": 6, "top": 6, "width": 720, "height": 1049 } },
+        { "category": "commands", "slug": "exterminate", "file": "SWQ29_CommandCard_Fan.png", "crop": { "left": 737, "top": 6, "width": 720, "height": 1049 } }
+      ]
+    },
+    {
+      "source": "SWQ136_AquaDroids",
+      "faction": "separatists",
+      "note": "Scene to Stats: Aqua Droids (SWQ136). https://www.atomicmassgames.com/transmission/scene-to-stats-aqua-droids/ — un-suffixed file = stats/play side, _Back = art side (verified). Only the raw .png originals work; the .webp CDN variants return a 79-byte stub.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2024/11",
+      "cards": [
+        { "category": "units", "slug": "aqua-droids", "side": "play", "file": "12042024_SWQ136_AquaDroids.png" },
+        { "category": "units", "slug": "aqua-droids", "side": "front", "file": "12042024_SWQ136_AquaDroids_Back.png" }
+      ]
+    },
+    {
+      "source": "SWQ134_LM432CrabDroid",
+      "faction": "separatists",
+      "note": "LM-432 Crab Droid (SWQ134). https://www.atomicmassgames.com/character/lm-432-crab-droids/ — UnitCardFront = stats/play side, UnitCardBack = art side (verified). Only the raw .png originals work.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2024/11",
+      "cards": [
+        { "category": "units", "slug": "lm-432-crab-droid", "side": "play", "file": "SWQ134_CrabDroid_UnitCardFront.png" },
+        { "category": "units", "slug": "lm-432-crab-droid", "side": "front", "file": "SWQ134_CrabDroid_UnitCardBack.png" }
+      ]
+    },
+    {
+      "source": "AdeptiCon2026_SeparatistRoadmap",
+      "faction": "separatists",
+      "note": "UNRELEASED preview cards cropped from the AdeptiCon 2026 roadmap SLIDES (https://www.atomicmassgames.com/transmission/adepticon-2026-roadmap-star-wars-legion/), 'Leaders of the Separatist Alliance' (SWQ49, Q3 2026), slides 2400x1350. savage-opress-dookus-apprentice = the LOWER of the two Savage cards on slide _07 (Retinue: Count Dooku; the upper card is the Maul-retinue config, not in catalogue). for-the-cause = the lone command card on slide _08. Only the play/stats side is shown (no art side); ~700-900px PREVIEW quality. Both flagged in public/data/unreleased.json. Re-source from clean PnP when AMG publishes SWQ49.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/03",
+      "cards": [
+        { "category": "units", "slug": "savage-opress-dookus-apprentice", "side": "play", "file": "SWQ_2026_AdepticonSlides_07.png", "crop": { "left": 575, "top": 600, "width": 915, "height": 545 } },
+        { "category": "commands", "slug": "for-the-cause", "file": "SWQ_2026_AdepticonSlides_08.png", "crop": { "left": 1722, "top": 232, "width": 575, "height": 800 } }
+      ]
     }
   ]
 }

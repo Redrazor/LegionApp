@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.20.1',
+    date: '2026-06-20',
+    changes: [
+      'Fixed a batch of unit Build-badge portraits that were mis-cropped (showing card stripes or text instead of the character) after the recent official-image refresh — 24 portraits across the Rebel, Empire, Republic, Mandalorian, and Separatist factions are now correctly framed on the figure.',
+    ],
+  },
+  {
     version: '1.20.0',
     date: '2026-06-19',
     changes: [

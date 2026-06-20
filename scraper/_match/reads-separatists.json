@@ -1,0 +1,543 @@
+{
+  "units": [
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p01-00.webp",
+      "side": "play",
+      "slug": "b1-battle-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p01-01.webp",
+      "side": "front",
+      "slug": "b1-battle-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p01-20.webp",
+      "side": "play",
+      "slug": "b2-super-battle-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p01-21.webp",
+      "side": "front",
+      "slug": "b2-super-battle-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p02-10.webp",
+      "side": "play",
+      "slug": "geonosian-warriors-soldiers-of-the-hive"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p02-11.webp",
+      "side": "front",
+      "slug": "geonosian-warriors-soldiers-of-the-hive"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p03-00.webp",
+      "side": "play",
+      "slug": "bx-series-droid-commandos"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p03-01.webp",
+      "side": "front",
+      "slug": "bx-series-droid-commandos"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p03-11.webp",
+      "side": "play",
+      "slug": "bx-series-droid-commandos-strike-team"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p03-12.webp",
+      "side": "front",
+      "slug": "bx-series-droid-commandos-strike-team"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p03-22.webp",
+      "side": "play",
+      "slug": "ig-100-magnaguard"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p04-00.webp",
+      "side": "front",
+      "slug": "ig-100-magnaguard"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p04-10.webp",
+      "side": "play",
+      "slug": "ig-100-magnaguard-prototype-assassin-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p04-11.webp",
+      "side": "front",
+      "slug": "ig-100-magnaguard-prototype-assassin-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p05-00.webp",
+      "side": "play",
+      "slug": "droidekas"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p05-01.webp",
+      "side": "front",
+      "slug": "droidekas"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p05-10.webp",
+      "side": "play",
+      "slug": "stap-riders"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p05-11.webp",
+      "side": "front",
+      "slug": "stap-riders"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p05-22.webp",
+      "side": "play",
+      "slug": "dsd1-dwarf-spider-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p06-00.webp",
+      "side": "front",
+      "slug": "dsd1-dwarf-spider-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p06-10.webp",
+      "side": "play",
+      "slug": "aat-battle-tank"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p06-11.webp",
+      "side": "front",
+      "slug": "aat-battle-tank"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p06-12.webp",
+      "side": "play",
+      "slug": "persuader-class-tank-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p06-20.webp",
+      "side": "front",
+      "slug": "persuader-class-tank-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p06-21.webp",
+      "side": "play",
+      "slug": "persuader-class-tank-droid-prototype-tank-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p06-22.webp",
+      "side": "front",
+      "slug": "persuader-class-tank-droid-prototype-tank-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-00.webp",
+      "side": "play",
+      "slug": "general-grievous-sinister-cyborg"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-01.webp",
+      "side": "front",
+      "slug": "general-grievous-sinister-cyborg"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-02.webp",
+      "side": "play",
+      "slug": "count-dooku-darth-tyranus"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-10.webp",
+      "side": "front",
+      "slug": "count-dooku-darth-tyranus"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-11.webp",
+      "side": "play",
+      "slug": "t-series-tactical-droid-programmed-for-strategy"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-12.webp",
+      "side": "front",
+      "slug": "t-series-tactical-droid-programmed-for-strategy"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-20.webp",
+      "side": "play",
+      "slug": "kraken-super-tactical-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-21.webp",
+      "side": "front",
+      "slug": "kraken-super-tactical-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p07-22.webp",
+      "side": "play",
+      "slug": "kalani-super-tactical-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-00.webp",
+      "side": "front",
+      "slug": "kalani-super-tactical-droid"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-01.webp",
+      "side": "play",
+      "slug": "poggle-the-lesser-public-leader-of-the-geonosians"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-02.webp",
+      "side": "front",
+      "slug": "poggle-the-lesser-public-leader-of-the-geonosians"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-10.webp",
+      "side": "play",
+      "slug": "maul-impatient-apprentice"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-11.webp",
+      "side": "front",
+      "slug": "maul-impatient-apprentice"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-12.webp",
+      "side": "play",
+      "slug": "drk-1-sith-probe-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-20.webp",
+      "side": "front",
+      "slug": "drk-1-sith-probe-droids"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-21.webp",
+      "side": "play",
+      "slug": "asajj-ventress-separatist-assassin"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p08-22.webp",
+      "side": "front",
+      "slug": "asajj-ventress-separatist-assassin"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p09-00.webp",
+      "side": "play",
+      "slug": "sun-fac-ruthless-lieutenant"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p09-01.webp",
+      "side": "front",
+      "slug": "sun-fac-ruthless-lieutenant"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p09-02.webp",
+      "side": "play",
+      "slug": "geonosian-warriors-geonosian-engineers"
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Units_05-01_Update-p09-21.webp",
+      "side": "front",
+      "slug": "geonosian-warriors-geonosian-engineers"
+    }
+  ],
+  "commands": [
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-00.webp",
+      "name": "Mechanized Incursion",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-01.webp",
+      "name": "Roger, Roger!",
+      "pips": 3
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-02.webp",
+      "name": "Orbital Strike",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-10.webp",
+      "name": "Duel of the Fates",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-11.webp",
+      "name": "The Phantom Menace",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-12.webp",
+      "name": "At Last",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-20.webp",
+      "name": "AI Coordination",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-21.webp",
+      "name": "Unrelenting Assault",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p01-22.webp",
+      "name": "Unstoppable Advance",
+      "pips": 3
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-00.webp",
+      "name": "Let the Executions Begin!",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-01.webp",
+      "name": "We Serve the Queen",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-02.webp",
+      "name": "We Make Weapons",
+      "pips": 3
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-10.webp",
+      "name": "Brutal Enforcer",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-11.webp",
+      "name": "The Jedi Shall Fall",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-12.webp",
+      "name": "I Am Fear",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-20.webp",
+      "name": "Yes, My Master",
+      "pips": 3
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-21.webp",
+      "name": "You Disappoint Me",
+      "pips": 3
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p02-22.webp",
+      "name": "Double the Fall",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-00.webp",
+      "name": "Fear, Surprise, Intimidation",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-01.webp",
+      "name": "The Sith Will Rule",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-02.webp",
+      "name": "Trained in Your Jedi Arts",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-10.webp",
+      "name": "Supreme Commander",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-11.webp",
+      "name": "Crush Them!",
+      "pips": 3
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-12.webp",
+      "name": "They Too Will Suffer",
+      "pips": 1
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-20.webp",
+      "name": "Preservation Protocols",
+      "pips": 2
+    },
+    {
+      "file": "DOC13_SeparatistAlliance_Commands-p03-21.webp",
+      "name": "Do Not Underestimate Our Means",
+      "pips": 3
+    }
+  ],
+  "upgrades": [
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p01-00.webp",
+      "name": "E-60R B1 Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p01-01.webp",
+      "name": "E-5C B1 Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p01-02.webp",
+      "name": "Radiation Cannon B1 Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p02-00.webp",
+      "name": "E-5s B1 Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p02-10.webp",
+      "name": "B2-ACM Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p02-20.webp",
+      "name": "B2-HA Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p03-00.webp",
+      "name": "Force Pike Warrior",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p03-20.webp",
+      "name": "Sonic Cannon Warrior",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p04-00.webp",
+      "name": "BX-Series Droid Sniper",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p04-11.webp",
+      "name": "Dioxis Mine Saboteur",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p04-22.webp",
+      "name": "Electro-Whip MagnaGuard",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p05-02.webp",
+      "name": "RPS-6 MagnaGuard",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p05-12.webp",
+      "name": "IG-100 MagnaGuard",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p05-22.webp",
+      "name": "B1 Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p06-00.webp",
+      "name": "B1 Security Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p06-10.webp",
+      "name": "B1 Battle Droid Squad",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p06-20.webp",
+      "name": "OOM-Series Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p07-02.webp",
+      "name": "EV-Series Medical Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p07-12.webp",
+      "name": "PK-Series Worker Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p07-22.webp",
+      "name": "T-Series Tactical Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p08-02.webp",
+      "name": "Viper Recon Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p08-12.webp",
+      "name": "B2 Super Battle Droid",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p08-22.webp",
+      "name": "B2 Super Battle Droid Squad",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p09-02.webp",
+      "name": "Geonosian Warrior",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p09-12.webp",
+      "name": "Geonosian Warrior Squad",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p09-22.webp",
+      "name": "OOM-Series Droid Pilot",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p10-00.webp",
+      "name": "T-Series Tactical Droid Pilot",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p10-01.webp",
+      "name": "Lok Durd",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p10-02.webp",
+      "name": "Nose-Mounted Ion Blaster",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p10-11.webp",
+      "name": "Nose-Mounted Flamethrower",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p10-20.webp",
+      "name": "Nose-Mounted Laser Cannon",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p10-22.webp",
+      "name": "BX Vibroswords",
+      "title": null
+    },
+    {
+      "file": "DOC51_SeparatistAlliance_Upgrades-p11-10.webp",
+      "name": "BX Deflector Shields",
+      "title": null
+    }
+  ]
+}

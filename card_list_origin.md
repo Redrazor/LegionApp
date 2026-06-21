@@ -8,9 +8,9 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 
 | source | count |
 |---|---|
-| AMG PnP (re-sourced) | 673 |
+| AMG PnP (re-sourced) | 682 |
 | AMG DOC56 (self-sourced) | 14 |
-| **Legion HQ 2 (to expunge)** | **189** |
+| **Legion HQ 2 (to expunge)** | **180** |
 | total | 876 |
 
 ## units (180) — AMG 178 / LHQ2 2
@@ -861,14 +861,14 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `you-would-question-me` | You Would Question Me? | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `z-6-jetpack-rocket` | Z-6 Jetpack Rocket | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 
-## battle (43) — AMG 34 / LHQ2 9
+## battle (43) — AMG 43 / LHQ2 0
 
 | slug | card | source |
 |---|---|---|
 | `advanced-intel` | Advanced Intel | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `advanced-intel-2` | Advanced Intel | AMG DOC13_ReconRulebook_04302025.pdf |
-| `align-the-relay` | Align the Relay | LHQ2 |
-| `armored-assault` | Armored Assault | LHQ2 |
+| `align-the-relay` | Align the Relay | AMG OwnerPhotos_BattleDeckCardPackII |
+| `armored-assault` | Armored Assault | AMG OwnerPhotos_BattleDeckCardPackII |
 | `black-ops` | Black Ops | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `breakthrough` | Breakthrough | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `bring-them-to-heel` | Bring Them to Heel | AMG DOC41_BattleCards_11.26.2025.pdf |
@@ -879,13 +879,13 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `close-the-pocket` | Close the Pocket | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `close-the-pocket-2` | Close the Pocket | AMG DOC13_ReconRulebook_04302025.pdf |
 | `command-override` | Command Override | AMG DOC41_BattleCards_11.26.2025.pdf |
-| `contact-contact` | Contact, Contact! | LHQ2 |
+| `contact-contact` | Contact, Contact! | AMG OwnerPhotos_BattleDeckCardPackII |
 | `coordinated-strike` | Coordinated Strike | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `cunning-deployment` | Cunning Deployment | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `cunning-deployment-2` | Cunning Deployment | AMG DOC13_ReconRulebook_04302025.pdf |
 | `destroy-enemy-base` | Destroy Enemy Base | AMG DOC41_BattleCards_11.26.2025.pdf |
-| `extreme-discipline` | Extreme Discipline | LHQ2 |
-| `failed-negotiations` | Failed Negotiations | LHQ2 |
+| `extreme-discipline` | Extreme Discipline | AMG OwnerPhotos_BattleDeckCardPackII |
+| `failed-negotiations` | Failed Negotiations | AMG OwnerPhotos_BattleDeckCardPackII |
 | `fortified-position` | Fortified Position | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `fortified-position-2` | Fortified Position | AMG DOC13_ReconRulebook_04302025.pdf |
 | `garrison` | Garrison | AMG DOC41_BattleCards_11.26.2025.pdf |
@@ -895,13 +895,13 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `no-time-to-lose` | No Time to Lose | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `ordnance` | Ordnance | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `outflank` | Outflank | AMG DOC41_BattleCards_11.26.2025.pdf |
-| `payload` | Payload | LHQ2 |
-| `rapid-deployment` | Rapid Deployment | LHQ2 |
+| `payload` | Payload | AMG OwnerPhotos_BattleDeckCardPackII |
+| `rapid-deployment` | Rapid Deployment | AMG OwnerPhotos_BattleDeckCardPackII |
 | `recon-mission` | Recon Mission | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `recon-mission-2` | Recon Mission | AMG DOC13_ReconRulebook_04302025.pdf |
 | `recover-the-research` | Recover the Research | AMG DOC41_BattleCards_11.26.2025.pdf |
-| `retrieve-the-data` | Retrieve the Data | LHQ2 |
-| `scrambled-orders` | Scrambled Orders | LHQ2 |
+| `retrieve-the-data` | Retrieve the Data | AMG OwnerPhotos_BattleDeckCardPackII |
+| `scrambled-orders` | Scrambled Orders | AMG OwnerPhotos_BattleDeckCardPackII |
 | `shifting-priorities` | Shifting Priorities | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `strafing-run` | Strafing Run | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `supply-run` | Supply Run | AMG DOC41_BattleCards_11.26.2025.pdf |

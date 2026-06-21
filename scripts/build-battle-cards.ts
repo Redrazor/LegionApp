@@ -18,7 +18,7 @@
 
 import { execFile } from 'child_process'
 import { promisify } from 'util'
-import { mkdir, rm, readFile, writeFile, readdir } from 'fs/promises'
+import { mkdir, rm, readFile, writeFile, readdir, copyFile } from 'fs/promises'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
@@ -137,6 +137,21 @@ async function main() {
     console.warn('  ! DOC41 cells absent — run `npm run amg:extract -- --category battle` to stage the standard deck')
   }
 
+  // --- Battle Deck Card Pack II (9 cards): owner-supplied photos of the physical cards
+  // (no AMG PnP exists). The cards were straightened/cropped with scripts/rectify-card.ts +
+  // split-cards.ts (per-card seam crops hand-tuned, see that commit) and the two primaries
+  // composited; the FINAL cards are kept as durable tracked assets under amg-assets/pack2/
+  // (the photos are not in the repo), and copied into the staging dir here.
+  const PACK2_ASSETS = join(ROOT, 'scraper', 'amg-assets', 'pack2')
+  await mkdir(join(OUT_DIR, 'pack2'), { recursive: true })
+  if (await exists(PACK2_ASSETS)) {
+    let n = 0
+    for (const f of (await readdir(PACK2_ASSETS)).filter((x) => x.endsWith('.webp'))) {
+      await copyFile(join(PACK2_ASSETS, f), join(OUT_DIR, 'pack2', f)); n++
+    }
+    console.log(`  ✓ Pack II: ${n} owner-sourced cards copied from amg-assets/pack2/`)
+  }
+
   // --- Emit battle entries into amg-card-map.json (consumed by images:validate + amg:apply) ---
   // Derive from the staged dirs so the map always matches what's on disk. Each dir maps to
   // the source it came from; errata/cauldron.webp is the slug `cauldron`.
@@ -145,6 +160,7 @@ async function main() {
     standard: 'DOC41_BattleCards_11.26.2025.pdf',
     recon: 'DOC13_ReconRulebook_04302025.pdf',
     errata: 'DOC56_ErrataReference-2.pdf',
+    pack2: 'OwnerPhotos_BattleDeckCardPackII',
   }
   const battleEntries: { category: 'battle'; slug: string; sourcePdf: string; extractedFile: string }[] = []
   for (const dir of Object.keys(SRC)) {
@@ -161,7 +177,7 @@ async function main() {
   console.log(`  ✓ wrote ${battleEntries.length} battle entries → amg-card-map.json`)
 
   await rm(TMP, { recursive: true, force: true })
-  console.log('Done. Staged recon (9) + cauldron (1) + DOC41 standard (24) → scraper/amg-cards/battle/.')
+  console.log('Done. Staged recon (9) + cauldron (1) + DOC41 standard (24) + Pack II (9) → scraper/amg-cards/battle/.')
 }
 
 async function exists(p: string): Promise<boolean> {

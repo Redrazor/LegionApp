@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.24.0',
+    date: '2026-06-21',
+    changes: [
+      'Battle cards are now sourced from official Atomic Mass Games files — all 24 Standard battle cards (advantages, secondaries, and the primary objectives with their battlefield maps) plus all 9 Recon (600-point) battle cards, re-sourced first-party with crisp art.',
+      'The Cauldron objective card was rebuilt from AMG’s errata reference plus its battlefield map. (Nine newest battle cards from Battle Deck Card Pack II keep their existing art until AMG publishes a print-and-play for that pack.)',
+    ],
+  },
+  {
     version: '1.23.0',
     date: '2026-06-21',
     changes: [

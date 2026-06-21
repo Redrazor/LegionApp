@@ -58,6 +58,19 @@ export const AMG_SOURCES: AmgSource[] = [
 ]
 
 /**
+ * PDFs that `scripts/build-battle-cards.ts` processes specially because they are NOT clean
+ * 3×3 PnP sheets (so amgExtract can't handle them) — kept out of AMG_SOURCES for that reason:
+ *  - DOC13_ReconRulebook: the 9 Recon battle cards, on a cut-mark grid (pp.5–6).
+ *  - DOC56_ErrataReference-2: the errata'd Cauldron objective TEXT card (p11). Its Map Card
+ *    is owner-supplied (no AMG PnP) and lives at scraper/amg-assets/cauldron-map.png.
+ * Downloaded by amg:fetch alongside AMG_SOURCES; consumed only by build-battle-cards.
+ */
+export const BATTLE_BUILD_SOURCES: string[] = [
+  `${CDN}/2025/04/DOC13_ReconRulebook_04302025.pdf`,
+  `${CDN}/2026/06/DOC56_ErrataReference-2.pdf`,
+]
+
+/**
  * Card slugs whose scans we sourced ourselves from AMG DOC56 (the 2026-06-17
  * Mandalorian errata + PnP refresh, commit c61ac31). These are never overwritten
  * by the re-source pipeline — they are already first-party and current.

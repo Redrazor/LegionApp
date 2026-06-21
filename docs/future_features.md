@@ -501,9 +501,22 @@ npx -y firebase-tools deploy --only hosting   # deploy so prod doesn't 404 (vers
       fullest card, Intercept Signals, which fills to ~960) above the map card (left title spine cropped 100px,
       rotated 90° CW into a landscape strip). Output **726×1422**, matching the LHQ2 ~726×1450 primaries
       near-exactly (verified vs OLD shifting-priorities + intercept-signals). `computeLayout` is pure + unit-tested.
-      STILL TODO for P7b: pair each primary's text↔map cell (some have 2 maps — standard + recon variant),
-      composite them, plus the matcher for advantages/secondaries (single-faced → apply direct) + the 4 pip
-      commands (→P7c) + the 19 owner-PDF cards.
+    - **SHIPPED 34/43 (this branch `feature/amg-image-resource-p7b`).** Sources, all codified in
+      `scripts/build-battle-cards.ts` (`npm run amg:battle`) so they reproduce despite the git-ignored image dir:
+      - **24 standard from DOC41** — 17 single adv/sec (copied) + 7 primaries composited via `compositePrimary`
+        (the 3 dup-map primaries intercept/bunker/close: the FIRST map cell is standard — verified vs LHQ2 — the
+        2nd is the recon map). DOC41 cells come from `amg:extract --category battle`.
+      - **9 Recon from `DOC13_ReconRulebook` pp.5–6** (owner-supplied) — laid out on a **print cut-mark grid**
+        (detected by scanning the margin strips: x=186/912/1638/2364, y=809/1848/2887 → 726×1039 cells, 300dpi).
+        Adv/sec are single cards; primaries are two stacked cells (map row0 / text row1) → `compositePrimary`.
+      - **Cauldron from `DOC56_ErrataReference-2` p11** (errata'd objective TEXT card) + **owner-supplied Map Card**
+        (no AMG PnP exists; preserved at `scraper/amg-assets/cauldron-map.png`) composited text-top/map-bottom.
+      `BATTLE_BUILD_SOURCES` (amgNormalise) makes amg:fetch pull the rulebook + errata; `build-battle-cards`
+      emits the 34 battle entries into `amg-card-map.json`. **9 still LHQ2 = Battle Deck Card Pack II** (released
+      2026-03-20: payload, contact-contact, retrieve-the-data, failed-negotiations, align-the-relay,
+      scrambled-orders, extreme-discipline, armored-assault, rapid-deployment) — **no AMG PnP found** (only the
+      3rd-party Legion Helper site), so they stay LHQ2 until AMG ships a Pack II PnP. The DOC41 page-4 pip
+      commands → P7c. Minor bump 1.24.0; DEPLOY skipped (batch later).
   - **P7c — remaining commands (31) + units (2):** 4 generic pips from DOC41 pg4; ~27 named Mandalorian/faction
     commands from the command PDFs/transmissions; the 2 LHQ2 units from transmission/faction sources.
 - **P8 — 2.0 cutover:** flip `image-coverage.spec.ts` to a hard assert (every slug has a scan, empty the

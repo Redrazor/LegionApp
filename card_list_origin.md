@@ -8,9 +8,9 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 
 | source | count |
 |---|---|
-| AMG PnP (re-sourced) | 639 |
+| AMG PnP (re-sourced) | 673 |
 | AMG DOC56 (self-sourced) | 14 |
-| **Legion HQ 2 (to expunge)** | **223** |
+| **Legion HQ 2 (to expunge)** | **189** |
 | total | 876 |
 
 ## units (180) — AMG 178 / LHQ2 2
@@ -861,50 +861,50 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `you-would-question-me` | You Would Question Me? | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `z-6-jetpack-rocket` | Z-6 Jetpack Rocket | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 
-## battle (43) — AMG 0 / LHQ2 43
+## battle (43) — AMG 34 / LHQ2 9
 
 | slug | card | source |
 |---|---|---|
-| `advanced-intel` | Advanced Intel | LHQ2 |
-| `advanced-intel-2` | Advanced Intel | LHQ2 |
+| `advanced-intel` | Advanced Intel | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `advanced-intel-2` | Advanced Intel | AMG DOC13_ReconRulebook_04302025.pdf |
 | `align-the-relay` | Align the Relay | LHQ2 |
 | `armored-assault` | Armored Assault | LHQ2 |
-| `black-ops` | Black Ops | LHQ2 |
-| `breakthrough` | Breakthrough | LHQ2 |
-| `bring-them-to-heel` | Bring Them to Heel | LHQ2 |
-| `bring-them-to-heel-2` | Bring Them to Heel | LHQ2 |
-| `bunker-assault` | Bunker Assault | LHQ2 |
-| `bunker-assault-2` | Bunker Assault | LHQ2 |
-| `cauldron` | Cauldron | LHQ2 |
-| `close-the-pocket` | Close the Pocket | LHQ2 |
-| `close-the-pocket-2` | Close the Pocket | LHQ2 |
-| `command-override` | Command Override | LHQ2 |
+| `black-ops` | Black Ops | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `breakthrough` | Breakthrough | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `bring-them-to-heel` | Bring Them to Heel | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `bring-them-to-heel-2` | Bring Them to Heel | AMG DOC13_ReconRulebook_04302025.pdf |
+| `bunker-assault` | Bunker Assault | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `bunker-assault-2` | Bunker Assault | AMG DOC13_ReconRulebook_04302025.pdf |
+| `cauldron` | Cauldron | AMG DOC56_ErrataReference-2.pdf |
+| `close-the-pocket` | Close the Pocket | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `close-the-pocket-2` | Close the Pocket | AMG DOC13_ReconRulebook_04302025.pdf |
+| `command-override` | Command Override | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `contact-contact` | Contact, Contact! | LHQ2 |
-| `coordinated-strike` | Coordinated Strike | LHQ2 |
-| `cunning-deployment` | Cunning Deployment | LHQ2 |
-| `cunning-deployment-2` | Cunning Deployment | LHQ2 |
-| `destroy-enemy-base` | Destroy Enemy Base | LHQ2 |
+| `coordinated-strike` | Coordinated Strike | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `cunning-deployment` | Cunning Deployment | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `cunning-deployment-2` | Cunning Deployment | AMG DOC13_ReconRulebook_04302025.pdf |
+| `destroy-enemy-base` | Destroy Enemy Base | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `extreme-discipline` | Extreme Discipline | LHQ2 |
 | `failed-negotiations` | Failed Negotiations | LHQ2 |
-| `fortified-position` | Fortified Position | LHQ2 |
-| `fortified-position-2` | Fortified Position | LHQ2 |
-| `garrison` | Garrison | LHQ2 |
-| `intercept-signals` | Intercept Signals | LHQ2 |
-| `intercept-signals-2` | Intercept Signals | LHQ2 |
-| `marked-targets` | Marked Targets | LHQ2 |
-| `no-time-to-lose` | No Time to Lose | LHQ2 |
-| `ordnance` | Ordnance | LHQ2 |
-| `outflank` | Outflank | LHQ2 |
+| `fortified-position` | Fortified Position | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `fortified-position-2` | Fortified Position | AMG DOC13_ReconRulebook_04302025.pdf |
+| `garrison` | Garrison | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `intercept-signals` | Intercept Signals | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `intercept-signals-2` | Intercept Signals | AMG DOC13_ReconRulebook_04302025.pdf |
+| `marked-targets` | Marked Targets | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `no-time-to-lose` | No Time to Lose | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `ordnance` | Ordnance | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `outflank` | Outflank | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `payload` | Payload | LHQ2 |
 | `rapid-deployment` | Rapid Deployment | LHQ2 |
-| `recon-mission` | Recon Mission | LHQ2 |
-| `recon-mission-2` | Recon Mission | LHQ2 |
-| `recover-the-research` | Recover the Research | LHQ2 |
+| `recon-mission` | Recon Mission | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `recon-mission-2` | Recon Mission | AMG DOC13_ReconRulebook_04302025.pdf |
+| `recover-the-research` | Recover the Research | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `retrieve-the-data` | Retrieve the Data | LHQ2 |
 | `scrambled-orders` | Scrambled Orders | LHQ2 |
-| `shifting-priorities` | Shifting Priorities | LHQ2 |
-| `strafing-run` | Strafing Run | LHQ2 |
-| `supply-run` | Supply Run | LHQ2 |
-| `surface-scan` | Surface Scan | LHQ2 |
-| `surface-scan-2` | Surface Scan | LHQ2 |
-| `sweep-and-clear` | Sweep and Clear | LHQ2 |
+| `shifting-priorities` | Shifting Priorities | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `strafing-run` | Strafing Run | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `supply-run` | Supply Run | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `surface-scan` | Surface Scan | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `surface-scan-2` | Surface Scan | AMG DOC13_ReconRulebook_04302025.pdf |
+| `sweep-and-clear` | Sweep and Clear | AMG DOC41_BattleCards_11.26.2025.pdf |

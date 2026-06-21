@@ -306,10 +306,11 @@ as an "unmatched staged front" — a real AMG card with no catalogue slug).
 **Status:** in progress. **SHIPPED:** P1 tooling (PR #65); P2 empire v1.18.0 (#67); P3 republic v1.19.0 (#68);
 P4 rebels v1.20.0 (#69); P5 separatists v1.21.0 (#71); P6 mercenary+ewoks v1.22.0 (#72); **P7a generic upgrades
 v1.23.0 (#73)**; **P7b battle 34/43 v1.24.0 (#74)**; **P7b.1 battle 43/43 — Pack II from owner photos — v1.25.0
-(#75)**. **REMAINING:** **P7c** commands (31) + units (2); **P7d** uncaught faction upgrades (147) + 12
-pre-existing map dups; **P8** 2.0 cutover (flip image-coverage to hard assert, assert 0 LHQ2, reword
-CLAUDE.md/README to first-party AMG, `npm version major` → 2.0.0). **Current LHQ2 baseline = 180**
-(units 2, upgrades 147, commands 31, battle 0). **DEPLOY PENDING:** P7a+P7b+P7b.1 images are applied locally
+(#75)**; **P7c commands 31→11 v1.26.0 (#76)**; **P7d upgrades 147→81 (this branch)**. **REMAINING:** **P7c.1**
+11 commands (need owner photos); **P7d.1** 81 upgrades with NO first-party PnP (see P7d below); **P8** 2.0 cutover
+(flip image-coverage to hard assert, assert 0 LHQ2, reword CLAUDE.md/README to first-party AMG, `npm version major`
+→ 2.0.0). **Current LHQ2 baseline = 92** (units 0, upgrades 81, commands 11, battle 0) + **59 noImage placeholders**
+(2 units + 57 legacy upgrades, no external image). **DEPLOY PENDING:** P7a+P7b+P7b.1 images are applied locally
 but NOT yet pushed to Firebase (owner batched them) — run `images:compress` + `npx -y firebase-tools deploy
 --only hosting` to make the new art live; the version bumps already bust the `?v=` CDN cache. Detail per phase
 below + in memory `feature-13-p7-cleanup`. 8-phase rollout follows.
@@ -486,13 +487,28 @@ npx -y firebase-tools deploy --only hosting   # deploy so prod doesn't 404 (vers
     `offensive-stance` only; likely its flip side → Feature 15 / catalogue-data). Awaiting owner OLD-vs-NEW
     validation → apply → seed → origins. The 2 "missing scans" (`dc-15-clone-trooper`, `youre-not-all-the-same-to-me`)
     are NOT in these generic PDFs → they fall to P7d.
-  - **P7d — uncaught faction upgrades (147).** SURFACED during P7a: after the 86 generic upgrades, **147 of the
-    original 233 LHQ2 upgrades remain** — they are faction/weapon/character upgrades (Combat Shields, DLT-19D,
-    GALAAR-15 Carbine, Ahsoka Tano, Clan Wren, the 2 missing-scan upgrades…) that live in the FACTION upgrade PDFs
-    (`DOC51_<Faction>_Upgrades`, `DOC13_Mercenary_Upgrades`) but were never matched in P2–P6. Also surfaced: the
-    map already carries **12 pre-existing duplicate upgrade slugs** from P2–P6 (a card matched in two faction PDFs,
-    e.g. `ag-2g-quad-laser` Rebel+Mercenary, `a280` twice from the Rebel pack) — clean these up here. Needs its own
-    extract+match pass over the faction upgrade PDFs.
+  - **P7d — upgrades 147→81 (this branch `feature/amg-image-resource-p7d`).** The P7a hypothesis — "the 147 remaining
+    LHQ2 upgrades live unmatched in the faction `DOC51_<Faction>_Upgrades`/`DOC13_Mercenary_Upgrades` PDFs" — turned out
+    **FALSE**. A full vision-read pass over EVERY unread non-blank cell across all 7 upgrade PDFs (5 faction + `DOC51_Generic_Upgrades`
+    22pp + `DOC51_UpgradeCards` 5pp + `DOC51_GalacticEmpire_Upgrades`) matched only **9** of the 147 — all republic clone
+    upgrades (`clone-captain`, `clone-commander`, `clone-medic`, `clone-shock-trooper-pilot`, `gnasp-gunner`,
+    `mortar-clone-trooper`, `rps-6-clone-trooper`, `twin-laser-turret`, `waxer`). The OTHER **~138 simply are not in any
+    AMG PnP we hold.** They split into: legacy 1st-ed generics v2 replaced (lightsaber, jedi-training×4, thermal-detonator,
+    combat-shields, the generic melee/heavy-weapon/comms gear); legacy empire personnel upgrades whose v2 successors are
+    already AMG (`shoretrooper`, `dlt-19d-trooper`, `t-7-ion-snowtrooper`, `imperial-dark-trooper`…); and **current-v2
+    expansion cards AMG has not published as PnP** (characters Ahsoka/Shaak-Ti/Din-Djarin/Sabine/Bo-Katan/Armorer, the
+    Pyke/Black-Sun/Weequay syndicate upgrades, GALAAR-15/Beskar mando gear, the Ewok upgrades).
+    - **APPLIED 9** — appended to `reads-republic.json`, `build-card-map --faction republic`, `amg:apply` (9 added to
+      `amg-approvals.json` after visual verify). Upgrades AMG 271→**280**.
+    - **DROPPED 57 legacy → `unreleased.json` `noImage`** (owner directive: drop the clearly-legacy v1 cards like the 2
+      units in f2f88e6; same `cardImage:null` placeholder via `src/utils/unreleased.ts`, scans expunged). 31 generic +
+      8 jedi-training + 18 empire-legacy. Kept 4 ambiguous-but-likely-current (`electrostaff-pirate`, `herbal-medicine`,
+      `secret-ingredients`, `dual-armaments`) on the photos pile.
+    - **12 pre-existing dup upgrade slugs cleaned** (a card reprinted in two packs, e.g. `at-rt-laser-cannon` Rebel+Republic,
+      `a280` twice in the Rebel pack). Fix codified in `build-card-map.ts` (new cross-pack `alreadyUpg` skip, mirroring
+      `build-card-map-generic`) so a full rebuild stays deduped — not just a one-time map edit. Unique upgrade map slugs 275.
+    - **REMAINING 81 → P7d.1** (= 81 LHQ2 upgrades: ~24 current-v2 expansion cards needing owner photos + the rest legacy
+      the owner may also choose to drop). Mirrors P7c.1's owner-photo path. Upgrades now AMG 280 / LHQ2 81 / none 57.
   - **P7b — battle deck (43):** `DOC41_BattleCards_11.26.2025` covers only **24/43** (it is the Standard deck,
     dated 11.26.2025). DOC41 splits each **primary objective** into a separate TEXT card + landscape **Map Card**
     (the text reads "as shown on the … Map Card"); the catalogue stores ONE combined image per primary, so the

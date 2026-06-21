@@ -65,17 +65,28 @@ for (const r of reads.commands) {
   else gaps.push(`commands · "${r.name}" (${r.file}) → ${m ? `AMBIGUOUS ${JSON.stringify((m as any).ambiguous)}` : 'no match'}`)
 }
 
+// Prior map with this faction's PDFs stripped (re-runnable). Upgrade slugs it still
+// carries were sourced from ANOTHER faction's pack — many cards are reprinted across
+// packs (e.g. at-rt-laser-cannon in Rebel + Republic, the Wookiee shields), so we must
+// NOT re-point them or the map carries two entries for one slug. First pack to source
+// it wins. (Mirrors build-card-map-generic's same guard.)
+let existing: MapEntry[] = existsSync(MAP_PATH) ? JSON.parse(readFileSync(MAP_PATH, 'utf8')) : []
+existing = existing.filter((e) => !SOURCE_PDFS.has(e.sourcePdf))
+const alreadyUpg = new Set(existing.filter((e) => e.category === 'upgrades').map((e) => e.slug))
+const batchUpg = new Set<string>()
+
 // --- Upgrades: explicit `slug` wins (same-name cards like the two "Echo"s), else match
 // by name (+title) against the full upgrade catalogue. ---
 for (const r of reads.upgrades) {
   const m = r.slug ? ({ slug: r.slug } as const) : matchCard(r.name, r.title ?? null, candUpgrades)
-  if (m && 'slug' in m) { matchedUpg++; map.push({ category: 'upgrades', slug: m.slug, sourcePdf: UPG_PDF, extractedFile: `upgrades/${faction}/${r.file}` }) }
+  if (m && 'slug' in m) {
+    if (batchUpg.has(m.slug) || alreadyUpg.has(m.slug)) continue // duplicate print / reprint in another pack
+    batchUpg.add(m.slug); matchedUpg++
+    map.push({ category: 'upgrades', slug: m.slug, sourcePdf: UPG_PDF, extractedFile: `upgrades/${faction}/${r.file}` })
+  }
   else gaps.push(`upgrades · "${r.name}"${r.title ? ` / ${r.title}` : ''} (${r.file}) → ${m ? `AMBIGUOUS ${JSON.stringify((m as any).ambiguous)}` : 'no match'}`)
 }
 
-// Merge into any existing map (replace only this faction's source PDFs).
-let existing: MapEntry[] = existsSync(MAP_PATH) ? JSON.parse(readFileSync(MAP_PATH, 'utf8')) : []
-existing = existing.filter((e) => !SOURCE_PDFS.has(e.sourcePdf))
 const merged = [...existing, ...map].sort((a, b) => a.category.localeCompare(b.category) || a.slug.localeCompare(b.slug))
 writeFileSync(MAP_PATH, JSON.stringify(merged, null, 2) + '\n')
 

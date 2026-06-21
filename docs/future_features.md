@@ -303,9 +303,16 @@ as an "unmatched staged front" — a real AMG card with no catalogue slug).
 
 ## Feature 13 — 2.0: re-source every card image from official AMG PnP PDFs
 
-**Status:** in progress — **P1** tooling SHIPPED (PR #65, chore); **P2 empire** SHIPPED v1.18.0 (PR #67);
-**P3 republic** SHIPPED v1.19.0 (PR #68); **P4 rebels** SHIPPED v1.20.0. P5–P6 + P7–P8 pending. 8-phase
-rollout below.
+**Status:** in progress. **SHIPPED:** P1 tooling (PR #65); P2 empire v1.18.0 (#67); P3 republic v1.19.0 (#68);
+P4 rebels v1.20.0 (#69); P5 separatists v1.21.0 (#71); P6 mercenary+ewoks v1.22.0 (#72); **P7a generic upgrades
+v1.23.0 (#73)**; **P7b battle 34/43 v1.24.0 (#74)**; **P7b.1 battle 43/43 — Pack II from owner photos — v1.25.0
+(#75)**. **REMAINING:** **P7c** commands (31) + units (2); **P7d** uncaught faction upgrades (147) + 12
+pre-existing map dups; **P8** 2.0 cutover (flip image-coverage to hard assert, assert 0 LHQ2, reword
+CLAUDE.md/README to first-party AMG, `npm version major` → 2.0.0). **Current LHQ2 baseline = 180**
+(units 2, upgrades 147, commands 31, battle 0). **DEPLOY PENDING:** P7a+P7b+P7b.1 images are applied locally
+but NOT yet pushed to Firebase (owner batched them) — run `images:compress` + `npx -y firebase-tools deploy
+--only hosting` to make the new art live; the version bumps already bust the `?v=` CDN cache. Detail per phase
+below + in memory `feature-13-p7-cleanup`. 8-phase rollout follows.
 
 **Portraits are NOT a step (owner directive, 2026-06-19).** All unit portraits are finished/owner-maintained;
 do NOT run `npm run portraits` / `portraits:validate` or re-tune `CARD_CROP_PORTRAITS` during a re-source. The

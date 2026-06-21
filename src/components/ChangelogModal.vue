@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.25.0',
+    date: '2026-06-21',
+    changes: [
+      'The battle deck is now 100% first-party — the final 9 Battle Deck Card Pack II cards (Contact Contact!, Payload, Align the Relay, Failed Negotiations, Retrieve the Data, Armored Assault, Extreme Discipline, Rapid Deployment, Scrambled Orders) have been added, sourced from the physical cards and straightened/cropped to match the rest of the deck. All 43 battle cards are now official AMG art.',
+    ],
+  },
+  {
     version: '1.24.0',
     date: '2026-06-21',
     changes: [

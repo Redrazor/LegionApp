@@ -514,9 +514,19 @@ npx -y firebase-tools deploy --only hosting   # deploy so prod doesn't 404 (vers
       `BATTLE_BUILD_SOURCES` (amgNormalise) makes amg:fetch pull the rulebook + errata; `build-battle-cards`
       emits the 34 battle entries into `amg-card-map.json`. **9 still LHQ2 = Battle Deck Card Pack II** (released
       2026-03-20: payload, contact-contact, retrieve-the-data, failed-negotiations, align-the-relay,
-      scrambled-orders, extreme-discipline, armored-assault, rapid-deployment) — **no AMG PnP found** (only the
-      3rd-party Legion Helper site), so they stay LHQ2 until AMG ships a Pack II PnP. The DOC41 page-4 pip
-      commands → P7c. Minor bump 1.24.0; DEPLOY skipped (batch later).
+      scrambled-orders, extreme-discipline, armored-assault, rapid-deployment) — no AMG PnP exists. The DOC41
+      page-4 pip commands → P7c. Minor bump 1.24.0; DEPLOY skipped (batch later).
+    - **P7b.1 — Pack II complete, battle deck 43/43 (this branch `feature/amg-battle-pack2`).** The 9 Pack II
+      cards came from **owner-supplied photos of the physical cards** (no AMG PnP). New tooling:
+      `scripts/rectify-card.ts` (deskew a hand photo via 4-corner perspective from a card-vs-mat mask, inflate
+      horizontally to keep the coloured frame bars, trim mat slivers, fixed sharp bottom cut) +
+      `scripts/split-cards.ts` (split a sheet aggregating several cards — the 8 advantages came 2-per-faction on
+      4 sheets — at the inter-card gap; those 4 seam cuts were hand-tuned as the cards nearly touch with dark
+      art). Primaries (Contact/Payload) composited text+map. The FINAL 9 cards are durable tracked assets at
+      `scraper/amg-assets/pack2/*.webp` (photos aren't in the repo); `build-battle-cards.ts` gains a `pack2`
+      source (`OwnerPhotos_BattleDeckCardPackII`) that copies them in + emits map entries. **battle 0→43 AMG /
+      0 LHQ2; total LHQ2 189→180.** Same self-sourced ethos as Cauldron's map + the DOC56 errata. Minor bump
+      1.25.0; deploy still batched.
   - **P7c — remaining commands (31) + units (2):** 4 generic pips from DOC41 pg4; ~27 named Mandalorian/faction
     commands from the command PDFs/transmissions; the 2 LHQ2 units from transmission/faction sources.
 - **P8 — 2.0 cutover:** flip `image-coverage.spec.ts` to a hard assert (every slug has a scan, empty the

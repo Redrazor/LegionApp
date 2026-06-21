@@ -28,6 +28,11 @@ const MAP_PATH = join(ROOT, 'scraper', 'amg-card-map.json')
 const fi = process.argv.indexOf('--faction')
 const FACTION = fi >= 0 ? process.argv[fi + 1] : null
 
+// Optional `--approvals` filter: scope to only the cards listed in amg-approvals.json
+// (the batch staged for the next amg:apply) — a focused OLD-vs-NEW review of just the new
+// cards rather than the whole 800+ map.
+const APPROVALS_ONLY = process.argv.includes('--approvals')
+
 type Cat = 'units' | 'upgrades' | 'commands' | 'battle'
 interface Card { slug: string; name: string; title?: string | null; faction?: string | null }
 interface MapEntry { category: Cat; slug: string; sourcePdf: string; extractedFile: string }
@@ -72,7 +77,13 @@ function inFaction(e: MapEntry): boolean {
   )
   return factionPdfs.has(e.sourcePdf)
 }
-const visible = map.filter(inFaction)
+let visible = map.filter(inFaction)
+if (APPROVALS_ONLY) {
+  const ap = join(ROOT, 'scraper', 'amg-approvals.json')
+  if (!existsSync(ap)) { console.error(`--approvals given but ${ap} not found.`); process.exit(1) }
+  const keys = new Set<string>(JSON.parse(readFileSync(ap, 'utf8')).map((a: { category: string; slug: string }) => `${a.category}:${a.slug}`))
+  visible = visible.filter((e) => keys.has(`${e.category}:${e.slug}`))
+}
 
 // Group by source PDF — the natural batch the owner reviews at once.
 const byPdf = new Map<string, MapEntry[]>()

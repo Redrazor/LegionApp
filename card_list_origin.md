@@ -8,9 +8,9 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 
 | source | count |
 |---|---|
-| AMG PnP (re-sourced) | 682 |
+| AMG PnP (re-sourced) | 702 |
 | AMG DOC56 (self-sourced) | 14 |
-| **Legion HQ 2 (to expunge)** | **180** |
+| **Legion HQ 2 (to expunge)** | **160** |
 | total | 876 |
 
 ## units (180) — AMG 178 / LHQ2 2
@@ -621,35 +621,35 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `z-6-riot-baton` | Z-6 Riot Baton | LHQ2 |
 | `z-6-trooper` | Z-6 Trooper | AMG DOC51_RebelAlliance_Upgrades.pdf |
 
-## commands (235) — AMG 204 / LHQ2 31
+## commands (235) — AMG 224 / LHQ2 11
 
 | slug | card | source |
 |---|---|---|
 | `a-beautiful-friendship` | A Beautiful Friendship | AMG DOC13_RebelAlliance_Commands.pdf |
 | `a-disturbance-in-the-force` | A Disturbance in the Force | AMG AdeptiCon2026_RepublicRoadmap |
-| `a-higher-purpose` | A Higher Purpose | LHQ2 |
+| `a-higher-purpose` | A Higher Purpose | AMG SWQ82_MandoLeaders |
 | `a-machine-made-for-killing` | A Machine Made For Killing | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `a-new-beginning` | A New Beginning | AMG DOC13_RebelAlliance_Commands.pdf |
 | `a-simple-man` | A Simple Man | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `ace-up-his-sleeve` | Ace Up His Sleeve | AMG DOC13_RebelAlliance_Commands.pdf |
-| `aerial-assault` | Aerial Assault | LHQ2 |
+| `aerial-assault` | Aerial Assault | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `affirmative-general` | Affirmative, General! | AMG SWQ20_CustomizableJedi |
 | `aggression` | Aggression | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `aggressive-negotiations` | Aggressive Negotiations | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `ai-coordination` | AI Coordination | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `air-support` | Air Support | AMG SWQ_GalacticRepublic_Commands.pdf |
-| `ambush` | Ambush | LHQ2 |
+| `ambush` | Ambush | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `annihilation-looms` | Annihilation Looms | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `anti-capture-protocols` | Anti-Capture Protocols | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `arboreal-assault` | Arboreal Assault | AMG DOC13_Mercenary_Ewoks.pdf |
 | `architects-of-their-own-destruction` | Architects of Their Own Destruction | AMG SWQ42_ImperialHighCommand |
 | `armored-cavalry` | Armored Cavalry | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `assault` | Assault | LHQ2 |
+| `assault` | Assault | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `at-last` | At Last | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `attack-of-the-clones` | Attack of the Clones | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `battlefield-reconnaissance` | Battlefield Reconnaissance | AMG SWQ13_RebelOfficerAgent |
 | `blast-off` | Blast Off! | LHQ2 |
-| `both-hunter-and-prey` | Both Hunter and Prey | LHQ2 |
+| `both-hunter-and-prey` | Both Hunter and Prey | AMG SWQ82_MandoLeaders |
 | `brains-and-brawn` | Brains and Brawn | AMG DOC13_RebelAlliance_Commands.pdf |
 | `bring-it-down` | Bring It Down! | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `brutal-enforcer` | Brutal Enforcer | AMG DOC13_SeparatistAlliance_Commands.pdf |
@@ -657,7 +657,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `canny-adversary` | Canny Adversary | AMG SWQ42_ImperialHighCommand |
 | `change-of-plans` | Change of Plans | AMG DOC13_RebelAlliance_Commands.pdf |
 | `close-call` | Close Call | AMG DOC13_Mercenary_Ewoks.pdf |
-| `close-formation` | Close Formation | LHQ2 |
+| `close-formation` | Close Formation | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `combined-arms` | Combined Arms | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `come-and-prove-it` | Come and Prove It | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `common-cause` | Common Cause | AMG DOC13_RebelAlliance_Commands.pdf |
@@ -674,7 +674,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `crush-them` | Crush Them! | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `daring-defense` | Daring Defense | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `darkness-descends` | Darkness Descends | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `death-before-defeat` | Death Before Defeat | LHQ2 |
+| `death-before-defeat` | Death Before Defeat | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `debark-for-ground-assault` | Debark for Ground Assault | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `defiance` | Defiance | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `delaying-tactics` | Delaying Tactics | AMG DOC13_RebelAlliance_Commands.pdf |
@@ -709,7 +709,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `general-kenobi` | General Kenobi | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `general-skywalker` | General Skywalker | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `get-in-position` | Get In Position | AMG SWQ_GalacticRepublic_Commands.pdf |
-| `go-there-are-too-many` | Go, There Are Too Many... | LHQ2 |
+| `go-there-are-too-many` | Go, There Are Too Many... | AMG SWQ82_MandoLeaders |
 | `gunner-infantry` | Gunner, Infantry! | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `have-i-ever-let-you-down` | Have I Ever Let You Down? | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `hello-there` | Hello There! | AMG SWQ_GalacticRepublic_Commands.pdf |
@@ -751,9 +751,9 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `log-traps` | Log Traps | AMG DOC13_Mercenary_Ewoks.pdf |
 | `luminous-beings-are-we` | Luminous Beings Are We | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `lying-in-wait` | Lying In Wait | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
-| `make-the-impossible-possible` | Make the Impossible Possible | LHQ2 |
+| `make-the-impossible-possible` | Make the Impossible Possible | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `making-his-way-in-the-galaxy` | Making His Way in the Galaxy | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
-| `mandalore-will-survive` | Mandalore Will Survive | LHQ2 |
+| `mandalore-will-survive` | Mandalore Will Survive | AMG SWQ82_MandoLeaders |
 | `marked-for-elimination` | Marked For Elimination | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `master-of-evil` | Master of Evil | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `maximum-firepower` | Maximum Firepower | AMG DOC13_GalacticEmpire_Commands.pdf |
@@ -765,7 +765,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `my-ally-is-the-force` | My Ally is the Force | AMG DOC13_RebelAlliance_Commands.pdf |
 | `new-ways-to-motivate-them` | New Ways to Motivate Them | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `no-escape` | No Escape | LHQ2 |
-| `no-one-threatens-our-family` | No One Threatens Our Family | LHQ2 |
+| `no-one-threatens-our-family` | No One Threatens Our Family | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `no-time-for-sorrows` | No Time for Sorrows | AMG DOC13_RebelAlliance_Commands.pdf |
 | `not-out-of-it-yet` | Not Out of it Yet | AMG SWQ41_TauntaunHeroes |
 | `notorious-scoundrels` | Notorious Scoundrels | AMG DOC13_RebelAlliance_Commands.pdf |
@@ -779,7 +779,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `ploy` | Ploy | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `preservation-protocols` | Preservation Protocols | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `pulse-scan` | Pulse Scan | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `push` | Push | LHQ2 |
+| `push` | Push | AMG DOC41_BattleCards_11.26.2025.pdf |
 | `rebellions-are-built-on-hope` | Rebellions Are Built on Hope | AMG DOC13_RebelAlliance_Commands.pdf |
 | `reckless-diversion` | Reckless Diversion | AMG DOC13_RebelAlliance_Commands.pdf |
 | `recon-division` | Recon Division | AMG SWQ_GalacticRepublic_Commands.pdf |
@@ -803,8 +803,8 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `sorry-about-the-mess` | Sorry About the Mess | AMG DOC13_RebelAlliance_Commands.pdf |
 | `speak-softly-and-drive-a-big-tank` | Speak Softly and Drive a Big Tank | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `squadron-on-me` | Squadron, On Me | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `standing-orders` | Standing Orders | LHQ2 |
-| `stories-so-many-of-them-true` | Stories, So Many of Them True | LHQ2 |
+| `standing-orders` | Standing Orders | AMG DOC41_BattleCards_11.26.2025.pdf |
+| `stories-so-many-of-them-true` | Stories, So Many of Them True | AMG SWQ45_HondoWeequay |
 | `supreme-commander` | Supreme Commander | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `swift-protector` | Swift Protector | AMG DOC13_RebelAlliance_Commands.pdf |
 | `symbol-of-rebellion` | Symbol of Rebellion | LHQ2 |
@@ -813,7 +813,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `tactical-planning` | Tactical Planning | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `tactical-strike` | Tactical Strike | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `take-that-clankers` | Take That, Clankers! | AMG SWQ_GalacticRepublic_Commands.pdf |
-| `thats-just-good-business` | That's Just Good Business | LHQ2 |
+| `thats-just-good-business` | That's Just Good Business | AMG SWQ45_HondoWeequay |
 | `the-empire-does-not-tolerate-failure` | The Empire Does Not Tolerate Failure | AMG SWQ42_ImperialHighCommand |
 | `the-hand-thing` | The Hand Thing | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `the-jedi-shall-fall` | The Jedi Shall Fall | AMG DOC13_SeparatistAlliance_Commands.pdf |
@@ -833,20 +833,20 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `unrelenting-fire` | Unrelenting Fire | AMG DOC13_GalacticEmpire_Commands.pdf |
 | `unstoppable-advance` | Unstoppable Advance | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `vaders-might` | Vader's Might | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `vengeful-strike` | Vengeful Strike | LHQ2 |
+| `vengeful-strike` | Vengeful Strike | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `victory-or-death` | Victory or Death! | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `volunteer-mission` | Volunteer Mission | AMG DOC13_RebelAlliance_Commands.pdf |
 | `voracious-ambition` | Voracious Ambition | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `we-are-mandalorians` | We Are Mandalorians | LHQ2 |
+| `we-are-mandalorians` | We Are Mandalorians | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `we-do-what-we-do` | We Do What We Do | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `we-make-weapons` | We Make Weapons | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `we-must-wait-and-watch` | We Must Wait and Watch | AMG SWQ42_ImperialHighCommand |
 | `we-need-reinforcements` | We Need Reinforcements | AMG DOC13_GalacticEmpire_Commands.pdf |
-| `we-protect-our-own` | We Protect Our Own | LHQ2 |
+| `we-protect-our-own` | We Protect Our Own | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `we-serve-the-queen` | We Serve the Queen | AMG DOC13_SeparatistAlliance_Commands.pdf |
 | `we-shall-start-with-revenge` | We Shall Start with Revenge | LHQ2 |
-| `we-shape-ourselves` | We Shape Ourselves | LHQ2 |
-| `weapons-are-our-religion` | Weapons Are Our Religion | LHQ2 |
+| `we-shape-ourselves` | We Shape Ourselves | AMG SWQ82_MandoLeaders |
+| `weapons-are-our-religion` | Weapons Are Our Religion | AMG DOC56_Mandalorian_BattleForceCards.pdf |
 | `were-not-programmed` | We're Not Programmed | AMG SWQ_GalacticRepublic_Commands.pdf |
 | `whipcord-launcher` | Whipcord Launcher | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |
 | `whistling-birds` | Whistling Birds | AMG DOC51_Mercenary_Commands_05-01_Update.pdf |

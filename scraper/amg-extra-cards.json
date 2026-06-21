@@ -776,6 +776,16 @@
           "slug": "hondo-ohnaka-trustworthy-compatriot",
           "side": "front",
           "file": "SWQ45_UnitCard_2_Back.png"
+        },
+        {
+          "category": "commands",
+          "slug": "thats-just-good-business",
+          "file": "SWQ45_CommandCard_1.png"
+        },
+        {
+          "category": "commands",
+          "slug": "stories-so-many-of-them-true",
+          "file": "SWQ45_CommandCard_2.png"
         }
       ]
     },
@@ -878,7 +888,7 @@
     {
       "source": "SWQ82_MandoLeaders",
       "faction": "mercenary",
-      "note": "Scene to Stats: Mandalorian Leaders (SWQ82). Axe Woves (u7/u8) intentionally omitted (DOC56-locked).",
+      "note": "Scene to Stats: Mandalorian Leaders (SWQ82). Axe Woves (u7/u8) intentionally omitted (DOC56-locked). Command cards (P7c): Bo-Katan + The Armorer + Paz Vizsla's 'Go, There Are Too Many...'; CommandCards-5 is only published as the image-converter webp (the raw png 404s), hence the url override.",
       "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2026/05",
       "cards": [
         {
@@ -904,6 +914,31 @@
           "slug": "bo-katan-kryze-savior-of-mandalore",
           "side": "front",
           "file": "03_SWQ82en_UnitCards-6.png"
+        },
+        {
+          "category": "commands",
+          "slug": "a-higher-purpose",
+          "file": "05_SWQ82en_CommandCards-1.png"
+        },
+        {
+          "category": "commands",
+          "slug": "mandalore-will-survive",
+          "file": "05_SWQ82en_CommandCards-3.png"
+        },
+        {
+          "category": "commands",
+          "slug": "go-there-are-too-many",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/image-converter/2026/05/105_SWQ82en_CommandCards-5.webp"
+        },
+        {
+          "category": "commands",
+          "slug": "we-shape-ourselves",
+          "file": "05_SWQ82en_CommandCards-7.png"
+        },
+        {
+          "category": "commands",
+          "slug": "both-hunter-and-prey",
+          "file": "05_SWQ82en_CommandCards-9.png"
         }
       ]
     },

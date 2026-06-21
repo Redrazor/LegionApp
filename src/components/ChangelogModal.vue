@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.23.0',
+    date: '2026-06-21',
+    changes: [
+      'The generic upgrade cards — gear, grenades, comms, generators, weapon shells, Force powers and training upgrades shared across every faction — are now sourced directly from Atomic Mass Games’ official print-and-play files, replacing the last batch of older scans with crisp first-party art (86 cards).',
+      'Named character and counterpart upgrade cards (Agent Kallus, Cassian Andor, Chewbacca, Clone Captain Rex, Luke Skywalker, Obi-Wan Kenobi, and more) re-sourced from the same official files.',
+    ],
+  },
+  {
     version: '1.22.0',
     date: '2026-06-20',
     changes: [

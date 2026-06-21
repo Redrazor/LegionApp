@@ -259,6 +259,15 @@ shows one image per card:
   config (Imperial Death Troopers): **Focused Fire** (⚁1-4 Suppressive) ↔ **Grenade Launcher**
   (⚁1-2 Blast). The catalogue models only the Focused Fire slug; the Grenade Launcher side is already
   staged at `scraper/amg-cards/upgrades/empire/DOC51_GalacticEmpire_Upgrades-p11-22.webp`.
+- **Reconfigure upgrades — GENERIC flip cards found during P7a (2026-06-21):** the generic Training
+  upgrade **Offensive Stance ↔ Defensive Stance** is one double-sided card (both faces read "it may flip
+  this card"; Aim side gains 2 Aim & can't spend Dodge, Dodge side gains 2 Dodge & can't spend Aim, both
+  cost 5). The catalogue models only `offensive-stance`; the **Defensive Stance** back has **no catalogue
+  slug**. Faces staged at `DOC51_Generic_Upgrades` **p11-10 (Offensive/front)** + **p11-01 (Defensive/back)**.
+  For the flip feature this needs the back image overlaid on `offensive-stance` (+ likely a catalogue-data
+  add for the Defensive Stance side). Checked the other 9 generic Training tokens (Offensive Push, Into the
+  Fray, Overwatch, Protector, Seize the Initiative, Situational Awareness, Tenacity, Up Close and Personal)
+  — all single-faced, no flip text. This was the ONLY generic reconfigure card in the two generic PDFs.
 
 **Scope:**
 - **UI:** in the card inspect view (Browse profile drawer / Build card lightbox), add a **Flip** button
@@ -450,9 +459,53 @@ npx -y firebase-tools deploy --only hosting   # deploy so prod doesn't 404 (vers
     `DOC13_Mercenary_Ewoks`), 55/56 upgrades. Residuals deferred: C-3PO counterpart (→ Feature 14), 6 new
     R2-D2/Sabine command cards + `astromech-droid` generic upgrade (→ catalogue-data / P7). `images:validate`
     gained a `--faction` filter. Guerilla Troopers stays preview-quality until AMG ships a clean PnP.
-- **P7 — battle deck + cleanup:** `DOC41` battle cards; fix the 2 missing upgrade scans
-  (`dc-15-clone-trooper`, `youre-not-all-the-same-to-me`); resolve generic/faction-null upgrades & commands;
-  clear the gap list. Minor bump.
+- **P7 — battle deck + cleanup.** SCOPE CORRECTION (2026-06-21): the one-line "cleanup" badly understated
+  this. The current `card_list_origin.md` baseline shows **309 cards still on LHQ2**: **233 upgrades** (the
+  faction-null GENERIC upgrade PDFs `DOC51_Generic_Upgrades` 22pp + `DOC51_UpgradeCards` 5pp ≈ 243 slots were
+  never processed), **43 battle** (none re-sourced yet), **31 commands** (4 generic pips + ~27 named
+  Mandalorian/faction cards), **2 units** (`clone-trooper-marksmen`, `tsmeu-6-wheel-bikes`). Far too much to
+  validate in one OLD-vs-NEW pass, so P7 is **split into sub-phases**, each its own PR + validation + minor bump:
+  - **P7a — generic upgrade PDFs (IN PROGRESS, this branch `feature/amg-image-resource-p7a`).** Extracted
+    `DOC51_Generic_Upgrades` (195 cells) + `DOC51_UpgradeCards` (43 cells) = **238 cells → 88 distinct upgrades**
+    (heavy print-duplication: e.g. Vigilance ×3, Ascension Cables ×4). Read via bottom-name-strip contact sheets
+    with the staged filename burned in (the upgrade NAME is at the card BOTTOM; cost top-right; slot icon centre).
+    NOTE: the `index.json` 16×16 ahash is **useless for dedup here** — the token-upgrade cards (Offensive Push,
+    Defensive Stance, Into the Fray…) are near-identical at 16×16 and collapse together, so all 238 were read by
+    hand off large-code sheets, not ahash-deduped. New tooling: `scripts/build-card-map-generic.ts` (faction-null,
+    TWO source PDFs, upgrades-only; **skips slugs already AMG-sourced from a faction/extra PDF** so reprints like
+    `dc-15x-arc-trooper-gunner` don't double-map) + `reads-generic.json`; `images:validate --faction generic` now
+    scopes to faction-null sources. **Result: 86 LHQ2 upgrades matched & mapped, 0 new dups, 1 skipped (dc-15x,
+    faction source wins), 1 gap:** "Defensive Stance" (GU-p11-01) — **no catalogue slug** (catalogue has
+    `offensive-stance` only; likely its flip side → Feature 15 / catalogue-data). Awaiting owner OLD-vs-NEW
+    validation → apply → seed → origins. The 2 "missing scans" (`dc-15-clone-trooper`, `youre-not-all-the-same-to-me`)
+    are NOT in these generic PDFs → they fall to P7d.
+  - **P7d — uncaught faction upgrades (147).** SURFACED during P7a: after the 86 generic upgrades, **147 of the
+    original 233 LHQ2 upgrades remain** — they are faction/weapon/character upgrades (Combat Shields, DLT-19D,
+    GALAAR-15 Carbine, Ahsoka Tano, Clan Wren, the 2 missing-scan upgrades…) that live in the FACTION upgrade PDFs
+    (`DOC51_<Faction>_Upgrades`, `DOC13_Mercenary_Upgrades`) but were never matched in P2–P6. Also surfaced: the
+    map already carries **12 pre-existing duplicate upgrade slugs** from P2–P6 (a card matched in two faction PDFs,
+    e.g. `ag-2g-quad-laser` Rebel+Mercenary, `a280` twice from the Rebel pack) — clean these up here. Needs its own
+    extract+match pass over the faction upgrade PDFs.
+  - **P7b — battle deck (43):** `DOC41_BattleCards_11.26.2025` covers only **24/43** (it is the Standard deck,
+    dated 11.26.2025). DOC41 splits each **primary objective** into a separate TEXT card + landscape **Map Card**
+    (the text reads "as shown on the … Map Card"); the catalogue stores ONE combined image per primary, so the
+    two AMG cards are **composited** (text top, map below) into one image. DOC41 page 4 also carries the **4
+    generic pip command cards** (Ambush/Push/Assault/Standing Orders → P7c). The **19 cards DOC41 lacks** — 9
+    Recon (`-2`, `isRecon:true`) + 10 newer Standard (`cauldron`, `payload`, `contact-contact`,
+    `retrieve-the-data`, `failed-negotiations`, `align-the-relay`, `scrambled-orders`, `extreme-discipline`,
+    `armored-assault`, `rapid-deployment`) — need owner-provided PDFs (a Recon-deck PnP + a battle-cards update
+    newer than 11.26.2025); automated discovery is blocked (AMG site 403, web tools down). The DOC41 3×3/726×1040
+    grid extracts the cells fine; the battle work is the **compositor + matcher**, not re-extraction.
+    - **Compositor BUILT (`scraper/amgBattle.ts`, tested):** `compositePrimary(textBuf, mapBuf)` recreates the
+      LHQ2 combined primary — text card (top, cropped to 985px to clear the blank footer/frame while keeping the
+      fullest card, Intercept Signals, which fills to ~960) above the map card (left title spine cropped 100px,
+      rotated 90° CW into a landscape strip). Output **726×1422**, matching the LHQ2 ~726×1450 primaries
+      near-exactly (verified vs OLD shifting-priorities + intercept-signals). `computeLayout` is pure + unit-tested.
+      STILL TODO for P7b: pair each primary's text↔map cell (some have 2 maps — standard + recon variant),
+      composite them, plus the matcher for advantages/secondaries (single-faced → apply direct) + the 4 pip
+      commands (→P7c) + the 19 owner-PDF cards.
+  - **P7c — remaining commands (31) + units (2):** 4 generic pips from DOC41 pg4; ~27 named Mandalorian/faction
+    commands from the command PDFs/transmissions; the 2 LHQ2 units from transmission/faction sources.
 - **P8 — 2.0 cutover:** flip `image-coverage.spec.ts` to a hard assert (every slug has a scan, empty the
   allowlist) + assert `card_list_origin.md` has 0 LHQ2 rows; reword the `CLAUDE.md` Data-sourcing section &
   `README.md:100` credit to first-party AMG PnP (keep the AMG/Lucasfilm disclaimer, `README.md:105-107` /

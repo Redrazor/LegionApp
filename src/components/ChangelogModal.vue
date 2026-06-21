@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.26.0',
+    date: '2026-06-21',
+    changes: [
+      'Command cards are now sourced from official Atomic Mass Games art: the four generic pip commands (Ambush, Push, Assault, Standing Orders), the nine Mandalorian Clans force commands (We Are Mandalorians, Aerial Assault, Weapons Are Our Religion, and more), plus character commands for Bo-Katan Kryze, The Armorer, Paz Vizsla and Hondo Ohnaka — 20 cards re-sourced first-party.',
+      'A handful of remaining command cards (R2-D2, rebel Sabine Wren, Din Djarin and a few preview characters) and two unit cards keep their existing art until clean official files are available.',
+    ],
+  },
+  {
     version: '1.25.0',
     date: '2026-06-21',
     changes: [

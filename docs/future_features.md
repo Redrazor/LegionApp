@@ -534,8 +534,24 @@ npx -y firebase-tools deploy --only hosting   # deploy so prod doesn't 404 (vers
       source (`OwnerPhotos_BattleDeckCardPackII`) that copies them in + emits map entries. **battle 0→43 AMG /
       0 LHQ2; total LHQ2 189→180.** Same self-sourced ethos as Cauldron's map + the DOC56 errata. Minor bump
       1.25.0; deploy still batched.
-  - **P7c — remaining commands (31) + units (2):** 4 generic pips from DOC41 pg4; ~27 named Mandalorian/faction
-    commands from the command PDFs/transmissions; the 2 LHQ2 units from transmission/faction sources.
+  - **P7c — commands 31→11, units unchanged (SHIPPED v1.26.0, branch `feature/amg-image-resource-p7c`).** 20 of
+    the 31 LHQ2 commands re-sourced first-party:
+    - **13 from local PDFs** via `scripts/build-p7c-commands.ts` (`npm run amg:p7c`): the 4 generic pip commands
+      (ambush/push/assault/standing-orders) copied from the already-extracted DOC41 pg-4 battle cells, and the 9
+      Mandalorian Clans force commands hand-cropped from `DOC56_Mandalorian_BattleForceCards` pp.1–3 right column
+      (3 cards/page, uniform boxes x=1655 w=715, tops 0/1113/2186 @300dpi). Staged to `commands/p7c/`.
+    - **7 from transmissions** via `amg-extra-cards.json` + `amg:extras`: SWQ82 Mandalorian Leaders (a-higher-purpose,
+      mandalore-will-survive, **go-there-are-too-many** [Paz Vizsla — shipped in SWQ82, not unreleased],
+      we-shape-ourselves, both-hunter-and-prey) + SWQ45 Hondo (thats-just-good-business, stories-so-many-of-them-true).
+      `amgExtras` gained an optional per-card `url` override (SWQ82 CommandCards-5 is only published as the
+      image-converter webp; the raw png 404s).
+    - **REMAINING 11 commands + 2 units → P7c.1** (need owner photos / deeper digging): R2-D2 ×3 (blast-off,
+      impromptu-immolation, smoke-screen) + rebel Sabine ×3 (explosions, legacy-of-mandalore, symbol-of-rebellion)
+      live in the Sept-2025 Rebel Alliance Command Card Pack (no per-card images published); Din Djarin's
+      i-like-those-odds (only an old 1st-ed landscape image found); 4 preview characters (honor-and-strength,
+      no-escape, i-smell-fear-and-it-smells-good, we-shall-start-with-revenge); units tsmeu-6-wheel-bikes (not on the
+      SWQ31 article) + clone-trooper-marksmen (Republic, no scan even on disk). **LHQ2 baseline 180→160** (units 2,
+      upgrades 147, commands 11, battle 0). Minor bump 1.26.0; deploy still batched.
 - **P8 — 2.0 cutover:** flip `image-coverage.spec.ts` to a hard assert (every slug has a scan, empty the
   allowlist) + assert `card_list_origin.md` has 0 LHQ2 rows; reword the `CLAUDE.md` Data-sourcing section &
   `README.md:100` credit to first-party AMG PnP (keep the AMG/Lucasfilm disclaimer, `README.md:105-107` /

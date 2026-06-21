@@ -29,7 +29,10 @@ const MAP_PATH = join(__dirname, 'amg-card-map.json')
 const BROWSER_UA = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36' }
 
 interface Crop { left: number; top: number; width: number; height: number }
-interface ExtraCard { category: CardCategory; slug: string; side?: 'play' | 'front'; file: string; crop?: Crop }
+// `file` is appended to the source `cdn`. `url` overrides it with a full URL for the
+// occasional card AMG publishes at a different path (e.g. only the image-converter webp
+// exists, not the raw png) — see SWQ82 CommandCards-5.
+interface ExtraCard { category: CardCategory; slug: string; side?: 'play' | 'front'; file?: string; url?: string; crop?: Crop }
 interface ExtraSource { source: string; faction: string; cdn: string; cards: ExtraCard[] }
 interface MapEntry { category: CardCategory; slug: string; sourcePdf: string; extractedFile: string }
 
@@ -69,7 +72,7 @@ async function main() {
       const rel = join(c.category, 'extra', `${src.source}__${destSlug}.webp`)
       const dest = join(OUT_DIR, rel)
       await mkdir(dirname(dest), { recursive: true })
-      const buf = await download(`${src.cdn}/${c.file}`)
+      const buf = await download(c.url ?? `${src.cdn}/${c.file}`)
       // Some packs publish a unit's front+back side-by-side in one "fan" image; `crop`
       // extracts the single card region before encoding.
       const img = c.crop ? sharp(buf).extract(c.crop) : sharp(buf)

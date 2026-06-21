@@ -8,7 +8,11 @@
   "anakin-skywalker-mounted-jedi-general": "Unreleased (Jedi BARC Speeder, SWQ141, Q4 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
   "jedi-knight-mounted-jedi-general": "Unreleased (Jedi BARC Speeder, SWQ141, Q4 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
   "clone-trooper-marksmen": {
-   "note": "No first-party AMG card image found yet — will be re-sourced when AMG publishes it.",
+   "note": "No first-party AMG card image exists — shows the image-pending placeholder (no external-source image is used).",
+   "noImage": true
+  },
+  "tsmeu-6-wheel-bikes": {
+   "note": "No first-party AMG card image exists — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "guerilla-troopers": "Unreleased (SWQ140, Q4 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",

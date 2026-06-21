@@ -10,10 +10,11 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 |---|---|
 | AMG PnP (re-sourced) | 702 |
 | AMG DOC56 (self-sourced) | 14 |
-| **Legion HQ 2 (to expunge)** | **160** |
+| none (no source — placeholder) | 2 |
+| **Legion HQ 2 (to expunge)** | **158** |
 | total | 876 |
 
-## units (180) — AMG 178 / LHQ2 2
+## units (180) — AMG 178 / LHQ2 0 / none 2
 
 | slug | card | source |
 |---|---|---|
@@ -61,7 +62,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `clone-commandos` | Clone Commandos | AMG DOC51_GalacticRepublic_Units.pdf |
 | `clone-commandos-delta-squad` | Clone Commandos — Delta Squad | AMG DOC51_GalacticRepublic_Units.pdf |
 | `clone-trooper-infantry` | Clone Trooper Infantry | AMG DOC51_GalacticRepublic_Units.pdf |
-| `clone-trooper-marksmen` | Clone Trooper Marksmen | LHQ2 |
+| `clone-trooper-marksmen` | Clone Trooper Marksmen | none (no source) |
 | `count-dooku-darth-tyranus` | Count Dooku — Darth Tyranus | AMG DOC51_SeparatistAlliance_Units_05-01_Update.pdf |
 | `darth-vader-dark-lord-of-the-sith` | Darth Vader — Dark Lord of the Sith | AMG DOC51_GalacticEmpire_Units.pdf |
 | `darth-vader-the-emperors-apprentice` | Darth Vader — The Emperor's Apprentice | AMG DOC51_GalacticEmpire_Units.pdf |
@@ -184,7 +185,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `the-armorer-forging-the-future` | The Armorer — Forging the Future | AMG SWQ82_MandoLeaders |
 | `the-bad-batch-clone-force-99` | The Bad Batch — Clone Force 99 | AMG DOC51_GalacticRepublic_Units.pdf |
 | `the-bad-batch-clone-force-99-2` | The Bad Batch — Clone Force 99 | AMG DOC13_Mercenary_Units.pdf |
-| `tsmeu-6-wheel-bikes` | TSMEU-6 Wheel Bikes | LHQ2 |
+| `tsmeu-6-wheel-bikes` | TSMEU-6 Wheel Bikes | none (no source) |
 | `tx-225-gavw-occupier-tank` | TX-225 GAVw Occupier Tank | AMG DOC51_GalacticEmpire_Units.pdf |
 | `ursa-wren-leader-of-clan-wren` | Ursa Wren — Leader of Clan Wren | AMG SWQ56_UrsaWren |
 | `weequay-pirates` | Weequay Pirates | AMG SWQ45_HondoWeequay |

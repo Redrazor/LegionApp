@@ -32,7 +32,24 @@ interface MapEntry { category: Cat; slug: string; sourcePdf: string }
 const map: MapEntry[] = existsSync(MAP_PATH) ? JSON.parse(readFileSync(MAP_PATH, 'utf8')) : []
 const sourceBySlug = new Map(map.map((e) => [`${e.category}:${e.slug}`, pdfBasename(e.sourcePdf)]))
 
+// Cards intentionally WITHOUT an image (unreleased.json `noImage: true`): their legacy
+// scan is expunged and the app shows the branded "image pending" placeholder. These are
+// NOT LHQ2 rows — they have no image dependency on any external source at all.
+const noImageSlugs = new Set<string>((() => {
+  try {
+    const u = JSON.parse(readFileSync(join(DATA, 'unreleased.json'), 'utf8'))
+    const out: string[] = []
+    for (const cat of ['units', 'commands', 'upgrades'] as Cat[]) {
+      for (const [slug, e] of Object.entries(u[cat] ?? {})) {
+        if (e && typeof e === 'object' && (e as { noImage?: boolean }).noImage) out.push(`${cat}:${slug}`)
+      }
+    }
+    return out
+  } catch { return [] }
+})())
+
 function origin(cat: Cat, slug: string): string {
+  if (noImageSlugs.has(`${cat}:${slug}`)) return 'none (no source)'
   if (isPreserved(cat, slug)) return 'AMG DOC56 (self)'
   const pdf = sourceBySlug.get(`${cat}:${slug}`)
   return pdf ? `AMG ${pdf}` : 'LHQ2'
@@ -46,38 +63,40 @@ lines.push('durable record of where each card image was sourced. The 2.0 goal is
 lines.push('every card re-sourced from an official AMG print-and-play PDF (or already self-sourced).')
 lines.push('')
 
-const totals = { 'AMG': 0, 'AMG DOC56 (self)': 0, LHQ2: 0 }
+const totals = { 'AMG': 0, 'AMG DOC56 (self)': 0, LHQ2: 0, none: 0 }
 const sections: string[] = []
 for (const cat of Object.keys(FILES) as Cat[]) {
   const cards = load(FILES[cat]).sort((a, b) => a.slug.localeCompare(b.slug))
   const rows: string[] = []
-  let amg = 0, self = 0, lhq = 0
+  let amg = 0, self = 0, lhq = 0, none = 0
   for (const c of cards) {
     const o = origin(cat, c.slug)
     if (o === 'LHQ2') lhq++
+    else if (o === 'none (no source)') none++
     else if (o === 'AMG DOC56 (self)') self++
     else amg++
     rows.push(`| \`${c.slug}\` | ${c.name}${c.title ? ` — ${c.title}` : ''} | ${o} |`)
   }
-  totals.AMG += amg; totals['AMG DOC56 (self)'] += self; totals.LHQ2 += lhq
-  sections.push(`## ${cat} (${cards.length}) — AMG ${amg + self} / LHQ2 ${lhq}\n`)
+  totals.AMG += amg; totals['AMG DOC56 (self)'] += self; totals.LHQ2 += lhq; totals.none += none
+  sections.push(`## ${cat} (${cards.length}) — AMG ${amg + self} / LHQ2 ${lhq}${none ? ` / none ${none}` : ''}\n`)
   sections.push('| slug | card | source |')
   sections.push('|---|---|---|')
   sections.push(...rows)
   sections.push('')
 }
 
-const totalAll = totals.AMG + totals['AMG DOC56 (self)'] + totals.LHQ2
+const totalAll = totals.AMG + totals['AMG DOC56 (self)'] + totals.LHQ2 + totals.none
 lines.push('## Summary')
 lines.push('')
 lines.push('| source | count |')
 lines.push('|---|---|')
 lines.push(`| AMG PnP (re-sourced) | ${totals.AMG} |`)
 lines.push(`| AMG DOC56 (self-sourced) | ${totals['AMG DOC56 (self)']} |`)
+lines.push(`| none (no source — placeholder) | ${totals.none} |`)
 lines.push(`| **Legion HQ 2 (to expunge)** | **${totals.LHQ2}** |`)
 lines.push(`| total | ${totalAll} |`)
 lines.push('')
 lines.push(...sections)
 
 writeFileSync(join(ROOT, 'card_list_origin.md'), lines.join('\n'))
-console.log(`Wrote card_list_origin.md — AMG ${totals.AMG + totals['AMG DOC56 (self)']}, LHQ2 ${totals.LHQ2}, total ${totalAll}.`)
+console.log(`Wrote card_list_origin.md — AMG ${totals.AMG + totals['AMG DOC56 (self)']}, none ${totals.none}, LHQ2 ${totals.LHQ2}, total ${totalAll}.`)

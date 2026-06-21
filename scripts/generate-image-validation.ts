@@ -51,17 +51,24 @@ const names: Record<Cat, Map<string, Card>> = {
   units: loadNames('units'), upgrades: loadNames('upgrades'), commands: loadNames('commands'), battle: loadNames('battle'),
 }
 
-// Resolve the faction filter to a predicate over map entries.
+// Resolve the faction filter to a predicate over map entries. `--faction generic`
+// scopes to the faction-null source PDFs (the generic upgrade packs + battle deck),
+// the P7 cleanup batches that carry no catalogue faction tag.
 function inFaction(e: MapEntry): boolean {
   if (!FACTION) return true
+  const wantNull = FACTION === 'generic'
   if (e.category === 'units') {
     const base = e.slug.endsWith('-front') ? e.slug.slice(0, -'-front'.length) : e.slug
-    return names.units.get(base)?.faction === FACTION
+    const f = names.units.get(base)?.faction ?? null
+    return wantNull ? f === null : f === FACTION
   }
-  if (e.category === 'commands') return names.commands.get(e.slug)?.faction === FACTION
-  // Upgrades carry no faction tag → include those staged from this faction's own source PDFs.
+  if (e.category === 'commands') {
+    const f = names.commands.get(e.slug)?.faction ?? null
+    return wantNull ? f === null : f === FACTION
+  }
+  // Upgrades carry no faction tag → include those staged from the matching source PDFs.
   const factionPdfs = new Set(
-    AMG_SOURCES.filter((s) => s.faction === FACTION).map((s) => pdfBasename(s.url)),
+    AMG_SOURCES.filter((s) => (wantNull ? s.faction === null : s.faction === FACTION)).map((s) => pdfBasename(s.url)),
   )
   return factionPdfs.has(e.sourcePdf)
 }

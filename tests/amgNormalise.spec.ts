@@ -90,6 +90,21 @@ describe('matchCard', () => {
   it('is punctuation/case-insensitive like the catalogue slugify', () => {
     expect(matchCard('STORMTROOPERS', null, candidates)).toEqual({ slug: 'stormtroopers' })
   })
+
+  // P7a generic-upgrade names carry quotes/hyphens/articles that the card-image read
+  // preserves verbatim; the catalogue slugify must collapse them to the stored slug.
+  it('resolves punctuation-heavy generic upgrade names to their slugs', () => {
+    const gen: CatalogueCard[] = [
+      { slug: 'bunker-buster-shells', name: '"Bunker Buster" Shells', title: null },
+      { slug: 'emp-droid-poppers', name: 'EMP "Droid Poppers"', title: null },
+      { slug: 'armor-piercing-shells', name: 'Armor-Piercing Shells', title: null },
+      { slug: 'on-the-hunt', name: 'On The Hunt', title: null },
+    ]
+    expect(matchCard('"Bunker Buster" Shells', null, gen)).toEqual({ slug: 'bunker-buster-shells' })
+    expect(matchCard('EMP "Droid Poppers"', null, gen)).toEqual({ slug: 'emp-droid-poppers' })
+    expect(matchCard('Armor-Piercing Shells', null, gen)).toEqual({ slug: 'armor-piercing-shells' })
+    expect(matchCard('On the Hunt', null, gen)).toEqual({ slug: 'on-the-hunt' }) // article-case differs from catalogue
+  })
 })
 
 describe('PRESERVE_SLUGS / isPreserved', () => {

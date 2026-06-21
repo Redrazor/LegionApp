@@ -8,7 +8,7 @@
 import { writeFile, mkdir, access, stat } from 'fs/promises'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { AMG_SOURCES, pdfBasename } from './amgNormalise.ts'
+import { AMG_SOURCES, BATTLE_BUILD_SOURCES, pdfBasename } from './amgNormalise.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PDF_DIR = join(__dirname, 'amg-pdfs')
@@ -51,7 +51,17 @@ async function main() {
       console.log(`  ✓ ${name} (${src.category}/${src.faction ?? 'generic'}, ${kb} KB)${had ? ' [cached]' : ''}`)
     }
   }
-  console.log(`Done: ${ok}/${AMG_SOURCES.length} PDFs present.`)
+  // The special battle-build PDFs (Recon Rulebook + Errata) consumed by build-battle-cards.
+  for (const url of BATTLE_BUILD_SOURCES) {
+    const name = pdfBasename(url)
+    const dest = join(PDF_DIR, name)
+    const had = await exists(dest)
+    if (await download(url, dest)) {
+      const kb = Math.round((await stat(dest)).size / 1024)
+      console.log(`  ✓ ${name} (battle-build, ${kb} KB)${had ? ' [cached]' : ''}`)
+    }
+  }
+  console.log(`Done: ${ok}/${AMG_SOURCES.length} PnP PDFs + ${BATTLE_BUILD_SOURCES.length} battle-build PDFs.`)
 }
 
 main()

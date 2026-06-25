@@ -11,7 +11,8 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | AMG PnP (re-sourced) | 738 |
 | AMG DOC56 (self-sourced) | 15 |
 | none (no source — placeholder) | 59 |
-| **Legion HQ 2 (to expunge)** | **64** |
+| dropped (v1 — removed from app) | 6 |
+| **Legion HQ 2 (to expunge)** | **58** |
 | total | 876 |
 
 ## units (180) — AMG 178 / LHQ2 0 / none 2
@@ -199,7 +200,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `x-34-landspeeder` | X-34 Landspeeder | AMG DOC51_RebelAlliance_Units.pdf |
 | `yoda-grand-master-of-the-jedi-order` | Yoda — Grand Master of the Jedi Order | AMG DOC51_GalacticRepublic_Units.pdf |
 
-## upgrades (418) — AMG 308 / LHQ2 53 / none 57
+## upgrades (418) — AMG 308 / LHQ2 47 / none 57 / dropped 6
 
 | slug | card | source |
 |---|---|---|
@@ -222,7 +223,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `at-rt-flamethrower` | AT-RT Flamethrower | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `at-rt-laser-cannon` | AT-RT Laser Cannon | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `at-rt-rotary-blaster` | AT-RT Rotary Blaster | AMG DOC51_RebelAlliance_Upgrades.pdf |
-| `at-st-mortar-launcher` | AT-ST Mortar Launcher | LHQ2 |
+| `at-st-mortar-launcher` | AT-ST Mortar Launcher | dropped (v1 — removed) |
 | `attack-protocols` | Attack Protocols | AMG DOC51_Generic_Upgrades.pdf |
 | `ax-108-ground-buzzer` | Ax-108 "Ground Buzzer" | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `axe-ewok` | Axe Ewok | LHQ2 |
@@ -293,7 +294,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `concussion-grenades` | Concussion Grenades | AMG DOC51_Generic_Upgrades.pdf |
 | `cr-24-flame-rifle` | CR-24 Flame Rifle | AMG DOC51_GalacticEmpire_Upgrades.pdf |
 | `crosshair` | Crosshair | AMG DOC13_Mercenary_Upgrades.pdf |
-| `dc-15-clone-trooper` | DC-15 Clone Trooper | LHQ2 |
+| `dc-15-clone-trooper` | DC-15 Clone Trooper | dropped (v1 — removed) |
 | `dc-15x-arc-trooper-gunner` | DC-15x ARC Trooper Gunner | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `dc-15x-arc-trooper-sniper` | DC-15x ARC Trooper Sniper | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `dc-17m-icws-config` | DC-17m ICWS Config | AMG DOC51_GalacticRepublic_Upgrades.pdf |
@@ -445,7 +446,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `mandalorian-initiate-squad` | Mandalorian Initiate Squad | AMG SWQ81_MandoWarriors |
 | `mandalorian-super-commando` | Mandalorian Super Commando | AMG DOC13_Mercenary_Upgrades.pdf |
 | `mark-ii-medium-blaster` | Mark II Medium Blaster | AMG DOC51_RebelAlliance_Upgrades.pdf |
-| `mertalizer` | Mertalizer | LHQ2 |
+| `mertalizer` | Mertalizer | dropped (v1 — removed) |
 | `micro-grenade-launcher` | Micro-Grenade Launcher | none (no source) |
 | `mission-objective` | Mission Objective | AMG DOC51_UpgradeCards.pdf |
 | `mo-dk-power-harpoon` | MO/DK Power Harpoon | AMG DOC51_RebelAlliance_Upgrades.pdf |
@@ -490,7 +491,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `pyke-syndicate-foot-soldier` | Pyke Syndicate Foot Soldier | AMG DOC13_Mercenary_Upgrades.pdf |
 | `pyke-syndicate-foot-soldier-squad` | Pyke Syndicate Foot Soldier Squad | AMG DOC51_UpgradeCards.pdf |
 | `r4-astromech` | R4 Astromech | AMG DOC51_GalacticEmpire_Upgrades.pdf |
-| `r5-astromech-droid` | R5 Astromech Droid | LHQ2 |
+| `r5-astromech-droid` | R5 Astromech Droid | dropped (v1 — removed) |
 | `radiation-cannon-b1-battle-droid` | Radiation Cannon B1 Battle Droid | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `raiding-party-leader` | Raiding Party Leader | AMG DOC13_Mercenary_Upgrades.pdf |
 | `range-trooper` | Range Trooper | AMG DOC51_GalacticEmpire_Upgrades.pdf |
@@ -506,7 +507,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `recon-intel` | Recon Intel | AMG DOC51_Generic_Upgrades.pdf |
 | `reluctant-hero` | Reluctant Hero | LHQ2 |
 | `repeating-blaster` | Repeating Blaster | none (no source) |
-| `rook-kast` | Rook Kast | LHQ2 |
+| `rook-kast` | Rook Kast | dropped (v1 — removed) |
 | `rook-kast-2` | Rook Kast | LHQ2 |
 | `rps-6-arf-trooper` | RPS-6 ARF Trooper | LHQ2 |
 | `rps-6-clone-trooper` | RPS-6 Clone Trooper | AMG DOC51_GalacticRepublic_Upgrades.pdf |
@@ -581,7 +582,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `the-darksaber-3` | The Darksaber | LHQ2 |
 | `the-darksaber-4` | The Darksaber | LHQ2 |
 | `the-darksaber-gideon` | The Darksaber (Gideon) | AMG DOC51_GalacticEmpire_Upgrades.pdf |
-| `the-darksaber-maul` | The Darksaber (Maul) | LHQ2 |
+| `the-darksaber-maul` | The Darksaber (Maul) | dropped (v1 — removed) |
 | `thermal-detonator` | Thermal Detonator | none (no source) |
 | `tip-of-the-spear` | Tip of the Spear | LHQ2 |
 | `tranquility` | Tranquility | AMG DOC51_UpgradeCards.pdf |

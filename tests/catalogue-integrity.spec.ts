@@ -153,4 +153,30 @@ describe('catalogue data integrity', () => {
     for (const s of ['flame-projector', 'jetpack-rockets', 'whipcord-launcher']) expect(upgradeSlugs.has(s)).toBe(true) // Tools of the Trade
     for (const s of ['a-a5-speeder-truck-2', 'tx-225-gavw-occupier-tank', 'wlo-5-speeder-tank']) expect(unitSlugs.has(s)).toBe(true) // Guns for Hire
   })
+
+  // Feature 13 (2.0): cards dropped entirely from the app (first-edition v1 cards with no
+  // current-edition equivalent). Every slug in dropped.json must still resolve to a real
+  // catalogue card — otherwise the drop is a silent no-op (a typo or a renamed slug).
+  it('dropped.json slugs all resolve to real catalogue cards', () => {
+    const dropped = JSON.parse(
+      readFileSync(join(__dirname, '../public/data/dropped.json'), 'utf8'),
+    ) as Record<'units' | 'commands' | 'upgrades', string[]>
+    const byCat: Record<string, Set<string>> = {
+      units: new Set(load('units.json').map((u) => u.slug)),
+      commands: new Set(load('commands.json').map((c) => c.slug)),
+      upgrades: new Set(load('upgrades.json').map((u) => u.slug)),
+    }
+    for (const cat of ['units', 'commands', 'upgrades'] as const) {
+      for (const slug of dropped[cat] ?? []) {
+        expect(byCat[cat].has(slug), `dropped ${cat} slug not in catalogue: ${slug}`).toBe(true)
+      }
+    }
+    // The six known first-edition drops (guard against an accidental wipe of the list).
+    expect(dropped.upgrades).toEqual(
+      expect.arrayContaining(['at-st-mortar-launcher', 'dc-15-clone-trooper', 'mertalizer', 'r5-astromech-droid', 'rook-kast', 'the-darksaber-maul']),
+    )
+    // rook-kast (v1 heavy weapon) is dropped, but its v2 replacement rook-kast-2 is NOT.
+    expect(byCat.upgrades.has('rook-kast-2')).toBe(true)
+    expect(dropped.upgrades).not.toContain('rook-kast-2')
+  })
 })

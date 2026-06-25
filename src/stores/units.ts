@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import type { Unit } from '../types/index.ts'
 import { loadCatalogue } from '../utils/api.ts'
 import { applyUnreleased } from '../utils/unreleased.ts'
+import { applyDropped } from '../utils/dropped.ts'
 
 export const useUnitsStore = defineStore('units', () => {
   const units = ref<Unit[]>([])
@@ -15,7 +16,10 @@ export const useUnitsStore = defineStore('units', () => {
     loading.value = true
     error.value = null
     try {
-      units.value = await applyUnreleased(await loadCatalogue<Unit>('/api/units', 'units.json'), 'units')
+      units.value = await applyDropped(
+        await applyUnreleased(await loadCatalogue<Unit>('/api/units', 'units.json'), 'units'),
+        'units',
+      )
       loaded.value = true
     } catch (e) {
       error.value = (e as Error).message

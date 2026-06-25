@@ -8,11 +8,11 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 
 | source | count |
 |---|---|
-| AMG PnP (re-sourced) | 738 |
+| AMG PnP (re-sourced) | 742 |
 | AMG DOC56 (self-sourced) | 15 |
 | none (no source — placeholder) | 59 |
-| dropped (v1 — removed from app) | 6 |
-| **Legion HQ 2 (to expunge)** | **58** |
+| dropped (v1 — removed from app) | 7 |
+| **Legion HQ 2 (to expunge)** | **53** |
 | total | 876 |
 
 ## units (180) — AMG 178 / LHQ2 0 / none 2
@@ -200,7 +200,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `x-34-landspeeder` | X-34 Landspeeder | AMG DOC51_RebelAlliance_Units.pdf |
 | `yoda-grand-master-of-the-jedi-order` | Yoda — Grand Master of the Jedi Order | AMG DOC51_GalacticRepublic_Units.pdf |
 
-## upgrades (418) — AMG 308 / LHQ2 47 / none 57 / dropped 6
+## upgrades (418) — AMG 312 / LHQ2 42 / none 57 / dropped 7
 
 | slug | card | source |
 |---|---|---|
@@ -215,7 +215,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `agent-kallus` | Agent Kallus | AMG DOC51_UpgradeCards.pdf |
 | `ahsoka-tano` | Ahsoka Tano | AMG SWQ22_AhsokaTano |
 | `anger` | Anger | AMG DOC51_Generic_Upgrades.pdf |
-| `arf-trooper-duo` | ARF Trooper Duo | LHQ2 |
+| `arf-trooper-duo` | ARF Trooper Duo | AMG SWQ135_ARFTroopers |
 | `armor-piercing-shells` | Armor-Piercing Shells | AMG DOC51_Generic_Upgrades.pdf |
 | `asajj-ventress` | Asajj Ventress | AMG DOC51_UpgradeCards.pdf |
 | `ascension-cables` | Ascension Cables | AMG DOC51_Generic_Upgrades.pdf |
@@ -386,7 +386,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `grappling-hooks` | Grappling Hooks | AMG DOC51_Generic_Upgrades.pdf |
 | `guild-member` | Guild Member | LHQ2 |
 | `hacked-comms-unit` | Hacked Comms Unit | AMG DOC51_Generic_Upgrades.pdf |
-| `heavy-aqua-droid` | Heavy Aqua Droid | LHQ2 |
+| `heavy-aqua-droid` | Heavy Aqua Droid | AMG SWQ136_AquaDroids |
 | `heavy-arm-cannon` | Heavy Arm Cannon | none (no source) |
 | `heavy-blaster-pistol` | Heavy Blaster Pistol | none (no source) |
 | `heavy-blaster-pistol-2` | Heavy Blaster Pistol | none (no source) |
@@ -430,7 +430,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `jyns-se-14-blaster` | Jyn's SE-14 Blaster | AMG DOC51_RebelAlliance_Upgrades.pdf |
 | `katarn-pattern-armor` | Katarn Pattern Armor | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `kraken` | Kraken | AMG DOC51_UpgradeCards.pdf |
-| `kx-series-security-droids` | KX-Series Security Droids | LHQ2 |
+| `kx-series-security-droids` | KX-Series Security Droids | dropped (v1 — removed) |
 | `lead-by-example` | Lead By Example | AMG DOC51_Generic_Upgrades.pdf |
 | `lightsaber` | Lightsaber | none (no source) |
 | `limiter-override` | Limiter Override | none (no source) |
@@ -509,7 +509,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `repeating-blaster` | Repeating Blaster | none (no source) |
 | `rook-kast` | Rook Kast | dropped (v1 — removed) |
 | `rook-kast-2` | Rook Kast | LHQ2 |
-| `rps-6-arf-trooper` | RPS-6 ARF Trooper | LHQ2 |
+| `rps-6-arf-trooper` | RPS-6 ARF Trooper | AMG SWQ135_ARFTroopers |
 | `rps-6-clone-trooper` | RPS-6 Clone Trooper | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `rps-6-magnaguard` | RPS-6 MagnaGuard | AMG DOC51_SeparatistAlliance_Upgrades.pdf |
 | `rps-6-rocket-gunner` | RPS-6 Rocket Gunner | AMG DOC51_RebelAlliance_Upgrades.pdf |
@@ -592,7 +592,7 @@ every card re-sourced from an official AMG print-and-play PDF (or already self-s
 | `turbo-charge` | Turbo-Charge | none (no source) |
 | `twin-beam-cannons` | Twin Beam Cannons | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `twin-blaster-cannons` | Twin Blaster Cannons | AMG DOC51_GalacticRepublic_Upgrades.pdf |
-| `twin-blaster-cannons-2` | Twin Blaster Cannons | LHQ2 |
+| `twin-blaster-cannons-2` | Twin Blaster Cannons | AMG SWQ134_LM432CrabDroid |
 | `twin-laser-turret` | Twin Laser Turret | AMG DOC51_GalacticRepublic_Upgrades.pdf |
 | `twin-lightsabers` | Twin Lightsabers | none (no source) |
 | `twin-missile-pods` | Twin Missile Pods | AMG DOC51_GalacticRepublic_Upgrades.pdf |

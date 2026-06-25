@@ -775,19 +775,6 @@
       ]
     },
     {
-      "source": "SWL134_ImperialRiotControl",
-      "faction": "empire",
-      "note": "Imperial Riot Control Squad (product SWL134, current-edition legal). https://www.atomicmassgames.com/transmission/scene-to-stats-imperial-riot-control-squad/ — the Scene-to-Stats publishes both upgrade cards as clean per-card 'Legal' scans. Upgradecard-1 = KX-Series Security Droids (heavy weapon, 30 pts), Upgradecard-2 = Stormtrooper Marksman (left on LHQ2 for now). Full-res lives at the image-converter .webp path (the raw png is only the -187x300 thumbnail).",
-      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/image-converter/2024/09",
-      "cards": [
-        {
-          "category": "upgrades",
-          "slug": "kx-series-security-droids",
-          "file": "SWL134_Upgradecard-1_Legal.webp"
-        }
-      ]
-    },
-    {
       "source": "AdeptiCon2026_SeparatistRoadmap",
       "faction": "separatists",
       "note": "UNRELEASED preview cards cropped from the AdeptiCon 2026 roadmap SLIDES (https://www.atomicmassgames.com/transmission/adepticon-2026-roadmap-star-wars-legion/), 'Leaders of the Separatist Alliance' (SWQ49, Q3 2026), slides 2400x1350. savage-opress-dookus-apprentice = the LOWER of the two Savage cards on slide _07 (Retinue: Count Dooku; the upper card is the Maul-retinue config, not in catalogue). for-the-cause = the lone command card on slide _08. Only the play/stats side is shown (no art side); ~700-900px PREVIEW quality. Both flagged in public/data/unreleased.json. Re-source from clean PnP when AMG publishes SWQ49.",

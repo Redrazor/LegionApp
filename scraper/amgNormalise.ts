@@ -84,9 +84,9 @@ export const PRESERVE_SLUGS: Record<CardCategory, ReadonlySet<string>> = {
     'din-djarin-the-mandalorian', 'clan-wren-veterans', 'axe-woves-cunning-warrior',
   ]),
   upgrades: new Set([
-    'beskad-duelist', 'whipcord-launcher', 'jetpack-rockets', 'super-commando-marksman',
-    'super-commando-gunslinger', 'children-of-the-watch', 'ursa-wren', 'tristan-wren',
-    'the-darksaber-2', 'saxons-jetpack-rockets',
+    'beskad-duelist', 'whipcord-launcher', 'jetpack-rockets', 'jetpack-rockets-2',
+    'super-commando-marksman', 'super-commando-gunslinger', 'children-of-the-watch',
+    'ursa-wren', 'tristan-wren', 'the-darksaber-2', 'saxons-jetpack-rockets',
   ]),
   commands: new Set(['out-of-the-shadows']),
   battle: new Set(),

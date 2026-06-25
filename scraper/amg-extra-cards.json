@@ -258,6 +258,16 @@
           "slug": "arf-troopers",
           "side": "front",
           "file": "01242025-SWQ135-Transmission-Image_4.png"
+        },
+        {
+          "category": "upgrades",
+          "slug": "arf-trooper-duo",
+          "file": "01242025-SWQ135-Transmission-Image_6.png"
+        },
+        {
+          "category": "upgrades",
+          "slug": "rps-6-arf-trooper",
+          "file": "01242025-SWQ135-Transmission-Image_5.png"
         }
       ]
     },
@@ -731,6 +741,11 @@
           "slug": "aqua-droids",
           "side": "front",
           "file": "12042024_SWQ136_AquaDroids_Back.png"
+        },
+        {
+          "category": "upgrades",
+          "slug": "heavy-aqua-droid",
+          "file": "12042024_SWQ136_HeavyAquaDroids.png"
         }
       ]
     },
@@ -751,6 +766,24 @@
           "slug": "lm-432-crab-droid",
           "side": "front",
           "file": "SWQ134_CrabDroid_UnitCardBack.png"
+        },
+        {
+          "category": "upgrades",
+          "slug": "twin-blaster-cannons-2",
+          "file": "12032024_SWQ134_TwinBlasterCannons_3.png"
+        }
+      ]
+    },
+    {
+      "source": "SWL134_ImperialRiotControl",
+      "faction": "empire",
+      "note": "Imperial Riot Control Squad (product SWL134, current-edition legal). https://www.atomicmassgames.com/transmission/scene-to-stats-imperial-riot-control-squad/ — the Scene-to-Stats publishes both upgrade cards as clean per-card 'Legal' scans. Upgradecard-1 = KX-Series Security Droids (heavy weapon, 30 pts), Upgradecard-2 = Stormtrooper Marksman (left on LHQ2 for now). Full-res lives at the image-converter .webp path (the raw png is only the -187x300 thumbnail).",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/image-converter/2024/09",
+      "cards": [
+        {
+          "category": "upgrades",
+          "slug": "kx-series-security-droids",
+          "file": "SWL134_Upgradecard-1_Legal.webp"
         }
       ]
     },

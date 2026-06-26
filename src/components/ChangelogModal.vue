@@ -7,6 +7,15 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.27.0',
+    date: '2026-06-26',
+    changes: [
+      'More than 60 additional upgrade cards are now official Atomic Mass Games art — current-edition expansion cards across the Mandalorian clans (Clan Kryze/Wren/Saxon, Champion of the Watch, Din Djarin, Gar Saxon, Rook Kast, Sabine Wren, the character Darksabers, and the Bo-Katan/Paz/Armorer/Galaar gear), the Ewok upgrades (Axe Ewok, Ewok Trapper, Forest Dwellers and the rest), the Black Sun/Pyke/Weequay syndicate crews, super-commando gear, and more.',
+      'First-edition cards with no current-edition equivalent (the old DC-15 clone trooper, AT-ST mortar launcher, Mertalizer, R5 astromech droid, the Shadow Collective Rook Kast and Maul’s Darksaber) have been retired from the app.',
+      'The last 32 cards still on legacy art are all current cards AMG has not yet published a clean image for (or are unreleased) — they will be added as official files arrive.',
+    ],
+  },
+  {
     version: '1.26.0',
     date: '2026-06-21',
     changes: [

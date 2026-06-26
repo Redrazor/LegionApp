@@ -775,6 +775,20 @@
       ]
     },
     {
+      "source": "SWQ12_ScoutTroopers",
+      "faction": "empire",
+      "note": "Scout Troopers (product SWQ12). https://www.atomicmassgames.com/transmission/scene-to-stats-scout-troopers/ — the heavy-weapon upgrades are published as one side-by-side image (1463x1071 = two ~726-wide cards): LEFT = Sonic Charge Saboteur (23 pts), RIGHT = DLT-19x Sniper (38 pts, already on LHQ2). Crop the left card.",
+      "cdn": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/05",
+      "cards": [
+        {
+          "category": "upgrades",
+          "slug": "sonic-charge-saboteur",
+          "file": "SWQ12-SonicChargeSniper.png",
+          "crop": { "left": 0, "top": 0, "width": 726, "height": 1071 }
+        }
+      ]
+    },
+    {
       "source": "AdeptiCon2026_SeparatistRoadmap",
       "faction": "separatists",
       "note": "UNRELEASED preview cards cropped from the AdeptiCon 2026 roadmap SLIDES (https://www.atomicmassgames.com/transmission/adepticon-2026-roadmap-star-wars-legion/), 'Leaders of the Separatist Alliance' (SWQ49, Q3 2026), slides 2400x1350. savage-opress-dookus-apprentice = the LOWER of the two Savage cards on slide _07 (Retinue: Count Dooku; the upper card is the Maul-retinue config, not in catalogue). for-the-cause = the lone command card on slide _08. Only the play/stats side is shown (no art side); ~700-900px PREVIEW quality. Both flagged in public/data/unreleased.json. Re-source from clean PnP when AMG publishes SWQ49.",

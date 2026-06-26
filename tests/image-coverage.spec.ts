@@ -13,7 +13,6 @@ import { join } from 'path'
 // Allowlist: cards known to have no scan yet, scheduled to be sourced in the 2.0
 // battle/cleanup phase (P7). Empty this set at the 2.0 cutover (P8).
 const KNOWN_MISSING = new Set([
-  'dc-15-clone-trooper', // upgrades
   'youre-not-all-the-same-to-me', // upgrades — staged (republic roadmap preview), applied at P3 ship
 ])
 
@@ -37,6 +36,17 @@ const NO_IMAGE: Set<string> = (() => {
   } catch { return new Set<string>() }
 })()
 
+// Cards DROPPED entirely from the app (public/data/dropped.json): first-edition v1 cards
+// filtered out at store load. Still present in the catalogue JSON but need no scan on disk.
+const DROPPED: Set<string> = (() => {
+  try {
+    const d = JSON.parse(readFileSync(join(DATA, 'dropped.json'), 'utf8'))
+    const out = new Set<string>()
+    for (const cat of ['units', 'commands', 'upgrades']) for (const slug of d[cat] ?? []) out.add(slug)
+    return out
+  } catch { return new Set<string>() }
+})()
+
 const CATEGORIES: Record<string, string> = {
   units: 'units.json', upgrades: 'upgrades.json', commands: 'commands.json', battle: 'battleCards.json',
 }
@@ -55,7 +65,7 @@ describe('image coverage (every catalogue card has a scan on disk)', () => {
     const have = present(dir)
 
     it.skipIf(!have)(`${cat}: every slug has an image file`, () => {
-      const missing = slugs(file).filter((s) => !KNOWN_MISSING.has(s) && !NO_IMAGE.has(s) && !existsSync(join(dir, `${s}.webp`)))
+      const missing = slugs(file).filter((s) => !KNOWN_MISSING.has(s) && !NO_IMAGE.has(s) && !DROPPED.has(s) && !existsSync(join(dir, `${s}.webp`)))
       expect(missing, `missing ${cat} scans: ${missing.join(', ')}`).toEqual([])
     })
 

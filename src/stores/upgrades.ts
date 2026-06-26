@@ -4,6 +4,7 @@ import type { BattleForce, Unit, Upgrade, Weapon } from '../types/index.ts'
 import { loadCatalogue } from '../utils/api.ts'
 import { unitMeetsRequirements, upgradeFitsSlot, isMandalorianTrooper } from '../utils/army.ts'
 import { applyUnreleased } from '../utils/unreleased.ts'
+import { applyDropped } from '../utils/dropped.ts'
 
 export const useUpgradesStore = defineStore('upgrades', () => {
   const upgrades = ref<Upgrade[]>([])
@@ -20,7 +21,10 @@ export const useUpgradesStore = defineStore('upgrades', () => {
       ])
       // Overlay the owner-maintained weapon profiles (keyed by slug) onto each upgrade —
       // they live in their own file (scrape-proof) rather than in upgrades.json.
-      upgrades.value = await applyUnreleased(raw.map((u) => ({ ...u, weapons: weaponsBySlug[u.slug] ?? [] })), 'upgrades')
+      upgrades.value = await applyDropped(
+        await applyUnreleased(raw.map((u) => ({ ...u, weapons: weaponsBySlug[u.slug] ?? [] })), 'upgrades'),
+        'upgrades',
+      )
       loaded.value = true
     } finally {
       loading.value = false

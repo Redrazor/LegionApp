@@ -1,0 +1,14 @@
+{
+  "_comment": "Owner-maintained: cards DROPPED ENTIRELY from the app. These are first-edition (v1, FFG/early-AMG) cards with NO current-edition (v2) equivalent — the 2.0 app is v2-only (Feature 13). Unlike unreleased.json `noImage` (which keeps the card and shows a branded placeholder), slugs listed here are FILTERED OUT at store load, so they never appear in Browse / Build / Reference. Scrape-proof static overlay (like unreleased.json / upgrade-weapons.json). Keyed by category -> [slugs]. To restore a card, remove its slug here.",
+  "units": [],
+  "upgrades": [
+    "at-st-mortar-launcher",
+    "dc-15-clone-trooper",
+    "kx-series-security-droids",
+    "mertalizer",
+    "r5-astromech-droid",
+    "rook-kast",
+    "the-darksaber-maul"
+  ],
+  "commands": []
+}

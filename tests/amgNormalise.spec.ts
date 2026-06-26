@@ -108,9 +108,9 @@ describe('matchCard', () => {
 })
 
 describe('PRESERVE_SLUGS / isPreserved', () => {
-  it('has 14 self-sourced cards across categories (3 units, 10 upgrades, 1 command)', () => {
+  it('has 15 self-sourced cards across categories (3 units, 11 upgrades, 1 command)', () => {
     expect(PRESERVE_SLUGS.units.size).toBe(3)
-    expect(PRESERVE_SLUGS.upgrades.size).toBe(10)
+    expect(PRESERVE_SLUGS.upgrades.size).toBe(11)
     expect(PRESERVE_SLUGS.commands.size).toBe(1)
     expect(PRESERVE_SLUGS.battle.size).toBe(0)
   })

@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.28.0',
+    date: '2026-06-26',
+    changes: [
+      'The Browse Commands and Upgrades lists now show the full card, so you can read what each card does without opening it.',
+      'Cards that don’t yet have an official Atomic Mass Games image (32 current cards AMG hasn’t published art for, plus a few unreleased ones) now show a clear “card image pending” placeholder instead of older art.',
+    ],
+  },
+  {
     version: '1.27.0',
     date: '2026-06-26',
     changes: [

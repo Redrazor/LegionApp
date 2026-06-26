@@ -1,268 +1,396 @@
 {
- "_comment": "Owner-maintained list of cards whose IMAGE is a pre-release preview or a low-resolution placeholder pending an official high-res card. Keyed by category \u2192 slug \u2192 the note shown in the app. Overlaid onto the units/commands/upgrades stores at load (scrape-proof, like upgrade-weapons.json). The app shows an 'Unreleased / preview' badge wherever the card appears. Remove a slug here once its proper card is re-sourced (Feature 13). Reasons: roadmap-preview = cropped from an AdeptiCon 2026 announcement slide (low-res); low-res = a small official preview image; no-card = no first-party image found, still on the legacy scan.",
+ "_comment": "Owner-maintained list of cards whose IMAGE is a pre-release preview or a low-resolution placeholder pending an official high-res card. Keyed by category → slug → the note shown in the app. Overlaid onto the units/commands/upgrades stores at load (scrape-proof, like upgrade-weapons.json). The app shows an 'Unreleased / preview' badge wherever the card appears. Remove a slug here once its proper card is re-sourced (Feature 13). Reasons: roadmap-preview = cropped from an AdeptiCon 2026 announcement slide (low-res); low-res = a small official preview image; no-card = no first-party image found, still on the legacy scan.",
  "units": {
-  "mace-windu-jedi-council": "Unreleased (SWQ143, Q3 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "ki-adi-mundi-jedi-council": "Unreleased (SWQ143, Q3 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "shaak-ti-jedi-council": "Unreleased (SWQ143, Q3 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "plo-koon-jedi-council": "Unreleased (SWQ143, Q3 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "anakin-skywalker-mounted-jedi-general": "Unreleased (Jedi BARC Speeder, SWQ141, Q4 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "jedi-knight-mounted-jedi-general": "Unreleased (Jedi BARC Speeder, SWQ141, Q4 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "mace-windu-jedi-council": "Unreleased (SWQ143, Q3 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "ki-adi-mundi-jedi-council": "Unreleased (SWQ143, Q3 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "shaak-ti-jedi-council": "Unreleased (SWQ143, Q3 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "plo-koon-jedi-council": "Unreleased (SWQ143, Q3 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "anakin-skywalker-mounted-jedi-general": "Unreleased (Jedi BARC Speeder, SWQ141, Q4 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "jedi-knight-mounted-jedi-general": "Unreleased (Jedi BARC Speeder, SWQ141, Q4 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
   "clone-trooper-marksmen": {
-   "note": "No first-party AMG card image exists \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "No first-party AMG card image exists — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "tsmeu-6-wheel-bikes": {
-   "note": "No first-party AMG card image exists \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "No first-party AMG card image exists — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
-  "guerilla-troopers": "Unreleased (SWQ140, Q4 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "savage-opress-dookus-apprentice": "Unreleased (Leaders of the Separatist Alliance, SWQ49, Q3 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "han-chewie-notorious-scoundrels": "Unreleased (Han Solo & Chewbacca, SWQ57, Q4 2026) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "mandalorian-leader": "Unreleased (Customizable Mandalorian Leader & Hunter, SWQ152) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "mandalorian-hunter": "Unreleased (Customizable Mandalorian Leader & Hunter, SWQ152) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "paz-vizsla-proud-warrior": "Unreleased (Mandalorian Leaders, SWQ82) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "savage-opress-mauls-enforcer": "Unreleased (Mandalorian/Shadow Collective Savage Opress) \u2014 image is a low-res preview from AMG's AdeptiCon 2026 roadmap."
+  "guerilla-troopers": "Unreleased (SWQ140, Q4 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "savage-opress-dookus-apprentice": "Unreleased (Leaders of the Separatist Alliance, SWQ49, Q3 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "han-chewie-notorious-scoundrels": "Unreleased (Han Solo & Chewbacca, SWQ57, Q4 2026) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "mandalorian-leader": "Unreleased (Customizable Mandalorian Leader & Hunter, SWQ152) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "mandalorian-hunter": "Unreleased (Customizable Mandalorian Leader & Hunter, SWQ152) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "paz-vizsla-proud-warrior": "Unreleased (Mandalorian Leaders, SWQ82) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "savage-opress-mauls-enforcer": "Unreleased (Mandalorian/Shadow Collective Savage Opress) — image is a low-res preview from AMG's AdeptiCon 2026 roadmap."
  },
  "commands": {
-  "this-partys-over": "Unreleased (Jedi Council, SWQ143) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "force-of-will": "Unreleased (Jedi Council, SWQ143) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "unity-wins-wars": "Unreleased (Jedi Council, SWQ143) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "i-dont-believe-in-chance": "Unreleased (Jedi Council, SWQ143) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "a-disturbance-in-the-force": "Unreleased (Jedi Council, SWQ143) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "evasive-action": "Unreleased (Jedi BARC Speeder, SWQ141) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "for-the-cause": "Unreleased (Leaders of the Separatist Alliance, SWQ49, Q3 2026) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
-  "you-are-beaten": "Low-res official preview image (Ahsoka Tano, SWQ22) \u2014 pending a hi-res card.",
-  "i-go-where-im-needed": "Low-res official preview image (Ahsoka Tano, SWQ22) \u2014 pending a hi-res card.",
-  "revenge-is-not-the-jedi-way": "Low-res official preview image (Ahsoka Tano, SWQ22) \u2014 pending a hi-res card."
+  "this-partys-over": "Unreleased (Jedi Council, SWQ143) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "force-of-will": "Unreleased (Jedi Council, SWQ143) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "unity-wins-wars": "Unreleased (Jedi Council, SWQ143) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "i-dont-believe-in-chance": "Unreleased (Jedi Council, SWQ143) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "a-disturbance-in-the-force": "Unreleased (Jedi Council, SWQ143) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "evasive-action": "Unreleased (Jedi BARC Speeder, SWQ141) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "for-the-cause": "Unreleased (Leaders of the Separatist Alliance, SWQ49, Q3 2026) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "you-are-beaten": "Low-res official preview image (Ahsoka Tano, SWQ22) — pending a hi-res card.",
+  "i-go-where-im-needed": "Low-res official preview image (Ahsoka Tano, SWQ22) — pending a hi-res card.",
+  "revenge-is-not-the-jedi-way": "Low-res official preview image (Ahsoka Tano, SWQ22) — pending a hi-res card.",
+  "blast-off": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "explosions": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "honor-and-strength": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "i-like-those-odds": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "i-smell-fear-and-it-smells-good": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "impromptu-immolation": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "legacy-of-mandalore": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "no-escape": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "smoke-screen": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "symbol-of-rebellion": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "we-shall-start-with-revenge": {
+   "note": "Unreleased (Savage Opress) — no official card image yet; shows the image-pending placeholder.",
+   "noImage": true
+  }
  },
  "upgrades": {
-  "youre-not-all-the-same-to-me": "Unreleased (Jedi Council, SWQ143) \u2014 low-res preview from AMG's AdeptiCon 2026 roadmap.",
+  "youre-not-all-the-same-to-me": "Unreleased (Jedi Council, SWQ143) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
   "lightsaber": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "double-bladed-lightsaber": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "twin-lightsabers": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "electrostaff": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "vibrosword": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "vibro-axe": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "stun-baton": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "z-6-riot-baton": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "thermal-detonator": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "combat-shields": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "personal-combat-shield": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "deadeye": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "heavy-blaster-pistol": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "heavy-blaster-pistol-2": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "repeating-blaster": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "heavy-laser-cannon": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "flame-projector": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "micro-grenade-launcher": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "heavy-arm-cannon": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "targeting-relay": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "command-and-control-uplink": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "expanded-databanks": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "enhanced-combat-subroutines": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "limiter-override": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "overclock": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "turbo-charge": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "mobility-upgrade": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "optimized-task-flow": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "strategic-programming": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "logistical-prowess": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "sliced-comms": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-training": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-training-2": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-training-3": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-training-4": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-consular": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-guardian": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-guardian-2": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "jedi-negotiator": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "shoretrooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "shoretrooper-squad": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "dlt-19d-trooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "dlt-19x-sniper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "dlt-20a-range-trooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "hh-12-stormtrooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "rt-97c-stormtrooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "t-21-special-forces-trooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "t-21a-range-trooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "t-21b-shoretrooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "t-7-ion-snowtrooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "imperial-dark-trooper": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "imperial-tie-pilot": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "imperial-comms-technician": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "stormtrooper-captain": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "combat-armor": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "combat-armor-2": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
   "pintle-mounted-dlt-19": {
-   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play \u2014 shows the image-pending placeholder (no external-source image is used).",
+   "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
+   "noImage": true
+  },
+  "academy-trained": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "battlemaster": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "caught-in-a-web": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "clone-trooper-marksman": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "clone-trooper-marksmen-squad": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "defend-in-depth": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "dual-armaments": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "ee-3-carbine-rifle": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "frontline-commander": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "full-beskar-armor": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "galaar-15-carbine": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "guild-member": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "ig-100-magnaguard-pilot": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "platoon-commander": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "proven-tactician": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "reluctant-hero": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "seeker-droid": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "shaak-ti": {
+   "note": "Unreleased (Jedi Council Commander, SWQ143) — no official card image yet; shows the image-pending placeholder.",
+   "noImage": true
+  },
+  "tip-of-the-spear": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "unseen-saboteur": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
+   "noImage": true
+  },
+  "war-party-leader": {
+   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   }
  }

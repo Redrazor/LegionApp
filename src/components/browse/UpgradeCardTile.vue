@@ -2,6 +2,7 @@
 import type { Upgrade } from '../../types/index.ts'
 import { imageUrl } from '../../utils/imageUrl.ts'
 import { slotLabel } from '../../utils/factions.ts'
+import MissingCardImage from '../ui/MissingCardImage.vue'
 
 defineProps<{ upgrade: Upgrade }>()
 </script>
@@ -11,18 +12,18 @@ defineProps<{ upgrade: Upgrade }>()
     :to="`/browse/upgrades/${upgrade.slug}`"
     class="group relative flex flex-col overflow-hidden rounded-xl border border-lg-border bg-lg-surface transition-all hover:border-lg-accent/50 hover:-translate-y-0.5"
   >
-    <!-- Card scan / fallback -->
-    <div class="relative aspect-[1.41/1] w-full overflow-hidden bg-lg-dark">
-      <img
-        v-if="upgrade.cardImage"
-        :src="imageUrl(upgrade.cardImage)"
-        :alt="upgrade.name"
-        loading="lazy"
-        class="h-full w-full object-cover object-top"
-      />
-      <div v-else class="flex h-full w-full items-center justify-center px-3 text-center">
-        <span class="font-display text-sm font-bold uppercase tracking-wide text-lg-muted">{{ upgrade.name }}</span>
+    <!-- Full card scan so the rules text is readable in the list; branded placeholder when
+         no first-party image is available yet. -->
+    <div class="relative w-full">
+      <div v-if="upgrade.cardImage" class="aspect-[5/7] w-full overflow-hidden bg-lg-dark">
+        <img
+          :src="imageUrl(upgrade.cardImage)"
+          :alt="upgrade.name"
+          loading="lazy"
+          class="h-full w-full object-cover object-center"
+        />
       </div>
+      <MissingCardImage v-else portrait />
       <!-- Cost badge -->
       <span v-if="upgrade.cost != null" class="absolute right-2 top-2 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-lg-bg/85 px-1.5 text-xs font-bold tabular-nums text-lg-accent ring-1 ring-lg-accent/40">
         {{ upgrade.cost }}

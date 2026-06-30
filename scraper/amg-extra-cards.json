@@ -173,6 +173,36 @@
             "width": 1040,
             "height": 760
           }
+        },
+        {
+          "category": "upgrades",
+          "slug": "academy-trained",
+          "file": "SWQ09_Upgrade_DoctrinesFan.png",
+          "crop": { "left": 0, "top": 0, "width": 730, "height": 1048 }
+        },
+        {
+          "category": "upgrades",
+          "slug": "tip-of-the-spear",
+          "file": "SWQ09_Upgrade_DoctrinesFan.png",
+          "crop": { "left": 730, "top": 0, "width": 730, "height": 1048 }
+        },
+        {
+          "category": "upgrades",
+          "slug": "defend-in-depth",
+          "file": "SWQ09_Upgrade_DoctrinesFan.png",
+          "crop": { "left": 0, "top": 1067, "width": 730, "height": 1048 }
+        },
+        {
+          "category": "upgrades",
+          "slug": "platoon-commander",
+          "file": "SWQ09_Upgrade_DoctrinesFan.png",
+          "crop": { "left": 730, "top": 1067, "width": 730, "height": 1048 }
+        },
+        {
+          "category": "upgrades",
+          "slug": "seeker-droid",
+          "file": "SWQ09_Upgrade_GearFan.png",
+          "crop": { "left": 730, "top": 0, "width": 730, "height": 1048 }
         }
       ]
     },
@@ -555,6 +585,30 @@
             "width": 732,
             "height": 1061
           }
+        },
+        {
+          "category": "upgrades",
+          "slug": "frontline-commander",
+          "file": "SWQ13_Upgrade_Doctrine_Fan.png",
+          "crop": { "left": 0, "top": 0, "width": 730, "height": 1048 }
+        },
+        {
+          "category": "upgrades",
+          "slug": "unseen-saboteur",
+          "file": "SWQ13_Upgrade_Doctrine_Fan.png",
+          "crop": { "left": 730, "top": 0, "width": 730, "height": 1048 }
+        },
+        {
+          "category": "upgrades",
+          "slug": "proven-tactician",
+          "file": "SWQ13_Upgrade_Doctrine_Fan.png",
+          "crop": { "left": 0, "top": 1067, "width": 730, "height": 1048 }
+        },
+        {
+          "category": "upgrades",
+          "slug": "reluctant-hero",
+          "file": "SWQ13_Upgrade_Doctrine_Fan.png",
+          "crop": { "left": 730, "top": 1067, "width": 730, "height": 1048 }
         }
       ]
     },

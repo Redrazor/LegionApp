@@ -1314,6 +1314,36 @@
           }
         }
       ]
+    },
+    {
+      "source": "SWQ32_TSMEU_BoxRender",
+      "faction": "separatists",
+      "note": "STOPGAP (not a PnP/transmission scan): the TSMEU-6 Wheel Bikes (SWQ32) unit PLAY-side card cropped to its orange border from AMG's marketing BOX-COVER render (Amazon product image). More saturated / lower-res than a real card scan; replace when AMG publishes a clean image or the owner photographs it. No art side. The ig-100-magnaguard-pilot upgrade is NOT in this image.",
+      "cdn": "https://m.media-amazon.com/images/I",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "tsmeu-6-wheel-bikes",
+          "side": "play",
+          "url": "https://m.media-amazon.com/images/I/81mQRSjCAbL._AC_SL1500_.jpg",
+          "crop": { "left": 36, "top": 781, "width": 815, "height": 579 }
+        }
+      ]
+    },
+    {
+      "source": "SWQ23_Marksmen_DevStream",
+      "faction": "republic",
+      "note": "STOPGAP (not a PnP/transmission scan): the Clone Trooper Marksmen (SWQ23) unit PLAY-side card cropped from an AMG developer update-stream screenshot (April 2025 PREVIEW, pre-release — may differ slightly from the final printed card; lower-res). Sourced via reddit i.redd.it. Replace when AMG publishes a clean image or the owner photographs it. No art side. The two marksmen UPGRADE cards are NOT in this image.",
+      "cdn": "https://i.redd.it",
+      "cards": [
+        {
+          "category": "units",
+          "slug": "clone-trooper-marksmen",
+          "side": "play",
+          "url": "https://i.redd.it/2zyfna49l8ve1.jpeg",
+          "crop": { "left": 91, "top": 9, "width": 668, "height": 464 }
+        }
+      ]
     }
   ]
 }

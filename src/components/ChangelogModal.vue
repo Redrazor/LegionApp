@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.30.0',
+    date: '2026-07-01',
+    changes: [
+      'Army validation now enforces mandatory-equip keywords: units with Equip (e.g. Officers that must take a Doctrine, Mandalorian Leaders that must take an Armament + Doctrine), Programmed (droids that must take a Programming upgrade) and Flexible Response (must take heavy weapons) are flagged as illegal until their required upgrade slots are filled.',
+      'Fixed Grand Moff Tarkin\'s "Pulling the Strings" keyword, which previously showed no rules text — it now displays its definition like every other keyword.',
+    ],
+  },
+  {
     version: '1.29.1',
     date: '2026-06-30',
     changes: [

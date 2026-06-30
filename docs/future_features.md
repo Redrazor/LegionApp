@@ -246,6 +246,45 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 16 — Mandatory-equip keyword validation (+ Tarkin keyword fix)
+
+**Status:** SHIPPED v1.30.0 (`feature/mandatory-equip-keywords`). Surfaced by owner 2026-06-30 while
+reviewing what the Build validator does and doesn't enforce.
+
+**What shipped:**
+- **Mandatory-equip enforcement** — a new pure `mandatoryEquipUnmet` (`utils/army.ts`) generalises the
+  existing Heavy Weapon Team check to the other slot-based mandatory-equip keywords, blocking the army as
+  illegal until satisfied:
+  - `Equip <slot>[, <slot>…]` → one upgrade in each named slot type (Imperial/Rebel Officer & Agent →
+    Doctrine; Mandalorian Leader/Hunter & Jedi Knight → Armament + Doctrine; Super Tactical Droid → Doctrine).
+  - `Programmed` → ≥1 Programming upgrade (IG-11, DSD1, Crab Droid, Persuader).
+  - `Flexible Response N` → ≥N Heavy Weapon upgrades (Stormtroopers 2).
+  - Wired into both the footer checklist (`validateArmy`, new **Equip** row) and the per-unit card
+    indicator (`unitLegalityIssues` → `Needs <Slot>`).
+- **Satisfiability guard** — a requirement is only enforced when the unit's printed upgrade bar can
+  actually fulfil it, so a catalogue data gap never permanently bricks a unit. This deliberately skips
+  **Guerilla Troopers** (`Flexible Response 2` but 0 Heavy Weapon slots in its bar — a data bug to fix
+  separately).
+- **Tarkin keyword fix** — Grand Moff Tarkin's keyword was stored as the LHQ2 misspelling
+  `"Pull The Strings Empire Trooper"`, which matched no glossary entry, so the app showed no rules text.
+  Corrected in `units.json` to the qualified `"Pulling the Strings: Empire Trooper"` (verified against his
+  card scan), which resolves via the resolver's colon-qualifier path. Removed the now-stale entry from the
+  keyword guard's `KNOWN_UNRESOLVED` allowlist (`scraper/keywords.ts`) + the catalogue-coverage test so the
+  guard is strict for it again. **Re-scrape caveat:** a future LHQ2 scrape would re-introduce the
+  misspelling — re-apply this fix (same class as the owner-maintained upgrade-keyword tags).
+
+**Deliberately out of scope (→ Feature 14 Counterpart):** name-token Equips, where the listed upgrades are
+specific counterpart cards rather than slot types — The Bad Batch (`Equip Hunter, Wrecker, Echo, Tech`),
+Imperial Special Forces (`Del Meeko, Gideon Hask`), General Tagge (`Logistical Prowess`), Cassian Andor
+(`A280`), Clone Commandos (`Katarn Pattern Armor`), Mandalorian Resistance (`Tristan Wren, Ursa Wren`).
+Several have real edge cases (5 names for 4 slots; Wren upgrades need a Personnel slot the unit lacks) that
+need the counterpart model. The validator ignores name-tokens entirely until then.
+
+**Pulling the Strings** itself is a gameplay card-action, not an army-building rule — no build logic needed
+beyond making its text display.
+
+---
+
 ## Feature 15 — Flip double-sided cards
 
 **Status:** queued (owner-requested during Feature 13 P2, 2026-06-18). Not started. This is the

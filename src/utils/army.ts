@@ -3,7 +3,7 @@ import type {
   CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
-import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
+import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, SLOT_LABELS, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
 import { resolveKeywordEntry, type Glossary } from './keywords.ts'
 import { unitTypeRuleKey } from './unitTypes.ts'
 
@@ -596,6 +596,89 @@ export function heavyWeaponTeamUnmet(army: Army, unitsById: Map<string, Unit>): 
   return unmet
 }
 
+const SLOT_TYPES = new Set(Object.keys(SLOT_LABELS))
+
+/**
+ * Slot-based mandatory-equip demands a unit's keywords impose during army building, as a
+ * slot-type → minimum-count map. Covers the keywords whose requirement maps onto an
+ * upgrade *slot*:
+ *   - `Equip <slot>[, <slot>…]` → 1 upgrade of each named slot type. Equip tokens that
+ *      are upgrade *names* rather than slot types (counterpart cards — Bad Batch's clone
+ *      troopers, Del Meeko/Hask, Logistical Prowess, …) are deliberately ignored here:
+ *      that mechanic belongs to the Counterpart feature, and several can't even be
+ *      satisfied from the printed bar (e.g. the Wren upgrades need a Personnel slot the
+ *      unit lacks).
+ *   - `Programmed`              → 1 Programming upgrade.
+ *   - `Flexible Response N`     → N Heavy Weapon upgrades.
+ * Heavy Weapon Team is handled separately ({@link needsHeavyWeapon}) so its bespoke
+ * message and `heavyWeaponTeamUnmet` row stay intact. Pure.
+ */
+function mandatoryEquipSlots(unit: Unit): Map<string, number> {
+  const demand = new Map<string, number>()
+  const need = (slot: string, n = 1) => demand.set(slot, Math.max(demand.get(slot) ?? 0, n))
+  for (const kw of unit.keywords) {
+    const lc = kw.toLowerCase()
+    if (lc === 'programmed') need('programming')
+    else if (lc.startsWith('flexible response')) {
+      const n = parseInt(lc.slice('flexible response'.length), 10)
+      need('heavy weapon', Number.isFinite(n) && n > 0 ? n : 1)
+    } else if (lc.startsWith('equip ')) {
+      for (const tok of kw.slice('equip '.length).split(',')) {
+        const t = tok.trim().toLowerCase()
+        if (SLOT_TYPES.has(t)) need(t)
+      }
+    }
+  }
+  return demand
+}
+
+/**
+ * The slot types a unit still owes for its mandatory-equip keywords, counting only
+ * demands the printed upgrade bar can actually satisfy. An unsatisfiable demand — a
+ * catalogue data gap, e.g. Guerilla Troopers' `Flexible Response 2` on a bar with no
+ * Heavy Weapon slot — is skipped so a data quirk never makes the unit permanently
+ * illegal. Returns the unmet slot types in demand order. Pure.
+ */
+function unmetMandatoryEquip(unit: Unit, au: ArmyUnit): string[] {
+  const demand = mandatoryEquipSlots(unit)
+  if (!demand.size) return []
+  const capacity = new Map<string, number>()
+  for (const s of unit.upgradeBar) {
+    const k = s.toLowerCase()
+    capacity.set(k, (capacity.get(k) ?? 0) + 1)
+  }
+  const filled = new Map<string, number>()
+  for (const u of au.upgrades) {
+    const k = u.slot.split('#')[0].toLowerCase()
+    filled.set(k, (filled.get(k) ?? 0) + 1)
+  }
+  const unmet: string[] = []
+  for (const [slot, n] of demand) {
+    if ((capacity.get(slot) ?? 0) < n) continue // can't be satisfied from the bar — skip
+    if ((filled.get(slot) ?? 0) < n) unmet.push(slot)
+  }
+  return unmet
+}
+
+/**
+ * Units whose mandatory-equip keywords (`Equip <slot>`, `Programmed`, `Flexible
+ * Response`) are unsatisfied, each with the slot types it still owes. Drives the footer
+ * checklist; Heavy Weapon Team keeps its own row ({@link heavyWeaponTeamUnmet}). Pure.
+ */
+export function mandatoryEquipUnmet(
+  army: Army,
+  unitsById: Map<string, Unit>,
+): { name: string; slots: string[] }[] {
+  const out: { name: string; slots: string[] }[] = []
+  for (const au of army.units) {
+    const unit = unitsById.get(au.unitId)
+    if (!unit) continue
+    const slots = unmetMandatoryEquip(unit, au)
+    if (slots.length) out.push({ name: unit.name, slots })
+  }
+  return out
+}
+
 /**
  * Per-unit legality problems for the army-list card indicator: the actionable,
  * single-unit reasons a unit is currently illegal (empty array = legal). Army-wide
@@ -617,6 +700,7 @@ export function unitLegalityIssues(
   // (e.g. one left over from before the BF was picked) is illegal here.
   if (bf && !battleForcePool(bf).has(unit.id)) issues.push(`Not in ${bf.name}`)
   if (needsHeavyWeapon(unit, au)) issues.push('Needs a heavy weapon')
+  for (const slot of unmetMandatoryEquip(unit, au)) issues.push(`Needs ${slotLabel(slot)}`)
   const ignoresDetach = !!bf && battleForceRules(bf).ignoreDetach === unit.id
   const needsParent = ignoresDetach ? null : detachmentUnmetFor(au, unit, army, unitsById)
   if (needsParent) {
@@ -1740,6 +1824,17 @@ export function validateArmy(
       ok: false,
       label: 'Heavy Weapon',
       detail: `${hwtIssues.join(', ')} need${hwtIssues.length === 1 ? 's' : ''} a heavy weapon`,
+    })
+  }
+
+  // Mandatory-equip keywords — Equip <slot>, Programmed, Flexible Response all require
+  // specific upgrade slots to be filled during army building (Heavy Weapon Team above).
+  const equipIssues = mandatoryEquipUnmet(army, unitsById)
+  if (equipIssues.length) {
+    items.push({
+      ok: false,
+      label: 'Equip',
+      detail: equipIssues.map((e) => `${e.name} needs ${e.slots.map(slotLabel).join(' + ')}`).join('; '),
     })
   }
 

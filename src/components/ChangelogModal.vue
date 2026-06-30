@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.29.0',
+    date: '2026-06-30',
+    changes: [
+      'Another 16 cards now show official Atomic Mass Games art instead of the "image pending" placeholder: the Customizable Imperial and Rebel Officer & Agent doctrine and gear upgrades, plus R2-D2\'s, Sabine Wren\'s and Din Djarin\'s command cards.',
+      'Just 16 cards remain on the placeholder — all current cards AMG has not yet published a clean image for, or unreleased expansions.',
+    ],
+  },
+  {
     version: '1.28.1',
     date: '2026-06-30',
     changes: [

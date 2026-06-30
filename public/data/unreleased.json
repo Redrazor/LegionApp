@@ -34,19 +34,7 @@
   "you-are-beaten": "Low-res official preview image (Ahsoka Tano, SWQ22) — pending a hi-res card.",
   "i-go-where-im-needed": "Low-res official preview image (Ahsoka Tano, SWQ22) — pending a hi-res card.",
   "revenge-is-not-the-jedi-way": "Low-res official preview image (Ahsoka Tano, SWQ22) — pending a hi-res card.",
-  "blast-off": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "explosions": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
   "honor-and-strength": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "i-like-those-odds": {
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
@@ -54,23 +42,7 @@
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
-  "impromptu-immolation": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "legacy-of-mandalore": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
   "no-escape": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "smoke-screen": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "symbol-of-rebellion": {
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
@@ -309,10 +281,6 @@
    "note": "Legacy 1st-edition card with no first-party AMG v2 print-and-play — shows the image-pending placeholder (no external-source image is used).",
    "noImage": true
   },
-  "academy-trained": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
   "battlemaster": {
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
@@ -329,19 +297,11 @@
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
-  "defend-in-depth": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
   "dual-armaments": {
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
   "ee-3-carbine-rifle": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "frontline-commander": {
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
@@ -361,32 +321,8 @@
    "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
-  "platoon-commander": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "proven-tactician": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "reluctant-hero": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "seeker-droid": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
   "shaak-ti": {
    "note": "Unreleased (Jedi Council Commander, SWQ143) — no official card image yet; shows the image-pending placeholder.",
-   "noImage": true
-  },
-  "tip-of-the-spear": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
-   "noImage": true
-  },
-  "unseen-saboteur": {
-   "note": "Current-edition card — AMG has not published an official card image yet; shows the image-pending placeholder until one is available (see card_missing_shortlist.md).",
    "noImage": true
   },
   "war-party-leader": {

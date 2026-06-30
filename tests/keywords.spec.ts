@@ -13,6 +13,7 @@ const G = {
   'Master of the Force': 'MotF def',
   Mercenary: 'Mercenary def',
   Fixed: 'Fixed def',
+  'Pulling the Strings': 'Pulling the Strings def',
 }
 
 describe('resolveKeyword', () => {
@@ -35,6 +36,10 @@ describe('resolveKeyword', () => {
 
   it('resolves a ":" keyword by its prefix ("Immune: Pierce" → Immune)', () => {
     expect(resolveKeyword(G, 'Immune: Pierce')).toBe('Immune def')
+  })
+
+  it("resolves Tarkin's qualified keyword (\"Pulling the Strings: Empire Trooper\")", () => {
+    expect(resolveKeyword(G, 'Pulling the Strings: Empire Trooper')).toBe('Pulling the Strings def')
   })
 
   it('resolves a valued multi-word keyword via whole-word prefix', () => {
@@ -95,7 +100,6 @@ describe('glossary coverage (real catalogue)', () => {
   const ALLOWED_UNRESOLVED = new Set([
     'Dodge', // a token term, not a keyword
     'Ranged', // attack-type qualifier (Sidearm), not a standalone keyword
-    'Pull The Strings Empire Trooper', // card-specific ability; text lives on the card
   ])
 
   const used = new Set<string>()
@@ -116,5 +120,7 @@ describe('glossary coverage (real catalogue)', () => {
     expect(resolveKeyword(glossary, 'Anti-Materiel 4')).not.toBeNull()
     expect(resolveKeyword(glossary, 'Associate Anakin Skywalker')).not.toBeNull()
     expect(resolveKeyword(glossary, 'This is the Way Aim 2')).not.toBeNull()
+    // Tarkin's qualified keyword — corrected from the LHQ2 misspelling so it resolves.
+    expect(resolveKeyword(glossary, 'Pulling the Strings: Empire Trooper')).not.toBeNull()
   })
 })

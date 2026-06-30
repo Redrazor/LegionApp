@@ -15,11 +15,12 @@ const DATA = join(ROOT, 'public', 'data')
 const readJson = (f: string) => JSON.parse(readFileSync(join(DATA, f), 'utf8'))
 
 // LHQ2 card-data artifacts that have never matched a glossary keyword and aren't real
-// keywords (mis-tagged token/weapon-type strings, or a spelling variant of a real keyword):
+// keywords (mis-tagged token/weapon-type strings):
 //  - "Dodge" (Defense Protocols) / "Ranged" (The Darksaber) — token/weapon-type noise.
-//  - "Pull The Strings Empire Trooper" (Tarkin) — LHQ2 misspelling of "Pulling the Strings".
+// (Tarkin's "Pull The Strings Empire Trooper" was an LHQ2 misspelling, now corrected in
+//  units.json to the qualified "Pulling the Strings: Empire Trooper" which resolves.)
 // Tracked so the resolver check below stays strict for everything that genuinely matters.
-const KNOWN_UNRESOLVED = new Set(['Dodge', 'Ranged', 'Pull The Strings Empire Trooper'])
+const KNOWN_UNRESOLVED = new Set(['Dodge', 'Ranged'])
 
 function cardKeywordStrings(): string[] {
   const set = new Set<string>()

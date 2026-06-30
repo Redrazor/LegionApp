@@ -6,7 +6,7 @@ import {
   defaultBattleForceId, affiliationCohesionIssues, battleForceCohesion,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
   primaryWeaponDice, detachmentTarget, isDetachment, presentDetachmentParents, groupArmyUnits,
-  heavyWeaponTeamUnmet, unitLegalityIssues,
+  heavyWeaponTeamUnmet, mandatoryEquipUnmet, unitLegalityIssues,
   effectiveRank, effectiveUpgradeBar, slotKeySet, pruneOrphanedUpgrades, upgradeFitsSlot,
   unitModelCount, armyModelCount, upgradeMinisAdded, MINI_ADDING_SLOTS, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
@@ -185,6 +185,57 @@ describe('heavyWeaponTeamUnmet', () => {
   })
 })
 
+describe('mandatoryEquipUnmet', () => {
+  const army = (unitId: string, upgrades: { slot: string; upgradeId: string }[] = []): Army => ({
+    name: '', faction: 'empire', gameSize: 1000,
+    units: [{ uid: '1', unitId, upgrades }],
+  })
+
+  const officer = unit('officer', { keywords: ['Equip Doctrine'], upgradeBar: ['command', 'doctrine'] })
+  const mandoLeader = unit('mando', { keywords: ['Equip Armament, Doctrine'], upgradeBar: ['armament', 'doctrine', 'gear'] })
+  const droid = unit('ig11', { keywords: ['Programmed'], upgradeBar: ['programming', 'gear'] })
+  const storm = unit('storm', { keywords: ['Flexible Response 2'], upgradeBar: ['heavy weapon', 'heavy weapon'] })
+  const guerilla = unit('guerilla', { keywords: ['Flexible Response 2'], upgradeBar: ['gear'] }) // no HW slots — data gap
+  const badBatch = unit('bb', { name: 'The Bad Batch', keywords: ['Equip Hunter, Wrecker'], upgradeBar: ['heavy weapon'] })
+  const { unitsById } = makeMaps([officer, mandoLeader, droid, storm, guerilla, badBatch])
+
+  it('flags an Equip <slot> unit with the slot empty, and clears once filled', () => {
+    expect(mandatoryEquipUnmet(army('officer'), unitsById)).toEqual([{ name: 'officer', slots: ['doctrine'] }])
+    expect(mandatoryEquipUnmet(army('officer', [{ slot: 'doctrine#0', upgradeId: 'd' }]), unitsById)).toEqual([])
+  })
+
+  it('requires every named slot of a multi-slot Equip', () => {
+    expect(mandatoryEquipUnmet(army('mando'), unitsById)).toEqual([{ name: 'mando', slots: ['armament', 'doctrine'] }])
+    const partial = army('mando', [{ slot: 'doctrine#0', upgradeId: 'd' }])
+    expect(mandatoryEquipUnmet(partial, unitsById)).toEqual([{ name: 'mando', slots: ['armament'] }])
+  })
+
+  it('enforces Programmed as a Programming slot', () => {
+    expect(mandatoryEquipUnmet(army('ig11'), unitsById)).toEqual([{ name: 'ig11', slots: ['programming'] }])
+    expect(mandatoryEquipUnmet(army('ig11', [{ slot: 'programming#0', upgradeId: 'p' }]), unitsById)).toEqual([])
+  })
+
+  it('Flexible Response N needs N heavy weapons (one is not enough)', () => {
+    expect(mandatoryEquipUnmet(army('storm', [{ slot: 'heavy weapon#0', upgradeId: 'h' }]), unitsById))
+      .toEqual([{ name: 'storm', slots: ['heavy weapon'] }])
+    const both = army('storm', [{ slot: 'heavy weapon#0', upgradeId: 'h' }, { slot: 'heavy weapon#1', upgradeId: 'h2' }])
+    expect(mandatoryEquipUnmet(both, unitsById)).toEqual([])
+  })
+
+  it('skips a demand the printed bar cannot satisfy (data gap), never bricking the unit', () => {
+    expect(mandatoryEquipUnmet(army('guerilla'), unitsById)).toEqual([])
+  })
+
+  it('ignores name-token Equips (counterpart cards), which are out of scope here', () => {
+    expect(mandatoryEquipUnmet(army('bb'), unitsById)).toEqual([])
+  })
+
+  it('surfaces a per-unit "Needs <Slot>" issue on the card indicator', () => {
+    expect(unitLegalityIssues(army('officer').units[0], army('officer'), unitsById)).toEqual(['Needs Doctrine'])
+    expect(unitLegalityIssues(army('officer', [{ slot: 'doctrine#0', upgradeId: 'd' }]).units[0], army('officer', [{ slot: 'doctrine#0', upgradeId: 'd' }]), unitsById)).toEqual([])
+  })
+})
+
 describe('validateArmy', () => {
   const corps = (id: string) => unit(id, { rank: 'corps', cost: 50 })
   const cmd = (id: string) => unit(id, { rank: 'commander', cost: 80, isUnique: true })
@@ -211,6 +262,22 @@ describe('validateArmy', () => {
     expect(v.points).toBe(80 + 50 * 3)
     expect(v.activations).toBe(4)
     expect(v.rankCounts.corps).toBe(3)
+  })
+
+  it('blocks the list when a mandatory-equip keyword is unsatisfied (Equip Doctrine)', () => {
+    const officer = unit('off', { rank: 'commander', cost: 80, isUnique: true, keywords: ['Equip Doctrine'], upgradeBar: ['doctrine'] })
+    const units = [officer, corps('c1'), corps('c2'), corps('c3')]
+    const { unitsById, upgradesById } = makeMaps(units)
+    const army: Army = {
+      name: '', faction: 'empire', gameSize: 800,
+      units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
+    }
+    const v = validateArmy(army, unitsById, upgradesById)
+    expect(v.items.find((i) => i.label === 'Equip')?.ok).toBe(false)
+    expect(v.valid).toBe(false)
+    // Equipping a doctrine clears it.
+    army.units[0].upgrades = [{ slot: 'doctrine#0', upgradeId: 'd' }]
+    expect(validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Equip')).toBeUndefined()
   })
 
   it('flags exceeding the points ceiling', () => {

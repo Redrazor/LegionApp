@@ -10,17 +10,17 @@ Total **16** = 12 upgrades + 4 commands.
 
 ---
 
-## ✅ RELEASED — photographable now (3)  ⏳ owner has leads in hand
+## ✅ RELEASED — 3 upgrades still need a source (the unit cards are now stopgap-sourced)
 
 ### Clone Trooper Marksmen — AMGSWQ23 (released 2025-11-07)
-- `clone-trooper-marksman` · `clone-trooper-marksmen-squad` (personnel)
-- Owner-supplied lead: a dev-diary card image on Reddit (third-party host — stopgap quality).
+- `clone-trooper-marksman` · `clone-trooper-marksmen-squad` (personnel) — STILL MISSING
+- The UNIT card `clone-trooper-marksmen` is now sourced as a **stopgap** from an AMG dev-stream screenshot (April-2025 preview; lower-res — replace with a clean scan/photo). The two upgrade cards were not in that image.
 
 ### TSMEU-6 Personal Wheel Bikes — AMGSWQ32 (released ~2026-05)
-- `ig-100-magnaguard-pilot` (pilot)
-- Owner-supplied lead: Amazon product image (needs cropping; third-party host — stopgap quality).
+- `ig-100-magnaguard-pilot` (pilot) — STILL MISSING
+- The UNIT card `tsmeu-6-wheel-bikes` is now sourced as a **stopgap** from the AMG box-cover render (Amazon). The pilot upgrade was not in that image.
 
-> Worth a check first: the SWQ23/SWQ32 transmission pages may carry upgrade "fans" (like SWQ09/SWQ13 did) — prefer those if present.
+> Both `…BoxRender` / `…DevStream` units are stopgaps in `card_list_origin.md` — re-source them and the 3 upgrades from a clean PnP/transmission or owner photos when available.
 
 ---
 

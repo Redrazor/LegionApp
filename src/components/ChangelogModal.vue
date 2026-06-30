@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.29.1',
+    date: '2026-06-30',
+    changes: [
+      'The TSMEU-6 Wheel Bikes and Clone Trooper Marksmen unit cards now show art instead of the placeholder (sourced as interim images pending clean official scans).',
+    ],
+  },
+  {
     version: '1.29.0',
     date: '2026-06-30',
     changes: [

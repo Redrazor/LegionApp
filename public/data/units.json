@@ -7004,7 +7004,10 @@
       "Independent Aim 1",
       "Infiltrate"
     ],
-    "upgradeBar": [],
+    "upgradeBar": [
+      "heavy weapon",
+      "heavy weapon"
+    ],
     "weapons": [
       {
         "name": "Combat Training",

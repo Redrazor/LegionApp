@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.30.1',
+    date: '2026-07-01',
+    changes: [
+      'Guerilla Troopers now have their two Heavy Weapon upgrade slots, so the new Flexible Response validation applies to them (previously their upgrade bar was empty in the data).',
+    ],
+  },
+  {
     version: '1.30.0',
     date: '2026-07-01',
     changes: [

@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.28.1',
+    date: '2026-06-30',
+    changes: [
+      'Card images load much faster, especially on the first visit after an update: they now stay cached between releases instead of being re-downloaded every time the app version changed.',
+    ],
+  },
+  {
     version: '1.28.0',
     date: '2026-06-26',
     changes: [

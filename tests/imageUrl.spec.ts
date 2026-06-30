@@ -33,31 +33,33 @@ describe('imageUrl', () => {
       imageUrl = await loadWithBase('https://legionapp-images.web.app')
     })
 
-    it('strips /images/ and prepends the base (with the app-version cache-buster)', () => {
+    it('strips /images/ and prepends the base (no cache-busting query)', () => {
       expect(imageUrl('/images/units/darth-vader.webp')).toBe(
-        'https://legionapp-images.web.app/units/darth-vader.webp?v=test',
+        'https://legionapp-images.web.app/units/darth-vader.webp',
       )
     })
 
     it('forces .webp for .jpg product originals', () => {
       expect(imageUrl('/images/products/8435407620759.jpg')).toBe(
-        'https://legionapp-images.web.app/products/8435407620759.webp?v=test',
+        'https://legionapp-images.web.app/products/8435407620759.webp',
       )
     })
 
     it('forces .webp for .png and .jpeg too', () => {
-      expect(imageUrl('/images/a.png')).toBe('https://legionapp-images.web.app/a.webp?v=test')
-      expect(imageUrl('/images/b.jpeg')).toBe('https://legionapp-images.web.app/b.webp?v=test')
+      expect(imageUrl('/images/a.png')).toBe('https://legionapp-images.web.app/a.webp')
+      expect(imageUrl('/images/b.jpeg')).toBe('https://legionapp-images.web.app/b.webp')
     })
 
-    it('appends the app-version cache-buster to every CDN image (cards + portraits)', () => {
-      // Tied to the release version so each deploy busts the immutable CDN + SW image cache.
+    it('does NOT append a version query — images are immutable under stable filenames', () => {
+      // The app-version cache-buster was removed: it re-downloaded every image after each
+      // release. Plain immutable URLs stay cached across releases (see imageUrl.ts).
       expect(imageUrl('/images/portraits/darth-vader-dark-lord-of-the-sith.webp')).toBe(
-        'https://legionapp-images.web.app/portraits/darth-vader-dark-lord-of-the-sith.webp?v=test',
+        'https://legionapp-images.web.app/portraits/darth-vader-dark-lord-of-the-sith.webp',
       )
       expect(imageUrl('/images/upgrades/children-of-the-watch.webp')).toBe(
-        'https://legionapp-images.web.app/upgrades/children-of-the-watch.webp?v=test',
+        'https://legionapp-images.web.app/upgrades/children-of-the-watch.webp',
       )
+      expect(imageUrl('/images/units/darth-vader.webp')).not.toContain('?v=')
     })
 
     it('passes through absolute http(s) URLs untouched', () => {

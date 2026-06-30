@@ -1,11 +1,12 @@
 const IMAGE_BASE = (import.meta.env.VITE_IMAGE_BASE as string | undefined) ?? ''
 
-// Self-hosted CDN images (cards, portraits, products) are served `immutable` for a year, and
-// card scans / portrait crops get re-pulled in place under the same filename. Tagging every CDN
-// URL with the app version busts that cache on each release, so a returning client always
-// refetches images that changed in the deploy. `__APP_VERSION__` is injected from package.json
-// at build time (see vite.config.ts / vitest.config.ts); falls back to 'dev' if undefined.
-const IMG_CACHE_VERSION = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : 'dev'
+// Self-hosted CDN images (cards, portraits, products) are served `immutable` for a year under
+// stable filenames, so clients cache them indefinitely and the CDN edge stays warm across
+// releases. We intentionally do NOT append an app-version query: that busted EVERY image cache
+// on EVERY release (re-downloading ~870 images cold after each deploy) just to catch the rare
+// case of an image re-pulled in place. Now that sourcing is stable, if a specific image is ever
+// replaced under the same filename, bust that one (rename it or add a per-file query) rather
+// than invalidating the whole cache every release.
 
 /**
  * Resolves a card/portrait/product image path against VITE_IMAGE_BASE.
@@ -29,8 +30,7 @@ export function imageUrl(path: string | null | undefined): string {
   const stripped = path.replace(/^\/images\//, '/')
   // Compressed files are all .webp regardless of the source extension.
   const webp = stripped.replace(/\.(png|jpe?g|gif)$/i, '.webp')
-  // Tag with the app version so each release busts the immutable CDN + service-worker cache.
-  return `${IMAGE_BASE}${webp}?v=${IMG_CACHE_VERSION}`
+  return `${IMAGE_BASE}${webp}`
 }
 
 export { IMAGE_BASE }

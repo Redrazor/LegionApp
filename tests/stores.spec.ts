@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { setActivePinia, createPinia } from 'pinia'
 import { useArmyStore } from '../src/stores/army.ts'
 import { useCollectionStore } from '../src/stores/collection.ts'
@@ -243,6 +243,46 @@ describe('army store — doctrines', () => {
     s.toggleDoctrine('feats-of-valor')
     s.clearDoctrines()
     expect(s.draft.doctrines).toEqual([])
+  })
+})
+
+describe('units store — counterpart overlay', () => {
+  const okJson = (body: unknown) => ({ ok: true, json: async () => body })
+  // unreleased.json / dropped.json degrade to no-op on a non-ok response.
+  const notFound = { ok: false, json: async () => ({}) }
+
+  it('attaches counterparts from counterparts.json by parent slug', async () => {
+    const units = [
+      { slug: 'iden', id: 'iden', name: 'Iden', keywords: [] },
+      { slug: 'plain', id: 'plain', name: 'Plain', keywords: [] },
+    ]
+    const counterparts = { iden: { name: 'ID10 Seeker Droid', cardImage: '/images/units/id10.webp' } }
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.includes('/api/units')) return okJson(units)
+      if (url.includes('counterparts.json')) return okJson(counterparts)
+      return notFound
+    }))
+    const { useUnitsStore } = await import('../src/stores/units.ts')
+    const s = useUnitsStore()
+    await s.load()
+    expect(s.bySlug.get('iden')?.counterpart?.name).toBe('ID10 Seeker Droid')
+    expect(s.bySlug.get('plain')?.counterpart).toBeNull() // no overlay entry → null, not undefined
+    vi.unstubAllGlobals()
+  })
+
+  it('degrades to no counterparts when the overlay fetch fails', async () => {
+    const units = [{ slug: 'iden', id: 'iden', name: 'Iden', keywords: [] }]
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.includes('/api/units')) return okJson(units)
+      if (url.includes('counterparts.json')) throw new Error('network down')
+      return notFound
+    }))
+    const { useUnitsStore } = await import('../src/stores/units.ts')
+    const s = useUnitsStore()
+    await s.load()
+    expect(s.loaded).toBe(true) // load still succeeds
+    expect(s.bySlug.get('iden')?.counterpart).toBeNull()
+    vi.unstubAllGlobals()
   })
 })
 

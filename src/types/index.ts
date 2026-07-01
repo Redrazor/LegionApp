@@ -68,6 +68,20 @@ export interface Unit {
   specialIssue?: string // battle force this unit may ONLY be fielded in (e.g. "Blizzard Force")
   unreleased?: string // set from public/data/unreleased.json: this card's image is a pre-release
   // preview / low-res placeholder pending an official card. The string is the shown note.
+  counterpart?: Counterpart | null // owner-maintained (public/data/counterparts.json), overlaid at
+  // load: a second miniature that carries its own card (Counterpart keyword, e.g. Iden's ID10 Seeker
+  // Droid). Shown in the profile drawer only — it deploys with its parent, so no points/build impact.
+}
+
+/** A unit's Counterpart mini and its own card scans (owner-maintained overlay). */
+export interface Counterpart {
+  name: string
+  cardImage: string // the play/stats side (what the gallery / lightbox shows)
+  frontImage?: string // the art side, for the future Flip feature (Feature 15)
+  portraitImage?: string // round bust cropped from the card (scripts/crop-counterpart-portraits.ts),
+  // shown as the counterpart's badge in the army list — same treatment as a unit's portraitImage
+  keywords?: string[] // printed keywords transcribed off the card, shown as glossary pills so its
+  // rules are verifiable without opening the full card scan. Resolve via keywords.json.
 }
 
 export interface Upgrade {

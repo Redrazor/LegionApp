@@ -319,26 +319,43 @@ shows one image per card:
 
 ## Feature 14 — Counterpart unit cards
 
-**Status:** queued (owner-requested during Feature 13 P2, 2026-06-18). Not started.
+**Status:** SHIPPED v1.31.0 (`feature/counterpart-cards`). Owner-requested during Feature 13 P2 (2026-06-18).
 
 Some Legion units field a second miniature that carries its **own** card — the **Counterpart** keyword
-(e.g. **Iden Versio** deploys with the **ID10 Seeker Droid**; other examples exist across factions). The
-catalogue models each such unit as a single profile with no separate entry for the counterpart, so the
-counterpart's card scan has nowhere to attach (in Feature 13 P2 the Iden ID10 Seeker Droid card surfaced
-as an "unmatched staged front" — a real AMG card with no catalogue slug).
+(e.g. **Iden Versio** deploys with the **ID10 Seeker Droid**). The catalogue models each such unit as a
+single profile with no entry for the counterpart, so the counterpart's card scan had nowhere to attach.
 
-**Scope:**
-- **Collect the counterpart cards.** Sweep every faction's unit cards (during/after the Feature 13
-  re-source) for counterpart minis and stage their card images. The empire ones are already extracted:
-  `scraper/amg-cards/units/empire/DOC51_GalacticEmpire_Units-p10-10.webp` (ID10 play) and `-p10-11.webp`
-  (ID10 art). Others surface per faction in P3–P6.
-- **Data:** add an owner-maintained `counterpart` to the parent unit (e.g. `counterpart?: { name, cardImage,
-  frontImage? }`, or a small `public/data/counterparts.json` overlaid like `upgrade-weapons.json` so a
-  re-scrape can't wipe it). Keyed off the parent unit's slug.
-- **UI:** surface the counterpart card in the unit's Build/Browse inspect gallery (the profile drawer /
-  card lightbox already shows multiple scans), labelled as the counterpart. No army-list/points impact —
-  the counterpart deploys with its parent and shares its activation; it is shown, not separately built.
-- Pure additive; no points/validation logic. Follow [[extract-from-card-images-not-scraping]] for the data.
+**Complete counterpart set (verified by reading every faction's unit-card scans, NOT the reads-manifests
+— which missed `DOC13_Mercenary_Units` entirely).** 4 parent profiles, 3 distinct minis:
+| Parent (slug) | Faction | Counterpart | Source scan |
+|---|---|---|---|
+| `iden-versio-inferno-squad-leader` | Empire | ID10 Seeker Droid | `DOC51_GalacticEmpire_Units-p10-10/11` |
+| `r2-d2-independent-astromech` | Republic | C-3PO | `DOC51_GalacticRepublic_Units-p06-12/20` |
+| `r2-d2-hero-of-a-thousand-devices` | Rebels | C-3PO | `DOC51_RebelAlliance_Units-p08-12/20` |
+| `din-djarin-the-mandalorian` | Mercenary | Grogu | `DOC13_Mercenary_Units-p06-10/11` |
+
+Separatists have no counterpart cards. **Din Djarin/Grogu was nearly missed** because Din Djarin was
+sourced as a transmission "extra" (not the mercenary PDF the manifests read) — the lesson: verify
+counterparts by looking at the card scans, not by grepping manifests.
+
+**What shipped:**
+- **Data:** owner-maintained `public/data/counterparts.json` keyed by parent slug (`{ name, cardImage,
+  frontImage?, portraitImage?, keywords[] }`), overlaid onto units at store load like `upgrade-weapons.json`
+  (scrape-proof). `Counterpart` type in `types/index.ts`; `keywords` transcribed off the cards.
+- **Portraits:** `scripts/crop-counterpart-portraits.ts` crops a round 40×40 bust from each counterpart
+  card scan (same as unit portraits) — does NOT touch the frozen `npm run portraits` pipeline. Counterpart
+  card scans + portraits live in `public/images/{units,portraits}/` (git-ignored → Firebase deploy).
+- **UI:** `CounterpartBadge.vue` — a round portrait badge shown after the unit's name in the army list
+  (`ArmyUnitCard`), click opens the full card in a lightbox. The Browse/Build profile drawer
+  (`UnitProfile`) shows a collapsible section: round badge + name + glossary keyword pills (visible even
+  when the card is collapsed) + a "Show card" toggle.
+- **Tests:** counterparts guarded by `catalogue-integrity` (real slug + images exist + names locked),
+  `keywords` coverage (all resolve), `image-coverage` (not orphans), and a units-store overlay test.
+- Pure additive — no points/validation/army-building impact; the counterpart deploys with its parent.
+
+**Not a counterpart (verified & rejected):** Din Djarin himself is NOT a counterpart of Grogu the other
+way; there is also a legacy "Din Djarin" *upgrade* card (`upgrades/p7d/din-djarin.webp`, "Add 1 Din Djarin
+miniature") in the P7d.1 backlog — a separate representation, out of scope here.
 
 ## Feature 13 — 2.0: re-source every card image from official AMG PnP PDFs
 

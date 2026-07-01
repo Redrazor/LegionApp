@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { readFileSync } from 'fs'
+import { readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 
 // Guards against the failure mode that shipped in 1.2.2: `npm run scrape` regenerates
@@ -178,5 +178,31 @@ describe('catalogue data integrity', () => {
     // rook-kast (v1 heavy weapon) is dropped, but its v2 replacement rook-kast-2 is NOT.
     expect(byCat.upgrades.has('rook-kast-2')).toBe(true)
     expect(dropped.upgrades).not.toContain('rook-kast-2')
+  })
+
+  // Feature 14 — the owner-maintained counterpart overlay. Every key must be a real
+  // parent-unit slug and every referenced card scan must exist on disk, else the profile
+  // drawer would show a broken image or attach a counterpart to nothing.
+  it('counterparts.json keys are real unit slugs with images that exist', () => {
+    type CP = { name: string; cardImage: string; frontImage?: string }
+    const counterparts = JSON.parse(
+      readFileSync(join(__dirname, '../public/data/counterparts.json'), 'utf8'),
+    ) as Record<string, CP>
+    const slugs = new Set(load('units.json').map((u) => u.slug))
+    const publicPath = (p: string) => join(__dirname, '../public', p)
+
+    for (const [parentSlug, cp] of Object.entries(counterparts)) {
+      expect(slugs.has(parentSlug), `counterpart parent not in catalogue: ${parentSlug}`).toBe(true)
+      expect(cp.name, `counterpart for ${parentSlug} missing a name`).toBeTruthy()
+      expect(existsSync(publicPath(cp.cardImage)), `missing counterpart image: ${cp.cardImage}`).toBe(true)
+      if (cp.frontImage) {
+        expect(existsSync(publicPath(cp.frontImage)), `missing counterpart front image: ${cp.frontImage}`).toBe(true)
+      }
+    }
+    // Lock in the counterparts sourced (guards an accidental wipe of the overlay).
+    expect(counterparts['iden-versio-inferno-squad-leader']?.name).toBe('ID10 Seeker Droid')
+    expect(counterparts['r2-d2-independent-astromech']?.name).toBe('C-3PO')
+    expect(counterparts['r2-d2-hero-of-a-thousand-devices']?.name).toBe('C-3PO')
+    expect(counterparts['din-djarin-the-mandalorian']?.name).toBe('Grogu')
   })
 })

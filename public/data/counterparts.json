@@ -1,0 +1,30 @@
+{
+  "iden-versio-inferno-squad-leader": {
+    "name": "ID10 Seeker Droid",
+    "cardImage": "/images/units/id10-seeker-droid.webp",
+    "frontImage": "/images/units/id10-seeker-droid-front.webp",
+    "portraitImage": "/images/portraits/id10-seeker-droid.webp",
+    "keywords": ["Observe 1", "Counterpart: Iden Versio", "Recharge 1", "Shielded 1", "Small"]
+  },
+  "r2-d2-independent-astromech": {
+    "name": "C-3PO",
+    "cardImage": "/images/units/c-3po-republic.webp",
+    "frontImage": "/images/units/c-3po-republic-front.webp",
+    "portraitImage": "/images/portraits/c-3po-republic.webp",
+    "keywords": ["Calculate Odds", "Distract", "Counterpart: R2-D2"]
+  },
+  "r2-d2-hero-of-a-thousand-devices": {
+    "name": "C-3PO",
+    "cardImage": "/images/units/c-3po-rebels.webp",
+    "frontImage": "/images/units/c-3po-rebels-front.webp",
+    "portraitImage": "/images/portraits/c-3po-rebels.webp",
+    "keywords": ["Calculate Odds", "Distract", "Counterpart: R2-D2"]
+  },
+  "din-djarin-the-mandalorian": {
+    "name": "Grogu",
+    "cardImage": "/images/units/grogu.webp",
+    "frontImage": "/images/units/grogu-front.webp",
+    "portraitImage": "/images/portraits/grogu.webp",
+    "keywords": ["Counterpart: Din Djarin", "Hunted", "Latent Power", "Small"]
+  }
+}

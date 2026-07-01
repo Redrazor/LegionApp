@@ -29,6 +29,8 @@ const keywordsStore = useKeywordsStore()
 const slug = computed(() => props.slug ?? (route.params.slug as string))
 const unit = computed(() => unitsStore.bySlug.get(slug.value))
 const imgError = ref(false)
+const cpImgError = ref(false)
+const showCounterpart = ref(false)
 
 // Keywords conferred by equipped upgrades (Build), minus any the unit already has
 // innately — shown in a distinct colour so they read as added, not printed.
@@ -49,7 +51,7 @@ onMounted(() => {
   document.body.style.overflow = 'hidden'
 })
 onBeforeUnmount(() => { document.body.style.overflow = '' })
-watch(slug, () => { imgError.value = false })
+watch(slug, () => { imgError.value = false; cpImgError.value = false; showCounterpart.value = false })
 
 function close() {
   if (props.slug != null) emit('close')
@@ -129,6 +131,43 @@ useHead(computed(() => {
                 <img :src="imageUrl(unit.cardImage)" :alt="`${unit.name} unit card`" class="w-full" @error="imgError = true" />
               </div>
               <MissingCardImage v-else :faction="unit.faction" />
+
+              <!-- Counterpart — a second miniature that carries its own card (Counterpart
+                   keyword, e.g. Iden's ID10 Seeker Droid). Deploys with this unit; shown, not
+                   built. Collapsed by default: mentioned here with a toggle to reveal the card. -->
+              <div v-if="unit.counterpart" class="rounded-xl border border-lg-border bg-lg-dark/40">
+                <button
+                  class="flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left"
+                  :aria-expanded="showCounterpart"
+                  @click="showCounterpart = !showCounterpart"
+                >
+                  <span class="flex min-w-0 items-center gap-2">
+                    <img
+                      v-if="unit.counterpart.portraitImage"
+                      :src="imageUrl(unit.counterpart.portraitImage)" :alt="unit.counterpart.name"
+                      class="h-8 w-8 flex-none rounded-full bg-lg-dark object-cover ring-1 ring-black/30"
+                    />
+                    <span class="truncate text-xs font-bold uppercase tracking-widest text-lg-muted">
+                      Counterpart: <span class="text-lg-text">{{ unit.counterpart.name }}</span>
+                    </span>
+                  </span>
+                  <span class="flex flex-none items-center gap-1 text-[11px] font-medium text-lg-accent">
+                    {{ showCounterpart ? 'Hide' : 'Show card' }}
+                    <span class="text-lg-muted transition-transform" :class="{ 'rotate-180': showCounterpart }">▾</span>
+                  </span>
+                </button>
+                <!-- Keywords stay visible even when the card is collapsed, so what the
+                     counterpart does is verifiable at a glance (glossary tooltips on tap). -->
+                <div v-if="unit.counterpart.keywords?.length" class="flex flex-wrap gap-1.5 px-3 pb-3">
+                  <KeywordPill v-for="k in unit.counterpart.keywords" :key="k" :keyword="k" />
+                </div>
+                <div v-if="showCounterpart" class="px-3 pb-3">
+                  <div v-if="!cpImgError" class="overflow-hidden rounded-lg border border-lg-border bg-lg-dark">
+                    <img :src="imageUrl(unit.counterpart.cardImage)" :alt="`${unit.counterpart.name} counterpart card`" class="w-full" @error="cpImgError = true" />
+                  </div>
+                  <MissingCardImage v-else :faction="unit.faction" />
+                </div>
+              </div>
 
               <!-- Native stat block -->
               <UnitStatBlock :unit="unit" />

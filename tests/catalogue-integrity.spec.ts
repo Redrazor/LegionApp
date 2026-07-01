@@ -205,4 +205,37 @@ describe('catalogue data integrity', () => {
     expect(counterparts['r2-d2-hero-of-a-thousand-devices']?.name).toBe('C-3PO')
     expect(counterparts['din-djarin-the-mandalorian']?.name).toBe('Grogu')
   })
+
+  // Feature 15 — the owner-maintained card-flips overlay. Every key must be a real slug in its
+  // category and every flip-side scan must exist on disk, else the Flip button shows a broken image.
+  it('card-flips.json keys are real slugs with flip-side images that exist', () => {
+    type Side = { image: string; label: string; keywords?: string[] }
+    const flips = JSON.parse(
+      readFileSync(join(__dirname, '../public/data/card-flips.json'), 'utf8'),
+    ) as { units: Record<string, Side>; upgrades: Record<string, Side> }
+    const publicPath = (p: string) => join(__dirname, '../public', p)
+
+    for (const [cat, file] of [['units', 'units.json'], ['upgrades', 'upgrades.json']] as const) {
+      const slugs = new Set(load(file).map((c) => c.slug))
+      for (const [slug, side] of Object.entries(flips[cat])) {
+        expect(slugs.has(slug), `card-flips ${cat} slug not in catalogue: ${slug}`).toBe(true)
+        expect(side.label, `card-flips ${cat}/${slug} missing a label`).toBeTruthy()
+        expect(existsSync(publicPath(side.image)), `missing flip image: ${side.image}`).toBe(true)
+      }
+    }
+    // Every unit with a front-art scan should offer a flip.
+    expect(Object.keys(flips.units).length).toBeGreaterThan(150)
+    // EVERY Reconfigure upgrade is double-sided, so each must carry a flip entry — this is the guard
+    // that catches a newly-added reconfigure card whose second config wasn't collected.
+    const reconfigure = load('upgrades.json').filter((u) => (u.keywords ?? []).includes('Reconfigure'))
+    expect(reconfigure.length).toBeGreaterThanOrEqual(5)
+    for (const u of reconfigure) {
+      expect(flips.upgrades[u.slug], `Reconfigure upgrade missing a flip side: ${u.slug}`).toBeTruthy()
+    }
+    // Lock in the collected configs (guards against an accidental wipe / mislabel).
+    expect(flips.upgrades['e-11d-focused-fire-configuration']?.label).toBe('Grenade Launcher')
+    expect(flips.upgrades['a280']?.label).toBe('Rifle Config')
+    expect(flips.upgrades['dc-17m-icws-config']?.keywords).toContain('Impact')
+    expect(flips.upgrades['offensive-stance']?.label).toBe('Defensive Stance')
+  })
 })

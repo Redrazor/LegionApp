@@ -71,6 +71,17 @@ export interface Unit {
   counterpart?: Counterpart | null // owner-maintained (public/data/counterparts.json), overlaid at
   // load: a second miniature that carries its own card (Counterpart keyword, e.g. Iden's ID10 Seeker
   // Droid). Shown in the profile drawer only — it deploys with its parent, so no points/build impact.
+  flip?: CardFlipSide | null // owner-maintained (public/data/card-flips.json), overlaid at load: the
+  // card's OTHER printed side — units flip stats↔art. Display-only (Feature 15). Null when single-sided.
+}
+
+/** A card's alternate printed side, overlaid onto a Unit/Upgrade from public/data/card-flips.json.
+ *  Units flip stats↔art (label "Artwork"); Reconfigure upgrades flip between two configs, each with
+ *  its own label and keywords. Purely a display toggle — no points/validation impact (Feature 15). */
+export interface CardFlipSide {
+  image: string // the alternate side's card scan (e.g. /images/units/<slug>-front.webp)
+  label: string // short caption for the Flip button / shown side (e.g. "Artwork", "Grenade Launcher")
+  keywords?: string[] // keywords printed on the flip side (Reconfigure upgrades); resolve via keywords.json
 }
 
 /** A unit's Counterpart mini and its own card scans (owner-maintained overlay). */
@@ -100,6 +111,8 @@ export interface Upgrade {
   weapons: Weapon[] // weapon profile(s) the upgrade grants, from owner-maintained upgrade-weapons.json ([] if none)
   removed?: boolean // errata-removed from play: still shown in Browse/Reference, never selectable in Build
   unreleased?: string // pre-release preview / low-res placeholder image (see Unit.unreleased)
+  flip?: CardFlipSide | null // owner-maintained (public/data/card-flips.json), overlaid at load: the
+  // other config of a Reconfigure upgrade (E-11D Focused Fire↔Grenade Launcher). Display-only (Feature 15).
 }
 
 export interface CommandCard {

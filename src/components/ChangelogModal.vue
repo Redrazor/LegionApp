@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.32.0',
+    date: '2026-07-01',
+    changes: [
+      'Double-sided cards can now be flipped: a Flip button (next to Select) shows a card\'s other printed side. Units flip between their stats and their artwork, and Reconfigure upgrades (e.g. the E-11D Focused Fire ↔ Grenade Launcher) flip between their two configurations. The chosen side is remembered.',
+    ],
+  },
+  {
     version: '1.31.0',
     date: '2026-07-01',
     changes: [

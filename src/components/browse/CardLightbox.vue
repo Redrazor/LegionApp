@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onBeforeUnmount } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useRoute, useRouter } from 'vue-router'
 import { useCommandsStore } from '../../stores/commands.ts'
@@ -9,7 +9,7 @@ import { factionColor, factionName, slotLabel } from '../../utils/factions.ts'
 import { imageUrl } from '../../utils/imageUrl.ts'
 import KeywordPill from '../ui/KeywordPill.vue'
 import UnreleasedBadge from '../ui/UnreleasedBadge.vue'
-import MissingCardImage from '../ui/MissingCardImage.vue'
+import FlippableCard from '../ui/FlippableCard.vue'
 
 // Card-scan lightbox drawer for the Browse Commands / Upgrades sections. Commands and
 // upgrades have no stat block — just the full card image (plus pips/commander or
@@ -29,6 +29,12 @@ const upgrade = computed(() => (props.kind === 'upgrade' ? upgradesStore.bySlug.
 
 const card = computed(() => command.value ?? upgrade.value)
 const faction = computed(() => command.value?.faction ?? upgrade.value?.faction ?? null)
+
+// Flip state for Reconfigure upgrades (Feature 15) — the shown keywords follow the shown side.
+const flipped = ref(false)
+const shownKeywords = computed(() =>
+  flipped.value && upgrade.value?.flip ? (upgrade.value.flip.keywords ?? []) : (upgrade.value?.keywords ?? []),
+)
 
 onMounted(() => {
   commandsStore.load()
@@ -107,17 +113,19 @@ useHead(computed(() => {
 
             <div class="space-y-5 p-5">
               <UnreleasedBadge v-if="card.unreleased" :note="card.unreleased" />
-              <!-- Card image -->
-              <div v-if="card.cardImage" class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark">
-                <img :src="imageUrl(card.cardImage)" :alt="`${card.name} card`" class="w-full" />
-              </div>
-              <MissingCardImage v-else :faction="faction" portrait />
+              <!-- Card image (Reconfigure upgrades flip to their other config — Feature 15) -->
+              <FlippableCard
+                v-model:flipped="flipped"
+                :slug="card.slug" kind="upgrade"
+                :image="card.cardImage" :alt="`${card.name} card`"
+                :flip="upgrade?.flip ?? null" :faction="faction" portrait
+              />
 
-              <!-- Upgrade keywords (with glossary tooltips) -->
-              <div v-if="upgrade && upgrade.keywords.length">
+              <!-- Upgrade keywords (with glossary tooltips) — follows the shown side when flipped -->
+              <div v-if="upgrade && shownKeywords.length">
                 <h3 class="mb-2 text-xs font-bold uppercase tracking-widest text-lg-muted">Keywords</h3>
                 <div class="flex flex-wrap gap-1.5">
-                  <KeywordPill v-for="k in upgrade.keywords" :key="k" :keyword="k" />
+                  <KeywordPill v-for="k in shownKeywords" :key="k" :keyword="k" />
                 </div>
               </div>
             </div>

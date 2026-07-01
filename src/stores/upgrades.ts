@@ -5,6 +5,7 @@ import { loadCatalogue } from '../utils/api.ts'
 import { unitMeetsRequirements, upgradeFitsSlot, isMandalorianTrooper } from '../utils/army.ts'
 import { applyUnreleased } from '../utils/unreleased.ts'
 import { applyDropped } from '../utils/dropped.ts'
+import { loadUpgradeCardFlips } from '../utils/cardFlip.ts'
 
 export const useUpgradesStore = defineStore('upgrades', () => {
   const upgrades = ref<Upgrade[]>([])
@@ -15,14 +16,18 @@ export const useUpgradesStore = defineStore('upgrades', () => {
     if (loaded.value || loading.value) return
     loading.value = true
     try {
-      const [raw, weaponsBySlug] = await Promise.all([
+      const [raw, weaponsBySlug, flipsBySlug] = await Promise.all([
         loadCatalogue<Upgrade>('/api/upgrades', 'upgrades.json'),
         loadUpgradeWeapons(),
+        loadUpgradeCardFlips(),
       ])
-      // Overlay the owner-maintained weapon profiles (keyed by slug) onto each upgrade —
-      // they live in their own file (scrape-proof) rather than in upgrades.json.
+      // Overlay the owner-maintained weapon profiles + flip sides (both keyed by slug) onto each
+      // upgrade — they live in their own files (scrape-proof) rather than in upgrades.json.
       upgrades.value = await applyDropped(
-        await applyUnreleased(raw.map((u) => ({ ...u, weapons: weaponsBySlug[u.slug] ?? [] })), 'upgrades'),
+        await applyUnreleased(
+          raw.map((u) => ({ ...u, weapons: weaponsBySlug[u.slug] ?? [], flip: flipsBySlug[u.slug] ?? null })),
+          'upgrades',
+        ),
         'upgrades',
       )
       loaded.value = true

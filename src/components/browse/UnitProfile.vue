@@ -12,6 +12,7 @@ import KeywordPill from '../ui/KeywordPill.vue'
 import WeaponsTable from '../ui/WeaponsTable.vue'
 import UnreleasedBadge from '../ui/UnreleasedBadge.vue'
 import MissingCardImage from '../ui/MissingCardImage.vue'
+import FlippableCard from '../ui/FlippableCard.vue'
 import ProfileUpgrades from './ProfileUpgrades.vue'
 
 // Dual-mode: as Browse's `/browse/:slug` child route it reads the route param and
@@ -28,7 +29,6 @@ const keywordsStore = useKeywordsStore()
 
 const slug = computed(() => props.slug ?? (route.params.slug as string))
 const unit = computed(() => unitsStore.bySlug.get(slug.value))
-const imgError = ref(false)
 const cpImgError = ref(false)
 const showCounterpart = ref(false)
 
@@ -51,7 +51,7 @@ onMounted(() => {
   document.body.style.overflow = 'hidden'
 })
 onBeforeUnmount(() => { document.body.style.overflow = '' })
-watch(slug, () => { imgError.value = false; cpImgError.value = false; showCounterpart.value = false })
+watch(slug, () => { cpImgError.value = false; showCounterpart.value = false })
 
 function close() {
   if (props.slug != null) emit('close')
@@ -126,11 +126,12 @@ useHead(computed(() => {
 
             <div class="space-y-5 p-5">
               <UnreleasedBadge v-if="unit.unreleased" :note="unit.unreleased" />
-              <!-- Card image -->
-              <div v-if="unit.cardImage && !imgError" class="overflow-hidden rounded-xl border border-lg-border bg-lg-dark">
-                <img :src="imageUrl(unit.cardImage)" :alt="`${unit.name} unit card`" class="w-full" @error="imgError = true" />
-              </div>
-              <MissingCardImage v-else :faction="unit.faction" />
+              <!-- Card image (flips stats↔art when a front-art scan exists — Feature 15) -->
+              <FlippableCard
+                :slug="unit.slug" kind="unit"
+                :image="unit.cardImage" :alt="`${unit.name} unit card`"
+                :flip="unit.flip" :faction="unit.faction"
+              />
 
               <!-- Counterpart — a second miniature that carries its own card (Counterpart
                    keyword, e.g. Iden's ID10 Seeker Droid). Deploys with this unit; shown, not

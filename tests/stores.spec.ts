@@ -284,6 +284,25 @@ describe('units store — counterpart overlay', () => {
     expect(s.bySlug.get('iden')?.counterpart).toBeNull()
     vi.unstubAllGlobals()
   })
+
+  it('attaches the flip side from card-flips.json by slug (Feature 15)', async () => {
+    const units = [
+      { slug: 'vader', id: 'vader', name: 'Vader', keywords: [] },
+      { slug: 'plain', id: 'plain', name: 'Plain', keywords: [] },
+    ]
+    const flips = { units: { vader: { image: '/images/units/vader-front.webp', label: 'Artwork' } } }
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.includes('/api/units')) return okJson(units)
+      if (url.includes('card-flips.json')) return okJson(flips)
+      return notFound
+    }))
+    const { useUnitsStore } = await import('../src/stores/units.ts')
+    const s = useUnitsStore()
+    await s.load()
+    expect(s.bySlug.get('vader')?.flip?.label).toBe('Artwork')
+    expect(s.bySlug.get('plain')?.flip).toBeNull() // no overlay entry → null, not undefined
+    vi.unstubAllGlobals()
+  })
 })
 
 describe('upgrades store — removed cards', () => {

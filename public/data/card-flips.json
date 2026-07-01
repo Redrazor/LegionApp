@@ -1,0 +1,672 @@
+{
+  "units": {
+    "14-fd-laser-cannon-team": {
+      "image": "/images/units/14-fd-laser-cannon-team-front.webp",
+      "label": "Artwork"
+    },
+    "74-z-speeder-bikes": {
+      "image": "/images/units/74-z-speeder-bikes-front.webp",
+      "label": "Artwork"
+    },
+    "a-a5-speeder-truck-2": {
+      "image": "/images/units/a-a5-speeder-truck-2-front.webp",
+      "label": "Artwork"
+    },
+    "a-a5-speeder-truck": {
+      "image": "/images/units/a-a5-speeder-truck-front.webp",
+      "label": "Artwork"
+    },
+    "aat-battle-tank": {
+      "image": "/images/units/aat-battle-tank-front.webp",
+      "label": "Artwork"
+    },
+    "agent-kallus-hunter-of-spectres": {
+      "image": "/images/units/agent-kallus-hunter-of-spectres-front.webp",
+      "label": "Artwork"
+    },
+    "ahsoka-tano-fulcrum": {
+      "image": "/images/units/ahsoka-tano-fulcrum-front.webp",
+      "label": "Artwork"
+    },
+    "anakin-skywalker-the-chosen-one": {
+      "image": "/images/units/anakin-skywalker-the-chosen-one-front.webp",
+      "label": "Artwork"
+    },
+    "aqua-droids": {
+      "image": "/images/units/aqua-droids-front.webp",
+      "label": "Artwork"
+    },
+    "arc-troopers": {
+      "image": "/images/units/arc-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "arc-troopers-strike-team": {
+      "image": "/images/units/arc-troopers-strike-team-front.webp",
+      "label": "Artwork"
+    },
+    "arf-troopers": {
+      "image": "/images/units/arf-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "asajj-ventress-separatist-assassin": {
+      "image": "/images/units/asajj-ventress-separatist-assassin-front.webp",
+      "label": "Artwork"
+    },
+    "at-rt-2": {
+      "image": "/images/units/at-rt-2-front.webp",
+      "label": "Artwork"
+    },
+    "at-rt": {
+      "image": "/images/units/at-rt-front.webp",
+      "label": "Artwork"
+    },
+    "at-st": {
+      "image": "/images/units/at-st-front.webp",
+      "label": "Artwork"
+    },
+    "b1-battle-droids": {
+      "image": "/images/units/b1-battle-droids-front.webp",
+      "label": "Artwork"
+    },
+    "b2-super-battle-droids": {
+      "image": "/images/units/b2-super-battle-droids-front.webp",
+      "label": "Artwork"
+    },
+    "barc-speeder": {
+      "image": "/images/units/barc-speeder-front.webp",
+      "label": "Artwork"
+    },
+    "black-sun-enforcers": {
+      "image": "/images/units/black-sun-enforcers-front.webp",
+      "label": "Artwork"
+    },
+    "black-sun-vigo": {
+      "image": "/images/units/black-sun-vigo-front.webp",
+      "label": "Artwork"
+    },
+    "bo-katan-kryze-savior-of-mandalore": {
+      "image": "/images/units/bo-katan-kryze-savior-of-mandalore-front.webp",
+      "label": "Artwork"
+    },
+    "boba-fett-daimyo-of-mos-espa": {
+      "image": "/images/units/boba-fett-daimyo-of-mos-espa-front.webp",
+      "label": "Artwork"
+    },
+    "boba-fett-infamous-bounty-hunter": {
+      "image": "/images/units/boba-fett-infamous-bounty-hunter-front.webp",
+      "label": "Artwork"
+    },
+    "bossk-trandoshan-terror": {
+      "image": "/images/units/bossk-trandoshan-terror-front.webp",
+      "label": "Artwork"
+    },
+    "bx-series-droid-commandos": {
+      "image": "/images/units/bx-series-droid-commandos-front.webp",
+      "label": "Artwork"
+    },
+    "bx-series-droid-commandos-strike-team": {
+      "image": "/images/units/bx-series-droid-commandos-strike-team-front.webp",
+      "label": "Artwork"
+    },
+    "c-3p0-golden-god": {
+      "image": "/images/units/c-3p0-golden-god-front.webp",
+      "label": "Artwork"
+    },
+    "cad-bane-needs-no-introduction": {
+      "image": "/images/units/cad-bane-needs-no-introduction-front.webp",
+      "label": "Artwork"
+    },
+    "cassian-andor-capable-intelligence-agent": {
+      "image": "/images/units/cassian-andor-capable-intelligence-agent-front.webp",
+      "label": "Artwork"
+    },
+    "chewbacca-hero-of-kashyyyk": {
+      "image": "/images/units/chewbacca-hero-of-kashyyyk-front.webp",
+      "label": "Artwork"
+    },
+    "chewbacca-let-the-wookiee-win": {
+      "image": "/images/units/chewbacca-let-the-wookiee-win-front.webp",
+      "label": "Artwork"
+    },
+    "chewbacca-walking-carpet": {
+      "image": "/images/units/chewbacca-walking-carpet-front.webp",
+      "label": "Artwork"
+    },
+    "clan-kryze-veterans": {
+      "image": "/images/units/clan-kryze-veterans-front.webp",
+      "label": "Artwork"
+    },
+    "clone-captain-rex-honorable-soldier": {
+      "image": "/images/units/clone-captain-rex-honorable-soldier-front.webp",
+      "label": "Artwork"
+    },
+    "clone-commander-cody-leader-of-the-212th": {
+      "image": "/images/units/clone-commander-cody-leader-of-the-212th-front.webp",
+      "label": "Artwork"
+    },
+    "clone-commander-trained-for-leadership": {
+      "image": "/images/units/clone-commander-trained-for-leadership-front.webp",
+      "label": "Artwork"
+    },
+    "clone-commandos-delta-squad": {
+      "image": "/images/units/clone-commandos-delta-squad-front.webp",
+      "label": "Artwork"
+    },
+    "clone-commandos": {
+      "image": "/images/units/clone-commandos-front.webp",
+      "label": "Artwork"
+    },
+    "clone-trooper-infantry": {
+      "image": "/images/units/clone-trooper-infantry-front.webp",
+      "label": "Artwork"
+    },
+    "count-dooku-darth-tyranus": {
+      "image": "/images/units/count-dooku-darth-tyranus-front.webp",
+      "label": "Artwork"
+    },
+    "darth-vader-dark-lord-of-the-sith": {
+      "image": "/images/units/darth-vader-dark-lord-of-the-sith-front.webp",
+      "label": "Artwork"
+    },
+    "darth-vader-the-emperors-apprentice": {
+      "image": "/images/units/darth-vader-the-emperors-apprentice-front.webp",
+      "label": "Artwork"
+    },
+    "dewback-rider": {
+      "image": "/images/units/dewback-rider-front.webp",
+      "label": "Artwork"
+    },
+    "df-90-mortar-trooper": {
+      "image": "/images/units/df-90-mortar-trooper-front.webp",
+      "label": "Artwork"
+    },
+    "director-orson-krennic-architect-of-terror": {
+      "image": "/images/units/director-orson-krennic-architect-of-terror-front.webp",
+      "label": "Artwork"
+    },
+    "drk-1-sith-probe-droids": {
+      "image": "/images/units/drk-1-sith-probe-droids-front.webp",
+      "label": "Artwork"
+    },
+    "droidekas": {
+      "image": "/images/units/droidekas-front.webp",
+      "label": "Artwork"
+    },
+    "dsd1-dwarf-spider-droid": {
+      "image": "/images/units/dsd1-dwarf-spider-droid-front.webp",
+      "label": "Artwork"
+    },
+    "e-web-heavy-blaster-team": {
+      "image": "/images/units/e-web-heavy-blaster-team-front.webp",
+      "label": "Artwork"
+    },
+    "ewok-skirmishers": {
+      "image": "/images/units/ewok-skirmishers-front.webp",
+      "label": "Artwork"
+    },
+    "ewok-slingers": {
+      "image": "/images/units/ewok-slingers-front.webp",
+      "label": "Artwork"
+    },
+    "fifth-brother-the-kill-is-mine": {
+      "image": "/images/units/fifth-brother-the-kill-is-mine-front.webp",
+      "label": "Artwork"
+    },
+    "fleet-troopers": {
+      "image": "/images/units/fleet-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "gar-saxon-head-of-clan-saxon": {
+      "image": "/images/units/gar-saxon-head-of-clan-saxon-front.webp",
+      "label": "Artwork"
+    },
+    "gar-saxon-militant-commando": {
+      "image": "/images/units/gar-saxon-militant-commando-front.webp",
+      "label": "Artwork"
+    },
+    "general-grievous-sinister-cyborg": {
+      "image": "/images/units/general-grievous-sinister-cyborg-front.webp",
+      "label": "Artwork"
+    },
+    "general-grievous-wheel-bike-warlord": {
+      "image": "/images/units/general-grievous-wheel-bike-warlord-front.webp",
+      "label": "Artwork"
+    },
+    "general-tagge-imperial-high-command": {
+      "image": "/images/units/general-tagge-imperial-high-command-front.webp",
+      "label": "Artwork"
+    },
+    "general-veers-master-tactician": {
+      "image": "/images/units/general-veers-master-tactician-front.webp",
+      "label": "Artwork"
+    },
+    "geonosian-warriors-geonosian-engineers": {
+      "image": "/images/units/geonosian-warriors-geonosian-engineers-front.webp",
+      "label": "Artwork"
+    },
+    "geonosian-warriors-soldiers-of-the-hive": {
+      "image": "/images/units/geonosian-warriors-soldiers-of-the-hive-front.webp",
+      "label": "Artwork"
+    },
+    "grand-admiral-thrawn-imperial-high-command": {
+      "image": "/images/units/grand-admiral-thrawn-imperial-high-command-front.webp",
+      "label": "Artwork"
+    },
+    "grand-moff-tarkin-imperial-high-command": {
+      "image": "/images/units/grand-moff-tarkin-imperial-high-command-front.webp",
+      "label": "Artwork"
+    },
+    "han-solo-reluctant-hero": {
+      "image": "/images/units/han-solo-reluctant-hero-front.webp",
+      "label": "Artwork"
+    },
+    "han-solo-unorthodox-general": {
+      "image": "/images/units/han-solo-unorthodox-general-front.webp",
+      "label": "Artwork"
+    },
+    "hondo-ohnaka-trustworthy-compatriot": {
+      "image": "/images/units/hondo-ohnaka-trustworthy-compatriot-front.webp",
+      "label": "Artwork"
+    },
+    "iden-versio-inferno-squad-leader": {
+      "image": "/images/units/iden-versio-inferno-squad-leader-front.webp",
+      "label": "Artwork"
+    },
+    "ig-100-magnaguard": {
+      "image": "/images/units/ig-100-magnaguard-front.webp",
+      "label": "Artwork"
+    },
+    "ig-100-magnaguard-prototype-assassin-droids": {
+      "image": "/images/units/ig-100-magnaguard-prototype-assassin-droids-front.webp",
+      "label": "Artwork"
+    },
+    "ig-11-nurse-and-protect": {
+      "image": "/images/units/ig-11-nurse-and-protect-front.webp",
+      "label": "Artwork"
+    },
+    "ig-88-notorious-assassin-droid": {
+      "image": "/images/units/ig-88-notorious-assassin-droid-front.webp",
+      "label": "Artwork"
+    },
+    "imperial-agent-bringing-order-to-the-galaxy": {
+      "image": "/images/units/imperial-agent-bringing-order-to-the-galaxy-front.webp",
+      "label": "Artwork"
+    },
+    "imperial-dark-troopers": {
+      "image": "/images/units/imperial-dark-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "imperial-death-troopers": {
+      "image": "/images/units/imperial-death-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "imperial-officer-ruthless-efficiency": {
+      "image": "/images/units/imperial-officer-ruthless-efficiency-front.webp",
+      "label": "Artwork"
+    },
+    "imperial-probe-droid": {
+      "image": "/images/units/imperial-probe-droid-front.webp",
+      "label": "Artwork"
+    },
+    "imperial-special-forces": {
+      "image": "/images/units/imperial-special-forces-front.webp",
+      "label": "Artwork"
+    },
+    "imperial-special-forces-inferno-squad": {
+      "image": "/images/units/imperial-special-forces-inferno-squad-front.webp",
+      "label": "Artwork"
+    },
+    "infantry-support-platform": {
+      "image": "/images/units/infantry-support-platform-front.webp",
+      "label": "Artwork"
+    },
+    "jedi-knight-general-strong-in-the-force": {
+      "image": "/images/units/jedi-knight-general-strong-in-the-force-front.webp",
+      "label": "Artwork"
+    },
+    "jedi-knight-keeper-of-the-peace": {
+      "image": "/images/units/jedi-knight-keeper-of-the-peace-front.webp",
+      "label": "Artwork"
+    },
+    "jyn-erso-stardust": {
+      "image": "/images/units/jyn-erso-stardust-front.webp",
+      "label": "Artwork"
+    },
+    "k-2so-sardonic-security-droid": {
+      "image": "/images/units/k-2so-sardonic-security-droid-front.webp",
+      "label": "Artwork"
+    },
+    "kalani-super-tactical-droid": {
+      "image": "/images/units/kalani-super-tactical-droid-front.webp",
+      "label": "Artwork"
+    },
+    "kraken-super-tactical-droid": {
+      "image": "/images/units/kraken-super-tactical-droid-front.webp",
+      "label": "Artwork"
+    },
+    "laat-le-patrol-transport-2": {
+      "image": "/images/units/laat-le-patrol-transport-2-front.webp",
+      "label": "Artwork"
+    },
+    "laat-le-patrol-transport": {
+      "image": "/images/units/laat-le-patrol-transport-front.webp",
+      "label": "Artwork"
+    },
+    "lando-calrissian-canny-general": {
+      "image": "/images/units/lando-calrissian-canny-general-front.webp",
+      "label": "Artwork"
+    },
+    "leia-organa-fearless-and-inventive": {
+      "image": "/images/units/leia-organa-fearless-and-inventive-front.webp",
+      "label": "Artwork"
+    },
+    "lm-432-crab-droid": {
+      "image": "/images/units/lm-432-crab-droid-front.webp",
+      "label": "Artwork"
+    },
+    "logray-superstitious-shaman": {
+      "image": "/images/units/logray-superstitious-shaman-front.webp",
+      "label": "Artwork"
+    },
+    "luke-skywalker-commander-skywalker": {
+      "image": "/images/units/luke-skywalker-commander-skywalker-front.webp",
+      "label": "Artwork"
+    },
+    "luke-skywalker-hero-of-the-rebellion": {
+      "image": "/images/units/luke-skywalker-hero-of-the-rebellion-front.webp",
+      "label": "Artwork"
+    },
+    "luke-skywalker-jedi-knight": {
+      "image": "/images/units/luke-skywalker-jedi-knight-front.webp",
+      "label": "Artwork"
+    },
+    "major-marquand-tempest-scout-2": {
+      "image": "/images/units/major-marquand-tempest-scout-2-front.webp",
+      "label": "Artwork"
+    },
+    "mandalorian-initiates": {
+      "image": "/images/units/mandalorian-initiates-front.webp",
+      "label": "Artwork"
+    },
+    "mandalorian-resistance-clan-wren": {
+      "image": "/images/units/mandalorian-resistance-clan-wren-front.webp",
+      "label": "Artwork"
+    },
+    "mandalorian-resistance": {
+      "image": "/images/units/mandalorian-resistance-front.webp",
+      "label": "Artwork"
+    },
+    "mandalorian-super-commandos": {
+      "image": "/images/units/mandalorian-super-commandos-front.webp",
+      "label": "Artwork"
+    },
+    "mandalorian-warriors-fire-support": {
+      "image": "/images/units/mandalorian-warriors-fire-support-front.webp",
+      "label": "Artwork"
+    },
+    "mandalorian-warriors": {
+      "image": "/images/units/mandalorian-warriors-front.webp",
+      "label": "Artwork"
+    },
+    "mark-ii-medium-blaster-trooper": {
+      "image": "/images/units/mark-ii-medium-blaster-trooper-front.webp",
+      "label": "Artwork"
+    },
+    "maul-a-rival": {
+      "image": "/images/units/maul-a-rival-front.webp",
+      "label": "Artwork"
+    },
+    "maul-impatient-apprentice": {
+      "image": "/images/units/maul-impatient-apprentice-front.webp",
+      "label": "Artwork"
+    },
+    "moff-gideon-long-live-the-empire": {
+      "image": "/images/units/moff-gideon-long-live-the-empire-front.webp",
+      "label": "Artwork"
+    },
+    "obi-wan-kenobi-civilized-warrior": {
+      "image": "/images/units/obi-wan-kenobi-civilized-warrior-front.webp",
+      "label": "Artwork"
+    },
+    "padme-amidala-spirited-senator": {
+      "image": "/images/units/padme-amidala-spirited-senator-front.webp",
+      "label": "Artwork"
+    },
+    "persuader-class-tank-droid": {
+      "image": "/images/units/persuader-class-tank-droid-front.webp",
+      "label": "Artwork"
+    },
+    "persuader-class-tank-droid-prototype-tank-droid": {
+      "image": "/images/units/persuader-class-tank-droid-prototype-tank-droid-front.webp",
+      "label": "Artwork"
+    },
+    "poggle-the-lesser-public-leader-of-the-geonosians": {
+      "image": "/images/units/poggle-the-lesser-public-leader-of-the-geonosians-front.webp",
+      "label": "Artwork"
+    },
+    "pyke-syndicate-capo": {
+      "image": "/images/units/pyke-syndicate-capo-front.webp",
+      "label": "Artwork"
+    },
+    "pyke-syndicate-foot-soldiers": {
+      "image": "/images/units/pyke-syndicate-foot-soldiers-front.webp",
+      "label": "Artwork"
+    },
+    "r2-d2-hero-of-a-thousand-devices": {
+      "image": "/images/units/r2-d2-hero-of-a-thousand-devices-front.webp",
+      "label": "Artwork"
+    },
+    "r2-d2-independent-astromech": {
+      "image": "/images/units/r2-d2-independent-astromech-front.webp",
+      "label": "Artwork"
+    },
+    "raddaugh-gnasp-fluttercraft-attack-craft": {
+      "image": "/images/units/raddaugh-gnasp-fluttercraft-attack-craft-front.webp",
+      "label": "Artwork"
+    },
+    "raddaugh-gnasp-fluttercraft": {
+      "image": "/images/units/raddaugh-gnasp-fluttercraft-front.webp",
+      "label": "Artwork"
+    },
+    "range-troopers": {
+      "image": "/images/units/range-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "rebel-agent-defender-of-democracy": {
+      "image": "/images/units/rebel-agent-defender-of-democracy-front.webp",
+      "label": "Artwork"
+    },
+    "rebel-commandos": {
+      "image": "/images/units/rebel-commandos-front.webp",
+      "label": "Artwork"
+    },
+    "rebel-commandos-strike-team": {
+      "image": "/images/units/rebel-commandos-strike-team-front.webp",
+      "label": "Artwork"
+    },
+    "rebel-officer-fighting-for-freedom": {
+      "image": "/images/units/rebel-officer-fighting-for-freedom-front.webp",
+      "label": "Artwork"
+    },
+    "rebel-sleeper-cell-ready-to-strike": {
+      "image": "/images/units/rebel-sleeper-cell-ready-to-strike-front.webp",
+      "label": "Artwork"
+    },
+    "rebel-troopers": {
+      "image": "/images/units/rebel-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "rebel-veterans": {
+      "image": "/images/units/rebel-veterans-front.webp",
+      "label": "Artwork"
+    },
+    "rook-kast-devoted-to-the-cause": {
+      "image": "/images/units/rook-kast-devoted-to-the-cause-front.webp",
+      "label": "Artwork"
+    },
+    "saber-class-tank": {
+      "image": "/images/units/saber-class-tank-front.webp",
+      "label": "Artwork"
+    },
+    "sabine-wren-explosive-artist": {
+      "image": "/images/units/sabine-wren-explosive-artist-front.webp",
+      "label": "Artwork"
+    },
+    "scout-troopers": {
+      "image": "/images/units/scout-troopers-front.webp",
+      "label": "Artwork"
+    },
+    "scout-troopers-strike-team": {
+      "image": "/images/units/scout-troopers-strike-team-front.webp",
+      "label": "Artwork"
+    },
+    "seventh-sister-compelled-to-inflict-pain": {
+      "image": "/images/units/seventh-sister-compelled-to-inflict-pain-front.webp",
+      "label": "Artwork"
+    },
+    "shoretroopers": {
+      "image": "/images/units/shoretroopers-front.webp",
+      "label": "Artwork"
+    },
+    "snowtroopers": {
+      "image": "/images/units/snowtroopers-front.webp",
+      "label": "Artwork"
+    },
+    "stap-riders": {
+      "image": "/images/units/stap-riders-front.webp",
+      "label": "Artwork"
+    },
+    "stormtrooper-riot-squad": {
+      "image": "/images/units/stormtrooper-riot-squad-front.webp",
+      "label": "Artwork"
+    },
+    "stormtroopers": {
+      "image": "/images/units/stormtroopers-front.webp",
+      "label": "Artwork"
+    },
+    "stormtroopers-heavy-response-unit": {
+      "image": "/images/units/stormtroopers-heavy-response-unit-front.webp",
+      "label": "Artwork"
+    },
+    "sun-fac-ruthless-lieutenant": {
+      "image": "/images/units/sun-fac-ruthless-lieutenant-front.webp",
+      "label": "Artwork"
+    },
+    "super-commandos": {
+      "image": "/images/units/super-commandos-front.webp",
+      "label": "Artwork"
+    },
+    "swoop-bike-riders": {
+      "image": "/images/units/swoop-bike-riders-front.webp",
+      "label": "Artwork"
+    },
+    "t-47-airspeeder": {
+      "image": "/images/units/t-47-airspeeder-front.webp",
+      "label": "Artwork"
+    },
+    "t-series-tactical-droid-programmed-for-strategy": {
+      "image": "/images/units/t-series-tactical-droid-programmed-for-strategy-front.webp",
+      "label": "Artwork"
+    },
+    "tauntaun-riders": {
+      "image": "/images/units/tauntaun-riders-front.webp",
+      "label": "Artwork"
+    },
+    "the-armorer-forging-the-future": {
+      "image": "/images/units/the-armorer-forging-the-future-front.webp",
+      "label": "Artwork"
+    },
+    "the-bad-batch-clone-force-99-2": {
+      "image": "/images/units/the-bad-batch-clone-force-99-2-front.webp",
+      "label": "Artwork"
+    },
+    "the-bad-batch-clone-force-99": {
+      "image": "/images/units/the-bad-batch-clone-force-99-front.webp",
+      "label": "Artwork"
+    },
+    "tx-225-gavw-occupier-tank": {
+      "image": "/images/units/tx-225-gavw-occupier-tank-front.webp",
+      "label": "Artwork"
+    },
+    "ursa-wren-leader-of-clan-wren": {
+      "image": "/images/units/ursa-wren-leader-of-clan-wren-front.webp",
+      "label": "Artwork"
+    },
+    "weequay-pirates": {
+      "image": "/images/units/weequay-pirates-front.webp",
+      "label": "Artwork"
+    },
+    "wicket-hero-of-bright-tree": {
+      "image": "/images/units/wicket-hero-of-bright-tree-front.webp",
+      "label": "Artwork"
+    },
+    "wlo-5-speeder-tank": {
+      "image": "/images/units/wlo-5-speeder-tank-front.webp",
+      "label": "Artwork"
+    },
+    "wookiee-chieftain-clan-leader": {
+      "image": "/images/units/wookiee-chieftain-clan-leader-front.webp",
+      "label": "Artwork"
+    },
+    "wookiee-warriors-freedom-fighters": {
+      "image": "/images/units/wookiee-warriors-freedom-fighters-front.webp",
+      "label": "Artwork"
+    },
+    "wookiee-warriors-kashyyyk-defenders": {
+      "image": "/images/units/wookiee-warriors-kashyyyk-defenders-front.webp",
+      "label": "Artwork"
+    },
+    "wookiee-warriors-kashyyyk-resistance": {
+      "image": "/images/units/wookiee-warriors-kashyyyk-resistance-front.webp",
+      "label": "Artwork"
+    },
+    "wookiee-warriors-noble-fighters": {
+      "image": "/images/units/wookiee-warriors-noble-fighters-front.webp",
+      "label": "Artwork"
+    },
+    "x-34-landspeeder": {
+      "image": "/images/units/x-34-landspeeder-front.webp",
+      "label": "Artwork"
+    },
+    "yoda-grand-master-of-the-jedi-order": {
+      "image": "/images/units/yoda-grand-master-of-the-jedi-order-front.webp",
+      "label": "Artwork"
+    }
+  },
+  "upgrades": {
+    "e-11d-focused-fire-configuration": {
+      "image": "/images/upgrades/e-11d-focused-fire-configuration-alt.webp",
+      "label": "Grenade Launcher",
+      "keywords": [
+        "Blast"
+      ]
+    },
+    "offensive-stance": {
+      "image": "/images/upgrades/offensive-stance-alt.webp",
+      "label": "Defensive Stance",
+      "keywords": []
+    },
+    "a280": {
+      "image": "/images/upgrades/a280-alt.webp",
+      "label": "Rifle Config",
+      "keywords": [
+        "Cumbersome",
+        "High Velocity",
+        "Pierce"
+      ]
+    },
+    "battle-shield-wookiee": {
+      "image": "/images/upgrades/battle-shield-wookiee-alt.webp",
+      "label": "Shield Down",
+      "keywords": []
+    },
+    "dc-17m-icws-config": {
+      "image": "/images/upgrades/dc-17m-icws-config-alt.webp",
+      "label": "Anti-Armor",
+      "keywords": [
+        "Impact",
+        "Scatter"
+      ]
+    }
+  }
+}

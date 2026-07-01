@@ -32,7 +32,8 @@
     "images:validate": "tsx scripts/generate-image-validation.ts",
     "amg:extras": "tsx scraper/amgExtras.ts",
     "amg:battle": "tsx scripts/build-battle-cards.ts",
-    "amg:p7c": "tsx scripts/build-p7c-commands.ts"
+    "amg:p7c": "tsx scripts/build-p7c-commands.ts",
+    "card-flips": "tsx scripts/build-card-flips.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

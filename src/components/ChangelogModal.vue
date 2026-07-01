@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '1.31.0',
+    date: '2026-07-01',
+    changes: [
+      'Counterpart minis now show on their parent unit: Iden Versio (ID10 Seeker Droid), R2-D2 (C-3PO, in both Republic and Rebels), and Din Djarin (Grogu). The counterpart appears as a round badge next to the unit in your army list, and in the profile drawer with its keywords — tap it to see the full card.',
+    ],
+  },
+  {
     version: '1.30.1',
     date: '2026-07-01',
     changes: [

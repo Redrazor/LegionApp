@@ -1,9 +1,22 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Unit } from '../types/index.ts'
+import type { Unit, Counterpart } from '../types/index.ts'
 import { loadCatalogue } from '../utils/api.ts'
 import { applyUnreleased } from '../utils/unreleased.ts'
 import { applyDropped } from '../utils/dropped.ts'
+
+/** Owner-maintained `{ parentSlug: Counterpart }` overlay (public/data/counterparts.json); a static
+ *  asset kept SEPARATE from units.json so a re-scrape can't wipe it (mirrors upgrade-weapons.json).
+ *  Empty on any failure — counterparts are purely additive. */
+async function loadCounterparts(): Promise<Record<string, Counterpart>> {
+  try {
+    const res = await fetch('/data/counterparts.json')
+    if (res.ok) return (await res.json()) as Record<string, Counterpart>
+  } catch {
+    // optional overlay — degrade to no counterparts
+  }
+  return {}
+}
 
 export const useUnitsStore = defineStore('units', () => {
   const units = ref<Unit[]>([])
@@ -16,8 +29,15 @@ export const useUnitsStore = defineStore('units', () => {
     loading.value = true
     error.value = null
     try {
+      const [raw, counterpartsBySlug] = await Promise.all([
+        loadCatalogue<Unit>('/api/units', 'units.json'),
+        loadCounterparts(),
+      ])
       units.value = await applyDropped(
-        await applyUnreleased(await loadCatalogue<Unit>('/api/units', 'units.json'), 'units'),
+        await applyUnreleased(
+          raw.map((u) => ({ ...u, counterpart: counterpartsBySlug[u.slug] ?? null })),
+          'units',
+        ),
         'units',
       )
       loaded.value = true

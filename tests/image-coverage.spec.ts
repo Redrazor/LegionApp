@@ -47,6 +47,22 @@ const DROPPED: Set<string> = (() => {
   } catch { return new Set<string>() }
 })()
 
+// Counterpart card scans (public/data/counterparts.json) live in images/units/ but have no
+// catalogue slug of their own — they attach to a parent unit at load (Feature 14), so they
+// are legitimate files, not orphans.
+const COUNTERPART_IMAGES: Set<string> = (() => {
+  try {
+    const c = JSON.parse(readFileSync(join(DATA, 'counterparts.json'), 'utf8')) as Record<string, { cardImage: string; frontImage?: string }>
+    const base = (p: string) => p.replace(/^.*\//, '').replace(/\.webp$/, '')
+    const out = new Set<string>()
+    for (const cp of Object.values(c)) {
+      out.add(base(cp.cardImage))
+      if (cp.frontImage) out.add(base(cp.frontImage))
+    }
+    return out
+  } catch { return new Set<string>() }
+})()
+
 const CATEGORIES: Record<string, string> = {
   units: 'units.json', upgrades: 'upgrades.json', commands: 'commands.json', battle: 'battleCards.json',
 }
@@ -75,7 +91,7 @@ describe('image coverage (every catalogue card has a scan on disk)', () => {
       // it has no catalogue entry of its own and is NOT an orphan.
       const isFrontArt = (s: string) => s.endsWith('-front') && known.has(s.slice(0, -'-front'.length))
       const orphans = readdirSync(dir).filter((f) => f.endsWith('.webp')).map((f) => f.replace(/\.webp$/, ''))
-        .filter((s) => !known.has(s) && !isFrontArt(s))
+        .filter((s) => !known.has(s) && !isFrontArt(s) && !COUNTERPART_IMAGES.has(s))
       expect(orphans, `orphan ${cat} files: ${orphans.join(', ')}`).toEqual([])
     })
   }

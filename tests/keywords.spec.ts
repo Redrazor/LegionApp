@@ -95,6 +95,7 @@ describe('glossary coverage (real catalogue)', () => {
   const units = load('units.json') as any[]
   const upgrades = load('upgrades.json') as any[]
   const commands = load('commands.json') as any[]
+  const counterparts = load('counterparts.json') as Record<string, { keywords?: string[] }>
 
   // Not glossary keywords — correctly render no tooltip (resolveKeyword → null).
   const ALLOWED_UNRESOLVED = new Set([
@@ -109,6 +110,8 @@ describe('glossary coverage (real catalogue)', () => {
   }
   for (const u of upgrades) for (const k of u.keywords ?? []) used.add(k)
   for (const c of commands) for (const k of c.keywords ?? []) used.add(k)
+  // Counterpart cards (Feature 14) carry owner-transcribed keywords shown as glossary pills.
+  for (const cp of Object.values(counterparts)) for (const k of cp.keywords ?? []) used.add(k)
 
   it('resolves every used keyword except the known non-glossary allowlist', () => {
     const unresolved = [...used].filter((k) => resolveKeyword(glossary, k) === null)

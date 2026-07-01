@@ -9,6 +9,7 @@ import { useArmyStore } from '../../stores/army.ts'
 import { slotLabel } from '../../utils/factions.ts'
 import UnitBadge from './UnitBadge.vue'
 import UnitIndicators from './UnitIndicators.vue'
+import CounterpartBadge from './CounterpartBadge.vue'
 
 // One card per render-time `×N` group (same unit + same loadout). The stepper adds
 // or removes whole copies; editing a slot acts on the representative, which splits
@@ -121,6 +122,11 @@ function removeGroup() {
             <span v-if="unit.isUnique" class="text-lg-accent text-xs">◈</span>
             <span class="truncate font-semibold text-lg-text">{{ unit.name }}</span>
             <span v-if="qty > 1" class="flex-none rounded bg-lg-accent/15 px-1.5 text-[11px] font-bold text-lg-accent">×{{ qty }}</span>
+            <CounterpartBadge
+              v-if="unit.counterpart"
+              class="ml-auto max-w-[45%]"
+              :counterpart="unit.counterpart" :faction="unit.faction" size="h-8 w-8" show-name
+            />
           </span>
           <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>
           <UnitIndicators class="mt-1" :unit="unit" :show-speed="true" :models="modelCount" :hide-models="true" :extra-weapons="upgradeWeapons" />

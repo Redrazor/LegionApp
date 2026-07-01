@@ -100,7 +100,7 @@ describe('catalogue data integrity', () => {
     ])
   })
 
-  it('keeps the Mandalorian-trooper unit-type errata + Beskad 2-red dice', () => {
+  it('keeps the Mandalorian-trooper unit-type errata + Beskad single-red die (Clan Wren v2 card)', () => {
     const units = load('units.json')
     const ut = (slug: string) => units.find((u) => u.slug === slug)?.unitType
     expect(ut('boba-fett-daimyo-of-mos-espa')).toBe('mandalorian trooper')
@@ -109,7 +109,8 @@ describe('catalogue data integrity', () => {
     const weapons = JSON.parse(
       readFileSync(join(__dirname, '../public/data/upgrade-weapons.json'), 'utf8'),
     ) as Record<string, { dice: { red: number; black: number; white: number } }[]>
-    expect(weapons['beskad-duelist-2'][0].dice.red).toBe(2)
+    // Beskad Duelist (Clan Wren Veterans version, DOC56 UpgradeCards p.23): Vibro Sword, 1 red, Pierce 1.
+    expect(weapons['beskad-duelist-2'][0].dice.red).toBe(1)
   })
 
   it("carries Axe Woves' errata weapon keyword (Lethal 1)", () => {

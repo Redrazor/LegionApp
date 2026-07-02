@@ -67,9 +67,9 @@ describe('buildCardSources (pure provenance builder)', () => {
     expect(noMeta[0]).toMatchObject({ validity: 'valid', source: 'SomeDoc.pdf', date: null })
   })
 
-  it('sorts by category then name', () => {
-    // battle < units alphabetically; within units, name-sorted
-    expect(out.map((c) => c.slug)).toEqual(['bunker', 'vader', 'din', 'legacy-unit', 'pending-unit'])
+  it('sorts browsable types first (units, upgrades, commands) then battle, name-sorted within', () => {
+    // battle cards have no drawer link, so they sort last; units first, name-sorted
+    expect(out.map((c) => c.slug)).toEqual(['vader', 'din', 'legacy-unit', 'pending-unit', 'bunker'])
   })
 })
 

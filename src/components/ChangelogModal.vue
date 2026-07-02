@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.3.1',
+    date: '2026-07-02',
+    changes: [
+      'Reference → Card Sources: unit, upgrade and command rows are now clearly clickable (highlighted name + ↗) and open the card view; the list leads with these instead of the battle cards, which have no card view and are reference-only. Fixes the impression that the links didn’t work.',
+    ],
+  },
+  {
     version: '2.3.0',
     date: '2026-07-02',
     changes: [

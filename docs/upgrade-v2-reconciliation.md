@@ -1,6 +1,15 @@
 # Upgrade v2 Reconciliation Manifest (pre-2.0)
 
-**Branch:** `feature/upgrades-v2-reconcile` · **Status:** awaiting owner sign-off before any deletions.
+**Branch:** `feature/upgrades-v2-reconcile` · **Status:** ✅ APPLIED 2026-07-02 (owner signed off).
+
+> **Applied outcome.** 48 legacy upgrades + `caught-in-a-web` (upcoming, pending Admiral Trench) were
+> added to `dropped.json` → filtered out of the app entirely. 26 current-but-unimaged cards
+> (incl. `the-darksaber-maul`, kept per owner) carry `unreleased.json` `noImage` placeholders. 31 legacy
+> weapon overlays removed from `upgrade-weapons.json`. `galaar-15-carbine` kept (real Leader/Hunter card, not a dup).
+>
+> **Why `dropped.json`, not row-deletion:** `upgrades.json` is scraper-generated, so deleting rows isn't
+> durable (a re-scrape restores them). `dropped.json` is the scrape-proof, purpose-built v2-cutover filter —
+> the cards vanish from Browse/Build/Reference exactly as intended, and the record is retained/reversible.
 
 Source of truth = the AMG swlegiondocs upgrade PDFs (5 faction + generic/universal). This manifest
 reconciles all **416** catalogue upgrades against them and proposes a disposition for every card that

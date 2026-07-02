@@ -195,24 +195,6 @@
       ]
     }
   ],
-  "at-st-mortar-launcher": [
-    {
-      "name": "AT-ST Mortar Launcher",
-      "range": [
-        4,
-        12
-      ],
-      "dice": {
-        "red": 0,
-        "black": 3,
-        "white": 0
-      },
-      "keywords": [
-        "Fixed Front",
-        "Suppressive"
-      ]
-    }
-  ],
   "ax-108-ground-buzzer": [
     {
       "name": "Ax-108 \"Ground Buzzer\"",
@@ -573,23 +555,6 @@
       ]
     }
   ],
-  "dc-15-clone-trooper": [
-    {
-      "name": "DC-15 Clone Trooper",
-      "range": [
-        1,
-        4
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Critical 1"
-      ]
-    }
-  ],
   "dc-15x-arc-trooper-gunner": [
     {
       "name": "DC-15 Blaster Rifles",
@@ -768,59 +733,6 @@
       ]
     }
   ],
-  "dlt-19d-trooper": [
-    {
-      "name": "DLT-19D Trooper",
-      "range": [
-        1,
-        4
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 1
-      },
-      "keywords": [
-        "Impact 1"
-      ]
-    }
-  ],
-  "dlt-19x-sniper": [
-    {
-      "name": "DLT-19x Sniper Rifle",
-      "range": [
-        2,
-        5
-      ],
-      "dice": {
-        "red": 0,
-        "black": 1,
-        "white": 2
-      },
-      "keywords": [
-        "High Velocity",
-        "Overwhelm",
-        "Sniper Team"
-      ]
-    }
-  ],
-  "dlt-20a-range-trooper": [
-    {
-      "name": "DLT-20A Range Trooper",
-      "range": [
-        1,
-        5
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Impact 2"
-      ]
-    }
-  ],
   "dlt-20a-trooper": [
     {
       "name": "DLT-20A Trooper",
@@ -835,24 +747,6 @@
       },
       "keywords": [
         "Critical 1"
-      ]
-    }
-  ],
-  "double-bladed-lightsaber": [
-    {
-      "name": "Double-Bladed Lightsaber",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 1,
-        "black": 3,
-        "white": 2
-      },
-      "keywords": [
-        "Ram 1",
-        "Impact 2",
-        "Pierce 1"
       ]
     }
   ],
@@ -1174,25 +1068,6 @@
       "keywords": []
     }
   ],
-  "flame-projector": [
-    {
-      "name": "Flame Projector",
-      "range": [
-        0,
-        1
-      ],
-      "dice": {
-        "red": 1,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Blast",
-        "Spray",
-        "Suppressive"
-      ]
-    }
-  ],
   "flametrooper": [
     {
       "name": "Flamethrower",
@@ -1392,59 +1267,6 @@
       ]
     }
   ],
-  "heavy-blaster-pistol": [
-    {
-      "name": "Heavy Blaster Pistol",
-      "range": [
-        1,
-        2
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Lethal 1",
-        "Long Shot"
-      ]
-    }
-  ],
-  "heavy-blaster-pistol-2": [
-    {
-      "name": "Heavy Blaster Pistol",
-      "range": [
-        1,
-        2
-      ],
-      "dice": {
-        "red": 1,
-        "black": 0,
-        "white": 1
-      },
-      "keywords": [
-        "Lethal 1"
-      ]
-    }
-  ],
-  "heavy-laser-cannon": [
-    {
-      "name": "Heavy Laser Cannon",
-      "range": [
-        1,
-        3
-      ],
-      "dice": {
-        "red": 0,
-        "black": 5,
-        "white": 0
-      },
-      "keywords": [
-        "Impact 2",
-        "Fixed Front"
-      ]
-    }
-  ],
   "heavy-laser-retrofit": [
     {
       "name": "Heavy Laser Cannon",
@@ -1459,24 +1281,6 @@
       },
       "keywords": [
         "Critical 1"
-      ]
-    }
-  ],
-  "hh-12-stormtrooper": [
-    {
-      "name": "HH-12 Rocket Launcher",
-      "range": [
-        2,
-        4
-      ],
-      "dice": {
-        "red": 0,
-        "black": 3,
-        "white": 0
-      },
-      "keywords": [
-        "Cumbersome",
-        "Impact 3"
       ]
     }
   ],
@@ -1513,61 +1317,6 @@
       },
       "keywords": [
         "Impact 4"
-      ]
-    }
-  ],
-  "jedi-consular": [
-    {
-      "name": "Force Blast",
-      "range": [
-        1,
-        2
-      ],
-      "dice": {
-        "red": 0,
-        "black": 3,
-        "white": 0
-      },
-      "keywords": [
-        "Blast",
-        "Impact 2"
-      ]
-    }
-  ],
-  "jedi-guardian": [
-    {
-      "name": "Jedi Guardian",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Sidearm",
-        "Pierce 1",
-        "Impact 2"
-      ]
-    }
-  ],
-  "jedi-negotiator": [
-    {
-      "name": "Force Shove",
-      "range": [
-        1,
-        2
-      ],
-      "dice": {
-        "red": 0,
-        "black": 0,
-        "white": 1
-      },
-      "keywords": [
-        "Blast",
-        "Spray",
-        "Suppressive"
       ]
     }
   ],
@@ -1655,40 +1404,6 @@
         "white": 1
       },
       "keywords": []
-    }
-  ],
-  "kx-series-security-droids": [
-    {
-      "name": "Oppress",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 1,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Impact 1"
-      ]
-    }
-  ],
-  "lightsaber": [
-    {
-      "name": "Lightsaber",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 2,
-        "black": 3,
-        "white": 1
-      },
-      "keywords": [
-        "Critical 1",
-        "Impact 2",
-        "Pierce 1"
-      ]
     }
   ],
   "long-gun-wookiee": [
@@ -1796,40 +1511,6 @@
       },
       "keywords": [
         "Fixed Front"
-      ]
-    }
-  ],
-  "mertalizer": [
-    {
-      "name": "Mertalizer",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 1
-      },
-      "keywords": [
-        "Suppressive"
-      ]
-    }
-  ],
-  "micro-grenade-launcher": [
-    {
-      "name": "Micro-Grenade Launcher",
-      "range": [
-        1,
-        2
-      ],
-      "dice": {
-        "red": 0,
-        "black": 1,
-        "white": 2
-      },
-      "keywords": [
-        "Blast",
-        "Impact 1"
       ]
     }
   ],
@@ -2018,23 +1699,6 @@
       ]
     }
   ],
-  "pintle-mounted-dlt-19": [
-    {
-      "name": "DLT-19 Blaster Rifle",
-      "range": [
-        1,
-        4
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Impact 1"
-      ]
-    }
-  ],
   "pintle-mounted-rt-97c": [
     {
       "name": "RT-97C Blaster Rifle",
@@ -2083,25 +1747,6 @@
       },
       "keywords": [
         "Poison 1"
-      ]
-    }
-  ],
-  "repeating-blaster": [
-    {
-      "name": "Repeating Blaster",
-      "range": [
-        1,
-        3
-      ],
-      "dice": {
-        "red": 1,
-        "black": 3,
-        "white": 2
-      },
-      "keywords": [
-        "Critical 1",
-        "Impact 1",
-        "Long Shot"
       ]
     }
   ],
@@ -2175,21 +1820,6 @@
     }
   ],
   "rt-97c-blaster-rifle": [
-    {
-      "name": "RT-97C Blaster Rifle",
-      "range": [
-        1,
-        4
-      ],
-      "dice": {
-        "red": 1,
-        "black": 3,
-        "white": 0
-      },
-      "keywords": []
-    }
-  ],
-  "rt-97c-stormtrooper": [
     {
       "name": "RT-97C Blaster Rifle",
       "range": [
@@ -2312,24 +1942,6 @@
       ]
     }
   ],
-  "shaak-ti": [
-    {
-      "name": "Shaak Ti's Lightsaber",
-      "range": [
-        0,
-        0
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Impact 2",
-        "Pierce 1"
-      ]
-    }
-  ],
   "shukur-05-repeater": [
     {
       "name": "SHUKUR-05 Repeater",
@@ -2416,22 +2028,6 @@
       },
       "keywords": [
         "Suppressive"
-      ]
-    }
-  ],
-  "stun-baton": [
-    {
-      "name": "Stun Baton",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 1,
-        "black": 0,
-        "white": 5
-      },
-      "keywords": [
-        "Immobilize 1"
       ]
     }
   ],
@@ -2554,23 +2150,6 @@
       ]
     }
   ],
-  "t-21-special-forces-trooper": [
-    {
-      "name": "T-21 Repeating Blaster",
-      "range": [
-        1,
-        3
-      ],
-      "dice": {
-        "red": 0,
-        "black": 0,
-        "white": 4
-      },
-      "keywords": [
-        "Critical 2"
-      ]
-    }
-  ],
   "t-21-stormtrooper": [
     {
       "name": "T-21 Repeating Blaster",
@@ -2585,59 +2164,6 @@
       },
       "keywords": [
         "Critical 2"
-      ]
-    }
-  ],
-  "t-21a-range-trooper": [
-    {
-      "name": "T-21A Repeating Blaster",
-      "range": [
-        1,
-        4
-      ],
-      "dice": {
-        "red": 0,
-        "black": 2,
-        "white": 2
-      },
-      "keywords": [
-        "Suppressive"
-      ]
-    }
-  ],
-  "t-21b-shoretrooper": [
-    {
-      "name": "T-21B Repeating Blaster",
-      "range": [
-        1,
-        4
-      ],
-      "dice": {
-        "red": 0,
-        "black": 2,
-        "white": 2
-      },
-      "keywords": [
-        "Critical 1"
-      ]
-    }
-  ],
-  "t-7-ion-snowtrooper": [
-    {
-      "name": "T-7 Ion Rifle",
-      "range": [
-        1,
-        3
-      ],
-      "dice": {
-        "red": 0,
-        "black": 2,
-        "white": 1
-      },
-      "keywords": [
-        "Critical 1",
-        "Impact 1",
-        "Ion 1"
       ]
     }
   ],
@@ -2778,24 +2304,6 @@
       ]
     }
   ],
-  "thermal-detonator": [
-    {
-      "name": "Thermal Detonator",
-      "range": [
-        0,
-        1
-      ],
-      "dice": {
-        "red": 4,
-        "black": 0,
-        "white": 0
-      },
-      "keywords": [
-        "Blast",
-        "Impact 4"
-      ]
-    }
-  ],
   "twin-beam-cannons": [
     {
       "name": "Twin Beam Cannons",
@@ -2866,24 +2374,6 @@
       ]
     }
   ],
-  "twin-lightsabers": [
-    {
-      "name": "Twin Lightsabers",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 0,
-        "black": 4,
-        "white": 4
-      },
-      "keywords": [
-        "High Velocity",
-        "Impact 2",
-        "Pierce 1"
-      ]
-    }
-  ],
   "twin-missile-pods": [
     {
       "name": "Missile Pods",
@@ -2916,23 +2406,6 @@
       },
       "keywords": [
         "Long Shot"
-      ]
-    }
-  ],
-  "vibro-axe": [
-    {
-      "name": "Vibro Axe",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 1,
-        "black": 0,
-        "white": 3
-      },
-      "keywords": [
-        "Impact 1",
-        "Lethal 1"
       ]
     }
   ],
@@ -3029,22 +2502,6 @@
         "white": 6
       },
       "keywords": []
-    }
-  ],
-  "z-6-riot-baton": [
-    {
-      "name": "Z-6 Riot Baton",
-      "range": [
-        0
-      ],
-      "dice": {
-        "red": 2,
-        "black": 0,
-        "white": 2
-      },
-      "keywords": [
-        "Suppressive"
-      ]
     }
   ],
   "z-6-trooper": [

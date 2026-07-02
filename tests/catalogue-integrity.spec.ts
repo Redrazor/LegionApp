@@ -39,7 +39,7 @@ describe('catalogue data integrity', () => {
     const weapons = JSON.parse(readFileSync(join(__dirname, '../public/data/upgrade-weapons.json'), 'utf8')) as Record<string, { name: string; range: number[]; dice: { red: number; black: number; white: number }; keywords: string[] }[]>
     const slugs = new Set(load('upgrades.json').map((u) => u.slug))
     const keys = Object.keys(weapons)
-    expect(keys.length).toBeGreaterThan(150)
+    expect(keys.length).toBeGreaterThan(130) // v2 reconcile dropped ~31 legacy weapon overlays
     // Every keyed slug must exist in the catalogue (no orphans after a re-scrape rename).
     for (const slug of keys) expect(slugs.has(slug), `upgrade-weapons.json slug "${slug}" not in upgrades.json`).toBe(true)
     // Spot-checks verified against the card scans — guards against dice/colour regressions.
@@ -48,7 +48,6 @@ describe('catalogue data integrity', () => {
     expect(dice('z-6-trooper')).toEqual({ red: 0, black: 0, white: 6 })
     expect(dice('dlt-19-stormtrooper')).toEqual({ red: 2, black: 0, white: 0 })
     // Corrected during the full image-verification sweep (source had black/white swapped):
-    expect(dice('lightsaber')).toEqual({ red: 2, black: 3, white: 1 })
     expect(dice('the-armorer')).toEqual({ red: 2, black: 0, white: 2 })
     expect(dice('e-5s-b1-battle-droid')).toEqual({ red: 1, black: 0, white: 1 })
     // Every weapon profile has at least one die and a name.

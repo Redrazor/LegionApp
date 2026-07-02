@@ -69,6 +69,12 @@ const grantedKeywords = computed(() => {
 
 // Contextual upgrade picking: a chosen army-unit slot takes over the left pane.
 const picking = ref<{ uid: string; slot: string; index: number } | null>(null)
+// Unit-catalogue filter state, owned here so it survives RankCatalogue unmounting while
+// the upgrade picker (which replaces it in the catalogue pane) is open — the user returns
+// to the same search + rank filter they left.
+const catalogueQuery = ref('')
+const catalogueActiveRank = ref<Rank | null>('commander')
+const catalogueDesktopFocus = ref<Rank | 'all'>('all')
 const pickingCtx = computed(() => {
   if (!picking.value) return null
   const au = armyStore.findUnit(picking.value.uid)
@@ -417,6 +423,9 @@ useHead({
       />
       <RankCatalogue
         v-else
+        v-model:query="catalogueQuery"
+        v-model:active-rank="catalogueActiveRank"
+        v-model:desktop-focus="catalogueDesktopFocus"
         :units="unitsStore.units"
         :faction="draft.faction"
         :battle-force="battleForce"

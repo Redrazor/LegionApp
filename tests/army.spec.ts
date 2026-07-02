@@ -12,7 +12,7 @@ import {
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
   battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
   buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
-  armyKeywordReference,
+  armyKeywordReference, unitCardKeywords,
   usesDoctrines, chosenDoctrines, validateDoctrines, doctrineEffects,
   doctrineUpgradeCost, armyPoints, applyDoctrineEffects, isMandalorianTrooper,
 } from '../src/utils/army.ts'
@@ -1784,6 +1784,62 @@ describe('buildArmySheet', () => {
       { name: 'Impact', text: 'Convert hits.' },
       { name: 'Sharpshooter', text: 'Reduce cover.' },
     ])
+  })
+
+  it('attaches each unit card its keywords (own + equipped-upgrade, flagged) when a glossary is given', () => {
+    const kwUnit = unit('kw', {
+      name: 'KW Trooper', keywords: ['Sharpshooter 2'],
+      weapons: [{ name: 'rifle', range: [1, 3], dice: { red: 0, black: 2, white: 0 }, keywords: ['Impact 1'] }],
+    })
+    const kwUp = upgrade('comms', { name: 'Comms', keywords: ['Arsenal 1'] })
+    const { unitsById: u2, upgradesById: up2 } = makeMaps([kwUnit], [kwUp])
+    const glossary = { Sharpshooter: 'Reduce cover.', Impact: 'Convert hits.', Arsenal: 'Extra weapon.' }
+    const a2: Army = {
+      name: 'KW', faction: 'empire', battleForce: null, gameSize: 1000,
+      units: [{ uid: '1', unitId: 'kw', upgrades: [{ slot: 'gear#0', upgradeId: 'comms' }] }],
+      commandHand: [], battleDeck: [],
+    }
+    // no glossary → unit cards carry no per-card keywords
+    expect(buildArmySheet(a2, u2, up2, commandsById, battleCardsById, null).unitCards[0].keywords).toBeUndefined()
+    // glossary → own keywords (Sharpshooter + weapon Impact) plus the equipped upgrade's
+    // Arsenal, alphabetical, with only the upgrade-granted one flagged.
+    const s = buildArmySheet(a2, u2, up2, commandsById, battleCardsById, null, glossary)
+    expect(s.unitCards[0].keywords).toEqual([
+      { name: 'Arsenal', text: 'Extra weapon.', fromUpgrade: true },
+      { name: 'Impact', text: 'Convert hits.' },
+      { name: 'Sharpshooter', text: 'Reduce cover.' },
+    ])
+  })
+
+  describe('unitCardKeywords', () => {
+    const G = { Sharpshooter: 'Reduce cover.', Impact: 'Convert hits.', Cover: 'Improve cover.', Tactical: 'Gain aim.' }
+
+    it('resolves unit + weapon keywords, deduped to base names and alphabetised', () => {
+      const u = unit('u', {
+        keywords: ['Sharpshooter 2', 'Cover 1'],
+        weapons: [{ name: 'rifle', range: [1, 3], dice: { red: 0, black: 2, white: 0 }, keywords: ['Impact 1', 'Sharpshooter 2'] }],
+      })
+      expect(unitCardKeywords(u, G)).toEqual([
+        { name: 'Cover', text: 'Improve cover.' },
+        { name: 'Impact', text: 'Convert hits.' },
+        { name: 'Sharpshooter', text: 'Reduce cover.' },
+      ])
+    })
+
+    it('folds in upgrade-granted keywords with fromUpgrade, but never flags an intrinsic one', () => {
+      const u = unit('u', { keywords: ['Sharpshooter 2'] })
+      const grantTactical = upgrade('t', { keywords: ['Tactical 1'] })
+      const grantSharp = upgrade('s', { keywords: ['Sharpshooter 1'] }) // unit already has it
+      expect(unitCardKeywords(u, G, [grantTactical, grantSharp])).toEqual([
+        { name: 'Sharpshooter', text: 'Reduce cover.' }, // intrinsic — not flagged though an upgrade also grants it
+        { name: 'Tactical', text: 'Gain aim.', fromUpgrade: true },
+      ])
+    })
+
+    it('drops keywords with no glossary entry', () => {
+      const u = unit('u', { keywords: ['Sharpshooter 2', 'Nonexistent 3'] })
+      expect(unitCardKeywords(u, G)).toEqual([{ name: 'Sharpshooter', text: 'Reduce cover.' }])
+    })
   })
 
   describe('armyToText', () => {

@@ -7,6 +7,15 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.1.0',
+    date: '2026-07-02',
+    changes: [
+      'Print list: when you print both the keyword reference and the unit cards, each keyword now prints beside its own unit card instead of one big alphabetical list — with a long keyword list flowing that unit onto its own page. Printing the reference on its own keeps the alphabetical list as before.',
+      "Print list: a unit's per-card keywords now include any keywords granted by its equipped upgrades (e.g. Tactical from a training), tagged \"from upgrade\" so it's clear they aren't on the card face.",
+      'Print list: primary objective cards (which fold in the deployment map) now print one-per-page scaled to fit a full A4 sheet, so the map is no longer clipped.',
+    ],
+  },
+  {
     version: '2.0.3',
     date: '2026-07-02',
     changes: [

@@ -8,7 +8,9 @@ import { FACTION_META, factionColor, formatForCap } from '../../utils/factions.t
 import UnitBadge from '../build/UnitBadge.vue'
 import type { Army } from '../../types/index.ts'
 
-const props = defineProps<{ army: Army; playerName: string }>()
+const props = withDefaults(defineProps<{ army: Army; playerName: string; endLabel?: string }>(), {
+  endLabel: 'End session',
+})
 defineEmits<{ (e: 'change'): void; (e: 'end'): void }>()
 
 const unitsStore = useUnitsStore()
@@ -85,7 +87,7 @@ const groups = computed(() =>
         class="flex-1 rounded-lg border border-lg-border px-4 py-2.5 text-sm text-lg-muted hover:text-red-400"
         @click="$emit('end')"
       >
-        End session
+        {{ endLabel }}
       </button>
     </div>
   </div>

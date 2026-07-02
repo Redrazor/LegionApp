@@ -85,7 +85,7 @@ const showBattleDeckText = () => props.options.battleDeck && props.sheet.showBat
 
       <!-- Battle deck -->
       <section v-if="showBattleDeckText()" style="margin-bottom: 14px; break-inside: avoid;">
-        <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 6px;">Battle Deck</h2>
+        <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 6px;">{{ sheet.isReconDeck ? 'Recon Battle Cards' : 'Battle Deck' }}</h2>
         <div v-for="g in deckGroups(sheet)" :key="g.subtype" style="margin-bottom: 4px;">
           <span style="font-size: 11px; font-weight: 700;" :style="{ color: `var(${SUBTYPE_VAR[g.subtype]})` }">{{ SUBTYPE_LABEL[g.subtype] }}:</span>
           <span style="font-size: 13px;"> {{ g.cards.map((c) => c.name).join(', ') }}</span>
@@ -172,7 +172,7 @@ const showBattleDeckText = () => props.options.battleDeck && props.sheet.showBat
       </section>
 
       <section v-if="options.battleDeckCards && sheet.showBattleDeck && sheet.battleDeck.some((c) => c.cardImage)" style="break-before: page;">
-        <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 8px;">Battle-Deck Cards</h2>
+        <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 8px;">{{ sheet.isReconDeck ? 'Recon Battle Cards' : 'Battle-Deck Cards' }}</h2>
         <!-- Secondary & advantage cards are normal-height — compact 2-up grid. -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
           <figure v-for="(c, i) in sheet.battleDeck.filter((x) => x.cardImage && x.subtype !== 'primary')" :key="i" style="margin: 0; break-inside: avoid;">

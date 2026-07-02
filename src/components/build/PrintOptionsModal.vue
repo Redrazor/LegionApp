@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { PrintOptions } from '../../utils/army.ts'
 
 // Print-options panel: pick which sections the printout includes before printing.
@@ -7,21 +8,29 @@ import type { PrintOptions } from '../../utils/army.ts'
 // component just binds the checkboxes and emits print/close. Teleported to <body>
 // like the other build modals.
 const options = defineModel<PrintOptions>('options', { required: true })
-defineProps<{ show: boolean; hasBattleDeck: boolean }>()
+// `hasBattleDeck` = there are battle cards to print (a chosen Standard deck, or the
+// fixed Recon set); `isRecon` relabels those two options for the Recon reference set.
+const props = defineProps<{ show: boolean; hasBattleDeck: boolean; isRecon?: boolean }>()
 const emit = defineEmits<{ close: []; print: [] }>()
 
-const references = [
-  { key: 'commandHand', label: 'Command hand', hint: 'Text list of your command cards' },
-  { key: 'battleDeck', label: 'Battle deck', hint: 'Text list of your objective deck', needsDeck: true },
-  { key: 'keywordReference', label: 'Keyword reference', hint: 'Every keyword in use, alphabetised with rules' },
-] as const
+type Row = { key: keyof PrintOptions; label: string; hint: string; needsDeck?: boolean }
 
-const cards = [
+const references = computed<Row[]>(() => [
+  { key: 'commandHand', label: 'Command hand', hint: 'Text list of your command cards' },
+  props.isRecon
+    ? { key: 'battleDeck', label: 'Recon battle cards', hint: 'Text list of the Recon card set', needsDeck: true }
+    : { key: 'battleDeck', label: 'Battle deck', hint: 'Text list of your objective deck', needsDeck: true },
+  { key: 'keywordReference', label: 'Keyword reference', hint: 'Every keyword in use, alphabetised with rules' },
+])
+
+const cards = computed<Row[]>(() => [
   { key: 'unitCards', label: 'Unit cards', hint: 'Full card images to proxy' },
   { key: 'upgradeCards', label: 'Upgrade cards', hint: 'Full card images of equipped upgrades' },
   { key: 'commandCards', label: 'Command cards', hint: 'Full command-card images' },
-  { key: 'battleDeckCards', label: 'Battle-deck cards', hint: 'Full objective-card images', needsDeck: true },
-] as const
+  props.isRecon
+    ? { key: 'battleDeckCards', label: 'Recon battle cards', hint: 'Full Recon card images', needsDeck: true }
+    : { key: 'battleDeckCards', label: 'Battle-deck cards', hint: 'Full objective-card images', needsDeck: true },
+])
 </script>
 
 <template>

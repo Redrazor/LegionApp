@@ -1069,6 +1069,22 @@ export function eligibleBattleCards(cards: BattleCard[], army: Army): BattleCard
   return cards.filter((c) => battleCardEligible(c, army)).sort((a, b) => a.name.localeCompare(b.name))
 }
 
+/**
+ * The fixed Recon Battle Cards set (`isRecon`), grouped in canonical subtype order
+ * (primary → secondary → advantage), name-sorted within each group. Unlike the Standard
+ * deck this is not deck-built and not faction-filtered — Recon uses one shared set drawn
+ * at the table, so this is a read-only reference. Returns only groups that have cards.
+ */
+export function reconBattleCardGroups(
+  cards: BattleCard[],
+): { subtype: BattleCardSubtype; cards: BattleCard[] }[] {
+  const recon = cards.filter((c) => c.isRecon)
+  return BATTLE_SUBTYPES.map((subtype) => ({
+    subtype,
+    cards: recon.filter((c) => c.subtype === subtype).sort((a, b) => a.name.localeCompare(b.name)),
+  })).filter((g) => g.cards.length > 0)
+}
+
 export interface BattleDeckValidation {
   bySubtype: Record<BattleCardSubtype, number>
   ineligible: string[]
@@ -1254,7 +1270,8 @@ export interface ArmySheet {
   commandHand: { pip: number; name: string; cardImage: string | null }[] // chosen cards (pip-sorted) + Standing Orders
   battleDeck: { subtype: BattleCardSubtype; name: string; cardImage: string | null }[] // ordered primary → secondary → advantage
   doctrines: { name: string; text: string }[] // chosen battle-force doctrines, in the force's option order
-  showBattleDeck: boolean
+  showBattleDeck: boolean // print a battle-cards section (Standard chosen deck, or the fixed Recon set)
+  isReconDeck: boolean // the printed cards are the fixed Recon set, not a chosen deck (drives labels)
   unitCards: ArmySheetCard[] // distinct unit cards (proxy/print-and-play), roster order
   upgradeCards: ArmySheetCard[] // distinct equipped upgrade cards
   keywords: ArmySheetKeyword[] // every keyword in use (units/weapons/upgrades), alphabetical
@@ -1331,12 +1348,19 @@ export function buildArmySheet(
     .map((c) => ({ pip: c.pips, name: c.name, cardImage: c.cardImage }))
   if (standingOrders) commandHand.push({ pip: standingOrders.pips, name: standingOrders.name, cardImage: standingOrders.cardImage })
 
+  // Standard prints the chosen deck; Recon has no deck-building, so it prints the fixed
+  // shared Recon Battle Cards set (subtype-ordered) as a reference/proxy sheet instead.
+  const isReconDeck = !usesBattleDeck(army.gameSize)
   const order: Record<BattleCardSubtype, number> = { primary: 0, secondary: 1, advantage: 2 }
-  const battleDeck = (army.battleDeck ?? [])
-    .map((id) => battleCardsById.get(id))
-    .filter((c): c is BattleCard => !!c)
-    .sort((a, b) => order[a.subtype] - order[b.subtype] || a.name.localeCompare(b.name))
-    .map((c) => ({ subtype: c.subtype, name: c.name, cardImage: c.cardImage }))
+  const battleDeck = isReconDeck
+    ? reconBattleCardGroups([...battleCardsById.values()])
+        .flatMap((g) => g.cards)
+        .map((c) => ({ subtype: c.subtype, name: c.name, cardImage: c.cardImage }))
+    : (army.battleDeck ?? [])
+        .map((id) => battleCardsById.get(id))
+        .filter((c): c is BattleCard => !!c)
+        .sort((a, b) => order[a.subtype] - order[b.subtype] || a.name.localeCompare(b.name))
+        .map((c) => ({ subtype: c.subtype, name: c.name, cardImage: c.cardImage }))
 
   const doctrines = chosenDoctrines(army, bf).map((o) => ({ name: o.name, text: o.text }))
 
@@ -1382,7 +1406,9 @@ export function buildArmySheet(
     commandHand,
     battleDeck,
     doctrines,
-    showBattleDeck: usesBattleDeck(army.gameSize),
+    // Render a battle-cards section for both a Standard chosen deck and the Recon set.
+    showBattleDeck: isReconDeck ? battleDeck.length > 0 : usesBattleDeck(army.gameSize),
+    isReconDeck,
     unitCards,
     upgradeCards,
     keywords: glossary ? armyKeywordReference(army.units, unitsById, upgradesById, glossary) : [],

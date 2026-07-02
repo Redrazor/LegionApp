@@ -10,7 +10,7 @@ import {
   effectiveRank, effectiveUpgradeBar, slotKeySet, pruneOrphanedUpgrades, upgradeFitsSlot,
   unitModelCount, armyModelCount, upgradeMinisAdded, MINI_ADDING_SLOTS, battleForcePool, battleForceRules,
   commandCommanders, commandCardEligible, eligibleCommandCards, validateCommandHand, fieldedUnitNames,
-  battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck,
+  battleCardEligible, eligibleBattleCards, validateBattleDeck, usesBattleDeck, reconBattleCardGroups,
   buildArmySheet, armyToText, armyToListJSON, importArmy, COMPACT_VERSION,
   armyKeywordReference, unitCardKeywords,
   usesDoctrines, chosenDoctrines, validateDoctrines, doctrineEffects,
@@ -1628,6 +1628,31 @@ describe('battle deck', () => {
     })
   })
 
+  describe('reconBattleCardGroups', () => {
+    const mixed = [
+      bc('std', { name: 'Standard Card', subtype: 'primary', isRecon: false }),
+      bc('rp2', { name: 'Bunker Assault', subtype: 'primary', isRecon: true }),
+      bc('rp1', { name: 'Alpha Objective', subtype: 'primary', isRecon: true }),
+      bc('ra', { name: 'Advanced Intel', subtype: 'advantage', isRecon: true }),
+      bc('rs', { name: 'Surface Scan', subtype: 'secondary', isRecon: true }),
+    ]
+    it('keeps only Recon cards, grouped primary → secondary → advantage', () => {
+      const g = reconBattleCardGroups(mixed)
+      expect(g.map((x) => x.subtype)).toEqual(['primary', 'secondary', 'advantage'])
+      // never sweeps in the Standard-pool card
+      expect(g.flatMap((x) => x.cards.map((c) => c.name))).not.toContain('Standard Card')
+    })
+    it('name-sorts within each group', () => {
+      const primary = reconBattleCardGroups(mixed).find((x) => x.subtype === 'primary')!
+      expect(primary.cards.map((c) => c.name)).toEqual(['Alpha Objective', 'Bunker Assault'])
+    })
+    it('omits empty groups and returns [] with no Recon cards', () => {
+      expect(reconBattleCardGroups([bc('std')])).toEqual([])
+      const onlyAdv = reconBattleCardGroups([bc('ra', { subtype: 'advantage', isRecon: true })])
+      expect(onlyAdv.map((x) => x.subtype)).toEqual(['advantage'])
+    })
+  })
+
   describe('validateBattleDeck', () => {
     const cards = [
       ...['p1', 'p2', 'p3'].map((id) => bc(id, { subtype: 'primary' })),
@@ -1731,12 +1756,33 @@ describe('buildArmySheet', () => {
     expect(s.showBattleDeck).toBe(true)
   })
 
-  it('hides the battle deck in Recon and names the battle force', () => {
+  it('marks Recon and prints no chosen deck when the catalogue has no Recon cards', () => {
     const bf = makeBattleForce({ name: 'Blizzard Force' })
     const recon = buildArmySheet({ ...army, gameSize: 600 }, unitsById, upgradesById, commandsById, battleCardsById, bf)
+    expect(recon.isReconDeck).toBe(true)
+    // fixture has no isRecon cards → nothing to print → section hidden
     expect(recon.showBattleDeck).toBe(false)
     expect(recon.battleForceName).toBe('Blizzard Force')
     expect(recon.formatName).toBe('Recon')
+  })
+
+  it('prints the fixed Recon Battle Cards set (subtype-ordered) in Recon, ignoring army.battleDeck', () => {
+    const withRecon = new Map<string, BattleCard>([
+      ...battleCardsById,
+      ['ra', { id: 'ra', slug: 'ra', name: 'Advanced Intel', subtype: 'advantage', keywords: [], faction: null, isRecon: true, cardImage: null }],
+      ['rp', { id: 'rp', slug: 'rp', name: 'Bunker Assault', subtype: 'primary', keywords: [], faction: null, isRecon: true, cardImage: null }],
+      ['rs', { id: 'rs', slug: 'rs', name: 'Surface Scan', subtype: 'secondary', keywords: [], faction: null, isRecon: true, cardImage: null }],
+    ])
+    // army.battleDeck (a Standard deck) must be ignored in Recon
+    const s = buildArmySheet({ ...army, gameSize: 600, battleDeck: ['b1', 'b2'] }, unitsById, upgradesById, commandsById, withRecon, null)
+    expect(s.isReconDeck).toBe(true)
+    expect(s.showBattleDeck).toBe(true)
+    expect(s.battleDeck.map((c) => c.name)).toEqual(['Bunker Assault', 'Surface Scan', 'Advanced Intel'])
+  })
+
+  it('marks a Standard sheet as not a Recon deck', () => {
+    const s = buildArmySheet(army, unitsById, upgradesById, commandsById, battleCardsById, null)
+    expect(s.isReconDeck).toBe(false)
   })
 
   it('carries card images on the command hand + battle deck', () => {

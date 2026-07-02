@@ -11,7 +11,7 @@ import { useBattleCardsStore } from '../stores/battleCards.ts'
 import { useKeywordsStore } from '../stores/keywords.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageExemptions, entourageCoverableNames, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON, importArmy, toCompact, DEFAULT_PRINT_OPTIONS, type PrintOptions } from '../utils/army.ts'
+import { encodeArmy, decodeArmy, entourageExemptions, entourageCoverableNames, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, reconBattleCardGroups, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON, importArmy, toCompact, DEFAULT_PRINT_OPTIONS, type PrintOptions } from '../utils/army.ts'
 import type { Faction, Rank, Unit } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
@@ -21,6 +21,7 @@ import UpgradeCatalogue from '../components/build/UpgradeCatalogue.vue'
 import BattleForcePicker from '../components/build/BattleForcePicker.vue'
 import CommandHandView from '../components/build/CommandHandView.vue'
 import BattleDeckView from '../components/build/BattleDeckView.vue'
+import ReconBattleCardsView from '../components/build/ReconBattleCardsView.vue'
 import DoctrineView from '../components/build/DoctrineView.vue'
 import PrintSheet from '../components/build/PrintSheet.vue'
 import PrintOptionsModal from '../components/build/PrintOptionsModal.vue'
@@ -184,6 +185,10 @@ const standingOrders = computed(() => commandsStore.commands.find((c) => c.pips 
 // deck is a Standard-format concept — Recon has none.
 const showBattleDeck = computed(() => usesBattleDeck(draft.value.gameSize))
 const eligibleBattle = computed(() => eligibleBattleCards(battleCardsStore.battleCards, draft.value))
+// Recon (no deck-building) shows the fixed shared Recon Battle Cards set as a reference.
+const reconGroups = computed(() => reconBattleCardGroups(battleCardsStore.battleCards))
+// Battle cards are printable in both formats: a Standard chosen deck, or the Recon set.
+const hasPrintableBattleCards = computed(() => showBattleDeck.value || reconGroups.value.length > 0)
 
 // Battle-force doctrines ("Choose N of the following") — only when the active force has them.
 const doctrineOptions = computed(() => battleForce.value?.doctrines?.options ?? [])
@@ -370,7 +375,7 @@ useHead({
     </div>
   </div>
 
-  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null" :has-command="true" :has-battle-deck="showBattleDeck" :has-doctrines="hasDoctrines">
+  <BuildLayout v-else :force-pane="picking ? 'catalogue' : null" :has-command="true" :has-battle-deck="showBattleDeck" :has-recon-cards="!showBattleDeck" :has-doctrines="hasDoctrines">
     <!-- Header controls -->
     <template #header>
       <div class="mb-4 flex flex-wrap items-center gap-3">
@@ -495,14 +500,16 @@ useHead({
       />
     </template>
 
-    <!-- Battle-deck builder (its own tab/segment; Standard formats only) -->
+    <!-- Battle tab: Standard deck-builder, or the read-only Recon Battle Cards set (Recon). -->
     <template #battle>
       <BattleDeckView
+        v-if="showBattleDeck"
         :eligible="eligibleBattle"
         :selected="draft.battleDeck ?? []"
         :has-units="draft.units.length > 0"
         @toggle="armyStore.toggleBattleCard"
       />
+      <ReconBattleCardsView v-else :groups="reconGroups" />
     </template>
 
     <!-- Doctrine picker (its own tab/segment; only when the battle force has doctrines) -->
@@ -557,7 +564,8 @@ useHead({
     <PrintOptionsModal
       v-model:options="printOptions"
       :show="showPrintOptions"
-      :has-battle-deck="showBattleDeck"
+      :has-battle-deck="hasPrintableBattleCards"
+      :is-recon="!showBattleDeck"
       @print="doPrint"
       @close="showPrintOptions = false"
     />

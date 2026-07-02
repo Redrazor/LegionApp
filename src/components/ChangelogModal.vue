@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.0.2',
+    date: '2026-07-02',
+    changes: [
+      'Fixed the Strike Team sniper heavy weapons so the full unit can equip them too, not just the 2-mini team: Scout Troopers (DLT-19x Sniper), Rebel Commandos (DH-447 Sniper), BX-Series Droid Commandos (BX-Series Droid Sniper) and ARC Troopers (DC-15x ARC Trooper Sniper).',
+    ],
+  },
+  {
     version: '2.0.1',
     date: '2026-07-02',
     changes: [

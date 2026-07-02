@@ -171,9 +171,10 @@ describe('catalogue data integrity', () => {
         expect(byCat[cat].has(slug), `dropped ${cat} slug not in catalogue: ${slug}`).toBe(true)
       }
     }
-    // The six known first-edition drops (guard against an accidental wipe of the list).
+    // Known first-edition drops (guard against an accidental wipe of the list). the-darksaber-maul
+    // is intentionally NOT here — it's a current card kept as an unreleased noImage placeholder.
     expect(dropped.upgrades).toEqual(
-      expect.arrayContaining(['at-st-mortar-launcher', 'dc-15-clone-trooper', 'kx-series-security-droids', 'mertalizer', 'r5-astromech-droid', 'rook-kast', 'the-darksaber-maul']),
+      expect.arrayContaining(['at-st-mortar-launcher', 'dc-15-clone-trooper', 'kx-series-security-droids', 'mertalizer', 'r5-astromech-droid', 'rook-kast']),
     )
     // rook-kast (v1 heavy weapon) is dropped, but its v2 replacement rook-kast-2 is NOT.
     expect(byCat.upgrades.has('rook-kast-2')).toBe(true)

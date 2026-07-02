@@ -7,10 +7,10 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
-    version: '2.0.2',
+    version: '2.0.3',
     date: '2026-07-02',
     changes: [
-      'Fixed the Strike Team sniper heavy weapons so the full unit can equip them too, not just the 2-mini team: Scout Troopers (DLT-19x Sniper), Rebel Commandos (DH-447 Sniper), BX-Series Droid Commandos (BX-Series Droid Sniper) and ARC Troopers (DC-15x ARC Trooper Sniper).',
+      'Kept the sniper heavy weapons (DLT-19x, DH-447, BX-Series, DC-15x ARC) exclusive to their 2-mini Strike Team profiles, matching the current cards — the full-strength Scout Troopers, Rebel Commandos, BX-Series Droid Commandos and ARC Troopers do not equip them.',
     ],
   },
   {

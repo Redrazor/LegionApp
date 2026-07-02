@@ -42,7 +42,16 @@ Upgrade disposition below relies on the *upgrade* PDFs + imaging + per-cluster j
 
 ---
 
-## DROP — v1 legacy (recommend delete) — 48
+> **⚠ Correction (v2.0.1).** The DROP set below was **over-aggressive** — it assumed "not in the DOC51
+> upgrade PDFs = legacy", but those PDFs are **incomplete** (they omit many current unit-kit cards, same
+> as the unit PDFs). Dropping them removed live upgrade options from Scout Troopers, Imperial Special
+> Forces, Shoretroopers, Officers/Agents, vehicle hardpoints, etc. **43 of the 48 were reverted to
+> `noImage` placeholders** (their pre-2.0 state) in v2.0.1. Only the 6 pre-2.0 owner drops
+> (`at-st-mortar-launcher`, `dc-15-clone-trooper`, `kx-series-security-droids`, `mertalizer`,
+> `r5-astromech-droid`, `rook-kast`) + `caught-in-a-web` remain dropped. **Real legacy removal needs
+> per-card verification (owner photos / rulebook), not the incomplete-PDF heuristic.**
+
+## DROP — v1 legacy (recommend delete) — 48 (⚠ reverted to placeholders in v2.0.1, see above)
 
 Delete the catalogue row, the `.webp` scan, and any `upgrade-weapons.json` entry.
 

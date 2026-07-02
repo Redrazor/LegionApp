@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.0.1',
+    date: '2026-07-02',
+    changes: [
+      'Fixed units that lost upgrade options after the 2.0 catalogue cleanup — Scout Troopers, Imperial Special Forces, Shoretroopers, Range Troopers, Snowtroopers, Officers/Agents and others. The over-removed cards are restored as selectable "image pending" placeholders until their official art is added.',
+    ],
+  },
+  {
     version: '2.0.0',
     date: '2026-07-02',
     changes: [

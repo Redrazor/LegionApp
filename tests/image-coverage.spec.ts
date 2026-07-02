@@ -10,11 +10,10 @@ import { join } from 'path'
 // owner's working tree, not a CI assertion. When images are present it asserts full
 // coverage and reports orphan files.
 //
-// Allowlist: cards known to have no scan yet, scheduled to be sourced in the 2.0
-// battle/cleanup phase (P7). Empty this set at the 2.0 cutover (P8).
-const KNOWN_MISSING = new Set([
-  'youre-not-all-the-same-to-me', // upgrades — staged (republic roadmap preview), applied at P3 ship
-])
+// Allowlist: emptied at the 2.0 cutover (P8). Every card now either has a first-party AMG
+// scan, is an explicit noImage placeholder (unreleased.json), or is dropped (dropped.json).
+// Keep this empty — a new gap must be classified into one of those, never re-allowlisted.
+const KNOWN_MISSING = new Set<string>([])
 
 const ROOT = join(__dirname, '..')
 const DATA = join(ROOT, 'public', 'data')

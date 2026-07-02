@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.5.0',
+    date: '2026-07-03',
+    changes: [
+      'Play multiplayer (phase 2) — create a room and share the 4-character code, or join one, to play with an opponent in real time. Each player imports their own army and sees the other join live, with an online/offline presence dot. Games are saved on the server: refresh the page or briefly lose connection and you drop straight back into the same game — your armies and opponent are still there. A 30-second grace window means a quick reload never shows you as offline, and either player can End game to close the room. You can still Play solo on a single device.',
+    ],
+  },
+  {
     version: '2.4.0',
     date: '2026-07-02',
     changes: [

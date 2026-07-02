@@ -1,116 +1,94 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useArmyStore } from '../../stores/army.ts'
-import { useUnitsStore } from '../../stores/units.ts'
-import { useUpgradesStore } from '../../stores/upgrades.ts'
-import { useBattleForcesStore } from '../../stores/battleForces.ts'
-import { armyPoints, fromCompact } from '../../utils/army.ts'
-import { importFromSaved, importFromCode } from '../../utils/playSession.ts'
-import { FACTION_META, factionColor, formatForCap } from '../../utils/factions.ts'
+import { ref } from 'vue'
+import ArmyPicker from './ArmyPicker.vue'
+import { randomPlayerName } from '../../utils/playerName.ts'
 import type { Army } from '../../types/index.ts'
 
-const emit = defineEmits<{ (e: 'import', army: Army): void }>()
+defineProps<{ error?: string; busy?: boolean }>()
+const emit = defineEmits<{
+  (e: 'import', army: Army): void
+  (e: 'host', name: string): void
+  (e: 'join', payload: { code: string; name: string }): void
+}>()
 
-const armyStore = useArmyStore()
-const unitsStore = useUnitsStore()
-const upgradesStore = useUpgradesStore()
-const battleForcesStore = useBattleForcesStore()
-const { saved } = storeToRefs(armyStore)
-
-// Resolve each saved (compact) list into a display summary: name, faction, format
-// and live points total (reusing Build's own armyPoints so numbers always agree).
-const savedSummaries = computed(() =>
-  saved.value.map((c, index) => {
-    const army = fromCompact(c)
-    const bf = army.battleForce ? battleForcesStore.byId.get(army.battleForce) ?? null : null
-    return {
-      index,
-      army,
-      name: c.n || 'Untitled army',
-      faction: army.faction,
-      unitCount: army.units.length,
-      points: armyPoints(army, unitsStore.byId, upgradesStore.byId, bf),
-      formatName: formatForCap(army.gameSize).name,
-      cap: army.gameSize,
-    }
-  }),
-)
-
+type Tab = 'solo' | 'host' | 'join'
+const tab = ref<Tab>('solo')
+const name = ref(randomPlayerName())
 const code = ref('')
-const codeError = ref('')
 
-function useSaved(index: number) {
-  const compact = saved.value[index]
-  if (compact) emit('import', importFromSaved(compact))
-}
-
-function useCode() {
-  codeError.value = ''
-  const army = importFromCode(code.value)
-  if (!army) {
-    codeError.value = "That doesn't look like a valid army link or code."
-    return
-  }
-  emit('import', army)
-}
+const tabs: { id: Tab; label: string }[] = [
+  { id: 'solo', label: 'Play solo' },
+  { id: 'host', label: 'Create room' },
+  { id: 'join', label: 'Join room' },
+]
 </script>
 
 <template>
   <div class="mx-auto max-w-2xl">
-    <div class="mb-6 text-center">
+    <div class="mb-5 text-center">
       <h1 class="font-display text-2xl font-bold uppercase tracking-wider text-lg-text">Play</h1>
       <p class="mx-auto mt-2 max-w-md text-sm text-lg-muted">
-        Import an army to bring to the table. Pick one of your saved lists, or paste a share link.
+        Track a game on this device, or create/join a room to play with an opponent in real time.
       </p>
     </div>
 
-    <!-- Saved lists -->
-    <section class="mb-6">
-      <h2 class="mb-2 font-display text-xs font-bold uppercase tracking-widest text-lg-muted">Your saved lists</h2>
-      <div v-if="savedSummaries.length" class="space-y-2">
-        <button
-          v-for="s in savedSummaries" :key="s.index"
-          class="flex w-full items-center gap-3 rounded-xl border border-lg-border bg-lg-surface px-4 py-3 text-left transition-colors hover:border-lg-accent/50"
-          @click="useSaved(s.index)"
-        >
-          <span class="h-8 w-1 flex-none rounded" :style="{ background: factionColor(s.faction) }" />
-          <span class="min-w-0 flex-1">
-            <span class="block truncate text-sm font-semibold text-lg-text">{{ s.name }}</span>
-            <span class="block truncate text-xs text-lg-muted">
-              {{ s.faction ? FACTION_META[s.faction].name : 'No faction' }} · {{ s.unitCount }} units
-            </span>
-          </span>
-          <span class="flex-none text-right">
-            <span class="block font-display text-sm font-bold text-lg-accent">{{ s.points }}<span class="text-lg-muted/70">/{{ s.cap }}</span></span>
-            <span class="block text-[11px] text-lg-muted/70">{{ s.formatName }}</span>
-          </span>
-        </button>
-      </div>
-      <p v-else class="rounded-xl border border-dashed border-lg-border bg-lg-surface px-4 py-6 text-center text-sm text-lg-muted">
-        No saved lists yet. Build and save one in the
-        <RouterLink to="/build" class="text-lg-accent hover:underline">Build</RouterLink> tab.
-      </p>
-    </section>
-
-    <!-- Share code -->
-    <section>
-      <h2 class="mb-2 font-display text-xs font-bold uppercase tracking-widest text-lg-muted">Or paste a share link</h2>
-      <textarea
-        v-model="code"
-        rows="2"
-        placeholder="Paste a Build share link or code…"
-        class="w-full resize-none rounded-lg border border-lg-border bg-lg-surface px-3 py-2 text-sm text-lg-text placeholder:text-lg-muted/60 focus:border-lg-accent/60 focus:outline-none"
-        @input="codeError = ''"
-      />
-      <p v-if="codeError" class="mt-1 text-xs text-red-400">{{ codeError }}</p>
+    <!-- Mode switch -->
+    <div class="mb-5 grid grid-cols-3 gap-1 rounded-xl border border-lg-border bg-lg-surface p-1">
       <button
-        class="mt-2 w-full rounded-lg bg-lg-accent px-4 py-2.5 text-sm font-semibold text-lg-dark disabled:opacity-40"
-        :disabled="!code.trim()"
-        @click="useCode"
+        v-for="t in tabs" :key="t.id"
+        class="rounded-lg px-2 py-2 text-xs font-semibold uppercase tracking-wide transition-colors"
+        :class="tab === t.id ? 'bg-lg-accent text-lg-dark' : 'text-lg-muted hover:text-lg-text'"
+        @click="tab = t.id"
       >
-        Import from link
+        {{ t.label }}
       </button>
-    </section>
+    </div>
+
+    <!-- Solo: import straight into a local session -->
+    <ArmyPicker v-if="tab === 'solo'" @import="emit('import', $event)" />
+
+    <!-- Host / Join: name (+ code) then enter the room lobby -->
+    <div v-else class="space-y-4">
+      <div>
+        <label class="mb-1 block font-display text-xs font-bold uppercase tracking-widest text-lg-muted">Your name</label>
+        <input
+          v-model="name"
+          type="text"
+          maxlength="32"
+          class="w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2.5 text-sm text-lg-text focus:border-lg-accent/60 focus:outline-none"
+        />
+      </div>
+
+      <div v-if="tab === 'join'">
+        <label class="mb-1 block font-display text-xs font-bold uppercase tracking-widest text-lg-muted">Room code</label>
+        <input
+          v-model="code"
+          type="text"
+          maxlength="4"
+          placeholder="ABCD"
+          class="w-full rounded-lg border border-lg-border bg-lg-surface px-3 py-2.5 text-center font-display text-lg font-bold uppercase tracking-[0.4em] text-lg-text placeholder:text-lg-muted/40 focus:border-lg-accent/60 focus:outline-none"
+          @input="code = code.toUpperCase()"
+        />
+      </div>
+
+      <p v-if="error" class="text-center text-xs text-red-400">{{ error }}</p>
+
+      <button
+        v-if="tab === 'host'"
+        class="w-full rounded-lg bg-lg-accent px-4 py-3 text-sm font-semibold text-lg-dark disabled:opacity-40"
+        :disabled="busy || !name.trim()"
+        @click="emit('host', name.trim())"
+      >
+        {{ busy ? 'Creating…' : 'Create room' }}
+      </button>
+      <button
+        v-else
+        class="w-full rounded-lg bg-lg-accent px-4 py-3 text-sm font-semibold text-lg-dark disabled:opacity-40"
+        :disabled="busy || !name.trim() || code.trim().length !== 4"
+        @click="emit('join', { code: code.trim(), name: name.trim() })"
+      >
+        {{ busy ? 'Joining…' : 'Join room' }}
+      </button>
+    </div>
   </div>
 </template>

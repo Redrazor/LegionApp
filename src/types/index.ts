@@ -287,6 +287,40 @@ export interface CompactArmy {
   o?: string[] // chosen doctrine option ids (optional; absent = none)
 }
 
+// ── Play (multiplayer) ───────────────────────────────────────────────────────
+// The canonical shared game state lives on the server (persisted to SQLite) and is
+// broadcast to both players. `RoomState` is that authoritative blob — later Play
+// phases (mission, VP, tokens, log…) extend it. Presence is transient (socket-driven),
+// tracked at runtime and NOT persisted.
+
+export type PlayerRole = 'host' | 'guest'
+
+/** One player's persisted contribution to a room. */
+export interface RoomSlot {
+  name: string
+  army: Army | null
+}
+
+/** Authoritative shared room state (persisted). `guest` is null until someone joins. */
+export interface RoomState {
+  host: RoomSlot
+  guest: RoomSlot | null
+}
+
+/** Which slots currently have a live socket connected. */
+export interface RoomPresence {
+  host: boolean
+  guest: boolean
+}
+
+/** Full room snapshot pushed to clients on any change. */
+export interface RoomSnapshot {
+  id: string
+  code: string
+  state: RoomState
+  presence: RoomPresence
+}
+
 // ── Display metadata ─────────────────────────────────────────────────────────
 
 export interface FactionMeta {

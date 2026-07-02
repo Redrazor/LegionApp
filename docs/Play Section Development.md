@@ -71,10 +71,16 @@ Replaced the `PlayView` placeholder. Serializable `PlaySession` store (`stores/p
 saved list or a pasted Build share link via `importFromSaved`/`importFromCode` (`utils/playSession.ts`,
 tested). Roster (`PlayRoster.vue`) reuses `armyPoints`/`groupArmyUnits`/`unitCost` + `UnitBadge`.
 
-### Phase 2 — Real-time multiplayer substrate  *(user #2)*
-Server-authoritative, SQLite-persisted rooms (UUID + join code), reconnection/resume, presence, and
-state-sync events. Client `usePlayRoom` composable. **Random player-name generator** (adjective+noun;
-ShatterApp has none to port). Both players join by code, get a name, import their lists.
+### Phase 2 — Real-time multiplayer substrate  *(user #2)* — ✅ SHIPPED v2.5.0 (PR #96)
+Server-authoritative, SQLite-persisted rooms. `db/playRooms.ts` (`play_rooms` table, kept OUT of
+`dropTables` so it survives reseed — tested), `playState.ts` (pure host/guest reducer), `rooms.ts`
+(`createRoomManager`: UUID+code, presence with 30s grace, resume-by-id, 24h TTL sweep). Socket events:
+create/join/rejoin/update-army/set-name/end-game → broadcasts `room-state`. Client `usePlayRoom`
+(authoritative single-snapshot) + `usePlayConnection` glue; `playSession` store gained room mode
+(maps host/guest→self/opponent by role; `roomId`+`role` persist → auto-rejoin on reload). UI:
+`ArmyPicker` (extracted), `PlaySetup` launcher (solo/host/join), `PlayLobby`. `playerName.ts` generator
+(ShatterApp had none). **Lifecycle: explicit End game + 24h TTL; 30s presence grace.** Known limit:
+Render's ephemeral FS resets rooms on redeploy (swap to persistent disk later, no protocol change).
 
 ### Phase 3 — Mission picker  *(user #3)*
 Format-driven off `isRecon`: **Recon = random draw**, **Standard = deal/alternate-veto draft** (owner-

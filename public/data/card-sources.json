@@ -1,0 +1,7046 @@
+[
+  {
+    "category": "battle",
+    "slug": "advanced-intel",
+    "name": "Advanced Intel",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "advanced-intel-2",
+    "name": "Advanced Intel",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "align-the-relay",
+    "name": "Align the Relay",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "armored-assault",
+    "name": "Armored Assault",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "black-ops",
+    "name": "Black Ops",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "breakthrough",
+    "name": "Breakthrough",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bring-them-to-heel",
+    "name": "Bring Them to Heel",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bring-them-to-heel-2",
+    "name": "Bring Them to Heel",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bunker-assault",
+    "name": "Bunker Assault",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bunker-assault-2",
+    "name": "Bunker Assault",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "cauldron",
+    "name": "Cauldron",
+    "source": "June 2026 Mandalorian Update — ErrataReference",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "close-the-pocket",
+    "name": "Close the Pocket",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "close-the-pocket-2",
+    "name": "Close the Pocket",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "command-override",
+    "name": "Command Override",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "contact-contact",
+    "name": "Contact, Contact!",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "coordinated-strike",
+    "name": "Coordinated Strike",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "cunning-deployment",
+    "name": "Cunning Deployment",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "cunning-deployment-2",
+    "name": "Cunning Deployment",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "destroy-enemy-base",
+    "name": "Destroy Enemy Base",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "extreme-discipline",
+    "name": "Extreme Discipline",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "failed-negotiations",
+    "name": "Failed Negotiations",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "fortified-position",
+    "name": "Fortified Position",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "fortified-position-2",
+    "name": "Fortified Position",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "garrison",
+    "name": "Garrison",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "intercept-signals",
+    "name": "Intercept Signals",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "intercept-signals-2",
+    "name": "Intercept Signals",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "marked-targets",
+    "name": "Marked Targets",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "no-time-to-lose",
+    "name": "No Time to Lose",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "ordnance",
+    "name": "Ordnance",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "outflank",
+    "name": "Outflank",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "payload",
+    "name": "Payload",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "rapid-deployment",
+    "name": "Rapid Deployment",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "recon-mission",
+    "name": "Recon Mission",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "recon-mission-2",
+    "name": "Recon Mission",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "recover-the-research",
+    "name": "Recover the Research",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "retrieve-the-data",
+    "name": "Retrieve the Data",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "scrambled-orders",
+    "name": "Scrambled Orders",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "shifting-priorities",
+    "name": "Shifting Priorities",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "strafing-run",
+    "name": "Strafing Run",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "supply-run",
+    "name": "Supply Run",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "surface-scan",
+    "name": "Surface Scan",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "surface-scan-2",
+    "name": "Surface Scan",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "sweep-and-clear",
+    "name": "Sweep and Clear",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-beautiful-friendship",
+    "name": "A Beautiful Friendship",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-disturbance-in-the-force",
+    "name": "A Disturbance in the Force",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-higher-purpose",
+    "name": "A Higher Purpose",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-machine-made-for-killing",
+    "name": "A Machine Made For Killing",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-new-beginning",
+    "name": "A New Beginning",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-simple-man",
+    "name": "A Simple Man",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ace-up-his-sleeve",
+    "name": "Ace Up His Sleeve",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "aerial-assault",
+    "name": "Aerial Assault",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "affirmative-general",
+    "name": "Affirmative, General!",
+    "source": "SWQ20 — Customizable Jedi",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "aggression",
+    "name": "Aggression",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "aggressive-negotiations",
+    "name": "Aggressive Negotiations",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ai-coordination",
+    "name": "AI Coordination",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "air-support",
+    "name": "Air Support",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ambush",
+    "name": "Ambush",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "annihilation-looms",
+    "name": "Annihilation Looms",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "anti-capture-protocols",
+    "name": "Anti-Capture Protocols",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "arboreal-assault",
+    "name": "Arboreal Assault",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "architects-of-their-own-destruction",
+    "name": "Architects of Their Own Destruction",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "armored-cavalry",
+    "name": "Armored Cavalry",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "assault",
+    "name": "Assault",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "at-last",
+    "name": "At Last",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "attack-of-the-clones",
+    "name": "Attack of the Clones",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "battlefield-reconnaissance",
+    "name": "Battlefield Reconnaissance",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "blast-off",
+    "name": "Blast Off!",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "both-hunter-and-prey",
+    "name": "Both Hunter and Prey",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "brains-and-brawn",
+    "name": "Brains and Brawn",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "bring-it-down",
+    "name": "Bring It Down!",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "brutal-enforcer",
+    "name": "Brutal Enforcer",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "call-me-captain",
+    "name": "Call Me Captain",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "canny-adversary",
+    "name": "Canny Adversary",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "change-of-plans",
+    "name": "Change of Plans",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "close-call",
+    "name": "Close Call",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "close-formation",
+    "name": "Close Formation",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "combined-arms",
+    "name": "Combined Arms",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "come-and-prove-it",
+    "name": "Come and Prove It",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "common-cause",
+    "name": "Common Cause",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "concussive-blast",
+    "name": "Concussive Blast",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "constantly-alert",
+    "name": "Constantly Alert",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "coordinated-bombardment",
+    "name": "Coordinated Bombardment",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "coordinated-fire",
+    "name": "Coordinated Fire",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "corellian-spike",
+    "name": "Corellian Spike",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "courage-of-the-rebellion",
+    "name": "Courage of the Rebellion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "courageous-counterattack",
+    "name": "Courageous Counterattack",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "covering-fire",
+    "name": "Covering Fire",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "covert-observation",
+    "name": "Covert Observation",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "crack-shot",
+    "name": "Crack Shot",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "crush-them",
+    "name": "Crush Them!",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "daring-defense",
+    "name": "Daring Defense",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "darkness-descends",
+    "name": "Darkness Descends",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "death-before-defeat",
+    "name": "Death Before Defeat",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "debark-for-ground-assault",
+    "name": "Debark for Ground Assault",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "defiance",
+    "name": "Defiance",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "delaying-tactics",
+    "name": "Delaying Tactics",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "deploy-the-garrison",
+    "name": "Deploy the Garrison",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "die-at-my-hand",
+    "name": "Die at My Hand",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "diplomatic-cover",
+    "name": "Diplomatic Cover",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "discretion",
+    "name": "Discretion",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "diversionary-tactics",
+    "name": "Diversionary Tactics",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "do-not-underestimate-our-means",
+    "name": "Do Not Underestimate Our Means",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "double-the-fall",
+    "name": "Double the Fall",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "drive-them-out",
+    "name": "Drive Them Out",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "duel-of-the-fates",
+    "name": "Duel of the Fates",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "evasive-action",
+    "name": "Evasive Action",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "evasive-maneuvers",
+    "name": "Evasive Maneuvers",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "explosions",
+    "name": "Explosions!",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "exterminate",
+    "name": "Exterminate",
+    "source": "SWQ29 — Super Tactical Command Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "face-me",
+    "name": "Face Me!",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "family-reunion",
+    "name": "Family Reunion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fear-and-dead-men",
+    "name": "Fear and Dead Men",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fear-will-keep-them-in-line",
+    "name": "Fear Will Keep Them in Line",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fear-surprise-intimidation",
+    "name": "Fear, Surprise, Intimidation",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fearsome-oration",
+    "name": "Fearsome Oration",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fight-another-day",
+    "name": "Fight Another Day",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "flexible-strategy",
+    "name": "Flexible Strategy",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "flow-of-the-force",
+    "name": "Flow of the Force",
+    "source": "SWQ20 — Customizable Jedi",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "focused-on-the-kill",
+    "name": "Focused on the Kill",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "for-the-cause",
+    "name": "For the Cause",
+    "source": "AdeptiCon 2026 Separatist Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "for-the-tribe",
+    "name": "For the Tribe",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "force-of-will",
+    "name": "Force of Will",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "full-of-surprises",
+    "name": "Full of Surprises",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "full-throttle",
+    "name": "Full Throttle",
+    "source": "SWQ31 — Grievous Wheel Bike",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "general-kenobi",
+    "name": "General Kenobi",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "general-skywalker",
+    "name": "General Skywalker",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "get-in-position",
+    "name": "Get In Position",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "go-there-are-too-many",
+    "name": "Go, There Are Too Many...",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "gunner-infantry",
+    "name": "Gunner, Infantry!",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "have-i-ever-let-you-down",
+    "name": "Have I Ever Let You Down?",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "hello-there",
+    "name": "Hello There!",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "hiding-in-plain-sight",
+    "name": "Hiding in Plain Sight",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "his-eminence",
+    "name": "His Eminence",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "hold-at-any-cost",
+    "name": "Hold at Any Cost",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "honor-and-strength",
+    "name": "Honor and Strength",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "i-am-a-jedi",
+    "name": "I am a Jedi",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-am-fear",
+    "name": "I Am Fear",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-am-no-jedi",
+    "name": "I Am No Jedi",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-care-not-for-your-struggles",
+    "name": "I Care Not For Your Struggles",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-dont-believe-in-chance",
+    "name": "I Don't Believe in Chance",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-go-where-im-needed",
+    "name": "I Go Where I'm Needed",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-have-graphs-and-the-command",
+    "name": "I Have Graphs AND the Command",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-like-those-odds",
+    "name": "I Like Those Odds",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-make-the-rules-now",
+    "name": "I Make the Rules Now",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-rebel",
+    "name": "I Rebel",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-smell-fear-and-it-smells-good",
+    "name": "I Smell Fear... and it Smells Good",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "i-smell-profit",
+    "name": "I Smell Profit",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-want-you-to-know-failure",
+    "name": "I Want You to Know Failure",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ill-do-it-myself",
+    "name": "I'll Do it Myself!",
+    "source": "SWQ31 — Grievous Wheel Bike",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "im-in-control",
+    "name": "I'm in Control",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "im-your-worst-nightmare",
+    "name": "I'm Your Worst Nightmare",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "idiots-array",
+    "name": "Idiot's Array",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "imperial-discipline",
+    "name": "Imperial Discipline",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "implacable",
+    "name": "Implacable",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "impromptu-immolation",
+    "name": "Impromptu Immolation",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "incapacitate",
+    "name": "Incapacitate",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "independent-programming",
+    "name": "Independent Programming",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "inexorable-advance",
+    "name": "Inexorable Advance",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "insolence-we-are-pirates",
+    "name": "Insolence?! We are Pirates!",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "isb-investigation",
+    "name": "ISB Investigation",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "knowledge-and-defense",
+    "name": "Knowledge and Defense",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "last-stand",
+    "name": "Last Stand",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "lead-from-the-front",
+    "name": "Lead From the Front",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "leaders-of-the-501st",
+    "name": "Leaders of the 501st",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "legacy-of-mandalore",
+    "name": "Legacy of Mandalore",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "let-the-executions-begin",
+    "name": "Let the Executions Begin!",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "log-traps",
+    "name": "Log Traps",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "luminous-beings-are-we",
+    "name": "Luminous Beings Are We",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "lying-in-wait",
+    "name": "Lying In Wait",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "make-the-impossible-possible",
+    "name": "Make the Impossible Possible",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "making-his-way-in-the-galaxy",
+    "name": "Making His Way in the Galaxy",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "mandalore-will-survive",
+    "name": "Mandalore Will Survive",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "marked-for-elimination",
+    "name": "Marked For Elimination",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "master-of-evil",
+    "name": "Master of Evil",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "maximum-firepower",
+    "name": "Maximum Firepower",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "mechanical-carnage",
+    "name": "Mechanical Carnage",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "mechanized-incursion",
+    "name": "Mechanized Incursion",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "merciless-munitions",
+    "name": "Merciless Munitions",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "moment-of-consideration",
+    "name": "Moment of Consideration",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "moment-of-triumph",
+    "name": "Moment of Triumph",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "my-ally-is-the-force",
+    "name": "My Ally is the Force",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "new-ways-to-motivate-them",
+    "name": "New Ways to Motivate Them",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "no-escape",
+    "name": "No Escape",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "no-one-threatens-our-family",
+    "name": "No One Threatens Our Family",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "no-time-for-sorrows",
+    "name": "No Time for Sorrows",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "not-out-of-it-yet",
+    "name": "Not Out of it Yet",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "notorious-scoundrels",
+    "name": "Notorious Scoundrels",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "on-patrol",
+    "name": "On Patrol",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "orbital-strike",
+    "name": "Orbital Strike",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "our-fate-is-in-your-hands",
+    "name": "Our Fate is in Your Hands",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "out-of-the-shadows",
+    "name": "Out of the Shadows",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "overwhelming-barrage",
+    "name": "Overwhelming Barrage",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "pincer-attack",
+    "name": "Pincer Attack",
+    "source": "SWQ31 — Grievous Wheel Bike",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "pinned-down",
+    "name": "Pinned Down",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ploy",
+    "name": "Ploy",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "preservation-protocols",
+    "name": "Preservation Protocols",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "pulse-scan",
+    "name": "Pulse Scan",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "push",
+    "name": "Push",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "rebellions-are-built-on-hope",
+    "name": "Rebellions Are Built on Hope",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "reckless-diversion",
+    "name": "Reckless Diversion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "recon-division",
+    "name": "Recon Division",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "reptilian-rampage",
+    "name": "Reptilian Rampage",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "return-of-the-jedi",
+    "name": "Return of the Jedi",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "revenge-is-not-the-jedi-way",
+    "name": "Revenge Is Not the Jedi Way",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "roger-roger",
+    "name": "Roger, Roger!",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "rule-with-respect",
+    "name": "Rule With Respect",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ruthless-tactics",
+    "name": "Ruthless Tactics",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sabotaged-communications",
+    "name": "Sabotaged Communications",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sacrifice",
+    "name": "Sacrifice",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "see-you-in-hell",
+    "name": "See You in Hell",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "seize-what-power-we-can",
+    "name": "Seize What Power We Can",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "size-matters-not",
+    "name": "Size Matters Not",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "size-matters-sometimes",
+    "name": "Size Matters Sometimes",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "smoke-screen",
+    "name": "Smoke Screen",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sneak-attack",
+    "name": "Sneak Attack",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sneaky-scouting",
+    "name": "Sneaky Scouting",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "somebody-has-to-save-our-skins",
+    "name": "Somebody Has to Save Our Skins",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "son-of-skywalker",
+    "name": "Son of Skywalker",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sorry-about-the-mess",
+    "name": "Sorry About the Mess",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "speak-softly-and-drive-a-big-tank",
+    "name": "Speak Softly and Drive a Big Tank",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "squadron-on-me",
+    "name": "Squadron, On Me",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "standing-orders",
+    "name": "Standing Orders",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "stories-so-many-of-them-true",
+    "name": "Stories, So Many of Them True",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "supreme-commander",
+    "name": "Supreme Commander",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "swift-protector",
+    "name": "Swift Protector",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "symbol-of-rebellion",
+    "name": "Symbol of Rebellion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "synchronized-offensive",
+    "name": "Synchronized Offensive",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "tactical-download",
+    "name": "Tactical Download",
+    "source": "SWQ29 — Super Tactical Command Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "tactical-planning",
+    "name": "Tactical Planning",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "tactical-strike",
+    "name": "Tactical Strike",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "take-that-clankers",
+    "name": "Take That, Clankers!",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "thats-just-good-business",
+    "name": "That's Just Good Business",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-empire-does-not-tolerate-failure",
+    "name": "The Empire Does Not Tolerate Failure",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-hand-thing",
+    "name": "The Hand Thing",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-jedi-shall-fall",
+    "name": "The Jedi Shall Fall",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-phantom-menace",
+    "name": "The Phantom Menace",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-sith-will-rule",
+    "name": "The Sith Will Rule",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "there-is-no-try",
+    "name": "There Is No Try",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "they-too-will-suffer",
+    "name": "They Too Will Suffer",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "this-is-the-way",
+    "name": "This is the Way",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "this-is-where-the-fun-begins",
+    "name": "This is Where the Fun Begins",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "this-partys-over",
+    "name": "This Party's Over",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "trained-in-your-jedi-arts",
+    "name": "Trained In Your Jedi Arts",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "trust-goes-both-ways",
+    "name": "Trust Goes Both Ways",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "turning-the-tide",
+    "name": "Turning the Tide",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unexpected-but-not-unwelcome",
+    "name": "Unexpected, But Not Unwelcome",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unity-wins-wars",
+    "name": "Unity Wins Wars",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unrelenting-assault",
+    "name": "Unrelenting Assault",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unrelenting-fire",
+    "name": "Unrelenting Fire",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unstoppable-advance",
+    "name": "Unstoppable Advance",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "vaders-might",
+    "name": "Vader's Might",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "vengeful-strike",
+    "name": "Vengeful Strike",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "victory-or-death",
+    "name": "Victory or Death!",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "volunteer-mission",
+    "name": "Volunteer Mission",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "voracious-ambition",
+    "name": "Voracious Ambition",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-are-mandalorians",
+    "name": "We Are Mandalorians",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-do-what-we-do",
+    "name": "We Do What We Do",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-make-weapons",
+    "name": "We Make Weapons",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-must-wait-and-watch",
+    "name": "We Must Wait and Watch",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-need-reinforcements",
+    "name": "We Need Reinforcements",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-protect-our-own",
+    "name": "We Protect Our Own",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-serve-the-queen",
+    "name": "We Serve the Queen",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-shall-start-with-revenge",
+    "name": "We Shall Start with Revenge",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "we-shape-ourselves",
+    "name": "We Shape Ourselves",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "were-not-programmed",
+    "name": "We're Not Programmed",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "weapons-are-our-religion",
+    "name": "Weapons Are Our Religion",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "whipcord-launcher",
+    "name": "Whipcord Launcher",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "whistling-birds",
+    "name": "Whistling Birds",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "witch-magick",
+    "name": "Witch Magick",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "yes-my-master",
+    "name": "Yes, My Master",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-are-beaten",
+    "name": "You Are Beaten",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-disappoint-me",
+    "name": "You Disappoint Me",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-have-something-i-want",
+    "name": "You Have Something I Want",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-hide-your-fear-well",
+    "name": "You Hide Your Fear Well",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-serve-your-master-well",
+    "name": "You Serve Your Master Well",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-underestimate-my-power",
+    "name": "You Underestimate My Power",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-would-question-me",
+    "name": "You Would Question Me?",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "z-6-jetpack-rocket",
+    "name": "Z-6 Jetpack Rocket",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "14-fd-laser-cannon-team",
+    "name": "1.4 FD Laser Cannon Team",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "74-z-speeder-bikes",
+    "name": "74-Z Speeder Bikes",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "a-a5-speeder-truck-2",
+    "name": "A-A5 Speeder Truck",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "a-a5-speeder-truck",
+    "name": "A-A5 Speeder Truck",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "aat-battle-tank",
+    "name": "AAT Battle Tank",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "agent-kallus-hunter-of-spectres",
+    "name": "Agent Kallus",
+    "title": "Hunter of Spectres",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ahsoka-tano-fulcrum",
+    "name": "Ahsoka Tano",
+    "title": "Fulcrum",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ahsoka-tano-padawan-commander",
+    "name": "Ahsoka Tano",
+    "title": "Padawan Commander",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "anakin-skywalker-the-chosen-one",
+    "name": "Anakin Skywalker",
+    "title": "The Chosen One",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "anakin-skywalker-mounted-jedi-general",
+    "name": "Anakin Skywalker",
+    "title": "Mounted Jedi General",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "aqua-droids",
+    "name": "Aqua Droids",
+    "source": "SWQ136 — Aqua Droids",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "arc-troopers",
+    "name": "ARC Troopers",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "arc-troopers-strike-team",
+    "name": "ARC Troopers",
+    "title": "Strike Team",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "arf-troopers",
+    "name": "ARF Troopers",
+    "source": "SWQ135 — A R F Troopers",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "asajj-ventress-separatist-assassin",
+    "name": "Asajj Ventress",
+    "title": "Separatist Assassin",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "at-rt",
+    "name": "AT-RT",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "at-rt-2",
+    "name": "AT-RT",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "at-st",
+    "name": "AT-ST",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "axe-woves-cunning-warrior",
+    "name": "Axe Woves",
+    "title": "Cunning Warrior",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "b1-battle-droids",
+    "name": "B1 Battle Droids",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "b2-super-battle-droids",
+    "name": "B2 Super Battle Droids",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "barc-speeder",
+    "name": "BARC Speeder",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "black-sun-enforcers",
+    "name": "Black Sun Enforcers",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "black-sun-vigo",
+    "name": "Black Sun Vigo",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "bo-katan-kryze-savior-of-mandalore",
+    "name": "Bo-Katan Kryze",
+    "title": "Savior of Mandalore",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "boba-fett-infamous-bounty-hunter",
+    "name": "Boba Fett",
+    "title": "Infamous Bounty Hunter",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "boba-fett-daimyo-of-mos-espa",
+    "name": "Boba Fett",
+    "title": "Daimyo of Mos Espa",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "bossk-trandoshan-terror",
+    "name": "Bossk",
+    "title": "Trandoshan Terror",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "bx-series-droid-commandos",
+    "name": "BX-Series Droid Commandos",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "bx-series-droid-commandos-strike-team",
+    "name": "BX-Series Droid Commandos",
+    "title": "Strike Team",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "c-3p0-golden-god",
+    "name": "C-3P0",
+    "title": "Golden God",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "cad-bane-needs-no-introduction",
+    "name": "Cad Bane",
+    "title": "Needs No Introduction",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "cassian-andor-capable-intelligence-agent",
+    "name": "Cassian Andor",
+    "title": "Capable Intelligence Agent",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "chewbacca-let-the-wookiee-win",
+    "name": "Chewbacca",
+    "title": "Let the Wookiee Win",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "chewbacca-walking-carpet",
+    "name": "Chewbacca",
+    "title": "Walking Carpet",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "chewbacca-hero-of-kashyyyk",
+    "name": "Chewbacca",
+    "title": "Hero of Kashyyyk",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clan-kryze-veterans",
+    "name": "Clan Kryze Veterans",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clan-wren-veterans",
+    "name": "Clan Wren Veterans",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clone-captain-rex-honorable-soldier",
+    "name": "Clone Captain Rex",
+    "title": "Honorable Soldier",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clone-commander-trained-for-leadership",
+    "name": "Clone Commander",
+    "title": "Trained For Leadership",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clone-commander-cody-leader-of-the-212th",
+    "name": "Clone Commander Cody",
+    "title": "Leader of the 212th",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clone-commandos",
+    "name": "Clone Commandos",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clone-commandos-delta-squad",
+    "name": "Clone Commandos",
+    "title": "Delta Squad",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clone-trooper-infantry",
+    "name": "Clone Trooper Infantry",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "clone-trooper-marksmen",
+    "name": "Clone Trooper Marksmen",
+    "source": "SWQ23 — Marksmen_ Dev Stream",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "count-dooku-darth-tyranus",
+    "name": "Count Dooku",
+    "title": "Darth Tyranus",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "darth-vader-dark-lord-of-the-sith",
+    "name": "Darth Vader",
+    "title": "Dark Lord of the Sith",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "darth-vader-the-emperors-apprentice",
+    "name": "Darth Vader",
+    "title": "The Emperor's Apprentice",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "dewback-rider",
+    "name": "Dewback Rider",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "df-90-mortar-trooper",
+    "name": "DF-90 Mortar Trooper",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "din-djarin-the-mandalorian",
+    "name": "Din Djarin",
+    "title": "The Mandalorian",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "director-orson-krennic-architect-of-terror",
+    "name": "Director Orson Krennic",
+    "title": "Architect of Terror",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "drk-1-sith-probe-droids",
+    "name": "DRK-1 Sith Probe Droids",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "droidekas",
+    "name": "Droidekas",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "dsd1-dwarf-spider-droid",
+    "name": "DSD1 Dwarf Spider Droid",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "e-web-heavy-blaster-team",
+    "name": "E-Web Heavy Blaster Team",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ewok-skirmishers",
+    "name": "Ewok Skirmishers",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ewok-slingers",
+    "name": "Ewok Slingers",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "fifth-brother-the-kill-is-mine",
+    "name": "Fifth Brother",
+    "title": "The Kill is Mine",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "fleet-troopers",
+    "name": "Fleet Troopers",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "gar-saxon-head-of-clan-saxon",
+    "name": "Gar Saxon",
+    "title": "Head of Clan Saxon",
+    "source": "June 2026 Mandalorian Update — ClanSaxonErrata",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "gar-saxon-militant-commando",
+    "name": "Gar Saxon",
+    "title": "Militant Commando",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "general-grievous-sinister-cyborg",
+    "name": "General Grievous",
+    "title": "Sinister Cyborg",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "general-grievous-wheel-bike-warlord",
+    "name": "General Grievous",
+    "title": "Wheel Bike Warlord",
+    "source": "SWQ31 — Grievous Wheel Bike",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "general-tagge-imperial-high-command",
+    "name": "General Tagge",
+    "title": "Imperial High Command",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "general-veers-master-tactician",
+    "name": "General Veers",
+    "title": "Master Tactician",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "geonosian-warriors-soldiers-of-the-hive",
+    "name": "Geonosian Warriors",
+    "title": "Soldiers of the Hive",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "geonosian-warriors-geonosian-engineers",
+    "name": "Geonosian Warriors",
+    "title": "Geonosian Engineers",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "grand-admiral-thrawn-imperial-high-command",
+    "name": "Grand Admiral Thrawn",
+    "title": "Imperial High Command",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "grand-moff-tarkin-imperial-high-command",
+    "name": "Grand Moff Tarkin",
+    "title": "Imperial High Command",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "guerilla-troopers",
+    "name": "Guerilla Troopers",
+    "source": "AdeptiCon 2026 Rebel Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "han-chewie-notorious-scoundrels",
+    "name": "Han & Chewie",
+    "title": "Notorious Scoundrels",
+    "source": "AdeptiCon 2026 Merc Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "han-solo-unorthodox-general",
+    "name": "Han Solo",
+    "title": "Unorthodox General",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "han-solo-reluctant-hero",
+    "name": "Han Solo",
+    "title": "Reluctant Hero",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "hondo-ohnaka-trustworthy-compatriot",
+    "name": "Hondo Ohnaka",
+    "title": "Trustworthy Compatriot",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "iden-versio-inferno-squad-leader",
+    "name": "Iden Versio",
+    "title": "Inferno Squad Leader",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ig-100-magnaguard",
+    "name": "IG-100 MagnaGuard",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ig-100-magnaguard-prototype-assassin-droids",
+    "name": "IG-100 MagnaGuard",
+    "title": "Prototype Assassin Droids",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ig-11-nurse-and-protect",
+    "name": "IG-11",
+    "title": "Nurse and Protect",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ig-88-notorious-assassin-droid",
+    "name": "IG-88",
+    "title": "Notorious Assassin Droid",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "imperial-agent-bringing-order-to-the-galaxy",
+    "name": "Imperial Agent",
+    "title": "Bringing Order to the Galaxy",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "imperial-dark-troopers",
+    "name": "Imperial Dark Troopers",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "imperial-death-troopers",
+    "name": "Imperial Death Troopers",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "imperial-officer-ruthless-efficiency",
+    "name": "Imperial Officer",
+    "title": "Ruthless Efficiency",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "imperial-probe-droid",
+    "name": "Imperial Probe Droid",
+    "source": "SWQ98 — Imperial Probe Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "imperial-special-forces",
+    "name": "Imperial Special Forces",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "imperial-special-forces-inferno-squad",
+    "name": "Imperial Special Forces",
+    "title": "Inferno Squad",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "infantry-support-platform",
+    "name": "Infantry Support Platform",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "jedi-knight-mounted-jedi-general",
+    "name": "Jedi Knight",
+    "title": "Mounted Jedi General",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "jedi-knight-keeper-of-the-peace",
+    "name": "Jedi Knight",
+    "title": "Keeper of the Peace",
+    "source": "SWQ20 — Customizable Jedi",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "jedi-knight-general-strong-in-the-force",
+    "name": "Jedi Knight General",
+    "title": "Strong in the Force",
+    "source": "SWQ20 — Customizable Jedi",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "jyn-erso-stardust",
+    "name": "Jyn Erso",
+    "title": "Stardust",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "k-2so-sardonic-security-droid",
+    "name": "K-2SO",
+    "title": "Sardonic Security Droid",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "kalani-super-tactical-droid",
+    "name": "Kalani",
+    "title": "Super Tactical Droid",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ki-adi-mundi-jedi-council",
+    "name": "Ki-Adi-Mundi",
+    "title": "Jedi Council",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "kraken-super-tactical-droid",
+    "name": "Kraken",
+    "title": "Super Tactical Droid",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "laat-le-patrol-transport",
+    "name": "LAAT/le Patrol Transport",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "laat-le-patrol-transport-2",
+    "name": "LAAT/le Patrol Transport",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "lando-calrissian-canny-general",
+    "name": "Lando Calrissian",
+    "title": "Canny General",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "leia-organa-fearless-and-inventive",
+    "name": "Leia Organa",
+    "title": "Fearless and Inventive",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "lm-432-crab-droid",
+    "name": "LM-432 Crab Droid",
+    "source": "SWQ134 — L M432 Crab Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "logray-superstitious-shaman",
+    "name": "Logray",
+    "title": "Superstitious Shaman",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "luke-skywalker-hero-of-the-rebellion",
+    "name": "Luke Skywalker",
+    "title": "Hero of the Rebellion",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "luke-skywalker-commander-skywalker",
+    "name": "Luke Skywalker",
+    "title": "Commander Skywalker",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "luke-skywalker-jedi-knight",
+    "name": "Luke Skywalker",
+    "title": "Jedi Knight",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mace-windu-jedi-council",
+    "name": "Mace Windu",
+    "title": "Jedi Council",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "major-marquand-tempest-scout-2",
+    "name": "Major Marquand",
+    "title": "Tempest Scout 2",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-hunter",
+    "name": "Mandalorian Hunter",
+    "source": "AdeptiCon 2026 Merc Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-initiates",
+    "name": "Mandalorian Initiates",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-leader",
+    "name": "Mandalorian Leader",
+    "source": "AdeptiCon 2026 Merc Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-resistance",
+    "name": "Mandalorian Resistance",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-resistance-clan-wren",
+    "name": "Mandalorian Resistance",
+    "title": "Clan Wren",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-super-commandos",
+    "name": "Mandalorian Super Commandos",
+    "source": "SWQ69 — Mando Super Commandos",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-warriors",
+    "name": "Mandalorian Warriors",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mandalorian-warriors-fire-support",
+    "name": "Mandalorian Warriors",
+    "title": "Fire Support",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "mark-ii-medium-blaster-trooper",
+    "name": "Mark II Medium Blaster Trooper",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "maul-a-rival",
+    "name": "Maul",
+    "title": "A Rival",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "maul-impatient-apprentice",
+    "name": "Maul",
+    "title": "Impatient Apprentice",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "moff-gideon-long-live-the-empire",
+    "name": "Moff Gideon",
+    "title": "Long Live the Empire",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "obi-wan-kenobi-civilized-warrior",
+    "name": "Obi-Wan Kenobi",
+    "title": "Civilized Warrior",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "padme-amidala-spirited-senator",
+    "name": "Padme Amidala",
+    "title": "Spirited Senator",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "paz-vizsla-proud-warrior",
+    "name": "Paz Vizsla",
+    "title": "Proud Warrior",
+    "source": "AdeptiCon 2026 Merc Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "persuader-class-tank-droid",
+    "name": "Persuader-Class Tank Droid",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "persuader-class-tank-droid-prototype-tank-droid",
+    "name": "Persuader-Class Tank Droid",
+    "title": "Prototype Tank Droid",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "plo-koon-jedi-council",
+    "name": "Plo Koon",
+    "title": "Jedi Council",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "poggle-the-lesser-public-leader-of-the-geonosians",
+    "name": "Poggle the Lesser",
+    "title": "Public Leader of the Geonosians",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "pyke-syndicate-capo",
+    "name": "Pyke Syndicate Capo",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "pyke-syndicate-foot-soldiers",
+    "name": "Pyke Syndicate Foot Soldiers",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "r2-d2-hero-of-a-thousand-devices",
+    "name": "R2-D2",
+    "title": "Hero of a Thousand Devices",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "r2-d2-independent-astromech",
+    "name": "R2-D2",
+    "title": "Independent Astromech",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "raddaugh-gnasp-fluttercraft",
+    "name": "Raddaugh Gnasp Fluttercraft",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "raddaugh-gnasp-fluttercraft-attack-craft",
+    "name": "Raddaugh Gnasp Fluttercraft",
+    "title": "Attack Craft",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "range-troopers",
+    "name": "Range Troopers",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rebel-agent-defender-of-democracy",
+    "name": "Rebel Agent",
+    "title": "Defender of Democracy",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rebel-commandos",
+    "name": "Rebel Commandos",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rebel-commandos-strike-team",
+    "name": "Rebel Commandos",
+    "title": "Strike Team",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rebel-officer-fighting-for-freedom",
+    "name": "Rebel Officer",
+    "title": "Fighting for Freedom",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rebel-sleeper-cell-ready-to-strike",
+    "name": "Rebel Sleeper Cell",
+    "title": "Ready to Strike",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rebel-troopers",
+    "name": "Rebel Troopers",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rebel-veterans",
+    "name": "Rebel Veterans",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "rook-kast-devoted-to-the-cause",
+    "name": "Rook Kast",
+    "title": "Devoted to the Cause",
+    "source": "June 2026 Mandalorian Update — ClanSaxonErrata",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "saber-class-tank",
+    "name": "Saber-Class Tank",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "sabine-wren-back-in-the-fold",
+    "name": "Sabine Wren",
+    "title": "Back in the Fold",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "sabine-wren-explosive-artist",
+    "name": "Sabine Wren",
+    "title": "Explosive Artist",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "savage-opress-mauls-enforcer",
+    "name": "Savage Opress",
+    "title": "Maul's Enforcer",
+    "source": "AdeptiCon 2026 Merc Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "savage-opress-dookus-apprentice",
+    "name": "Savage Opress",
+    "title": "Dooku's Apprentice",
+    "source": "AdeptiCon 2026 Separatist Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "scout-troopers",
+    "name": "Scout Troopers",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "scout-troopers-strike-team",
+    "name": "Scout Troopers",
+    "title": "Strike Team",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "seventh-sister-compelled-to-inflict-pain",
+    "name": "Seventh Sister",
+    "title": "Compelled to Inflict Pain",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "shaak-ti-jedi-council",
+    "name": "Shaak Ti",
+    "title": "Jedi Council",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "shoretroopers",
+    "name": "Shoretroopers",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "snowtroopers",
+    "name": "Snowtroopers",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "stap-riders",
+    "name": "STAP Riders",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "stormtrooper-riot-squad",
+    "name": "Stormtrooper Riot Squad",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "stormtroopers",
+    "name": "Stormtroopers",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "stormtroopers-heavy-response-unit",
+    "name": "Stormtroopers",
+    "title": "Heavy Response Unit",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "sun-fac-ruthless-lieutenant",
+    "name": "Sun Fac",
+    "title": "Ruthless Lieutenant",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "super-commandos",
+    "name": "Super Commandos",
+    "source": "June 2026 Mandalorian Update — ClanSaxonErrata",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "super-tactical-command-droid-command-and-control-droid",
+    "name": "Super Tactical Command Droid",
+    "title": "Command and Control Droid",
+    "source": "SWQ29 — Super Tactical Command Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "super-tactical-command-droid-auxiliary-command-droid",
+    "name": "Super Tactical Command Droid",
+    "title": "Auxiliary Command Droid",
+    "source": "SWQ29 — Super Tactical Command Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "swoop-bike-riders",
+    "name": "Swoop Bike Riders",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "t-47-airspeeder",
+    "name": "T-47 Airspeeder",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "t-series-tactical-droid-programmed-for-strategy",
+    "name": "T-Series Tactical Droid",
+    "title": "Programmed for Strategy",
+    "source": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "tauntaun-riders",
+    "name": "Tauntaun Riders",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "the-armorer-forging-the-future",
+    "name": "The Armorer",
+    "title": "Forging the Future",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "the-bad-batch-clone-force-99-2",
+    "name": "The Bad Batch",
+    "title": "Clone Force 99",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "the-bad-batch-clone-force-99",
+    "name": "The Bad Batch",
+    "title": "Clone Force 99",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "tsmeu-6-wheel-bikes",
+    "name": "TSMEU-6 Wheel Bikes",
+    "source": "SWQ32 — T S M E U_ Box Render",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "tx-225-gavw-occupier-tank",
+    "name": "TX-225 GAVw Occupier Tank",
+    "source": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "ursa-wren-leader-of-clan-wren",
+    "name": "Ursa Wren",
+    "title": "Leader of Clan Wren",
+    "source": "SWQ56 — Ursa Wren",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "weequay-pirates",
+    "name": "Weequay Pirates",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "wicket-hero-of-bright-tree",
+    "name": "Wicket",
+    "title": "Hero of Bright Tree",
+    "source": "2025 Card Update — Mercenary Units",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "wlo-5-speeder-tank",
+    "name": "WLO-5 Speeder Tank",
+    "source": "SWQ59 — W L O5",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "wookiee-chieftain-clan-leader",
+    "name": "Wookiee Chieftain",
+    "title": "Clan Leader",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "wookiee-warriors-freedom-fighters",
+    "name": "Wookiee Warriors",
+    "title": "Freedom Fighters",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "wookiee-warriors-kashyyyk-resistance",
+    "name": "Wookiee Warriors",
+    "title": "Kashyyyk Resistance",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "wookiee-warriors-kashyyyk-defenders",
+    "name": "Wookiee Warriors",
+    "title": "Kashyyyk Defenders",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "wookiee-warriors-noble-fighters",
+    "name": "Wookiee Warriors",
+    "title": "Noble Fighters",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "x-34-landspeeder",
+    "name": "X-34 Landspeeder",
+    "source": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "units",
+    "slug": "yoda-grand-master-of-the-jedi-order",
+    "name": "Yoda",
+    "title": "Grand Master of the Jedi Order",
+    "source": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bounty-programming",
+    "name": "\"Bounty\" Programming",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bunker-buster-shells",
+    "name": "\"Bunker Buster\" Shells",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "nanny-programming",
+    "name": "\"Nanny\" Programming",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "2-1b-medical-droid",
+    "name": "2-1B Medical Droid",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "327th-star-corps-pilot",
+    "name": "327th Star Corps Pilot",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "88i-twin-light-blaster",
+    "name": "88i Twin Light Blaster",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "a-300-rifle-gunner",
+    "name": "A-300 Rifle Gunner",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "a280",
+    "name": "A280",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "aayla-secura",
+    "name": "Aayla Secura",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "academy-trained",
+    "name": "Academy Trained",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ag-2g-quad-laser",
+    "name": "AG-2G Quad Laser",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "agent-kallus",
+    "name": "Agent Kallus",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ahsoka-tano",
+    "name": "Ahsoka Tano",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "anger",
+    "name": "Anger",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "arf-trooper-duo",
+    "name": "ARF Trooper Duo",
+    "source": "SWQ135 — A R F Troopers",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "armor-piercing-shells",
+    "name": "Armor-Piercing Shells",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "asajj-ventress",
+    "name": "Asajj Ventress",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ascension-cables",
+    "name": "Ascension Cables",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "astromech",
+    "name": "Astromech",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "at-rt-flamethrower",
+    "name": "AT-RT Flamethrower",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "at-rt-laser-cannon",
+    "name": "AT-RT Laser Cannon",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "at-rt-rotary-blaster",
+    "name": "AT-RT Rotary Blaster",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "attack-protocols",
+    "name": "Attack Protocols",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ax-108-ground-buzzer",
+    "name": "Ax-108 \"Ground Buzzer\"",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "axe-ewok",
+    "name": "Axe Ewok",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "axe-woves",
+    "name": "Axe Woves",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "b1-battle-droid",
+    "name": "B1 Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "b1-battle-droid-squad",
+    "name": "B1 Battle Droid Squad",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "b1-security-droid",
+    "name": "B1 Security Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "b2-super-battle-droid",
+    "name": "B2 Super Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "b2-super-battle-droid-squad",
+    "name": "B2 Super Battle Droid Squad",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "b2-acm-battle-droid",
+    "name": "B2-ACM Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "b2-ha-battle-droid",
+    "name": "B2-HA Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "backworld-medic",
+    "name": "Backworld Medic",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "barc-ion-gunner",
+    "name": "BARC Ion Gunner",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "barc-rps-6-gunner",
+    "name": "BARC RPS-6 Gunner",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "barc-twin-laser-gunner",
+    "name": "BARC Twin Laser Gunner",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "baron-rudor",
+    "name": "Baron Rudor",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "barrage-generator",
+    "name": "Barrage Generator",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "battle-shield-wookiee",
+    "name": "Battle Shield Wookiee",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "battlemaster",
+    "name": "Battlemaster",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "beam-turret",
+    "name": "Beam Turret",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "beskad-duelist-2",
+    "name": "Beskad Duelist",
+    "source": "SWQ56 — Ursa Wren",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "beskar-spear",
+    "name": "Beskar Spear",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "black-sun-crew",
+    "name": "Black Sun Crew",
+    "source": "SWQ59 — W L O5",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "black-sun-enforcer",
+    "name": "Black Sun Enforcer",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "black-sun-vigo",
+    "name": "Black Sun Vigo",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bo-katan-kryze",
+    "name": "Bo-Katan Kryze",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bobas-flame-projector",
+    "name": "Boba's Flame Projector",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "boil",
+    "name": "Boil",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bowcaster-wookiee",
+    "name": "Bowcaster Wookiee",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "burst-of-speed",
+    "name": "Burst of Speed",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bx-deflector-shields",
+    "name": "BX Deflector Shields",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bx-vibroswords",
+    "name": "BX Vibroswords",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "bx-series-droid-sniper",
+    "name": "BX-Series Droid Sniper",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "call-to-arms",
+    "name": "Call To Arms",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "cassian-andor",
+    "name": "Cassian Andor",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "champion-of-the-watch",
+    "name": "Champion of the Watch",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "chewbacca",
+    "name": "Chewbacca",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "children-of-the-watch",
+    "name": "Children of the Watch",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clairvoyance",
+    "name": "Clairvoyance",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clan-kryze",
+    "name": "Clan Kryze",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clan-saxon",
+    "name": "Clan Saxon",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clan-wren",
+    "name": "Clan Wren",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-captain",
+    "name": "Clone Captain",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-captain-rex",
+    "name": "Clone Captain Rex",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-commander",
+    "name": "Clone Commander",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-commander-cody",
+    "name": "Clone Commander Cody",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-commander-fox",
+    "name": "Clone Commander Fox",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-comms-technician",
+    "name": "Clone Comms Technician",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-engineer",
+    "name": "Clone Engineer",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-medic",
+    "name": "Clone Medic",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-shock-trooper-pilot",
+    "name": "Clone Shock Trooper Pilot",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-specialist",
+    "name": "Clone Specialist",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-trooper-infantry",
+    "name": "Clone Trooper Infantry",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-trooper-infantry-squad",
+    "name": "Clone Trooper Infantry Squad",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-trooper-marksman",
+    "name": "Clone Trooper Marksman",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "clone-trooper-marksmen-squad",
+    "name": "Clone Trooper Marksmen Squad",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "cm-0-93-trooper",
+    "name": "CM-0/93 Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "combat-armor",
+    "name": "Combat Armor",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "combat-armor-2",
+    "name": "Combat Armor",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "combat-shields",
+    "name": "Combat Shields",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "command-and-control-uplink",
+    "name": "Command and Control Uplink",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "command-control-array",
+    "name": "Command Control Array",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "comms-jammer",
+    "name": "Comms Jammer",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "concussion-grenades",
+    "name": "Concussion Grenades",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "cr-24-flame-rifle",
+    "name": "CR-24 Flame Rifle",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "crosshair",
+    "name": "Crosshair",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dc-15x-arc-trooper-gunner",
+    "name": "DC-15x ARC Trooper Gunner",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dc-15x-arc-trooper-sniper",
+    "name": "DC-15x ARC Trooper Sniper",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dc-17m-icws-config",
+    "name": "DC-17m ICWS Config",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "deadeye",
+    "name": "Deadeye",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "defend-in-depth",
+    "name": "Defend in Depth",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "defense-protocols",
+    "name": "Defense Protocols",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "del-meeko",
+    "name": "Del Meeko",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dh-447-sniper",
+    "name": "DH-447 Sniper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "din-djarin",
+    "name": "Din Djarin",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dins-amban-rifle",
+    "name": "Din's Amban Rifle",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dins-flame-projector",
+    "name": "Din's Flame Projector",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dins-jetpack",
+    "name": "Din's Jetpack",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dioxis-mine-saboteur",
+    "name": "Dioxis Mine Saboteur",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dlt-19-stormtrooper",
+    "name": "DLT-19 Stormtrooper",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dlt-19d-trooper",
+    "name": "DLT-19D Trooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dlt-19x-sniper",
+    "name": "DLT-19x Sniper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dlt-20a-range-trooper",
+    "name": "DLT-20A Range Trooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dlt-20a-trooper",
+    "name": "DLT-20A Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "door-gunners",
+    "name": "Door Gunners",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "double-bladed-lightsaber",
+    "name": "Double-Bladed Lightsaber",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dp-23-clone-trooper",
+    "name": "DP-23 Clone Trooper",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dt-f16",
+    "name": "DT-F16",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dual-armaments",
+    "name": "Dual Armaments",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "duck-and-cover",
+    "name": "Duck and Cover",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dug-in",
+    "name": "Dug In",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "dw-3-grenade-launcher",
+    "name": "DW-3 Grenade Launcher",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "e-11d-focused-fire-configuration",
+    "name": "E-11D Focused Fire Configuration",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "e-5c-b1-battle-droid",
+    "name": "E-5C B1 Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "e-5s-b1-battle-droid",
+    "name": "E-5s B1 Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "e-60r-b1-battle-droid",
+    "name": "E-60R B1 Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "echo",
+    "name": "Echo",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "echo-2",
+    "name": "Echo",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ee-3-carbine-rifle",
+    "name": "EE-3 Carbine Rifle",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "electro-gauntlets",
+    "name": "Electro Gauntlets",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "electro-grappling-line",
+    "name": "Electro Grappling Line",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "electro-whip-magnaguard",
+    "name": "Electro-whip MagnaGuard",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "electro-whip-soldier",
+    "name": "Electro-Whip Soldier",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "electrobinoculars",
+    "name": "Electrobinoculars",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "electrostaff",
+    "name": "Electrostaff",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "electrostaff-pirate",
+    "name": "Electrostaff Pirate",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "emergency-stims",
+    "name": "Emergency Stims",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "emergency-transponder",
+    "name": "Emergency Transponder",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "emp-droid-poppers",
+    "name": "EMP \"Droid Poppers\"",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "endurance",
+    "name": "Endurance",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "engagement-protocols",
+    "name": "Engagement Protocols",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "enhanced-combat-subroutines",
+    "name": "Enhanced Combat Subroutines",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "environmental-gear",
+    "name": "Environmental Gear",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ev-series-medical-droid",
+    "name": "EV-Series Medical Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ewok-skirmisher-squad",
+    "name": "Ewok Skirmisher Squad",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ewok-slinger-squad",
+    "name": "Ewok Slinger Squad",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ewok-trapper",
+    "name": "Ewok Trapper",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "expanded-databanks",
+    "name": "Expanded Databanks",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "extra-supplies",
+    "name": "Extra Supplies",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "fear",
+    "name": "Fear",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "fifth-brother",
+    "name": "Fifth Brother",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "first-sergeant-arbmab",
+    "name": "First Sergeant Arbmab",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "fives",
+    "name": "Fives",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "flame-projector",
+    "name": "Flame Projector",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "flametrooper",
+    "name": "Flametrooper",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "fleet-trooper",
+    "name": "Fleet Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "fleet-trooper-squad",
+    "name": "Fleet Trooper Squad",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "force-barrier",
+    "name": "Force Barrier",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "force-choke",
+    "name": "Force Choke",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "force-guidance",
+    "name": "Force Guidance",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "force-pike-warrior",
+    "name": "Force Pike Warrior",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "force-push",
+    "name": "Force Push",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "force-reflexes",
+    "name": "Force Reflexes",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "forest-dwellers",
+    "name": "Forest Dwellers",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "fragmentation-grenades",
+    "name": "Fragmentation Grenades",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "frenzied-gunner",
+    "name": "Frenzied Gunner",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "frontline-commander",
+    "name": "Frontline Commander",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "full-beskar-armor",
+    "name": "Full Beskar Armor",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "fx-9-medical-droid",
+    "name": "FX-9 Medical Droid",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "galaar-15-carbine",
+    "name": "GALAAR-15 Carbine",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "galaar-15-carbines",
+    "name": "GALAAR-15 Carbines",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "galaar-90-sniper-rifle",
+    "name": "GALAAR-90 Sniper Rifle",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "galaar-90-sniper-rifle-2",
+    "name": "GALAAR-90 Sniper Rifle",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "gang-boss",
+    "name": "Gang Boss",
+    "source": "SWQ59 — W L O5",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "gar-saxon",
+    "name": "Gar Saxon",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "general-grievous",
+    "name": "General Grievous",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "general-of-the-republic",
+    "name": "General of the Republic",
+    "source": "SWQ20 — Customizable Jedi",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "general-weiss",
+    "name": "General Weiss",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "geonosian-warrior",
+    "name": "Geonosian Warrior",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "geonosian-warrior-squad",
+    "name": "Geonosian Warrior Squad",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "gideon-hask",
+    "name": "Gideon Hask",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "gnasp-bombardier",
+    "name": "Gnasp Bombardier",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "gnasp-gunner",
+    "name": "Gnasp Gunner",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "governor-pryce",
+    "name": "Governor Pryce",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "grappling-hooks",
+    "name": "Grappling Hooks",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "guild-member",
+    "name": "Guild Member",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "hacked-comms-unit",
+    "name": "Hacked Comms Unit",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "heavy-aqua-droid",
+    "name": "Heavy Aqua Droid",
+    "source": "SWQ136 — Aqua Droids",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "heavy-arm-cannon",
+    "name": "Heavy Arm Cannon",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "heavy-blaster-pistol",
+    "name": "Heavy Blaster Pistol",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "heavy-blaster-pistol-2",
+    "name": "Heavy Blaster Pistol",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "heavy-laser-cannon",
+    "name": "Heavy Laser Cannon",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "heavy-laser-retrofit",
+    "name": "Heavy Laser Retrofit",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "herbal-medicine",
+    "name": "Herbal Medicine",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "hh-12-stormtrooper",
+    "name": "HH-12 Stormtrooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "high-energy-shells",
+    "name": "High-Energy Shells",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "hope",
+    "name": "Hope",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "hotshot-pilot",
+    "name": "Hotshot Pilot",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "hound-grizzer",
+    "name": "Hound & Grizzer",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "hq-uplink",
+    "name": "HQ Uplink",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "hunter",
+    "name": "Hunter",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ig-100-magnaguard",
+    "name": "IG-100 MagnaGuard",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ig-100-magnaguard-pilot",
+    "name": "IG-100 MagnaGuard Pilot",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "impact-grenades",
+    "name": "Impact Grenades",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "imperial-comms-technician",
+    "name": "Imperial Comms Technician",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "imperial-dark-trooper",
+    "name": "Imperial Dark Trooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "imperial-hammers-elite-armor-pilot",
+    "name": "Imperial Hammers Elite Armor Pilot",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "imperial-march",
+    "name": "Imperial March",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "imperial-officer",
+    "name": "Imperial Officer",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "imperial-probe-droid",
+    "name": "Imperial Probe Droid",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "imperial-tie-pilot",
+    "name": "Imperial TIE Pilot",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "improvised-orders",
+    "name": "Improvised Orders",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "inquisitorius-training",
+    "name": "Inquisitorius Training",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "insatiable-curiosity",
+    "name": "Insatiable Curiosity",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "inspiring-presence",
+    "name": "Inspiring Presence",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "into-the-fray",
+    "name": "Into the Fray",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-consular",
+    "name": "Jedi Consular",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-guardian",
+    "name": "Jedi Guardian",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-guardian-2",
+    "name": "Jedi Guardian",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-mind-trick",
+    "name": "Jedi Mind Trick",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-negotiator",
+    "name": "Jedi Negotiator",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-training",
+    "name": "Jedi Training",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-training-2",
+    "name": "Jedi Training",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-training-3",
+    "name": "Jedi Training",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jedi-training-4",
+    "name": "Jedi Training",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jetpack-rockets",
+    "name": "Jetpack Rockets",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jetpack-rockets-2",
+    "name": "Jetpack Rockets",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jyn-erso",
+    "name": "Jyn Erso",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "jyns-se-14-blaster",
+    "name": "Jyn's SE-14 Blaster",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "katarn-pattern-armor",
+    "name": "Katarn Pattern Armor",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "kraken",
+    "name": "Kraken",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "lead-by-example",
+    "name": "Lead By Example",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "lightsaber",
+    "name": "Lightsaber",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "limiter-override",
+    "name": "Limiter Override",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "linked-targeting-array",
+    "name": "Linked Targeting Array",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "logistical-prowess",
+    "name": "Logistical Prowess",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "lok-durd",
+    "name": "Lok Durd",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "long-gun-wookiee",
+    "name": "Long Gun Wookiee",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "long-rifle-pirate",
+    "name": "Long Rifle Pirate",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "luke-skywalker",
+    "name": "Luke Skywalker",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "m-45-ion-blaster",
+    "name": "M-45 Ion Blaster",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mag-det-enforcer",
+    "name": "Mag-Det Enforcer",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mandalorian-combat-shields",
+    "name": "Mandalorian Combat Shields",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mandalorian-initiate-squad",
+    "name": "Mandalorian Initiate Squad",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mandalorian-super-commando",
+    "name": "Mandalorian Super Commando",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mark-ii-medium-blaster",
+    "name": "Mark II Medium Blaster",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "micro-grenade-launcher",
+    "name": "Micro-Grenade Launcher",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mission-objective",
+    "name": "Mission Objective",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mo-dk-power-harpoon",
+    "name": "MO/DK Power Harpoon",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mobility-upgrade",
+    "name": "Mobility Upgrade",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mortar-clone-trooper",
+    "name": "Mortar Clone Trooper",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mpl-57-barrage-trooper",
+    "name": "MPL-57 Barrage Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "mpl-57-ion-trooper",
+    "name": "MPL-57 Ion Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "nose-mounted-flamethrower",
+    "name": "Nose-Mounted Flamethrower",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "nose-mounted-ion-blaster",
+    "name": "Nose-Mounted Ion Blaster",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "nose-mounted-laser-cannon",
+    "name": "Nose-Mounted Laser Cannon",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "obi-wan-kenobi",
+    "name": "Obi-Wan Kenobi",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "offensive-push",
+    "name": "Offensive Push",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "offensive-stance",
+    "name": "Offensive Stance",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "on-the-hunt",
+    "name": "On The Hunt",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "onboard-comms-channel",
+    "name": "Onboard Comms Channel",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "onward-to-victory",
+    "name": "Onward to Victory",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "oom-series-battle-droid",
+    "name": "OOM-Series Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "oom-series-droid-pilot",
+    "name": "OOM-Series Droid Pilot",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "optimized-task-flow",
+    "name": "Optimized Task Flow",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "outer-rim-speeder-jockey",
+    "name": "Outer Rim Speeder Jockey",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "overcharged-generator",
+    "name": "Overcharged Generator",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "overclock",
+    "name": "Overclock",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "overwatch",
+    "name": "Overwatch",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "p13-m-disruptor-soldier",
+    "name": "P13-M Disruptor Soldier",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "paz-vizsla",
+    "name": "Paz Vizsla",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "personal-combat-shield",
+    "name": "Personal Combat Shield",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pintle-mounted-dlt-19",
+    "name": "Pintle-Mounted DLT-19",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pintle-mounted-rt-97c",
+    "name": "Pintle-Mounted RT-97C",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pirate-captain",
+    "name": "Pirate Captain",
+    "source": "SWQ59 — W L O5",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pk-series-worker-droid",
+    "name": "PK-Series Worker Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "platoon-commander",
+    "name": "Platoon Commander",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "plo-koon",
+    "name": "Plo Koon",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "portable-scanner",
+    "name": "Portable Scanner",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "prepared-supplies",
+    "name": "Prepared Supplies",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "programmed-loyalty",
+    "name": "Programmed Loyalty",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "protector",
+    "name": "Protector",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "proton-charge-saboteur",
+    "name": "Proton Charge Saboteur",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "proven-tactician",
+    "name": "Proven Tactician",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pyke-syndicate-capo",
+    "name": "Pyke Syndicate Capo",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pyke-syndicate-crew",
+    "name": "Pyke Syndicate Crew",
+    "source": "SWQ59 — W L O5",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pyke-syndicate-foot-soldier",
+    "name": "Pyke Syndicate Foot Soldier",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "pyke-syndicate-foot-soldier-squad",
+    "name": "Pyke Syndicate Foot Soldier Squad",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "r4-astromech",
+    "name": "R4 Astromech",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "radiation-cannon-b1-battle-droid",
+    "name": "Radiation Cannon B1 Battle Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "raiding-party-leader",
+    "name": "Raiding Party Leader",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "range-trooper",
+    "name": "Range Trooper",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-comms-technician",
+    "name": "Rebel Comms Technician",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-marksman",
+    "name": "Rebel Marksman",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-officer",
+    "name": "Rebel Officer",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-trooper",
+    "name": "Rebel Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-trooper-captain",
+    "name": "Rebel Trooper Captain",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-trooper-specialist",
+    "name": "Rebel Trooper Specialist",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-trooper-squad",
+    "name": "Rebel Trooper Squad",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-veteran",
+    "name": "Rebel Veteran",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rebel-veteran-squad",
+    "name": "Rebel Veteran Squad",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "recon-intel",
+    "name": "Recon Intel",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "reluctant-hero",
+    "name": "Reluctant Hero",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "repeating-blaster",
+    "name": "Repeating Blaster",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rook-kast-2",
+    "name": "Rook Kast",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rps-6-arf-trooper",
+    "name": "RPS-6 ARF Trooper",
+    "source": "SWQ135 — A R F Troopers",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rps-6-clone-trooper",
+    "name": "RPS-6 Clone Trooper",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rps-6-magnaguard",
+    "name": "RPS-6 MagnaGuard",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rps-6-rocket-gunner",
+    "name": "RPS-6 Rocket Gunner",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rt-97c-blaster-rifle",
+    "name": "RT-97C Blaster Rifle",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "rt-97c-stormtrooper",
+    "name": "RT-97C Stormtrooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ryder-azadi",
+    "name": "Ryder Azadi",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "saber-throw",
+    "name": "Saber Throw",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sabine-wren",
+    "name": "Sabine Wren",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sabines-combat-shield",
+    "name": "Sabine's Combat Shield",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "saxons-combat-shield",
+    "name": "Saxon's Combat Shield",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "saxons-galar-90-rifle",
+    "name": "Saxon's Galar-90 Rifle",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "saxons-jetpack-rockets",
+    "name": "Saxon's Jetpack Rockets",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "saxons-zx-flame-projector",
+    "name": "Saxon's ZX Flame Projector",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "scatter-gun-enforcer",
+    "name": "Scatter Gun Enforcer",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "scatter-gun-trooper",
+    "name": "Scatter Gun Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "secret-ingredients",
+    "name": "Secret Ingredients",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "security-detail",
+    "name": "Security Detail",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "seek-and-destroy",
+    "name": "Seek and Destroy",
+    "source": "SWQ29 — Super Tactical Command Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "seeker-droid",
+    "name": "Seeker Droid",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "seize-the-initiative",
+    "name": "Seize the Initiative",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "seventh-sister",
+    "name": "Seventh Sister",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "shaak-ti",
+    "name": "Shaak Ti",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "shoretrooper",
+    "name": "Shoretrooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "shoretrooper-squad",
+    "name": "Shoretrooper Squad",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "shriv-suurgav",
+    "name": "Shriv Suurgav",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "shukur-05-repeater",
+    "name": "SHUKUR-05 Repeater",
+    "source": "SWQ81 — Mando Warriors",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "situational-awareness",
+    "name": "Situational Awareness",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sliced-comms",
+    "name": "Sliced Comms",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sm-9-frag-launcher",
+    "name": "SM-9 Frag Launcher",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "smoke-grenades",
+    "name": "Smoke Grenades",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "snowtrooper",
+    "name": "Snowtrooper",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "snowtrooper-squad",
+    "name": "Snowtrooper Squad",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sonic-cannon-warrior",
+    "name": "Sonic Cannon Warrior",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sonic-charge-saboteur",
+    "name": "Sonic Charge Saboteur",
+    "source": "SWQ12 — Scout Troopers",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sonic-imploders",
+    "name": "Sonic Imploders",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "spotter-uplink",
+    "name": "Spotter Uplink",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "stormtrooper",
+    "name": "Stormtrooper",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "stormtrooper-captain",
+    "name": "Stormtrooper Captain",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "stormtrooper-marksman",
+    "name": "Stormtrooper Marksman",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "stormtrooper-specialist",
+    "name": "Stormtrooper Specialist",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "stormtrooper-squad",
+    "name": "Stormtrooper Squad",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "strategic-programming",
+    "name": "Strategic Programming",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "strict-orders",
+    "name": "Strict Orders",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "strike-and-fade",
+    "name": "Strike and Fade",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "strike-team-leader",
+    "name": "Strike Team Leader",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "stun-baton",
+    "name": "Stun Baton",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "super-commando-combat-shields",
+    "name": "Super Commando Combat Shields",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "super-commando-gunslinger",
+    "name": "Super Commando Gunslinger",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "super-commando-gunslinger-2",
+    "name": "Super Commando Gunslinger",
+    "source": "SWQ69 — Mando Super Commandos",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "super-commando-jetpack-rockets",
+    "name": "Super Commando Jetpack Rockets",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "super-commando-marksman",
+    "name": "Super Commando Marksman",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "super-commando-marksman-2",
+    "name": "Super Commando Marksman",
+    "source": "SWQ69 — Mando Super Commandos",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "sx-21-trooper",
+    "name": "SX-21 Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-21-blaster-rifle",
+    "name": "T-21 Blaster Rifle",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-21-special-forces-trooper",
+    "name": "T-21 Special Forces Trooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-21-stormtrooper",
+    "name": "T-21 Stormtrooper",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-21a-range-trooper",
+    "name": "T-21A Range Trooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-21b-shoretrooper",
+    "name": "T-21B Shoretrooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-7-ion-snowtrooper",
+    "name": "T-7 Ion Snowtrooper",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-series-tactical-droid",
+    "name": "T-Series Tactical Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "t-series-tactical-droid-pilot",
+    "name": "T-Series Tactical Droid Pilot",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "targeting-relay",
+    "name": "Targeting Relay",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "targeting-scopes",
+    "name": "Targeting Scopes",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "tech",
+    "name": "Tech",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "tenacity",
+    "name": "Tenacity",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "terror",
+    "name": "Terror",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "the-armorer",
+    "name": "The Armorer",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "the-darksaber",
+    "name": "The Darksaber",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "the-darksaber-2",
+    "name": "The Darksaber",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "the-darksaber-3",
+    "name": "The Darksaber",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "the-darksaber-4",
+    "name": "The Darksaber",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "the-darksaber-gideon",
+    "name": "The Darksaber (Gideon)",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "the-darksaber-maul",
+    "name": "The Darksaber (Maul)",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "thermal-detonator",
+    "name": "Thermal Detonator",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "tip-of-the-spear",
+    "name": "Tip of the Spear",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "tranquility",
+    "name": "Tranquility",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "tristan-wren-2",
+    "name": "Tristan Wren",
+    "source": "SWQ56 — Ursa Wren",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "trusted-agent",
+    "name": "Trusted Agent",
+    "source": "April 2026 Update — UpgradeCards",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "turbo-charge",
+    "name": "Turbo-Charge",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "twin-beam-cannons",
+    "name": "Twin Beam Cannons",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "twin-blaster-cannons",
+    "name": "Twin Blaster Cannons",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "twin-blaster-cannons-2",
+    "name": "Twin Blaster Cannons",
+    "source": "SWQ134 — L M432 Crab Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "twin-laser-turret",
+    "name": "Twin Laser Turret",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "twin-lightsabers",
+    "name": "Twin Lightsabers",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "twin-missile-pods",
+    "name": "Twin Missile Pods",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "tyrannical-taskmaster",
+    "name": "Tyrannical Taskmaster",
+    "source": "SWQ29 — Super Tactical Command Droid",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "underworld-connections",
+    "name": "Underworld Connections",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "unorthodox-tactician",
+    "name": "Unorthodox Tactician",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "unseen-saboteur",
+    "name": "Unseen Saboteur",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "unstable-astromech",
+    "name": "Unstable Astromech",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "up-close-and-personal",
+    "name": "Up Close and Personal",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ursa-wren",
+    "name": "Ursa Wren",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "ursa-wren-2",
+    "name": "Ursa Wren",
+    "source": "SWQ56 — Ursa Wren",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "veteran-clone-pilot",
+    "name": "Veteran Clone Pilot",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "vibro-axe",
+    "name": "Vibro Axe",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "vibrosword",
+    "name": "Vibrosword",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "vigilance",
+    "name": "Vigilance",
+    "source": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "viper-recon-droid",
+    "name": "Viper Recon Droid",
+    "source": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "war-party-leader",
+    "name": "War Party Leader",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "waxer",
+    "name": "Waxer",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "wedge-antilles",
+    "name": "Wedge Antilles",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "weequay-captain",
+    "name": "Weequay Captain",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "weequay-crew",
+    "name": "Weequay Crew",
+    "source": "SWQ59 — W L O5",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "weequay-pirate-squad",
+    "name": "Weequay Pirate Squad",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "whipcord-launcher",
+    "name": "Whipcord Launcher",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "wrecker",
+    "name": "Wrecker",
+    "source": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "xs-iv-assault-cannon",
+    "name": "XS-IV Assault Cannon",
+    "source": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "youre-not-all-the-same-to-me",
+    "name": "You're Not All the Same to Me",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "z-6-clone-trooper",
+    "name": "Z-6 Clone Trooper",
+    "source": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "upgrades",
+    "slug": "z-6-riot-baton",
+    "name": "Z-6 Riot Baton",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "upgrades",
+    "slug": "z-6-trooper",
+    "name": "Z-6 Trooper",
+    "source": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04",
+    "validity": "valid"
+  }
+]

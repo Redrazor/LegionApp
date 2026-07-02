@@ -219,6 +219,24 @@ export interface BattleCard {
   cardImage: string | null
 }
 
+// ── Card sourcing / provenance (Feature 18) ──────────────────────────────────
+
+export type CardCategory = 'units' | 'upgrades' | 'commands' | 'battle'
+/** `valid` = sourced from an official AMG document; `unknown` = legacy scan / image pending. */
+export type SourceValidity = 'valid' | 'unknown'
+
+/** One row of the Card Sources reference: where a card was sourced from, and when.
+ *  Generated into `public/data/card-sources.json` by `npm run card-sources`. */
+export interface CardSource {
+  category: CardCategory
+  slug: string
+  name: string
+  title?: string
+  source: string // human-readable AMG document label, or the legacy/pending note
+  date: string | null // month/year the source is dated, `YYYY-MM`, or null
+  validity: SourceValidity
+}
+
 export type ProductType = 'expansion' | 'army-box' | 'starter' | 'specialists'
 
 export interface Product {

@@ -3,8 +3,9 @@ import { computed, onMounted, ref } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useKeywordsStore } from '../stores/keywords.ts'
 import { SLOT_LABELS, RANK_META, RANK_ORDER, FACTION_ORDER, FACTION_META } from '../utils/factions.ts'
+import CardSourcesTable from '../components/reference/CardSourcesTable.vue'
 
-type Tab = 'rulebook' | 'keywords' | 'reference'
+type Tab = 'rulebook' | 'keywords' | 'reference' | 'sources'
 const tab = ref<Tab>('keywords')
 const keywordsStore = useKeywordsStore()
 const search = ref('')
@@ -43,11 +44,11 @@ useHead({
     <!-- Tabs -->
     <div class="mb-5 flex gap-1 border-b border-lg-border">
       <button
-        v-for="t in (['keywords','reference','rulebook'] as Tab[])" :key="t"
+        v-for="t in (['keywords','reference','sources','rulebook'] as Tab[])" :key="t"
         class="border-b-2 px-4 py-2 text-sm font-semibold capitalize transition-colors"
         :class="tab === t ? 'border-lg-accent text-lg-accent' : 'border-transparent text-lg-muted hover:text-lg-text'"
         @click="tab = t"
-      >{{ t === 'reference' ? 'Icons' : t }}</button>
+      >{{ t === 'reference' ? 'Icons' : t === 'sources' ? 'Card Sources' : t }}</button>
     </div>
 
     <!-- Keywords -->
@@ -99,6 +100,9 @@ useHead({
         </div>
       </section>
     </div>
+
+    <!-- Card Sources (provenance audit) -->
+    <CardSourcesTable v-else-if="tab === 'sources'" />
 
     <!-- Rulebook -->
     <div v-else>

@@ -70,12 +70,12 @@ describe('catalogue data integrity', () => {
     expect(mc('the-bad-batch-clone-force-99-2')).toBe(4) // mercenary, 4 members (badge 0)
   })
 
-  it('lets both the full unit and its Strike Team equip the shared sniper heavy weapon', () => {
-    // Regression guard: the four "Strike Team" sniper heavy weapons (DLT-19x, DH-447,
-    // BX-Series, DC-15x ARC) are restricted by unit NAME, not to the Strike Team title —
-    // the card is equippable by the full unit AND the 2-mini team (they share a name).
-    // A stray `title: "Strike Team"` criterion silently locks the sniper out of the full
-    // unit, whose heavy-weapon slot then offers no real sniper.
+  it('restricts the Strike Team sniper heavy weapons to the Strike Team profile only', () => {
+    // Rules guard: the four sniper heavy weapons (DLT-19x, DH-447, BX-Series, DC-15x ARC)
+    // are exclusive to the 2-mini "Strike Team" profile in the current (v2) game — the
+    // full-strength unit that shares the name canNOT equip them. Their requirements must
+    // therefore keep the `title: "Strike Team"` criterion; dropping it (e.g. to match an
+    // out-of-date 1st-edition source) wrongly opens the sniper to the full unit.
     const upgrades = load('upgrades.json') as Array<{ slug: string; requirements?: unknown[] }>
     const units = load('units.json') as Array<Parameters<typeof unitMeetsRequirements>[0]>
     const pairs: Record<string, string> = {
@@ -90,10 +90,11 @@ describe('catalogue data integrity', () => {
       const profiles = units.filter((u) => (u as { name: string }).name === name)
       expect(profiles.length, `${name} should have full + Strike Team profiles`).toBe(2)
       for (const unit of profiles) {
+        const isStrikeTeam = (unit as { title: string }).title === 'Strike Team'
         expect(
           unitMeetsRequirements(unit, up!.requirements as never),
-          `${name} (${(unit as { title: string }).title || 'full'}) cannot equip ${slug}`,
-        ).toBe(true)
+          `${name} (${(unit as { title: string }).title || 'full'}) equip-eligibility for ${slug}`,
+        ).toBe(isStrikeTeam)
       }
     }
   })

@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.4.0',
+    date: '2026-07-02',
+    changes: [
+      'New Play tab (phase 1) — import an army to bring to the table. Pick one of your saved lists (shown with faction, unit count and live points) or paste a Build share link, and Play loads it into a game session with a full roster: portraits, ×N unit grouping, equipped upgrades and per-unit cost. The session persists across a page reload. This is the first step of the live game tracker — turns, tokens, dice and real-time multiplayer are coming in later phases.',
+    ],
+  },
+  {
     version: '2.3.1',
     date: '2026-07-02',
     changes: [

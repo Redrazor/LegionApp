@@ -20,7 +20,9 @@ this list (and their detailed write-ups are kept further down for reference).
    pips, order pool, battle deck) + real-time multiplayer via room codes. socket.io + `server/rooms.ts`
    are scaffolded and the `/play` route ships a "Coming Soon" placeholder (`src/views/PlayView.vue`), but
    `socket.io-client` is not yet wired into the SPA — no tracker/multiplayer UI exists. The main reason
-   the Render backend exists.
+   the Render backend exists. **PLANNED as a 9-phase progressive build — see the full phased plan in
+   [`docs/Play Section Development.md`](./Play%20Section%20Development.md)** (planning kicked off
+   2026-07-02; architecture locked: server-authoritative + SQLite-persisted resumable rooms).
 2. **Launch loose ends** — an asset kit (3 screenshots + a build→validate→share GIF). (The reverse
    ShatterApp→Legion footer link is already DONE — `src/App.vue` footer.)
 3. **Protect curated data from re-scrape** _(was B5)_ — `npm run scrape` still overwrites curated

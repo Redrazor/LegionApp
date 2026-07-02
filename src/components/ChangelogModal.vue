@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.2.0',
+    date: '2026-07-02',
+    changes: [
+      'Recon (600 pts): the Build tab now shows a dedicated Recon Battle Cards section — the fixed 9-card set (3 primary, 3 secondary, 3 advantage) that Recon games use instead of a built battle deck — with a short explainer of how Recon differs (600 points, 3′×3′ table, tighter ranks). Tap any card to view it full-size.',
+      'Recon: added the official Recon battle card scans, and Print now includes the Recon Battle Cards set (text reference and full card images) in place of the Standard battle deck.',
+    ],
+  },
+  {
     version: '2.1.1',
     date: '2026-07-02',
     changes: [

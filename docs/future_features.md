@@ -43,8 +43,22 @@ this list (and their detailed write-ups are kept further down for reference).
    Collect the counterpart cards (the Iden ID10 faces are already staged at
    `scraper/amg-cards/units/empire/DOC51_GalacticEmpire_Units-p10-10.webp` / `-p10-11.webp`) and attach
    them to their parent unit's profile via a `counterpart` field. See **Feature 14** below.
+8. **Competitive (errata) points costs + Build casual/competitive toggle** _(owner-requested 2026-07-02)_ —
+   overlay the AMG competitive points-adjustment errata onto the catalogue and let Build switch between
+   **casual** (printed card cost) and **competitive** (errata-adjusted) costing, recomputing every total
+   live. High community value. See **Feature 19** below.
+9. **Card legality catalogue** _(owner-requested 2026-07-02)_ — a fully searchable reference of every unit,
+   upgrade and command that tells you at a glance whether each card is **legal to field** (released, not
+   errata-removed, and — for a chosen faction/format — buildable). Extends the existing Browse tab. The
+   community has no single place for this. See **Feature 18** below.
 
 **Recently shipped (was on this list):**
+- ✅ **Recon format support** (`feature/recon-format-support`, was open item 10) — the Recon (600 pt) build was
+  already validated correctly (points + rank table); the missing piece was the **fixed Recon Battle Cards set**.
+  Added the 9 Recon card images (cropped from the Recon PDF), a read-only **Recon Battle Cards** tab in Build
+  (with a format explainer + tap-to-zoom) shown in place of the Standard deck-builder, and print integration.
+  A full read of the Recon PDF confirmed the earlier-speculated command-hand/duplicate/restricted-unit changes
+  **don't exist** — dropped. See **Feature 20** below.
 - ✅ **Browse command cards & upgrades** (v1.9.0, was B6) — Browse gained **Commands** and **Upgrades**
   sections beside Units, navigated by a segmented tab header as separate sub-routes (`/browse/commands`,
   `/browse/upgrades`) with their own `:slug` card-scan lightbox drawers (`CardLightbox`). Commands group by
@@ -243,6 +257,148 @@ them).
 whether "filter by commander" is automatic (detect when the query resolves to a commander/operative
 name) or an explicit mode/chip; how to present generic (commander-less) command cards and
 unrestricted upgrades when no character filter is active.
+
+---
+
+## Feature 20 — Recon format support (fixed Recon Battle Cards set)
+
+**Status:** SHIPPED (`feature/recon-format-support`). Owner-requested 2026-07-02.
+
+**Key finding (the scope was much smaller than first assumed).** A full read of the **Recon Rulebook PDF**
+(DOC13, eff. 2025-04-30) confirmed Recon "follows all the rules of a standard game … with the following
+exceptions", and there are only three, of which just one needed new work:
+- **Points cap 600** — already enforced via `Army.gameSize`.
+- **Rank composition** (Commander **exactly 1**, Operative 0–1, Corps 2–4, Special 0–2, Support 0–2, Heavy
+  0–1) — already enforced; the `recon` entry in `FORMATS` (`src/utils/factions.ts`) is an **exact match** to
+  the PDF, applied through `rankLimits(cap)`.
+- **Battle Cards** — Recon uses **one fixed, shared set** of 9 cards (3 Primary + 3 Secondary + 3 Advantage),
+  drawn at the table; you do **not** build a deck, and Standard battle cards can't be used in Recon (and vice
+  versa). This is the piece that was missing a surface. (`usesBattleDeck(600)` already correctly disables the
+  Standard deck-builder and its validation; `battleCardEligible` already excludes `isRecon` cards from
+  Standard decks; the 9 Recon cards were already in `battleCards.json` as `isRecon: true` with `-2` slugs.)
+
+The earlier draft of this feature also speculated a **smaller command hand**, **duplicate/unique-limit
+changes**, and **Recon-restricted units** — the PDF has **none of those** (command hand is built normally;
+uniques/duplicates unchanged; no unit is Recon-illegal). Those were dropped. Deployment / Prepared Positions /
+round timing / objective scoring are gameplay, not list-building → future **Play tab** (roadmap item 1).
+
+**What shipped:**
+- **9 Recon battle card images** cropped from DOC13 (pages 5–6) → `public/images/battle/{slug}-2.webp`
+  (owner-maintained, per [[extract-from-card-images-not-scraping]]). Primaries keep the map+rules at their
+  native tall ratio (726×2079); secondary/advantage at 726×1040.
+- **Read-only Recon Battle Cards panel** (`src/components/build/ReconBattleCardsView.vue`) shown in the Build
+  "Recon" tab in place of the Standard deck-builder (`BuildLayout` gains `hasReconCards`; the `battle` pane
+  hosts either view; tab relabels **Deck → Recon**). Grouped Primary/Secondary/Advantage, tap-to-zoom
+  (self-contained full-card overlay, since the rules text lives on the image), with a short **Recon format
+  explainer** (600 pts, 3′×3′, fixed set, tighter ranks).
+- **Print integration** — `buildArmySheet` populates the sheet's `battleDeck` from the fixed Recon set in
+  Recon (new `isReconDeck` flag drives labels: "Recon Battle Cards" vs "Battle Deck"); `PrintOptionsModal`
+  relabels the two battle-card options in Recon and enables them (they'd been gated on the Standard deck).
+- **Pure + tested** — `reconBattleCardGroups(cards)` (`utils/army.ts`) returns the `isRecon` cards grouped
+  in canonical subtype order, name-sorted; specs cover it + the `buildArmySheet` Recon path.
+
+**Deliberately not done (confirmed unnecessary by the PDF):** command-hand resizing, duplicate/unique-limit
+changes, per-unit Recon legality. If AMG later publishes a Recon ban list, that would ride the **Feature 18**
+legality plumbing, not this feature.
+
+---
+
+## Feature 19 — Competitive (errata) points costs + Build casual/competitive toggle
+
+**Status:** queued. Owner-requested 2026-07-02.
+
+**Goal:** AMG periodically issues a **points-adjustment errata** that re-costs units and upgrades for
+competitive/tournament play while the printed card cost stays the "casual" value. Build should let the
+player choose which costing to use and recompute **every** points total live:
+- a **casual** mode = the printed card cost (today's behaviour, unchanged), and
+- a **competitive** mode = the errata-adjusted cost.
+
+**Source of truth (per the image/PDF directive, [[extract-from-card-images-not-scraping]]):** the AMG
+**Points Errata / Balance Update** document (e.g. the current `Points Adjustments` PDF). Transcribe the
+deltas verbatim as **owner-maintained** data — do NOT scrape and do NOT overwrite the LHQ2 catalogue cost.
+Only cards whose cost changed appear in the errata; everything else uses its printed cost.
+
+**Where:**
+- **Data (scrape-proof):** an owner-maintained `public/data/points-errata.json` keyed by slug, e.g.
+  `{ units: { "darth-vader": 205 }, upgrades: { "hunter": 22 } }` — the **competitive** cost only (absolute
+  value, so a re-scrape that changes the printed cost can't silently corrupt the delta). Kept SEPARATE from
+  `units.json` / `upgrades.json` for the same reason `upgrade-weapons.json` is separate. Include a small
+  `meta` block (errata document name + effective date) to show provenance in-app. The `units` / `upgrades`
+  stores overlay it at load (like the `upgrade-weapons.json` overlay), exposing e.g.
+  `Unit.competitiveCost?: number` / `Upgrade.competitiveCost?: number` (absent ⇒ same as printed).
+- **Costing:** thread a **costing mode** through the single cost path so there is exactly one source of
+  truth. `unitCost` (`utils/army.ts`) already centralises unit+upgrade summation; give it (and `armyPoints`,
+  `doctrineUpgradeCost`, the rank-budget helpers) a `costing: 'casual' | 'competitive'` input that picks
+  `competitiveCost ?? cost` per card. Doctrine discounts (Feature 12) still apply on top of whichever base
+  is chosen. Keep it pure + tested — a spec that asserts the same army totals differently under each mode.
+- **State + share:** add `costing` to `Army` (default `'casual'`), and bump the versioned share-code
+  serializer so a shared list round-trips its mode (an army costed competitively must reopen competitively,
+  or its legality vs. the 600/1000 cap changes).
+- **UI:** a **Casual / Competitive** segmented toggle in the Build header near the points cap, with a small
+  "as of <errata date>" note and a subtle indicator on any unit/upgrade whose cost the errata changed (so
+  the player can see *what* moved). The footer points total, per-rank budgets, over-cap validation and the
+  print/share output all follow the chosen mode automatically because they read the one cost path.
+
+**Notes / edge cases:**
+- Some errata adjust **upgrade** costs, not just units — the overlay must cover both (hence the split
+  `units` / `upgrades` maps).
+- The over-points validation (`validateArmy`) compares against `gameSize`; nothing there changes except the
+  numbers it sums — competitive costing can push a previously-legal list over cap, which is correct.
+- If AMG ever issues errata that *removes* or *restricts* a card (not just re-costs it), that is the
+  **Feature 18** `removed` / legality plumbing, not this feature — keep the two concerns separate.
+
+**Decisions to settle at kickoff:** default mode (recommend **casual** to preserve current behaviour);
+whether to also show *both* costs side-by-side on a card, or only the active one; whether the toggle is
+per-army (stored on `Army`, recommended) or a global app preference.
+
+---
+
+## Feature 18 — Card legality catalogue (searchable "is this card valid?" reference)
+
+**Status:** queued. Owner-requested 2026-07-02 ("the community really needs something like this").
+
+**Goal:** a fully **searchable catalogue of every unit, upgrade and command** that tells the player, at a
+glance, whether each card is **currently legal to field** — and *why not*, when it isn't. There is no single
+public place today that answers "is this card still legal?"; this makes LegionApp that reference.
+
+**What "valid / legal" means (the legality signals — all already partly modelled):**
+- **Released vs. preview** — `Unit.unreleased` / `Upgrade.unreleased` / `CommandCard.unreleased` (a note
+  string set from `public/data/unreleased.json`): a pre-release/preview card, not yet tournament-legal.
+- **Errata-removed** — `Upgrade.removed?: boolean` (Feature 11) already flags cards pulled from play; extend
+  the same flag to units/commands if AMG removes any. These stay visible but are never Build-selectable.
+- **Format legality** — with a chosen **format** (Recon 600 / Standard 1000 / …) and optionally a
+  **faction**, a card is "buildable" only if it passes the rank/faction/format gates already computed in
+  `utils/army.ts` (`unitAllowedInFaction`, `catalogueForRank`, `rankLimits`) and the Feature 20 Recon
+  restrictions. So the catalogue can answer "legal in Recon?" and "legal for the Empire?" per card.
+- **Requirement-gated** — an upgrade legal only on a named character (its `requirements` / `cardName`), a
+  detachment that needs its parent, a unit locked behind a battle force. Surface *why* a card is
+  conditionally legal, reusing `unitMeetsRequirements` and the battle-force pool logic.
+
+**Where (extends Browse, not a new tab):** the Browse tab already ships the three searchable sections
+(`/browse`, `/browse/commands`, `/browse/upgrades`) with faction/slot grouping, free-text name search and a
+by-character filter (Feature B6 / v1.9.0, `src/composables/useSearch.ts` + `src/utils/browse.ts`). This
+feature adds a **legality layer** on top:
+- **Per-card legality badge** on every Browse tile + profile drawer: e.g. ✔ *Legal* / ⚠ *Preview
+  (unreleased)* / ⛔ *Removed by errata* / *Legal only for <faction>* / *Requires <character>*. Pure resolver
+  `cardLegality(card, ctx)` in `src/utils/browse.ts` (or a new `utils/legality.ts`), fully unit-tested,
+  returning a status enum + human reason so both the badge and any tooltip read from one place.
+- **Legality filters** in the Browse header: a **format** picker (reuses `FORMATS`) and a **faction** filter,
+  plus quick toggles like *Hide unreleased* / *Hide errata-removed* / *Tournament-legal only*. With a format
+  + faction chosen the catalogue becomes a live "what can I actually field?" list.
+- **Deep-linkable** — each card's `/browse/...:slug` drawer already has a canonical URL; the legality state
+  is derived from the (optional) format/faction query params so a player can share "here's the card and it's
+  legal in Standard-Empire" as a link. Good for the community-reference goal + SEO.
+
+**Data:** no new sourcing needed for the core — the legality signals already exist (`unreleased`, `removed`,
+`requirements`, faction, rank, battle-force pools). New data only if AMG maintains an explicit
+**tournament-legal card list / ban list** distinct from the above; if so, capture it as an owner-maintained
+`public/data/legality.json` overlay (same ethos as the other owner-maintained overlays), keyed by slug.
+
+**Decisions to settle at kickoff:** whether "legal" defaults to *any format* (a card is legal if legal in at
+least one) or requires the user to pick a format first; how to present a card that is legal in Standard but
+not Recon (badge vs. only-when-format-chosen); whether commands get the same removed/unreleased treatment as
+units/upgrades; and whether this ships alongside Feature 20 (which supplies the Recon legality inputs) or
+before it (degrading to release/errata legality only until Recon restrictions land).
 
 ---
 

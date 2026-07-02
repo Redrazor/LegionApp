@@ -16,8 +16,11 @@ type Pane = 'catalogue' | 'army' | 'command' | 'battle' | 'doctrines'
 type DesktopView = 'roster' | 'command' | 'battle' | 'doctrines'
 // `forcePane` overrides the user's toggle (e.g. upgrade-picking forces the catalogue
 // pane); when null the segmented toggle drives `mobilePane`. `hasCommand`/`hasBattleDeck`/
-// `hasDoctrines` enable the command-hand, battle-deck and doctrine tabs/views.
-const props = defineProps<{ forcePane?: Pane | null; hasCommand?: boolean; hasBattleDeck?: boolean; hasDoctrines?: boolean }>()
+// `hasDoctrines` enable the command-hand, battle-deck and doctrine tabs/views. `hasReconCards`
+// swaps the battle-deck tab for the read-only Recon Battle Cards reference (Recon has no deck).
+const props = defineProps<{ forcePane?: Pane | null; hasCommand?: boolean; hasBattleDeck?: boolean; hasReconCards?: boolean; hasDoctrines?: boolean }>()
+// The `battle` pane hosts either the Standard deck-builder or the Recon reference.
+const hasBattleTab = computed(() => props.hasBattleDeck || props.hasReconCards)
 // Catalogue is the default pane — a fresh list starts empty, so you want to add units.
 const mobilePane = ref<Pane>('catalogue')
 const activePane = computed(() => props.forcePane ?? mobilePane.value)
@@ -46,19 +49,19 @@ const desktopView = ref<DesktopView>('roster')
 const mobileTabs = computed<Pane[]>(() => [
   'catalogue', 'army',
   ...(props.hasCommand ? ['command' as Pane] : []),
-  ...(props.hasBattleDeck ? ['battle' as Pane] : []),
+  ...(hasBattleTab.value ? ['battle' as Pane] : []),
   ...(props.hasDoctrines ? ['doctrines' as Pane] : []),
 ])
 const desktopViews = computed<DesktopView[]>(() => [
   'roster',
   ...(props.hasCommand ? ['command' as DesktopView] : []),
-  ...(props.hasBattleDeck ? ['battle' as DesktopView] : []),
+  ...(hasBattleTab.value ? ['battle' as DesktopView] : []),
   ...(props.hasDoctrines ? ['doctrines' as DesktopView] : []),
 ])
 const paneLabel = (p: Pane) =>
-  p === 'catalogue' ? 'Catalogue' : p === 'army' ? 'Army' : p === 'command' ? 'Command' : p === 'battle' ? 'Deck' : 'Doctrines'
+  p === 'catalogue' ? 'Catalogue' : p === 'army' ? 'Army' : p === 'command' ? 'Command' : p === 'battle' ? (props.hasReconCards ? 'Recon' : 'Deck') : 'Doctrines'
 const viewLabel = (v: DesktopView) =>
-  v === 'roster' ? 'Roster' : v === 'command' ? 'Command Hand' : v === 'battle' ? 'Battle Deck' : 'Doctrines'
+  v === 'roster' ? 'Roster' : v === 'command' ? 'Command Hand' : v === 'battle' ? (props.hasReconCards ? 'Recon Cards' : 'Battle Deck') : 'Doctrines'
 </script>
 
 <template>
@@ -100,8 +103,8 @@ const viewLabel = (v: DesktopView) =>
         <slot name="command" />
       </div>
 
-      <!-- Battle deck — same morphing rule. -->
-      <div v-if="hasBattleDeck" v-show="isMobile ? activePane === 'battle' : desktopView === 'battle'" class="min-w-0">
+      <!-- Battle deck (Standard) or Recon Battle Cards reference — same morphing rule. -->
+      <div v-if="hasBattleTab" v-show="isMobile ? activePane === 'battle' : desktopView === 'battle'" class="min-w-0">
         <slot name="battle" />
       </div>
 

@@ -1,0 +1,207 @@
+{
+  "_comment": "Owner-maintained map: AMG source document -> human label + month/year (YYYY-MM). Backs the Card Sources reference (Feature 18). Dates for SWQ/SWL per-product packs and owner photos are left blank for the owner to fill; card validity does not depend on the date. Regenerate the seed shape but hand-refine values.",
+  "AdeptiCon2026_MercRoadmap": {
+    "label": "AdeptiCon 2026 Merc Roadmap (preview)",
+    "date": "2026-03"
+  },
+  "AdeptiCon2026_RebelRoadmap": {
+    "label": "AdeptiCon 2026 Rebel Roadmap (preview)",
+    "date": "2026-03"
+  },
+  "AdeptiCon2026_RepublicRoadmap": {
+    "label": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03"
+  },
+  "AdeptiCon2026_SeparatistRoadmap": {
+    "label": "AdeptiCon 2026 Separatist Roadmap (preview)",
+    "date": "2026-03"
+  },
+  "DOC13_GalacticEmpire_Commands.pdf": {
+    "label": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04"
+  },
+  "DOC13_Mercenary_Ewoks.pdf": {
+    "label": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04"
+  },
+  "DOC13_Mercenary_Units.pdf": {
+    "label": "2025 Card Update — Mercenary Units",
+    "date": "2025-04"
+  },
+  "DOC13_Mercenary_Upgrades.pdf": {
+    "label": "2025 Card Update — Mercenary Upgrades",
+    "date": "2025-04"
+  },
+  "DOC13_RebelAlliance_Commands.pdf": {
+    "label": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04"
+  },
+  "DOC13_ReconRulebook_04302025.pdf": {
+    "label": "Recon Rulebook",
+    "date": "2025-04"
+  },
+  "DOC13_SeparatistAlliance_Commands.pdf": {
+    "label": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04"
+  },
+  "DOC41_BattleCards_11.26.2025.pdf": {
+    "label": "Battle Cards Update",
+    "date": "2025-11"
+  },
+  "DOC51_GalacticEmpire_Units.pdf": {
+    "label": "April 2026 Update — GalacticEmpire Units",
+    "date": "2026-04"
+  },
+  "DOC51_GalacticEmpire_Upgrades.pdf": {
+    "label": "April 2026 Update — GalacticEmpire Upgrades",
+    "date": "2026-04"
+  },
+  "DOC51_GalacticRepublic_Units.pdf": {
+    "label": "April 2026 Update — GalacticRepublic Units",
+    "date": "2026-04"
+  },
+  "DOC51_GalacticRepublic_Upgrades.pdf": {
+    "label": "April 2026 Update — GalacticRepublic Upgrades",
+    "date": "2026-04"
+  },
+  "DOC51_Generic_Upgrades.pdf": {
+    "label": "April 2026 Update — Generic Upgrades",
+    "date": "2026-04"
+  },
+  "DOC51_Mercenary_Commands_05-01_Update.pdf": {
+    "label": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05"
+  },
+  "DOC51_RebelAlliance_Units.pdf": {
+    "label": "April 2026 Update — RebelAlliance Units",
+    "date": "2026-04"
+  },
+  "DOC51_RebelAlliance_Upgrades.pdf": {
+    "label": "April 2026 Update — RebelAlliance Upgrades",
+    "date": "2026-04"
+  },
+  "DOC51_SeparatistAlliance_Units_05-01_Update.pdf": {
+    "label": "April 2026 Update — SeparatistAlliance Units",
+    "date": "2026-05"
+  },
+  "DOC51_SeparatistAlliance_Upgrades.pdf": {
+    "label": "April 2026 Update — SeparatistAlliance Upgrades",
+    "date": "2026-04"
+  },
+  "DOC51_UpgradeCards.pdf": {
+    "label": "April 2026 Update — UpgradeCards",
+    "date": "2026-04"
+  },
+  "DOC56_ClanSaxonErrata": {
+    "label": "June 2026 Mandalorian Update — ClanSaxonErrata",
+    "date": "2026-06"
+  },
+  "DOC56_ErrataReference-2.pdf": {
+    "label": "June 2026 Mandalorian Update — ErrataReference",
+    "date": "2026-06"
+  },
+  "DOC56_Mandalorian_BattleForceCards": {
+    "label": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06"
+  },
+  "DOC56_Mandalorian_BattleForceCards.pdf": {
+    "label": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06"
+  },
+  "OwnerPhotos_BattleDeckCardPackII": {
+    "label": "Owner photos — BattleDeckCardPackII",
+    "date": ""
+  },
+  "SWL134_ImperialRiotControl": {
+    "label": "SWL134 — Imperial Riot Control",
+    "date": ""
+  },
+  "SWQ09_ImperialOfficerAgent": {
+    "label": "SWQ09 — Imperial Officer Agent",
+    "date": ""
+  },
+  "SWQ12_ScoutTroopers": {
+    "label": "SWQ12 — Scout Troopers",
+    "date": ""
+  },
+  "SWQ134_LM432CrabDroid": {
+    "label": "SWQ134 — L M432 Crab Droid",
+    "date": ""
+  },
+  "SWQ135_ARFTroopers": {
+    "label": "SWQ135 — A R F Troopers",
+    "date": ""
+  },
+  "SWQ136_AquaDroids": {
+    "label": "SWQ136 — Aqua Droids",
+    "date": ""
+  },
+  "SWQ13_RebelOfficerAgent": {
+    "label": "SWQ13 — Rebel Officer Agent",
+    "date": ""
+  },
+  "SWQ20_CustomizableJedi": {
+    "label": "SWQ20 — Customizable Jedi",
+    "date": ""
+  },
+  "SWQ22_AhsokaTano": {
+    "label": "SWQ22 — Ahsoka Tano",
+    "date": ""
+  },
+  "SWQ23_Marksmen_DevStream": {
+    "label": "SWQ23 — Marksmen_ Dev Stream",
+    "date": ""
+  },
+  "SWQ29_SuperTacticalCommandDroid": {
+    "label": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09"
+  },
+  "SWQ31_GrievousWheelBike": {
+    "label": "SWQ31 — Grievous Wheel Bike",
+    "date": ""
+  },
+  "SWQ32_TSMEU_BoxRender": {
+    "label": "SWQ32 — T S M E U_ Box Render",
+    "date": ""
+  },
+  "SWQ41_TauntaunHeroes": {
+    "label": "SWQ41 — Tauntaun Heroes",
+    "date": ""
+  },
+  "SWQ42_ImperialHighCommand": {
+    "label": "SWQ42 — Imperial High Command",
+    "date": ""
+  },
+  "SWQ45_HondoWeequay": {
+    "label": "SWQ45 — Hondo Weequay",
+    "date": ""
+  },
+  "SWQ56_UrsaWren": {
+    "label": "SWQ56 — Ursa Wren",
+    "date": ""
+  },
+  "SWQ59_WLO5": {
+    "label": "SWQ59 — W L O5",
+    "date": ""
+  },
+  "SWQ69_MandoSuperCommandos": {
+    "label": "SWQ69 — Mando Super Commandos",
+    "date": ""
+  },
+  "SWQ81_MandoWarriors": {
+    "label": "SWQ81 — Mando Warriors",
+    "date": ""
+  },
+  "SWQ82_MandoLeaders": {
+    "label": "SWQ82 — Mando Leaders",
+    "date": ""
+  },
+  "SWQ98_ImperialProbeDroid": {
+    "label": "SWQ98 — Imperial Probe Droid",
+    "date": ""
+  },
+  "SWQ_GalacticRepublic_Commands.pdf": {
+    "label": "SWQ_GalacticRepublic_Commands — ",
+    "date": ""
+  }
+}

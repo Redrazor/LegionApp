@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.3.0',
+    date: '2026-07-02',
+    changes: [
+      'Reference: new Card Sources tab — a searchable audit of every unit, upgrade, command and battle card showing where its card was sourced from and when, with a Valid/Unknown badge. Valid cards link straight to their Browse card view; cards still on a legacy scan or awaiting an image are flagged Unknown.',
+      'Added the 11 Super Tactical Command Droid customizable upgrade cards (Limiter Override, Targeting Relay, Overclock, Sliced Comms, Optimized Task Flow, Enhanced Combat Subroutines, Strategic Programming, Heavy Arm Cannon, Electrostaff, Mobility Upgrade, Expanded Databanks) — their card images now show in Browse instead of the pending placeholder.',
+    ],
+  },
+  {
     version: '2.2.0',
     date: '2026-07-02',
     changes: [

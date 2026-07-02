@@ -775,6 +775,127 @@
             "width": 730,
             "height": 1039
           }
+        },
+        {
+          "category": "upgrades",
+          "slug": "sliced-comms",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan2.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "overclock",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan2.png",
+          "crop": {
+            "left": 730,
+            "top": 0,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "targeting-relay",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan2.png",
+          "crop": {
+            "left": 0,
+            "top": 1077,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "limiter-override",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan2.png",
+          "crop": {
+            "left": 730,
+            "top": 1077,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "optimized-task-flow",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan3.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "strategic-programming",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan3.png",
+          "crop": {
+            "left": 730,
+            "top": 0,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "enhanced-combat-subroutines",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan3.png",
+          "crop": {
+            "left": 376,
+            "top": 1077,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "electrostaff",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan4.png",
+          "crop": {
+            "left": 0,
+            "top": 0,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "heavy-arm-cannon",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan4.png",
+          "crop": {
+            "left": 730,
+            "top": 0,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "mobility-upgrade",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan4.png",
+          "crop": {
+            "left": 0,
+            "top": 1077,
+            "width": 730,
+            "height": 1066
+          }
+        },
+        {
+          "category": "upgrades",
+          "slug": "expanded-databanks",
+          "url": "https://cdn.svc.asmodee.net/production-amgcom/uploads/2025/09/SWQ29_UpgradeCard_Fan4.png",
+          "crop": {
+            "left": 730,
+            "top": 1077,
+            "width": 730,
+            "height": 1066
+          }
         }
       ]
     },

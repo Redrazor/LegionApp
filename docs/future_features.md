@@ -246,6 +246,30 @@ unrestricted upgrades when no character filter is active.
 
 ---
 
+## Feature 17 — Print list refinements (per-card keywords + primary-objective fit)
+
+**Status:** SHIPPED v2.1.0 (`feature/print-list-refinements`). Owner-requested 2026-07-02.
+
+**What shipped:**
+- **Per-card keyword reference.** When the Print Options include *both* "Keyword reference" and
+  "Unit cards", the army-wide alphabetical Keyword Reference section is suppressed and each unit's
+  own keywords (unit + weapon, resolved to glossary text, alphabetised) print beside its card in the
+  Unit Cards section (card left ~46%, keywords right). Printing the reference *without* unit cards
+  keeps the alphabetical list exactly as before. A unit's per-card list also folds in keywords
+  granted by its **equipped upgrades** (e.g. Tactical from a training), flagged `fromUpgrade` and
+  rendered italic with a "from upgrade" tag (an intrinsic keyword is never flagged, even if an
+  upgrade also grants it).
+- **One unit card per page when its reference is long.** Each per-card block is `break-inside: avoid`,
+  so a long keyword list flows that unit onto its own page instead of clipping; short lists still
+  pack two per page.
+- **Primary objectives fit A4.** Primary objective scans fold the deployment "map" into a tall
+  (726×1422) card that clipped in the 2-up grid. They now print one-per-page, height-capped
+  (`.ps-tall-card { max-height: 250mm }`) to the full A4 sheet; secondary/advantage cards keep the
+  compact 2-up grid. Added an explicit `@page { size: A4; margin: 10mm }` for deterministic geometry.
+- **Impl:** `ArmySheetCard.keywords?` + `unitCardKeywords()` (pure, tested) in `utils/army.ts`;
+  `distinctCards()` stamps unit cards via a `keywordsFor` resolver; template changes in
+  `PrintSheet.vue`; print CSS in `style.css`.
+
 ## Feature 16 — Mandatory-equip keyword validation (+ Tarkin keyword fix)
 
 **Status:** SHIPPED v1.30.0 (`feature/mandatory-equip-keywords`). Surfaced by owner 2026-06-30 while

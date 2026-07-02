@@ -1231,9 +1231,17 @@ export interface ArmySheetUpgrade { name: string; cost: number; slot: string } /
 export interface ArmySheetUnit { name: string; title: string; qty: number; cost: number; portrait: string | null; upgrades: ArmySheetUpgrade[] }
 export interface ArmySheetRank { rank: Rank; label: string; units: ArmySheetUnit[] }
 /** A printable full-card image entry, deduped by id with a total-copies count. */
-export interface ArmySheetCard { name: string; cardImage: string | null; qty: number }
-/** A resolved keyword + its glossary definition, for the print reference. */
-export interface ArmySheetKeyword { name: string; text: string }
+/** A resolved keyword + its glossary definition, for the print reference. `fromUpgrade`
+ * marks a keyword a unit only has because of an equipped upgrade (per-card reference). */
+export interface ArmySheetKeyword { name: string; text: string; fromUpgrade?: boolean }
+export interface ArmySheetCard {
+  name: string
+  cardImage: string | null
+  qty: number
+  // This card's own resolved keywords (unit + weapon), for the per-card keyword
+  // reference in the Unit Cards print section. Only populated for unit cards.
+  keywords?: ArmySheetKeyword[]
+}
 export interface ArmySheet {
   name: string
   factionName: string
@@ -1334,7 +1342,29 @@ export function buildArmySheet(
 
   // Distinct full-card images for the proxy/print-and-play sections, deduped by id
   // (same card isn't repeated per loadout) but carrying the army-wide copy count.
-  const unitCards = distinctCards(army.units.map((au) => au.unitId), unitsById)
+  // Equipped upgrades per unit id (union across all copies of that unit), so the per-card
+  // keyword reference can fold in upgrade-granted keywords (e.g. Tactical from a training).
+  const equippedByUnitId = new Map<string, Upgrade[]>()
+  if (glossary) {
+    for (const au of army.units) {
+      const list = equippedByUnitId.get(au.unitId) ?? []
+      for (const x of au.upgrades) {
+        const up = upgradesById.get(x.upgradeId)
+        if (up && !list.includes(up)) list.push(up)
+      }
+      equippedByUnitId.set(au.unitId, list)
+    }
+  }
+  const unitCards = distinctCards(
+    army.units.map((au) => au.unitId),
+    unitsById,
+    glossary
+      ? (id) => {
+          const u = unitsById.get(id)
+          return u ? unitCardKeywords(u, glossary, equippedByUnitId.get(id) ?? []) : []
+        }
+      : undefined,
+  )
   const upgradeCards = distinctCards(
     army.units.flatMap((au) => au.upgrades.map((x) => x.upgradeId)),
     upgradesById,
@@ -1394,12 +1424,44 @@ export function armyKeywordReference(
 }
 
 /**
+ * A single unit's keywords for the per-card print reference — its unit-type rule,
+ * intrinsic keywords and weapon keywords, plus any keywords granted by the equipped
+ * `upgrades`. Resolved to glossary entries, deduped and alphabetised. Upgrade-granted
+ * keywords carry `fromUpgrade: true` so the sheet can flag them; a keyword the unit has
+ * intrinsically is never flagged, even if an upgrade also grants it.
+ */
+export function unitCardKeywords(unit: Unit, glossary: Glossary, upgrades: Upgrade[] = []): ArmySheetKeyword[] {
+  const byName = new Map<string, ArmySheetKeyword>()
+  const add = (kw: string, fromUpgrade: boolean) => {
+    const entry = resolveKeywordEntry(glossary, kw)
+    if (!entry) return
+    const existing = byName.get(entry.name)
+    if (existing) {
+      // An intrinsic source outranks an upgrade one — clear the flag if reclaimed.
+      if (!fromUpgrade) delete existing.fromUpgrade
+      return
+    }
+    const e: ArmySheetKeyword = { name: entry.name, text: entry.text }
+    if (fromUpgrade) e.fromUpgrade = true
+    byName.set(entry.name, e)
+  }
+  const typeKey = unitTypeRuleKey(unit.unitType)
+  if (typeKey) add(typeKey, false)
+  for (const kw of unit.keywords) add(kw, false)
+  for (const w of unit.weapons ?? []) for (const kw of w.keywords ?? []) add(kw, false)
+  for (const up of upgrades) for (const kw of up.keywords) add(kw, true)
+  return [...byName.values()].sort((a, b) => a.name.localeCompare(b.name))
+}
+
+/**
  * Collapse a list of card ids into distinct entries (first-seen order) carrying a
  * total-copies count and the card's scan. Shared by the unit/upgrade proxy sections.
+ * `keywordsFor`, when given, stamps each distinct card with its own keyword reference.
  */
 function distinctCards(
   ids: string[],
   byId: Map<string, { name: string; cardImage: string | null }>,
+  keywordsFor?: (id: string) => ArmySheetKeyword[],
 ): ArmySheetCard[] {
   const out: ArmySheetCard[] = []
   const seen = new Map<string, ArmySheetCard>()
@@ -1411,6 +1473,7 @@ function distinctCards(
     }
     const card = byId.get(id)
     const entry: ArmySheetCard = { name: card?.name ?? id, cardImage: card?.cardImage ?? null, qty: 1 }
+    if (keywordsFor) entry.keywords = keywordsFor(id)
     seen.set(id, entry)
     out.push(entry)
   }

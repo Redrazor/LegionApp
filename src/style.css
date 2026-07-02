@@ -110,6 +110,8 @@ body, nav, aside, footer, .theme-tx {
 .print-sheet { display: none; }
 
 @media print {
+  /* Deterministic A4 geometry so card sections can size against a known page. */
+  @page { size: A4; margin: 10mm; }
   .no-print { display: none !important; }
   html, body { background: #fff; color: #000; }
   /* Show only the print sheet; hide the live app AND every other body-level node —
@@ -117,4 +119,10 @@ body, nav, aside, footer, .theme-tx {
      which would otherwise print over the sheet. */
   body > *:not(.print-sheet) { display: none !important; }
   .print-sheet { display: block !important; }
+  /* Tall primary-objective cards (rules + deployment map) — cap the height so the whole
+     card fits on ONE page instead of clipping the map across a page break. `vh` in print
+     maps to the actual page box, so 92vh auto-adapts to portrait (~277mm) OR a
+     landscape override (~190mm); the 250mm ceiling guarantees portrait never overflows
+     even if a browser mis-maps vh. */
+  .print-sheet .ps-tall-card { max-height: min(250mm, 92vh); width: auto; max-width: 100%; }
 }

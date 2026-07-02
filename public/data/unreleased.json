@@ -148,6 +148,178 @@
     "the-darksaber-maul": {
       "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
       "noImage": true
+    },
+    "combat-armor": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "combat-armor-2": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "combat-shields": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "command-and-control-uplink": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "dlt-19d-trooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "dlt-19x-sniper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "dlt-20a-range-trooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "double-bladed-lightsaber": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "flame-projector": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "heavy-blaster-pistol": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "heavy-blaster-pistol-2": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "heavy-laser-cannon": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "hh-12-stormtrooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "imperial-comms-technician": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "imperial-dark-trooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "imperial-tie-pilot": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-consular": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-guardian": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-guardian-2": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-negotiator": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-training": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-training-2": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-training-3": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "jedi-training-4": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "lightsaber": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "micro-grenade-launcher": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "personal-combat-shield": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "pintle-mounted-dlt-19": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "repeating-blaster": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "rt-97c-stormtrooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "shaak-ti": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "shoretrooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "shoretrooper-squad": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "stormtrooper-captain": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "stun-baton": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "t-21-special-forces-trooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "t-21a-range-trooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "t-21b-shoretrooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "t-7-ion-snowtrooper": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "thermal-detonator": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "twin-lightsabers": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "vibro-axe": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
+    },
+    "z-6-riot-baton": {
+      "note": "No first-party AMG print-and-play scan yet — shows the image-pending placeholder. (v1/v2 status pending per-card verification; over-dropped by the 2.0 reconciliation and restored so unit loadouts keep the option.)",
+      "noImage": true
     }
   }
 }

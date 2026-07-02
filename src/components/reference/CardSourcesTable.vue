@@ -24,8 +24,9 @@ const summary = computed(() => sourceSummary(filtered.value))
   <div>
     <p class="mb-4 text-sm leading-relaxed text-lg-muted">
       Where each card was sourced from, and when. <span class="text-lg-text/85">Valid</span> cards are sourced
-      from an official AMG document (tap to open the card); <span class="text-lg-text/85">Unknown</span> cards
-      still use the legacy scan or are awaiting an image.
+      from an official AMG document; <span class="text-lg-text/85">Unknown</span> cards still use the legacy
+      scan or are awaiting an image. Unit, upgrade and command rows (marked <span class="text-lg-accent">↗</span>)
+      open the card; battle cards are reference-only.
     </p>
 
     <!-- Filters -->
@@ -61,35 +62,45 @@ const summary = computed(() => sourceSummary(filtered.value))
       No cards match.
     </p>
 
-    <!-- Rows -->
+    <!-- Rows. Browsable cards (units/upgrades/commands) are whole-row links to the card
+         drawer; battle cards have no Browse view, so their row is inert (labelled). -->
     <ul v-else class="space-y-1.5">
-      <li
-        v-for="c in filtered" :key="`${c.category}:${c.slug}`"
-        class="flex items-center gap-3 rounded-lg border border-lg-border bg-lg-surface px-3 py-2.5"
-      >
-        <div class="min-w-0 flex-1">
-          <div class="flex flex-wrap items-baseline gap-x-2">
-            <component
-              :is="browseLinkFor(c) ? 'router-link' : 'span'"
-              :to="browseLinkFor(c) ?? undefined"
-              class="truncate font-medium text-lg-text"
-              :class="browseLinkFor(c) ? 'hover:text-lg-accent hover:underline' : ''"
-            >{{ c.name }}</component>
-            <span v-if="c.title" class="truncate text-xs italic text-lg-muted">{{ c.title }}</span>
-            <span class="rounded bg-lg-dark px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-lg-muted">{{ CARD_CATEGORY_LABELS[c.category] }}</span>
+      <li v-for="c in filtered" :key="`${c.category}:${c.slug}`">
+        <component
+          :is="browseLinkFor(c) ? 'router-link' : 'div'"
+          :to="browseLinkFor(c) ?? undefined"
+          class="group flex items-center gap-3 rounded-lg border border-lg-border bg-lg-surface px-3 py-2.5 transition-colors"
+          :class="browseLinkFor(c) ? 'cursor-pointer hover:border-lg-accent/50 hover:bg-lg-accent/[0.06]' : ''"
+        >
+          <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-baseline gap-x-2">
+              <span
+                class="truncate font-medium"
+                :class="browseLinkFor(c) ? 'text-lg-accent group-hover:underline' : 'text-lg-text'"
+              >{{ c.name }}</span>
+              <span v-if="c.title" class="truncate text-xs italic text-lg-muted">{{ c.title }}</span>
+              <span class="rounded bg-lg-dark px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-lg-muted">{{ CARD_CATEGORY_LABELS[c.category] }}</span>
+            </div>
+            <div class="mt-0.5 truncate text-xs text-lg-muted">{{ c.source }}</div>
           </div>
-          <div class="mt-0.5 truncate text-xs text-lg-muted">{{ c.source }}</div>
-        </div>
 
-        <div class="flex flex-none items-center gap-3 text-right">
-          <span class="hidden text-xs text-lg-muted sm:inline whitespace-nowrap">{{ formatSourceDate(c.date) }}</span>
-          <span
-            class="rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide"
-            :class="c.validity === 'valid'
-              ? 'bg-lg-accent/15 text-lg-accent'
-              : 'bg-faction-rebels/15 text-faction-rebels'"
-          >{{ c.validity }}</span>
-        </div>
+          <div class="flex flex-none items-center gap-3 text-right">
+            <span class="hidden text-xs text-lg-muted sm:inline whitespace-nowrap">{{ formatSourceDate(c.date) }}</span>
+            <span
+              class="rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide"
+              :class="c.validity === 'valid'
+                ? 'bg-lg-accent/15 text-lg-accent'
+                : 'bg-faction-rebels/15 text-faction-rebels'"
+            >{{ c.validity }}</span>
+            <!-- Affordance: ↗ opens the card; battle cards show a dash (no card view). -->
+            <span
+              class="w-3 flex-none text-center text-xs"
+              :class="browseLinkFor(c) ? 'text-lg-muted group-hover:text-lg-accent' : 'text-lg-border'"
+              :title="browseLinkFor(c) ? 'Open card' : 'No card view'"
+              aria-hidden="true"
+            >{{ browseLinkFor(c) ? '↗' : '·' }}</span>
+          </div>
+        </component>
       </li>
     </ul>
   </div>

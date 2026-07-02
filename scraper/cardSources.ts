@@ -59,6 +59,11 @@ const SELF_SOURCED: DocMeta = { label: 'June 2026 Mandalorian Update (self-sourc
 const LEGACY: string = 'Legacy scan (Legion HQ 2) — not yet officially sourced'
 const IMAGE_PENDING: string = 'Image pending (no source yet)'
 
+// Display order: browsable types first (their rows link to a card drawer), battle cards
+// last (no Browse section → not clickable), so the table doesn't open on unclickable rows.
+const CATEGORY_ORDER: CardCategory[] = ['units', 'upgrades', 'commands', 'battle']
+const catRank = (c: CardCategory) => CATEGORY_ORDER.indexOf(c)
+
 /**
  * Resolve every catalogue card to its source provenance. Cards dropped from the app
  * (v1 removals) are omitted. Sorted by category then display name.
@@ -93,5 +98,5 @@ export function buildCardSources(
       validity: 'unknown',
     })
   }
-  return out.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name))
+  return out.sort((a, b) => catRank(a.category) - catRank(b.category) || a.name.localeCompare(b.name))
 }

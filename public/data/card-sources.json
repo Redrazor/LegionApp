@@ -1,2229 +1,5 @@
 [
   {
-    "category": "battle",
-    "slug": "advanced-intel",
-    "name": "Advanced Intel",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "advanced-intel-2",
-    "name": "Advanced Intel",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "align-the-relay",
-    "name": "Align the Relay",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "armored-assault",
-    "name": "Armored Assault",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "black-ops",
-    "name": "Black Ops",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "breakthrough",
-    "name": "Breakthrough",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "bring-them-to-heel",
-    "name": "Bring Them to Heel",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "bring-them-to-heel-2",
-    "name": "Bring Them to Heel",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "bunker-assault",
-    "name": "Bunker Assault",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "bunker-assault-2",
-    "name": "Bunker Assault",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "cauldron",
-    "name": "Cauldron",
-    "source": "June 2026 Mandalorian Update — ErrataReference",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "close-the-pocket",
-    "name": "Close the Pocket",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "close-the-pocket-2",
-    "name": "Close the Pocket",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "command-override",
-    "name": "Command Override",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "contact-contact",
-    "name": "Contact, Contact!",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "coordinated-strike",
-    "name": "Coordinated Strike",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "cunning-deployment",
-    "name": "Cunning Deployment",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "cunning-deployment-2",
-    "name": "Cunning Deployment",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "destroy-enemy-base",
-    "name": "Destroy Enemy Base",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "extreme-discipline",
-    "name": "Extreme Discipline",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "failed-negotiations",
-    "name": "Failed Negotiations",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "fortified-position",
-    "name": "Fortified Position",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "fortified-position-2",
-    "name": "Fortified Position",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "garrison",
-    "name": "Garrison",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "intercept-signals",
-    "name": "Intercept Signals",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "intercept-signals-2",
-    "name": "Intercept Signals",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "marked-targets",
-    "name": "Marked Targets",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "no-time-to-lose",
-    "name": "No Time to Lose",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "ordnance",
-    "name": "Ordnance",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "outflank",
-    "name": "Outflank",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "payload",
-    "name": "Payload",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "rapid-deployment",
-    "name": "Rapid Deployment",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "recon-mission",
-    "name": "Recon Mission",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "recon-mission-2",
-    "name": "Recon Mission",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "recover-the-research",
-    "name": "Recover the Research",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "retrieve-the-data",
-    "name": "Retrieve the Data",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "scrambled-orders",
-    "name": "Scrambled Orders",
-    "source": "Owner photos — BattleDeckCardPackII",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "shifting-priorities",
-    "name": "Shifting Priorities",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "strafing-run",
-    "name": "Strafing Run",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "supply-run",
-    "name": "Supply Run",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "surface-scan",
-    "name": "Surface Scan",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "surface-scan-2",
-    "name": "Surface Scan",
-    "source": "Recon Rulebook",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "battle",
-    "slug": "sweep-and-clear",
-    "name": "Sweep and Clear",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "a-beautiful-friendship",
-    "name": "A Beautiful Friendship",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "a-disturbance-in-the-force",
-    "name": "A Disturbance in the Force",
-    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
-    "date": "2026-03",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "a-higher-purpose",
-    "name": "A Higher Purpose",
-    "source": "SWQ82 — Mando Leaders",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "a-machine-made-for-killing",
-    "name": "A Machine Made For Killing",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "a-new-beginning",
-    "name": "A New Beginning",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "a-simple-man",
-    "name": "A Simple Man",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "ace-up-his-sleeve",
-    "name": "Ace Up His Sleeve",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "aerial-assault",
-    "name": "Aerial Assault",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "affirmative-general",
-    "name": "Affirmative, General!",
-    "source": "SWQ20 — Customizable Jedi",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "aggression",
-    "name": "Aggression",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "aggressive-negotiations",
-    "name": "Aggressive Negotiations",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "ai-coordination",
-    "name": "AI Coordination",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "air-support",
-    "name": "Air Support",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "ambush",
-    "name": "Ambush",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "annihilation-looms",
-    "name": "Annihilation Looms",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "anti-capture-protocols",
-    "name": "Anti-Capture Protocols",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "arboreal-assault",
-    "name": "Arboreal Assault",
-    "source": "2025 Card Update — Mercenary Ewoks",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "architects-of-their-own-destruction",
-    "name": "Architects of Their Own Destruction",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "armored-cavalry",
-    "name": "Armored Cavalry",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "assault",
-    "name": "Assault",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "at-last",
-    "name": "At Last",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "attack-of-the-clones",
-    "name": "Attack of the Clones",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "battlefield-reconnaissance",
-    "name": "Battlefield Reconnaissance",
-    "source": "SWQ13 — Rebel Officer Agent",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "blast-off",
-    "name": "Blast Off!",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "both-hunter-and-prey",
-    "name": "Both Hunter and Prey",
-    "source": "SWQ82 — Mando Leaders",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "brains-and-brawn",
-    "name": "Brains and Brawn",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "bring-it-down",
-    "name": "Bring It Down!",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "brutal-enforcer",
-    "name": "Brutal Enforcer",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "call-me-captain",
-    "name": "Call Me Captain",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "canny-adversary",
-    "name": "Canny Adversary",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "change-of-plans",
-    "name": "Change of Plans",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "close-call",
-    "name": "Close Call",
-    "source": "2025 Card Update — Mercenary Ewoks",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "close-formation",
-    "name": "Close Formation",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "combined-arms",
-    "name": "Combined Arms",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "come-and-prove-it",
-    "name": "Come and Prove It",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "common-cause",
-    "name": "Common Cause",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "concussive-blast",
-    "name": "Concussive Blast",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "constantly-alert",
-    "name": "Constantly Alert",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "coordinated-bombardment",
-    "name": "Coordinated Bombardment",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "coordinated-fire",
-    "name": "Coordinated Fire",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "corellian-spike",
-    "name": "Corellian Spike",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "courage-of-the-rebellion",
-    "name": "Courage of the Rebellion",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "courageous-counterattack",
-    "name": "Courageous Counterattack",
-    "source": "2025 Card Update — Mercenary Ewoks",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "covering-fire",
-    "name": "Covering Fire",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "covert-observation",
-    "name": "Covert Observation",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "crack-shot",
-    "name": "Crack Shot",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "crush-them",
-    "name": "Crush Them!",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "daring-defense",
-    "name": "Daring Defense",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "darkness-descends",
-    "name": "Darkness Descends",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "death-before-defeat",
-    "name": "Death Before Defeat",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "debark-for-ground-assault",
-    "name": "Debark for Ground Assault",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "defiance",
-    "name": "Defiance",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "delaying-tactics",
-    "name": "Delaying Tactics",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "deploy-the-garrison",
-    "name": "Deploy the Garrison",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "die-at-my-hand",
-    "name": "Die at My Hand",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "diplomatic-cover",
-    "name": "Diplomatic Cover",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "discretion",
-    "name": "Discretion",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "diversionary-tactics",
-    "name": "Diversionary Tactics",
-    "source": "SWQ13 — Rebel Officer Agent",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "do-not-underestimate-our-means",
-    "name": "Do Not Underestimate Our Means",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "double-the-fall",
-    "name": "Double the Fall",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "drive-them-out",
-    "name": "Drive Them Out",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "duel-of-the-fates",
-    "name": "Duel of the Fates",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "evasive-action",
-    "name": "Evasive Action",
-    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
-    "date": "2026-03",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "evasive-maneuvers",
-    "name": "Evasive Maneuvers",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "explosions",
-    "name": "Explosions!",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "exterminate",
-    "name": "Exterminate",
-    "source": "SWQ29 — Customizable Super Tactical Command Droids",
-    "date": "2025-09",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "face-me",
-    "name": "Face Me!",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "family-reunion",
-    "name": "Family Reunion",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "fear-and-dead-men",
-    "name": "Fear and Dead Men",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "fear-will-keep-them-in-line",
-    "name": "Fear Will Keep Them in Line",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "fear-surprise-intimidation",
-    "name": "Fear, Surprise, Intimidation",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "fearsome-oration",
-    "name": "Fearsome Oration",
-    "source": "SWQ09 — Imperial Officer Agent",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "fight-another-day",
-    "name": "Fight Another Day",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "flexible-strategy",
-    "name": "Flexible Strategy",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "flow-of-the-force",
-    "name": "Flow of the Force",
-    "source": "SWQ20 — Customizable Jedi",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "focused-on-the-kill",
-    "name": "Focused on the Kill",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "for-the-cause",
-    "name": "For the Cause",
-    "source": "AdeptiCon 2026 Separatist Roadmap (preview)",
-    "date": "2026-03",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "for-the-tribe",
-    "name": "For the Tribe",
-    "source": "2025 Card Update — Mercenary Ewoks",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "force-of-will",
-    "name": "Force of Will",
-    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
-    "date": "2026-03",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "full-of-surprises",
-    "name": "Full of Surprises",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "full-throttle",
-    "name": "Full Throttle",
-    "source": "SWQ31 — Grievous Wheel Bike",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "general-kenobi",
-    "name": "General Kenobi",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "general-skywalker",
-    "name": "General Skywalker",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "get-in-position",
-    "name": "Get In Position",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "go-there-are-too-many",
-    "name": "Go, There Are Too Many...",
-    "source": "SWQ82 — Mando Leaders",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "gunner-infantry",
-    "name": "Gunner, Infantry!",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "have-i-ever-let-you-down",
-    "name": "Have I Ever Let You Down?",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "hello-there",
-    "name": "Hello There!",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "hiding-in-plain-sight",
-    "name": "Hiding in Plain Sight",
-    "source": "2025 Card Update — Mercenary Ewoks",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "his-eminence",
-    "name": "His Eminence",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "hold-at-any-cost",
-    "name": "Hold at Any Cost",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "honor-and-strength",
-    "name": "Honor and Strength",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
-  },
-  {
-    "category": "commands",
-    "slug": "i-am-a-jedi",
-    "name": "I am a Jedi",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-am-fear",
-    "name": "I Am Fear",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-am-no-jedi",
-    "name": "I Am No Jedi",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-care-not-for-your-struggles",
-    "name": "I Care Not For Your Struggles",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-dont-believe-in-chance",
-    "name": "I Don't Believe in Chance",
-    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
-    "date": "2026-03",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-go-where-im-needed",
-    "name": "I Go Where I'm Needed",
-    "source": "SWQ22 — Ahsoka Tano",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-have-graphs-and-the-command",
-    "name": "I Have Graphs AND the Command",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-like-those-odds",
-    "name": "I Like Those Odds",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-make-the-rules-now",
-    "name": "I Make the Rules Now",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-rebel",
-    "name": "I Rebel",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-smell-fear-and-it-smells-good",
-    "name": "I Smell Fear... and it Smells Good",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
-  },
-  {
-    "category": "commands",
-    "slug": "i-smell-profit",
-    "name": "I Smell Profit",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "i-want-you-to-know-failure",
-    "name": "I Want You to Know Failure",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "ill-do-it-myself",
-    "name": "I'll Do it Myself!",
-    "source": "SWQ31 — Grievous Wheel Bike",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "im-in-control",
-    "name": "I'm in Control",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "im-your-worst-nightmare",
-    "name": "I'm Your Worst Nightmare",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "idiots-array",
-    "name": "Idiot's Array",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "imperial-discipline",
-    "name": "Imperial Discipline",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "implacable",
-    "name": "Implacable",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "impromptu-immolation",
-    "name": "Impromptu Immolation",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "incapacitate",
-    "name": "Incapacitate",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "independent-programming",
-    "name": "Independent Programming",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "inexorable-advance",
-    "name": "Inexorable Advance",
-    "source": "SWQ09 — Imperial Officer Agent",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "insolence-we-are-pirates",
-    "name": "Insolence?! We are Pirates!",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "isb-investigation",
-    "name": "ISB Investigation",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "knowledge-and-defense",
-    "name": "Knowledge and Defense",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "last-stand",
-    "name": "Last Stand",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "lead-from-the-front",
-    "name": "Lead From the Front",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "leaders-of-the-501st",
-    "name": "Leaders of the 501st",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "legacy-of-mandalore",
-    "name": "Legacy of Mandalore",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "let-the-executions-begin",
-    "name": "Let the Executions Begin!",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "log-traps",
-    "name": "Log Traps",
-    "source": "2025 Card Update — Mercenary Ewoks",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "luminous-beings-are-we",
-    "name": "Luminous Beings Are We",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "lying-in-wait",
-    "name": "Lying In Wait",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "make-the-impossible-possible",
-    "name": "Make the Impossible Possible",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "making-his-way-in-the-galaxy",
-    "name": "Making His Way in the Galaxy",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "mandalore-will-survive",
-    "name": "Mandalore Will Survive",
-    "source": "SWQ82 — Mando Leaders",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "marked-for-elimination",
-    "name": "Marked For Elimination",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "master-of-evil",
-    "name": "Master of Evil",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "maximum-firepower",
-    "name": "Maximum Firepower",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "mechanical-carnage",
-    "name": "Mechanical Carnage",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "mechanized-incursion",
-    "name": "Mechanized Incursion",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "merciless-munitions",
-    "name": "Merciless Munitions",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "moment-of-consideration",
-    "name": "Moment of Consideration",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "moment-of-triumph",
-    "name": "Moment of Triumph",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "my-ally-is-the-force",
-    "name": "My Ally is the Force",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "new-ways-to-motivate-them",
-    "name": "New Ways to Motivate Them",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "no-escape",
-    "name": "No Escape",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
-  },
-  {
-    "category": "commands",
-    "slug": "no-one-threatens-our-family",
-    "name": "No One Threatens Our Family",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "no-time-for-sorrows",
-    "name": "No Time for Sorrows",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "not-out-of-it-yet",
-    "name": "Not Out of it Yet",
-    "source": "SWQ41 — Tauntaun Heroes",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "notorious-scoundrels",
-    "name": "Notorious Scoundrels",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "on-patrol",
-    "name": "On Patrol",
-    "source": "SWQ41 — Tauntaun Heroes",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "orbital-strike",
-    "name": "Orbital Strike",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "our-fate-is-in-your-hands",
-    "name": "Our Fate is in Your Hands",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "out-of-the-shadows",
-    "name": "Out of the Shadows",
-    "source": "June 2026 Mandalorian Update (self-sourced)",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "overwhelming-barrage",
-    "name": "Overwhelming Barrage",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "pincer-attack",
-    "name": "Pincer Attack",
-    "source": "SWQ31 — Grievous Wheel Bike",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "pinned-down",
-    "name": "Pinned Down",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "ploy",
-    "name": "Ploy",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "preservation-protocols",
-    "name": "Preservation Protocols",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "pulse-scan",
-    "name": "Pulse Scan",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "push",
-    "name": "Push",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "rebellions-are-built-on-hope",
-    "name": "Rebellions Are Built on Hope",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "reckless-diversion",
-    "name": "Reckless Diversion",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "recon-division",
-    "name": "Recon Division",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "reptilian-rampage",
-    "name": "Reptilian Rampage",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "return-of-the-jedi",
-    "name": "Return of the Jedi",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "revenge-is-not-the-jedi-way",
-    "name": "Revenge Is Not the Jedi Way",
-    "source": "SWQ22 — Ahsoka Tano",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "roger-roger",
-    "name": "Roger, Roger!",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "rule-with-respect",
-    "name": "Rule With Respect",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "ruthless-tactics",
-    "name": "Ruthless Tactics",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "sabotaged-communications",
-    "name": "Sabotaged Communications",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "sacrifice",
-    "name": "Sacrifice",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "see-you-in-hell",
-    "name": "See You in Hell",
-    "source": "SWQ41 — Tauntaun Heroes",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "seize-what-power-we-can",
-    "name": "Seize What Power We Can",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "size-matters-not",
-    "name": "Size Matters Not",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "size-matters-sometimes",
-    "name": "Size Matters Sometimes",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "smoke-screen",
-    "name": "Smoke Screen",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "sneak-attack",
-    "name": "Sneak Attack",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "sneaky-scouting",
-    "name": "Sneaky Scouting",
-    "source": "2025 Card Update — Mercenary Ewoks",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "somebody-has-to-save-our-skins",
-    "name": "Somebody Has to Save Our Skins",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "son-of-skywalker",
-    "name": "Son of Skywalker",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "sorry-about-the-mess",
-    "name": "Sorry About the Mess",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "speak-softly-and-drive-a-big-tank",
-    "name": "Speak Softly and Drive a Big Tank",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "squadron-on-me",
-    "name": "Squadron, On Me",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "standing-orders",
-    "name": "Standing Orders",
-    "source": "Battle Cards Update",
-    "date": "2025-11",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "stories-so-many-of-them-true",
-    "name": "Stories, So Many of Them True",
-    "source": "SWQ45 — Hondo Weequay",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "supreme-commander",
-    "name": "Supreme Commander",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "swift-protector",
-    "name": "Swift Protector",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "symbol-of-rebellion",
-    "name": "Symbol of Rebellion",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "synchronized-offensive",
-    "name": "Synchronized Offensive",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "tactical-download",
-    "name": "Tactical Download",
-    "source": "SWQ29 — Customizable Super Tactical Command Droids",
-    "date": "2025-09",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "tactical-planning",
-    "name": "Tactical Planning",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "tactical-strike",
-    "name": "Tactical Strike",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "take-that-clankers",
-    "name": "Take That, Clankers!",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "thats-just-good-business",
-    "name": "That's Just Good Business",
-    "source": "SWQ45 — Hondo Weequay",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "the-empire-does-not-tolerate-failure",
-    "name": "The Empire Does Not Tolerate Failure",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "the-hand-thing",
-    "name": "The Hand Thing",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "the-jedi-shall-fall",
-    "name": "The Jedi Shall Fall",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "the-phantom-menace",
-    "name": "The Phantom Menace",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "the-sith-will-rule",
-    "name": "The Sith Will Rule",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "there-is-no-try",
-    "name": "There Is No Try",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "they-too-will-suffer",
-    "name": "They Too Will Suffer",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "this-is-the-way",
-    "name": "This is the Way",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "this-is-where-the-fun-begins",
-    "name": "This is Where the Fun Begins",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "this-partys-over",
-    "name": "This Party's Over",
-    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
-    "date": "2026-03",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "trained-in-your-jedi-arts",
-    "name": "Trained In Your Jedi Arts",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "trust-goes-both-ways",
-    "name": "Trust Goes Both Ways",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "turning-the-tide",
-    "name": "Turning the Tide",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "unexpected-but-not-unwelcome",
-    "name": "Unexpected, But Not Unwelcome",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "unity-wins-wars",
-    "name": "Unity Wins Wars",
-    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
-    "date": "2026-03",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "unrelenting-assault",
-    "name": "Unrelenting Assault",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "unrelenting-fire",
-    "name": "Unrelenting Fire",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "unstoppable-advance",
-    "name": "Unstoppable Advance",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "vaders-might",
-    "name": "Vader's Might",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "vengeful-strike",
-    "name": "Vengeful Strike",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "victory-or-death",
-    "name": "Victory or Death!",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "volunteer-mission",
-    "name": "Volunteer Mission",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "voracious-ambition",
-    "name": "Voracious Ambition",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-are-mandalorians",
-    "name": "We Are Mandalorians",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-do-what-we-do",
-    "name": "We Do What We Do",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-make-weapons",
-    "name": "We Make Weapons",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-must-wait-and-watch",
-    "name": "We Must Wait and Watch",
-    "source": "SWQ42 — Imperial High Command",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-need-reinforcements",
-    "name": "We Need Reinforcements",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-protect-our-own",
-    "name": "We Protect Our Own",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-serve-the-queen",
-    "name": "We Serve the Queen",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "we-shall-start-with-revenge",
-    "name": "We Shall Start with Revenge",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
-  },
-  {
-    "category": "commands",
-    "slug": "we-shape-ourselves",
-    "name": "We Shape Ourselves",
-    "source": "SWQ82 — Mando Leaders",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "were-not-programmed",
-    "name": "We're Not Programmed",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "weapons-are-our-religion",
-    "name": "Weapons Are Our Religion",
-    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
-    "date": "2026-06",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "whipcord-launcher",
-    "name": "Whipcord Launcher",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "whistling-birds",
-    "name": "Whistling Birds",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "witch-magick",
-    "name": "Witch Magick",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "yes-my-master",
-    "name": "Yes, My Master",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "you-are-beaten",
-    "name": "You Are Beaten",
-    "source": "SWQ22 — Ahsoka Tano",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "you-disappoint-me",
-    "name": "You Disappoint Me",
-    "source": "2025 Card Update — SeparatistAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "you-have-something-i-want",
-    "name": "You Have Something I Want",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "you-hide-your-fear-well",
-    "name": "You Hide Your Fear Well",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "you-serve-your-master-well",
-    "name": "You Serve Your Master Well",
-    "source": "2025 Card Update — RebelAlliance Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "you-underestimate-my-power",
-    "name": "You Underestimate My Power",
-    "source": "SWQ_GalacticRepublic_Commands — ",
-    "date": null,
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "you-would-question-me",
-    "name": "You Would Question Me?",
-    "source": "2025 Card Update — GalacticEmpire Commands",
-    "date": "2025-04",
-    "validity": "valid"
-  },
-  {
-    "category": "commands",
-    "slug": "z-6-jetpack-rocket",
-    "name": "Z-6 Jetpack Rocket",
-    "source": "April 2026 Update — Mercenary Commands",
-    "date": "2026-05",
-    "validity": "valid"
-  },
-  {
     "category": "units",
     "slug": "14-fd-laser-cannon-team",
     "name": "1.4 FD Laser Cannon Team",
@@ -7041,6 +4817,2230 @@
     "name": "Z-6 Trooper",
     "source": "April 2026 Update — RebelAlliance Upgrades",
     "date": "2026-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-beautiful-friendship",
+    "name": "A Beautiful Friendship",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-disturbance-in-the-force",
+    "name": "A Disturbance in the Force",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-higher-purpose",
+    "name": "A Higher Purpose",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-machine-made-for-killing",
+    "name": "A Machine Made For Killing",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-new-beginning",
+    "name": "A New Beginning",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "a-simple-man",
+    "name": "A Simple Man",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ace-up-his-sleeve",
+    "name": "Ace Up His Sleeve",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "aerial-assault",
+    "name": "Aerial Assault",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "affirmative-general",
+    "name": "Affirmative, General!",
+    "source": "SWQ20 — Customizable Jedi",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "aggression",
+    "name": "Aggression",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "aggressive-negotiations",
+    "name": "Aggressive Negotiations",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ai-coordination",
+    "name": "AI Coordination",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "air-support",
+    "name": "Air Support",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ambush",
+    "name": "Ambush",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "annihilation-looms",
+    "name": "Annihilation Looms",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "anti-capture-protocols",
+    "name": "Anti-Capture Protocols",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "arboreal-assault",
+    "name": "Arboreal Assault",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "architects-of-their-own-destruction",
+    "name": "Architects of Their Own Destruction",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "armored-cavalry",
+    "name": "Armored Cavalry",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "assault",
+    "name": "Assault",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "at-last",
+    "name": "At Last",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "attack-of-the-clones",
+    "name": "Attack of the Clones",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "battlefield-reconnaissance",
+    "name": "Battlefield Reconnaissance",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "blast-off",
+    "name": "Blast Off!",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "both-hunter-and-prey",
+    "name": "Both Hunter and Prey",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "brains-and-brawn",
+    "name": "Brains and Brawn",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "bring-it-down",
+    "name": "Bring It Down!",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "brutal-enforcer",
+    "name": "Brutal Enforcer",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "call-me-captain",
+    "name": "Call Me Captain",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "canny-adversary",
+    "name": "Canny Adversary",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "change-of-plans",
+    "name": "Change of Plans",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "close-call",
+    "name": "Close Call",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "close-formation",
+    "name": "Close Formation",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "combined-arms",
+    "name": "Combined Arms",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "come-and-prove-it",
+    "name": "Come and Prove It",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "common-cause",
+    "name": "Common Cause",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "concussive-blast",
+    "name": "Concussive Blast",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "constantly-alert",
+    "name": "Constantly Alert",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "coordinated-bombardment",
+    "name": "Coordinated Bombardment",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "coordinated-fire",
+    "name": "Coordinated Fire",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "corellian-spike",
+    "name": "Corellian Spike",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "courage-of-the-rebellion",
+    "name": "Courage of the Rebellion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "courageous-counterattack",
+    "name": "Courageous Counterattack",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "covering-fire",
+    "name": "Covering Fire",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "covert-observation",
+    "name": "Covert Observation",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "crack-shot",
+    "name": "Crack Shot",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "crush-them",
+    "name": "Crush Them!",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "daring-defense",
+    "name": "Daring Defense",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "darkness-descends",
+    "name": "Darkness Descends",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "death-before-defeat",
+    "name": "Death Before Defeat",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "debark-for-ground-assault",
+    "name": "Debark for Ground Assault",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "defiance",
+    "name": "Defiance",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "delaying-tactics",
+    "name": "Delaying Tactics",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "deploy-the-garrison",
+    "name": "Deploy the Garrison",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "die-at-my-hand",
+    "name": "Die at My Hand",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "diplomatic-cover",
+    "name": "Diplomatic Cover",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "discretion",
+    "name": "Discretion",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "diversionary-tactics",
+    "name": "Diversionary Tactics",
+    "source": "SWQ13 — Rebel Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "do-not-underestimate-our-means",
+    "name": "Do Not Underestimate Our Means",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "double-the-fall",
+    "name": "Double the Fall",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "drive-them-out",
+    "name": "Drive Them Out",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "duel-of-the-fates",
+    "name": "Duel of the Fates",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "evasive-action",
+    "name": "Evasive Action",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "evasive-maneuvers",
+    "name": "Evasive Maneuvers",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "explosions",
+    "name": "Explosions!",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "exterminate",
+    "name": "Exterminate",
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "face-me",
+    "name": "Face Me!",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "family-reunion",
+    "name": "Family Reunion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fear-and-dead-men",
+    "name": "Fear and Dead Men",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fear-will-keep-them-in-line",
+    "name": "Fear Will Keep Them in Line",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fear-surprise-intimidation",
+    "name": "Fear, Surprise, Intimidation",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fearsome-oration",
+    "name": "Fearsome Oration",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "fight-another-day",
+    "name": "Fight Another Day",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "flexible-strategy",
+    "name": "Flexible Strategy",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "flow-of-the-force",
+    "name": "Flow of the Force",
+    "source": "SWQ20 — Customizable Jedi",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "focused-on-the-kill",
+    "name": "Focused on the Kill",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "for-the-cause",
+    "name": "For the Cause",
+    "source": "AdeptiCon 2026 Separatist Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "for-the-tribe",
+    "name": "For the Tribe",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "force-of-will",
+    "name": "Force of Will",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "full-of-surprises",
+    "name": "Full of Surprises",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "full-throttle",
+    "name": "Full Throttle",
+    "source": "SWQ31 — Grievous Wheel Bike",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "general-kenobi",
+    "name": "General Kenobi",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "general-skywalker",
+    "name": "General Skywalker",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "get-in-position",
+    "name": "Get In Position",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "go-there-are-too-many",
+    "name": "Go, There Are Too Many...",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "gunner-infantry",
+    "name": "Gunner, Infantry!",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "have-i-ever-let-you-down",
+    "name": "Have I Ever Let You Down?",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "hello-there",
+    "name": "Hello There!",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "hiding-in-plain-sight",
+    "name": "Hiding in Plain Sight",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "his-eminence",
+    "name": "His Eminence",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "hold-at-any-cost",
+    "name": "Hold at Any Cost",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "honor-and-strength",
+    "name": "Honor and Strength",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "i-am-a-jedi",
+    "name": "I am a Jedi",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-am-fear",
+    "name": "I Am Fear",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-am-no-jedi",
+    "name": "I Am No Jedi",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-care-not-for-your-struggles",
+    "name": "I Care Not For Your Struggles",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-dont-believe-in-chance",
+    "name": "I Don't Believe in Chance",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-go-where-im-needed",
+    "name": "I Go Where I'm Needed",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-have-graphs-and-the-command",
+    "name": "I Have Graphs AND the Command",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-like-those-odds",
+    "name": "I Like Those Odds",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-make-the-rules-now",
+    "name": "I Make the Rules Now",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-rebel",
+    "name": "I Rebel",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-smell-fear-and-it-smells-good",
+    "name": "I Smell Fear... and it Smells Good",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "i-smell-profit",
+    "name": "I Smell Profit",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "i-want-you-to-know-failure",
+    "name": "I Want You to Know Failure",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ill-do-it-myself",
+    "name": "I'll Do it Myself!",
+    "source": "SWQ31 — Grievous Wheel Bike",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "im-in-control",
+    "name": "I'm in Control",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "im-your-worst-nightmare",
+    "name": "I'm Your Worst Nightmare",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "idiots-array",
+    "name": "Idiot's Array",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "imperial-discipline",
+    "name": "Imperial Discipline",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "implacable",
+    "name": "Implacable",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "impromptu-immolation",
+    "name": "Impromptu Immolation",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "incapacitate",
+    "name": "Incapacitate",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "independent-programming",
+    "name": "Independent Programming",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "inexorable-advance",
+    "name": "Inexorable Advance",
+    "source": "SWQ09 — Imperial Officer Agent",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "insolence-we-are-pirates",
+    "name": "Insolence?! We are Pirates!",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "isb-investigation",
+    "name": "ISB Investigation",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "knowledge-and-defense",
+    "name": "Knowledge and Defense",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "last-stand",
+    "name": "Last Stand",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "lead-from-the-front",
+    "name": "Lead From the Front",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "leaders-of-the-501st",
+    "name": "Leaders of the 501st",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "legacy-of-mandalore",
+    "name": "Legacy of Mandalore",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "let-the-executions-begin",
+    "name": "Let the Executions Begin!",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "log-traps",
+    "name": "Log Traps",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "luminous-beings-are-we",
+    "name": "Luminous Beings Are We",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "lying-in-wait",
+    "name": "Lying In Wait",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "make-the-impossible-possible",
+    "name": "Make the Impossible Possible",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "making-his-way-in-the-galaxy",
+    "name": "Making His Way in the Galaxy",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "mandalore-will-survive",
+    "name": "Mandalore Will Survive",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "marked-for-elimination",
+    "name": "Marked For Elimination",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "master-of-evil",
+    "name": "Master of Evil",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "maximum-firepower",
+    "name": "Maximum Firepower",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "mechanical-carnage",
+    "name": "Mechanical Carnage",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "mechanized-incursion",
+    "name": "Mechanized Incursion",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "merciless-munitions",
+    "name": "Merciless Munitions",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "moment-of-consideration",
+    "name": "Moment of Consideration",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "moment-of-triumph",
+    "name": "Moment of Triumph",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "my-ally-is-the-force",
+    "name": "My Ally is the Force",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "new-ways-to-motivate-them",
+    "name": "New Ways to Motivate Them",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "no-escape",
+    "name": "No Escape",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "no-one-threatens-our-family",
+    "name": "No One Threatens Our Family",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "no-time-for-sorrows",
+    "name": "No Time for Sorrows",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "not-out-of-it-yet",
+    "name": "Not Out of it Yet",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "notorious-scoundrels",
+    "name": "Notorious Scoundrels",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "on-patrol",
+    "name": "On Patrol",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "orbital-strike",
+    "name": "Orbital Strike",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "our-fate-is-in-your-hands",
+    "name": "Our Fate is in Your Hands",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "out-of-the-shadows",
+    "name": "Out of the Shadows",
+    "source": "June 2026 Mandalorian Update (self-sourced)",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "overwhelming-barrage",
+    "name": "Overwhelming Barrage",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "pincer-attack",
+    "name": "Pincer Attack",
+    "source": "SWQ31 — Grievous Wheel Bike",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "pinned-down",
+    "name": "Pinned Down",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ploy",
+    "name": "Ploy",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "preservation-protocols",
+    "name": "Preservation Protocols",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "pulse-scan",
+    "name": "Pulse Scan",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "push",
+    "name": "Push",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "rebellions-are-built-on-hope",
+    "name": "Rebellions Are Built on Hope",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "reckless-diversion",
+    "name": "Reckless Diversion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "recon-division",
+    "name": "Recon Division",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "reptilian-rampage",
+    "name": "Reptilian Rampage",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "return-of-the-jedi",
+    "name": "Return of the Jedi",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "revenge-is-not-the-jedi-way",
+    "name": "Revenge Is Not the Jedi Way",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "roger-roger",
+    "name": "Roger, Roger!",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "rule-with-respect",
+    "name": "Rule With Respect",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "ruthless-tactics",
+    "name": "Ruthless Tactics",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sabotaged-communications",
+    "name": "Sabotaged Communications",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sacrifice",
+    "name": "Sacrifice",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "see-you-in-hell",
+    "name": "See You in Hell",
+    "source": "SWQ41 — Tauntaun Heroes",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "seize-what-power-we-can",
+    "name": "Seize What Power We Can",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "size-matters-not",
+    "name": "Size Matters Not",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "size-matters-sometimes",
+    "name": "Size Matters Sometimes",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "smoke-screen",
+    "name": "Smoke Screen",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sneak-attack",
+    "name": "Sneak Attack",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sneaky-scouting",
+    "name": "Sneaky Scouting",
+    "source": "2025 Card Update — Mercenary Ewoks",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "somebody-has-to-save-our-skins",
+    "name": "Somebody Has to Save Our Skins",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "son-of-skywalker",
+    "name": "Son of Skywalker",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "sorry-about-the-mess",
+    "name": "Sorry About the Mess",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "speak-softly-and-drive-a-big-tank",
+    "name": "Speak Softly and Drive a Big Tank",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "squadron-on-me",
+    "name": "Squadron, On Me",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "standing-orders",
+    "name": "Standing Orders",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "stories-so-many-of-them-true",
+    "name": "Stories, So Many of Them True",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "supreme-commander",
+    "name": "Supreme Commander",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "swift-protector",
+    "name": "Swift Protector",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "symbol-of-rebellion",
+    "name": "Symbol of Rebellion",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "synchronized-offensive",
+    "name": "Synchronized Offensive",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "tactical-download",
+    "name": "Tactical Download",
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "tactical-planning",
+    "name": "Tactical Planning",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "tactical-strike",
+    "name": "Tactical Strike",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "take-that-clankers",
+    "name": "Take That, Clankers!",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "thats-just-good-business",
+    "name": "That's Just Good Business",
+    "source": "SWQ45 — Hondo Weequay",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-empire-does-not-tolerate-failure",
+    "name": "The Empire Does Not Tolerate Failure",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-hand-thing",
+    "name": "The Hand Thing",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-jedi-shall-fall",
+    "name": "The Jedi Shall Fall",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-phantom-menace",
+    "name": "The Phantom Menace",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "the-sith-will-rule",
+    "name": "The Sith Will Rule",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "there-is-no-try",
+    "name": "There Is No Try",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "they-too-will-suffer",
+    "name": "They Too Will Suffer",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "this-is-the-way",
+    "name": "This is the Way",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "this-is-where-the-fun-begins",
+    "name": "This is Where the Fun Begins",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "this-partys-over",
+    "name": "This Party's Over",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "trained-in-your-jedi-arts",
+    "name": "Trained In Your Jedi Arts",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "trust-goes-both-ways",
+    "name": "Trust Goes Both Ways",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "turning-the-tide",
+    "name": "Turning the Tide",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unexpected-but-not-unwelcome",
+    "name": "Unexpected, But Not Unwelcome",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unity-wins-wars",
+    "name": "Unity Wins Wars",
+    "source": "AdeptiCon 2026 Republic Roadmap (preview)",
+    "date": "2026-03",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unrelenting-assault",
+    "name": "Unrelenting Assault",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unrelenting-fire",
+    "name": "Unrelenting Fire",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "unstoppable-advance",
+    "name": "Unstoppable Advance",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "vaders-might",
+    "name": "Vader's Might",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "vengeful-strike",
+    "name": "Vengeful Strike",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "victory-or-death",
+    "name": "Victory or Death!",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "volunteer-mission",
+    "name": "Volunteer Mission",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "voracious-ambition",
+    "name": "Voracious Ambition",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-are-mandalorians",
+    "name": "We Are Mandalorians",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-do-what-we-do",
+    "name": "We Do What We Do",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-make-weapons",
+    "name": "We Make Weapons",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-must-wait-and-watch",
+    "name": "We Must Wait and Watch",
+    "source": "SWQ42 — Imperial High Command",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-need-reinforcements",
+    "name": "We Need Reinforcements",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-protect-our-own",
+    "name": "We Protect Our Own",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-serve-the-queen",
+    "name": "We Serve the Queen",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "we-shall-start-with-revenge",
+    "name": "We Shall Start with Revenge",
+    "source": "Image pending (no source yet)",
+    "date": null,
+    "validity": "unknown"
+  },
+  {
+    "category": "commands",
+    "slug": "we-shape-ourselves",
+    "name": "We Shape Ourselves",
+    "source": "SWQ82 — Mando Leaders",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "were-not-programmed",
+    "name": "We're Not Programmed",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "weapons-are-our-religion",
+    "name": "Weapons Are Our Religion",
+    "source": "June 2026 Mandalorian Update — Mandalorian BattleForceCards",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "whipcord-launcher",
+    "name": "Whipcord Launcher",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "whistling-birds",
+    "name": "Whistling Birds",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "witch-magick",
+    "name": "Witch Magick",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "yes-my-master",
+    "name": "Yes, My Master",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-are-beaten",
+    "name": "You Are Beaten",
+    "source": "SWQ22 — Ahsoka Tano",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-disappoint-me",
+    "name": "You Disappoint Me",
+    "source": "2025 Card Update — SeparatistAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-have-something-i-want",
+    "name": "You Have Something I Want",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-hide-your-fear-well",
+    "name": "You Hide Your Fear Well",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-serve-your-master-well",
+    "name": "You Serve Your Master Well",
+    "source": "2025 Card Update — RebelAlliance Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-underestimate-my-power",
+    "name": "You Underestimate My Power",
+    "source": "SWQ_GalacticRepublic_Commands — ",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "you-would-question-me",
+    "name": "You Would Question Me?",
+    "source": "2025 Card Update — GalacticEmpire Commands",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "commands",
+    "slug": "z-6-jetpack-rocket",
+    "name": "Z-6 Jetpack Rocket",
+    "source": "April 2026 Update — Mercenary Commands",
+    "date": "2026-05",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "advanced-intel",
+    "name": "Advanced Intel",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "advanced-intel-2",
+    "name": "Advanced Intel",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "align-the-relay",
+    "name": "Align the Relay",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "armored-assault",
+    "name": "Armored Assault",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "black-ops",
+    "name": "Black Ops",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "breakthrough",
+    "name": "Breakthrough",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bring-them-to-heel",
+    "name": "Bring Them to Heel",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bring-them-to-heel-2",
+    "name": "Bring Them to Heel",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bunker-assault",
+    "name": "Bunker Assault",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "bunker-assault-2",
+    "name": "Bunker Assault",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "cauldron",
+    "name": "Cauldron",
+    "source": "June 2026 Mandalorian Update — ErrataReference",
+    "date": "2026-06",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "close-the-pocket",
+    "name": "Close the Pocket",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "close-the-pocket-2",
+    "name": "Close the Pocket",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "command-override",
+    "name": "Command Override",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "contact-contact",
+    "name": "Contact, Contact!",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "coordinated-strike",
+    "name": "Coordinated Strike",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "cunning-deployment",
+    "name": "Cunning Deployment",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "cunning-deployment-2",
+    "name": "Cunning Deployment",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "destroy-enemy-base",
+    "name": "Destroy Enemy Base",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "extreme-discipline",
+    "name": "Extreme Discipline",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "failed-negotiations",
+    "name": "Failed Negotiations",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "fortified-position",
+    "name": "Fortified Position",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "fortified-position-2",
+    "name": "Fortified Position",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "garrison",
+    "name": "Garrison",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "intercept-signals",
+    "name": "Intercept Signals",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "intercept-signals-2",
+    "name": "Intercept Signals",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "marked-targets",
+    "name": "Marked Targets",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "no-time-to-lose",
+    "name": "No Time to Lose",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "ordnance",
+    "name": "Ordnance",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "outflank",
+    "name": "Outflank",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "payload",
+    "name": "Payload",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "rapid-deployment",
+    "name": "Rapid Deployment",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "recon-mission",
+    "name": "Recon Mission",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "recon-mission-2",
+    "name": "Recon Mission",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "recover-the-research",
+    "name": "Recover the Research",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "retrieve-the-data",
+    "name": "Retrieve the Data",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "scrambled-orders",
+    "name": "Scrambled Orders",
+    "source": "Owner photos — BattleDeckCardPackII",
+    "date": null,
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "shifting-priorities",
+    "name": "Shifting Priorities",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "strafing-run",
+    "name": "Strafing Run",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "supply-run",
+    "name": "Supply Run",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "surface-scan",
+    "name": "Surface Scan",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "surface-scan-2",
+    "name": "Surface Scan",
+    "source": "Recon Rulebook",
+    "date": "2025-04",
+    "validity": "valid"
+  },
+  {
+    "category": "battle",
+    "slug": "sweep-and-clear",
+    "name": "Sweep and Clear",
+    "source": "Battle Cards Update",
+    "date": "2025-11",
     "validity": "valid"
   }
 ]

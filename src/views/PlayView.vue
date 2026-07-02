@@ -1,49 +1,53 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
+import { usePlaySessionStore } from '../stores/playSession.ts'
+import { useArmyStore } from '../stores/army.ts'
+import { useUnitsStore } from '../stores/units.ts'
+import { useUpgradesStore } from '../stores/upgrades.ts'
+import { useBattleForcesStore } from '../stores/battleForces.ts'
+import PlaySetup from '../components/play/PlaySetup.vue'
+import PlayRoster from '../components/play/PlayRoster.vue'
+import type { Army } from '../types/index.ts'
+
+const play = usePlaySessionStore()
+const unitsStore = useUnitsStore()
+const upgradesStore = useUpgradesStore()
+const battleForcesStore = useBattleForcesStore()
+
+// The importer + roster both need the catalogue to resolve names/points.
+onMounted(() => {
+  useArmyStore() // ensure the persisted saved-lists store is instantiated
+  unitsStore.load()
+  upgradesStore.load()
+  battleForcesStore.load()
+})
+
+function onImport(army: Army) {
+  play.setSelfArmy(army)
+}
 
 useHead({
-  title: 'Play (Coming Soon) — LegionApp',
+  title: 'Play — LegionApp',
   meta: [
-    { name: 'description', content: 'A live at-the-table Star Wars: Legion game tracker — wounds, suppression, tokens, command pips and real-time multiplayer. Coming soon to LegionApp.' },
-    { property: 'og:title', content: 'Play (Coming Soon) — LegionApp' },
-    { property: 'og:description', content: 'A live at-the-table Star Wars: Legion game tracker with real-time multiplayer. Coming soon.' },
+    { name: 'description', content: 'Run your Star Wars: Legion games from your phone — import a saved army and track the battle. More game-tracking tools are rolling out phase by phase.' },
+    { property: 'og:title', content: 'Play — LegionApp' },
+    { property: 'og:description', content: 'Import a saved Star Wars: Legion army and run your game from your phone.' },
     { property: 'og:url', content: 'https://www.legion-app.com/play' },
   ],
   link: [{ rel: 'canonical', href: 'https://www.legion-app.com/play' }],
 })
-
-const roadmap = [
-  'Live unit tracker — wounds, suppression, tokens & damage per unit',
-  'Command-pip play — step through your command hierarchy each turn',
-  'Order pool & priority — draw and resolve activations',
-  'Battle deck — objective, deployment & condition card flow',
-  'Multiplayer — share a room code and sync the table in real time',
-]
 </script>
 
 <template>
-  <div class="mx-auto max-w-2xl py-8 text-center sm:py-12">
-    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-lg-accent/30 bg-lg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-lg-accent">
-      Coming soon
-    </div>
-    <h1 class="font-display text-3xl font-bold uppercase tracking-wider text-lg-text">Play Mode</h1>
-    <p class="mx-auto mt-3 max-w-md text-sm text-lg-muted">
-      A tabletop companion for running your games — track the battle from deployment to the final round, right from your phone.
-    </p>
-
-    <ul class="mx-auto mt-8 max-w-md space-y-2 text-left">
-      <li
-        v-for="(item, i) in roadmap" :key="i"
-        class="flex items-start gap-3 rounded-lg border border-lg-border bg-lg-surface px-4 py-3 text-sm text-lg-text/80"
-      >
-        <span class="mt-0.5 text-lg-accent">◆</span>
-        <span>{{ item }}</span>
-      </li>
-    </ul>
-
-    <p class="mt-8 text-xs text-lg-muted/70">
-      Build and save your armies in the <RouterLink to="/build" class="text-lg-accent hover:underline">Build</RouterLink> tab now —
-      they'll be ready to play the moment this lands.
-    </p>
+  <div class="py-6 sm:py-8">
+    <PlayRoster
+      v-if="play.selfArmy"
+      :army="play.selfArmy"
+      :player-name="play.session?.self.name ?? 'You'"
+      @change="play.clearSelfArmy()"
+      @end="play.end()"
+    />
+    <PlaySetup v-else @import="onImport" />
   </div>
 </template>

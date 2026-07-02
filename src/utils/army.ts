@@ -503,35 +503,72 @@ export function hasFieldCommander(army: Army, unitsById: Map<string, Unit>): boo
 }
 
 /**
- * Rank-max bonuses granted by Entourage keywords: each "Entourage <name>" widens
- * the named unit's rank max by 1 so the entourage unit can be fielded over the cap.
+ * Entourage exemptions per rank. An "Entourage <name>" unit lets ONE fielded copy of the
+ * named unit sit over its rank cap — like a detachment, that copy doesn't count toward the
+ * rank maximum. The exemption is only granted when BOTH the entourage-haver AND the named
+ * unit are actually fielded (capped at the number of havers), so the slot can't be "banked"
+ * to field extra units without the entourage unit itself. Returns, per rank, how many
+ * fielded units are entourage-exempt. Assigns to the rank(s) the fielded unit actually
+ * occupies (e.g. Tarkin's "Entourage Darth Vader" exempts the commander Vader, not the
+ * operative one).
  */
-export function entourageBonuses(
+export function entourageExemptions(
   army: Army,
   unitsById: Map<string, Unit>,
 ): Partial<Record<Rank, number>> {
-  // A name can map to several cards of different ranks (e.g. "Darth Vader" exists
-  // as both a commander and an operative). Index name → the set of ranks it spans
-  // so the bonus lands on the right rank regardless of card-insertion order.
-  const ranksByName = new Map<string, Set<Rank>>()
-  for (const u of unitsById.values()) {
-    const key = u.name.toLowerCase()
-    const set = ranksByName.get(key) ?? new Set<Rank>()
-    set.add(u.rank)
-    ranksByName.set(key, set)
-  }
-  const bonus: Partial<Record<Rank, number>> = {}
+  const grants = new Map<string, number>() // entourage target name → number of havers fielded
+  const presentRanks = new Map<string, Rank[]>() // fielded unit name → ranks of its copies
   for (const au of army.units) {
-    const unit = unitsById.get(au.unitId)
-    for (const kw of unit?.keywords ?? []) {
+    const u = unitsById.get(au.unitId)
+    if (!u) continue
+    const key = u.name.toLowerCase()
+    const arr = presentRanks.get(key) ?? []
+    arr.push(u.rank)
+    presentRanks.set(key, arr)
+    for (const kw of u.keywords) {
       const m = KW.entourage.exec(kw)
-      if (!m) continue
-      const ranks = ranksByName.get(m[1].trim().toLowerCase())
-      if (!ranks) continue
-      for (const rank of ranks) bonus[rank] = (bonus[rank] ?? 0) + 1
+      if (m) {
+        const t = m[1].trim().toLowerCase()
+        grants.set(t, (grants.get(t) ?? 0) + 1)
+      }
     }
   }
-  return bonus
+  const exempt: Partial<Record<Rank, number>> = {}
+  for (const [name, g] of grants) {
+    const ranks = presentRanks.get(name)
+    if (!ranks) continue // named unit not fielded → no exemption (prevents the over-grant)
+    for (let i = 0; i < Math.min(g, ranks.length); i++) {
+      exempt[ranks[i]] = (exempt[ranks[i]] ?? 0) + 1
+    }
+  }
+  return exempt
+}
+
+/**
+ * Unit names that may be ADDED over their rank cap right now: an entourage target with a
+ * spare grant (a fielded haver whose entourage slot isn't yet taken by a fielded copy). The
+ * exemption above only materialises once the unit is fielded, so without this the catalogue
+ * would block adding the entourage unit itself at the cap (chicken-and-egg). Names are
+ * lower-cased for matching.
+ */
+export function entourageCoverableNames(army: Army, unitsById: Map<string, Unit>): Set<string> {
+  const grants = new Map<string, number>()
+  const present = new Map<string, number>()
+  for (const au of army.units) {
+    const u = unitsById.get(au.unitId)
+    if (!u) continue
+    present.set(u.name.toLowerCase(), (present.get(u.name.toLowerCase()) ?? 0) + 1)
+    for (const kw of u.keywords) {
+      const m = KW.entourage.exec(kw)
+      if (m) {
+        const t = m[1].trim().toLowerCase()
+        grants.set(t, (grants.get(t) ?? 0) + 1)
+      }
+    }
+  }
+  const out = new Set<string>()
+  for (const [name, g] of grants) if (g > (present.get(name) ?? 0)) out.add(name)
+  return out
 }
 
 /**
@@ -1745,10 +1782,10 @@ export function validateArmy(
   // `countMercs` (where mercs are native: they satisfy minimums and aren't capped).
   const merc = (!bf || !rules.countMercs) ? mercenaryIssues(army, unitsById, { insideBattleForce: !!bf }) : null
   const limits = rankLimits(army.gameSize, bf)
-  const entourage = entourageBonuses(army, unitsById)
+  const entourage = entourageExemptions(army, unitsById)
   const fieldCommander = !rules.noFieldComm && hasFieldCommander(army, unitsById)
   for (const rank of RANK_ORDER) {
-    const max = limits[rank].max + (entourage[rank] ?? 0)
+    const max = limits[rank].max
     let min = limits[rank].min
     const count = rankCounts[rank]
     const mercCount = merc?.rankCounts[rank] ?? 0
@@ -1759,20 +1796,25 @@ export function validateArmy(
       note = ' (Field Commander)'
     }
     if (count === 0 && min === 0 && !note) continue // hide empty optional ranks
-    // Detachments don't count toward the maximum, so the max is measured against the
-    // non-detachment count; the min and the displayed total still count everything.
+    // Detachments and Entourage units don't count toward the maximum, so the max is measured
+    // against the non-detachment, non-entourage count; the min and the displayed total still
+    // count everything.
     const detachCount = detachmentCounts[rank]
-    const maxCount = count - detachCount
+    const entCount = entourage[rank] ?? 0
+    const maxCount = count - detachCount - entCount
     const minOk = nonMerc >= min
     const maxOk = maxCount <= max
+    const exemptNotes: string[] = []
+    if (detachCount > 0) exemptNotes.push(`+${detachCount} detachment`)
+    if (entCount > 0) exemptNotes.push(`+${entCount} entourage`)
     const detail = !minOk
       ? mercCount > 0
         ? `${count} (need ${min} non-merc)`
         : `${count} (need ${min})`
       : !maxOk
       ? `${maxCount} (max ${max})`
-      : detachCount > 0
-      ? `${maxCount} / ${max} (+${detachCount} detachment)`
+      : exemptNotes.length
+      ? `${maxCount} / ${max} (${exemptNotes.join(', ')})`
       : `${count} / ${max}`
     items.push({ ok: minOk && maxOk, label: rankName(rank), detail: detail + note })
   }
@@ -1981,8 +2023,8 @@ export function fromBase64url(s: string): string {
 
 /** Rank-tracker chip status for the Build footer: below min / over max / in range. */
 export type RankChipState = 'under' | 'over' | 'ok'
-export function rankChipState(count: number, min: number, max: number, detachments = 0): RankChipState {
-  if (count - detachments > max) return 'over' // detachments don't count toward the max
+export function rankChipState(count: number, min: number, max: number, detachments = 0, entourage = 0): RankChipState {
+  if (count - detachments - entourage > max) return 'over' // detachments & entourage don't count toward the max
   if (count < min) return 'under'
   return 'ok'
 }

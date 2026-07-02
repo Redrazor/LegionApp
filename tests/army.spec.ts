@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   validateArmy, unitCost, uniqueNames, findDuplicateUniques,
-  cardLimit, limitViolations, hasFieldCommander, entourageBonuses, unmetDetachments,
+  cardLimit, limitViolations, hasFieldCommander, entourageExemptions, entourageCoverableNames, unmetDetachments,
   unitMeetsRequirements, mercenaryIssues, MERC_RANK_CAP, unitAllowedInFaction,
   defaultBattleForceId, affiliationCohesionIssues, battleForceCohesion,
   encodeArmy, decodeArmy, toCompact, fromCompact, rankChipState, catalogueForRank,
@@ -604,7 +604,7 @@ describe('Field Commander', () => {
 })
 
 describe('Entourage', () => {
-  it('widens the named unit’s rank max by 1', () => {
+  it('exempts the fielded named unit from its rank max', () => {
     const units = [
       unit('a', { rank: 'commander', isUnique: true }),
       unit('b', { rank: 'commander', isUnique: true }),
@@ -616,27 +616,32 @@ describe('Entourage', () => {
       name: '', faction: 'empire', gameSize: 1000,
       units: units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] })),
     }
-    expect(entourageBonuses(army, unitsById)).toEqual({ commander: 1 })
+    expect(entourageExemptions(army, unitsById)).toEqual({ commander: 1 })
     const cmd = validateArmy(army, unitsById, upgradesById).items.find((i) => i.label === 'Commander')
-    expect(cmd?.ok).toBe(true) // 3 commanders allowed (2 + 1 entourage)
-    expect(cmd?.detail).toBe('3 / 3')
+    expect(cmd?.ok).toBe(true) // a, b, c commanders — 'a' is entourage-exempt, so 2 count
+    expect(cmd?.detail).toBe('2 / 2 (+1 entourage)')
   })
 
-  it('targets the right rank when the named unit shares a name across cards', () => {
-    // "Darth Vader" exists as both a commander and an operative card; the bonus
-    // must reach commander regardless of catalogue order (regression for the
-    // name-index "last card wins" bug).
+  it('grants NO exemption when the named unit is not fielded (no over-grant)', () => {
+    // Regression: the bonus used to be granted just by fielding the entourage-haver,
+    // letting you field extra units of that rank without the entourage unit itself.
     const units = [
       unit('vader-cmd', { name: 'Darth Vader', rank: 'commander', isUnique: true }),
       unit('vader-op', { name: 'Darth Vader', rank: 'operative', isUnique: true }),
       unit('tarkin', { rank: 'commander', isUnique: true, keywords: ['Entourage Darth Vader'] }),
     ]
     const { unitsById } = makeMaps(units)
-    const army: Army = {
+    const armyOf = (ids: string[]): Army => ({
       name: '', faction: 'empire', gameSize: 1000,
-      units: [{ uid: '0', unitId: 'tarkin', upgrades: [] }],
-    }
-    expect(entourageBonuses(army, unitsById).commander).toBe(1)
+      units: ids.map((id, i) => ({ uid: String(i), unitId: id, upgrades: [] })),
+    })
+    // Tarkin alone → no exemption, but Vader is coverable (addable over the cap).
+    expect(entourageExemptions(armyOf(['tarkin']), unitsById)).toEqual({})
+    expect(entourageCoverableNames(armyOf(['tarkin']), unitsById).has('darth vader')).toBe(true)
+    // Field the commander Vader → exemption lands on commander (not operative), no longer coverable.
+    const withVader = armyOf(['tarkin', 'vader-cmd'])
+    expect(entourageExemptions(withVader, unitsById)).toEqual({ commander: 1 })
+    expect(entourageCoverableNames(withVader, unitsById).has('darth vader')).toBe(false)
   })
 
   it('three commanders without an entourage exceed the Standard max', () => {

@@ -65,10 +65,11 @@ layering on the previous. Kickoff planning: 2026-07-02.
 
 Each phase is one PR / `/workflow` feature. New pure logic → a `utils/` module + `tests/` spec.
 
-### Phase 1 — Play shell + list importer  *(user #1)*
-Replace the `PlayView` placeholder. Define the serializable **game-session store** (the unit that
-multiplayer will later sync — design it sync-ready from day one). Import a saved list from Collection
-via `decodeArmy()`/`fromCompact()`. Single-device; establishes the session data model.
+### Phase 1 — Play shell + list importer  *(user #1)* — ✅ SHIPPED v2.4.0 (PR #95)
+Replaced the `PlayView` placeholder. Serializable `PlaySession` store (`stores/playSession.ts`, `self`
++ reserved `opponent` slot), localStorage-persisted for local resume. Importer (`PlaySetup.vue`) loads a
+saved list or a pasted Build share link via `importFromSaved`/`importFromCode` (`utils/playSession.ts`,
+tested). Roster (`PlayRoster.vue`) reuses `armyPoints`/`groupArmyUnits`/`unitCost` + `UnitBadge`.
 
 ### Phase 2 — Real-time multiplayer substrate  *(user #2)*
 Server-authoritative, SQLite-persisted rooms (UUID + join code), reconnection/resume, presence, and

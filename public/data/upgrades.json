@@ -430,8 +430,7 @@
         "isUnique": false,
         "requirements": [
             {
-                "cardName": "Rebel Commandos",
-                "title": "Strike Team"
+                "cardName": "Rebel Commandos"
             }
         ],
         "faction": null,
@@ -531,8 +530,7 @@
         "isUnique": false,
         "requirements": [
             {
-                "cardName": "Scout Troopers",
-                "title": "Strike Team"
+                "cardName": "Scout Troopers"
             }
         ],
         "faction": null,
@@ -2404,8 +2402,7 @@
         "isUnique": false,
         "requirements": [
             {
-                "cardName": "BX-Series Droid Commandos",
-                "title": "Strike Team"
+                "cardName": "BX-Series Droid Commandos"
             }
         ],
         "faction": null,
@@ -2440,8 +2437,7 @@
         "isUnique": false,
         "requirements": [
             {
-                "cardName": "ARC Troopers",
-                "title": "Strike Team"
+                "cardName": "ARC Troopers"
             }
         ],
         "faction": null,

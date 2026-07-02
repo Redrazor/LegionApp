@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { readFileSync, existsSync } from 'fs'
 import { join } from 'path'
+import { unitMeetsRequirements } from '../src/utils/army.ts'
 
 // Guards against the failure mode that shipped in 1.2.2: `npm run scrape` regenerates
 // units.json/upgrades.json from LHQ2, which has NO portraitImage. `npm run portraits`
@@ -67,6 +68,34 @@ describe('catalogue data integrity', () => {
     expect(mc('clan-wren-veterans')).toBe(4) // not 3
     expect(mc('the-bad-batch-clone-force-99')).toBe(5) // republic, 5 members (badge 0)
     expect(mc('the-bad-batch-clone-force-99-2')).toBe(4) // mercenary, 4 members (badge 0)
+  })
+
+  it('lets both the full unit and its Strike Team equip the shared sniper heavy weapon', () => {
+    // Regression guard: the four "Strike Team" sniper heavy weapons (DLT-19x, DH-447,
+    // BX-Series, DC-15x ARC) are restricted by unit NAME, not to the Strike Team title —
+    // the card is equippable by the full unit AND the 2-mini team (they share a name).
+    // A stray `title: "Strike Team"` criterion silently locks the sniper out of the full
+    // unit, whose heavy-weapon slot then offers no real sniper.
+    const upgrades = load('upgrades.json') as Array<{ slug: string; requirements?: unknown[] }>
+    const units = load('units.json') as Array<Parameters<typeof unitMeetsRequirements>[0]>
+    const pairs: Record<string, string> = {
+      'dlt-19x-sniper': 'Scout Troopers',
+      'dh-447-sniper': 'Rebel Commandos',
+      'bx-series-droid-sniper': 'BX-Series Droid Commandos',
+      'dc-15x-arc-trooper-sniper': 'ARC Troopers',
+    }
+    for (const [slug, name] of Object.entries(pairs)) {
+      const up = upgrades.find((u) => u.slug === slug)
+      expect(up, `${slug} missing from catalogue`).toBeTruthy()
+      const profiles = units.filter((u) => (u as { name: string }).name === name)
+      expect(profiles.length, `${name} should have full + Strike Team profiles`).toBe(2)
+      for (const unit of profiles) {
+        expect(
+          unitMeetsRequirements(unit, up!.requirements as never),
+          `${name} (${(unit as { title: string }).title || 'full'}) cannot equip ${slug}`,
+        ).toBe(true)
+      }
+    }
   })
 
   // Mandalorian update (AMG DOC56, June 2026 — Feature 11). The errata-removed cards stay

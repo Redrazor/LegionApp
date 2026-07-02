@@ -112,16 +112,24 @@ _(The 4 non-Programming ones are lower-confidence — worth a glance at your car
 
 ---
 
-## Units side (separate, smaller pass)
+## Units side — DONE (no clear-cut drops)
 
-Unit-PDF membership is unreliable (see note above), so units need a different reconciliation (imaged /
-`removed` / superseded-by-v2). **Confirmed v1 unit drops so far** (from the Clan Wren transmission):
+All **180 units are imaged** (none missing, dropped, or `removed`). The duplicate-name pairs are all
+**legitimate** — the same character across factions/ranks (Darth Vader cmd+op, cross-faction Chewbacca/
+Ahsoka/Maul/Boba, rank variants like Scout Troopers + Strike Team). None are v1/v2 dupes to drop.
 
-- `mandalorian-resistance`, `mandalorian-resistance-clan-wren` — replaced by **Clan Wren Veterans**.
-- Old character *upgrades* now promoted to units (drop the upgrade, keep the unit): `ursa-wren`/`ursa-wren-2`
-  (→ `ursa-wren-leader-of-clan-wren`), and the `shaak-ti` case above.
+**One flag for owner decision — Mandalorian Resistance.** The Clan Wren transmission says the Rebel
+`Mandalorian Resistance` / `Clan Wren` units were "reimagined as the new Clan Wren Veterans and Ursa Wren."
+**But both `mandalorian-resistance` and `mandalorian-resistance-clan-wren` are STILL in the current AMG
+Rebel Alliance Units PDF** — so by the source-of-truth rule they stay. (`clan-wren-veterans`,
+`ursa-wren-leader-of-clan-wren`, `sabine-wren-back-in-the-fold` are correctly Mandalorian-BF/DOC56 cards,
+not in the Rebel PDF.) → **Keep unless the owner confirms the Rebel PDF is stale and wants them dropped.**
 
-I'll produce a dedicated unit manifest after the upgrade set is signed off.
+Note: the old character *upgrades* superseded by v2 unit cards were already handled in the upgrade pass
+(`ursa-wren`/`ursa-wren-2` kept as they still equip Mandalorian Resistance; `shaak-ti` upgrade dropped —
+superseded by the `shaak-ti-jedi-council` unit).
+
+**Net: the reconciliation is complete pending the one Mandalorian Resistance call.** Remaining = P8 / 2.0 cutover.
 
 ---
 

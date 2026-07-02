@@ -43,11 +43,7 @@ this list (and their detailed write-ups are kept further down for reference).
    Collect the counterpart cards (the Iden ID10 faces are already staged at
    `scraper/amg-cards/units/empire/DOC51_GalacticEmpire_Units-p10-10.webp` / `-p10-11.webp`) and attach
    them to their parent unit's profile via a `counterpart` field. See **Feature 14** below.
-8. **Competitive (errata) points costs + Build casual/competitive toggle** _(owner-requested 2026-07-02)_ —
-   overlay the AMG competitive points-adjustment errata onto the catalogue and let Build switch between
-   **casual** (printed card cost) and **competitive** (errata-adjusted) costing, recomputing every total
-   live. High community value. See **Feature 19** below.
-9. **Card legality catalogue** _(owner-requested 2026-07-02)_ — a fully searchable reference of every unit,
+8. **Card legality catalogue** _(owner-requested 2026-07-02)_ — a fully searchable reference of every unit,
    upgrade and command that tells you at a glance whether each card is **legal to field** (released, not
    errata-removed, and — for a chosen faction/format — buildable). Extends the existing Browse tab. The
    community has no single place for this. See **Feature 18** below.
@@ -305,7 +301,27 @@ legality plumbing, not this feature.
 
 ## Feature 19 — Competitive (errata) points costs + Build casual/competitive toggle
 
-**Status:** queued. Owner-requested 2026-07-02.
+**Status:** ❌ PARKED (owner decision 2026-07-02) — the premise doesn't hold.
+
+**Why parked (investigated at kickoff):** the feature assumed the catalogue holds the *printed card*
+("casual") cost and we'd overlay the *competitive* errata on top. The reverse is true — **the LHQ2
+catalogue already holds the current tournament/competitive points** (verified against AMG's April 2026
+update: Pyke Syndicate Capo 42, Maul A Rival 130, The Bad Batch 150, Rebel Commandos 42, Wookiee Warriors
+62 — all the *post*-update values). So there is nothing to layer on for "competitive"; it's already the
+default. Flipping it (Competitive = catalogue default, **Casual = original as-printed cost**) would need a
+whole *original-printed-cost* dataset, which is the hard, opposite dataset. And in Star Wars: Legion there
+is **no official "casual points" format** — tournament points *are* the points everyone uses; the printed
+value is just outdated. Net: low value, high data cost. Owner chose to park it rather than build.
+
+**If ever revived:** the only tractable version is a "points-update history" overlay — model the *latest*
+AMG Points Adjustments deltas (old→new, ~15–20 cards from the one doc) and let Build toggle to the
+pre-update values / badge changed cards. That's a different, smaller feature than the one below and would
+need the AMG Points Adjustments doc as its source. The original casual/competitive design is retained below
+for reference only.
+
+---
+
+**Original design (obsolete — retained for reference):**
 
 **Goal:** AMG periodically issues a **points-adjustment errata** that re-costs units and upgrades for
 competitive/tournament play while the printed card cost stays the "casual" value. Build should let the

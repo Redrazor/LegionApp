@@ -181,6 +181,31 @@ describe('catalogue data integrity', () => {
     expect(dropped.upgrades).not.toContain('rook-kast-2')
   })
 
+  it('every named Equip keyword resolves to a live (non-dropped) upgrade', () => {
+    // Guards the v2 reconciliation: dropping a legacy upgrade must never orphan a unit's
+    // mandatory Equip target (e.g. Tagge's "Equip Logistical Prowess"). Slot-type equips
+    // ("Equip Doctrine/Armament") name a slot, not a card, so they're excluded.
+    const norm = (s: string) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '')
+    const upgrades = load('upgrades.json')
+    const slots = new Set(upgrades.map((u) => norm(u.slot)))
+    const byName = new Map(upgrades.map((u) => [norm(u.name), u]))
+    const dropped = new Set(
+      (JSON.parse(readFileSync(join(__dirname, '../public/data/dropped.json'), 'utf8')).upgrades ?? []) as string[],
+    )
+    for (const u of load('units.json')) {
+      for (const kw of (u.keywords ?? []) as string[]) {
+        const m = /^equip[:\s]+(.+)$/i.exec(kw)
+        if (!m) continue
+        for (const t of m[1].split(/,| and /i).map((s) => s.trim()).filter(Boolean)) {
+          if (slots.has(norm(t))) continue // slot-type equip, not a named card
+          const up = byName.get(norm(t))
+          expect(up, `${u.slug}: Equip "${t}" has no catalogue upgrade`).toBeTruthy()
+          expect(dropped.has(up!.slug), `${u.slug}: Equip "${t}" (${up!.slug}) is dropped`).toBe(false)
+        }
+      }
+    }
+  })
+
   // Feature 14 — the owner-maintained counterpart overlay. Every key must be a real
   // parent-unit slug and every referenced card scan must exist on disk, else the profile
   // drawer would show a broken image or attach a counterpart to nothing.

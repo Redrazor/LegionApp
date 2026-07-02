@@ -45,10 +45,6 @@
   },
   "upgrades": {
     "youre-not-all-the-same-to-me": "Unreleased (Jedi Council, SWQ143) — low-res preview from AMG's AdeptiCon 2026 roadmap.",
-    "electrostaff": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
     "vibrosword": {
       "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
       "noImage": true
@@ -57,51 +53,11 @@
       "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
       "noImage": true
     },
-    "heavy-arm-cannon": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "targeting-relay": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "expanded-databanks": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "enhanced-combat-subroutines": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "limiter-override": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "overclock": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
     "turbo-charge": {
       "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
       "noImage": true
     },
-    "mobility-upgrade": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "optimized-task-flow": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "strategic-programming": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
     "logistical-prowess": {
-      "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
-      "noImage": true
-    },
-    "sliced-comms": {
       "note": "Current v2 card (Mandalorian Battle Force / expansion / Programming) with no first-party AMG print-and-play yet — shows the image-pending placeholder until an owner scan is added.",
       "noImage": true
     },

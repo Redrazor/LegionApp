@@ -867,8 +867,8 @@
     "category": "commands",
     "slug": "exterminate",
     "name": "Exterminate",
-    "source": "SWQ29 — Super Tactical Command Droid",
-    "date": null,
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
     "validity": "valid"
   },
   {
@@ -1819,8 +1819,8 @@
     "category": "commands",
     "slug": "tactical-download",
     "name": "Tactical Download",
-    "source": "SWQ29 — Super Tactical Command Droid",
-    "date": null,
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
     "validity": "valid"
   },
   {
@@ -3586,8 +3586,8 @@
     "slug": "super-tactical-command-droid-command-and-control-droid",
     "name": "Super Tactical Command Droid",
     "title": "Command and Control Droid",
-    "source": "SWQ29 — Super Tactical Command Droid",
-    "date": null,
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
     "validity": "valid"
   },
   {
@@ -3595,8 +3595,8 @@
     "slug": "super-tactical-command-droid-auxiliary-command-droid",
     "name": "Super Tactical Command Droid",
     "title": "Auxiliary Command Droid",
-    "source": "SWQ29 — Super Tactical Command Droid",
-    "date": null,
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
     "validity": "valid"
   },
   {
@@ -4783,9 +4783,9 @@
     "category": "upgrades",
     "slug": "electrostaff",
     "name": "Electrostaff",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -4839,9 +4839,9 @@
     "category": "upgrades",
     "slug": "enhanced-combat-subroutines",
     "name": "Enhanced Combat Subroutines",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -4887,9 +4887,9 @@
     "category": "upgrades",
     "slug": "expanded-databanks",
     "name": "Expanded Databanks",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -5215,9 +5215,9 @@
     "category": "upgrades",
     "slug": "heavy-arm-cannon",
     "name": "Heavy Arm Cannon",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -5575,9 +5575,9 @@
     "category": "upgrades",
     "slug": "limiter-override",
     "name": "Limiter Override",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -5703,9 +5703,9 @@
     "category": "upgrades",
     "slug": "mobility-upgrade",
     "name": "Mobility Upgrade",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -5823,9 +5823,9 @@
     "category": "upgrades",
     "slug": "optimized-task-flow",
     "name": "Optimized Task Flow",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -5847,9 +5847,9 @@
     "category": "upgrades",
     "slug": "overclock",
     "name": "Overclock",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -6295,8 +6295,8 @@
     "category": "upgrades",
     "slug": "seek-and-destroy",
     "name": "Seek and Destroy",
-    "source": "SWQ29 — Super Tactical Command Droid",
-    "date": null,
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
     "validity": "valid"
   },
   {
@@ -6375,9 +6375,9 @@
     "category": "upgrades",
     "slug": "sliced-comms",
     "name": "Sliced Comms",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -6487,9 +6487,9 @@
     "category": "upgrades",
     "slug": "strategic-programming",
     "name": "Strategic Programming",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -6647,9 +6647,9 @@
     "category": "upgrades",
     "slug": "targeting-relay",
     "name": "Targeting Relay",
-    "source": "Image pending (no source yet)",
-    "date": null,
-    "validity": "unknown"
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
+    "validity": "valid"
   },
   {
     "category": "upgrades",
@@ -6839,8 +6839,8 @@
     "category": "upgrades",
     "slug": "tyrannical-taskmaster",
     "name": "Tyrannical Taskmaster",
-    "source": "SWQ29 — Super Tactical Command Droid",
-    "date": null,
+    "source": "SWQ29 — Customizable Super Tactical Command Droids",
+    "date": "2025-09",
     "validity": "valid"
   },
   {

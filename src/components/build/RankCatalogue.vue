@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import type { BattleForce, Faction, Rank, Unit } from '../../types/index.ts'
 import { catalogueForRank, isDetachment } from '../../utils/army.ts'
 import { RANK_ORDER, rankName } from '../../utils/factions.ts'
@@ -32,16 +32,20 @@ const props = defineProps<{
 
 defineEmits<{ add: [unitId: string]; view: [unitId: string] }>()
 
-const query = ref('')
+// Filter/browse state is exposed as models so the parent (BuildView) can own it — that
+// way it survives this component unmounting while the contextual upgrade picker is open,
+// and the user returns to the same search + rank filter they left. Defaults apply only
+// when used without a bound v-model.
+const query = defineModel<string>('query', { default: '' })
 // Which rank is open (tablet accordion) / selected (mobile tab-strip). `null` = all
 // collapsed (tablet only); desktop ignores it (every group is open). The mobile
 // tab-strip always shows a rank, falling back to the first when none is open.
-const activeRank = ref<Rank | null>('commander')
+const activeRank = defineModel<Rank | null>('activeRank', { default: 'commander' })
 const mobileRank = computed<Rank>(() => activeRank.value ?? RANK_ORDER[0])
 
 // Desktop rank focus: 'all' shows every group at once (default); a rank narrows the
 // catalogue to just that group. Lets desktop focus one rank like mobile's tab-strip.
-const desktopFocus = ref<Rank | 'all'>('all')
+const desktopFocus = defineModel<Rank | 'all'>('desktopFocus', { default: 'all' })
 function desktopShows(rank: Rank): boolean {
   return desktopFocus.value === 'all' || desktopFocus.value === rank
 }

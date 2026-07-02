@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.1.1',
+    date: '2026-07-02',
+    changes: [
+      'Build: opening a unit’s upgrade picker and closing it no longer resets the catalogue — your search and rank filter are kept, so you return exactly where you were.',
+    ],
+  },
+  {
     version: '2.1.0',
     date: '2026-07-02',
     changes: [

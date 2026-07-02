@@ -7,6 +7,16 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.0.0',
+    date: '2026-07-02',
+    changes: [
+      'Every card image is now the official Atomic Mass Games print-and-play scan (current 2024 "v2" edition) — units, upgrades, commands and battle cards all replaced.',
+      'The catalogue is now v2-only: legacy 1st-edition cards that are no longer part of the current game have been removed, and current cards Atomic Mass Games hasn\'t released as print-and-play yet show an "image pending" placeholder.',
+      'Clan Wren updated to the official cards: Sabine Wren (Back in the Fold), Ursa Wren, Clan Wren Veterans, the reworked Beskad Duelist (single red die) and Tristan Wren (Precise 2), plus the No One Threatens Our Family / Make the Impossible Possible / We Protect Our Own command cards.',
+      'Fixed Entourage: the entourage unit (e.g. Darth Vader brought by Grand Moff Tarkin) no longer counts toward its rank limit — it is shown as an exempt "+1" extra rather than eating a slot.',
+    ],
+  },
+  {
     version: '1.32.0',
     date: '2026-07-01',
     changes: [

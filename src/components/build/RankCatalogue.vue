@@ -15,10 +15,14 @@ const props = defineProps<{
   units: Unit[]
   faction: Faction | null
   battleForce: BattleForce | null
-  // Per-rank current army count + Entourage-adjusted min/max (gating matches the footer).
+  // Per-rank current army count + per-format min/max (gating matches the footer).
   counts: Record<Rank, number>
   // Detachment units per rank — exempt from the rank maximum (rulebook).
   detachmentCounts: Record<Rank, number>
+  // Entourage-exempt units per rank — also don't count toward the max (rulebook).
+  entourageExempt: Record<Rank, number>
+  // Unit names addable over the cap right now (an entourage unit with a spare grant).
+  coverableNames: ReadonlySet<string>
   limits: Record<Rank, { min: number; max: number }>
   // Lowercased names + ranks already in the army, for Detachment availability gating.
   presentParents: ReadonlySet<string>
@@ -55,11 +59,18 @@ const candidatesByRank = computed(() => {
   return out
 })
 
-// A unit's [+] is disabled when its rank is full — but detachments don't count toward
-// the max, so they're never blocked, and the max is measured against non-detachment count.
+// A unit's [+] is disabled when its rank is full — but detachments and entourage-coverable
+// units don't count toward the max, so they're never blocked, and the max is measured
+// against the non-detachment, non-entourage count.
 function unitAddDisabled(rank: Rank, unit: Unit): boolean {
   if (isDetachment(unit)) return false
-  return props.counts[rank] - props.detachmentCounts[rank] >= props.limits[rank].max
+  if (props.coverableNames.has(unit.name.toLowerCase())) return false
+  return props.counts[rank] - props.detachmentCounts[rank] - props.entourageExempt[rank] >= props.limits[rank].max
+}
+
+// Units counting toward the rank max (entourage units are exempt, shown as a "+N" extra).
+function countingCount(rank: Rank): number {
+  return props.counts[rank] - props.entourageExempt[rank]
 }
 
 // Tablet accordion: a header toggles its group (click the open one to collapse all);
@@ -92,7 +103,7 @@ function toggleRank(rank: Rank) {
           @click="activeRank = rank"
         >
           {{ RANK_ABBR[rank] }}
-          <span class="opacity-70">{{ counts[rank] }}/{{ limits[rank].max }}</span>
+          <span class="opacity-70">{{ countingCount(rank) }}/{{ limits[rank].max }}<span v-if="entourageExempt[rank]" class="text-lg-holo">+{{ entourageExempt[rank] }}</span></span>
         </button>
       </div>
       <div class="flex-1 space-y-1 overflow-y-auto">
@@ -122,7 +133,7 @@ function toggleRank(rank: Rank) {
           @click="desktopFocus = rank"
         >
           {{ RANK_ABBR[rank] }}
-          <span class="opacity-70">{{ counts[rank] }}/{{ limits[rank].max }}</span>
+          <span class="opacity-70">{{ countingCount(rank) }}/{{ limits[rank].max }}<span v-if="entourageExempt[rank]" class="text-lg-holo">+{{ entourageExempt[rank] }}</span></span>
         </button>
       </div>
 
@@ -136,7 +147,7 @@ function toggleRank(rank: Rank) {
             <span class="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-widest text-lg-text/80">
               {{ rankName(rank) }}
               <span class="text-xs font-normal text-lg-muted tabular-nums">
-                {{ counts[rank] }}<span v-if="limits[rank].min > 0 || limits[rank].max"> · {{ limits[rank].min }}–{{ limits[rank].max }}</span>
+                {{ countingCount(rank) }}<span v-if="entourageExempt[rank]" class="text-lg-holo">+{{ entourageExempt[rank] }}</span><span v-if="limits[rank].min > 0 || limits[rank].max"> · {{ limits[rank].min }}–{{ limits[rank].max }}</span>
               </span>
             </span>
             <span v-if="!isDesktop" class="text-lg-muted/70 transition-transform" :class="activeRank === rank ? 'rotate-180' : ''" aria-hidden="true">⌃</span>

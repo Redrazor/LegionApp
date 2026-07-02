@@ -39,7 +39,7 @@ describe('catalogue data integrity', () => {
     const weapons = JSON.parse(readFileSync(join(__dirname, '../public/data/upgrade-weapons.json'), 'utf8')) as Record<string, { name: string; range: number[]; dice: { red: number; black: number; white: number }; keywords: string[] }[]>
     const slugs = new Set(load('upgrades.json').map((u) => u.slug))
     const keys = Object.keys(weapons)
-    expect(keys.length).toBeGreaterThan(150)
+    expect(keys.length).toBeGreaterThan(130) // v2 reconcile dropped ~31 legacy weapon overlays
     // Every keyed slug must exist in the catalogue (no orphans after a re-scrape rename).
     for (const slug of keys) expect(slugs.has(slug), `upgrade-weapons.json slug "${slug}" not in upgrades.json`).toBe(true)
     // Spot-checks verified against the card scans — guards against dice/colour regressions.
@@ -48,7 +48,6 @@ describe('catalogue data integrity', () => {
     expect(dice('z-6-trooper')).toEqual({ red: 0, black: 0, white: 6 })
     expect(dice('dlt-19-stormtrooper')).toEqual({ red: 2, black: 0, white: 0 })
     // Corrected during the full image-verification sweep (source had black/white swapped):
-    expect(dice('lightsaber')).toEqual({ red: 2, black: 3, white: 1 })
     expect(dice('the-armorer')).toEqual({ red: 2, black: 0, white: 2 })
     expect(dice('e-5s-b1-battle-droid')).toEqual({ red: 1, black: 0, white: 1 })
     // Every weapon profile has at least one die and a name.
@@ -100,7 +99,7 @@ describe('catalogue data integrity', () => {
     ])
   })
 
-  it('keeps the Mandalorian-trooper unit-type errata + Beskad 2-red dice', () => {
+  it('keeps the Mandalorian-trooper unit-type errata + Beskad single-red die (Clan Wren v2 card)', () => {
     const units = load('units.json')
     const ut = (slug: string) => units.find((u) => u.slug === slug)?.unitType
     expect(ut('boba-fett-daimyo-of-mos-espa')).toBe('mandalorian trooper')
@@ -109,7 +108,8 @@ describe('catalogue data integrity', () => {
     const weapons = JSON.parse(
       readFileSync(join(__dirname, '../public/data/upgrade-weapons.json'), 'utf8'),
     ) as Record<string, { dice: { red: number; black: number; white: number } }[]>
-    expect(weapons['beskad-duelist-2'][0].dice.red).toBe(2)
+    // Beskad Duelist (Clan Wren Veterans version, DOC56 UpgradeCards p.23): Vibro Sword, 1 red, Pierce 1.
+    expect(weapons['beskad-duelist-2'][0].dice.red).toBe(1)
   })
 
   it("carries Axe Woves' errata weapon keyword (Lethal 1)", () => {
@@ -171,13 +171,39 @@ describe('catalogue data integrity', () => {
         expect(byCat[cat].has(slug), `dropped ${cat} slug not in catalogue: ${slug}`).toBe(true)
       }
     }
-    // The six known first-edition drops (guard against an accidental wipe of the list).
+    // Known first-edition drops (guard against an accidental wipe of the list). the-darksaber-maul
+    // is intentionally NOT here — it's a current card kept as an unreleased noImage placeholder.
     expect(dropped.upgrades).toEqual(
-      expect.arrayContaining(['at-st-mortar-launcher', 'dc-15-clone-trooper', 'kx-series-security-droids', 'mertalizer', 'r5-astromech-droid', 'rook-kast', 'the-darksaber-maul']),
+      expect.arrayContaining(['at-st-mortar-launcher', 'dc-15-clone-trooper', 'kx-series-security-droids', 'mertalizer', 'r5-astromech-droid', 'rook-kast']),
     )
     // rook-kast (v1 heavy weapon) is dropped, but its v2 replacement rook-kast-2 is NOT.
     expect(byCat.upgrades.has('rook-kast-2')).toBe(true)
     expect(dropped.upgrades).not.toContain('rook-kast-2')
+  })
+
+  it('every named Equip keyword resolves to a live (non-dropped) upgrade', () => {
+    // Guards the v2 reconciliation: dropping a legacy upgrade must never orphan a unit's
+    // mandatory Equip target (e.g. Tagge's "Equip Logistical Prowess"). Slot-type equips
+    // ("Equip Doctrine/Armament") name a slot, not a card, so they're excluded.
+    const norm = (s: string) => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '')
+    const upgrades = load('upgrades.json')
+    const slots = new Set(upgrades.map((u) => norm(u.slot)))
+    const byName = new Map(upgrades.map((u) => [norm(u.name), u]))
+    const dropped = new Set(
+      (JSON.parse(readFileSync(join(__dirname, '../public/data/dropped.json'), 'utf8')).upgrades ?? []) as string[],
+    )
+    for (const u of load('units.json')) {
+      for (const kw of (u.keywords ?? []) as string[]) {
+        const m = /^equip[:\s]+(.+)$/i.exec(kw)
+        if (!m) continue
+        for (const t of m[1].split(/,| and /i).map((s) => s.trim()).filter(Boolean)) {
+          if (slots.has(norm(t))) continue // slot-type equip, not a named card
+          const up = byName.get(norm(t))
+          expect(up, `${u.slug}: Equip "${t}" has no catalogue upgrade`).toBeTruthy()
+          expect(dropped.has(up!.slug), `${u.slug}: Equip "${t}" (${up!.slug}) is dropped`).toBe(false)
+        }
+      }
+    }
   })
 
   // Feature 14 — the owner-maintained counterpart overlay. Every key must be a real

@@ -11,8 +11,8 @@ import { useBattleCardsStore } from '../stores/battleCards.ts'
 import { useKeywordsStore } from '../stores/keywords.ts'
 import { useArmyValidation } from '../composables/useArmyValidation.ts'
 import { FACTION_ORDER, FACTION_META, RANK_ORDER, rankLimits, rankName } from '../utils/factions.ts'
-import { encodeArmy, decodeArmy, entourageBonuses, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON, importArmy, toCompact, DEFAULT_PRINT_OPTIONS, type PrintOptions } from '../utils/army.ts'
-import type { Faction, Rank } from '../types/index.ts'
+import { encodeArmy, decodeArmy, entourageExemptions, entourageCoverableNames, presentDetachmentParents, groupArmyUnits, effectiveRank, eligibleCommandCards, eligibleBattleCards, usesBattleDeck, buildArmySheet, armyToText, armyToListJSON, importArmy, toCompact, DEFAULT_PRINT_OPTIONS, type PrintOptions } from '../utils/army.ts'
+import type { Faction, Rank, Unit } from '../types/index.ts'
 import ArmyUnitCard from '../components/build/ArmyUnitCard.vue'
 import BuildLayout from '../components/build/BuildLayout.vue'
 import RankTrackerFooter from '../components/build/RankTrackerFooter.vue'
@@ -146,18 +146,20 @@ async function share() {
   setTimeout(() => (shareMsg.value = ''), 3000)
 }
 
-// Per-format rank limits for the currently selected points cap, with Entourage
-// bonuses folded into each rank's max so the catalogue "+ Add" gating and the
-// header caps match validateArmy (e.g. Tarkin's "Entourage Darth Vader" → 1–3).
-const limits = computed(() => {
-  const base = rankLimits(draft.value.gameSize, battleForce.value)
-  const bonus = entourageBonuses(draft.value, unitsStore.byId)
-  const out = {} as Record<Rank, { min: number; max: number }>
-  for (const rank of RANK_ORDER) {
-    out[rank] = { min: base[rank].min, max: base[rank].max + (bonus[rank] ?? 0) }
-  }
+// Per-format rank limits for the currently selected points cap. Entourage no longer
+// widens the max — instead the covered unit is exempt from the count (like a detachment),
+// matching validateArmy (e.g. Tarkin's "Entourage Darth Vader" exempts the commander Vader).
+const limits = computed(() => rankLimits(draft.value.gameSize, battleForce.value))
+
+// Entourage-exempt count per rank (a fielded entourage unit that doesn't count toward the
+// max), and the names addable over the cap right now (the entourage unit itself).
+const entourageExempt = computed(() => {
+  const ex = entourageExemptions(draft.value, unitsStore.byId)
+  const out = {} as Record<Rank, number>
+  for (const rank of RANK_ORDER) out[rank] = ex[rank] ?? 0
   return out
 })
+const coverableNames = computed(() => entourageCoverableNames(draft.value, unitsStore.byId))
 
 const pointsPct = computed(() =>
   Math.min(100, Math.round((validation.value.points / draft.value.gameSize) * 100)),
@@ -281,19 +283,21 @@ const detachmentCounts = computed(() => {
   return out
 })
 
-// Whether another unit of a rank can be added: a detachment is never blocked by the
-// max; a normal unit is blocked once the non-detachment count reaches the max.
-function canAddToRank(rank: Rank, unitIsDetachment: boolean): boolean {
-  if (unitIsDetachment) return true
-  return counts.value[rank] - detachmentCounts.value[rank] < limits.value[rank].max
+// Whether another unit of a rank can be added: detachments and entourage-coverable units
+// are never blocked by the max; a normal unit is blocked once the non-exempt count reaches
+// the max (detachments + entourage units don't count toward it).
+function canAddToRank(rank: Rank, unit: Unit | undefined): boolean {
+  if (unit && isDetachment(unit)) return true
+  if (unit && coverableNames.value.has(unit.name.toLowerCase())) return true
+  return counts.value[rank] - detachmentCounts.value[rank] - entourageExempt.value[rank] < limits.value[rank].max
 }
 
-// Per-rank {count, min, max} for the footer's rank-tracker chips (max already
-// folds in Entourage via `limits`).
+// Per-rank {count, min, max, detachments, entourage} for the footer's rank-tracker chips.
+// Detachments and entourage units are shown but don't count toward the max (see rankChipState).
 const ranks = computed(() => {
-  const out = {} as Record<Rank, { count: number; min: number; max: number; detachments: number }>
+  const out = {} as Record<Rank, { count: number; min: number; max: number; detachments: number; entourage: number }>
   for (const rank of RANK_ORDER) {
-    out[rank] = { count: counts.value[rank], min: limits.value[rank].min, max: limits.value[rank].max, detachments: detachmentCounts.value[rank] }
+    out[rank] = { count: counts.value[rank], min: limits.value[rank].min, max: limits.value[rank].max, detachments: detachmentCounts.value[rank], entourage: entourageExempt.value[rank] }
   }
   return out
 })
@@ -418,6 +422,8 @@ useHead({
         :battle-force="battleForce"
         :counts="counts"
         :detachment-counts="detachmentCounts"
+        :entourage-exempt="entourageExempt"
+        :coverable-names="coverableNames"
         :limits="limits"
         :present-parents="presentParents"
         :is-mobile="isMobile"
@@ -443,7 +449,7 @@ useHead({
               v-for="group in groupedByRank[rank]" :key="group.key"
               :group="group" :faction="draft.faction"
               :battle-force="battleForce"
-              :can-add="canAddToRank(rank, isDetachment(unitsStore.byId.get(group.unitId)!))"
+              :can-add="canAddToRank(rank, unitsStore.byId.get(group.unitId))"
               @pick-upgrade="onPickUpgrade"
               @view="viewUnit"
             />

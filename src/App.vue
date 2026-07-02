@@ -7,7 +7,7 @@ import ChangelogModal from './components/ChangelogModal.vue'
 
 const menuOpen = ref(false)
 const showChangelog = ref(false)
-const APP_VERSION = '1.32.0' // keep in sync with package.json + ChangelogModal's top entry
+const APP_VERSION = '2.0.0' // keep in sync with package.json + ChangelogModal's top entry
 const router = useRouter()
 const { theme, toggle, init } = useTheme()
 
@@ -106,7 +106,8 @@ onMounted(init)
       <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 px-4 text-xs text-lg-text/35">
         <span class="leading-relaxed">
           Unofficial fan tool, not affiliated with Atomic Mass Games or Lucasfilm Ltd. Star Wars: Legion and all related
-          marks, card text, and artwork are © Atomic Mass Games, Lucasfilm Ltd. &amp; Disney. Card data via Legion HQ.
+          marks, card text, and artwork are © Atomic Mass Games, Lucasfilm Ltd. &amp; Disney. Card scans are the official
+          Atomic Mass Games print-and-play files.
         </span>
         <button class="rounded px-2 py-1 text-lg-text/30 transition-colors hover:text-lg-accent" @click="showChangelog = true">v{{ APP_VERSION }}</button>
       </div>

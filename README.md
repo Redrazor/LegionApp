@@ -97,7 +97,7 @@ Re-run `npm run scrape` to pick up the latest data.
 
 ## Credits
 
-- Card data via Legion HQ 2.
+- Card scans are the official Atomic Mass Games print-and-play files (current 2024 "v2" edition).
 - The dice-roller symbols (hit, critical, surge, block) are traced from the
   [Legion symbol font](https://github.com/Owen-A/Legion-font) by Owen-A, used
   under the MIT license.

@@ -136,6 +136,10 @@
       "image": "/images/units/clan-kryze-veterans-front.webp",
       "label": "Artwork"
     },
+    "clan-wren-veterans": {
+      "image": "/images/units/clan-wren-veterans-front.webp",
+      "label": "Artwork"
+    },
     "clone-captain-rex-honorable-soldier": {
       "image": "/images/units/clone-captain-rex-honorable-soldier-front.webp",
       "label": "Artwork"
@@ -506,6 +510,10 @@
     },
     "saber-class-tank": {
       "image": "/images/units/saber-class-tank-front.webp",
+      "label": "Artwork"
+    },
+    "sabine-wren-back-in-the-fold": {
+      "image": "/images/units/sabine-wren-back-in-the-fold-front.webp",
       "label": "Artwork"
     },
     "sabine-wren-explosive-artist": {

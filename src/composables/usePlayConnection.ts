@@ -1,5 +1,7 @@
 import { usePlayRoom } from './usePlayRoom.ts'
 import { usePlaySessionStore } from '../stores/playSession.ts'
+import { useBattleCardsStore } from '../stores/battleCards.ts'
+import { missionFormat, drawReconMission, pendingStandardMission, reconPoolsFrom } from '../utils/mission.ts'
 import type { Army } from '../types/index.ts'
 
 // Glue between the authoritative socket transport (usePlayRoom) and the session store.
@@ -8,6 +10,7 @@ import type { Army } from '../types/index.ts'
 export function usePlayConnection() {
   const room = usePlayRoom()
   const store = usePlaySessionStore()
+  const battleCards = useBattleCardsStore()
 
   room.onRoomState((snap) => store.applySnapshot(snap))
   room.onRoomEnded(() => store.roomEnded())
@@ -58,11 +61,26 @@ export function usePlayConnection() {
     else store.setSelfName(name)
   }
 
+  /** Draw (or redraw) the game's mission. Room: server-authoritative. Solo: drawn locally. */
+  function drawMission(): void {
+    if (store.inRoom) { room.drawMission(); return }
+    const format = missionFormat(store.selfArmy)
+    const mission = format === 'recon'
+      ? drawReconMission(reconPoolsFrom(battleCards.battleCards), Math.random, Date.now())
+      : pendingStandardMission(Date.now())
+    store.setLocalMission(mission)
+  }
+
+  function resetMission(): void {
+    if (store.inRoom) { room.resetMission(); return }
+    store.setLocalMission(null)
+  }
+
   /** End the game: destroys the room server-side (both players) or ends the solo session. */
   function leave(): void {
     if (store.inRoom) room.endGame()
     store.end()
   }
 
-  return { room, store, host, join, resume, importArmy, changeArmy, rename, leave }
+  return { room, store, host, join, resume, importArmy, changeArmy, rename, drawMission, resetMission, leave }
 }

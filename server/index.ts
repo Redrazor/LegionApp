@@ -90,6 +90,16 @@ io.on('connection', (socket) => {
     if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
   })
 
+  socket.on('draw-mission', () => {
+    const snapshot = rooms.drawMission(socket.id)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
+  socket.on('reset-mission', () => {
+    const snapshot = rooms.resetMission(socket.id)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
   socket.on('end-game', () => {
     const ended = rooms.endGame(socket.id)
     if (ended) io.to(ended.roomId).emit('room-ended')

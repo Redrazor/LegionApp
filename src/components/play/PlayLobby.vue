@@ -4,12 +4,19 @@ import { storeToRefs } from 'pinia'
 import { usePlaySessionStore } from '../../stores/playSession.ts'
 import ArmyPicker from './ArmyPicker.vue'
 import PlayRoster from './PlayRoster.vue'
+import PlayMission from './PlayMission.vue'
 import type { Army } from '../../types/index.ts'
 
-defineEmits<{ (e: 'import', army: Army): void; (e: 'change'): void; (e: 'end'): void }>()
+defineEmits<{
+  (e: 'import', army: Army): void
+  (e: 'change'): void
+  (e: 'end'): void
+  (e: 'draw-mission'): void
+  (e: 'reset-mission'): void
+}>()
 
 const store = usePlaySessionStore()
-const { session, roomCode, opponentOnline, selfArmy } = storeToRefs(store)
+const { session, roomCode, opponentOnline, selfArmy, bothArmiesReady } = storeToRefs(store)
 
 const copied = ref(false)
 async function copyCode() {
@@ -49,6 +56,13 @@ async function copyCode() {
       </div>
       <span v-if="session?.opponent.army" class="flex-none text-emerald-400">✓</span>
     </div>
+
+    <!-- Mission setup — available once both players have imported an army -->
+    <PlayMission
+      v-if="bothArmiesReady"
+      @draw="$emit('draw-mission')"
+      @reset="$emit('reset-mission')"
+    />
 
     <!-- Self: import, or show the loaded roster -->
     <div v-if="selfArmy">

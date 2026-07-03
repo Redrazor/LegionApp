@@ -71,6 +71,14 @@ export function usePlayRoom() {
     socket?.emit('set-name', { name })
   }
 
+  function drawMission(): void {
+    socket?.emit('draw-mission')
+  }
+
+  function resetMission(): void {
+    socket?.emit('reset-mission')
+  }
+
   function endGame(): void {
     socket?.emit('end-game')
   }
@@ -84,5 +92,5 @@ export function usePlayRoom() {
   function onRoomState(cb: (snap: RoomSnapshot) => void): void { _onRoomState = cb }
   function onRoomEnded(cb: () => void): void { _onRoomEnded = cb }
 
-  return { connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, endGame, disconnect, onRoomState, onRoomEnded }
+  return { connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, drawMission, resetMission, endGame, disconnect, onRoomState, onRoomEnded }
 }

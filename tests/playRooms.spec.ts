@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import Database from 'better-sqlite3'
 import {
   ensurePlayRoomsTable, insertRoom, getRoomById, getRoomByCode,
-  updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode,
+  updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode, reconPools,
 } from '../server/db/playRooms.ts'
 import { dropTables, createTables } from '../server/db/seed.ts'
 import { createRoomState, setPlayerArmy } from '../server/playState.ts'
@@ -76,6 +76,22 @@ describe('generateUniqueCode', () => {
     let i = 0
     const code = generateUniqueCode(sqlite, () => seq[i++])
     expect(code).not.toBe('AAAA')
+  })
+})
+
+describe('reconPools', () => {
+  it('groups is_recon battle cards by subtype', () => {
+    createTables(sqlite) // provides battle_cards
+    const ins = sqlite.prepare('INSERT INTO battle_cards (id, name, subtype, is_recon) VALUES (?, ?, ?, ?)')
+    ins.run('p1', 'Bunker Assault', 'primary', 1)
+    ins.run('s1', 'Recon Mission', 'secondary', 1)
+    ins.run('a1', 'Advanced Intel', 'advantage', 1)
+    ins.run('a2', 'Cunning Deployment', 'advantage', 1)
+    ins.run('std', 'Payload', 'primary', 0) // non-recon must be excluded
+    const pools = reconPools(sqlite)
+    expect(pools.primary).toEqual(['p1'])
+    expect(pools.secondary).toEqual(['s1'])
+    expect(pools.advantage.sort()).toEqual(['a1', 'a2'])
   })
 })
 

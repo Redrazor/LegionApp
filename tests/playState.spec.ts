@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import {
-  createRoomState, ensureGuest, setPlayerArmy, setPlayerName, slotFor,
+  createRoomState, ensureGuest, setPlayerArmy, setPlayerName, slotFor, setMission, clearMission,
 } from '../server/playState.ts'
+import { pendingStandardMission } from '../src/utils/mission.ts'
 import type { Army } from '../src/types/index.ts'
 
 const army = (name: string): Army => ({
@@ -70,5 +71,16 @@ describe('slotFor', () => {
   })
   it('returns null for an absent guest', () => {
     expect(slotFor(createRoomState('Alice'), 'guest')).toBeNull()
+  })
+})
+
+describe('setMission / clearMission', () => {
+  it('attaches and clears the mission immutably', () => {
+    const base = createRoomState('Alice')
+    const m = pendingStandardMission(1)
+    const withMission = setMission(base, m)
+    expect(withMission.mission).toBe(m)
+    expect(base.mission).toBeUndefined() // input untouched
+    expect(clearMission(withMission).mission).toBeNull()
   })
 })

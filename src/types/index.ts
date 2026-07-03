@@ -301,10 +301,28 @@ export interface RoomSlot {
   army: Army | null
 }
 
+export type MissionFormat = 'recon' | 'standard'
+
+/**
+ * The picked mission for the game (shared, persisted). Recon draws it randomly
+ * (Blue player, shared Primary + Secondary, one Advantage each). Standard's veto-draft
+ * is not implemented yet — it carries `pending: true` until the procedure is confirmed.
+ */
+export interface MissionState {
+  format: MissionFormat
+  pending?: boolean // standard-format placeholder until the veto-draft ships
+  bluePlayer: PlayerRole | null
+  primary: string | null // battle-card id (shared)
+  secondary: string | null // battle-card id (shared)
+  advantage: { host: string | null; guest: string | null } // each player's own
+  drawnAt: number
+}
+
 /** Authoritative shared room state (persisted). `guest` is null until someone joins. */
 export interface RoomState {
   host: RoomSlot
   guest: RoomSlot | null
+  mission?: MissionState | null
 }
 
 /** Which slots currently have a live socket connected. */

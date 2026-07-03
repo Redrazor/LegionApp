@@ -82,10 +82,15 @@ create/join/rejoin/update-army/set-name/end-game → broadcasts `room-state`. Cl
 (ShatterApp had none). **Lifecycle: explicit End game + 24h TTL; 30s presence grace.** Known limit:
 Render's ephemeral FS resets rooms on redeploy (swap to persistent disk later, no protocol change).
 
-### Phase 3 — Mission picker  *(user #3)*
-Format-driven off `isRecon`: **Recon = random draw**, **Standard = deal/alternate-veto draft** (owner-
-confirmed procedure) across Primary → Secondary → Advantage. Synced two-player state machine, card-image
-display, veto UI. Persists chosen Primary/Secondary/Advantage to the session.
+### Phase 3 — Mission picker  *(user #3)* — ✅ RECON SHIPPED v2.6.0 (PR #97); Standard deferred
+Recon random draw fully built (Blue roll-off + shared Primary/Secondary + one Advantage each), **works
+in a room AND solo** (owner asked for solo). Pure draw lives in `src/utils/mission.ts` (`drawReconMission`,
+`missionFormat` variadic, `reconPoolsFrom`) so client+server share it; server draws via `draw-mission`/
+`reset-mission` socket events, solo draws client-side. `RoomState.mission` persisted + broadcast; store
+maps advantage host/guest→self/opponent (solo treats self as host). UI `PlayMission.vue` (card zoom,
+redraw), gated by `canPickMission`. Mission persists (room: snapshot on rejoin; solo: localStorage).
+**Standard = `pending` placeholder** until owner confirms the veto-draft deal/reject counts — see the
+open-verifications list. Blue determination is a fair 50/50 roll-off (not literal red-die odds).
 
 ### Phase 4 — Turn + VP tracker + change-log substrate  *(user #4 + #8 foundation)*
 Round counter (≤6), VP track (cap 12) per player, phase advance. Stand up the **event-log bus**; all

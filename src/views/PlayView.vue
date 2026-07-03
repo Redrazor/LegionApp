@@ -7,9 +7,11 @@ import { useArmyStore } from '../stores/army.ts'
 import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useBattleForcesStore } from '../stores/battleForces.ts'
+import { useBattleCardsStore } from '../stores/battleCards.ts'
 import PlaySetup from '../components/play/PlaySetup.vue'
 import PlayRoster from '../components/play/PlayRoster.vue'
 import PlayLobby from '../components/play/PlayLobby.vue'
+import PlayMission from '../components/play/PlayMission.vue'
 import type { Army } from '../types/index.ts'
 
 const conn = usePlayConnection()
@@ -19,6 +21,7 @@ const { mode, selfArmy, session } = storeToRefs(store)
 const unitsStore = useUnitsStore()
 const upgradesStore = useUpgradesStore()
 const battleForcesStore = useBattleForcesStore()
+const battleCardsStore = useBattleCardsStore()
 
 const busy = ref(false)
 const error = ref('')
@@ -33,6 +36,7 @@ onMounted(() => {
   unitsStore.load()
   upgradesStore.load()
   battleForcesStore.load()
+  battleCardsStore.load()
   conn.resume() // auto-rejoin a persisted room after a reload
 })
 
@@ -84,16 +88,20 @@ useHead({
       @import="onImport"
       @change="conn.changeArmy()"
       @end="conn.leave()"
+      @draw-mission="conn.drawMission()"
+      @reset-mission="conn.resetMission()"
     />
 
-    <!-- Solo, army loaded -->
-    <PlayRoster
-      v-else-if="mode === 'solo' && selfArmy"
-      :army="selfArmy"
-      :player-name="session?.self.name ?? 'You'"
-      @change="conn.changeArmy()"
-      @end="conn.leave()"
-    />
+    <!-- Solo, army loaded — mission draw + roster -->
+    <div v-else-if="mode === 'solo' && selfArmy" class="mx-auto max-w-2xl">
+      <PlayMission @draw="conn.drawMission()" @reset="conn.resetMission()" />
+      <PlayRoster
+        :army="selfArmy"
+        :player-name="session?.self.name ?? 'You'"
+        @change="conn.changeArmy()"
+        @end="conn.leave()"
+      />
+    </div>
 
     <!-- Idle / solo without an army yet -->
     <PlaySetup

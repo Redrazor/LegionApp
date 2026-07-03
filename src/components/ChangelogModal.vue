@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.6.0',
+    date: '2026-07-03',
+    changes: [
+      'Play mission picker (phase 3) — once your army is imported, draw the game’s mission right in Play. Recon (600) games roll off for the Blue player and draw the shared Primary + Secondary objectives plus an Advantage each, with full card images you can tap to zoom; redraw any time. Works in a multiplayer room (both players see the same draw in real time, and it persists on reload) and solo on a single device. Standard-format games show a placeholder for now — that veto-draft is coming next.',
+    ],
+  },
+  {
     version: '2.5.0',
     date: '2026-07-03',
     changes: [

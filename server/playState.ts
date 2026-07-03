@@ -3,7 +3,11 @@
 // This blob is what gets persisted to SQLite and broadcast to both players; later Play
 // phases extend RoomState (mission, round, VP, tokens, log) and add reducers here.
 
-import type { Army, RoomState, RoomSlot, PlayerRole } from '../src/types/index.ts'
+import type { Army, RoomState, RoomSlot, PlayerRole, MissionState } from '../src/types/index.ts'
+
+// Note: the pure Recon draw (drawReconMission/pendingStandardMission/ReconPools) lives in
+// src/utils/mission.ts so the client can run the same draw for solo games. These reducers
+// only mutate RoomState.
 
 /** Fresh state for a brand-new room whose host has just created it. */
 export function createRoomState(hostName: string): RoomState {
@@ -36,4 +40,14 @@ export function setPlayerName(state: RoomState, role: PlayerRole, name: string):
 /** Read a slot by role (guest may be absent). */
 export function slotFor(state: RoomState, role: PlayerRole): RoomSlot | null {
   return role === 'host' ? state.host : state.guest
+}
+
+// ── Mission ──────────────────────────────────────────────────────────────────
+
+export function setMission(state: RoomState, mission: MissionState): RoomState {
+  return { ...state, mission }
+}
+
+export function clearMission(state: RoomState): RoomState {
+  return { ...state, mission: null }
 }

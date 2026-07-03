@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import Database from 'better-sqlite3'
 import { createRoomManager } from '../server/rooms.ts'
+import { createTables } from '../server/db/seed.ts'
 import type { Army } from '../src/types/index.ts'
 
 type Sqlite = InstanceType<typeof Database>
@@ -9,9 +10,17 @@ let sqlite: Sqlite
 beforeEach(() => { sqlite = new Database(':memory:') })
 afterEach(() => { sqlite.close(); vi.useRealTimers() })
 
-const army = (name: string): Army => ({
-  name, faction: 'rebels', battleForce: null, gameSize: 1000, units: [], commandHand: [], battleDeck: [], doctrines: [],
+const army = (name: string, gameSize = 1000): Army => ({
+  name, faction: 'rebels', battleForce: null, gameSize, units: [], commandHand: [], battleDeck: [], doctrines: [],
 })
+
+function seedReconCards(db: Sqlite) {
+  createTables(db)
+  const ins = db.prepare('INSERT INTO battle_cards (id, name, subtype, is_recon) VALUES (?, ?, ?, ?)')
+  for (const [id, sub] of [['p1', 'primary'], ['p2', 'primary'], ['s1', 'secondary'], ['s2', 'secondary'], ['a1', 'advantage'], ['a2', 'advantage'], ['a3', 'advantage']] as const) {
+    ins.run(id, id, sub, 1)
+  }
+}
 
 describe('createRoomManager — lifecycle', () => {
   it('creates a room with a host present and no guest', () => {
@@ -61,6 +70,54 @@ describe('createRoomManager — lifecycle', () => {
     const { snapshot } = mgr.create('sock-host', 'Alice')
     mgr.endGame('sock-host')
     expect(mgr.snapshotFor(snapshot.id)).toBeNull()
+  })
+})
+
+describe('createRoomManager — mission', () => {
+  function setup600() {
+    seedReconCards(sqlite)
+    const mgr = createRoomManager(sqlite)
+    const { snapshot } = mgr.create('sock-host', 'Alice')
+    mgr.join('sock-guest', snapshot.code, 'Bob')
+    mgr.updateArmy('sock-host', army('A', 600))
+    mgr.updateArmy('sock-guest', army('B', 600))
+    return { mgr, id: snapshot.id }
+  }
+
+  it('draws a Recon mission when both armies are Recon-sized', () => {
+    const { mgr } = setup600()
+    const snap = mgr.drawMission('sock-host')
+    expect(snap?.state.mission?.format).toBe('recon')
+    expect(snap?.state.mission?.pending).toBeUndefined()
+    expect(snap?.state.mission?.primary).toMatch(/^p[12]$/)
+    expect(snap?.state.mission?.secondary).toMatch(/^s[12]$/)
+    expect(snap?.state.mission?.advantage.host).not.toBe(snap?.state.mission?.advantage.guest)
+    expect(['host', 'guest']).toContain(snap?.state.mission?.bluePlayer)
+  })
+
+  it('yields the Standard placeholder when armies are not Recon-sized', () => {
+    seedReconCards(sqlite)
+    const mgr = createRoomManager(sqlite)
+    const { snapshot } = mgr.create('sock-host', 'Alice')
+    mgr.join('sock-guest', snapshot.code, 'Bob')
+    mgr.updateArmy('sock-host', army('A', 1000))
+    mgr.updateArmy('sock-guest', army('B', 1000))
+    const snap = mgr.drawMission('sock-host')
+    expect(snap?.state.mission).toMatchObject({ format: 'standard', pending: true })
+  })
+
+  it('resetMission clears the drawn mission', () => {
+    const { mgr } = setup600()
+    mgr.drawMission('sock-host')
+    const snap = mgr.resetMission('sock-host')
+    expect(snap?.state.mission).toBeNull()
+  })
+
+  it('persists the mission (a fresh manager over the same DB sees it)', () => {
+    const { mgr, id } = setup600()
+    mgr.drawMission('sock-host')
+    const mgr2 = createRoomManager(sqlite)
+    expect(mgr2.snapshotFor(id)?.state.mission?.format).toBe('recon')
   })
 })
 

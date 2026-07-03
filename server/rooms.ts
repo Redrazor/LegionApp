@@ -11,9 +11,10 @@ import type Database from 'better-sqlite3'
 import type { Army, PlayerRole, RoomSnapshot, RoomPresence } from '../src/types/index.ts'
 import {
   ensurePlayRoomsTable, insertRoom, getRoomById, getRoomByCode,
-  updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode, type StoredRoom,
+  updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode, reconPools, type StoredRoom,
 } from './db/playRooms.ts'
-import { createRoomState, ensureGuest, setPlayerArmy, setPlayerName } from './playState.ts'
+import { createRoomState, ensureGuest, setPlayerArmy, setPlayerName, setMission, clearMission } from './playState.ts'
+import { missionFormat, drawReconMission, pendingStandardMission } from '../src/utils/mission.ts'
 
 type Sqlite = InstanceType<typeof Database>
 
@@ -127,6 +128,31 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
     return snapshotFor(idx.roomId)
   }
 
+  // ── Mission ──────────────────────────────────────────────────────────────────
+
+  /** Draw the game's mission. Format is derived from both armies (Recon iff both Recon-sized). */
+  function drawMission(socketId: string): RoomSnapshot | null {
+    const idx = socketIndex.get(socketId)
+    if (!idx) return null
+    const room = getRoomById(sqlite, idx.roomId)
+    if (!room) return null
+    const format = missionFormat(room.state.host.army, room.state.guest?.army ?? null)
+    const mission = format === 'recon'
+      ? drawReconMission(reconPools(sqlite), Math.random, Date.now())
+      : pendingStandardMission(Date.now())
+    updateRoomState(sqlite, idx.roomId, setMission(room.state, mission), Date.now())
+    return snapshotFor(idx.roomId)
+  }
+
+  function resetMission(socketId: string): RoomSnapshot | null {
+    const idx = socketIndex.get(socketId)
+    if (!idx) return null
+    const room = getRoomById(sqlite, idx.roomId)
+    if (!room) return null
+    updateRoomState(sqlite, idx.roomId, clearMission(room.state), Date.now())
+    return snapshotFor(idx.roomId)
+  }
+
   // ── Teardown ─────────────────────────────────────────────────────────────────
 
   /** Explicit End game: delete the room and report who to notify. */
@@ -169,7 +195,7 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
   }
 
   return {
-    create, join, rejoin, updateArmy, renamePlayer, endGame, disconnect,
+    create, join, rejoin, updateArmy, renamePlayer, drawMission, resetMission, endGame, disconnect,
     roomOf, snapshotFor, presenceFor, sweep,
   }
 }

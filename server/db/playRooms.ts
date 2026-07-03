@@ -79,6 +79,20 @@ export function sweepExpiredRooms(sqlite: Sqlite, maxAgeMs: number, now: number)
   return res.changes
 }
 
+/** The fixed Recon battle-card decks, grouped by subtype, read from the seeded catalogue. */
+export function reconPools(sqlite: Sqlite): { primary: string[]; secondary: string[]; advantage: string[] } {
+  const rows = sqlite
+    .prepare('SELECT id, subtype FROM battle_cards WHERE is_recon = 1')
+    .all() as { id: string; subtype: string }[]
+  const pools = { primary: [] as string[], secondary: [] as string[], advantage: [] as string[] }
+  for (const r of rows) {
+    if (r.subtype === 'primary') pools.primary.push(r.id)
+    else if (r.subtype === 'secondary') pools.secondary.push(r.id)
+    else if (r.subtype === 'advantage') pools.advantage.push(r.id)
+  }
+  return pools
+}
+
 const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789' // no 0/O/1/I
 
 /** A random 4-char join code guaranteed unique against the table. `rand` is injectable for tests. */

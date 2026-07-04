@@ -129,8 +129,8 @@ const showBattleDeckText = () => props.options.battleDeck && props.sheet.showBat
             :key="i"
             style="display: flex; gap: 14px; align-items: flex-start; margin-bottom: 16px; break-inside: avoid;"
           >
-            <figure style="margin: 0; flex: 0 0 46%; position: relative;">
-              <img :src="imageUrl(c.cardImage!)" :alt="c.name" style="width: 100%; height: auto; display: block;" />
+            <figure class="ps-card" style="flex: none;">
+              <img :src="imageUrl(c.cardImage!)" :alt="c.name" />
               <figcaption v-if="c.badge" style="position: absolute; top: 4px; right: 4px; background: #000; color: #fff; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 4px;">{{ c.badge }}</figcaption>
             </figure>
             <dl v-if="c.keywords && c.keywords.length" style="margin: 0; flex: 1; font-size: 11px; line-height: 1.4;">
@@ -143,10 +143,10 @@ const showBattleDeckText = () => props.options.battleDeck && props.sheet.showBat
           </div>
         </template>
 
-        <!-- Without the keyword reference: the compact 2-up proxy grid. -->
-        <div v-else style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <figure v-for="(c, i) in cardImages(sheet.unitCards, options.perCopy)" :key="i" style="margin: 0; break-inside: avoid; position: relative;">
-            <img :src="imageUrl(c.cardImage!)" :alt="c.name" style="width: 100%; height: auto; display: block;" />
+        <!-- Without the keyword reference: playing-card-sized cards, wrapped. -->
+        <div v-else class="ps-card-grid">
+          <figure v-for="(c, i) in cardImages(sheet.unitCards, options.perCopy)" :key="i" class="ps-card">
+            <img :src="imageUrl(c.cardImage!)" :alt="c.name" />
             <figcaption v-if="c.badge" style="position: absolute; top: 4px; right: 4px; background: #000; color: #fff; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 4px;">{{ c.badge }}</figcaption>
           </figure>
         </div>
@@ -154,9 +154,9 @@ const showBattleDeckText = () => props.options.battleDeck && props.sheet.showBat
 
       <section v-if="options.upgradeCards && cardImages(sheet.upgradeCards, options.perCopy).length" style="break-before: page;">
         <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 8px;">Upgrade Cards</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <figure v-for="(c, i) in cardImages(sheet.upgradeCards, options.perCopy)" :key="i" style="margin: 0; break-inside: avoid; position: relative;">
-            <img :src="imageUrl(c.cardImage!)" :alt="c.name" style="width: 100%; height: auto; display: block;" />
+        <div class="ps-card-grid">
+          <figure v-for="(c, i) in cardImages(sheet.upgradeCards, options.perCopy)" :key="i" class="ps-card">
+            <img :src="imageUrl(c.cardImage!)" :alt="c.name" />
             <figcaption v-if="c.badge" style="position: absolute; top: 4px; right: 4px; background: #000; color: #fff; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 4px;">{{ c.badge }}</figcaption>
           </figure>
         </div>
@@ -164,31 +164,29 @@ const showBattleDeckText = () => props.options.battleDeck && props.sheet.showBat
 
       <section v-if="options.commandCards && sheet.commandHand.some((c) => c.cardImage)" style="break-before: page;">
         <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 8px;">Command Cards</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <figure v-for="(c, i) in sheet.commandHand.filter((x) => x.cardImage)" :key="i" style="margin: 0; break-inside: avoid;">
-            <img :src="imageUrl(c.cardImage!)" :alt="c.name" style="width: 100%; height: auto; display: block;" />
+        <div class="ps-card-grid">
+          <figure v-for="(c, i) in sheet.commandHand.filter((x) => x.cardImage)" :key="i" class="ps-card">
+            <img :src="imageUrl(c.cardImage!)" :alt="c.name" />
           </figure>
         </div>
       </section>
 
       <section v-if="options.battleDeckCards && sheet.showBattleDeck && sheet.battleDeck.some((c) => c.cardImage)" style="break-before: page;">
         <h2 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #555; margin: 0 0 8px;">{{ sheet.isReconDeck ? 'Recon Battle Cards' : 'Battle-Deck Cards' }}</h2>
-        <!-- Secondary & advantage cards are normal-height — compact 2-up grid. -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-          <figure v-for="(c, i) in sheet.battleDeck.filter((x) => x.cardImage && x.subtype !== 'primary')" :key="i" style="margin: 0; break-inside: avoid;">
-            <img :src="imageUrl(c.cardImage!)" :alt="c.name" style="width: 100%; height: auto; display: block;" />
+        <!-- Secondary & advantage cards are playing-card sized. -->
+        <div class="ps-card-grid">
+          <figure v-for="(c, i) in sheet.battleDeck.filter((x) => x.cardImage && x.subtype !== 'primary')" :key="i" class="ps-card">
+            <img :src="imageUrl(c.cardImage!)" :alt="c.name" />
           </figure>
         </div>
-        <!-- Primary objectives fold the deployment "map" into a tall card, so print each
-             one on its own page, scaled to fit the full A4 height (ps-tall-card caps the
-             height in the print stylesheet) — otherwise the map gets clipped. -->
-        <figure
-          v-for="(c, i) in sheet.battleDeck.filter((x) => x.cardImage && x.subtype === 'primary')"
-          :key="`p${i}`"
-          style="margin: 0; break-inside: avoid; break-before: page; text-align: center;"
-        >
-          <img :src="imageUrl(c.cardImage!)" :alt="c.name" class="ps-tall-card" style="max-width: 100%; height: auto; display: inline-block;" />
-        </figure>
+        <!-- Primary objectives fold the deployment "map" in, so they're taller than a playing
+             card — printed at the playing-card WIDTH with natural height (as close to card-size
+             as their shape allows), wrapping like the rest. -->
+        <div v-if="sheet.battleDeck.some((x) => x.cardImage && x.subtype === 'primary')" class="ps-card-grid" style="margin-top: 4mm;">
+          <figure v-for="(c, i) in sheet.battleDeck.filter((x) => x.cardImage && x.subtype === 'primary')" :key="`p${i}`" class="ps-card ps-card-tall">
+            <img :src="imageUrl(c.cardImage!)" :alt="c.name" />
+          </figure>
+        </div>
       </section>
     </div>
   </Teleport>

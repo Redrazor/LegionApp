@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.7.2',
+    date: '2026-07-05',
+    changes: [
+      'Print sizing fix — printed cards now come out at standard playing-card size (2.5 × 3.5 in) instead of huge half-page images, so a printed unit, upgrade, command or battle card matches a real card and several fit per page. Primary objective cards, which fold a deployment map in and are taller, print at playing-card width with the map intact — as close to card size as their shape allows.',
+    ],
+  },
+  {
     version: '2.7.1',
     date: '2026-07-05',
     changes: [

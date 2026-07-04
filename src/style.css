@@ -119,10 +119,15 @@ body, nav, aside, footer, .theme-tx {
      which would otherwise print over the sheet. */
   body > *:not(.print-sheet) { display: none !important; }
   .print-sheet { display: block !important; }
-  /* Tall primary-objective cards (rules + deployment map) — cap the height so the whole
-     card fits on ONE page instead of clipping the map across a page break. `vh` in print
-     maps to the actual page box, so 92vh auto-adapts to portrait (~277mm) OR a
-     landscape override (~190mm); the 250mm ceiling guarantees portrait never overflows
-     even if a browser mis-maps vh. */
-  .print-sheet .ps-tall-card { max-height: min(250mm, 92vh); width: auto; max-width: 100%; }
+  /* Every printed card scan prints at a standard playing card (63.5 × 88.9 mm = 2.5 × 3.5 in),
+     laid out in a wrapping row so several fit per page. Capping BOTH dimensions to the card's
+     long edge (88.9 mm) is orientation-agnostic: a portrait (5:7) card lands at 63.5 × 88.9 mm
+     and a landscape unit card at 88.9 × 62 mm — a playing card either way. */
+  .print-sheet .ps-card-grid { display: flex; flex-wrap: wrap; gap: 4mm; align-items: flex-start; }
+  .print-sheet .ps-card { margin: 0; break-inside: avoid; position: relative; }
+  .print-sheet .ps-card img { width: auto; height: auto; max-width: 88.9mm; max-height: 88.9mm; display: block; }
+  /* Primary-objective cards fold a deployment map in, so they're taller than a playing card —
+     print them at the playing-card WIDTH (63.5 mm) with natural height, so they're as close to
+     card-size as their shape allows rather than shrunk to fit the 88.9 mm envelope. */
+  .print-sheet .ps-card-tall img { width: 63.5mm; max-width: none; max-height: none; }
 }

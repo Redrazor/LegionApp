@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { io, Socket } from 'socket.io-client'
-import type { Army, PlayerRole, RoomSnapshot } from '../types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole, RoomSnapshot } from '../types/index.ts'
 
 // Module-level singleton socket, mirroring ShatterApp's useDiceRoom shape. The Play
 // server is authoritative: we emit actions and the server broadcasts one `room-state`
@@ -75,6 +75,10 @@ export function usePlayRoom() {
     socket?.emit('draw-mission')
   }
 
+  function modifyMission(action: MissionModifyAction): void {
+    socket?.emit('modify-mission', { action })
+  }
+
   function resetMission(): void {
     socket?.emit('reset-mission')
   }
@@ -92,5 +96,5 @@ export function usePlayRoom() {
   function onRoomState(cb: (snap: RoomSnapshot) => void): void { _onRoomState = cb }
   function onRoomEnded(cb: () => void): void { _onRoomEnded = cb }
 
-  return { connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, drawMission, resetMission, endGame, disconnect, onRoomState, onRoomEnded }
+  return { connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, drawMission, modifyMission, resetMission, endGame, disconnect, onRoomState, onRoomEnded }
 }

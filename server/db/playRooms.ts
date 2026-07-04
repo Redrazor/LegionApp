@@ -4,7 +4,7 @@
 // survive that. Rooms persist until explicitly ended or swept by the 24h TTL.
 
 import type Database from 'better-sqlite3'
-import type { RoomState } from '../../src/types/index.ts'
+import type { BattleCardSubtype, RoomState } from '../../src/types/index.ts'
 
 type Sqlite = InstanceType<typeof Database>
 
@@ -91,6 +91,12 @@ export function reconPools(sqlite: Sqlite): { primary: string[]; secondary: stri
     else if (r.subtype === 'advantage') pools.advantage.push(r.id)
   }
   return pools
+}
+
+/** id → subtype for every battle card, so the Standard draft can split a player's chosen deck. */
+export function battleCardSubtypes(sqlite: Sqlite): Map<string, BattleCardSubtype> {
+  const rows = sqlite.prepare('SELECT id, subtype FROM battle_cards').all() as { id: string; subtype: string }[]
+  return new Map(rows.map((r) => [r.id, r.subtype as BattleCardSubtype]))
 }
 
 const CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789' // no 0/O/1/I

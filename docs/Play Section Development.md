@@ -82,15 +82,28 @@ create/join/rejoin/update-army/set-name/end-game → broadcasts `room-state`. Cl
 (ShatterApp had none). **Lifecycle: explicit End game + 24h TTL; 30s presence grace.** Known limit:
 Render's ephemeral FS resets rooms on redeploy (swap to persistent disk later, no protocol change).
 
-### Phase 3 — Mission picker  *(user #3)* — ✅ RECON SHIPPED v2.6.0 (PR #97); Standard deferred
+### Phase 3 — Mission picker  *(user #3)* — ✅ FULLY SHIPPED (Recon v2.6.0 PR #97; Standard v2.7.0)
 Recon random draw fully built (Blue roll-off + shared Primary/Secondary + one Advantage each), **works
 in a room AND solo** (owner asked for solo). Pure draw lives in `src/utils/mission.ts` (`drawReconMission`,
 `missionFormat` variadic, `reconPoolsFrom`) so client+server share it; server draws via `draw-mission`/
 `reset-mission` socket events, solo draws client-side. `RoomState.mission` persisted + broadcast; store
 maps advantage host/guest→self/opponent (solo treats self as host). UI `PlayMission.vue` (card zoom,
 redraw), gated by `canPickMission`. Mission persists (room: snapshot on rejoin; solo: localStorage).
-**Standard = `pending` placeholder** until owner confirms the veto-draft deal/reject counts — see the
-open-verifications list. Blue determination is a fair 50/50 roll-off (not literal red-die odds).
+Blue determination is a fair 50/50 roll-off (not literal red-die odds).
+
+**Standard "Building a Mission" draft (v2.7.0)** — the DOC56 p.19 procedure (NOT a deal/reject veto —
+that premise was wrong): Blue roll-off → each player's battle deck splits into shuffled Objective/
+Secondary/Advantage piles → initial reveal (Blue's Objective + opponent's Secondary + each Advantage) →
+Blue-first **alternating modify, two modifications each** (swap Objective / Secondary / own Advantage /
+opponent's Advantage, steal the Blue token, or pass) → `built`, then a 4-step setup order (Territory →
+Objective → Secondary → Advantage Blue-first). Empty-deck reshuffle handled. Pure engine in
+`mission.ts` (`startStandardDraft`, `applyMissionModify`, `standardDecksFrom`, `standardDraftReady`)
+shared client/server; new `modify-mission` socket event (carries both the `reveal-*` and modify
+actions); `MissionState.draft: StandardDraft` with a `reveal → modify → built` phase machine. The
+initial reveal is a real Blue choice: Blue reveals their Objective OR Secondary (`applyInitialReveal`),
+the opponent reveals the OTHER type from their deck, then each reveals an Advantage. **Solo** runs off
+the one player's deck (a single deck backs both sides; the user drives both turns); **room** needs both
+players' built decks (else a `pending` "build a battle deck" prompt).
 
 ### Phase 4 — Turn + VP tracker + change-log substrate  *(user #4 + #8 foundation)*
 Round counter (≤6), VP track (cap 12) per player, phase advance. Stand up the **event-log bus**; all
@@ -119,7 +132,8 @@ chosen units (feeds Phase 8's bag). Discard after use; hand shrinks over the gam
 
 ## Open verifications / owner inputs
 
-- [ ] **Phase 3 blocker:** owner confirms the Standard veto-draft deal/reject counts from the cards.
+- [x] **Phase 3 blocker (RESOLVED, v2.7.0):** the "veto-draft deal/reject counts" never existed — DOC56
+      p.19 is a fixed alternating-modify draft (two modifications each). Standard draft shipped.
 - [ ] **Phase 5 nicety:** owner-added verbatim glossary entries for aim/dodge/standby/suppression/panic
       if we want fully-cited token tooltips (currently keyword-only in `Keyword_glossary.md`).
 - [ ] **Phase 2:** define room lifecycle end state ("until destroyed") — TTL, explicit close, and the

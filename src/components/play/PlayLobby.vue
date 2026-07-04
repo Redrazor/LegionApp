@@ -5,13 +5,14 @@ import { usePlaySessionStore } from '../../stores/playSession.ts'
 import ArmyPicker from './ArmyPicker.vue'
 import PlayRoster from './PlayRoster.vue'
 import PlayMission from './PlayMission.vue'
-import type { Army } from '../../types/index.ts'
+import type { Army, MissionModifyAction } from '../../types/index.ts'
 
 defineEmits<{
-  (e: 'import', army: Army): void
+  (e: 'import', army: Army, savedIndex: number | null): void
   (e: 'change'): void
   (e: 'end'): void
   (e: 'draw-mission'): void
+  (e: 'modify-mission', action: MissionModifyAction): void
   (e: 'reset-mission'): void
 }>()
 
@@ -61,6 +62,7 @@ async function copyCode() {
     <PlayMission
       v-if="bothArmiesReady"
       @draw="$emit('draw-mission')"
+      @modify="$emit('modify-mission', $event)"
       @reset="$emit('reset-mission')"
     />
 
@@ -76,7 +78,7 @@ async function copyCode() {
     </div>
     <div v-else>
       <p class="mb-3 text-center text-sm text-lg-muted">Import your army to bring to this game.</p>
-      <ArmyPicker @import="$emit('import', $event)" />
+      <ArmyPicker @import="(army, idx) => $emit('import', army, idx)" />
       <button
         class="mt-4 w-full rounded-lg border border-lg-border px-4 py-2.5 text-sm text-lg-muted hover:text-red-400"
         @click="$emit('end')"

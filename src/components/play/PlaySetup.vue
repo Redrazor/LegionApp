@@ -6,7 +6,7 @@ import type { Army } from '../../types/index.ts'
 
 defineProps<{ error?: string; busy?: boolean }>()
 const emit = defineEmits<{
-  (e: 'import', army: Army): void
+  (e: 'import', army: Army, savedIndex: number | null): void
   (e: 'host', name: string): void
   (e: 'join', payload: { code: string; name: string }): void
 }>()
@@ -45,7 +45,7 @@ const tabs: { id: Tab; label: string }[] = [
     </div>
 
     <!-- Solo: import straight into a local session -->
-    <ArmyPicker v-if="tab === 'solo'" @import="emit('import', $event)" />
+    <ArmyPicker v-if="tab === 'solo'" @import="(army, idx) => emit('import', army, idx)" />
 
     <!-- Host / Join: name (+ code) then enter the room lobby -->
     <div v-else class="space-y-4">

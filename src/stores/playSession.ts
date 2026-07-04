@@ -20,6 +20,10 @@ export const usePlaySessionStore = defineStore(
     const role = ref<PlayerRole | null>(null)
     const opponentOnline = ref(false)
     const mission = ref<MissionState | null>(null)
+    // Which saved list (Build store index) a solo army came from, so Play can re-sync it
+    // when the underlying list is edited (e.g. a battle deck built later). null = a
+    // standalone import (share link) with no saved-list link.
+    const soloSavedIndex = ref<number | null>(null)
 
     const active = computed(() => session.value !== null)
     const inRoom = computed(() => roomId.value !== null)
@@ -44,14 +48,44 @@ export const usePlaySessionStore = defineStore(
       mission.value ? (effectiveRole.value === 'host' ? mission.value.advantage.guest : mission.value.advantage.host) : null,
     )
 
+    // ── Standard draft (DOC56 p.19) view state ──────────────────────────────────
+    const standardDraft = computed(() => mission.value?.draft ?? null)
+    const draftBuilt = computed(() => standardDraft.value?.phase === 'built')
+    // Whose choices the local UI drives: in a room always yourself; solo, the side to act
+    // (the one human plays both sides, so the board follows the active player).
+    const draftActor = computed<PlayerRole>(() => {
+      const d = standardDraft.value
+      if (!d?.solo) return effectiveRole.value
+      return d.phase === 'built' ? 'host' : d.turn // freeze to a stable side once built
+    })
+    const draftActorAdvantage = computed(() => (mission.value ? mission.value.advantage[draftActor.value] : null))
+    const draftOpponentAdvantage = computed(() =>
+      mission.value ? mission.value.advantage[draftActor.value === 'host' ? 'guest' : 'host'] : null,
+    )
+    const draftActorIsBlue = computed(() => !!mission.value && mission.value.bluePlayer === draftActor.value)
+    const draftRevealing = computed(() => standardDraft.value?.phase === 'reveal')
+    // Can the local player act right now? Solo: always (they play both). Room: only on your
+    // turn (which, in the reveal phase, is the Blue player's).
+    const draftCanAct = computed(() => {
+      const d = standardDraft.value
+      if (!d || d.phase === 'built') return false
+      return d.solo || d.turn === effectiveRole.value
+    })
+    const draftModsLeft = computed(() => {
+      const d = standardDraft.value
+      return d ? Math.max(0, 2 - d.modsUsed[d.turn]) : 0
+    })
+
     // ── Solo mode (Phase 1) ────────────────────────────────────────────────────
     function start(selfName?: string) {
       session.value = createSession(selfName)
     }
 
-    function setSelfArmy(army: Army) {
+    function setSelfArmy(army: Army, savedIndex: number | null = null) {
       if (!session.value) session.value = createSession()
       session.value.self.army = army
+      soloSavedIndex.value = savedIndex
+      mission.value = null // a new/changed army invalidates any drawn or pending mission
     }
 
     function setSelfName(name: string) {
@@ -60,6 +94,8 @@ export const usePlaySessionStore = defineStore(
 
     function clearSelfArmy() {
       if (session.value) session.value.self.army = null
+      soloSavedIndex.value = null
+      mission.value = null
     }
 
     /** Set/clear the mission locally (solo mode — room mode sets it via applySnapshot). */
@@ -75,6 +111,7 @@ export const usePlaySessionStore = defineStore(
       role.value = null
       opponentOnline.value = false
       mission.value = null
+      soloSavedIndex.value = null
     }
 
     // ── Room mode (Phase 2) ────────────────────────────────────────────────────
@@ -106,9 +143,11 @@ export const usePlaySessionStore = defineStore(
     }
 
     return {
-      session, roomId, roomCode, role, opponentOnline, mission,
-      active, inRoom, mode, selfArmy, opponentArmy, bothArmiesReady, canPickMission,
+      session, roomId, roomCode, role, opponentOnline, mission, soloSavedIndex,
+      active, inRoom, mode, effectiveRole, selfArmy, opponentArmy, bothArmiesReady, canPickMission,
       missionReady, blueIsSelf, selfAdvantage, opponentAdvantage,
+      standardDraft, draftBuilt, draftRevealing, draftActor, draftActorAdvantage, draftOpponentAdvantage,
+      draftActorIsBlue, draftCanAct, draftModsLeft,
       start, setSelfArmy, setSelfName, clearSelfArmy, setLocalMission, end,
       enterRoom, applySnapshot, roomEnded,
     }
@@ -117,7 +156,7 @@ export const usePlaySessionStore = defineStore(
     persist: {
       // `mission` persists so a solo game's mission survives a reload; in a room it's
       // re-applied from the server snapshot on rejoin anyway.
-      paths: ['session', 'roomId', 'roomCode', 'role', 'mission'],
+      paths: ['session', 'roomId', 'roomCode', 'role', 'mission', 'soloSavedIndex'],
     } as never,
   },
 )

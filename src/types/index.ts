@@ -305,17 +305,68 @@ export type MissionFormat = 'recon' | 'standard'
 
 /**
  * The picked mission for the game (shared, persisted). Recon draws it randomly
- * (Blue player, shared Primary + Secondary, one Advantage each). Standard's veto-draft
- * is not implemented yet — it carries `pending: true` until the procedure is confirmed.
+ * (Blue player, shared Primary + Secondary, one Advantage each). Standard runs the
+ * interactive "Building a Mission" draft (DOC56 p.19) held in `draft`; `pending: true`
+ * marks a Standard game whose players haven't both built a battle deck yet.
  */
 export interface MissionState {
   format: MissionFormat
-  pending?: boolean // standard-format placeholder until the veto-draft ships
+  pending?: boolean // standard-format placeholder: a required battle deck isn't built yet
   bluePlayer: PlayerRole | null
-  primary: string | null // battle-card id (shared)
-  secondary: string | null // battle-card id (shared)
-  advantage: { host: string | null; guest: string | null } // each player's own
+  primary: string | null // battle-card id (shared) — the placed Objective
+  secondary: string | null // battle-card id (shared) — the placed Secondary Objective
+  advantage: { host: string | null; guest: string | null } // each player's own Advantage
+  draft?: StandardDraft | null // interactive Standard draft state; absent for Recon / pending
   drawnAt: number
+}
+
+/**
+ * A draft action a player takes on their turn (DOC56 p.19). The two `reveal-*` actions
+ * belong to the initial `reveal` phase (Blue picks which objective type to reveal first);
+ * the other six are the modify-phase options.
+ */
+export type MissionModifyAction =
+  | 'reveal-primary' // (reveal phase, Blue) reveal your Objective first; opponent then reveals their Secondary
+  | 'reveal-secondary' // (reveal phase, Blue) reveal your Secondary first; opponent then reveals their Objective
+  | 'swap-primary' // reveal top of your Objective deck, replace the placed Objective
+  | 'swap-secondary' // reveal top of your Secondary deck, replace the placed Secondary
+  | 'swap-advantage' // reveal top of your Advantage deck, replace your Advantage
+  | 'swap-opponent-advantage' // opponent reveals top of their Advantage deck, replaces theirs
+  | 'steal-blue' // move the Blue-player token to you
+  | 'pass' // no effect
+
+/** One deck-type's draw pile for a player: `remaining[0]` is the top; discards are
+ *  reshuffled back in (including the just-discarded card) when the pile empties (p.19). */
+export interface DraftPile {
+  remaining: string[]
+  discard: string[]
+}
+
+/** A player's three Battle-Deck piles (from `Army.battleDeck`), split by subtype. */
+export interface PlayerDraftDecks {
+  primary: DraftPile
+  secondary: DraftPile
+  advantage: DraftPile
+}
+
+/**
+ * Interactive Standard mission draft (DOC56 p.19 "Building a Mission"). Phases:
+ *  - `reveal` — the Blue player chooses to reveal their Objective or Secondary; the
+ *    opponent then reveals the OTHER type from their deck, and each reveals an Advantage.
+ *  - `modify` — players alternate modifying the mission Blue-first; once each has modified
+ *    twice (`modsUsed` both 2) it flips to…
+ *  - `built` — the placed cards on `MissionState` are final.
+ * In solo mode a single deck backs both sides (`decks.guest` is null and every reveal
+ * draws from `decks.host`).
+ */
+export interface StandardDraft {
+  phase: 'reveal' | 'modify' | 'built'
+  turn: PlayerRole // whose action it is (the Blue player during `reveal`)
+  modsUsed: { host: number; guest: number } // each caps at 2
+  decks: { host: PlayerDraftDecks; guest: PlayerDraftDecks | null } // guest null in solo
+  primarySource: PlayerRole // whose deck the placed Objective came from (for its next swap's discard)
+  secondarySource: PlayerRole // whose deck the placed Secondary came from
+  solo: boolean
 }
 
 /** Authoritative shared room state (persisted). `guest` is null until someone joins. */

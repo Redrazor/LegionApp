@@ -8,13 +8,17 @@
 
 import { randomUUID } from 'crypto'
 import type Database from 'better-sqlite3'
-import type { Army, PlayerRole, RoomSnapshot, RoomPresence } from '../src/types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole, RoomSnapshot, RoomPresence } from '../src/types/index.ts'
 import {
   ensurePlayRoomsTable, insertRoom, getRoomById, getRoomByCode,
-  updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode, reconPools, type StoredRoom,
+  updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode, reconPools,
+  battleCardSubtypes, type StoredRoom,
 } from './db/playRooms.ts'
 import { createRoomState, ensureGuest, setPlayerArmy, setPlayerName, setMission, clearMission } from './playState.ts'
-import { missionFormat, drawReconMission, pendingStandardMission } from '../src/utils/mission.ts'
+import {
+  missionFormat, drawReconMission, pendingStandardMission,
+  startStandardDraft, standardDraftReady, applyMissionModify,
+} from '../src/utils/mission.ts'
 
 type Sqlite = InstanceType<typeof Database>
 
@@ -130,16 +134,42 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
 
   // ── Mission ──────────────────────────────────────────────────────────────────
 
-  /** Draw the game's mission. Format is derived from both armies (Recon iff both Recon-sized). */
+  /**
+   * Draw/start the game's mission. Format is derived from both armies (Recon iff both
+   * Recon-sized). Recon draws immediately; Standard starts the interactive "Building a
+   * Mission" draft (DOC56 p.19) once both players have a complete battle deck, else a
+   * pending placeholder prompting them to build one.
+   */
   function drawMission(socketId: string): RoomSnapshot | null {
     const idx = socketIndex.get(socketId)
     if (!idx) return null
     const room = getRoomById(sqlite, idx.roomId)
     if (!room) return null
     const format = missionFormat(room.state.host.army, room.state.guest?.army ?? null)
-    const mission = format === 'recon'
-      ? drawReconMission(reconPools(sqlite), Math.random, Date.now())
-      : pendingStandardMission(Date.now())
+    let mission
+    if (format === 'recon') {
+      mission = drawReconMission(reconPools(sqlite), Math.random, Date.now())
+    } else {
+      const hostDeck = room.state.host.army?.battleDeck ?? []
+      const guestDeck = room.state.guest?.army?.battleDeck ?? []
+      const subtypes = battleCardSubtypes(sqlite)
+      const subtypeOf = (id: string) => subtypes.get(id) ?? null
+      mission = standardDraftReady(hostDeck, guestDeck, subtypeOf)
+        ? startStandardDraft(hostDeck, guestDeck, subtypeOf, Math.random, Date.now())
+        : pendingStandardMission(Date.now())
+    }
+    updateRoomState(sqlite, idx.roomId, setMission(room.state, mission), Date.now())
+    return snapshotFor(idx.roomId)
+  }
+
+  /** Apply one Standard-draft modification by the calling socket's player, on their turn. */
+  function modifyMission(socketId: string, action: MissionModifyAction): RoomSnapshot | null {
+    const idx = socketIndex.get(socketId)
+    if (!idx) return null
+    const room = getRoomById(sqlite, idx.roomId)
+    if (!room?.state.mission?.draft) return null
+    const mission = applyMissionModify(room.state.mission, idx.role, action, Math.random, Date.now())
+    if (mission === room.state.mission) return null // no-op (not this player's turn / already built)
     updateRoomState(sqlite, idx.roomId, setMission(room.state, mission), Date.now())
     return snapshotFor(idx.roomId)
   }
@@ -195,7 +225,7 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
   }
 
   return {
-    create, join, rejoin, updateArmy, renamePlayer, drawMission, resetMission, endGame, disconnect,
+    create, join, rejoin, updateArmy, renamePlayer, drawMission, modifyMission, resetMission, endGame, disconnect,
     roomOf, snapshotFor, presenceFor, sweep,
   }
 }

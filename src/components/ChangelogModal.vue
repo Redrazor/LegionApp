@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.7.0',
+    date: '2026-07-04',
+    changes: [
+      'Play Standard mission draft (phase 3, part 2) — Standard-format games now build their mission the official way (Building a Mission). A roll-off sets the Blue player, who chooses whether to reveal their Objective or Secondary first; the opponent then reveals the other type from their deck, and each player reveals an Advantage. Players then alternate modifying the mission — two changes each — swapping the Objective, Secondary, either Advantage, taking the Blue token, or passing. When both players have finished, the mission locks and a setup checklist appears (table edge & Territory, then Objective, Secondary and Advantage setup, Blue player first). Works in a multiplayer room (each player acts on their own turn, synced live) and solo (drafted from your own battle deck, you play both sides). You’ll need a battle deck built in the Build tab first.',
+    ],
+  },
+  {
     version: '2.6.0',
     date: '2026-07-03',
     changes: [

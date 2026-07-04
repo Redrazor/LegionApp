@@ -93,6 +93,10 @@ export interface Counterpart {
   // shown as the counterpart's badge in the army list — same treatment as a unit's portraitImage
   keywords?: string[] // printed keywords transcribed off the card, shown as glossary pills so its
   // rules are verifiable without opening the full card scan. Resolve via keywords.json.
+  factions?: Faction[] // army factions this counterpart may be fielded in (owner-maintained). Some
+  // counterparts are restricted even when their parent is a multi-affiliation mercenary — e.g. Grogu
+  // deploys with Din Djarin ONLY in a Rebel army, never Imperial. Absent → allowed in any army the
+  // parent can join (ID10 Seeker Droid, C-3PO). Gate: counterpartAllowed() in utils/army.ts.
 }
 
 export interface Upgrade {

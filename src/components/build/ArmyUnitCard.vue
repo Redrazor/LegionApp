@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ArmyUnitGroup } from '../../utils/army.ts'
-import { unitLegalityIssues, effectiveUpgradeBar, unitModelCount, unitCost, doctrineUpgradeCost, doctrineEffects } from '../../utils/army.ts'
+import { unitLegalityIssues, effectiveUpgradeBar, unitModelCount, unitCost, doctrineUpgradeCost, doctrineEffects, counterpartAllowed } from '../../utils/army.ts'
 import type { BattleForce, Faction } from '../../types/index.ts'
 import { useUnitsStore } from '../../stores/units.ts'
 import { useUpgradesStore } from '../../stores/upgrades.ts'
@@ -123,9 +123,9 @@ function removeGroup() {
             <span class="truncate font-semibold text-lg-text">{{ unit.name }}</span>
             <span v-if="qty > 1" class="flex-none rounded bg-lg-accent/15 px-1.5 text-[11px] font-bold text-lg-accent">×{{ qty }}</span>
             <CounterpartBadge
-              v-if="unit.counterpart"
+              v-if="counterpartAllowed(unit.counterpart, faction)"
               class="ml-auto max-w-[45%]"
-              :counterpart="unit.counterpart" :faction="unit.faction" size="h-8 w-8" show-name
+              :counterpart="unit.counterpart!" :faction="unit.faction" size="h-8 w-8" show-name
             />
           </span>
           <span v-if="unit.title" class="block truncate text-[11px] italic text-lg-muted">{{ unit.title }}</span>

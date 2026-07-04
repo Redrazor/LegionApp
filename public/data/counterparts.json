@@ -25,6 +25,7 @@
     "cardImage": "/images/units/grogu.webp",
     "frontImage": "/images/units/grogu-front.webp",
     "portraitImage": "/images/portraits/grogu.webp",
-    "keywords": ["Counterpart: Din Djarin", "Hunted", "Latent Power", "Small"]
+    "keywords": ["Counterpart: Din Djarin", "Hunted", "Latent Power", "Small"],
+    "factions": ["rebels"]
   }
 }

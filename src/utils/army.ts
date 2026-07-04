@@ -1,6 +1,6 @@
 import type {
   Army, ArmyUnit, ArmyUpgrade, BattleCard, BattleCardSubtype, BattleForce, BattleForceDoctrineOption,
-  CommandCard, CompactArmy, Faction, Rank, Unit, Upgrade,
+  CommandCard, CompactArmy, Counterpart, Faction, Rank, Unit, Upgrade,
   UpgradeRequirementCriterion, UpgradeRequirementList,
 } from '../types/index.ts'
 import { rankLimits, battleForceRankTable, formatForCap, formatName, factionName, slotLabel, SLOT_LABELS, RANK_ORDER, rankName, FORCE_SIDE } from './factions.ts'
@@ -96,6 +96,22 @@ export function effectiveAffiliation(
     if (clan) return clan
   }
   return unit.affiliation
+}
+
+/**
+ * Whether a unit's Counterpart may be fielded in the given army faction. A counterpart with
+ * no `factions` list is allowed anywhere its parent can be taken (the common case — ID10
+ * Seeker Droid, C-3PO). A restricted counterpart is allowed only in the listed factions:
+ * Grogu deploys with Din Djarin ONLY in a Rebel army, never Imperial (both are legal armies
+ * for the mercenary Din, so this can't be inferred from his affiliation alone). No counterpart
+ * (undefined) is never "allowed". Display-only — a hidden counterpart still costs no points.
+ */
+export function counterpartAllowed(
+  counterpart: Counterpart | null | undefined,
+  faction: Faction,
+): boolean {
+  if (!counterpart) return false
+  return !counterpart.factions || counterpart.factions.includes(faction)
 }
 
 /**

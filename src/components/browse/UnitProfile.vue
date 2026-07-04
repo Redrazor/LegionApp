@@ -32,6 +32,16 @@ const unit = computed(() => unitsStore.bySlug.get(slug.value))
 const cpImgError = ref(false)
 const showCounterpart = ref(false)
 
+// A counterpart the parent can only field in specific armies (e.g. Grogu — Rebel armies
+// only, never Imperial, even though the mercenary Din Djarin is legal in both). Shown as a
+// note in the catalogue where there's no army context; the Build list hides it outright when
+// the army faction doesn't qualify. Null when the counterpart is unrestricted.
+const counterpartFactionNote = computed(() => {
+  const factions = unit.value?.counterpart?.factions
+  if (!factions?.length) return null
+  return `${factions.map(factionName).join(' / ')} armies only`
+})
+
 // Keywords conferred by equipped upgrades (Build), minus any the unit already has
 // innately — shown in a distinct colour so they read as added, not printed.
 const extraKeywords = computed(() => {
@@ -148,8 +158,13 @@ useHead(computed(() => {
                       :src="imageUrl(unit.counterpart.portraitImage)" :alt="unit.counterpart.name"
                       class="h-8 w-8 flex-none rounded-full bg-lg-dark object-cover ring-1 ring-black/30"
                     />
-                    <span class="truncate text-xs font-bold uppercase tracking-widest text-lg-muted">
-                      Counterpart: <span class="text-lg-text">{{ unit.counterpart.name }}</span>
+                    <span class="min-w-0">
+                      <span class="block truncate text-xs font-bold uppercase tracking-widest text-lg-muted">
+                        Counterpart: <span class="text-lg-text">{{ unit.counterpart.name }}</span>
+                      </span>
+                      <span v-if="counterpartFactionNote" class="block truncate text-[10px] font-medium normal-case tracking-normal text-lg-accent">
+                        {{ counterpartFactionNote }}
+                      </span>
                     </span>
                   </span>
                   <span class="flex flex-none items-center gap-1 text-[11px] font-medium text-lg-accent">

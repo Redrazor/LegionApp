@@ -15,8 +15,9 @@ import {
   armyKeywordReference, unitCardKeywords,
   usesDoctrines, chosenDoctrines, validateDoctrines, doctrineEffects,
   doctrineUpgradeCost, armyPoints, applyDoctrineEffects, isMandalorianTrooper,
+  counterpartAllowed,
 } from '../src/utils/army.ts'
-import type { BattleForceDoctrines } from '../src/types/index.ts'
+import type { BattleForceDoctrines, Counterpart } from '../src/types/index.ts'
 import { FORMATS, formatForCap, formatName, rankLimits } from '../src/utils/factions.ts'
 import type { Army, BattleCard, BattleForce, CommandCard, Unit, Upgrade } from '../src/types/index.ts'
 
@@ -2235,5 +2236,34 @@ describe('armyKeywordReference — unit-type rules', () => {
     const { unitsById, upgradesById } = makeMaps(units)
     const army = units.map((u, i) => ({ uid: String(i), unitId: u.id, upgrades: [] }))
     expect(armyKeywordReference(army, unitsById, upgradesById, G)).toEqual([])
+  })
+})
+
+describe('counterpartAllowed', () => {
+  const grogu: Counterpart = {
+    name: 'Grogu',
+    cardImage: '/images/units/grogu.webp',
+    keywords: ['Counterpart: Din Djarin'],
+    factions: ['rebels'],
+  }
+  const id10: Counterpart = {
+    name: 'ID10 Seeker Droid',
+    cardImage: '/images/units/id10-seeker-droid.webp',
+  }
+
+  it('allows a restricted counterpart only in a listed army faction', () => {
+    // Grogu deploys with the mercenary Din Djarin ONLY in a Rebel army, never Imperial.
+    expect(counterpartAllowed(grogu, 'rebels')).toBe(true)
+    expect(counterpartAllowed(grogu, 'empire')).toBe(false)
+  })
+
+  it('allows an unrestricted counterpart (no factions list) in any faction', () => {
+    expect(counterpartAllowed(id10, 'empire')).toBe(true)
+    expect(counterpartAllowed(id10, 'rebels')).toBe(true)
+  })
+
+  it('is never allowed when there is no counterpart', () => {
+    expect(counterpartAllowed(null, 'rebels')).toBe(false)
+    expect(counterpartAllowed(undefined, 'empire')).toBe(false)
   })
 })

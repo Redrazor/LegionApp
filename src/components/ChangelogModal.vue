@@ -7,6 +7,13 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.7.1',
+    date: '2026-07-05',
+    changes: [
+      'Fixed Din Djarin’s Grogu counterpart showing on Imperial armies. Din is a mercenary who can be fielded in either an Empire or a Rebel army, but Grogu may only join him in a Rebel army — the Build roster now hides the Grogu badge outside a Rebel army, and his Browse profile notes “Rebel Alliance armies only”.',
+    ],
+  },
+  {
     version: '2.7.0',
     date: '2026-07-04',
     changes: [

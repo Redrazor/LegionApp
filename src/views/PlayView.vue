@@ -8,6 +8,7 @@ import { useUnitsStore } from '../stores/units.ts'
 import { useUpgradesStore } from '../stores/upgrades.ts'
 import { useBattleForcesStore } from '../stores/battleForces.ts'
 import { useBattleCardsStore } from '../stores/battleCards.ts'
+import { fromCompact } from '../utils/army.ts'
 import PlaySetup from '../components/play/PlaySetup.vue'
 import PlayRoster from '../components/play/PlayRoster.vue'
 import PlayLobby from '../components/play/PlayLobby.vue'
@@ -31,12 +32,32 @@ const JOIN_ERRORS: Record<string, string> = {
   full: 'That room is already full.',
 }
 
+const armyStore = useArmyStore()
+
+// Re-sync a solo session's army from the saved list it came from, so edits made in Build
+// after the session started (e.g. building the battle deck) are picked up. Only fires when
+// the saved list actually changed; setSelfArmy then also drops the now-stale mission.
+function resyncSoloArmy() {
+  if (store.mode !== 'solo') return
+  const idx = store.soloSavedIndex
+  if (idx == null) return
+  const compact = armyStore.saved[idx]
+  if (!compact) return
+  const fresh = fromCompact(compact)
+  // Guard against index drift (a saved list was deleted/reordered): only re-sync when the
+  // list at this index is still the same army by name, never swap to a different one.
+  if (fresh.name !== store.selfArmy?.name) return
+  if (JSON.stringify(fresh) !== JSON.stringify(store.selfArmy)) {
+    store.setSelfArmy(fresh, idx)
+  }
+}
+
 onMounted(() => {
-  useArmyStore() // instantiate the persisted saved-lists store
   unitsStore.load()
   upgradesStore.load()
   battleForcesStore.load()
   battleCardsStore.load()
+  resyncSoloArmy() // reflect Build-tab edits (battle deck, roster) into an active solo session
   conn.resume() // auto-rejoin a persisted room after a reload
 })
 
@@ -64,8 +85,8 @@ async function onJoin({ code, name }: { code: string; name: string }) {
   }
 }
 
-function onImport(army: Army) {
-  conn.importArmy(army)
+function onImport(army: Army, savedIndex: number | null) {
+  conn.importArmy(army, savedIndex)
 }
 
 useHead({
@@ -89,12 +110,13 @@ useHead({
       @change="conn.changeArmy()"
       @end="conn.leave()"
       @draw-mission="conn.drawMission()"
+      @modify-mission="conn.modifyMission($event)"
       @reset-mission="conn.resetMission()"
     />
 
     <!-- Solo, army loaded — mission draw + roster -->
     <div v-else-if="mode === 'solo' && selfArmy" class="mx-auto max-w-2xl">
-      <PlayMission @draw="conn.drawMission()" @reset="conn.resetMission()" />
+      <PlayMission @draw="conn.drawMission()" @modify="conn.modifyMission($event)" @reset="conn.resetMission()" />
       <PlayRoster
         :army="selfArmy"
         :player-name="session?.self.name ?? 'You'"

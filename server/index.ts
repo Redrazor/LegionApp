@@ -13,7 +13,7 @@ import { createProductsRouter } from './routes/products.ts'
 import { createBattleForcesRouter } from './routes/battleForces.ts'
 import { createBattleCardsRouter } from './routes/battleCards.ts'
 import { createRoomManager } from './rooms.ts'
-import type { Army, PlayerRole } from '../src/types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole } from '../src/types/index.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PORT = process.env.PORT ?? 3001
@@ -92,6 +92,11 @@ io.on('connection', (socket) => {
 
   socket.on('draw-mission', () => {
     const snapshot = rooms.drawMission(socket.id)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
+  socket.on('modify-mission', ({ action }: { action: MissionModifyAction }) => {
+    const snapshot = rooms.modifyMission(socket.id, action)
     if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
   })
 

@@ -1,8 +1,11 @@
 import { usePlayRoom } from './usePlayRoom.ts'
 import { usePlaySessionStore } from '../stores/playSession.ts'
 import { useBattleCardsStore } from '../stores/battleCards.ts'
-import { missionFormat, drawReconMission, pendingStandardMission, reconPoolsFrom } from '../utils/mission.ts'
-import type { Army } from '../types/index.ts'
+import {
+  missionFormat, drawReconMission, pendingStandardMission, reconPoolsFrom,
+  startStandardDraft, standardDraftReady, applyMissionModify,
+} from '../utils/mission.ts'
+import type { Army, MissionModifyAction } from '../types/index.ts'
 
 // Glue between the authoritative socket transport (usePlayRoom) and the session store.
 // The UI calls these mode-aware actions; server snapshots flow back into the store.
@@ -44,10 +47,11 @@ export function usePlayConnection() {
     }
   }
 
-  /** Import an army — sends to the server in a room, or stores locally in solo mode. */
-  function importArmy(army: Army): void {
+  /** Import an army — sends to the server in a room, or stores locally in solo mode. In solo,
+   *  `savedIndex` links the session to its Build saved list so Play can re-sync later edits. */
+  function importArmy(army: Army, savedIndex: number | null = null): void {
     if (store.inRoom) room.sendArmy(army)
-    else store.setSelfArmy(army)
+    else store.setSelfArmy(army, savedIndex)
   }
 
   /** Return the local player to the importer without leaving the room / ending solo. */
@@ -61,14 +65,33 @@ export function usePlayConnection() {
     else store.setSelfName(name)
   }
 
-  /** Draw (or redraw) the game's mission. Room: server-authoritative. Solo: drawn locally. */
+  const subtypeOf = (id: string) => battleCards.byId.get(id)?.subtype ?? null
+
+  /** Draw (or start) the game's mission. Room: server-authoritative. Solo: run locally —
+   *  Recon draws immediately; Standard opens the interactive draft off the solo player's
+   *  own battle deck (a single deck backs both sides), or a pending prompt if it's empty. */
   function drawMission(): void {
     if (store.inRoom) { room.drawMission(); return }
     const format = missionFormat(store.selfArmy)
-    const mission = format === 'recon'
-      ? drawReconMission(reconPoolsFrom(battleCards.battleCards), Math.random, Date.now())
-      : pendingStandardMission(Date.now())
+    let mission
+    if (format === 'recon') {
+      mission = drawReconMission(reconPoolsFrom(battleCards.battleCards), Math.random, Date.now())
+    } else {
+      const deck = store.selfArmy?.battleDeck ?? []
+      mission = standardDraftReady(deck, null, subtypeOf)
+        ? startStandardDraft(deck, null, subtypeOf, Math.random, Date.now())
+        : pendingStandardMission(Date.now())
+    }
     store.setLocalMission(mission)
+  }
+
+  /** Modify the Standard mission during the draft. Room: server applies it for the caller's
+   *  role on their turn. Solo: apply locally as whichever side is currently to act. */
+  function modifyMission(action: MissionModifyAction): void {
+    if (store.inRoom) { room.modifyMission(action); return }
+    const m = store.mission
+    if (!m?.draft || m.draft.phase === 'built') return
+    store.setLocalMission(applyMissionModify(m, m.draft.turn, action, Math.random, Date.now()))
   }
 
   function resetMission(): void {
@@ -82,5 +105,5 @@ export function usePlayConnection() {
     store.end()
   }
 
-  return { room, store, host, join, resume, importArmy, changeArmy, rename, drawMission, resetMission, leave }
+  return { room, store, host, join, resume, importArmy, changeArmy, rename, drawMission, modifyMission, resetMission, leave }
 }

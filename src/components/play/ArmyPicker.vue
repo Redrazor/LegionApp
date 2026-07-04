@@ -10,7 +10,7 @@ import { importFromSaved, importFromCode } from '../../utils/playSession.ts'
 import { FACTION_META, factionColor, formatForCap } from '../../utils/factions.ts'
 import type { Army } from '../../types/index.ts'
 
-const emit = defineEmits<{ (e: 'import', army: Army): void }>()
+const emit = defineEmits<{ (e: 'import', army: Army, savedIndex: number | null): void }>()
 
 const armyStore = useArmyStore()
 const unitsStore = useUnitsStore()
@@ -41,7 +41,7 @@ const codeError = ref('')
 
 function useSaved(index: number) {
   const compact = saved.value[index]
-  if (compact) emit('import', importFromSaved(compact))
+  if (compact) emit('import', importFromSaved(compact), index)
 }
 
 function useCode() {
@@ -51,7 +51,7 @@ function useCode() {
     codeError.value = "That doesn't look like a valid army link or code."
     return
   }
-  emit('import', army)
+  emit('import', army, null) // standalone share import — no saved-list link
 }
 </script>
 

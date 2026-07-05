@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Army, PlayerRole, RoomSnapshot, MissionState } from '../types/index.ts'
+import type { Army, PlayerRole, RoomSnapshot, MissionState, GameState, GamePhase } from '../types/index.ts'
 import { createSession, type PlaySession } from '../utils/playSession.ts'
+import { createGameState, advancePhase, setVp } from '../utils/playGame.ts'
 
 /**
  * Holds the active Play session in one of two modes:
@@ -20,6 +21,8 @@ export const usePlaySessionStore = defineStore(
     const role = ref<PlayerRole | null>(null)
     const opponentOnline = ref(false)
     const mission = ref<MissionState | null>(null)
+    // Phase 4 turn/VP tracker. Room mode mirrors it from the snapshot; solo holds it here.
+    const game = ref<GameState | null>(null)
     // Which saved list (Build store index) a solo army came from, so Play can re-sync it
     // when the underlying list is edited (e.g. a battle deck built later). null = a
     // standalone import (share link) with no saved-list link.
@@ -47,6 +50,18 @@ export const usePlaySessionStore = defineStore(
     const opponentAdvantage = computed(() =>
       mission.value ? (effectiveRole.value === 'host' ? mission.value.advantage.guest : mission.value.advantage.host) : null,
     )
+
+    // ── Turn + VP tracker (Phase 4) ─────────────────────────────────────────────
+    // The tracker shows once a mission is ready; VP rails are keyed by Blue/Red (from the
+    // mission's Blue player), while the underlying game stores VP by host/guest role.
+    const bluePlayer = computed<PlayerRole>(() => mission.value?.bluePlayer ?? 'host')
+    const redPlayer = computed<PlayerRole>(() => (bluePlayer.value === 'host' ? 'guest' : 'host'))
+    const round = computed(() => game.value?.round ?? 1)
+    const phase = computed<GamePhase>(() => game.value?.phase ?? 'command')
+    const gameOver = computed(() => game.value?.over ?? false)
+    const gameLog = computed(() => game.value?.log ?? [])
+    const blueVp = computed(() => game.value?.vp[bluePlayer.value] ?? 0)
+    const redVp = computed(() => game.value?.vp[redPlayer.value] ?? 0)
 
     // ── Standard draft (DOC56 p.19) view state ──────────────────────────────────
     const standardDraft = computed(() => mission.value?.draft ?? null)
@@ -86,6 +101,7 @@ export const usePlaySessionStore = defineStore(
       session.value.self.army = army
       soloSavedIndex.value = savedIndex
       mission.value = null // a new/changed army invalidates any drawn or pending mission
+      game.value = null // …and the tracker built on it
     }
 
     function setSelfName(name: string) {
@@ -96,11 +112,28 @@ export const usePlaySessionStore = defineStore(
       if (session.value) session.value.self.army = null
       soloSavedIndex.value = null
       mission.value = null
+      game.value = null
     }
 
-    /** Set/clear the mission locally (solo mode — room mode sets it via applySnapshot). */
+    /** Set/clear the mission locally (solo mode — room mode sets it via applySnapshot).
+     *  A new/redrawn/cleared mission always restarts the tracker (fresh game). */
     function setLocalMission(m: MissionState | null) {
       mission.value = m
+      game.value = null
+    }
+
+    // ── Solo tracker reducers (room mode drives these server-side via usePlayConnection) ──
+    /** Advance the phase clock, lazily starting the game on the first action. */
+    function advanceLocalPhase() {
+      game.value = advancePhase(game.value ?? createGameState(Date.now()), Date.now())
+    }
+    /** Set a player's VP to an absolute value. */
+    function setLocalVp(player: PlayerRole, value: number) {
+      game.value = setVp(game.value ?? createGameState(Date.now()), player, value, Date.now())
+    }
+    /** Restart the tracker (next action starts a fresh game). */
+    function resetLocalGame() {
+      game.value = null
     }
 
     /** Tear everything down — solo or room — back to the setup screen. */
@@ -111,6 +144,7 @@ export const usePlaySessionStore = defineStore(
       role.value = null
       opponentOnline.value = false
       mission.value = null
+      game.value = null
       soloSavedIndex.value = null
     }
 
@@ -135,6 +169,7 @@ export const usePlaySessionStore = defineStore(
       roomCode.value = snap.code
       opponentOnline.value = role.value === 'host' ? snap.presence.guest : snap.presence.host
       mission.value = snap.state.mission ?? null
+      game.value = snap.state.game ?? null
     }
 
     /** Room was ended (by either player or TTL) — drop to idle. */
@@ -143,20 +178,22 @@ export const usePlaySessionStore = defineStore(
     }
 
     return {
-      session, roomId, roomCode, role, opponentOnline, mission, soloSavedIndex,
+      session, roomId, roomCode, role, opponentOnline, mission, game, soloSavedIndex,
       active, inRoom, mode, effectiveRole, selfArmy, opponentArmy, bothArmiesReady, canPickMission,
       missionReady, blueIsSelf, selfAdvantage, opponentAdvantage,
       standardDraft, draftBuilt, draftRevealing, draftActor, draftActorAdvantage, draftOpponentAdvantage,
       draftActorIsBlue, draftCanAct, draftModsLeft,
+      bluePlayer, redPlayer, round, phase, gameOver, gameLog, blueVp, redVp,
       start, setSelfArmy, setSelfName, clearSelfArmy, setLocalMission, end,
+      advanceLocalPhase, setLocalVp, resetLocalGame,
       enterRoom, applySnapshot, roomEnded,
     }
   },
   {
     persist: {
-      // `mission` persists so a solo game's mission survives a reload; in a room it's
+      // `mission` + `game` persist so a solo session survives a reload; in a room they're
       // re-applied from the server snapshot on rejoin anyway.
-      paths: ['session', 'roomId', 'roomCode', 'role', 'mission', 'soloSavedIndex'],
+      paths: ['session', 'roomId', 'roomCode', 'role', 'mission', 'game', 'soloSavedIndex'],
     } as never,
   },
 )

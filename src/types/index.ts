@@ -373,11 +373,51 @@ export interface StandardDraft {
   solo: boolean
 }
 
+// ── Turn + VP tracker + change-log (Phase 4) ─────────────────────────────────
+// The playable game state once a mission is set: the round/phase clock, per-player
+// victory points, and the append-only event log every later phase writes into.
+
+/** The three phases of a Legion round, in order (Command → Activation → End). */
+export type GamePhase = 'command' | 'activation' | 'end'
+
+/**
+ * One entry in the change log. `seq` is a monotonic per-game id (deterministic, so the
+ * pure reducers stay testable); `at` is a wall-clock stamp for display only, injected at
+ * the edge. `actor` is the player a VP change belongs to (null for system/phase events)
+ * — the UI renders it as that player's mark and prepends it to `text`.
+ */
+export interface LogEntry {
+  seq: number
+  round: number
+  phase: GamePhase
+  kind: 'system' | 'phase' | 'round' | 'vp'
+  actor: PlayerRole | null
+  text: string
+  at: number
+}
+
+/**
+ * The turn/VP tracker's state (shared, persisted on `RoomState.game`; held locally in the
+ * session store for solo). Round is 1..MAX_ROUNDS; VP is clamped 0..VP_CAP per player.
+ * `over` latches true after the final End Phase. The pure reducers live in
+ * `utils/playGame.ts` so client (solo) and server (room) produce identical state + log.
+ */
+export interface GameState {
+  round: number
+  phase: GamePhase
+  vp: { host: number; guest: number }
+  log: LogEntry[]
+  seq: number // next log sequence number
+  over: boolean
+  startedAt: number
+}
+
 /** Authoritative shared room state (persisted). `guest` is null until someone joins. */
 export interface RoomState {
   host: RoomSlot
   guest: RoomSlot | null
   mission?: MissionState | null
+  game?: GameState | null
 }
 
 /** Which slots currently have a live socket connected. */

@@ -13,11 +13,13 @@ import PlaySetup from '../components/play/PlaySetup.vue'
 import PlayRoster from '../components/play/PlayRoster.vue'
 import PlayLobby from '../components/play/PlayLobby.vue'
 import PlayMission from '../components/play/PlayMission.vue'
+import PlayTracker from '../components/play/PlayTracker.vue'
+import PlayLog from '../components/play/PlayLog.vue'
 import type { Army } from '../types/index.ts'
 
 const conn = usePlayConnection()
 const { store } = conn
-const { mode, selfArmy, session } = storeToRefs(store)
+const { mode, selfArmy, session, missionReady } = storeToRefs(store)
 
 const unitsStore = useUnitsStore()
 const upgradesStore = useUpgradesStore()
@@ -112,11 +114,22 @@ useHead({
       @draw-mission="conn.drawMission()"
       @modify-mission="conn.modifyMission($event)"
       @reset-mission="conn.resetMission()"
+      @advance-phase="conn.advancePhase()"
+      @set-vp="(p) => conn.setVp(p.player, p.value)"
+      @reset-game="conn.resetGame()"
     />
 
-    <!-- Solo, army loaded — mission draw + roster -->
+    <!-- Solo, army loaded — mission draw + tracker + roster -->
     <div v-else-if="mode === 'solo' && selfArmy" class="mx-auto max-w-2xl">
       <PlayMission @draw="conn.drawMission()" @modify="conn.modifyMission($event)" @reset="conn.resetMission()" />
+      <template v-if="missionReady">
+        <PlayTracker
+          @advance="conn.advancePhase()"
+          @set-vp="(p) => conn.setVp(p.player, p.value)"
+          @reset="conn.resetGame()"
+        />
+        <PlayLog />
+      </template>
       <PlayRoster
         :army="selfArmy"
         :player-name="session?.self.name ?? 'You'"

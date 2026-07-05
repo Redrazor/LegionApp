@@ -7,6 +7,14 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.8.0',
+    date: '2026-07-05',
+    changes: [
+      'Play — turn & victory-point tracker. Once your mission is set, a tracker appears: step the round through Command → Activation → End (up to 6 rounds), and score each player’s victory points 0–12 on the dual rail, marked with the Blue and Red player sigils from the physical game. Works solo and syncs live in a shared room.',
+      'Play — change log. Every phase change and score is recorded, newest first, tagged with the player who did it — so you always have a running history of the game.',
+    ],
+  },
+  {
     version: '2.7.2',
     date: '2026-07-05',
     changes: [

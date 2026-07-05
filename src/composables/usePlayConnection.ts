@@ -5,7 +5,7 @@ import {
   missionFormat, drawReconMission, pendingStandardMission, reconPoolsFrom,
   startStandardDraft, standardDraftReady, applyMissionModify,
 } from '../utils/mission.ts'
-import type { Army, MissionModifyAction } from '../types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole } from '../types/index.ts'
 
 // Glue between the authoritative socket transport (usePlayRoom) and the session store.
 // The UI calls these mode-aware actions; server snapshots flow back into the store.
@@ -99,11 +99,38 @@ export function usePlayConnection() {
     store.setLocalMission(null)
   }
 
+  // ── Turn + VP tracker (Phase 4) ────────────────────────────────────────────────
+  // Room: server-authoritative (mutate → broadcast). Solo: apply locally via the store's
+  // reducers. VP is addressed by absolute PlayerRole; the tracker maps Blue/Red rails to it.
+
+  function advancePhase(): void {
+    if (store.inRoom) { room.advancePhase(); return }
+    store.advanceLocalPhase()
+  }
+
+  function setVp(player: PlayerRole, value: number): void {
+    if (store.inRoom) { room.scoreVp(player, value); return }
+    store.setLocalVp(player, value)
+  }
+
+  function adjustVp(player: PlayerRole, delta: number): void {
+    const current = store.game?.vp[player] ?? 0
+    setVp(player, current + delta)
+  }
+
+  function resetGame(): void {
+    if (store.inRoom) { room.resetGame(); return }
+    store.resetLocalGame()
+  }
+
   /** End the game: destroys the room server-side (both players) or ends the solo session. */
   function leave(): void {
     if (store.inRoom) room.endGame()
     store.end()
   }
 
-  return { room, store, host, join, resume, importArmy, changeArmy, rename, drawMission, modifyMission, resetMission, leave }
+  return {
+    room, store, host, join, resume, importArmy, changeArmy, rename,
+    drawMission, modifyMission, resetMission, advancePhase, setVp, adjustVp, resetGame, leave,
+  }
 }

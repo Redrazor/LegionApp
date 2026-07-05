@@ -5,7 +5,9 @@ import { usePlaySessionStore } from '../../stores/playSession.ts'
 import ArmyPicker from './ArmyPicker.vue'
 import PlayRoster from './PlayRoster.vue'
 import PlayMission from './PlayMission.vue'
-import type { Army, MissionModifyAction } from '../../types/index.ts'
+import PlayTracker from './PlayTracker.vue'
+import PlayLog from './PlayLog.vue'
+import type { Army, MissionModifyAction, PlayerRole } from '../../types/index.ts'
 
 defineEmits<{
   (e: 'import', army: Army, savedIndex: number | null): void
@@ -14,10 +16,13 @@ defineEmits<{
   (e: 'draw-mission'): void
   (e: 'modify-mission', action: MissionModifyAction): void
   (e: 'reset-mission'): void
+  (e: 'advance-phase'): void
+  (e: 'set-vp', payload: { player: PlayerRole; value: number }): void
+  (e: 'reset-game'): void
 }>()
 
 const store = usePlaySessionStore()
-const { session, roomCode, opponentOnline, selfArmy, bothArmiesReady } = storeToRefs(store)
+const { session, roomCode, opponentOnline, selfArmy, bothArmiesReady, missionReady } = storeToRefs(store)
 
 const copied = ref(false)
 async function copyCode() {
@@ -65,6 +70,16 @@ async function copyCode() {
       @modify="$emit('modify-mission', $event)"
       @reset="$emit('reset-mission')"
     />
+
+    <!-- Turn + VP tracker + change log — once the mission is set -->
+    <template v-if="missionReady">
+      <PlayTracker
+        @advance="$emit('advance-phase')"
+        @set-vp="$emit('set-vp', $event)"
+        @reset="$emit('reset-game')"
+      />
+      <PlayLog />
+    </template>
 
     <!-- Self: import, or show the loaded roster -->
     <div v-if="selfArmy">

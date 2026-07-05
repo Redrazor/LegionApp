@@ -105,6 +105,21 @@ io.on('connection', (socket) => {
     if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
   })
 
+  socket.on('advance-phase', () => {
+    const snapshot = rooms.advancePhase(socket.id)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
+  socket.on('score-vp', ({ player, value }: { player: PlayerRole; value: number }) => {
+    const snapshot = rooms.scorePlayerVp(socket.id, player, value)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
+  socket.on('reset-game', () => {
+    const snapshot = rooms.resetTracker(socket.id)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
   socket.on('end-game', () => {
     const ended = rooms.endGame(socket.id)
     if (ended) io.to(ended.roomId).emit('room-ended')

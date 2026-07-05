@@ -14,7 +14,10 @@ import {
   updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode, reconPools,
   battleCardSubtypes, type StoredRoom,
 } from './db/playRooms.ts'
-import { createRoomState, ensureGuest, setPlayerArmy, setPlayerName, setMission, clearMission } from './playState.ts'
+import {
+  createRoomState, ensureGuest, setPlayerArmy, setPlayerName, setMission, clearMission,
+  advanceGamePhase, scoreVp, resetGame,
+} from './playState.ts'
 import {
   missionFormat, drawReconMission, pendingStandardMission,
   startStandardDraft, standardDraftReady, applyMissionModify,
@@ -183,6 +186,31 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
     return snapshotFor(idx.roomId)
   }
 
+  // ── Turn + VP tracker (Phase 4) ────────────────────────────────────────────────
+
+  /** Apply one authoritative game mutation for the calling socket's room, then snapshot. */
+  function mutateGame(socketId: string, fn: (state: StoredRoom['state'], now: number) => StoredRoom['state']): RoomSnapshot | null {
+    const idx = socketIndex.get(socketId)
+    if (!idx) return null
+    const room = getRoomById(sqlite, idx.roomId)
+    if (!room) return null
+    const now = Date.now()
+    updateRoomState(sqlite, idx.roomId, fn(room.state, now), now)
+    return snapshotFor(idx.roomId)
+  }
+
+  function advancePhase(socketId: string): RoomSnapshot | null {
+    return mutateGame(socketId, (state, now) => advanceGamePhase(state, now))
+  }
+
+  function scorePlayerVp(socketId: string, player: PlayerRole, value: number): RoomSnapshot | null {
+    return mutateGame(socketId, (state, now) => scoreVp(state, player, value, now))
+  }
+
+  function resetTracker(socketId: string): RoomSnapshot | null {
+    return mutateGame(socketId, (state) => resetGame(state))
+  }
+
   // ── Teardown ─────────────────────────────────────────────────────────────────
 
   /** Explicit End game: delete the room and report who to notify. */
@@ -225,7 +253,8 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
   }
 
   return {
-    create, join, rejoin, updateArmy, renamePlayer, drawMission, modifyMission, resetMission, endGame, disconnect,
+    create, join, rejoin, updateArmy, renamePlayer, drawMission, modifyMission, resetMission,
+    advancePhase, scorePlayerVp, resetTracker, endGame, disconnect,
     roomOf, snapshotFor, presenceFor, sweep,
   }
 }

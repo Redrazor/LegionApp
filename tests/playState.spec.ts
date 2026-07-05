@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   createRoomState, ensureGuest, setPlayerArmy, setPlayerName, slotFor, setMission, clearMission,
+  ensureGame, advanceGamePhase, scoreVp, resetGame,
 } from '../server/playState.ts'
 import { pendingStandardMission } from '../src/utils/mission.ts'
 import type { Army } from '../src/types/index.ts'
@@ -82,5 +83,47 @@ describe('setMission / clearMission', () => {
     expect(withMission.mission).toBe(m)
     expect(base.mission).toBeUndefined() // input untouched
     expect(clearMission(withMission).mission).toBeNull()
+  })
+  it('setting or clearing the mission drops any game in progress', () => {
+    const started = advanceGamePhase(createRoomState('Alice'), 1)
+    expect(started.game).not.toBeNull()
+    expect(setMission(started, pendingStandardMission(2)).game).toBeNull()
+    expect(clearMission(started).game).toBeNull()
+  })
+})
+
+describe('game reducers (Phase 4)', () => {
+  it('ensureGame lazily creates a fresh game and is idempotent', () => {
+    const base = createRoomState('Alice')
+    expect(base.game).toBeUndefined()
+    const g1 = ensureGame(base, 10)
+    expect(g1.game).toMatchObject({ round: 1, phase: 'command', vp: { host: 0, guest: 0 } })
+    const g2 = ensureGame(g1, 20)
+    expect(g2).toBe(g1) // idempotent — same reference
+  })
+
+  it('advanceGamePhase creates the game on first call then advances it', () => {
+    const s1 = advanceGamePhase(createRoomState('Alice'), 1)
+    expect(s1.game?.phase).toBe('activation')
+    const s2 = advanceGamePhase(s1, 2)
+    expect(s2.game?.phase).toBe('end')
+  })
+
+  it('scoreVp sets a player VP (creating the game if needed) and logs it', () => {
+    const s = scoreVp(createRoomState('Alice'), 'host', 4, 5)
+    expect(s.game?.vp).toEqual({ host: 4, guest: 0 })
+    expect(s.game?.log.at(-1)).toMatchObject({ kind: 'vp', actor: 'host' })
+  })
+
+  it('resetGame clears the tracker', () => {
+    const started = scoreVp(createRoomState('Alice'), 'guest', 2, 1)
+    expect(resetGame(started).game).toBeNull()
+  })
+
+  it('does not mutate the input state', () => {
+    const base = createRoomState('Alice')
+    advanceGamePhase(base, 1)
+    scoreVp(base, 'host', 3, 1)
+    expect(base.game).toBeUndefined()
   })
 })

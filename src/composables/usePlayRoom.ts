@@ -1,6 +1,7 @@
 import { ref } from 'vue'
 import { io, Socket } from 'socket.io-client'
 import type { Army, MissionModifyAction, PlayerRole, RoomSnapshot } from '../types/index.ts'
+// score-vp/advance-phase/reset-game drive the Phase 4 turn + VP tracker.
 
 // Module-level singleton socket, mirroring ShatterApp's useDiceRoom shape. The Play
 // server is authoritative: we emit actions and the server broadcasts one `room-state`
@@ -83,6 +84,18 @@ export function usePlayRoom() {
     socket?.emit('reset-mission')
   }
 
+  function advancePhase(): void {
+    socket?.emit('advance-phase')
+  }
+
+  function scoreVp(player: PlayerRole, value: number): void {
+    socket?.emit('score-vp', { player, value })
+  }
+
+  function resetGame(): void {
+    socket?.emit('reset-game')
+  }
+
   function endGame(): void {
     socket?.emit('end-game')
   }
@@ -96,5 +109,8 @@ export function usePlayRoom() {
   function onRoomState(cb: (snap: RoomSnapshot) => void): void { _onRoomState = cb }
   function onRoomEnded(cb: () => void): void { _onRoomEnded = cb }
 
-  return { connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, drawMission, modifyMission, resetMission, endGame, disconnect, onRoomState, onRoomEnded }
+  return {
+    connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, drawMission, modifyMission, resetMission,
+    advancePhase, scoreVp, resetGame, endGame, disconnect, onRoomState, onRoomEnded,
+  }
 }

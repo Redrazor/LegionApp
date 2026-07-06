@@ -172,3 +172,46 @@ describe('createRoomManager — presence & resume', () => {
     expect(mgr.rejoin('s', 'nonexistent-id', 'host')).toBeNull()
   })
 })
+
+describe('createRoomManager — turn + VP tracker (Phase 4)', () => {
+  it('advances the phase clock, creating the game on first call', () => {
+    const mgr = createRoomManager(sqlite)
+    mgr.create('sock-host', 'Alice')
+    const s1 = mgr.advancePhase('sock-host')
+    expect(s1?.state.game?.phase).toBe('activation')
+    const s2 = mgr.advancePhase('sock-host')
+    expect(s2?.state.game?.phase).toBe('end')
+  })
+
+  it('scores VP for a player and persists it across a rejoin', () => {
+    const mgr = createRoomManager(sqlite)
+    const { snapshot } = mgr.create('sock-host', 'Alice')
+    mgr.scorePlayerVp('sock-host', 'host', 5)
+    const resumed = mgr.rejoin('sock-host-2', snapshot.id, 'host')
+    expect(resumed?.state.game?.vp.host).toBe(5)
+    expect(resumed?.state.game?.log.some((e) => e.kind === 'vp')).toBe(true)
+  })
+
+  it('sets the round marker and persists it', () => {
+    const mgr = createRoomManager(sqlite)
+    const { snapshot } = mgr.create('sock-host', 'Alice')
+    mgr.setRound('sock-host', 5)
+    const resumed = mgr.rejoin('sock-host-2', snapshot.id, 'host')
+    expect(resumed?.state.game?.round).toBe(5)
+  })
+
+  it('resets the tracker back to no game', () => {
+    const mgr = createRoomManager(sqlite)
+    mgr.create('sock-host', 'Alice')
+    mgr.advancePhase('sock-host')
+    expect(mgr.resetTracker('sock-host')?.state.game).toBeNull()
+  })
+
+  it('returns null for tracker actions from an unknown socket', () => {
+    const mgr = createRoomManager(sqlite)
+    expect(mgr.advancePhase('ghost')).toBeNull()
+    expect(mgr.setRound('ghost', 2)).toBeNull()
+    expect(mgr.scorePlayerVp('ghost', 'host', 1)).toBeNull()
+    expect(mgr.resetTracker('ghost')).toBeNull()
+  })
+})

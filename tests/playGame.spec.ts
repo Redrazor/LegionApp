@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import {
-  createGameState, advancePhase, setVp, adjustVp,
+  createGameState, advancePhase, setVp, adjustVp, setRound,
   GAME_PHASES, MAX_ROUNDS, VP_CAP,
 } from '../src/utils/playGame.ts'
 import type { GameState } from '../src/types/index.ts'
@@ -68,6 +68,30 @@ describe('advancePhase', () => {
 
   it('has exactly three phases in order', () => {
     expect(GAME_PHASES).toEqual(['command', 'activation', 'end'])
+  })
+})
+
+describe('setRound', () => {
+  it('jumps to an absolute round, keeps the phase, and logs it', () => {
+    let g = advancePhase(fresh()) === fresh() ? fresh() : advancePhase(fresh(), 1) // → activation
+    g = setRound(g, 4, 9)
+    expect(g.round).toBe(4)
+    expect(g.phase).toBe('activation')
+    expect(g.log.at(-1)).toMatchObject({ kind: 'round', text: 'Round set to 4.' })
+  })
+  it('clamps to 1..MAX_ROUNDS', () => {
+    expect(setRound(fresh(), 99, 1).round).toBe(MAX_ROUNDS)
+    expect(setRound(fresh(), 0, 1).round).toBe(1)
+  })
+  it('is a no-op when unchanged and the game is live', () => {
+    const g = fresh()
+    expect(setRound(g, 1, 1)).toBe(g)
+  })
+  it('clears `over` so play can resume', () => {
+    const over = { ...fresh(), round: MAX_ROUNDS, over: true }
+    expect(setRound(over, 3, 1).over).toBe(false)
+    // even re-selecting the same round un-latches game over
+    expect(setRound(over, MAX_ROUNDS, 1).over).toBe(false)
   })
 })
 

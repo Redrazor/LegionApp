@@ -115,6 +115,7 @@ useHead({
       @modify-mission="conn.modifyMission($event)"
       @reset-mission="conn.resetMission()"
       @advance-phase="conn.advancePhase()"
+      @set-round="conn.setRound($event)"
       @set-vp="(p) => conn.setVp(p.player, p.value)"
       @reset-game="conn.resetGame()"
     />
@@ -125,6 +126,7 @@ useHead({
       <template v-if="missionReady">
         <PlayTracker
           @advance="conn.advancePhase()"
+          @set-round="conn.setRound($event)"
           @set-vp="(p) => conn.setVp(p.player, p.value)"
           @reset="conn.resetGame()"
         />

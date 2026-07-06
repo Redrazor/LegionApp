@@ -192,6 +192,14 @@ describe('createRoomManager — turn + VP tracker (Phase 4)', () => {
     expect(resumed?.state.game?.log.some((e) => e.kind === 'vp')).toBe(true)
   })
 
+  it('sets the round marker and persists it', () => {
+    const mgr = createRoomManager(sqlite)
+    const { snapshot } = mgr.create('sock-host', 'Alice')
+    mgr.setRound('sock-host', 5)
+    const resumed = mgr.rejoin('sock-host-2', snapshot.id, 'host')
+    expect(resumed?.state.game?.round).toBe(5)
+  })
+
   it('resets the tracker back to no game', () => {
     const mgr = createRoomManager(sqlite)
     mgr.create('sock-host', 'Alice')
@@ -202,6 +210,7 @@ describe('createRoomManager — turn + VP tracker (Phase 4)', () => {
   it('returns null for tracker actions from an unknown socket', () => {
     const mgr = createRoomManager(sqlite)
     expect(mgr.advancePhase('ghost')).toBeNull()
+    expect(mgr.setRound('ghost', 2)).toBeNull()
     expect(mgr.scorePlayerVp('ghost', 'host', 1)).toBeNull()
     expect(mgr.resetTracker('ghost')).toBeNull()
   })

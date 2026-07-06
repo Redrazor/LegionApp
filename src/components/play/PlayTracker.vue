@@ -8,6 +8,7 @@ import type { GamePhase, PlayerRole } from '../../types/index.ts'
 
 const emit = defineEmits<{
   (e: 'advance'): void
+  (e: 'set-round', round: number): void
   (e: 'set-vp', payload: { player: PlayerRole; value: number }): void
   (e: 'reset'): void
 }>()
@@ -16,6 +17,7 @@ const store = usePlaySessionStore()
 const { session, round, phase, gameOver, bluePlayer, redPlayer, blueVp, redVp } = storeToRefs(store)
 
 const phases = GAME_PHASES
+const rounds = Array.from({ length: MAX_ROUNDS }, (_, i) => i + 1) // 1..6
 const cells = Array.from({ length: VP_CAP + 1 }, (_, i) => i) // 0..12
 
 // Rail descriptors keyed by Blue/Red, mapped to the underlying host/guest role for scoring.
@@ -43,6 +45,19 @@ const phaseLabel = (p: GamePhase) => PHASE_LABEL[p]
       >
         {{ gameOver ? 'Game over' : `Round ${round} / ${MAX_ROUNDS}` }}
       </span>
+    </div>
+
+    <!-- Round strip — the movable round marker (tap to correct) -->
+    <div class="mb-3">
+      <p class="mb-1.5 font-display text-[10px] font-bold uppercase tracking-widest text-lg-muted">Round</p>
+      <div class="flex gap-1.5" role="group" aria-label="Round">
+        <button
+          v-for="r in rounds" :key="r"
+          class="round-cell" :class="{ here: r === round && !gameOver }"
+          :aria-label="`Set round ${r}`" :aria-pressed="r === round"
+          @click="emit('set-round', r)"
+        >{{ r }}</button>
+      </div>
     </div>
 
     <!-- Phase stepper -->
@@ -104,6 +119,28 @@ const phaseLabel = (p: GamePhase) => PHASE_LABEL[p]
 </template>
 
 <style scoped>
+.round-cell {
+  flex: 1 1 0;
+  height: 38px;
+  border-radius: 7px;
+  border: 1px solid #000;
+  font-weight: 700;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  color: #11151b;
+  background: #e6eaf0;
+  box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.18), inset 0 2px 3px rgba(255, 255, 255, 0.7);
+  transition: transform 0.08s ease, filter 0.12s ease;
+}
+.round-cell.here {
+  color: #2a2100;
+  background: linear-gradient(180deg, #ffdb45, #f2c200);
+  box-shadow: inset 0 0 0 2px #7a5f00, 0 0 12px rgba(242, 194, 0, 0.5);
+  transform: translateY(-1px);
+}
+.round-cell:focus-visible { outline: 2px solid #f2c200; outline-offset: 2px; }
+
 .vp-cell {
   flex: none;
   width: 30px;
@@ -122,5 +159,5 @@ const phaseLabel = (p: GamePhase) => PHASE_LABEL[p]
 .vp-cell.zero { background: #2a2f36; color: #8794a2; }
 .vp-cell.here { filter: brightness(1.35) saturate(1.1); transform: translateY(-1px); box-shadow: 0 0 0 2px #f2c200, 0 0 10px rgba(242, 194, 0, 0.5); }
 .vp-cell:focus-visible { outline: 2px solid #f2c200; outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { .vp-cell { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .vp-cell, .round-cell { transition: none; } }
 </style>

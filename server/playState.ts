@@ -4,7 +4,7 @@
 // phases extend RoomState (mission, round, VP, tokens, log) and add reducers here.
 
 import type { Army, RoomState, RoomSlot, PlayerRole, MissionState } from '../src/types/index.ts'
-import { createGameState, advancePhase, setVp } from '../src/utils/playGame.ts'
+import { createGameState, advancePhase, setVp, setRound } from '../src/utils/playGame.ts'
 
 // Note: the pure Recon draw (drawReconMission/pendingStandardMission/ReconPools) lives in
 // src/utils/mission.ts so the client can run the same draw for solo games. These reducers
@@ -67,6 +67,11 @@ export function ensureGame(state: RoomState, now: number): RoomState {
 export function advanceGamePhase(state: RoomState, now: number): RoomState {
   const s = ensureGame(state, now)
   return { ...s, game: advancePhase(s.game!, now) }
+}
+
+export function setGameRound(state: RoomState, round: number, now: number): RoomState {
+  const s = ensureGame(state, now)
+  return { ...s, game: setRound(s.game!, round, now) }
 }
 
 export function scoreVp(state: RoomState, player: PlayerRole, value: number, now: number): RoomState {

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { Army, PlayerRole, RoomSnapshot, MissionState, GameState, GamePhase } from '../types/index.ts'
 import { createSession, type PlaySession } from '../utils/playSession.ts'
-import { createGameState, advancePhase, setVp } from '../utils/playGame.ts'
+import { createGameState, advancePhase, setVp, setRound } from '../utils/playGame.ts'
 
 /**
  * Holds the active Play session in one of two modes:
@@ -127,6 +127,10 @@ export const usePlaySessionStore = defineStore(
     function advanceLocalPhase() {
       game.value = advancePhase(game.value ?? createGameState(Date.now()), Date.now())
     }
+    /** Jump the round marker (physical tracker's movable round token). */
+    function setLocalRound(r: number) {
+      game.value = setRound(game.value ?? createGameState(Date.now()), r, Date.now())
+    }
     /** Set a player's VP to an absolute value. */
     function setLocalVp(player: PlayerRole, value: number) {
       game.value = setVp(game.value ?? createGameState(Date.now()), player, value, Date.now())
@@ -185,7 +189,7 @@ export const usePlaySessionStore = defineStore(
       draftActorIsBlue, draftCanAct, draftModsLeft,
       bluePlayer, redPlayer, round, phase, gameOver, gameLog, blueVp, redVp,
       start, setSelfArmy, setSelfName, clearSelfArmy, setLocalMission, end,
-      advanceLocalPhase, setLocalVp, resetLocalGame,
+      advanceLocalPhase, setLocalRound, setLocalVp, resetLocalGame,
       enterRoom, applySnapshot, roomEnded,
     }
   },

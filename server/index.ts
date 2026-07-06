@@ -110,6 +110,11 @@ io.on('connection', (socket) => {
     if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
   })
 
+  socket.on('set-round', ({ round }: { round: number }) => {
+    const snapshot = rooms.setRound(socket.id, round)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
   socket.on('score-vp', ({ player, value }: { player: PlayerRole; value: number }) => {
     const snapshot = rooms.scorePlayerVp(socket.id, player, value)
     if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)

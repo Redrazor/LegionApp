@@ -16,7 +16,7 @@ import {
 } from './db/playRooms.ts'
 import {
   createRoomState, ensureGuest, setPlayerArmy, setPlayerName, setMission, clearMission,
-  advanceGamePhase, scoreVp, resetGame,
+  advanceGamePhase, setGameRound, scoreVp, resetGame,
 } from './playState.ts'
 import {
   missionFormat, drawReconMission, pendingStandardMission,
@@ -203,6 +203,10 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
     return mutateGame(socketId, (state, now) => advanceGamePhase(state, now))
   }
 
+  function setRound(socketId: string, round: number): RoomSnapshot | null {
+    return mutateGame(socketId, (state, now) => setGameRound(state, round, now))
+  }
+
   function scorePlayerVp(socketId: string, player: PlayerRole, value: number): RoomSnapshot | null {
     return mutateGame(socketId, (state, now) => scoreVp(state, player, value, now))
   }
@@ -254,7 +258,7 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
 
   return {
     create, join, rejoin, updateArmy, renamePlayer, drawMission, modifyMission, resetMission,
-    advancePhase, scorePlayerVp, resetTracker, endGame, disconnect,
+    advancePhase, setRound, scorePlayerVp, resetTracker, endGame, disconnect,
     roomOf, snapshotFor, presenceFor, sweep,
   }
 }

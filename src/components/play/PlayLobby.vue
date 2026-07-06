@@ -17,6 +17,7 @@ defineEmits<{
   (e: 'modify-mission', action: MissionModifyAction): void
   (e: 'reset-mission'): void
   (e: 'advance-phase'): void
+  (e: 'set-round', round: number): void
   (e: 'set-vp', payload: { player: PlayerRole; value: number }): void
   (e: 'reset-game'): void
 }>()
@@ -75,6 +76,7 @@ async function copyCode() {
     <template v-if="missionReady">
       <PlayTracker
         @advance="$emit('advance-phase')"
+        @set-round="$emit('set-round', $event)"
         @set-vp="$emit('set-vp', $event)"
         @reset="$emit('reset-game')"
       />

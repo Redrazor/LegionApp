@@ -108,6 +108,11 @@ export function usePlayConnection() {
     store.advanceLocalPhase()
   }
 
+  function setRound(round: number): void {
+    if (store.inRoom) { room.setRound(round); return }
+    store.setLocalRound(round)
+  }
+
   function setVp(player: PlayerRole, value: number): void {
     if (store.inRoom) { room.scoreVp(player, value); return }
     store.setLocalVp(player, value)
@@ -131,6 +136,6 @@ export function usePlayConnection() {
 
   return {
     room, store, host, join, resume, importArmy, changeArmy, rename,
-    drawMission, modifyMission, resetMission, advancePhase, setVp, adjustVp, resetGame, leave,
+    drawMission, modifyMission, resetMission, advancePhase, setRound, setVp, adjustVp, resetGame, leave,
   }
 }

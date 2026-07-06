@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   createRoomState, ensureGuest, setPlayerArmy, setPlayerName, slotFor, setMission, clearMission,
-  ensureGame, advanceGamePhase, scoreVp, resetGame,
+  ensureGame, advanceGamePhase, setGameRound, scoreVp, resetGame,
 } from '../server/playState.ts'
 import { pendingStandardMission } from '../src/utils/mission.ts'
 import type { Army } from '../src/types/index.ts'
@@ -107,6 +107,12 @@ describe('game reducers (Phase 4)', () => {
     expect(s1.game?.phase).toBe('activation')
     const s2 = advanceGamePhase(s1, 2)
     expect(s2.game?.phase).toBe('end')
+  })
+
+  it('setGameRound jumps the round (creating the game if needed)', () => {
+    const s = setGameRound(createRoomState('Alice'), 4, 5)
+    expect(s.game?.round).toBe(4)
+    expect(s.game?.log.at(-1)).toMatchObject({ kind: 'round', text: 'Round set to 4.' })
   })
 
   it('scoreVp sets a player VP (creating the game if needed) and logs it', () => {

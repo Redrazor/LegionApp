@@ -70,6 +70,20 @@ export function advancePhase(state: GameState, now: number): GameState {
   })
 }
 
+/**
+ * Jump the round marker to an absolute round (clamped 1..MAX_ROUNDS) — the physical
+ * tracker's movable round token, for corrections. Clears `over` (play resumes) and keeps
+ * the current phase. No-op + no log if unchanged.
+ */
+export function setRound(state: GameState, round: number, now: number): GameState {
+  const r = Math.max(1, Math.min(MAX_ROUNDS, Math.round(round)))
+  if (r === state.round && !state.over) return state
+  return withLog({ ...state, round: r, over: false }, now, {
+    round: r, phase: state.phase, kind: 'round', actor: null,
+    text: `Round set to ${r}.`,
+  })
+}
+
 /** Set a player's VP to an absolute value (clamped 0..VP_CAP). No-op + no log if unchanged. */
 export function setVp(state: GameState, player: PlayerRole, value: number, now: number): GameState {
   const v = Math.max(0, Math.min(VP_CAP, Math.round(value)))

@@ -88,6 +88,10 @@ export function usePlayRoom() {
     socket?.emit('advance-phase')
   }
 
+  function setRound(round: number): void {
+    socket?.emit('set-round', { round })
+  }
+
   function scoreVp(player: PlayerRole, value: number): void {
     socket?.emit('score-vp', { player, value })
   }
@@ -111,6 +115,6 @@ export function usePlayRoom() {
 
   return {
     connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, drawMission, modifyMission, resetMission,
-    advancePhase, scoreVp, resetGame, endGame, disconnect, onRoomState, onRoomEnded,
+    advancePhase, setRound, scoreVp, resetGame, endGame, disconnect, onRoomState, onRoomEnded,
   }
 }

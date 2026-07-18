@@ -5,7 +5,7 @@ import {
   missionFormat, drawReconMission, pendingStandardMission, reconPoolsFrom,
   startStandardDraft, standardDraftReady, applyMissionModify,
 } from '../utils/mission.ts'
-import type { Army, MissionModifyAction, PlayerRole } from '../types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole, TokenType } from '../types/index.ts'
 
 // Glue between the authoritative socket transport (usePlayRoom) and the session store.
 // The UI calls these mode-aware actions; server snapshots flow back into the store.
@@ -128,6 +128,21 @@ export function usePlayConnection() {
     store.resetLocalGame()
   }
 
+  // ── Status tokens (Phase 5) ────────────────────────────────────────────────────
+  // `unitName` is resolved by the caller (it has the unit object) and rides along for the
+  // log text. Room: server-authoritative; solo: local reducer. Player is the absolute role
+  // the unit belongs to (self's role, or the opponent's in a room).
+
+  function adjustToken(player: PlayerRole, uid: string, token: TokenType, delta: number, unitName: string): void {
+    if (store.inRoom) { room.adjustToken(player, uid, token, delta, unitName); return }
+    store.adjustLocalToken(player, uid, token, delta, unitName)
+  }
+
+  function clearTurnTokens(): void {
+    if (store.inRoom) { room.clearTurnTokens(); return }
+    store.clearLocalTurnTokens()
+  }
+
   /** End the game: destroys the room server-side (both players) or ends the solo session. */
   function leave(): void {
     if (store.inRoom) room.endGame()
@@ -136,6 +151,7 @@ export function usePlayConnection() {
 
   return {
     room, store, host, join, resume, importArmy, changeArmy, rename,
-    drawMission, modifyMission, resetMission, advancePhase, setRound, setVp, adjustVp, resetGame, leave,
+    drawMission, modifyMission, resetMission, advancePhase, setRound, setVp, adjustVp, resetGame,
+    adjustToken, clearTurnTokens, leave,
   }
 }

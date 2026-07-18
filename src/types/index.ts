@@ -390,11 +390,25 @@ export interface LogEntry {
   seq: number
   round: number
   phase: GamePhase
-  kind: 'system' | 'phase' | 'round' | 'vp'
+  kind: 'system' | 'phase' | 'round' | 'vp' | 'token'
   actor: PlayerRole | null
   text: string
   at: number
 }
+
+/**
+ * Status tokens tracked per unit on the Play board (Phase 5). Two classes: **turn-cleared**
+ * — the green tokens aim/dodge/surge — are wiped each round; **persistent** (standby,
+ * observation + suppression/immobilize/ion/poison/shield) carry over until removed. Metadata
+ * (labels, class split, order) lives in `utils/playTokens.ts`; the reducers that mutate
+ * counts live alongside the game reducers.
+ */
+export type TurnClearedToken = 'aim' | 'dodge' | 'surge'
+export type PersistentToken = 'standby' | 'observation' | 'suppression' | 'immobilize' | 'ion' | 'poison' | 'shield'
+export type TokenType = TurnClearedToken | PersistentToken
+
+/** Non-zero token counts for a single unit instance, keyed by token type. */
+export type TokenCounts = Partial<Record<TokenType, number>>
 
 /**
  * The turn/VP tracker's state (shared, persisted on `RoomState.game`; held locally in the
@@ -406,6 +420,10 @@ export interface GameState {
   round: number
   phase: GamePhase
   vp: { host: number; guest: number }
+  // Per-unit status tokens, namespaced by player then by ArmyUnit.uid (Phase 5). Only
+  // non-zero counts are stored; an absent uid/token means zero. Turn-cleared tokens are
+  // wiped when the round rolls over (see `advancePhase`); persistent ones survive.
+  tokens: Record<PlayerRole, Record<string, TokenCounts>>
   log: LogEntry[]
   seq: number // next log sequence number
   over: boolean

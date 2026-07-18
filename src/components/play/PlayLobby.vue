@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePlaySessionStore } from '../../stores/playSession.ts'
 import ArmyPicker from './ArmyPicker.vue'
@@ -7,7 +7,7 @@ import PlayRoster from './PlayRoster.vue'
 import PlayMission from './PlayMission.vue'
 import PlayTracker from './PlayTracker.vue'
 import PlayLog from './PlayLog.vue'
-import type { Army, MissionModifyAction, PlayerRole } from '../../types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole, TokenType } from '../../types/index.ts'
 
 defineEmits<{
   (e: 'import', army: Army, savedIndex: number | null): void
@@ -20,10 +20,14 @@ defineEmits<{
   (e: 'set-round', round: number): void
   (e: 'set-vp', payload: { player: PlayerRole; value: number }): void
   (e: 'reset-game'): void
+  (e: 'adjust-token', payload: { player: PlayerRole; uid: string; token: TokenType; delta: number; unitName: string }): void
+  (e: 'clear-turn-tokens'): void
 }>()
 
 const store = usePlaySessionStore()
-const { session, roomCode, opponentOnline, selfArmy, bothArmiesReady, missionReady } = storeToRefs(store)
+const { session, roomCode, opponentOnline, selfArmy, opponentArmy, effectiveRole, bothArmiesReady, missionReady } =
+  storeToRefs(store)
+const opponentRole = computed<PlayerRole>(() => (effectiveRole.value === 'host' ? 'guest' : 'host'))
 
 const copied = ref(false)
 async function copyCode() {
@@ -88,9 +92,15 @@ async function copyCode() {
       <PlayRoster
         :army="selfArmy"
         :player-name="session?.self.name ?? 'You'"
+        :self-role="effectiveRole"
+        :opponent-army="opponentArmy"
+        :opponent-name="session?.opponent.name ?? 'Opponent'"
+        :opponent-role="opponentRole"
         end-label="End game"
         @change="$emit('change')"
         @end="$emit('end')"
+        @adjust-token="$emit('adjust-token', $event)"
+        @clear-turn-tokens="$emit('clear-turn-tokens')"
       />
     </div>
     <div v-else>

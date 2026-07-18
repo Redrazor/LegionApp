@@ -118,6 +118,8 @@ useHead({
       @set-round="conn.setRound($event)"
       @set-vp="(p) => conn.setVp(p.player, p.value)"
       @reset-game="conn.resetGame()"
+      @adjust-token="(p) => conn.adjustToken(p.player, p.uid, p.token, p.delta, p.unitName)"
+      @clear-turn-tokens="conn.clearTurnTokens()"
     />
 
     <!-- Solo, army loaded — mission draw + tracker + roster -->
@@ -135,8 +137,11 @@ useHead({
       <PlayRoster
         :army="selfArmy"
         :player-name="session?.self.name ?? 'You'"
+        :self-role="store.effectiveRole"
         @change="conn.changeArmy()"
         @end="conn.leave()"
+        @adjust-token="(p) => conn.adjustToken(p.player, p.uid, p.token, p.delta, p.unitName)"
+        @clear-turn-tokens="conn.clearTurnTokens()"
       />
     </div>
 

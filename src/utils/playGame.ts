@@ -1,4 +1,5 @@
-import type { GamePhase, GameState, LogEntry, PlayerRole } from '../types/index.ts'
+import type { GamePhase, GameState, LogEntry, PlayerRole, TokenCounts, TokenType } from '../types/index.ts'
+import { TOKEN_META_BY_TYPE, TURN_CLEARED_TOKENS } from './playTokens.ts'
 
 // Pure turn/VP tracker + change-log reducers, shared by the server (room, authoritative)
 // and the client (solo). Every mutation returns a NEW GameState and appends a typed
@@ -28,6 +29,7 @@ export function createGameState(now: number): GameState {
     round: 1,
     phase: 'command',
     vp: { host: 0, guest: 0 },
+    tokens: { host: {}, guest: {} },
     log: [],
     seq: 0,
     over: false,
@@ -64,10 +66,12 @@ export function advancePhase(state: GameState, now: number): GameState {
     })
   }
   const round = state.round + 1
-  return withLog({ ...state, round, phase: 'command' }, now, {
+  const rolled = withLog({ ...state, round, phase: 'command' }, now, {
     round, phase: 'command', kind: 'round', actor: null,
     text: `Round ${round} — Command Phase.`,
   })
+  // A new round wipes the turn-cleared tokens (aim/dodge/surge); persistent ones survive.
+  return clearTurnTokens(rolled, now)
 }
 
 /**
@@ -99,4 +103,85 @@ export function setVp(state: GameState, player: PlayerRole, value: number, now: 
 /** Nudge a player's VP by a delta (clamped). Thin wrapper over setVp for +/- controls. */
 export function adjustVp(state: GameState, player: PlayerRole, delta: number, now: number): GameState {
   return setVp(state, player, state.vp[player] + delta, now)
+}
+
+// ── Status tokens (Phase 5) ─────────────────────────────────────────────────
+// Tokens are stored per player then per unit (ArmyUnit.uid). Only non-zero counts are
+// kept, so an absent uid/token reads as zero. Reducers append a `token` log entry; the
+// UI resolves the uid to a unit name for display.
+
+export const MAX_TOKENS = 9 // sanity clamp per token type on a single unit
+
+/** The token map, defaulted for games persisted before Phase 5 (no `tokens` field). */
+function tokensOf(state: GameState): GameState['tokens'] {
+  return state.tokens ?? { host: {}, guest: {} }
+}
+
+/** Read a single token's count for a unit (0 if none). */
+export function tokenCount(state: GameState, player: PlayerRole, uid: string, token: TokenType): number {
+  return state.tokens?.[player]?.[uid]?.[token] ?? 0
+}
+
+/**
+ * Nudge one token type on one unit by `delta` (clamped 0..MAX_TOKENS). Prunes the token
+ * key at zero and the unit entry when it holds no tokens, so equality stays cheap and the
+ * persisted blob small. No-op + no log when the count doesn't change. `unitName` is woven
+ * into the log text (the reducer has no catalogue access).
+ */
+export function adjustToken(
+  state: GameState,
+  player: PlayerRole,
+  uid: string,
+  token: TokenType,
+  delta: number,
+  unitName: string,
+  now: number,
+): GameState {
+  const prev = tokenCount(state, player, uid, token)
+  const next = Math.max(0, Math.min(MAX_TOKENS, prev + delta))
+  if (next === prev) return state
+
+  const tokens = tokensOf(state)
+  const forPlayer = { ...tokens[player] }
+  const forUnit: TokenCounts = { ...forPlayer[uid] }
+  if (next === 0) delete forUnit[token]
+  else forUnit[token] = next
+  if (Object.keys(forUnit).length === 0) delete forPlayer[uid]
+  else forPlayer[uid] = forUnit
+
+  const label = TOKEN_META_BY_TYPE[token].label.toLowerCase()
+  const d = next - prev
+  return withLog({ ...state, tokens: { ...tokens, [player]: forPlayer } }, now, {
+    round: state.round, phase: state.phase, kind: 'token', actor: player,
+    text: `${d > 0 ? '+' : '−'}${Math.abs(d)} ${label} on ${unitName} (now ${next}).`,
+  })
+}
+
+/**
+ * Remove every turn-cleared token (aim/dodge/surge) from all units of both players,
+ * keeping persistent tokens. Runs automatically on a round roll and via the manual
+ * "Clear turn tokens" action. No-op + no log when there was nothing to clear.
+ */
+export function clearTurnTokens(state: GameState, now: number): GameState {
+  const players: PlayerRole[] = ['host', 'guest']
+  const nextTokens: GameState['tokens'] = { host: {}, guest: {} }
+  let removed = 0
+
+  const tokens = tokensOf(state)
+  for (const p of players) {
+    for (const [uid, counts] of Object.entries(tokens[p] ?? {})) {
+      const kept: TokenCounts = {}
+      for (const [tok, n] of Object.entries(counts) as [TokenType, number][]) {
+        if (TURN_CLEARED_TOKENS.includes(tok as never)) removed += n
+        else kept[tok] = n
+      }
+      if (Object.keys(kept).length) nextTokens[p][uid] = kept
+    }
+  }
+
+  if (removed === 0) return state
+  return withLog({ ...state, tokens: nextTokens }, now, {
+    round: state.round, phase: state.phase, kind: 'token', actor: null,
+    text: 'Cleared aim, dodge and surge tokens.',
+  })
 }

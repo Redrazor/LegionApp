@@ -215,3 +215,30 @@ describe('createRoomManager — turn + VP tracker (Phase 4)', () => {
     expect(mgr.resetTracker('ghost')).toBeNull()
   })
 })
+
+describe('createRoomManager — status tokens (Phase 5)', () => {
+  it('adjusts a unit token, creating the game and persisting across a rejoin', () => {
+    const mgr = createRoomManager(sqlite)
+    const { snapshot } = mgr.create('sock-host', 'Alice')
+    const s = mgr.adjustToken('sock-host', 'host', 'u1', 'aim', 1, 'Luke')
+    expect(s?.state.game?.tokens.host.u1.aim).toBe(1)
+    const resumed = mgr.rejoin('sock-host-2', snapshot.id, 'host')
+    expect(resumed?.state.game?.tokens.host.u1.aim).toBe(1)
+  })
+
+  it('clears turn tokens for the room, keeping persistent ones', () => {
+    const mgr = createRoomManager(sqlite)
+    mgr.create('sock-host', 'Alice')
+    mgr.adjustToken('sock-host', 'host', 'u1', 'dodge', 1, 'A')
+    mgr.adjustToken('sock-host', 'host', 'u1', 'ion', 1, 'A')
+    const s = mgr.clearTurnTokens('sock-host')
+    expect(s?.state.game?.tokens.host.u1?.dodge ?? 0).toBe(0)
+    expect(s?.state.game?.tokens.host.u1.ion).toBe(1)
+  })
+
+  it('returns null for token actions from an unknown socket', () => {
+    const mgr = createRoomManager(sqlite)
+    expect(mgr.adjustToken('ghost', 'host', 'u1', 'aim', 1, 'X')).toBeNull()
+    expect(mgr.clearTurnTokens('ghost')).toBeNull()
+  })
+})

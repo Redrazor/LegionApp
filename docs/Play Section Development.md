@@ -109,10 +109,24 @@ players' built decks (else a `pending` "build a battle deck" prompt).
 Round counter (≤6), VP track (cap 12) per player, phase advance. Stand up the **event-log bus**; all
 later phases emit typed log entries (who/what/when). Log panel with full history.
 
-### Phase 5 — Unit roster + status tokens  *(user #5)*
+### Phase 5 — Unit roster + status tokens  *(user #5)* — ✅ SHIPPED v2.9.0 (PR #102)
 Tabbed my-army / opponent-army roster; unit drawer (reuse Browse drawer patterns). Add/remove tokens
-split into **turn-cleared** (aim/dodge/standby) vs **persistent** (suppression/immobilize/ion/poison/
-shield). End-Phase action wipes only the turn-cleared class.
+split into **turn-cleared / green** (aim/dodge/surge) vs **persistent** (standby/observation/suppression/
+immobilize/ion/poison/shield). End-Phase action wipes only the turn-cleared class.
+Delivered: one row per unit INSTANCE (ArmyUnit.uid), duplicates disambiguated with a "· N" ordinal;
+per-unit token editor with stacking +/− steppers; token counts stored on `GameState.tokens`
+(host/guest → uid → counts) so they ride the existing snapshot/persist/log substrate. Turn-cleared
+tokens auto-wipe on the round roll (in `advancePhase`) AND via a manual "Clear turn tokens" button.
+Pure reducers `adjustToken`/`clearTurnTokens` (utils/playGame.ts) + metadata (utils/playTokens.ts);
+mirrored server-side (playState/rooms/index) and client-side (usePlayRoom/usePlayConnection/store).
+My-army/opponent tabs show in a room (both armies present); tapping a unit opens its card via Browse's
+`UnitProfile`. Each row also carries an at-a-glance stat strip (`PlayUnitStats.vue`): defense-die colour,
+attack/defense surge targets, speed, wounds, courage — plus an amber **⚠ Panicked** flag (styled like Build's
+illegal banner, but amber not red) when `suppression ≥ 2 × courage` (pure `isPanicked()` in utils/playTokens.ts;
+courage-0 vehicles never panic). Red is reserved for a future defeated state (Phase 6). Turn-cleared (green)
+tokens are aim/dodge/surge; standby and observation persist (2024 v2 rules). **Owner-input still
+open:** verbatim glossary tooltips for aim/dodge/standby/suppression (deferred; tokens currently ship without
+per-token rules tooltips).
 
 ### Phase 6 — Wounds, models & defeat  *(user #6 + #7)*
 Wound tokens for multi-wound minis; model-count reduction for single-wound units; "defeated" marking

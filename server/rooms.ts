@@ -8,7 +8,7 @@
 
 import { randomUUID } from 'crypto'
 import type Database from 'better-sqlite3'
-import type { Army, MissionModifyAction, PlayerRole, RoomSnapshot, RoomPresence } from '../src/types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole, RoomSnapshot, RoomPresence, TokenType } from '../src/types/index.ts'
 import {
   ensurePlayRoomsTable, insertRoom, getRoomById, getRoomByCode,
   updateRoomState, deleteRoom, sweepExpiredRooms, generateUniqueCode, reconPools,
@@ -16,7 +16,7 @@ import {
 } from './db/playRooms.ts'
 import {
   createRoomState, ensureGuest, setPlayerArmy, setPlayerName, setMission, clearMission,
-  advanceGamePhase, setGameRound, scoreVp, resetGame,
+  advanceGamePhase, setGameRound, scoreVp, resetGame, adjustUnitToken, clearTurnTokensState,
 } from './playState.ts'
 import {
   missionFormat, drawReconMission, pendingStandardMission,
@@ -215,6 +215,20 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
     return mutateGame(socketId, (state) => resetGame(state))
   }
 
+  // ── Status tokens (Phase 5) ────────────────────────────────────────────────────
+  // The board is shared: either socket may adjust tokens on either player's units (like
+  // moving a physical token). `unitName` rides the payload for the log text.
+
+  function adjustToken(
+    socketId: string, player: PlayerRole, uid: string, token: TokenType, delta: number, unitName: string,
+  ): RoomSnapshot | null {
+    return mutateGame(socketId, (state, now) => adjustUnitToken(state, player, uid, token, delta, unitName, now))
+  }
+
+  function clearTurnTokens(socketId: string): RoomSnapshot | null {
+    return mutateGame(socketId, (state, now) => clearTurnTokensState(state, now))
+  }
+
   // ── Teardown ─────────────────────────────────────────────────────────────────
 
   /** Explicit End game: delete the room and report who to notify. */
@@ -258,7 +272,7 @@ export function createRoomManager(sqlite: Sqlite, opts: RoomManagerOptions = {})
 
   return {
     create, join, rejoin, updateArmy, renamePlayer, drawMission, modifyMission, resetMission,
-    advancePhase, setRound, scorePlayerVp, resetTracker, endGame, disconnect,
+    advancePhase, setRound, scorePlayerVp, resetTracker, adjustToken, clearTurnTokens, endGame, disconnect,
     roomOf, snapshotFor, presenceFor, sweep,
   }
 }

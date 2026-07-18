@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { Army, PlayerRole, RoomSnapshot, MissionState, GameState, GamePhase } from '../types/index.ts'
+import type { Army, PlayerRole, RoomSnapshot, MissionState, GameState, GamePhase, TokenType, TokenCounts } from '../types/index.ts'
 import { createSession, type PlaySession } from '../utils/playSession.ts'
-import { createGameState, advancePhase, setVp, setRound } from '../utils/playGame.ts'
+import { createGameState, advancePhase, setVp, setRound, adjustToken, clearTurnTokens } from '../utils/playGame.ts'
 
 /**
  * Holds the active Play session in one of two modes:
@@ -62,6 +62,13 @@ export const usePlaySessionStore = defineStore(
     const gameLog = computed(() => game.value?.log ?? [])
     const blueVp = computed(() => game.value?.vp[bluePlayer.value] ?? 0)
     const redVp = computed(() => game.value?.vp[redPlayer.value] ?? 0)
+
+    // ── Status tokens (Phase 5) ─────────────────────────────────────────────────
+    // Tokens live on the game state (host/guest namespaced). The roster reads a side's
+    // token map by absolute role; solo's single army is always the host side.
+    // Optional-chain `tokens` so a game persisted before Phase 5 (no `tokens` field) can't
+    // crash the roster render — it simply reads as no tokens until the next mutation adds them.
+    const tokensFor = (player: PlayerRole): Record<string, TokenCounts> => game.value?.tokens?.[player] ?? {}
 
     // ── Standard draft (DOC56 p.19) view state ──────────────────────────────────
     const standardDraft = computed(() => mission.value?.draft ?? null)
@@ -140,6 +147,15 @@ export const usePlaySessionStore = defineStore(
       game.value = null
     }
 
+    /** Adjust one unit's token count (solo). Lazily starts the game on the first token. */
+    function adjustLocalToken(player: PlayerRole, uid: string, token: TokenType, delta: number, unitName: string) {
+      game.value = adjustToken(game.value ?? createGameState(Date.now()), player, uid, token, delta, unitName, Date.now())
+    }
+    /** Wipe turn-cleared tokens (solo). No-op if the game hasn't started. */
+    function clearLocalTurnTokens() {
+      if (game.value) game.value = clearTurnTokens(game.value, Date.now())
+    }
+
     /** Tear everything down — solo or room — back to the setup screen. */
     function end() {
       session.value = null
@@ -187,9 +203,9 @@ export const usePlaySessionStore = defineStore(
       missionReady, blueIsSelf, selfAdvantage, opponentAdvantage,
       standardDraft, draftBuilt, draftRevealing, draftActor, draftActorAdvantage, draftOpponentAdvantage,
       draftActorIsBlue, draftCanAct, draftModsLeft,
-      bluePlayer, redPlayer, round, phase, gameOver, gameLog, blueVp, redVp,
+      bluePlayer, redPlayer, round, phase, gameOver, gameLog, blueVp, redVp, tokensFor,
       start, setSelfArmy, setSelfName, clearSelfArmy, setLocalMission, end,
-      advanceLocalPhase, setLocalRound, setLocalVp, resetLocalGame,
+      advanceLocalPhase, setLocalRound, setLocalVp, resetLocalGame, adjustLocalToken, clearLocalTurnTokens,
       enterRoom, applySnapshot, roomEnded,
     }
   },

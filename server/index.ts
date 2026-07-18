@@ -13,7 +13,7 @@ import { createProductsRouter } from './routes/products.ts'
 import { createBattleForcesRouter } from './routes/battleForces.ts'
 import { createBattleCardsRouter } from './routes/battleCards.ts'
 import { createRoomManager } from './rooms.ts'
-import type { Army, MissionModifyAction, PlayerRole } from '../src/types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole, TokenType } from '../src/types/index.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const PORT = process.env.PORT ?? 3001
@@ -122,6 +122,19 @@ io.on('connection', (socket) => {
 
   socket.on('reset-game', () => {
     const snapshot = rooms.resetTracker(socket.id)
+    if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+  })
+
+  socket.on(
+    'adjust-token',
+    ({ player, uid, token, delta, unitName }: { player: PlayerRole; uid: string; token: TokenType; delta: number; unitName: string }) => {
+      const snapshot = rooms.adjustToken(socket.id, player, uid, token, delta, unitName)
+      if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
+    },
+  )
+
+  socket.on('clear-turn-tokens', () => {
+    const snapshot = rooms.clearTurnTokens(socket.id)
     if (snapshot) io.to(snapshot.id).emit('room-state', snapshot)
   })
 

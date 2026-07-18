@@ -3,8 +3,10 @@
 // This blob is what gets persisted to SQLite and broadcast to both players; later Play
 // phases extend RoomState (mission, round, VP, tokens, log) and add reducers here.
 
-import type { Army, RoomState, RoomSlot, PlayerRole, MissionState } from '../src/types/index.ts'
-import { createGameState, advancePhase, setVp, setRound } from '../src/utils/playGame.ts'
+import type { Army, RoomState, RoomSlot, PlayerRole, MissionState, TokenType } from '../src/types/index.ts'
+import {
+  createGameState, advancePhase, setVp, setRound, adjustToken, clearTurnTokens,
+} from '../src/utils/playGame.ts'
 
 // Note: the pure Recon draw (drawReconMission/pendingStandardMission/ReconPools) lives in
 // src/utils/mission.ts so the client can run the same draw for solo games. These reducers
@@ -82,4 +84,20 @@ export function scoreVp(state: RoomState, player: PlayerRole, value: number, now
 /** Restart the tracker (clears the game; next action starts a fresh one). */
 export function resetGame(state: RoomState): RoomState {
   return { ...state, game: null }
+}
+
+// ── Status tokens (Phase 5) ─────────────────────────────────────────────────
+// Wrappers over the pure token reducers; the game is created lazily so the roster can
+// place tokens before the phase clock is ever advanced.
+
+export function adjustUnitToken(
+  state: RoomState, player: PlayerRole, uid: string, token: TokenType, delta: number, unitName: string, now: number,
+): RoomState {
+  const s = ensureGame(state, now)
+  return { ...s, game: adjustToken(s.game!, player, uid, token, delta, unitName, now) }
+}
+
+export function clearTurnTokensState(state: RoomState, now: number): RoomState {
+  if (!state.game) return state // nothing placed yet
+  return { ...state, game: clearTurnTokens(state.game, now) }
 }

@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   createRoomState, ensureGuest, setPlayerArmy, setPlayerName, slotFor, setMission, clearMission,
-  ensureGame, advanceGamePhase, setGameRound, scoreVp, resetGame,
+  ensureGame, advanceGamePhase, setGameRound, scoreVp, resetGame, adjustUnitToken, clearTurnTokensState,
 } from '../server/playState.ts'
 import { pendingStandardMission } from '../src/utils/mission.ts'
 import type { Army } from '../src/types/index.ts'
@@ -131,5 +131,26 @@ describe('game reducers (Phase 4)', () => {
     advanceGamePhase(base, 1)
     scoreVp(base, 'host', 3, 1)
     expect(base.game).toBeUndefined()
+  })
+})
+
+describe('status tokens (Phase 5)', () => {
+  it('adjustUnitToken lazily starts the game and records the token', () => {
+    const s = adjustUnitToken(createRoomState('Alice'), 'host', 'u1', 'aim', 1, 'Luke', 5)
+    expect(s.game).not.toBeNull()
+    expect(s.game!.tokens.host.u1.aim).toBe(1)
+  })
+
+  it('clearTurnTokensState is a no-op when no game has started yet', () => {
+    const base = createRoomState('Alice')
+    expect(clearTurnTokensState(base, 5)).toBe(base)
+  })
+
+  it('clearTurnTokensState wipes turn tokens but keeps persistent ones', () => {
+    let s = adjustUnitToken(createRoomState('Alice'), 'host', 'u1', 'dodge', 1, 'A', 1)
+    s = adjustUnitToken(s, 'host', 'u1', 'ion', 1, 'A', 2)
+    s = clearTurnTokensState(s, 3)
+    expect(s.game!.tokens.host.u1?.dodge ?? 0).toBe(0)
+    expect(s.game!.tokens.host.u1.ion).toBe(1)
   })
 })

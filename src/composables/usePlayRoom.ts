@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { io, Socket } from 'socket.io-client'
-import type { Army, MissionModifyAction, PlayerRole, RoomSnapshot } from '../types/index.ts'
+import type { Army, MissionModifyAction, PlayerRole, RoomSnapshot, TokenType } from '../types/index.ts'
 // score-vp/advance-phase/reset-game drive the Phase 4 turn + VP tracker.
 
 // Module-level singleton socket, mirroring ShatterApp's useDiceRoom shape. The Play
@@ -100,6 +100,14 @@ export function usePlayRoom() {
     socket?.emit('reset-game')
   }
 
+  function adjustToken(player: PlayerRole, uid: string, token: TokenType, delta: number, unitName: string): void {
+    socket?.emit('adjust-token', { player, uid, token, delta, unitName })
+  }
+
+  function clearTurnTokens(): void {
+    socket?.emit('clear-turn-tokens')
+  }
+
   function endGame(): void {
     socket?.emit('end-game')
   }
@@ -115,6 +123,7 @@ export function usePlayRoom() {
 
   return {
     connected, createRoom, joinRoom, rejoinRoom, sendArmy, setName, drawMission, modifyMission, resetMission,
-    advancePhase, setRound, scoreVp, resetGame, endGame, disconnect, onRoomState, onRoomEnded,
+    advancePhase, setRound, scoreVp, resetGame, adjustToken, clearTurnTokens, endGame, disconnect,
+    onRoomState, onRoomEnded,
   }
 }

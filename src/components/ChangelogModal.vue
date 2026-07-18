@@ -7,6 +7,16 @@ defineEmits<{ (e: 'close'): void }>()
 
 const entries = [
   {
+    version: '2.9.0',
+    date: '2026-07-18',
+    changes: [
+      'Play — status tokens on the roster. Each unit in your army now has its own token tracker: tap “Tokens” to add or remove aim, dodge, surge, observation, standby, suppression, immobilize, ion, poison and shield, with counts that stack. A summary of a unit’s active tokens shows at a glance, and every change is written to the game log.',
+      'Play — green tokens vs persistent tokens. The green tokens — aim, dodge and surge — clear automatically when the round rolls over (and via a “Clear turn tokens” button); standby, observation, suppression, immobilize, ion, poison and shield persist until you remove them.',
+      'Play — my-army / opponent tabs in a shared room, so you can see and adjust tokens on either side. Tap any unit to open its full card. Tokens sync live between both players.',
+      'Play — at-a-glance unit stats on every roster row: defense-die colour, attack/defense surge (and what each surges to), speed, wounds and courage — no need to open the card. A unit is flagged “Panicked” in amber the moment its suppression reaches twice its courage.',
+    ],
+  },
+  {
     version: '2.8.0',
     date: '2026-07-05',
     changes: [

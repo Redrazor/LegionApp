@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   createGameState, advancePhase, setVp, adjustVp, setRound,
+  adjustToken, clearTurnTokens, tokenCount, MAX_TOKENS,
   GAME_PHASES, MAX_ROUNDS, VP_CAP,
 } from '../src/utils/playGame.ts'
 import type { GameState } from '../src/types/index.ts'
@@ -130,5 +131,81 @@ describe('setVp / adjustVp', () => {
     setVp(g, 'host', 7, 1)
     advancePhase(g, 1)
     expect(JSON.stringify(g)).toBe(snapshot)
+  })
+})
+
+describe('adjustToken', () => {
+  it('adds a token, storing the count under the right player/uid and logging it', () => {
+    const g = adjustToken(fresh(), 'host', 'u1', 'aim', 1, 'Luke', 5)
+    expect(tokenCount(g, 'host', 'u1', 'aim')).toBe(1)
+    expect(g.tokens.guest).toEqual({})
+    expect(g.log.at(-1)).toMatchObject({ kind: 'token', actor: 'host', at: 5 })
+    expect(g.log.at(-1)!.text).toContain('Luke')
+    expect(g.log.at(-1)!.text).toContain('aim')
+  })
+
+  it('stacks and un-stacks, pruning the token key at zero and the unit entry when empty', () => {
+    let g = adjustToken(fresh(), 'host', 'u1', 'suppression', 1, 'Squad', 1)
+    g = adjustToken(g, 'host', 'u1', 'suppression', 2, 'Squad', 2)
+    expect(tokenCount(g, 'host', 'u1', 'suppression')).toBe(3)
+    g = adjustToken(g, 'host', 'u1', 'suppression', -3, 'Squad', 3)
+    expect(g.tokens.host).toEqual({}) // uid entry pruned, not left as {}
+  })
+
+  it('clamps at 0 and MAX_TOKENS, no-op (same ref, no log) when unchanged', () => {
+    const g = fresh()
+    expect(adjustToken(g, 'host', 'u1', 'aim', -1, 'X', 1)).toBe(g) // already 0
+    let s = adjustToken(g, 'host', 'u1', 'aim', 99, 'X', 1)
+    expect(tokenCount(s, 'host', 'u1', 'aim')).toBe(MAX_TOKENS)
+    expect(adjustToken(s, 'host', 'u1', 'aim', 5, 'X', 2)).toBe(s) // already capped
+  })
+
+  it('keeps different units and players independent', () => {
+    let g = adjustToken(fresh(), 'host', 'u1', 'aim', 1, 'A', 1)
+    g = adjustToken(g, 'guest', 'u1', 'aim', 2, 'B', 2)
+    expect(tokenCount(g, 'host', 'u1', 'aim')).toBe(1)
+    expect(tokenCount(g, 'guest', 'u1', 'aim')).toBe(2)
+  })
+})
+
+describe('clearTurnTokens', () => {
+  it('removes aim/dodge/surge but keeps persistent tokens (incl. standby, observation)', () => {
+    let g = adjustToken(fresh(), 'host', 'u1', 'aim', 2, 'A', 1)
+    g = adjustToken(g, 'host', 'u1', 'surge', 1, 'A', 2)
+    g = adjustToken(g, 'host', 'u1', 'standby', 1, 'A', 3)
+    g = adjustToken(g, 'host', 'u1', 'suppression', 1, 'A', 4)
+    g = adjustToken(g, 'guest', 'u2', 'observation', 1, 'B', 5)
+    const cleared = clearTurnTokens(g, 9)
+    expect(tokenCount(cleared, 'host', 'u1', 'aim')).toBe(0)
+    expect(tokenCount(cleared, 'host', 'u1', 'surge')).toBe(0)
+    expect(tokenCount(cleared, 'guest', 'u2', 'observation')).toBe(1) // observation persists
+    expect(tokenCount(cleared, 'host', 'u1', 'standby')).toBe(1) // standby now persists
+    expect(tokenCount(cleared, 'host', 'u1', 'suppression')).toBe(1)
+    expect(cleared.log.at(-1)).toMatchObject({ kind: 'token', actor: null })
+  })
+
+  it('is a no-op (same ref, no log) when there are no turn tokens', () => {
+    const g = adjustToken(fresh(), 'host', 'u1', 'ion', 1, 'A', 1)
+    expect(clearTurnTokens(g, 9)).toBe(g)
+  })
+
+  it('tolerates a game persisted before Phase 5 (no tokens field)', () => {
+    // Simulate a legacy GameState from a client that predates the tokens field.
+    const legacy = { ...fresh(), tokens: undefined } as unknown as GameState
+    expect(tokenCount(legacy, 'host', 'u1', 'aim')).toBe(0)
+    expect(clearTurnTokens(legacy, 9)).toBe(legacy) // nothing to clear, no crash
+    const added = adjustToken(legacy, 'host', 'u1', 'aim', 1, 'A', 9)
+    expect(tokenCount(added, 'host', 'u1', 'aim')).toBe(1)
+    expect(added.tokens.guest).toEqual({}) // normalized both sides
+  })
+
+  it('is applied automatically when the round rolls over', () => {
+    let g = adjustToken(fresh(), 'host', 'u1', 'aim', 1, 'A', 1)
+    g = adjustToken(g, 'host', 'u1', 'shield', 1, 'A', 2)
+    g = advancePhase(advancePhase(g, 3), 4) // → End Phase
+    g = advancePhase(g, 5) // End → Round 2 Command: clears turn tokens
+    expect(g.round).toBe(2)
+    expect(tokenCount(g, 'host', 'u1', 'aim')).toBe(0)
+    expect(tokenCount(g, 'host', 'u1', 'shield')).toBe(1) // persistent survives the round
   })
 })
